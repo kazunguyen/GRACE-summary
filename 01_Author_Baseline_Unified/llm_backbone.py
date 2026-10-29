@@ -135,6 +135,9 @@ class LLMClient:
         with urllib.request.urlopen(req, timeout=120) as resp:
             data = json.load(resp)
 
+        # Unpack FPT data envelope if present
+        data = data.get("data", data)
+
         choices = data.get("choices", [])
         if not choices:
             raise RuntimeError(f"FPT API returned no choices: {data}")

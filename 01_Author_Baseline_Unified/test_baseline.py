@@ -104,6 +104,84 @@ class BaselineIntegrityTests(unittest.TestCase):
         self.assertEqual(cm["fn"], 1)
         self.assertAlmostEqual(metrics["accuracy_valid"], 0.5)
 
+    def test_graph_referential_integrity(self):
+        """Verify that edges referencing nodes truncated by graph_nodes_max are excluded."""
+        from graph_extractor import format_graph_context
+        # Create 100 nodes (IDs 0..99) and 99 linear edges
+        nodes = [{"id": i, "type": "STMT", "code": f"statement_{i}"} for i in range(100)]
+        edges = [{"src": i, "dst": i + 1, "type": "CFG"} for i in range(99)]
+
+        # Cap at 25 nodes and 25 edges
+        ctx, meta = format_graph_context(nodes, edges, max_nodes=25, max_edges=25)
+
+        self.assertEqual(meta["nodes_used"], 25)
+        # Only edges 0->1 ... 23->24 can be valid (24 edges). Edge 24->25 connects to discarded node 25!
+        self.assertEqual(meta["edges_used"], 24)
+        self.assertNotIn("Node 24 -> CFG -> Node 25", ctx)
+        self.assertNotIn("Node 25", ctx.split("The edge information")[1])
+
+    def test_retriever_excludes_target_duplicate_code(self):
+        """Verify that training samples identical to target query are excluded to avoid leakage."""
+        from retrieval_engine import DemonstrationRetriever
+        from embedding_engine import CodeT5Embedder
+
+        embedder = CodeT5Embedder(force_fallback=True)
+        retriever = DemonstrationRetriever(embedder=embedder, profile="code")
+
+        train = [
+            {"id": "train_leak", "func": "void identical() { int x = 42; }", "target": 1, "nodes": [], "edges": []},
+            {"id": "train_safe", "func": "void other() { int y = 100; }", "target": 0, "nodes": [], "edges": []},
+        ]
+        retriever.fit(train)
+
+        target = {"id": "target_q", "func": "void identical() { int x = 42; }", "nodes": [], "edges": []}
+        res = retriever.retrieve_single(target)
+
+        # The duplicate 'train_leak' must be excluded! Only 'train_safe' may be returned.
+        self.assertNotEqual(res["demo"]["id"], "train_leak")
+        self.assertEqual(res["demo"]["id"], "train_safe")
+
+    def test_retriever_searches_full_train_pool(self):
+        """Verify candidate retrieval searches beyond index 49 across the entire training pool."""
+        from retrieval_engine import DemonstrationRetriever
+        from embedding_engine import CodeT5Embedder
+
+        embedder = CodeT5Embedder(force_fallback=True)
+        retriever = DemonstrationRetriever(embedder=embedder, profile="code", candidate_pool_size=50)
+
+        # Generate 60 train samples where index 55 has the most similar keywords to target
+        train = []
+        for i in range(60):
+            if i == 55:
+                code = "void target_twin() { char *buf = malloc(1024); memcpy(buf, src, 1024); }"
+            else:
+                code = f"void filler_func_{i}() {{ int unused_{i} = {i}; }}"
+            train.append({"id": f"train_{i}", "func": code, "target": 0, "nodes": [], "edges": []})
+
+        retriever.fit(train)
+        target = {"id": "query_q", "func": "void target_twin() { char *buf = malloc(1024); memcpy(buf, src, 1024); }", "nodes": [], "edges": []}
+
+        # Query should find sample 55 among its candidates even though index > 50
+        res = retriever.retrieve_single(target)
+        self.assertIn("candidate_pool_size_used", res["metadata"])
+        self.assertEqual(res["metadata"]["candidate_pool_size_used"], 50)
+
+    def test_prompt_template_file_exists_and_matches_contract(self):
+        """Verify prompt_template.txt exists on disk and contains expected contract anchors."""
+        template_file = config.template_path
+        self.assertTrue(template_file.is_file(), f"Missing template file: {template_file}")
+        content = template_file.read_text(encoding="utf-8")
+        self.assertIn("### TASK INSTRUCTION", content)
+        self.assertIn("{target_code}", content)
+        self.assertIn("{graph_context}", content)
+        self.assertIn("{demonstrations}", content)
+        self.assertIn("### OUTPUT CONTRACT", content)
+
+    def test_embedding_engine_path_import(self):
+        """Verify embedding_engine imports Path without NameError."""
+        import embedding_engine
+        self.assertTrue(hasattr(embedding_engine, "Path"))
+
     def test_end_to_end_mock_pipeline(self):
         """Verify that the full pipeline executes cleanly and generates all artifacts."""
         with tempfile.TemporaryDirectory() as tmp_dir:

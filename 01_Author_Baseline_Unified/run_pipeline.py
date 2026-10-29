@@ -129,12 +129,9 @@ def run_pipeline(
     )
 
     prompts = []
-    pool_size = min(config.candidate_pool_size, len(train_samples))
-    candidate_indices = list(range(pool_size))
-
     for idx, target in enumerate(test_samples):
-        # Retrieve demonstration from candidate pool
-        retrieval_res = retriever.retrieve_single(target, candidate_indices=candidate_indices)
+        # Retrieve demonstration from candidate pool (searched over full train pool, excluding duplicates)
+        retrieval_res = retriever.retrieve_single(target)
         best_demo = retrieval_res["demo"]
 
         prompt_str, trunc_meta = prompt_builder.build_prompt(target, demonstration_sample=best_demo)

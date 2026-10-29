@@ -7,6 +7,7 @@ Standardizes schema and prepares the contract candidate pool (top 50 from train)
 
 from __future__ import annotations
 
+import gzip
 import json
 import logging
 import random
@@ -153,12 +154,14 @@ def load_dataset(
         count = max_samples or (20 if split == "test" else 50)
         return generate_mock_dataset(num_samples=count, prefix=f"mock_{split}")
 
-    # Check local JSON/JSONL search locations
+    # Check local JSON/JSONL/GZ search locations
+    ds_capitalized = "Devign" if dataset_name.lower() == "devign" else ("Reveal" if dataset_name.lower() == "reveal" else dataset_name)
     possible_paths = [
         Path(f"data/{dataset_name}_{split}_processed.json"),
         Path(f"data/{dataset_name}_{split}.json"),
         Path(f"data/{dataset_name}_{split}.jsonl"),
-        Path(f"C:/MY-FILES/LAB-THAY-THO/Graduation-Project/Ablation_V2/Devign/Code-CPG/{dataset_name}_{split}_cpg.jsonl"),
+        Path(f"D:/JUNIOR/LabThayTho/HuuHieu03/GRACE/data/processed/{dataset_name}_{split}_compact_cpg.json.gz"),
+        Path(f"C:/MY-FILES/LAB-THAY-THO/Graduation-Project/Ablation_V2/{ds_capitalized}/Code-CPG/{dataset_name}_{split}_cpg.jsonl"),
     ]
 
     raw_items = None
@@ -166,7 +169,10 @@ def load_dataset(
         if p.is_file():
             logger.info("Found local dataset file: %s", p)
             try:
-                if p.suffix == ".jsonl":
+                if p.suffix == ".gz":
+                    with gzip.open(p, "rt", encoding="utf-8") as f:
+                        raw_items = json.load(f)
+                elif p.suffix == ".jsonl":
                     with p.open("r", encoding="utf-8") as f:
                         raw_items = [json.loads(line) for line in f if line.strip()]
                 else:

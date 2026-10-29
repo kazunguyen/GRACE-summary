@@ -8,6 +8,7 @@ Adheres to the contract's 50-candidate pool and selects the single top-1 demonst
 from __future__ import annotations
 
 import difflib
+import hashlib
 from typing import List, Dict, Any, Tuple, Optional
 import numpy as np
 
@@ -54,13 +55,16 @@ def compute_hybrid_score(
 class DemonstrationRetriever:
     """
     Hybrid Demonstration Retrieval for GRACE:
-    Phase 1: Semantic search via Whitened CodeT5 (or t-SNE) -> top K candidates (default 5)
+    Phase 1: Semantic search via Whitened CodeT5 (or t-SNE) -> top 50 candidates from train pool
+             (excluding exact duplicate target code to avoid data leakage)
+             -> top K (default 5) semantic candidates
     Phase 2: Hybrid Reranking (0.7 code Jaccard + 0.3 AST) -> top 1 demonstration
     """
     def __init__(
         self,
         embedder: Optional[CodeT5Embedder] = None,
         profile: str = "code",
+        candidate_pool_size: int = 50,
         semantic_top_k: int = 5,
         whitening_dim: int = 256,
         lexical_weight: float = 0.7,
@@ -68,20 +72,27 @@ class DemonstrationRetriever:
     ):
         self.embedder = embedder or CodeT5Embedder(force_fallback=False)
         self.profile = profile
+        self.candidate_pool_size = candidate_pool_size
         self.semantic_top_k = semantic_top_k
         self.whitening_dim = whitening_dim
         self.lexical_weight = lexical_weight
         self.syntactic_weight = syntactic_weight
 
         self.train_samples: List[Dict[str, Any]] = []
+        self.train_code_hashes: List[str] = []
         self.train_vecs: Optional[np.ndarray] = None
         self.mu: Optional[np.ndarray] = None
         self.w: Optional[np.ndarray] = None
+        self.tsne_projector: Any = None
 
     def fit(self, train_samples: List[Dict[str, Any]]) -> None:
-        """Fit embeddings and whitening kernel on train set."""
+        """Fit embeddings and dimension reduction on train set."""
         self.train_samples = train_samples
         train_codes = [s["func"] for s in train_samples]
+        self.train_code_hashes = [
+            hashlib.sha256(c.encode("utf-8")).hexdigest()
+            for c in train_codes
+        ]
 
         raw_vecs = self.embedder.encode(train_codes)
         if self.profile == "code":
@@ -89,12 +100,17 @@ class DemonstrationRetriever:
             self.mu, self.w = compute_whitening_kernel(raw_vecs, target_dim=dim)
             self.train_vecs = apply_whitening(raw_vecs, self.mu, self.w)
         else:
-            # Paper profile: t-SNE 2D
+            # Paper profile: t-SNE 2D with KNN out-of-sample regressor
             from sklearn.manifold import TSNE
+            from sklearn.neighbors import KNeighborsRegressor
             n_samples = len(train_samples)
             perplexity = min(30, max(2, n_samples // 3))
             tsne = TSNE(n_components=2, perplexity=perplexity, random_state=42)
             self.train_vecs = tsne.fit_transform(raw_vecs)
+
+            # Fit out-of-sample projector for unseen queries
+            self.tsne_projector = KNeighborsRegressor(n_neighbors=min(5, max(1, n_samples)))
+            self.tsne_projector.fit(raw_vecs, self.train_vecs)
 
     def retrieve_single(
         self,
@@ -103,42 +119,58 @@ class DemonstrationRetriever:
     ) -> Dict[str, Any]:
         """
         Retrieve the single best demonstration for a given query sample.
-        candidate_indices: optional sub-pool (e.g. top-50 candidate pool required by contract).
+        - Excludes exact duplicate code from the candidate pool to prevent leakage.
+        - If candidate_indices is None, selects top 50 semantic candidates from the full train set.
+        - Slices top 5 semantic candidates, then applies hybrid reranking (0.7 Jaccard + 0.3 AST).
         """
         if not self.train_samples:
             raise RuntimeError("Retriever must be fitted on train set first.")
 
         query_code = target_sample["func"]
+        query_hash = hashlib.sha256(query_code.encode("utf-8")).hexdigest()
         query_ast = serialize_ast_representation(target_sample.get("nodes", []), target_sample.get("edges", []))
 
-        # 1. Semantic search
-        if candidate_indices is None:
-            candidate_indices = list(range(len(self.train_samples)))
+        # 1. Determine valid candidate indices (excluding identical code duplicate)
+        if candidate_indices is not None:
+            valid_pool_idx = [i for i in candidate_indices if self.train_code_hashes[i] != query_hash]
+            if not valid_pool_idx:
+                # If all candidates in custom pool matched query, fall back to any other train index
+                valid_pool_idx = [i for i in range(len(self.train_samples)) if self.train_code_hashes[i] != query_hash]
+        else:
+            valid_pool_idx = [i for i in range(len(self.train_samples)) if self.train_code_hashes[i] != query_hash]
 
-        # Sub-pool vectors
-        pool_vecs = self.train_vecs[candidate_indices]
+        if not valid_pool_idx:
+            # If train contains only copies of this code, use candidate 0 as absolute fallback
+            valid_pool_idx = [0]
+
+        # 2. Semantic search to get Top 50 initial pool (and then Top 5 for hybrid reranking)
+        pool_vecs = self.train_vecs[valid_pool_idx]
         query_raw = self.embedder.encode([query_code])
 
         if self.profile == "code":
             query_vec = apply_whitening(query_raw, self.mu, self.w)
-            # Inner product / Cosine similarity
-            sims = np.dot(pool_vecs, query_vec.T).squeeze()
+            sims = np.dot(pool_vecs, query_vec.T).reshape(-1)
         else:
-            # L2 distance
-            diffs = pool_vecs - query_raw[:, :2]
+            query_2d = self.tsne_projector.predict(query_raw)
+            diffs = pool_vecs - query_2d
             sims = -np.linalg.norm(diffs, axis=1)
 
-        # Sort candidate indices by semantic score
-        sorted_order = np.argsort(-sims)
-        k = min(self.semantic_top_k, len(sorted_order))
-        top_k_pool_idx = [candidate_indices[sorted_order[i]] for i in range(k)]
+        # Sort candidate indices by semantic score descending
+        sorted_rel_order = np.argsort(-sims)
+        # Top 50 candidates (candidate_pool_size)
+        pool_size = min(self.candidate_pool_size, len(sorted_rel_order))
+        top_50_cand_idx = [valid_pool_idx[sorted_rel_order[i]] for i in range(pool_size)]
 
-        # 2. Hybrid Reranking on the top K semantic candidates
+        # Top K semantic candidates (default 5) within the 50 candidate pool
+        top_k = min(self.semantic_top_k, len(top_50_cand_idx))
+        top_k_cand_idx = top_50_cand_idx[:top_k]
+
+        # 3. Hybrid Reranking on the top K semantic candidates
         best_demo = None
         best_hybrid_score = -1.0
         best_meta = {}
 
-        for train_idx in top_k_pool_idx:
+        for train_idx in top_k_cand_idx:
             cand = self.train_samples[train_idx]
             cand_code = cand["func"]
             cand_ast = serialize_ast_representation(cand.get("nodes", []), cand.get("edges", []))
@@ -158,9 +190,11 @@ class DemonstrationRetriever:
                     "ast_similarity": float(ast_s),
                     "demo_id": cand.get("id"),
                     "demo_label": int(cand.get("target", 0)),
+                    "candidate_pool_size_used": len(top_50_cand_idx),
                 }
 
         return {
             "demo": best_demo,
             "metadata": best_meta,
+            "initial_candidate_ids": [self.train_samples[i].get("id") for i in top_50_cand_idx],
         }

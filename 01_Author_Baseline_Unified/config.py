@@ -19,15 +19,18 @@ def is_kaggle_environment() -> bool:
 
 
 def load_env_variables() -> Dict[str, str]:
-    """Load settings from .env file (checking D:/JUNIOR/LabThayTho/.env and current dir)."""
+    """Load settings from .env files and os.environ."""
     env_paths = [
         Path("D:/JUNIOR/LabThayTho/.env"),
         Path("/mnt/d/JUNIOR/LabThayTho/.env"),
+        Path("C:/MY-FILES/LAB-THAY-THO/Graduation-Project/.env"),
+        Path("/mnt/c/MY-FILES/LAB-THAY-THO/Graduation-Project/.env"),
         HERE / ".env",
         HERE.parent / ".env",
     ]
     values: Dict[str, str] = {}
-    for p in env_paths:
+    # Iterate in reverse order so earlier paths take higher priority
+    for p in reversed(env_paths):
         if p.is_file():
             try:
                 for line in p.read_text(encoding="utf-8-sig").splitlines():
@@ -44,9 +47,14 @@ def load_env_variables() -> Dict[str, str]:
                     else:
                         val = val.split(" #", 1)[0].strip()
                     values[key] = val
-                break
             except Exception:
                 continue
+
+    # Also overlay os.environ
+    for k, v in os.environ.items():
+        if k in {"FPT_API", "FPT_MODEL", "FPT_BASE_URL", "VERTEX_PROJECT", "VERTEX_LOCATION"}:
+            values[k] = v
+
     return values
 
 

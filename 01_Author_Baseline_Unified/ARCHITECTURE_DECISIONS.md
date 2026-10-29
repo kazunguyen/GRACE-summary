@@ -141,12 +141,27 @@ return 0, "Fallback: Safe/0 by default"
 | Thành phần | GRACE Gốc Thống Nhất (01_Author_Baseline_Unified) |
 |---|---|
 | **Cửa sổ ngữ cảnh** | 8.192 bytes UTF-8 |
-| **Giới hạn đồ thị** | Max 40 nodes, 80 edges (Whole CPG) |
+| **Giới hạn đồ thị** | Max 40 nodes, 80 edges (Whole CPG; lọc bảo toàn tính toàn vẹn tham chiếu cạnh) |
 | **Số lượng Demonstration** | Đúng 1 mẫu (tốt nhất từ Hybrid Reranker) |
-| **Công thức Reranker** | $0.7 \times \text{Jaccard} + 0.3 \times \text{AST\_Sim}$ trong Top 5 từ Pool 50 |
+| **Loại bỏ trùng lặp rò rỉ** | Loại bỏ 100% mẫu train có mã nguồn trùng khớp với target query |
+| **Không gian ứng viên** | Tìm kiếm Top 50 ngữ nghĩa từ TOÀN BỘ tập Train; Top 5 chuyển sang Reranker |
+| **Công thức Reranker** | $0.7 \times \text{Jaccard} + 0.3 \times \text{AST\_Sim}$ |
 | **Embedding Backbone** | CodeT5-base (768d) + Whitening (256d) |
 | **LLM Inference** | Qwen / DeepSeek-V4-Flash / Vertex AI / Mock |
 | **Thinking Mode** | Disabled (`thinking: False`) |
 | **Nhiệt độ / Seed** | Temperature 0.0, Seed 42, Max tokens 256 |
 | **Quy tắc Parser** | Strict exact last line binary (0 hoặc 1, không fallback) |
 | **Báo cáo Metric** | Tính trên tập Valid, tách bạch Invalid Rate |
+
+---
+
+## 6. Các Ràng Buộc Toàn Vẹn & Xử Lý Lỗ Hổng Kỹ Thuật
+
+1. **Chống rò rỉ nhãn (Data Leakage Prevention)**:
+   - Trong các tập dữ liệu như Devign (4 mẫu trùng) và ReVeal (56 mẫu trùng), nếu truy vấn trùng mã nguồn với mẫu huấn luyện, bộ chọn demo sẽ truy xuất chính nó với điểm tương đồng tối đa. Baseline loại bỏ triệt để các mẫu huấn luyện có mã băm trùng khớp với truy vấn hiện tại.
+2. **Bảo toàn tham chiếu đồ thị (Graph Referential Integrity)**:
+   - Khi cắt giảm số lượng nút xuống tối đa 40 nút, các cạnh tham chiếu đến các nút bị loại bỏ (ví dụ: Nút 24 kết nối đến Nút 45) sẽ bị loại bỏ tương ứng, ngăn chặn việc prompt chứa các cạnh "mồ côi" tham chiếu đến nút không tồn tại.
+3. **Tìm kiếm ứng viên toàn phần (Full-Pool Semantic Search)**:
+   - Việc chọn ngân hàng ứng viên ban đầu (Top 50) được thực hiện bằng cách tính toán tương đồng ngữ nghĩa trên toàn bộ ngân hàng huấn luyện thay vì cắt lát cố định 50 mẫu đầu tiên của mảng dữ liệu.
+4. **Bao bọc cấu trúc phản hồi API (API Response Envelope Unwrapping)**:
+   - Đảm bảo tương thích với cả cấu trúc trả về trực tiếp `choices` lẫn cấu trúc lồng qua trường `data: {choices: ...}` của FPT Cloud AI Factory.

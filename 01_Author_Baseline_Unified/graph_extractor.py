@@ -57,10 +57,39 @@ def format_graph_context(
 ) -> Tuple[str, Dict[str, int]]:
     """
     Format whole CPG context for prompt insertion.
+    Enforces referential integrity: edges whose endpoints were truncated are excluded.
     Returns: (graph_context_str, metadata_dict)
     """
-    node_str = format_node_information(nodes, max_nodes=max_nodes)
-    edge_str = format_edge_information(edges, max_edges=max_edges)
+    retained_nodes = nodes[:max_nodes]
+
+    # Collect retained node identifiers
+    retained_ids = set()
+    has_node_ids = False
+    for idx, n in enumerate(retained_nodes):
+        if isinstance(n, dict) and "id" in n:
+            retained_ids.add(str(n["id"]))
+            has_node_ids = True
+        else:
+            retained_ids.add(str(idx))
+
+    # Filter edges so that both src and dst exist in retained_nodes
+    valid_edges = []
+    for e in edges:
+        if isinstance(e, dict):
+            src = str(e.get("start", e.get("source", e.get("src", "?"))))
+            dst = str(e.get("end", e.get("target", e.get("dst", "?"))))
+            if has_node_ids:
+                if src in retained_ids and dst in retained_ids:
+                    valid_edges.append(e)
+            else:
+                valid_edges.append(e)
+        else:
+            valid_edges.append(e)
+
+    retained_edges = valid_edges[:max_edges]
+
+    node_str = format_node_information(retained_nodes, max_nodes=max_nodes)
+    edge_str = format_edge_information(retained_edges, max_edges=max_edges)
 
     context = (
         f"The node information of the function is as follows:\n{node_str}\n\n"
@@ -69,8 +98,8 @@ def format_graph_context(
     meta = {
         "nodes_original": len(nodes),
         "edges_original": len(edges),
-        "nodes_used": min(len(nodes), max_nodes),
-        "edges_used": min(len(edges), max_edges),
+        "nodes_used": len(retained_nodes),
+        "edges_used": len(retained_edges),
     }
     return context, meta
 
