@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+checkpoints/
+output/
+runs/
+*.log
+.env
+model/
+*.zip
+*.tar.gz
