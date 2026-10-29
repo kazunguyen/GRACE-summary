@@ -108,23 +108,31 @@ class BaselineIntegrityTests(unittest.TestCase):
         """Verify that the full pipeline executes cleanly and generates all artifacts."""
         with tempfile.TemporaryDirectory() as tmp_dir:
             out_path = Path(tmp_dir) / "test_run"
-            metrics = run_pipeline(
-                dataset_name="mock",
-                sample_ratio=1.0,
-                max_targets=10,
-                profile="code",
-                use_mock=True,
-                experiment_name="test_exp",
-                output_dir=out_path,
-            )
+            exp_name = "unit_test_run"
+            ckpt_path = config.checkpoint_dir / f"{exp_name}_checkpoint.jsonl"
+            if ckpt_path.exists():
+                ckpt_path.unlink()
+            try:
+                metrics = run_pipeline(
+                    dataset_name="mock",
+                    sample_ratio=1.0,
+                    max_targets=10,
+                    profile="code",
+                    use_mock=True,
+                    experiment_name=exp_name,
+                    output_dir=out_path,
+                )
 
-            self.assertTrue((out_path / "prompts.jsonl").is_file())
-            self.assertTrue((out_path / "raw_responses.jsonl").is_file())
-            self.assertTrue((out_path / "predictions.jsonl").is_file())
-            self.assertTrue((out_path / "evaluation.json").is_file())
-            self.assertTrue((out_path / "report.md").is_file())
-            self.assertEqual(metrics["n_total"], 10)
-            self.assertGreaterEqual(metrics["n_valid"], 1)
+                self.assertTrue((out_path / "prompts.jsonl").is_file())
+                self.assertTrue((out_path / "raw_responses.jsonl").is_file())
+                self.assertTrue((out_path / "predictions.jsonl").is_file())
+                self.assertTrue((out_path / "evaluation.json").is_file())
+                self.assertTrue((out_path / "report.md").is_file())
+                self.assertEqual(metrics["n_total"], 10)
+                self.assertGreaterEqual(metrics["n_valid"], 1)
+            finally:
+                if ckpt_path.exists():
+                    ckpt_path.unlink()
 
 
 if __name__ == "__main__":
