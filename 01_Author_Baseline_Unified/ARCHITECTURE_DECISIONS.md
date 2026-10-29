@@ -1,5 +1,7 @@
 # Báo Cáo Quyết Định Kiến Trúc & Thống Nhất Baseline GRACE Gốc
 
+> Cập nhật 29/10/2026: Quyết định backbone hiện hành là Qwen/Qwen3-Coder-30B-A3B-Instruct BF16, revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120, chạy Transformers. Các thảo luận về API/model khác bên dưới chỉ là lịch sử và không áp dụng cho baseline hiện tại.
+
 Tài liệu này phân tích chi tiết toàn bộ các điểm sai khác kỹ thuật giữa các phiên bản baseline hiện tại (Mã nguồn tác giả công bố, Baseline của Hiếu tại `02_Baseline_Code_Author`, và các phiên bản tái dựng tại `Graduation-Project/Ablation_V2`), đồng thời xác lập các quyết định thống nhất cuối cùng cho bản baseline chung tại `d:\JUNIOR\LabThayTho\GRACE-summary\01_Author_Baseline_Unified`.
 
 ---
@@ -147,7 +149,7 @@ return 0, "Fallback: Safe/0 by default"
 | **Không gian ứng viên** | Tìm kiếm Top 50 ngữ nghĩa từ TOÀN BỘ tập Train; Top 5 chuyển sang Reranker |
 | **Công thức Reranker** | $0.7 \times \text{Jaccard} + 0.3 \times \text{AST\_Sim}$ |
 | **Embedding Backbone** | CodeT5-base (768d) + Whitening (256d) |
-| **LLM Inference** | Qwen / DeepSeek-V4-Flash / Vertex AI / Mock |
+| **LLM Inference** | Qwen3-Coder-30B-A3B-Instruct BF16, revision cố định / Mock để kiểm thử |
 | **Thinking Mode** | Disabled (`thinking: False`) |
 | **Nhiệt độ / Seed** | Temperature 0.0, Seed 42, Max tokens 256 |
 | **Quy tắc Parser** | Strict exact last line binary (0 hoặc 1, không fallback) |

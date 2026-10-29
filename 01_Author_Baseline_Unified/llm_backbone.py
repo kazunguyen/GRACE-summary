@@ -1,16 +1,6 @@
 """
-GRACE Multi-Provider LLM Backbone Engine
-Supports:
-  1. FPT Cloud / OpenAI-Compatible API (with explicit thinking=False)
-  2. Google Vertex AI (GenAI SDK)
-  3. Deterministic Mock LLM (for instant offline testing & verification)
-
-Enforces contract parameters:
-  - Temperature: 0.0
-  - Seed: 42
-  - Max output tokens: 256
-  - Thinking mode disabled to preserve token budget for binary answer
-  - 5-attempt exponential backoff retry policy
+GRACE pinned local Transformers backbone and offline mock.
+The model and tokenizer are loaded from the same Hugging Face commit.
 """
 
 from __future__ import annotations
@@ -48,10 +38,11 @@ class LLMClient:
         if not self.fpt_base_url.endswith("/v1"):
             self.fpt_base_url = self.fpt_base_url.rstrip("/") + "/v1"
 
-        if not self.use_mock:
-            if not self.fpt_api_key and "VERTEX_PROJECT" not in config.env_vars:
-                logger.warning("No API credentials found (FPT_API or VERTEX_PROJECT). Falling back to Mock LLM.")
-                self.use_mock = True
+        self.model_revision = config.model_revision
+        self._tokenizer = None
+        self._model = None
+        if not self.use_mock and (self.provider != "transformers" or self.model_name != config.model_name):
+            raise ValueError("Baseline requires the pinned Transformers model; use --mock only for tests.")
 
     def generate(self, prompt: str) -> Dict[str, Any]:
         """
@@ -82,6 +73,7 @@ class LLMClient:
                     "request_error": None,
                     "attempts": attempt,
                     "model": self.model_name,
+                    "model_revision": self.model_revision,
                 }
             except Exception as e:
                 last_error = repr(e)
@@ -100,9 +92,25 @@ class LLMClient:
 
     def _call_provider(self, prompt: str) -> str:
         """Dispatch call to provider."""
-        if self.fpt_api_key:
-            return self._call_fpt_openai(prompt)
-        return self._call_vertex_ai(prompt)
+        return self._call_transformers(prompt)
+
+    def _call_transformers(self, prompt: str) -> str:
+        import torch
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+
+        if self._model is None:
+            self._tokenizer = AutoTokenizer.from_pretrained(self.model_name, revision=self.model_revision)
+            self._model = AutoModelForCausalLM.from_pretrained(
+                self.model_name, revision=self.model_revision, torch_dtype=torch.bfloat16, device_map="auto"
+            )
+            self._model.eval()
+        inputs = self._tokenizer.apply_chat_template(
+            [{"role": "user", "content": prompt}], tokenize=True,
+            add_generation_prompt=True, return_dict=True, return_tensors="pt"
+        ).to(self._model.device)
+        with torch.inference_mode():
+            output = self._model.generate(**inputs, max_new_tokens=self.max_tokens, do_sample=False)
+        return self._tokenizer.decode(output[0][inputs["input_ids"].shape[-1]:], skip_special_tokens=True).strip()
 
     def _call_fpt_openai(self, prompt: str) -> str:
         """Call FPT Cloud / OpenAI-compatible endpoint."""

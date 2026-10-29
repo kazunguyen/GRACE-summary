@@ -1,101 +1,37 @@
-# Hướng Dẫn Vận Hành & Thực Nghiệm Baseline Thống Nhất
+# Hướng dẫn chạy baseline GRACE
 
-Tài liệu này cung cấp các kịch bản chạy thực nghiệm và kiểm thử mã nguồn baseline thống nhất cho GRACE tác giả tại `d:\JUNIOR\LabThayTho\GRACE-summary\01_Author_Baseline_Unified`.
+## Môi trường được khóa
 
----
+Lockfile dành cho **Linux x86-64, CPython 3.11.0**, dùng các gói PyPI có hash SHA-256 trong `requirements.lock`. Các phụ thuộc trực tiếp và gián tiếp được khóa; không cài từ `requirements.in` cho thực nghiệm. PyTorch 2.7.1 là bản PyPI Linux với các gói CUDA được khóa trong lockfile. Máy GPU cần driver NVIDIA tương thích và GPU hỗ trợ BF16. Driver, GPU, hệ điều hành, BLAS và trạng thái môi trường không được khóa bởi pip: ghi lại chúng khi công bố kết quả. Qwen BF16 chiếm khoảng 61 GB trên đĩa, còn bộ nhớ chạy phụ thuộc cấu hình.
 
-## 1. Kiểm Thử Nhanh (Smoke Test & Unit Tests Offline)
+Tạo môi trường sạch với Python 3.11.0 có sẵn, tại thư mục này:
 
-Baseline được thiết kế để có thể **chạy lại được ngay lập tức** mà không cần GPU và không cần cấu hình mạng/API key.
-
-### 1.1. Chạy bộ kiểm thử tự động (Unit & Integrity Tests)
 ```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --require-hashes -r requirements.lock
+python -m pip check
 python test_baseline.py
 ```
-**Kết quả mong đợi**: Chạy hoàn tất 5 bài kiểm tra cốt lõi trong khoảng 15 giây:
-1. `test_strict_parser_compliance`: Kiểm tra parser nghiêm ngặt dòng cuối 0/1, từ chối câu trả lời sai định dạng.
-2. `test_prompt_budget_strictly_capped_at_8192_bytes`: Kiểm tra trần 8.192 bytes UTF-8 và thứ tự cắt xén.
-3. `test_hybrid_reranker_formula`: Kiểm tra công thức 0.7 Jaccard + 0.3 AST.
-4. `test_evaluator_metrics_on_valid_population`: Kiểm tra tính toán ma trận nhầm lẫn, MCC, Invalid rate.
-5. `test_end_to_end_mock_pipeline`: Chạy luồng end-to-end hoàn chỉnh sinh toàn bộ artifacts.
 
-### 1.2. Chạy thử nghiệm nhanh chế độ Mock qua CLI
+Lockfile được giải bằng `uv 0.11.17` cho Linux x86-64; không dùng nó làm lockfile Windows hoặc môi trường Kaggle có sẵn. Cài đặt cần truy cập PyPI; lần chạy thật đầu tiên cần Hugging Face. Không tự nâng cấp thư viện trong cùng một thí nghiệm.
+
+## Chạy thử offline
+
 ```bash
-python run_pipeline.py --mock --dataset mock --max-targets 10 --experiment-name dry_run_test
+python run_pipeline.py --mock --dataset mock --max-targets 10 --experiment-name smoke_test
 ```
-Sau khi chạy, kết quả được xuất ra thư mục `output/dry_run_test/`:
-- `prompts.jsonl`: Danh sách prompt đã render và giới hạn dưới 8.192 bytes.
-- `raw_responses.jsonl`: Phản hồi thô kèm số lượt retry và metadata model.
-- `predictions.jsonl`: Kết quả bóc tách nhãn nghiêm ngặt.
-- `evaluation.json`: Toàn bộ chỉ số benchmark dưới dạng JSON.
-- `report.md`: Báo cáo nghiệm thu Markdown trực quan.
 
----
+Mock dùng dữ liệu tổng hợp, embedding TF-IDF và bộ sinh giả; không dùng kết quả này để đối chứng model thật.
 
-## 2. Chạy Thực Nghiệm Thật Qua API
+## Chạy thực nghiệm
 
-### 2.1. Sử dụng FPT Cloud / FPT AI Factory
-1. Đảm bảo file cấu hình tại `D:/JUNIOR/LabThayTho/.env` chứa các thông số:
-   ```bash
-   FPT_API=sk-xxxxxxxxxxxxxxxxxxxxxxxx
-   FPT_MODEL=DeepSeek-V4-Flash
-   FPT_BASE_URL=https://token-api.fpt.ai/v1
-   ```
-2. Thực thi pipeline với dataset mong muốn:
-   ```bash
-   # Chạy trên 100 mẫu thử nghiệm Devign
-   python run_pipeline.py --dataset devign --max-targets 100 --experiment-name devign_fpt_run1
+```bash
+python run_pipeline.py --dataset devign --max-targets 50 --experiment-name devign_qwen_run1
+```
 
-   # Hoặc chạy toàn bộ test set Devign (tỷ lệ 1.0)
-   python run_pipeline.py --dataset devign --sample-ratio 1.0 --experiment-name devign_fpt_full
-   ```
-*(Lưu ý: Baseline tự động tắt thinking mode cho DeepSeek-V4-Flash để bảo vệ ngân sách 256 tokens).*
+Cả tokenizer và weights của Qwen và CodeT5 được tải theo commit ghi trong `evaluation_contract.yaml`; lỗi tải CodeT5 hoặc dataset không tự chuyển sang mock. Lựa chọn `--profile code` là mặc định; `--profile paper` là nhánh t-SNE riêng. Tham số sinh dùng greedy decoding, tối đa 256 token; prompt tối đa 8.192 byte.
 
-### 2.2. Sử dụng Google Vertex AI
-1. Thiết lập biến môi trường dự án Google Cloud:
-   ```powershell
-   $env:VERTEX_PROJECT="your-gcp-project-id"
-   $env:VERTEX_LOCATION="us-central1"
-   ```
-2. Thực thi pipeline:
-   ```bash
-   python run_pipeline.py --dataset devign --max-targets 50 --experiment-name devign_vertex_test
-   ```
+**Dữ liệu CPG:** loader ưu tiên các file local được liệt kê trong `data_loader.py` trước Hugging Face. Những file local đó chưa có hash hoặc quy trình tạo CPG được khóa trong kho này; cần lưu SHA-256, nguồn, phiên bản công cụ tạo đồ thị và xác minh cùng một file trước khi so sánh. Bản tải dataset từ Hugging Face có revision được khóa trong contract nhưng không bảo đảm có CPG tương đương file đã xử lý. Nếu không có dữ liệu đồ thị phù hợp, không coi kết quả là đối chứng GRACE đã xác nhận.
 
----
-
-## 3. Cơ Chế Khôi Phục Tiến Trình (JSONL Checkpointing)
-
-Trong quá trình gọi API hàng nghìn mẫu kiểm thử, nếu tiến trình bị gián đoạn (mất mạng, hết hạn mức quota, timeout máy tính):
-- Hệ thống tự động lưu từng mẫu hoàn thành vào file `checkpoints/<experiment_name>_checkpoint.jsonl` và thực hiện `os.fsync()` ngay lập tức.
-- Khi người dùng chạy lại lệnh ban đầu với cùng `--experiment-name`:
-  ```bash
-  python run_pipeline.py --dataset devign --sample-ratio 1.0 --experiment-name devign_fpt_full
-  ```
-- Hệ thống sẽ tự động phát hiện file checkpoint cũ, bỏ qua các mẫu đã hoàn thành và tiếp tục gọi các mẫu còn lại mà không tiêu tốn lại chi phí API.
-
----
-
-## 4. Chuyển Đổi Hồ Sơ Tác Giả: Code-based vs Paper-based
-
-- Mặc định là hồ sơ **Code-based** (CodeT5 768d + BERT-Whitening 256d + FAISS IP + Reranker 0.7 Jaccard / 0.3 AST Levenshtein):
-  ```bash
-  python run_pipeline.py --profile code ...
-  ```
-- Khi muốn so sánh đối chiếu với phương án **Paper-based** (CodeT5 + t-SNE 2D + khoảng cách L2):
-  ```bash
-  python run_pipeline.py --profile paper ...
-  ```
-
----
-
-## 5. Quy Trình Mở Rộng & Phát Triển Cải Tiến (C1 - C8)
-
-Mã nguồn tại `01_Author_Baseline_Unified` được chuẩn hóa làm **nền tảng mốc gốc (Golden Baseline)**. Khi nhóm phát triển các cải tiến mới, hãy tuân thủ nguyên tắc:
-1. Tạo thư mục hoặc branch mới dựa trên baseline này (ví dụ: `02_Enhancement_C1_HybridRetrieval`).
-2. Giữ nguyên các hằng số bất biến của Contract:
-   - `evaluation_contract.yaml` (8.192 bytes context limit).
-   - Ngân hàng ứng viên `candidate_pool_size: 50`.
-   - Parser nghiêm ngặt `parser.py` (không heuristic ép nhãn).
-   - Quần thể đánh giá valid-only và theo dõi tỷ lệ invalid.
-3. Thay thế độc lập từng module cải tiến để đo lường chính xác hiệu quả đóng góp (Ablation Study).
+Kết quả nằm trong `output/<experiment-name>/`; checkpoint trong `checkpoints/`. Dùng tên experiment mới khi đổi model, dữ liệu, mã, môi trường hay tham số: checkpoint cũ được nối lại theo ID và không tự kiểm tra cấu hình. Lưu revision git của mã, lockfile, hash dữ liệu, phần cứng/driver và toàn bộ artifacts cho mỗi lần chạy. Khóa phiên bản không đảm bảo kết quả giống từng bit giữa phần cứng hoặc runtime khác nhau.

@@ -92,8 +92,9 @@ class BaselineConfig:
     preserve_prefix: bool = True
 
     # LLM Backbone settings
-    provider: str = "fpt"  # "fpt", "vertex", "openai", "mock"
-    model_name: str = "DeepSeek-V4-Flash"
+    provider: str = "transformers"
+    model_name: str = "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+    model_revision: str = "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
     temperature: float = 0.0
     random_seed: int = 42
     max_tokens: int = 256
@@ -132,14 +133,13 @@ class BaselineConfig:
                 self.max_tokens = int(inf.get("max_tokens", self.max_tokens))
 
                 backbone = self.contract_data.get("backbone_llm", {})
-                if backbone.get("model") and not self.env_vars.get("FPT_MODEL"):
+                if backbone.get("model"):
                     self.model_name = backbone["model"]
+                self.model_revision = backbone.get("revision", self.model_revision)
+                self.provider = backbone.get("provider", self.provider)
             except Exception as e:
                 print(f"[Config] Warning: Failed to parse evaluation_contract.yaml: {e}")
 
-        # Override model name from .env if present
-        if self.env_vars.get("FPT_MODEL"):
-            self.model_name = self.env_vars["FPT_MODEL"]
 
 
 config = BaselineConfig()

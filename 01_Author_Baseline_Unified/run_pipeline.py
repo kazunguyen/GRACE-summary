@@ -98,7 +98,7 @@ def run_pipeline(
     print(f"[*] Experiment : {experiment_name}")
     print(f"[*] Dataset    : {dataset_name} (ratio: {sample_ratio}, max_targets: {max_targets})")
     print(f"[*] Profile    : {profile} (code = CodeT5+Whitening, paper = t-SNE)")
-    print(f"[*] Mode       : {'MOCK (Offline dry-run)' if use_mock else 'REAL LLM API'}")
+    print(f"[*] Mode       : {'MOCK (Offline dry-run)' if use_mock else 'PINNED LOCAL MODEL'}")
     print(f"[*] Output Dir : {out_dir}")
     print("=" * 70)
 
@@ -182,6 +182,7 @@ def run_pipeline(
                 "request_error": gen_res["request_error"],
                 "attempts": gen_res["attempts"],
                 "model": gen_res["model"],
+                "model_revision": gen_res.get("model_revision"),
             }
             ckpt_f.write(json.dumps(response_record, ensure_ascii=False) + "\n")
             ckpt_f.flush()

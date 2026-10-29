@@ -38,9 +38,16 @@ retrieval_pool:
   demonstration_policy: same_initial_top_50_candidates_for_all_methods
   keep_full_train_pool_when_running_subset: true
 
+embedding_model:
+  model: Salesforce/codet5-base
+  revision: 02cd2d31bb7c6d0e4d91156167b2de044989c733
+
 backbone_llm:
-  model: publishers/qwen/models/qwen3-coder-480b-a35b-instruct-maas
-  provider: Vertex AI
+  model: Qwen/Qwen3-Coder-30B-A3B-Instruct
+  revision: b2cff646eb4bb1d68355c01b18ae02e7cf42d120
+  provider: transformers
+  source: https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/tree/b2cff646eb4bb1d68355c01b18ae02e7cf42d120
+  precision: bfloat16
 
 inference_config:
   temperature: 0.0

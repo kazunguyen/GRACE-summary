@@ -193,11 +193,15 @@ def load_dataset(
         logger.info("Loading '%s' (split='%s') from Hugging Face Hub...", hf_id, split)
         try:
             from datasets import load_dataset as hf_load_dataset
-            ds = hf_load_dataset(hf_id, split=split)
+            revisions = {"devign": "db50acfa25d02fe99e9d50064b613fae3e934b11", "reveal": "71f62e1e6e2053173e7de31a342d2c38b3fe2dcc", "bigvul": "c0042b97d208a0338634fad28693446e830adad1"}
+            revision = revisions.get(dataset_name.lower())
+            if revision is None:
+                raise ValueError(f"No pinned dataset revision for {dataset_name}")
+            hf_split = "validation" if split == "valid" else split
+            ds = hf_load_dataset(hf_id, split=hf_split, revision=revision)
             raw_items = list(ds)
         except Exception as e:
-            logger.warning("Failed to load from Hugging Face (%s). Falling back to synthetic mock data.", e)
-            return generate_mock_dataset(num_samples=max_samples or 30, prefix=f"{dataset_name}_{split}")
+            raise RuntimeError(f"Failed to load pinned dataset {hf_id}: {e}") from e
 
     standardized = [standardize_sample(item, i, dataset_name) for i, item in enumerate(raw_items)]
     return slice_dataset_stratified(standardized, sample_ratio=sample_ratio, max_samples=max_samples, seed=seed)

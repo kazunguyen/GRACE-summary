@@ -52,35 +52,16 @@ class CodeT5Embedder:
         self._fallback_vectorizer = None
 
         if not force_fallback:
-            try:
-                import torch
-                from transformers import RobertaTokenizer, T5EncoderModel
+            import torch
+            from transformers import RobertaTokenizer, T5EncoderModel
 
-                self.device = "cuda" if torch.cuda.is_available() else "cpu"
-                # Check known local model directories
-                local_candidates = [
-                    Path("model/codet5-base"),
-                    Path("D:/JUNIOR/LabThayTho/HuuHieu03/GRACE/02_Baseline_Code_Author/model/codet5-base"),
-                    Path("C:/MY-FILES/LAB-THAY-THO/Graduation-Project/Ablation_V2/Reproduced-Code-Based/kaggle_gpu_job/downloads/quangdung1111-grace-kaggle-gpu-ipynb/downloads/model/codet5-base"),
-                ]
-                target_path = model_name
-                for cand in local_candidates:
-                    if cand.is_dir():
-                        target_path = str(cand)
-                        break
-
-                logger.info("Attempting to load CodeT5 from %s...", target_path)
-                try:
-                    self.tokenizer = RobertaTokenizer.from_pretrained(target_path, local_files_only=True)
-                    self.model = T5EncoderModel.from_pretrained(target_path, local_files_only=True).to(self.device)
-                except Exception:
-                    # Try online only if not mock
-                    self.tokenizer = RobertaTokenizer.from_pretrained(target_path)
-                    self.model = T5EncoderModel.from_pretrained(target_path).to(self.device)
-                self.model.eval()
-            except Exception as e:
-                logger.warning("CodeT5 could not be loaded (%s). Switching to TF-IDF fallback.", e)
-                self.is_fallback = True
+            revision = "02cd2d31bb7c6d0e4d91156167b2de044989c733"
+            if model_name != "Salesforce/codet5-base":
+                raise ValueError("Baseline requires the pinned CodeT5 model")
+            self.device = "cuda" if torch.cuda.is_available() else "cpu"
+            self.tokenizer = RobertaTokenizer.from_pretrained(model_name, revision=revision)
+            self.model = T5EncoderModel.from_pretrained(model_name, revision=revision).to(self.device)
+            self.model.eval()
 
     def encode(self, code_snippets: List[str], batch_size: int = 32) -> np.ndarray:
         """Encode list of code snippets into 768d vectors."""
