@@ -33,7 +33,7 @@ def graph_convert(rows):
         if not isinstance(e,dict): raise ValueError('CPG edge is not an object')
         a=e.get('start', e.get('source',e.get('src'))); b=e.get('end',e.get('target',e.get('dst')))
         if a is None or b is None: raise ValueError('CPG edge has no endpoint')
-        edges.append(dict(e,start=a,end=b))
+        edges.append(dict(e, start=a, end=b, type=e.get('type', e.get('label', 'CONNECTED_TO'))))
     return nodes,edges
 
 def main():

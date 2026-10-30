@@ -1,5 +1,7 @@
 # Current contract (29/10/2026)
 
+Update 30/10/2026: Qwen3-Coder-30B-A3B GGUF Q4_K_M via llama.cpp is the selected inference configuration; BF16 descriptions below are historical. See RUN_GUIDE_KAGGLE.md. Actual GGUF revision/hash are recorded at download and must be fixed before confirmation.
+
 The active baseline uses 8,192 model tokens including chat wrapper; target <= 3,000 tokens; each demo <= 1,500 tokens; graph <= 1,500 tokens and up to 40 nodes / 80 edges. Byte/character settings and historical 25/25 statements in the sections below describe the superseded contract, not the current configuration. The baseline B2 uses the bundled diagnostic Figure 6 renderer. Baseline Transformers generation returns one token; diagnostic logprob scoring still requires separate backend verification.
 
 # Báo Cáo Quyết Định Kiến Trúc & Thống Nhất Baseline GRACE Gốc

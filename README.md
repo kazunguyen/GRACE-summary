@@ -1,6 +1,6 @@
 # Current contract (29/10/2026)
 
-The active baseline uses 8,192 model tokens including chat wrapper; target <= 3,000 tokens; each demo <= 1,500 tokens; graph <= 1,500 tokens and up to 40 nodes / 80 edges. Byte/character settings and historical 25/25 statements in the sections below describe the superseded contract, not the current configuration. The diagnostic B2 renderer and this baseline renderer still have different templates and decoding, so their scores must not be treated as identical.
+The active baseline uses 8,192 model tokens including chat wrapper; target <= 3,000 tokens; each demo <= 1,500 tokens; graph <= 1,500 tokens and up to 40 nodes / 80 edges. B2 uses the diagnostic Figure 6 renderer and the selected inference model is Qwen3-Coder-30B-A3B GGUF Q4_K_M. Byte/character and BF16 descriptions below are historical. See [the Kaggle guide](01_Author_Baseline_Unified/RUN_GUIDE_KAGGLE.md).
 
 # GRACE Summary: Kho Nghiên Cứu & Tối Ưu Hóa GRACE
 

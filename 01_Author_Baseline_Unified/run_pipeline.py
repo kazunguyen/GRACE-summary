@@ -91,6 +91,8 @@ def run_pipeline(
     output_dir: Path | None = None,
     split: str = "validation",
 ) -> Dict[str, Any]:
+    if not use_mock:
+        raise RuntimeError("Selected baseline uses Q4_K_M GGUF on Kaggle; run the two notebooks in RUN_GUIDE_KAGGLE.md. This legacy runner loads BF16 and is retained for mock tests only.")
     out_dir = output_dir or (config.output_dir / experiment_name)
     out_dir.mkdir(parents=True, exist_ok=True)
     ckpt_file = config.checkpoint_dir / f"{experiment_name}_checkpoint.jsonl"

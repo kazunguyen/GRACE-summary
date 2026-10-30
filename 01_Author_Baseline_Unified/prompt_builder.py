@@ -25,7 +25,7 @@ class PromptBuilder:
             if not isinstance(e, dict): raise ValueError('CPG edge must be an object')
             a=e.get('start',e.get('source',e.get('src'))); b=e.get('end',e.get('target',e.get('dst')))
             if a is None or b is None: raise ValueError('CPG edge missing endpoint')
-            edges.append(dict(e,start=a,end=b))
+            edges.append(dict(e, start=a, end=b, type=e.get('type', e.get('label', 'CONNECTED_TO'))))
         spec={'id':str(target_sample.get('id','unknown')), 'query_code':target_sample.get('func',''),
               'nodes':target_sample.get('nodes') or [], 'edges':edges,
               'demonstrations':[{'function_uid':str(demonstration_sample.get('id','unknown')),

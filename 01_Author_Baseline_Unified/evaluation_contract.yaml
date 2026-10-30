@@ -43,11 +43,21 @@ embedding_model:
   revision: 02cd2d31bb7c6d0e4d91156167b2de044989c733
 
 backbone_llm:
+  # Hugging Face tokenizer source; inference model is selected separately below.
   model: Qwen/Qwen3-Coder-30B-A3B-Instruct
   revision: b2cff646eb4bb1d68355c01b18ae02e7cf42d120
   provider: transformers
   source: https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/tree/b2cff646eb4bb1d68355c01b18ae02e7cf42d120
   precision: bfloat16
+
+selected_inference_model:
+  source_model: Qwen/Qwen3-Coder-30B-A3B-Instruct
+  model_repo: ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF
+  quantization: Q4_K_M
+  format: GGUF
+  backend: llama-cpp-python
+  revision: resolve_and_record_before_run
+  sha256: record_before_run
 
 inference_config:
   temperature: 0.0
