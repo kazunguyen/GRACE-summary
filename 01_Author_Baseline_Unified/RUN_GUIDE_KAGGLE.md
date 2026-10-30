@@ -2,6 +2,26 @@
 
 Hai notebook tách chuẩn bị prompt và inference. Model được chọn là `ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF`, biến thể `Q4_K_M`, chạy bằng `llama-cpp-python`; đây là thay đổi so với các lượt BF16 cũ. Notebook sẽ xác định revision Hugging Face, tải đúng file và lưu SHA-256 trong run manifest. Ghim revision thu được trước lượt xác nhận.
 
+
+## Môi trường Python local trong WSL
+
+Tự tạo môi trường local tại thư mục gốc repo `.venv-wsl` bằng Python 3.11. Nó được bỏ qua bởi Git. Cài notebook tools bằng `requirements-wsl-notebook.txt`; cài pipeline theo `01_Author_Baseline_Unified/requirements.lock` với `--require-hashes`. Các gói notebook được ghim trực tiếp nhưng các phụ thuộc gián tiếp của chúng không nằm trong lockfile pipeline.
+
+Mở WSL, chạy:
+
+```bash
+cd /mnt/d/JUNIOR/LabThayTho/GRACE-summary
+python3.11 -m venv .venv-wsl
+source .venv-wsl/bin/activate
+python -m pip install -r requirements-wsl-notebook.txt
+python -m pip install --require-hashes -r 01_Author_Baseline_Unified/requirements.lock
+python -m pip check
+python -m ipykernel install --prefix "$VIRTUAL_ENV" --name grace-summary-wsl --display-name "GRACE Summary (WSL)"
+python -m jupyterlab
+```
+
+Mở notebook 01 trong JupyterLab và chọn kernel `GRACE Summary (WSL)`. Xác nhận ô đầu báo Python từ `.venv-wsl/bin/python`. Joern vẫn dùng binary WSL đã xác minh. Notebook Kaggle có môi trường riêng và không dùng venv này. Nếu một lượt full đã chạy trước khi tạo venv, nó vẫn dùng môi trường cũ; không thay kernel giữa chừng hoặc trộn kết quả giữa các môi trường.
+
 ## 1. Chuẩn bị đầu vào có CPG
 
 Notebook 01 tự tải Devign và ReVeal theo revision ghi trong `evaluation_contract.yaml`, sau đó trích lại CPG cho ba split. Không cần tự chuẩn bị ba file JSONL. File trung gian có ID ổn định, mã C/C++, nhãn 0/1 và danh sách node/edge Joern, chẳng hạn:

@@ -195,6 +195,9 @@ def load_dataset(
         hf_id = hf_map.get(dataset_name.lower(), dataset_name)
         logger.info("Loading '%s' (split='%s') from Hugging Face Hub...", hf_id, split)
         try:
+            import datasets.features.features as ff
+            if 'List' not in ff._FEATURE_TYPES:
+                ff._FEATURE_TYPES['List'] = ff.Sequence
             from datasets import load_dataset as hf_load_dataset
             revisions = {"devign": "db50acfa25d02fe99e9d50064b613fae3e934b11", "reveal": "71f62e1e6e2053173e7de31a342d2c38b3fe2dcc", "bigvul": "c0042b97d208a0338634fad28693446e830adad1"}
             revision = revisions.get(dataset_name.lower())

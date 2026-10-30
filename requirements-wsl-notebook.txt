@@ -1,0 +1,7 @@
+# Notebook and verification tools for the local WSL Python 3.11 environment.
+# Install first; then install the hash-locked pipeline requirements separately.
+ipykernel==7.4.0
+jupyterlab==4.6.4
+nbconvert==7.17.1
+nbformat==5.11.1
+pytest==9.1.1

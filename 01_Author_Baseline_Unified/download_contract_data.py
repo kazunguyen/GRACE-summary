@@ -37,6 +37,9 @@ def main():
     repo, sep, revision = spec['dataset_version'].rpartition('@')
     if not sep or revision != spec['source_revision'] or len(revision) != 40:
         raise ValueError('Dataset source/revision not pinned consistently in contract')
+    import datasets.features.features as ff
+    if 'List' not in ff._FEATURE_TYPES:
+        ff._FEATURE_TYPES['List'] = ff.Sequence
     from datasets import load_dataset
     args.out.mkdir(parents=True, exist_ok=True)
     manifest = {'dataset': args.dataset, 'repo': repo, 'revision': revision, 'splits': {}}
