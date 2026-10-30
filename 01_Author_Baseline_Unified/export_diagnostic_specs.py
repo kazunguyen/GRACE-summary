@@ -62,7 +62,8 @@ def main():
         records.append({'id':target['id'],'query_code':target['func'],'nodes':nodes,'edges':edges,
                         'demonstrations':[{'function_uid':demo['id'],'func':demo['func'],'target':demo['target']}],
                         'demonstrations_pair':None,'security_difference':'','label':target['target'],
-                        'retrieval_metadata':result['metadata'],'graph_missing':not bool(nodes)})
+                        'retrieval_metadata':result['metadata'],'graph_missing':not bool(nodes),
+                        'graph_error':target.get('graph_error'),'group':target.get('commit_id') or target.get('project')})
     with out.open('w',encoding='utf-8',newline='\n') as f:
         for row in records: f.write(json.dumps(row,ensure_ascii=False)+'\n')
     donor_path=out.with_suffix(out.suffix+'.donors.jsonl')

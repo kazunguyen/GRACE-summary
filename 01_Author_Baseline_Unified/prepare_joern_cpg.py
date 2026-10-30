@@ -78,7 +78,8 @@ def main():
     if not all(p.is_file() for p in tools):
         raise FileNotFoundError('joern-parse and joern-export are required')
     identity = {'input_sha256': digest(args.input), 'tools_sha256': {p.name: digest(p) for p in tools},
-                'dataset': args.dataset, 'schema': 'source_function_graphml_v1'}
+                'script_sha256': digest(Path(__file__)),
+                'dataset': args.dataset, 'schema': 'source_function_graphml_v2'}
     manifest = args.output.with_suffix(args.output.suffix + '.manifest.json')
     args.output.parent.mkdir(parents=True, exist_ok=True)
     if manifest.exists():
@@ -88,6 +89,8 @@ def main():
         if args.output.exists():
             raise ValueError('Existing output has no manifest; choose another path')
         manifest.write_text(json.dumps(identity, indent=2), encoding='utf-8')
+    # Fail early for a broken Joern installation; failures for individual functions are recorded.
+    extract({'id': 'joern_preflight', 'func': 'int joern_preflight(int x) { return x + 1; }', 'target': 0}, args.joern_home)
     done = {}
     if args.output.exists():
         for line in args.output.read_text(encoding='utf-8').splitlines():
@@ -102,7 +105,12 @@ def main():
                 if done[row['id']] != code_hash:
                     raise ValueError('Checkpoint code mismatch')
                 continue
-            graph = extract(row, args.joern_home)
+            try:
+                graph = extract(row, args.joern_home)
+                graph['graph_error'] = None
+            except (subprocess.SubprocessError, OSError, ValueError, ET.ParseError) as exc:
+                graph = {**row, 'nodes': [], 'edges': [], 'graph_error': f'{type(exc).__name__}: {str(exc)[:500]}'}
+                print('GRAPH_MISSING', row['id'], graph['graph_error'], flush=True)
             f.write(json.dumps(graph, ensure_ascii=False) + '\n')
             f.flush(); os.fsync(f.fileno())
             print(row['id'], len(graph['nodes']), len(graph['edges']), flush=True)

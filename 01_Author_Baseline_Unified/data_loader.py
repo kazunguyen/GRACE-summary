@@ -46,6 +46,10 @@ def standardize_sample(raw_item: Dict[str, Any], idx: int, dataset_name: str = "
         "target": target,
         "nodes": nodes if isinstance(nodes, list) else [],
         "edges": edges if isinstance(edges, list) else [],
+        "project": raw_item.get("project"),
+        "commit_id": raw_item.get("commit_id"),
+        "source_id": raw_item.get("source_id"),
+        "graph_error": raw_item.get("graph_error"),
     }
 
 

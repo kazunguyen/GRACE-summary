@@ -4,19 +4,19 @@ Hai notebook tách chuẩn bị prompt và inference. Model được chọn là 
 
 ## 1. Chuẩn bị đầu vào có CPG
 
-Notebook 01 cần ba file JSONL `train`, `validation`, `test` của cùng dataset đã khóa. Mỗi dòng cần ID ổn định, mã C/C++, nhãn 0/1 và danh sách node/edge Joern, chẳng hạn:
+Notebook 01 tự tải Devign và ReVeal theo revision ghi trong `evaluation_contract.yaml`, sau đó trích lại CPG cho ba split. Không cần tự chuẩn bị ba file JSONL. File trung gian có ID ổn định, mã C/C++, nhãn 0/1 và danh sách node/edge Joern, chẳng hạn:
 
 ```json
 {"id":"devign:validation:8","func":"int f(void) { return 0; }","target":0,"nodes":[{"id":"n1","type":"METHOD","code":"int f(void)"}],"edges":[]}
 ```
 
-Đây là ví dụ schema, không phải CPG thật. `edges` dùng `start`/`end`/`type`; ID cạnh phải tham chiếu tới node. Cần cùng phiên bản Joern và xác minh nguồn/hash CPG. Nếu chưa có CPG, chạy notebook 01 bằng kernel Linux/WSL, đặt `EXTRACT_CPG=True`, đường dẫn `JOERN_HOME` chứa `joern-parse` và `joern-export`, cùng ba file thô có `id`, `func`, `target`. Script `prepare_joern_cpg.py` gọi Joern, xuất GraphML, lọc CPG theo hàm và ghi checkpoint/manifest cho từng split. Cần tự cài Joern trước; script dừng nếu Joern lỗi hoặc không thấy AST hàm. Chưa kiểm thử Joern thật trong môi trường này, vì vậy phải thử trên vài mẫu và kiểm tra graph trước khi trích đầy đủ. Nguồn graph prefix khôi phục từ prompt lịch sử chỉ dùng để thử, không thay cho CPG đầy đủ. Mặc định notebook dừng nếu thiếu graph; `ALLOW_MISSING_GRAPHS=True` chỉ để chạy thăm dò và manifest ghi lại điều đó.
+Đây là ví dụ schema, không phải CPG thật. `edges` dùng `start`/`end`/`type`; ID cạnh phải tham chiếu tới node. Notebook mặc định dùng Joern WSL đã xác minh tại `/home/yungn/tools/joern/y/joern-cli`; `prepare_joern_cpg.py` gọi Joern, xuất GraphML và ghi checkpoint/manifest theo từng split. Nếu Joern không hoạt động, bước preflight sẽ dừng. Nếu một hàm riêng lẻ không trích được, mẫu vẫn được giữ với graph rỗng, cờ thiếu và lý do lỗi. Cần kiểm tra tỷ lệ lỗi và provenance CPG trước khi đánh giá. Devign dùng ID nguồn; ReVeal dùng vị trí dòng trong split cố định vì hash nguồn không duy nhất, không tự coi ID này khớp run lịch sử.
 
 Không thay split hoặc lọc test theo kết quả. Công cụ loại trùng chính xác theo code đã strip và nhóm nhãn xung đột; kiểm toán gần trùng và tính toàn vẹn nhãn/split vẫn phải hoàn thành riêng trước xác nhận.
 
 ## 2. Tạo bundle trên máy chuẩn bị
 
-Mở `notebooks/01_prepare_grace_b2.ipynb` trong Jupyter. Cài các phụ thuộc trong `requirements.in` hoặc môi trường đã khóa; cần truy cập/tải CodeT5 và tokenizer theo revision trong contract. Sửa `ROOT`, `TRAIN`, `VALIDATION`, `TEST`, `DATASET`, `SPLIT`. Nếu trích Joern, thiết lập thêm `EXTRACT_CPG`, `JOERN_HOME`, `RAW_TRAIN`, `RAW_VALIDATION`, `RAW_TEST`; `LIMIT` chỉ giới hạn số prompt, không giới hạn bước trích CPG. Bắt đầu `LIMIT=20`; chạy các cell. Notebook dùng CodeT5, whitening, retrieval và prompt Figure 6; tạo `specs.jsonl`, `prompts.jsonl`, manifest và ZIP tại `OUT`. Sau khi kiểm tra, đặt `LIMIT=None` để tạo bundle toàn bộ split. Mỗi lần chạy chọn thư mục riêng để giữ provenance.
+Mở `notebooks/01_prepare_grace_b2.ipynb` bằng Jupyter kernel Python chạy trong WSL. Cài các phụ thuộc trong `requirements.in` hoặc môi trường đã khóa; cần Internet để tải dữ liệu, CodeT5 và tokenizer theo revision trong contract. Notebook đã điền sẵn repo và Joern; chạy lần lượt tất cả cell. Mặc định xử lý đầy đủ cả Devign/ReVeal và tạo bundle validation/test, không giới hạn mẫu. Output và checkpoint nằm tại `output/local_full/<dataset>/`; chạy lại cell để tiếp tục sau khi ngắt. Khối lượng trích CPG và embedding rất lớn, có thể kéo dài nhiều giờ hoặc nhiều ngày; theo dõi CPU, RAM và dung lượng đĩa.
 
 File prompt chứa mã nguồn và nhãn phục vụ đánh giá: chỉ upload lên Kaggle Dataset riêng được phép sử dụng. ZIP không chứa model, khóa hay source repository.
 

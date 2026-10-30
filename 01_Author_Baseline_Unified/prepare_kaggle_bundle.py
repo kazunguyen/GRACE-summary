@@ -69,7 +69,9 @@ def main():
                                 'demo_ids': [d['function_uid']], 'tokens': metadata,
                                 'graph_missing': row['graph_missing']}, ensure_ascii=False) + '\n')
     manifest = {'dataset': args.dataset, 'split': args.split, 'arm': 'B2', 'count': len(records),
-                'limit': args.limit, 'exploratory': args.limit is not None or args.allow_missing_graphs,
+                'limit': args.limit, 'exploratory': args.limit is not None,
+                'missing_graphs_allowed': args.allow_missing_graphs,
+                'missing_target_graphs': sum(bool(r['graph_missing']) for r in records),
                 'input_sha256': {name: sha256(path) for name, path in inputs.items()},
                 'spec_sha256': sha256(spec), 'prompts_sha256': sha256(prompts),
                 'tokenizer': config.model_name, 'tokenizer_revision': config.model_revision,
