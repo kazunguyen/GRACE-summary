@@ -1,11 +1,11 @@
 # GRACE Author Baseline Unified
 
-Baseline đối chứng được nhóm thống nhất từ mã GRACE, với hợp đồng đánh giá 8.192 byte. Đây là bản phục dựng, không khẳng định giống nguyên trạng toàn bộ môi trường tác giả.
+Baseline phục dựng thống nhất; không khẳng định trùng hoàn toàn với môi trường và kết quả tác giả. Contract hiện hành: [evaluation_contract.yaml](evaluation_contract.yaml).
 
-- [Hướng dẫn cài đặt và chạy](RUN_GUIDE.md)
-- [Hợp đồng đánh giá](evaluation_contract.yaml)
-- [Quyết định kiến trúc](ARCHITECTURE_DECISIONS.md)
-- `requirements.in`: các phụ thuộc trực tiếp; `requirements.lock`: toàn bộ phụ thuộc Python đã giải và hash.
-- `run_pipeline.py`: điều phối; `test_baseline.py`: kiểm thử offline.
+- Tokenizer Qwen3-Coder-30B-A3B-Instruct, revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120.
+- Prompt bao gồm chat template: tối đa 8.192 token; target <= 3.000, demo <= 1.500, graph <= 1.500 token.
+- Graph prefix tối đa 40 node và 80 edge, cạnh phải tham chiếu đến node được giữ. Prompt B2 dùng chung renderer Figure 6 với diagnostic kit được đóng gói.
+- CodeT5-base revision 02cd2d31bb7c6d0e4d91156167b2de044989c733; profile code: whitening + rerank.
+- Giữ phản hồi invalid, không tự gán nhãn; checkpoint cũ khác prompt bị từ chối.
 
-Model sinh: [Qwen3-Coder-30B-A3B-Instruct](https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/tree/b2cff646eb4bb1d68355c01b18ae02e7cf42d120), BF16, revision `b2cff646eb4bb1d68355c01b18ae02e7cf42d120`. Model embedding: [CodeT5-base](https://huggingface.co/Salesforce/codet5-base/tree/02cd2d31bb7c6d0e4d91156167b2de044989c733), revision `02cd2d31bb7c6d0e4d91156167b2de044989c733`.
+Đọc [RUN_GUIDE.md](RUN_GUIDE.md), [DIAGNOSTIC_INTEGRATION.md](DIAGNOSTIC_INTEGRATION.md). Quyết định cũ tại [ARCHITECTURE_DECISIONS.md](ARCHITECTURE_DECISIONS.md) là lịch sử, trừ phần cập nhật đầu file. Không trộn kết quả hợp đồng byte cũ với hợp đồng token.

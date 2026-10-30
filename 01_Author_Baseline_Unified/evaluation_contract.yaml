@@ -1,5 +1,5 @@
-contract_version: evaluation_contract_v2
-contract_revision: evaluation_contract_v2_context8192bytes_20261029
+contract_version: evaluation_contract_v3
+contract_revision: evaluation_contract_v3_context8192tokens_20261029
 
 dataset_split:
   devign:
@@ -52,23 +52,24 @@ backbone_llm:
 inference_config:
   temperature: 0.0
   seed: 42
-  max_tokens: 256
+  max_tokens: 1
   retry_policy: max_attempts=5; exponential_backoff=5s..120s; exhausted_request=invalid
-  parser: ../Grace-with-filters-v2/[CONTRACT]/parser/parse_prediction.py::parse_prediction
+  parser: parser.py::parse_prediction
   parser_contract: exact_last_line_binary_v1
 
 prompt_context_policy:
   graph: true
-  context_limit: 8192  # maximum UTF-8 bytes in the rendered prompt
+  context_limit_tokens: 8192  # includes chat template and generation prompt
   truncation_policy:
-    target_code_max_chars: 3000
-    standard_demo_max_chars: 1500
-    contrastive_demo_max_chars: 1200
+    target_code_max_tokens: 3000
+    standard_demo_max_tokens: 1500
+    contrastive_demo_max_tokens: 1500
+    graph_max_tokens: 1500
     graph_nodes_max: 40
     graph_edges_max: 80
     preserve_prefix: true
-  template: ../Grace-with-filters-v2/[CONTRACT]/prompt/prompt_template.txt
-  output_contract: last_non_empty_line_must_be_exactly_0_or_1
+  template: diagnostic_kit/src/grace_diag/probes.py::render_arm_B2
+  output_contract: first_generated_token_0_or_1
 
 evaluation_metrics:
   metrics:

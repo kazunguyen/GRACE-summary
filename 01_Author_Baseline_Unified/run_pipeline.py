@@ -1,17 +1,19 @@
 """
 GRACE Unified Baseline End-to-End Orchestrator
 CLI entry point to reproduce, run, and benchmark the author's original GRACE baseline.
-Compliant with evaluation_contract_v2 (context 8192 bytes, strict parser, valid metrics).
+Compliant with evaluation_contract_v2 (context 8192 tokens, strict parser, valid metrics).
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import os
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Any
 
@@ -23,7 +25,7 @@ from data_loader import load_dataset
 from embedding_engine import CodeT5Embedder
 from retrieval_engine import DemonstrationRetriever
 from prompt_builder import PromptBuilder
-from llm_backbone import LLMClient
+from llm_backbone import LLMClient, SCORING_VERSION
 from evaluator import BenchmarkEvaluator
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - [%(levelname)s] - %(message)s")
@@ -87,6 +89,7 @@ def run_pipeline(
     use_mock: bool = False,
     experiment_name: str = "grace_baseline_unified",
     output_dir: Path | None = None,
+    split: str = "validation",
 ) -> Dict[str, Any]:
     out_dir = output_dir or (config.output_dir / experiment_name)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -107,8 +110,8 @@ def run_pipeline(
     train_samples = load_dataset(dataset_name, split="train", sample_ratio=1.0, max_samples=None, use_mock=use_mock)
     logger.info("Loaded %d training samples for candidate pool.", len(train_samples))
 
-    logger.info("Loading evaluation queries (test split)...")
-    test_samples = load_dataset(dataset_name, split="test", sample_ratio=sample_ratio, max_samples=max_targets, use_mock=use_mock)
+    logger.info("Loading evaluation queries (%s split)...", split)
+    test_samples = load_dataset(dataset_name, split=split, sample_ratio=sample_ratio, max_samples=max_targets, use_mock=use_mock)
     logger.info("Loaded %d evaluation samples.", len(test_samples))
 
     # 2. Fit Retrieval Engine
@@ -118,14 +121,22 @@ def run_pipeline(
     retriever.fit(train_samples)
 
     # 3. Prompt Assembly adhering to contract (8192 bytes limit)
-    logger.info("Assembling prompts strictly capped at %d UTF-8 bytes...", config.context_limit_bytes)
+    logger.info("Assembling prompts capped at %d model tokens...", config.context_limit_tokens)
+    if use_mock:
+        from tokenizers_support import MockTokenizer
+        tokenizer = MockTokenizer()
+    else:
+        from transformers import AutoTokenizer
+        tokenizer = AutoTokenizer.from_pretrained(config.model_name, revision=config.model_revision)
     prompt_builder = PromptBuilder(
+        tokenizer=tokenizer,
         template_path=config.template_path,
-        context_limit_bytes=config.context_limit_bytes,
+        context_limit_tokens=config.context_limit_tokens,
         graph_nodes_max=config.graph_nodes_max,
         graph_edges_max=config.graph_edges_max,
-        target_code_max_chars=config.target_code_max_chars,
-        standard_demo_max_chars=config.standard_demo_max_chars,
+        target_code_max_tokens=config.target_code_max_tokens,
+        standard_demo_max_tokens=config.standard_demo_max_tokens,
+        graph_max_tokens=config.graph_max_tokens,
     )
 
     prompts = []
@@ -137,6 +148,7 @@ def run_pipeline(
         prompt_str, trunc_meta = prompt_builder.build_prompt(target, demonstration_sample=best_demo)
         prompts.append({
             "record_id": target["id"],
+            "prompt_sha256": hashlib.sha256(prompt_str.encode("utf-8")).hexdigest(),
             "ground_truth": target["target"],
             "prompt": prompt_str,
             "truncation_metadata": trunc_meta,
@@ -170,19 +182,49 @@ def run_pipeline(
         for idx, item in enumerate(prompts):
             rid = item["record_id"]
             if rid in completed_responses:
-                raw_responses.append(completed_responses[rid])
+                old = completed_responses[rid]
+                if old.get("prompt_sha256") != item["prompt_sha256"] or old.get("ground_truth") != item["ground_truth"] or old.get("model") != ("mock-llm-engine" if use_mock else config.model_name) or (not use_mock and old.get("model_revision") != config.model_revision):
+                    raise ValueError(f"Checkpoint mismatch for {rid}; choose a new experiment name")
+                if old.get("score_method") != ("mock_no_logprobs" if use_mock else SCORING_VERSION):
+                    raise ValueError(f"Checkpoint lacks compatible logprobs for {rid}; choose a new experiment name")
+                raw_responses.append(old)
                 continue
 
             gen_res = client.generate(item["prompt"])
             response_record = {
                 "record_id": rid,
+                "id": rid,
+                "prompt_sha256": item["prompt_sha256"],
                 "ground_truth": item["ground_truth"],
+                "label": item["ground_truth"],
                 "raw_response": gen_res["raw_response"],
                 "request_status": gen_res["request_status"],
                 "request_error": gen_res["request_error"],
                 "attempts": gen_res["attempts"],
                 "model": gen_res["model"],
                 "model_revision": gen_res.get("model_revision"),
+                "dataset": dataset_name,
+                "split": split,
+                "arm": "B2",
+                "seed": config.random_seed,
+                "demo_ids": [item["retrieval_metadata"].get("demo_id")],
+                "tokens": item["truncation_metadata"],
+                "backend": "mock" if use_mock else "transformers",
+                "model_dtype": "mock" if use_mock else "bfloat16",
+                "score_method": gen_res.get("score_method"),
+                "score_valid": gen_res.get("score_valid", False),
+                "valid": gen_res.get("score_valid", False),
+                "response_valid": gen_res.get("raw_response") in ("0", "1"),
+                "token_ids": gen_res.get("token_ids"),
+                "logprob_0": gen_res.get("logprob_0"),
+                "logprob_1": gen_res.get("logprob_1"),
+                "p0": gen_res.get("p0"),
+                "p1": gen_res.get("p1"),
+                "s": gen_res.get("s"),
+                "pred_argmax": gen_res.get("pred_argmax"),
+                "top5": gen_res.get("top5"),
+                "logprob_distribution": gen_res.get("logprob_distribution"),
+                "timestamp": datetime.now(timezone.utc).isoformat(),
             }
             ckpt_f.write(json.dumps(response_record, ensure_ascii=False) + "\n")
             ckpt_f.flush()
@@ -193,6 +235,7 @@ def run_pipeline(
                 logger.info("Inference progress: %d/%d completed.", idx + 1, total)
 
     write_jsonl(out_dir / "raw_responses.jsonl", raw_responses)
+    write_jsonl(out_dir / "logprobs.jsonl", raw_responses)
 
     # 5. Benchmark Evaluation
     logger.info("Evaluating predictions using strict contract parser...")
@@ -225,6 +268,7 @@ def run_pipeline(
 
 def main():
     parser = argparse.ArgumentParser(description="GRACE Unified Baseline Runner")
+    parser.add_argument("--split", default="validation", choices=["validation", "test"], help="Evaluation split")
     parser.add_argument("--dataset", default="devign", choices=["devign", "reveal", "bigvul", "mock"], help="Target dataset")
     parser.add_argument("--sample-ratio", type=float, default=1.0, help="Sampling ratio for test set (0.0 < ratio <= 1.0)")
     parser.add_argument("--max-targets", type=int, default=None, help="Maximum number of test targets to evaluate")
@@ -238,6 +282,7 @@ def main():
     out_dir = Path(args.output_dir) if args.output_dir else None
     run_pipeline(
         dataset_name=args.dataset,
+        split=args.split,
         sample_ratio=args.sample_ratio,
         max_targets=args.max_targets,
         profile=args.profile,

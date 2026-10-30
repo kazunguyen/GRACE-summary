@@ -1,7 +1,7 @@
 """
 GRACE Graph Extraction & Formatting Module
 Formats whole CPG (AST, CFG, PDG) nodes and edges according to the author's original format
-and enforces the contract cap (max 40 nodes, max 80 edges).
+with item caps; token budget is enforced by prompt_builder.
 """
 
 from __future__ import annotations

@@ -1,3 +1,7 @@
+# Current contract (29/10/2026)
+
+The active baseline uses 8,192 model tokens including chat wrapper; target <= 3,000 tokens; each demo <= 1,500 tokens; graph <= 1,500 tokens and up to 40 nodes / 80 edges. Byte/character settings and historical 25/25 statements in the sections below describe the superseded contract, not the current configuration. The diagnostic B2 renderer and this baseline renderer still have different templates and decoding, so their scores must not be treated as identical.
+
 # GRACE Summary: Kho Nghiên Cứu & Tối Ưu Hóa GRACE
 
 Kho lưu trữ chuẩn hóa toàn bộ mã nguồn mô hình gốc (Author Baseline) và các nhánh cải tiến phương pháp GRACE (Graph-based In-Context Learning for Vulnerability Detection).
@@ -6,7 +10,7 @@ Kho lưu trữ chuẩn hóa toàn bộ mã nguồn mô hình gốc (Author Basel
 
 ## Cấu Trúc Kho Lưu Trữ
 
-- **`01_Author_Baseline_Unified/`**: Bản triển khai chuẩn hóa duy nhất của mô hình gốc tác giả GRACE, tuân thủ `evaluation_contract_v2_context8192bytes_20261029`.
+- **`01_Author_Baseline_Unified/`**: Bản triển khai chuẩn hóa duy nhất của mô hình gốc tác giả GRACE, tuân thủ `evaluation_contract_v3_context8192tokens_20261029`.
   - Giải quyết dứt điểm các điểm bất đồng giữa các phiên bản baseline lịch sử.
   - Tích hợp bộ kiểm thử tự động, chạy lại được ngay lập tức ở chế độ Mock và Full API.
   - Xem tài liệu chi tiết tại [01_Author_Baseline_Unified/README.md](file:///d:/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/README.md).

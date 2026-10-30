@@ -1,6 +1,6 @@
 """
 GRACE Baseline Configuration Module
-Unified configuration for author's baseline adhering to evaluation_contract_v2 (context 8192 bytes).
+Unified configuration for author's baseline adhering to evaluation_contract_v2 (context 8192 tokens).
 """
 
 from __future__ import annotations
@@ -82,13 +82,14 @@ class BaselineConfig:
     whitening_dim: int = 256
     profile: str = "code"  # "code" (CodeT5 + Whitening) or "paper" (CodeT5 + t-SNE)
 
-    # Prompt budget settings (Contract 8192 bytes)
-    context_limit_bytes: int = 8192
+    # Prompt budget settings (model tokenizer tokens)
+    context_limit_tokens: int = 8192
     graph_nodes_max: int = 40
     graph_edges_max: int = 80
-    target_code_max_chars: int = 3000
-    standard_demo_max_chars: int = 1500
-    contrastive_demo_max_chars: int = 1200
+    target_code_max_tokens: int = 3000
+    standard_demo_max_tokens: int = 1500
+    graph_max_tokens: int = 1500
+    contrastive_demo_max_tokens: int = 1500
     preserve_prefix: bool = True
 
     # LLM Backbone settings
@@ -97,8 +98,8 @@ class BaselineConfig:
     model_revision: str = "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
     temperature: float = 0.0
     random_seed: int = 42
-    max_tokens: int = 256
-    thinking_enabled: bool = False  # CRITICAL: Disable thinking to avoid exhausting 256 tokens
+    max_tokens: int = 1
+    thinking_enabled: bool = False
     retry_max_attempts: int = 5
     retry_delay_base: float = 5.0
     retry_delay_max: float = 120.0
@@ -120,12 +121,13 @@ class BaselineConfig:
             try:
                 self.contract_data = yaml.safe_load(self.contract_path.read_text(encoding="utf-8"))
                 policy = self.contract_data.get("prompt_context_policy", {})
-                self.context_limit_bytes = int(policy.get("context_limit", self.context_limit_bytes))
+                self.context_limit_tokens = int(policy.get("context_limit_tokens", self.context_limit_tokens))
                 trunc = policy.get("truncation_policy", {})
                 self.graph_nodes_max = int(trunc.get("graph_nodes_max", self.graph_nodes_max))
                 self.graph_edges_max = int(trunc.get("graph_edges_max", self.graph_edges_max))
-                self.target_code_max_chars = int(trunc.get("target_code_max_chars", self.target_code_max_chars))
-                self.standard_demo_max_chars = int(trunc.get("standard_demo_max_chars", self.standard_demo_max_chars))
+                self.target_code_max_tokens = int(trunc.get("target_code_max_tokens", self.target_code_max_tokens))
+                self.standard_demo_max_tokens = int(trunc.get("standard_demo_max_tokens", self.standard_demo_max_tokens))
+                self.graph_max_tokens = int(trunc.get("graph_max_tokens", self.graph_max_tokens))
 
                 inf = self.contract_data.get("inference_config", {})
                 self.temperature = float(inf.get("temperature", self.temperature))

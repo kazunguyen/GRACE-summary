@@ -140,8 +140,7 @@ class DemonstrationRetriever:
             valid_pool_idx = [i for i in range(len(self.train_samples)) if self.train_code_hashes[i] != query_hash]
 
         if not valid_pool_idx:
-            # If train contains only copies of this code, use candidate 0 as absolute fallback
-            valid_pool_idx = [0]
+            raise ValueError("No eligible demonstration: every train candidate duplicates target code")
 
         # 2. Semantic search to get Top 50 initial pool (and then Top 5 for hybrid reranking)
         pool_vecs = self.train_vecs[valid_pool_idx]

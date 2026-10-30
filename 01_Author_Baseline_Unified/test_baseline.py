@@ -1,7 +1,7 @@
 """
 GRACE Unified Baseline Verification & Integrity Tests
 Validates all 4 architectural pillars:
-  1. Prompt 8192 UTF-8 bytes cap and truncation order
+  1. Prompt 8192 model tokens cap and truncation order
   2. Strict binary output parser (no illegal heuristic fallback)
   3. Hybrid reranking formula (0.7 code Jaccard + 0.3 AST)
   4. Benchmark metrics calculation on valid population
@@ -23,6 +23,38 @@ from run_pipeline import run_pipeline
 
 
 class BaselineIntegrityTests(unittest.TestCase):
+    def test_incomplete_label_logprobs_are_invalid(self):
+        from grace_diag.llm_backend import parse_top_logprobs
+        self.assertFalse(parse_top_logprobs({'1': -0.2})['valid'])
+        self.assertFalse(parse_top_logprobs({'0': -0.2})['valid'])
+        self.assertTrue(parse_top_logprobs({'0': -1.0, '1': -0.5})['valid'])
+
+    def test_b2_matches_kit_renderer(self):
+        from tokenizers_support import MockTokenizer
+        from grace_diag.probes import render_arm
+        builder = PromptBuilder(tokenizer=MockTokenizer())
+        target={'id':'x','func':'int f(void){return 0;}','nodes':[{'id':1,'type':'CALL','code':'f()'}], 'edges':[]}
+        demo={'id':'d','func':'int g(void){return 1;}','target':1}
+        actual, meta=builder.build_prompt(target,demo)
+        spec={'id':'x','query_code':target['func'],'nodes':target['nodes'],'edges':[],
+              'demonstrations':[{'function_uid':'d','func':demo['func'],'target':1}]}
+        expected=render_arm(spec,'B2',counter=builder.counter,budget=builder.budget,graph_prefix=builder.prefix)
+        self.assertEqual(actual,expected.prompt)
+        self.assertEqual(meta['prompt_tokens'],expected.evidence['tokens']['total'])
+
+    def test_missing_labels_are_rejected(self):
+        from data_loader import standardize_sample
+        for row in ({'func': 'x'}, {'func': 'x', 'target': 'bad'}, {'func':'x', 'target': 2}):
+            with self.assertRaises(ValueError): standardize_sample(row, 0)
+        self.assertEqual(standardize_sample({'func':'x','target':True}, 0)['target'], 1)
+
+    def test_all_duplicate_donors_rejected(self):
+        from retrieval_engine import DemonstrationRetriever
+        from embedding_engine import CodeT5Embedder
+        retriever = DemonstrationRetriever(CodeT5Embedder(force_fallback=True))
+        retriever.fit([{'id':str(i),'func':'same two words','target':0,'nodes':[],'edges':[]} for i in range(3)])
+        with self.assertRaises(ValueError): retriever.retrieve_single({'id':'x','func':'same two words','nodes':[],'edges':[]})
+
     def test_strict_parser_compliance(self):
         """Verify strict binary parser behavior."""
         # Exact valid outputs
@@ -39,9 +71,10 @@ class BaselineIntegrityTests(unittest.TestCase):
         self.assertIsNone(parse_prediction("The answer is 1.").prediction)
         self.assertIsNone(parse_prediction("Safe").prediction)
 
-    def test_prompt_budget_strictly_capped_at_8192_bytes(self):
-        """Verify that prompts never exceed 8192 UTF-8 bytes."""
-        builder = PromptBuilder(context_limit_bytes=8192)
+    def test_prompt_budget_strictly_capped_at_8192_tokens(self):
+        """Verify token and component limits with a mock tokenizer."""
+        from tokenizers_support import MockTokenizer
+        builder = PromptBuilder(tokenizer=MockTokenizer(), context_limit_tokens=8192)
 
         # Create gigantic target and demo
         huge_target = {
@@ -57,8 +90,11 @@ class BaselineIntegrityTests(unittest.TestCase):
         prompt, meta = builder.build_prompt(huge_target, huge_demo)
         encoded_bytes = len(prompt.encode("utf-8"))
 
-        self.assertLessEqual(encoded_bytes, 8192)
+        self.assertLessEqual(meta["prompt_tokens"], 8192)
         self.assertEqual(meta["prompt_utf8_bytes"], encoded_bytes)
+        self.assertLessEqual(meta["target_tokens_used"], 3000)
+        self.assertLessEqual(meta["demo_tokens_used"], 1500)
+        self.assertLessEqual(meta["graph_tokens_used"], 1500)
         self.assertLessEqual(meta["graph_nodes_used"], 40)
         self.assertLessEqual(meta["graph_edges_used"], 80)
 

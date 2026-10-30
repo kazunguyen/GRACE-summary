@@ -1,3 +1,7 @@
+# Current contract (29/10/2026)
+
+The active baseline uses 8,192 model tokens including chat wrapper; target <= 3,000 tokens; each demo <= 1,500 tokens; graph <= 1,500 tokens and up to 40 nodes / 80 edges. Byte/character settings and historical 25/25 statements in the sections below describe the superseded contract, not the current configuration. The baseline B2 uses the bundled diagnostic Figure 6 renderer. Baseline Transformers generation returns one token; diagnostic logprob scoring still requires separate backend verification.
+
 # Báo Cáo Quyết Định Kiến Trúc & Thống Nhất Baseline GRACE Gốc
 
 > Cập nhật 29/10/2026: Quyết định backbone hiện hành là Qwen/Qwen3-Coder-30B-A3B-Instruct BF16, revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120, chạy Transformers. Các thảo luận về API/model khác bên dưới chỉ là lịch sử và không áp dụng cho baseline hiện tại.

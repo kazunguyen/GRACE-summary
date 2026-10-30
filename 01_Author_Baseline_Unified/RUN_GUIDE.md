@@ -1,37 +1,19 @@
-# Hướng dẫn chạy baseline GRACE
+# Hướng dẫn chạy baseline
 
-## Môi trường được khóa
+Cài phụ thuộc từ requirements.lock. Đảm bảo model/tokenizer Qwen và CodeT5 được tải theo revision trong evaluation_contract.yaml.
 
-Lockfile dành cho **Linux x86-64, CPython 3.11.0**, dùng các gói PyPI có hash SHA-256 trong `requirements.lock`. Các phụ thuộc trực tiếp và gián tiếp được khóa; không cài từ `requirements.in` cho thực nghiệm. PyTorch 2.7.1 là bản PyPI Linux với các gói CUDA được khóa trong lockfile. Máy GPU cần driver NVIDIA tương thích và GPU hỗ trợ BF16. Driver, GPU, hệ điều hành, BLAS và trạng thái môi trường không được khóa bởi pip: ghi lại chúng khi công bố kết quả. Qwen BF16 chiếm khoảng 61 GB trên đĩa, còn bộ nhớ chạy phụ thuộc cấu hình.
-
-Tạo môi trường sạch với Python 3.11.0 có sẵn, tại thư mục này:
-
-```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install --require-hashes -r requirements.lock
-python -m pip check
-python test_baseline.py
+```powershell
+python -m unittest -v test_baseline
+python run_pipeline.py --dataset mock --split validation --mock --max-targets 10 --experiment-name mock-validation-v3
+python run_pipeline.py --dataset devign --split validation --max-targets 10 --experiment-name devign-validation-v3
 ```
 
-Lockfile được giải bằng `uv 0.11.17` cho Linux x86-64; không dùng nó làm lockfile Windows hoặc môi trường Kaggle có sẵn. Cài đặt cần truy cập PyPI; lần chạy thật đầu tiên cần Hugging Face. Không tự nâng cấp thư viện trong cùng một thí nghiệm.
+Mock dùng tokenizer giả, embedding giả và LLM giả; không dùng số liệu mock trong nghiên cứu. Chạy thật yêu cầu tokenizer/model đúng revision và dữ liệu validation có nhãn, graph đã kiểm chứng. Chọn tên thí nghiệm mới khi prompt, model, dữ liệu hoặc contract thay đổi; checkpoint chỉ khôi phục khi hash prompt, nhãn và model khớp.
 
-## Chạy thử offline
+Xem DIAGNOSTIC_INTEGRATION.md để xuất specs/donor/manifest. Lượt test xác nhận cần khóa protocol và ngưỡng trên validation trước khi chạy.
 
-```bash
-python run_pipeline.py --mock --dataset mock --max-targets 10 --experiment-name smoke_test
-```
+## Logprob cho baseline B2
 
-Mock dùng dữ liệu tổng hợp, embedding TF-IDF và bộ sinh giả; không dùng kết quả này để đối chứng model thật.
+Inference Transformers lấy logits chưa ràng buộc của token đầu, kiểm tra `0` và `1` đều là một token, và ghi `logprobs.jsonl` cùng `raw_responses.jsonl`. Mỗi dòng chứa ID, nhãn, prompt hash, demo ID, token counts, phiên bản model, token ID, `logprob_0`, `logprob_1`, `p0`, `p1`, `s`, `pred_argmax`, `top5` và trạng thái. `score_valid`/`valid` chỉ nói score tính được; `response_valid` nói token model sinh có phải 0/1. Hai trạng thái này có thể khác nhau; evaluator hiện chấm nhãn theo output thực tế.
 
-## Chạy thực nghiệm
-
-```bash
-python run_pipeline.py --dataset devign --max-targets 50 --experiment-name devign_qwen_run1
-```
-
-Cả tokenizer và weights của Qwen và CodeT5 được tải theo commit ghi trong `evaluation_contract.yaml`; lỗi tải CodeT5 hoặc dataset không tự chuyển sang mock. Lựa chọn `--profile code` là mặc định; `--profile paper` là nhánh t-SNE riêng. Tham số sinh dùng greedy decoding, tối đa 256 token; prompt tối đa 8.192 byte.
-
-**Dữ liệu CPG:** loader ưu tiên các file local được liệt kê trong `data_loader.py` trước Hugging Face. Những file local đó chưa có hash hoặc quy trình tạo CPG được khóa trong kho này; cần lưu SHA-256, nguồn, phiên bản công cụ tạo đồ thị và xác minh cùng một file trước khi so sánh. Bản tải dataset từ Hugging Face có revision được khóa trong contract nhưng không bảo đảm có CPG tương đương file đã xử lý. Nếu không có dữ liệu đồ thị phù hợp, không coi kết quả là đối chứng GRACE đã xác nhận.
-
-Kết quả nằm trong `output/<experiment-name>/`; checkpoint trong `checkpoints/`. Dùng tên experiment mới khi đổi model, dữ liệu, mã, môi trường hay tham số: checkpoint cũ được nối lại theo ID và không tự kiểm tra cấu hình. Lưu revision git của mã, lockfile, hash dữ liệu, phần cứng/driver và toàn bộ artifacts cho mỗi lần chạy. Khóa phiên bản không đảm bảo kết quả giống từng bit giữa phần cứng hoặc runtime khác nhau.
+`s` được tính ổn định từ logits của hai token nhãn trong phân phối gốc, không giới hạn top-5. Sử dụng tên experiment mới cho các checkpoint cũ không có logprob. Mock không tạo logprob thật. Thiết lập model vẫn BF16; lựa chọn GPU, quantization hoặc backend Kaggle phải được chốt và kiểm thử riêng. Kiểm tra tokenizer Qwen, 20 mẫu validation, tỉ lệ score/response hợp lệ và thời gian trước khi chạy lớn. Không diễn giải logprob sau ràng buộc là logprob gốc.

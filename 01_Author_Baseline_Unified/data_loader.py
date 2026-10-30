@@ -26,11 +26,10 @@ def standardize_sample(raw_item: Dict[str, Any], idx: int, dataset_name: str = "
         raw_item.get("processed_func") or ""
     )
 
-    raw_target = raw_item.get("target", raw_item.get("label", raw_item.get("sealed_label", 0)))
-    try:
-        target = int(raw_target)
-    except (ValueError, TypeError):
-        target = 0
+    raw_target = raw_item.get("target", raw_item.get("label", raw_item.get("sealed_label")))
+    if not isinstance(raw_target, bool) and str(raw_target).strip() not in ("0", "1"):
+        raise ValueError(f"Invalid or missing binary label at {dataset_name}[{idx}]: {raw_target!r}")
+    target = int(raw_target)
 
     raw_id = raw_item.get("record_id", raw_item.get("id", raw_item.get("idx")))
     if raw_id is not None and str(raw_id).strip():

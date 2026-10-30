@@ -7,12 +7,42 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import time
 import urllib.request
 from typing import Dict, Any, Optional
 from config import config
 
 logger = logging.getLogger(__name__)
+
+SCORING_VERSION = "first_token_exact_digits_v1"
+
+
+def score_first_token(logits, tokenizer):
+    """Score exact single-token '0' and '1' from unprocessed first-token logits."""
+    import torch
+    ids = {}
+    for label in ("0", "1"):
+        encoded = tokenizer.encode(label, add_special_tokens=False)
+        if len(encoded) != 1 or tokenizer.decode(encoded, skip_special_tokens=False) != label:
+            raise ValueError(f"Label {label!r} is not exactly one reversible token: {encoded!r}")
+        ids[label] = int(encoded[0])
+    if ids['0'] == ids['1']:
+        raise ValueError("Binary label token IDs must be distinct")
+    values = logits.detach().float().reshape(-1)
+    logp = torch.log_softmax(values, dim=-1)
+    lp0, lp1 = float(logp[ids['0']]), float(logp[ids['1']])
+    if not math.isfinite(lp0) or not math.isfinite(lp1):
+        raise ValueError("Non-finite binary label logprob")
+    s = float(torch.softmax(values[[ids['0'], ids['1']]], dim=0)[1])
+    top_values, top_ids = torch.topk(logp, min(5, logp.numel()))
+    return {"score_method": SCORING_VERSION, "score_valid": True,
+            "token_ids": ids, "logprob_0": lp0, "logprob_1": lp1,
+            "p0": math.exp(lp0), "p1": math.exp(lp1), "s": s,
+            "pred_argmax": int(s >= 0.5),
+            "top5": [{"token_id": int(i), "token": tokenizer.decode([int(i)], skip_special_tokens=False),
+                      "logprob": float(v)} for i, v in zip(top_ids.tolist(), top_values.tolist())],
+            "logprob_distribution": "unconstrained_first_token"}
 
 
 class LLMClient:
@@ -66,9 +96,9 @@ class LLMClient:
 
         for attempt in range(1, attempts + 1):
             try:
-                raw_text = self._call_provider(prompt)
+                output = self._call_provider(prompt)
                 return {
-                    "raw_response": raw_text,
+                    **output,
                     "request_status": "ok",
                     "request_error": None,
                     "attempts": attempt,
@@ -88,13 +118,15 @@ class LLMClient:
             "request_error": last_error,
             "attempts": attempts,
             "model": self.model_name,
+            "score_method": SCORING_VERSION,
+            "score_valid": False,
         }
 
     def _call_provider(self, prompt: str) -> str:
         """Dispatch call to provider."""
         return self._call_transformers(prompt)
 
-    def _call_transformers(self, prompt: str) -> str:
+    def _call_transformers(self, prompt: str) -> Dict[str, Any]:
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -109,8 +141,11 @@ class LLMClient:
             add_generation_prompt=True, return_dict=True, return_tensors="pt"
         ).to(self._model.device)
         with torch.inference_mode():
-            output = self._model.generate(**inputs, max_new_tokens=self.max_tokens, do_sample=False)
-        return self._tokenizer.decode(output[0][inputs["input_ids"].shape[-1]:], skip_special_tokens=True).strip()
+            output = self._model.generate(**inputs, max_new_tokens=1, do_sample=False,
+                                          return_dict_in_generate=True, output_logits=True)
+        score = score_first_token(output.logits[0][0], self._tokenizer)
+        response = self._tokenizer.decode(output.sequences[0][inputs["input_ids"].shape[-1]:], skip_special_tokens=True).strip()
+        return {"raw_response": response, **score}
 
     def _call_fpt_openai(self, prompt: str) -> str:
         """Call FPT Cloud / OpenAI-compatible endpoint."""
@@ -189,6 +224,8 @@ class LLMClient:
         pred = "1" if is_vuln else "0"
         return {
             "raw_response": pred,
+            "score_method": "mock_no_logprobs",
+            "score_valid": False,
             "request_status": "ok",
             "request_error": None,
             "attempts": 1,
