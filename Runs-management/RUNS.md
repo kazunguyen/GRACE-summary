@@ -2,7 +2,7 @@
 
 Tự động chọn ngưỡng validation và bản ghi phân tích local: [TU_DONG_KHOA_NGUONG.md](TU_DONG_KHOA_NGUONG.md); trạng thái/khóa đang có tại threshold_lock_status.json và thresholds.json.
 
-Kiểm toán điều kiện trước test xác nhận Tầng 1: [KIEM_TOAN_DIEU_KIEN_TANG_1.md](KIEM_TOAN_DIEU_KIEN_TANG_1.md), cập nhật từ artifact ngày 01/11/2026; đủ 50.055 prompt nhưng còn điều kiện donor/protocol/audit/ngưỡng cần hoàn tất.
+Kiểm toán điều kiện trước test xác nhận Tầng 1: [KIEM_TOAN_DIEU_KIEN_TANG_1.md](KIEM_TOAN_DIEU_KIEN_TANG_1.md), có snapshot kiểm toán và phần bổ sung sau I-05. Đủ 50.055 prompt; B0 và B2 đã có output bốn split, các ngưỡng validation hiện khóa cho B0/Devign, B0/ReVeal, B2/Devign và B2/ReVeal. Điều kiện donor/protocol/audit và ngưỡng của những arm còn lại vẫn cần xử lý; B2/ReVeal test đã chạy một phần trước khi khóa.
 
 Ma trận cấu hình dự kiến và ghi chú từng arm: [MA_TRAN_RUN.md](MA_TRAN_RUN.md).
 

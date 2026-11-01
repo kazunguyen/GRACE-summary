@@ -2,6 +2,8 @@
 
 Kiểm tra ngày 01/11/2026 trong GRACE-summary. Tiêu chí: [Phương án 2](../../REPORT_TO_TEACHER/20261029/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf), Bước 1–4 và yêu cầu Bước 5 trang 20. Chấp nhận inference Kaggle GPU thay server tự host; không coi thiếu server/API endpoint là lỗi. Bước 0 không được đánh giá theo phạm vi trước đó. B3, H2 và đối chứng Tầng 2/3 không được coi là thiếu để bắt đầu riêng Tầng 1. Việc người dùng đã yêu cầu bỏ qua smoke test không bị đổi thành điều kiện chặn mới trong báo cáo này.
 
+Các phát hiện trong phần kiểm toán chính phản ánh artifact có sẵn tại lúc lập báo cáo. Phần bổ sung sau I-05 ở Mục 3 và trường `post_audit_inference_update` trong JSON ghi trạng thái được xác minh sau đó; không viết lại kết luận lịch sử hay các hạn chế giao thức.
+
 **Kết luận: prompt Tầng 1 đã đầy đủ và ghép cặp đúng với B2 hiện có, nhưng chưa hoàn tất điều kiện để gọi các run test tiếp theo là ma trận xác nhận đúng protocol.** Những điểm cần xử lý là kho donor Devign chưa thống nhất, nghiệm thu prompt bằng người, đăng ký trước, và ngưỡng validation trước test. Không sửa dữ liệu/prompt/notebook inference hoặc chạy thêm LLM trong đợt kiểm toán này.
 
 ## 1. Tình trạng các bước
@@ -43,6 +45,8 @@ Graph 40/80 thay 25/25; B0/B1 giữ các câu dẫn trống thay vì bỏ toàn 
 5/2.732 Devign validation và 16/2.732 Devign test có demo B2 ngoài tập keep_in_bank của snapshot mới. Flip/rep cố ý dùng cùng demo với B2 nên kế thừa chênh lệch này. Không thể sửa riêng 21 demo rồi vẫn gọi là cùng pipeline truy hồi: kho dùng fit whitening/chọn ứng viên cũng là một phần giao thức. Cần thống nhất một bộ B2 tham chiếu đúng kho đã chốt, sau đó các arm ghép cặp bám bộ đó; CodeT5/CPG đã cache có thể tái dùng. Nếu tiếp tục bộ B2 cũ, phải mô tả rõ đây là bộ ghép cặp lịch sử/thăm dò, chưa đáp ứng kho sạch mà protocol mới khai báo.
 
 ## 3. Kết quả inference có thể xác nhận từ bản sao hiện tại
+
+> **Cập nhật bổ sung sau thời điểm chụp kiểm toán:** các con số I-02 trong bảng dưới đây là snapshot tại lúc kiểm toán ban đầu, không còn là trạng thái output mới nhất. Sau khi nhập lượt Kaggle I-05 ngày 01/11/2026, toàn bộ B2 đã đủ 10.011/10.011 records cho bốn split, 0 invalid; B2/ReVeal validation cũng đã đủ và tau=0,12 đã được khóa. Xem [I-05](RUNS.md) và [trạng thái khóa ngưỡng](threshold_lock_status.json). Bổ sung này chỉ cập nhật bằng chứng inference/threshold; các kết luận riêng về donor Devign, chấm prompt, schema/protocol và thứ tự test đã chạy trước khóa vẫn còn hiệu lực, nên không đồng nghĩa các điều kiện chạy xác nhận đã hoàn tất.
 
 | Arm | Devign validation | ReVeal validation | Devign test | ReVeal test |
 |---|---:|---:|---:|---:|

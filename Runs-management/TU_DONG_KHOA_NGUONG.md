@@ -9,10 +9,11 @@ Ngày thực hiện 01/11/2026. Có thể làm trên CPU độc lập với GPU 
 | B0 / Devign | 2.732/2.732 | 0,98 | 0,076010 |
 | B0 / ReVeal | 2.273/2.273 | 0,30 | 0,080120 |
 | B2 / Devign | 2.732/2.732 | 0,70 | 0,053226 |
+| B2 / ReVeal | 2.273/2.273 | 0,12 | 0,082299 |
 
 Nguồn chính: [thresholds.json](thresholds.json). Quy tắc grid 0,01–0,99, tối đa MCC, hòa thì gần 0,5 nhất rồi ngưỡng thấp hơn. Đây là ngưỡng của score, không thay nhãn raw greedy. Đã đối chiếu độc lập bằng sklearn. Khóa đã có không được ghi đè nếu evidence/model/prompt hoặc tau thay đổi; phải tạo phiên giao thức khác khi thay đầu vào.
 
-B2 ReVeal hiện chỉ có 1.664/2.273 record validation, còn 609 mẫu. B1/flip/rep chưa có kết quả validation local phù hợp. Không đặt ngưỡng giả cho các tập chưa đủ. Trạng thái mới nhất: [threshold_lock_status.json](threshold_lock_status.json).
+B2 ReVeal đã đủ 2.273/2.273 validation và khóa tau=0,12 sau khi nhập output B2 I-04/I-05; MCC validation=0,082299. B1/flip/rep và các arm khác chưa có kết quả validation local đủ điều kiện. Không đặt ngưỡng giả cho các tập chưa đủ. Trạng thái mới nhất: [threshold_lock_status.json](threshold_lock_status.json). Lưu ý thứ tự thực tế: một phần test B2 đã chạy trong I-04 trước khi khóa B2/ReVeal; không mô tả toàn bộ B2 test là đã bắt đầu sau khóa.
 
 ## Tự động hóa đang hoạt động
 

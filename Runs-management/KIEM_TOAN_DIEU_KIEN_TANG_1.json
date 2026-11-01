@@ -964,5 +964,37 @@
       "matches": true
     }
   ],
-  "status": "Audit complete; absence means not found locally, not proof about external Kaggle/OSF state."
+  "status": "Audit complete; absence means not found locally, not proof about external Kaggle/OSF state.",
+  "post_audit_inference_update": {
+    "updated_on": "2026-11-01",
+    "source": "Kaggle B2 I-05 merged with I-02/I-04; see RUNS.md I-05 and canonical merge_manifest.json",
+    "records": {
+      "devign_validation": 2732,
+      "reveal_validation": 2273,
+      "devign_test": 2732,
+      "reveal_test": 2274,
+      "total": 10011,
+      "invalid": 0,
+      "conflicts": 0
+    },
+    "raw_prediction_confusion_matrix": {
+      "TP": 1868,
+      "TN": 3413,
+      "FN": 1014,
+      "FP": 3716
+    },
+    "validation_thresholds": {
+      "B2_devign": {
+        "state": "locked",
+        "tau": 0.7,
+        "mcc": 0.05322579135003001
+      },
+      "B2_reveal": {
+        "state": "locked",
+        "tau": 0.12,
+        "mcc": 0.08229864075239605
+      }
+    },
+    "protocol_caveat": "Part of REVEAL test inference was already run in I-04 before the B2/ReVeal threshold lock; remaining part ran in I-05 after lock. This update supersedes only inference/threshold progress counts and does not resolve donor/protocol/prompt-audit findings or establish confirmatory ordering."
+  }
 }
