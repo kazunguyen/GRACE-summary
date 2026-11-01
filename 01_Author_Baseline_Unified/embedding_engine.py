@@ -63,7 +63,7 @@ class CodeT5Embedder:
             self.model = T5EncoderModel.from_pretrained(model_name, revision=revision).to(self.device)
             self.model.eval()
 
-    def encode(self, code_snippets: List[str], batch_size: int = 32) -> np.ndarray:
+    def encode(self, code_snippets: List[str], batch_size: int = 16) -> np.ndarray:
         """Encode list of code snippets into 768d vectors."""
         if not code_snippets:
             return np.empty((0, 768), dtype=np.float32)

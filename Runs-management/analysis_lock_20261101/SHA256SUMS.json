@@ -1,0 +1,11 @@
+{
+  "created_at_utc": "2026-11-01T10:02:28.614281+00:00",
+  "files": {
+    "CHANGES_AFTER_ANALYSIS_LOCK.md": "fa12dd79c7b243f0534d3651e9c555f596a3a699168f2c5471abe72819443def",
+    "preregistration.md": "016c81866e467da39d012dd2c06a2e5b5a9a58e3b0835272fc79a0405d0767ba",
+    "protocol.analysis.json": "467badecf9c3f539e3aa2bf9800319f7a823864851131f1ec702739733ab75d3",
+    "protocol.template.snapshot.yaml": "47ca1c2626b5849be1eefe8ab34f4cf11b19df7f0de0c604ad54ca210103b39c",
+    "thresholds.initial.json": "39080ae54e985d29af214ee8ea9b222e97c717ffbfaaee327d5af5d58d4d2611",
+    "threshold_rules.json": "6eecafda1479deb6740cf5daaa73f98dffd5d52a55f5cc01a40f249020222d27"
+  }
+}

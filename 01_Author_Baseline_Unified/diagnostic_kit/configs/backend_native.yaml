@@ -1,0 +1,12 @@
+backend:
+  kind: llamacpp_native
+  model: Qwen/Qwen3-Coder-30B-A3B-Instruct
+  model_path: /kaggle/working/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf
+  model_sha256: f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335
+  tokenizer: Qwen/Qwen3-Coder-30B-A3B-Instruct
+  tokenizer_revision: b2cff646eb4bb1d68355c01b18ae02e7cf42d120
+  scoring_policy: unconstrained_first_token_logits_v1
+  temperature: 0.0
+  max_tokens: 1
+  seed: 42
+  guided_choice: false

@@ -1,0 +1,54 @@
+{
+  "state": "complete",
+  "timed_out": false,
+  "started_at": "2026-11-01T11:06:51.970037+00:00",
+  "deadline_at": "2026-11-01T19:06:37.503662+00:00",
+  "stop_new_records_at": "2026-11-01T19:01:37.503662+00:00",
+  "max_runtime_hours": 7.995981562534968,
+  "checkpoint_reserve_seconds": 300,
+  "runs": {
+    "devign/validation": {
+      "state": "complete",
+      "bundle": "/kaggle/working/grace_b2_bundles/devign_validation_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/devign/validation",
+      "count": 2732,
+      "completed": 2732,
+      "records_path": "/kaggle/working/grace_b2_four_split_8h/devign/validation/records.jsonl",
+      "bundle_sha256": "9384e5d41436fde4cfa5f745ddeef52e63eb72596ad0c2c2343b85a01a3a217c",
+      "evaluation": "/kaggle/working/grace_b2_four_split_8h/devign/validation/evaluation.json"
+    },
+    "reveal/validation": {
+      "state": "complete",
+      "bundle": "/kaggle/working/grace_b2_bundles/reveal_validation_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/reveal/validation",
+      "count": 2273,
+      "completed": 2273,
+      "records_path": "/kaggle/working/grace_b2_four_split_8h/reveal/validation/records.jsonl",
+      "bundle_sha256": "273903feb21123b55f77fe6489507361fa5dd160cf7022c457a7a2d9dbe3c0fd",
+      "evaluation": "/kaggle/working/grace_b2_four_split_8h/reveal/validation/evaluation.json"
+    },
+    "devign/test": {
+      "state": "complete",
+      "bundle": "/kaggle/working/grace_b2_bundles/devign_test_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/devign/test",
+      "count": 2732,
+      "completed": 2732,
+      "records_path": "/kaggle/working/grace_b2_four_split_8h/devign/test/records.jsonl",
+      "bundle_sha256": "eec179469b3924569d7c38c2d097a3d919bd40bf033b7e400d65d58be2ea651e",
+      "evaluation": "/kaggle/working/grace_b2_four_split_8h/devign/test/evaluation.json"
+    },
+    "reveal/test": {
+      "state": "complete",
+      "bundle": "/kaggle/working/grace_b2_bundles/reveal_test_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/reveal/test",
+      "count": 2274,
+      "completed": 2274,
+      "records_path": "/kaggle/working/grace_b2_four_split_8h/reveal/test/records.jsonl",
+      "bundle_sha256": "0aa33229a35de47637d80b586174e4592fd1b8168efaeef14d1965ecc8a4d1aa",
+      "evaluation": "/kaggle/working/grace_b2_four_split_8h/reveal/test/evaluation.json"
+    }
+  },
+  "completed_records_total": 10011,
+  "last_checkpoint_at": "2026-11-01T13:25:06.172775+00:00",
+  "completed_at": "2026-11-01T13:25:06.253470+00:00"
+}

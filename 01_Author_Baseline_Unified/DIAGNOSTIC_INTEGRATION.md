@@ -1,5 +1,14 @@
 # Diagnostic integration
 
+Update 2026-11-01: the research matrix now uses `output/research_freeze_20261101/`
+and `diagnostic_kit/configs/backend_native.yaml` with unconstrained label logits.
+See `../Runs-management/QUY_UOC_FRAMEWORK_20261101.md` and
+`../Runs-management/TIEN_DO_PHUONG_AN_2.md` for the current decisions/status.
+The API top-k path described below is historical and is refused by the research
+matrix runner. New arm notebooks must consume the frozen donor bank, preserve
+raw target code/hash, and export H2 source-limit metadata. Prompt generation and
+preregistration remain pending.
+
 The contract is 8192 model tokens including the chat template. Component budgets: target 3000, each demo 1500, graph 1500; prefix <=40 nodes / 80 edges. The pinned Qwen tokenizer is required for real runs. MockTokenizer is only for local tests.
 
 Export with explicit frozen, binary-labelled, graph-enriched JSONL files:

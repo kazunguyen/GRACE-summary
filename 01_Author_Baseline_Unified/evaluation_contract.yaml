@@ -56,8 +56,9 @@ selected_inference_model:
   quantization: Q4_K_M
   format: GGUF
   backend: llama-cpp-python
-  revision: resolve_and_record_before_run
-  sha256: record_before_run
+  revision: local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335
+  sha256: f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335
+  backend_version: 0.3.16
 
 inference_config:
   temperature: 0.0
@@ -66,6 +67,11 @@ inference_config:
   retry_policy: max_attempts=5; exponential_backoff=5s..120s; exhausted_request=invalid
   parser: parser.py::parse_prediction
   parser_contract: exact_last_line_binary_v1
+  research_scoring: unconstrained_first_token_logits_v1
+  research_score: sigmoid(logit_1 - logit_0)
+  research_score_valid: finite_original_logits_and_matching_single_label_token_ids
+  research_response_valid: raw_greedy_token_is_0_or_1_report_separately
+  top5_role: diagnostics_only
 
 prompt_context_policy:
   graph: true

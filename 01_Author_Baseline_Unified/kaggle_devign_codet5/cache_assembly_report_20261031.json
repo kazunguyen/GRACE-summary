@@ -1,0 +1,44 @@
+[
+  {
+    "dataset": "devign",
+    "split": "train",
+    "completed": 21854,
+    "path": "/home/quang-dung/GRACE-native/joern-codet5/data/devign/embedding_cache/train",
+    "vectors_sha256": "a29c3d0fc7e6bad3a7c7763389fcb6dd065b1a6a76c443f8776d75d0598dd059"
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "completed": 2732,
+    "path": "/home/quang-dung/GRACE-native/joern-codet5/data/devign/embedding_cache/validation",
+    "vectors_sha256": "8af87a32f1a6d939911f8a8225af4e10537eb818483161deb3acda8248f714c8"
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "completed": 2732,
+    "path": "/home/quang-dung/GRACE-native/joern-codet5/data/devign/embedding_cache/test",
+    "vectors_sha256": "91ee340fb76588957c4239328b34f72817ac71b0b76b146d619934f56e4f1d07"
+  },
+  {
+    "dataset": "reveal",
+    "split": "train",
+    "completed": 18187,
+    "path": "/home/quang-dung/GRACE-native/joern-codet5/data/reveal/embedding_cache/train",
+    "vectors_sha256": "225d6c798a8b12357f5d2cf48fa42186d6e14ed997613b0da099fb7a8a127c18"
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "completed": 2273,
+    "path": "/home/quang-dung/GRACE-native/joern-codet5/data/reveal/embedding_cache/validation",
+    "vectors_sha256": "bfc8479762b5f31cb3bad91891c4c63eef21b0d79cb9c1c270e47487904af5f7"
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "completed": 2274,
+    "path": "/home/quang-dung/GRACE-native/joern-codet5/data/reveal/embedding_cache/test",
+    "vectors_sha256": "3415da26e5c81a52383d1f22b0d9b765bf7601e9e19c891a68edbd945c8542f3"
+  }
+]

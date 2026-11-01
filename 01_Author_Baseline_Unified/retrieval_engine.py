@@ -172,7 +172,7 @@ class DemonstrationRetriever:
         for train_idx in top_k_cand_idx:
             cand = self.train_samples[train_idx]
             cand_code = cand["func"]
-            cand_ast = serialize_ast_representation(cand.get("nodes", []), cand.get("edges", []))
+            cand_ast = cand["ast_repr"] if "ast_repr" in cand else serialize_ast_representation(cand.get("nodes", []), cand.get("edges", []))
 
             hybrid, jacc, ast_s = compute_hybrid_score(
                 query_code, query_ast, cand_code, cand_ast,

@@ -18,14 +18,14 @@ class FitResult:
 
 
 class TokenCounter:
-    def __init__(self, model_or_path: Optional[str] = None, approx_chars_per_token: float = 4.0):
+    def __init__(self, model_or_path: Optional[str] = None, approx_chars_per_token: float = 4.0, revision: Optional[str] = None):
         self.model = model_or_path
         self.approx = model_or_path is None
         self.ratio = approx_chars_per_token
         self.tok = None
         if model_or_path is not None:
             from transformers import AutoTokenizer
-            self.tok = AutoTokenizer.from_pretrained(model_or_path, trust_remote_code=False)
+            self.tok = AutoTokenizer.from_pretrained(model_or_path, revision=revision, trust_remote_code=False)
 
     def count(self, text: str) -> int:
         if self.tok is None:

@@ -1,0 +1,18 @@
+{
+  "schema": "grace_devign_codet5_kaggle_source_v1",
+  "contract_revision": "evaluation_contract_v3_context8192tokens_20261029",
+  "model": "Salesforce/codet5-base@02cd2d31bb7c6d0e4d91156167b2de044989c733",
+  "splits": {
+    "validation": 2732,
+    "test": 2732
+  },
+  "files": {
+    "README.md": "ef0b6199f338da58ccb5bbbcdfa728d004aad59b19309fe29c26129895b60204",
+    "embedding_engine.py": "82e9bde7f96c83e892856bde140fd71a9c387c2daba6d9500406f631a1c59230",
+    "evaluation_contract.yaml": "7e631ddb0f84b759133b5c08a85d60ee5c98ea9fd802064fc087b637151c54d4",
+    "prepare_embedding_cache.py": "c9362664c42e35ef1fd7b933a6977c93302e00aea63d7f3117d402bb689fa627",
+    "raw/test.jsonl": "d2d72e446e31d062766f014ae37f787428943b8e54fd85a03bc92fd1e69f252e",
+    "raw/validation.jsonl": "d66a977b7358343f8364b1351cc318bc52c5eae6c48cc46664de4017fc87084b",
+    "requirements-kaggle.txt": "180da28b685682cf47de28544d0d9819ede66c478786015b82750d3989edd9a6"
+  }
+}

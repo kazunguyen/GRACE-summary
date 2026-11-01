@@ -22,18 +22,12 @@ def sha256(path):
 
 
 def binary_scores(logits, label_ids):
-    values = np.asarray(logits, dtype=np.float64).reshape(-1)
-    if not np.all(np.isfinite(values)):
-        raise ValueError('Non-finite logits')
-    normalizer = float(np.max(values) + np.log(np.exp(values - np.max(values)).sum()))
-    lp0 = float(values[label_ids[0]] - normalizer)
-    lp1 = float(values[label_ids[1]] - normalizer)
-    s = float(np.exp(lp1 - np.logaddexp(lp0, lp1)))
-    best = int(np.argmax(values))
-    top = np.argsort(values)[-5:][::-1]
-    return {'logprob_0': lp0, 'logprob_1': lp1, 'p0': math.exp(lp0), 'p1': math.exp(lp1),
-            's': s, 'pred_argmax': int(s >= 0.5), 'greedy_token_id': best,
-            'top5': [{'token_id': int(i), 'logprob': float(values[i] - normalizer)} for i in top]}
+    import sys
+    kit_src = str(Path(__file__).resolve().parent / 'diagnostic_kit' / 'src')
+    if kit_src not in sys.path:
+        sys.path.insert(0, kit_src)
+    from grace_diag.native_scoring import binary_scores as canonical_scores
+    return canonical_scores(logits, label_ids)
 
 
 def run(bundle, model_path, out, gpu_layers=-1, limit=None, model_revision=None):

@@ -1,0 +1,118 @@
+{
+  "checked_at_utc": "2026-11-01T13:11:04.466016+00:00",
+  "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+  "entries": [
+    {
+      "arm": "B0",
+      "dataset": "devign",
+      "state": "locked",
+      "complete": true,
+      "expected": 2732,
+      "completed": 2732,
+      "missing": 0,
+      "source_files": 1,
+      "tau": 0.98,
+      "validation_mcc": 0.07600978032041933,
+      "locked_at_utc": "2026-11-01T09:57:16.195324+00:00"
+    },
+    {
+      "arm": "B0",
+      "dataset": "reveal",
+      "state": "locked",
+      "complete": true,
+      "expected": 2273,
+      "completed": 2273,
+      "missing": 0,
+      "source_files": 1,
+      "tau": 0.3,
+      "validation_mcc": 0.08011987788762218,
+      "locked_at_utc": "2026-11-01T09:57:16.444338+00:00"
+    },
+    {
+      "arm": "B1",
+      "dataset": "devign",
+      "state": "waiting_validation_records",
+      "complete": false,
+      "expected": 2732,
+      "completed": 0,
+      "missing": 2732,
+      "source_files": 0
+    },
+    {
+      "arm": "B1",
+      "dataset": "reveal",
+      "state": "waiting_validation_records",
+      "complete": false,
+      "expected": 2273,
+      "completed": 0,
+      "missing": 2273,
+      "source_files": 0
+    },
+    {
+      "arm": "B2",
+      "dataset": "devign",
+      "state": "locked",
+      "complete": true,
+      "expected": 2732,
+      "completed": 2732,
+      "missing": 0,
+      "source_files": 3,
+      "tau": 0.7,
+      "validation_mcc": 0.05322579135003001,
+      "locked_at_utc": "2026-11-01T09:57:17.272790+00:00"
+    },
+    {
+      "arm": "B2",
+      "dataset": "reveal",
+      "state": "locked",
+      "complete": true,
+      "expected": 2273,
+      "completed": 2273,
+      "missing": 0,
+      "source_files": 3,
+      "tau": 0.12,
+      "validation_mcc": 0.08229864075239605,
+      "locked_at_utc": "2026-11-01T10:42:29.297068+00:00"
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "devign",
+      "state": "waiting_validation_records",
+      "complete": false,
+      "expected": 2732,
+      "completed": 0,
+      "missing": 2732,
+      "source_files": 0
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "reveal",
+      "state": "waiting_validation_records",
+      "complete": false,
+      "expected": 2273,
+      "completed": 0,
+      "missing": 2273,
+      "source_files": 0
+    },
+    {
+      "arm": "B2-rep",
+      "dataset": "devign",
+      "state": "waiting_validation_records",
+      "complete": false,
+      "expected": 2732,
+      "completed": 0,
+      "missing": 2732,
+      "source_files": 0
+    },
+    {
+      "arm": "B2-rep",
+      "dataset": "reveal",
+      "state": "waiting_validation_records",
+      "complete": false,
+      "expected": 2273,
+      "completed": 0,
+      "missing": 2273,
+      "source_files": 0
+    }
+  ]
+}

@@ -65,7 +65,7 @@ def main():
     import yaml
     proto = yaml.safe_load(a.protocol.read_text(encoding="utf-8"))
     budget = proto["token_budget"]
-    prefix = proto.get("graph_prefix", {"nodes": 25, "edges": 25})
+    prefix = proto.get("graph_prefix", {"nodes": 40, "edges": 80})
     arms_cfg = load_arms(a.arms_config) if a.arms_config.exists() else ARMS
     unknown = [x for x in a.arms if x not in arms_cfg]
     if unknown:
@@ -74,15 +74,41 @@ def main():
     backend_cfg = None
     scorer = None
     if not a.dry_run:
+        freeze_path = ROOT.parent / proto["dedup"]["frozen_snapshot"]
+        if hashlib.sha256(freeze_path.read_bytes()).hexdigest() != proto["dedup"]["manifest_sha256"]:
+            raise SystemExit("Frozen data manifest SHA256 mismatch")
+        frozen = json.loads(freeze_path.read_text(encoding="utf-8"))
+        dataset_freeze = frozen["datasets"][a.dataset]
+        if not a.donors:
+            raise SystemExit("Pass --donors from research_freeze_20261101 for matrix provenance")
+        h = hashlib.sha256()
+        with a.donors.open("rb") as f:
+            for chunk in iter(lambda: f.read(1024 * 1024), b""): h.update(chunk)
+        if h.hexdigest() != dataset_freeze["files_sha256"]["donors.jsonl"]:
+            raise SystemExit("Donor file does not match frozen retrieval bank")
         from grace_diag.llm_backend import FirstTokenScorer, load_backend_config
         backend_cfg = load_backend_config(a.backend)
-        scorer = FirstTokenScorer(backend_cfg, cache_dir=a.out / "_cache")
-    tok_name = a.tokenizer or (backend_cfg.model if backend_cfg and not a.allow_approx_tokens else None)
-    counter = TokenCounter(tok_name)
+        if backend_cfg.kind != "llamacpp_native" or backend_cfg.scoring_policy != "unconstrained_first_token_logits_v1":
+            raise SystemExit("Research matrix requires configs/backend_native.yaml: unconstrained label logits, not top-k API scores")
+        from grace_diag.native_scoring import NativeFirstTokenScorer
+        scorer = NativeFirstTokenScorer(backend_cfg)
+    tok_name = a.tokenizer or (backend_cfg.tokenizer if backend_cfg and not a.allow_approx_tokens else None)
+    counter = TokenCounter(tok_name, revision=backend_cfg.tokenizer_revision if backend_cfg else None)
     if counter.approx and not a.dry_run and not a.allow_approx_tokens:
         raise SystemExit("Lượt chạy thật phải có tokenizer của model (--tokenizer)")
 
     specs = read_jsonl(a.specs)
+    if not a.dry_run:
+        ids_path = freeze_path.parent / a.dataset / f"{a.split}_manifest.jsonl"
+        expected = {r["id"]: r for r in read_jsonl(ids_path)}
+        if len({str(r["id"]) for r in specs}) != len(specs):
+            raise SystemExit("Duplicate target IDs in specs")
+        for spec in specs:
+            canonical = expected.get(str(spec["id"]))
+            if canonical is None or spec.get("label") != canonical["label"] or hashlib.sha256(spec["query_code"].encode()).hexdigest() != canonical["code_sha256"]:
+                raise SystemExit("Specs target ID/label/code differs from frozen split")
+        if not a.limit and len(specs) != len(expected):
+            raise SystemExit("Research matrix requires full official split")
     if a.limit:
         specs = specs[: a.limit]
     donors = DonorPool(read_jsonl(a.donors)) if a.donors else None
@@ -130,6 +156,8 @@ def main():
                        "truncated": rendered.evidence["truncated"], "tokens_approx": counter.approx, "raw": res.raw, "top5": res.top,
                        "s": None if res.s != res.s else res.s, "p0": res.p0, "p1": res.p1,
                        "pred_argmax": res.pred_argmax, "valid": res.valid, "error": res.error,
+                       "logprob_0": res.logprob_0, "logprob_1": res.logprob_1,
+                       "response_valid": res.response_valid, "scoring_policy": backend_cfg.scoring_policy,
                        "label": label, "group": group, "model": backend_cfg.model, "backend_kind": backend_cfg.kind,
                        "usage": res.usage, "latency_s": res.latency_s, "cached": res.cached,
                        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}

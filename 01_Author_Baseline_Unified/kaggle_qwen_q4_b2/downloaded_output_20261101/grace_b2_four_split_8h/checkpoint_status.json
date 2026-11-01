@@ -1,0 +1,44 @@
+{
+  "state": "timed_out",
+  "timed_out": true,
+  "started_at": "2026-10-31T17:05:34.224566+00:00",
+  "deadline_at": "2026-11-01T01:05:19.641120+00:00",
+  "stop_new_records_at": "2026-11-01T01:00:19.641120+00:00",
+  "max_runtime_hours": 7.99594904270437,
+  "checkpoint_reserve_seconds": 300,
+  "runs": {
+    "devign/validation": {
+      "state": "complete",
+      "bundle": "/kaggle/working/grace_b2_bundles/devign_validation_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/devign/validation",
+      "count": 2732,
+      "completed": 2732,
+      "records_path": "/kaggle/working/grace_b2_four_split_8h/devign/validation/records.jsonl",
+      "bundle_sha256": "8f3603199baee65f97aa0177d6cfcd09100e6b8303001ded17cc016ea0b0a60f",
+      "evaluation": "/kaggle/working/grace_b2_four_split_8h/devign/validation/evaluation.json"
+    },
+    "reveal/validation": {
+      "state": "checkpointed",
+      "bundle": "/kaggle/working/grace_b2_bundles/reveal_validation_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/reveal/validation",
+      "count": 2273,
+      "completed": 1664,
+      "records_path": "/kaggle/working/grace_b2_four_split_8h/reveal/validation/records.jsonl",
+      "bundle_sha256": "5305449bc3e6145c2f54a0000e5d9acbc50e881f71ad124a0a5907e4c51cf0e7"
+    },
+    "devign/test": {
+      "state": "pending",
+      "bundle": "/kaggle/working/grace_b2_bundles/devign_test_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/devign/test"
+    },
+    "reveal/test": {
+      "state": "pending",
+      "bundle": "/kaggle/working/grace_b2_bundles/reveal_test_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/reveal/test"
+    }
+  },
+  "completed_records_total": 4396,
+  "last_checkpoint_at": "2026-11-01T01:00:25.938661+00:00",
+  "timed_out_at": "2026-11-01T01:00:25.939015+00:00",
+  "stopped_after_run": "reveal/validation"
+}

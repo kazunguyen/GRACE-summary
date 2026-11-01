@@ -36,12 +36,19 @@ class BackendConfig:
     guided_choice: bool = False             # bật khi smoke test cho thấy < 99% prompt có token 0/1 trong top-k
     timeout_s: float = 120.0
     system_prompt: Optional[str] = None     # None = chỉ một message role=user (giống mã tác giả)
+    model_path: Optional[str] = None
+    model_sha256: Optional[str] = None
+    tokenizer: str = "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+    tokenizer_revision: str = "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+    scoring_policy: str = "legacy_topk_v1"
 
     def inference_identity(self) -> Dict[str, Any]:
         return {"kind": self.kind, "model": self.model, "temperature": self.temperature,
                 "max_tokens": self.max_tokens, "top_logprobs": self.top_logprobs,
                 "seed": self.seed, "guided_choice": self.guided_choice,
-                "system_prompt": self.system_prompt, "parser_version": PARSER_VERSION}
+                "system_prompt": self.system_prompt, "parser_version": PARSER_VERSION,
+                "model_sha256": self.model_sha256, "scoring_policy": self.scoring_policy,
+                "tokenizer_revision": self.tokenizer_revision}
 
 
 @dataclass
@@ -57,6 +64,9 @@ class ScoreResult:
     latency_s: float
     cached: bool = False
     error: Optional[str] = None
+    logprob_0: Optional[float] = None
+    logprob_1: Optional[float] = None
+    response_valid: Optional[bool] = None
 
     def to_dict(self):
         return asdict(self)

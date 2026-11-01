@@ -37,7 +37,7 @@ ANSWER = "Answer (0 or 1):"
 LABEL_WORD = {1: "Vulnerable", 0: "Non-vulnerable"}
 
 DEFAULT_BUDGET = {"total": 8192, "target_code": 3000, "demo": 1500, "graph": 1500, "reserve": 64}
-DEFAULT_GRAPH_PREFIX = {"nodes": 25, "edges": 25}
+DEFAULT_GRAPH_PREFIX = {"nodes": 40, "edges": 80}
 
 # Định nghĩa arm mặc định (configs/arms.yaml có thể ghi đè)
 ARMS: Dict[str, Dict[str, Any]] = {
@@ -140,6 +140,9 @@ def render_graph(policy: str, spec: Dict[str, Any], counter: TokenCounter, budge
     if policy == "none":
         return "", {**info, "rendered_nodes": 0, "rendered_edges": 0, "tokens": 0}
     if policy == "h2":
+        limits = spec.get("h2_source_limits") or {}
+        if limits.get("nodes", float("inf")) > prefix["nodes"] or limits.get("edges", float("inf")) > prefix["edges"]:
+            raise ValueError("B1-H2 requires h2_source_limits proving evidence was built from <=40/80 (configured prefix)")
         text = spec.get("h2_evidence") or ""
         if not text.strip():
             return "", {**info, "rendered_nodes": 0, "rendered_edges": 0, "tokens": 0, "missing": True}
@@ -171,19 +174,23 @@ def render_graph(policy: str, spec: Dict[str, Any], counter: TokenCounter, budge
             raise ValueError("Graph headers exceed token budget")
         return text, {**info, "rendered_nodes": len(kn), "rendered_edges": len(ke), "tokens": counter.count(text), "truncated": truncated}
     if policy == "fill":
+        # Research contract: fill within the same 40/80 source ceiling as prefix.
+        # Unlike prefix's edge-first trimming, fill keeps all eligible edges for
+        # the largest fitting node prefix (up to the configured edge ceiling).
+        nodes, edges = closed_prefix(nodes, edges, prefix["nodes"], prefix["edges"])
         # thêm nút theo thứ tự cho đến khi hết ngân sách token; cạnh đóng trong tập nút đã chọn
         lo, hi = 1, len(nodes)
         best = None
         while lo <= hi:
             mid = (lo + hi) // 2
-            kn, ke = closed_prefix(nodes, edges, mid, 10 ** 6)
+            kn, ke = closed_prefix(nodes, edges, mid, prefix["edges"])
             text = f"{NODE_HEAD}\n{format_nodes(kn)}\n{EDGE_HEAD}\n{format_edges(ke)}"
             if counter.count(text) <= budget:
                 best, lo = (text, kn, ke), mid + 1
             else:
                 hi = mid - 1
         if best is None:
-            kn, ke = closed_prefix(nodes, edges, 1, 10 ** 6)
+            kn, ke = closed_prefix(nodes, edges, 1, prefix["edges"])
             text = f"{NODE_HEAD}\n{format_nodes(kn)}\n{EDGE_HEAD}\n{format_edges(ke)}"
             fit = counter.fit(text, budget)
             return fit.text, {**info, "rendered_nodes": len(kn), "rendered_edges": len(ke), "tokens": fit.tokens, "truncated": True}

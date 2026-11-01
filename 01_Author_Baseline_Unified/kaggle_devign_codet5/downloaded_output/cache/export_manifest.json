@@ -1,0 +1,12 @@
+{
+  "schema": "devign_codet5_validation_test_export_v1",
+  "contract_revision": "evaluation_contract_v3_context8192tokens_20261029",
+  "model": "Salesforce/codet5-base@02cd2d31bb7c6d0e4d91156167b2de044989c733",
+  "source_package_sha256": "c9a2970dac3c1e35206c58501566889298c776cf0b24cf15c4fc0845e3702608",
+  "files": {
+    "validation/manifest.json": "9373f6317af11470beb12bfd1d05db04ceab02ccfe8a50dde8562e8c99f42d5b",
+    "validation/vectors.npy": "8af87a32f1a6d939911f8a8225af4e10537eb818483161deb3acda8248f714c8",
+    "test/manifest.json": "4bdb968f3f4aeb35a64a12dfd9d20e296fb1dc8db0f368fa0a7334b22d2a2496",
+    "test/vectors.npy": "91ee340fb76588957c4239328b34f72817ac71b0b76b146d619934f56e4f1d07"
+  }
+}

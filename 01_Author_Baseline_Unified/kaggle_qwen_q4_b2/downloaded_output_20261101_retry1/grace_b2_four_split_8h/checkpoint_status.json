@@ -1,0 +1,32 @@
+{
+  "state": "running",
+  "timed_out": false,
+  "started_at": "2026-11-01T01:41:44.262791+00:00",
+  "deadline_at": "2026-11-01T09:41:18.065022+00:00",
+  "stop_new_records_at": "2026-11-01T09:36:18.065022+00:00",
+  "max_runtime_hours": 7.992722842031055,
+  "checkpoint_reserve_seconds": 300,
+  "runs": {
+    "devign/validation": {
+      "state": "pending",
+      "bundle": "/kaggle/working/grace_b2_bundles/devign_validation_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/devign/validation"
+    },
+    "reveal/validation": {
+      "state": "pending",
+      "bundle": "/kaggle/working/grace_b2_bundles/reveal_validation_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/reveal/validation"
+    },
+    "devign/test": {
+      "state": "pending",
+      "bundle": "/kaggle/working/grace_b2_bundles/devign_test_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/devign/test"
+    },
+    "reveal/test": {
+      "state": "pending",
+      "bundle": "/kaggle/working/grace_b2_bundles/reveal_test_b2.zip",
+      "output": "/kaggle/working/grace_b2_four_split_8h/reveal/test"
+    }
+  },
+  "completed_records_total": 0
+}

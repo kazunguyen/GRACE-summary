@@ -1,0 +1,168 @@
+{
+  "created_at_local": "2026-11-01T21:07:42.434370+07:00",
+  "source_runs": [
+    "downloaded_output_20261101",
+    "downloaded_output_20261101_run2",
+    "downloaded_output_20261101_run3"
+  ],
+  "latest_run_status": {
+    "state": "complete",
+    "timed_out": false,
+    "started_at": "2026-11-01T11:06:51.970037+00:00",
+    "deadline_at": "2026-11-01T19:06:37.503662+00:00",
+    "stop_new_records_at": "2026-11-01T19:01:37.503662+00:00",
+    "max_runtime_hours": 7.995981562534968,
+    "checkpoint_reserve_seconds": 300,
+    "runs": {
+      "devign/validation": {
+        "state": "complete",
+        "bundle": "/kaggle/working/grace_b2_bundles/devign_validation_b2.zip",
+        "output": "/kaggle/working/grace_b2_four_split_8h/devign/validation",
+        "count": 2732,
+        "completed": 2732,
+        "records_path": "/kaggle/working/grace_b2_four_split_8h/devign/validation/records.jsonl",
+        "bundle_sha256": "9384e5d41436fde4cfa5f745ddeef52e63eb72596ad0c2c2343b85a01a3a217c",
+        "evaluation": "/kaggle/working/grace_b2_four_split_8h/devign/validation/evaluation.json"
+      },
+      "reveal/validation": {
+        "state": "complete",
+        "bundle": "/kaggle/working/grace_b2_bundles/reveal_validation_b2.zip",
+        "output": "/kaggle/working/grace_b2_four_split_8h/reveal/validation",
+        "count": 2273,
+        "completed": 2273,
+        "records_path": "/kaggle/working/grace_b2_four_split_8h/reveal/validation/records.jsonl",
+        "bundle_sha256": "273903feb21123b55f77fe6489507361fa5dd160cf7022c457a7a2d9dbe3c0fd",
+        "evaluation": "/kaggle/working/grace_b2_four_split_8h/reveal/validation/evaluation.json"
+      },
+      "devign/test": {
+        "state": "complete",
+        "bundle": "/kaggle/working/grace_b2_bundles/devign_test_b2.zip",
+        "output": "/kaggle/working/grace_b2_four_split_8h/devign/test",
+        "count": 2732,
+        "completed": 2732,
+        "records_path": "/kaggle/working/grace_b2_four_split_8h/devign/test/records.jsonl",
+        "bundle_sha256": "eec179469b3924569d7c38c2d097a3d919bd40bf033b7e400d65d58be2ea651e",
+        "evaluation": "/kaggle/working/grace_b2_four_split_8h/devign/test/evaluation.json"
+      },
+      "reveal/test": {
+        "state": "complete",
+        "bundle": "/kaggle/working/grace_b2_bundles/reveal_test_b2.zip",
+        "output": "/kaggle/working/grace_b2_four_split_8h/reveal/test",
+        "count": 2274,
+        "completed": 2274,
+        "records_path": "/kaggle/working/grace_b2_four_split_8h/reveal/test/records.jsonl",
+        "bundle_sha256": "0aa33229a35de47637d80b586174e4592fd1b8168efaeef14d1965ecc8a4d1aa",
+        "evaluation": "/kaggle/working/grace_b2_four_split_8h/reveal/test/evaluation.json"
+      }
+    },
+    "completed_records_total": 10011,
+    "last_checkpoint_at": "2026-11-01T13:25:06.172775+00:00",
+    "completed_at": "2026-11-01T13:25:06.253470+00:00"
+  },
+  "merge_policy": "union by sample id; require byte-decoded JSON records identical for overlaps; validate bundle prompt hashes; order by frozen prompt list",
+  "overlap_records_checked": 13110,
+  "conflicting_overlap_records": 0,
+  "total_merged_records": 10011,
+  "remaining_records": 0,
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "latest_kaggle_output_zip_sha256": "15ea3c5d3ef720e6c8a269e94385af03db8a3ab5bbfd4730210c0cd2a933ff4a",
+  "per_split": {
+    "devign/validation": {
+      "expected": 2732,
+      "run1_rows": 2732,
+      "run2_rows": 2732,
+      "run3_rows": 2732,
+      "merged_rows": 2732,
+      "missing_rows": 0,
+      "prompts_sha256": "e42592eaf0cfcd74fb483ee8a45ef3b49fb9f42a5ecead26c3e8ea96f4e842c3"
+    },
+    "reveal/validation": {
+      "expected": 2273,
+      "run1_rows": 1664,
+      "run2_rows": 2273,
+      "run3_rows": 2273,
+      "merged_rows": 2273,
+      "missing_rows": 0,
+      "prompts_sha256": "531b274808e0435ce47c6d1831903e4421486a034c6884a2a67ba01e779b3e42"
+    },
+    "devign/test": {
+      "expected": 2732,
+      "run1_rows": 0,
+      "run2_rows": 2732,
+      "run3_rows": 2732,
+      "merged_rows": 2732,
+      "missing_rows": 0,
+      "prompts_sha256": "9cac0bc7657390983da8c594a6354eaf339f2c5869d27ce9a6602630d6cbeb72"
+    },
+    "reveal/test": {
+      "expected": 2274,
+      "run1_rows": 0,
+      "run2_rows": 977,
+      "run3_rows": 2274,
+      "merged_rows": 2274,
+      "missing_rows": 0,
+      "prompts_sha256": "b0030bc08e2605f7416a1b88d7ab0702d0f10601bdcaa596f1f71e2879e9dcff"
+    }
+  },
+  "confusion_matrices": {
+    "devign/validation": {
+      "TP": 793,
+      "TN": 560,
+      "FN": 394,
+      "FP": 985,
+      "invalid": 0
+    },
+    "reveal/validation": {
+      "TP": 106,
+      "TN": 1184,
+      "FN": 104,
+      "FP": 879,
+      "invalid": 0
+    },
+    "devign/test": {
+      "TP": 844,
+      "TN": 546,
+      "FN": 411,
+      "FP": 931,
+      "invalid": 0
+    },
+    "reveal/test": {
+      "TP": 125,
+      "TN": 1123,
+      "FN": 105,
+      "FP": 921,
+      "invalid": 0
+    }
+  },
+  "run_history": {
+    "I-02": {
+      "status_file": "run_history/I-02/checkpoint_status.json",
+      "state": "timed_out",
+      "started_at": "2026-10-31T17:05:34.224566+00:00",
+      "ended_at": "2026-11-01T01:00:25.939015+00:00",
+      "completed_records_total": 4396,
+      "checkpoint_zip": "grace_b2_checkpoint_I02_partial.zip",
+      "checkpoint_sha256": "d73273d529baa1fa36341c9cd261152121a608d70785e15ee1463d10dfab2c15",
+      "diagnostics_zip": "run_history/I-02/grace_diagnostics.zip"
+    },
+    "I-04": {
+      "status_file": "run_history/I-04/checkpoint_status.json",
+      "state": "timed_out",
+      "started_at": "2026-11-01T02:12:23.841265+00:00",
+      "ended_at": "2026-11-01T10:07:11.169592+00:00",
+      "completed_records_total": 8714,
+      "checkpoint_zip": "grace_b2_checkpoint_I04_partial.zip",
+      "checkpoint_sha256": "c7717f6563753f2e027e985b31cd8e73d0697c224ebf66c1041a1c921aba9153",
+      "diagnostics_zip": "run_history/I-04/grace_diagnostics.zip"
+    },
+    "I-05": {
+      "status_file": "run_history/I-05/checkpoint_status.json",
+      "state": "complete",
+      "started_at": "2026-11-01T11:06:51.970037+00:00",
+      "ended_at": "2026-11-01T13:25:06.253470+00:00",
+      "completed_records_total": 10011,
+      "final_output_zip": "grace_b2_four_split_8h.zip",
+      "diagnostics_zip": "run_history/I-05/grace_diagnostics.zip"
+    }
+  }
+}
