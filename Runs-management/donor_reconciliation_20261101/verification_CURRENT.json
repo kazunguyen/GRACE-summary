@@ -1,0 +1,26 @@
+{
+  "checked_records": 20022,
+  "rerun_prompts": 66,
+  "rerun_inputs_verified": true,
+  "source_outputs_unchanged": true,
+  "no_new_downloaded_record_files": false,
+  "additional_record_files_outside_historical_scope": [
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_01\\grace_b1_runs\\devign\\test\\records.jsonl",
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_01\\grace_b1_runs\\devign\\validation\\records.jsonl",
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_01\\grace_b1_runs\\reveal\\validation\\records.jsonl",
+    "04_Arm_B2_Flip\\output\\kaggle_20261102_quangdung1111_run1\\grace_b2_flip_four_split_9h35\\devign\\test\\records.jsonl",
+    "04_Arm_B2_Flip\\output\\kaggle_20261102_quangdung1111_run1\\grace_b2_flip_four_split_9h35\\devign\\validation\\records.jsonl",
+    "04_Arm_B2_Flip\\output\\kaggle_20261102_quangdung1111_run1\\grace_b2_flip_four_split_9h35\\reveal\\validation\\records.jsonl"
+  ],
+  "scripts_sha256": {
+    "reconcile_donor_prompts.py": "eeef71fa26730561d00c2c14290724be4fe6568ca8a6d36d62f61e7ea3b362d8",
+    "summarize_donor_reconciliation.py": "ff97c4c7a0cdca0a0bd9d86b13057cc09460d07b22da47096af2e23b4deaff3d"
+  },
+  "exports_sha256": {
+    "summary.json": "be5a4c9713692a595c05ac5cd14ba4c0c59dc8199b452d6d9ddc6f4a566aa4d1",
+    "demo_comparison.jsonl": "d906096fa0cfce810673d8aeb8dcf5fa1f9bc64d13093c73692c0dd43b150f73",
+    "downloaded_record_decisions.jsonl": "45aa84240fe341cfae9a7a7911f7bf0aeb6374a55a78e06f6a12efcb7507e498",
+    "mau_can_inference_lai_CURRENT.csv": "947a7618622c027be598796d05900892ba50d3c240c52055cac0538e1242d0fd",
+    "KET_QUA_DOI_CHIEU_CURRENT.md": "e0578ac9d8889f2da4d9931f4940140786e8ad65c893d44a056878b0cf8ab887"
+  }
+}

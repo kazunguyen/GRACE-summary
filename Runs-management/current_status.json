@@ -1,0 +1,384 @@
+{
+  "schema": "local_progress_v1",
+  "checked_at_utc": "2026-11-02T03:39:30.129091+00:00",
+  "scope": "Known imported outputs only; no cloud status inferred",
+  "thresholds_fitted": false,
+  "historical_snapshots_modified": false,
+  "watcher": {
+    "state": "not_verified_running",
+    "pid_file_present": false,
+    "note": "Log/PID alone do not establish a live process; watcher was not started."
+  },
+  "arms": [
+    {
+      "arm": "B0",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs",
+      "splits": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "expected": 2732,
+          "completed": 2732,
+          "missing": 0,
+          "invalid_response": 284,
+          "invalid_score": 0,
+          "records_sha256": "d856cf6b2271d4fb6f22dc999c83efe3c0e6ec29b8bc4e1340e28a6093c44ce1",
+          "records_path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/validation/records.jsonl",
+          "threshold_state": "locked_historical_prompt_version",
+          "tau": 0.98
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "expected": 2732,
+          "completed": 2732,
+          "missing": 0,
+          "invalid_response": 302,
+          "invalid_score": 0,
+          "records_sha256": "e5eed103294d0ce4f74a5d2f719f128104a79e5f6f3a92bd00da23a947c7fdb6",
+          "records_path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/test/records.jsonl"
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "expected": 2273,
+          "completed": 2273,
+          "missing": 0,
+          "invalid_response": 261,
+          "invalid_score": 0,
+          "records_sha256": "80397c2e90f78cb2d67a94313a5cd02a09901ec64e56176f7d903e85385446d7",
+          "records_path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/validation/records.jsonl",
+          "threshold_state": "locked_historical_prompt_version",
+          "tau": 0.3
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "expected": 2274,
+          "completed": 2274,
+          "missing": 0,
+          "invalid_response": 285,
+          "invalid_score": 0,
+          "records_sha256": "d64fe85a7f8124ec189d1d110c9c22a3926fcc2391d76f0a5d7e9218f231c3a8",
+          "records_path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/test/records.jsonl"
+        }
+      ],
+      "notebooks": [
+        {
+          "path": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb",
+          "sha256": "fdc0ee82e6df6903463023471e2babef6fd6a136bfc4ce14e7dd8806376ee7d6",
+          "source_contains_make_lock_call": true,
+          "source_contains_test_lock_call": true
+        }
+      ],
+      "completed": 10011,
+      "expected": 10011,
+      "missing": 0,
+      "prompt_bundle_count": 4
+    },
+    {
+      "arm": "B1",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs",
+      "splits": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "expected": 2732,
+          "completed": 2732,
+          "missing": 0,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
+          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/devign/validation/records.jsonl",
+          "threshold_state": "validation_complete_unlocked",
+          "tau": null
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "expected": 2732,
+          "completed": 429,
+          "missing": 2303,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "c2faac7860ad97afff2eb9aaff2c5d1efefebbbe1ed1959d0dec0dae19f5c917",
+          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/devign/test/records.jsonl"
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "expected": 2273,
+          "completed": 2273,
+          "missing": 0,
+          "invalid_response": 3,
+          "invalid_score": 0,
+          "records_sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
+          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/reveal/validation/records.jsonl",
+          "threshold_state": "validation_complete_unlocked",
+          "tau": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "expected": 2274,
+          "completed": 0,
+          "missing": 2274,
+          "invalid_response": 0,
+          "invalid_score": 0
+        }
+      ],
+      "notebooks": [
+        {
+          "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1.ipynb",
+          "sha256": "e477a1c51c1a2f05320263cb0c537f9209cbe912898d0f7fd2f90eec66b304d8",
+          "source_contains_make_lock_call": false,
+          "source_contains_test_lock_call": false
+        }
+      ],
+      "completed": 5434,
+      "expected": 10011,
+      "missing": 4577,
+      "prompt_bundle_count": 4
+    },
+    {
+      "arm": "B2",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h",
+      "splits": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "expected": 2732,
+          "completed": 2732,
+          "missing": 0,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "39ecf541d2d3b440a87177f0d8f98c28cc3eb25b4247ace085bf0e1890ceb79a",
+          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/validation/records.jsonl",
+          "threshold_state": "locked_historical_prompt_version",
+          "tau": 0.7
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "expected": 2732,
+          "completed": 2732,
+          "missing": 0,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "0dbcf384bd0f640250f71aa03113765b7927a37c6d550807fc2ea851b94c78f1",
+          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/test/records.jsonl"
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "expected": 2273,
+          "completed": 2273,
+          "missing": 0,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "221a794e55d8f900ce3986e27cdf227a23a947aa4dd864b6ed597fe5363fa994",
+          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/validation/records.jsonl",
+          "threshold_state": "locked_historical_prompt_version",
+          "tau": 0.12
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "expected": 2274,
+          "completed": 2274,
+          "missing": 0,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "dcdaf0d0b52451b295e73cda7ba2e95653051035fcf3a9cd48e4b8d2ba39a415",
+          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/test/records.jsonl"
+        }
+      ],
+      "notebooks": [
+        {
+          "path": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
+          "sha256": "2142e2b8354798fa1b972b770038949c600d28f1d0b61469e9178102cbdefde5",
+          "source_contains_make_lock_call": false,
+          "source_contains_test_lock_call": false
+        }
+      ],
+      "completed": 10011,
+      "expected": 10011,
+      "missing": 0,
+      "prompt_bundle_count": 4
+    },
+    {
+      "arm": "B2-flip",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35",
+      "splits": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "expected": 2732,
+          "completed": 2732,
+          "missing": 0,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "179c082df802a511dd72121be9bb6d72e5d81cced0b6566dc10b4f8672d3b99d",
+          "records_path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/validation/records.jsonl",
+          "threshold_state": "validation_complete_unlocked",
+          "tau": null
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "expected": 2732,
+          "completed": 230,
+          "missing": 2502,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "62f1fa7510e0c8f8aa22794967db180a7e875974c83443cd3cec6b8d4d8a48eb",
+          "records_path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/test/records.jsonl"
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "expected": 2273,
+          "completed": 2273,
+          "missing": 0,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "records_sha256": "fa63f43705f867827238302ae511aae8b05d92e8f5394bb328df03397ee811b8",
+          "records_path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/reveal/validation/records.jsonl",
+          "threshold_state": "validation_complete_unlocked",
+          "tau": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "expected": 2274,
+          "completed": 0,
+          "missing": 2274,
+          "invalid_response": 0,
+          "invalid_score": 0
+        }
+      ],
+      "notebooks": [
+        {
+          "path": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
+          "sha256": "cb6a6fb8fbd04600f122f8c35ad249522d177ca70671b20769364c07bfbb5883",
+          "source_contains_make_lock_call": true,
+          "source_contains_test_lock_call": true
+        }
+      ],
+      "completed": 5235,
+      "expected": 10011,
+      "missing": 4776,
+      "prompt_bundle_count": 4
+    },
+    {
+      "arm": "B2-rep",
+      "source": null,
+      "splits": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "expected": 2732,
+          "completed": 0,
+          "missing": 2732,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "threshold_state": "waiting_validation_records",
+          "tau": null
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "expected": 2732,
+          "completed": 0,
+          "missing": 2732,
+          "invalid_response": 0,
+          "invalid_score": 0
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "expected": 2273,
+          "completed": 0,
+          "missing": 2273,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "threshold_state": "waiting_validation_records",
+          "tau": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "expected": 2274,
+          "completed": 0,
+          "missing": 2274,
+          "invalid_response": 0,
+          "invalid_score": 0
+        }
+      ],
+      "notebooks": [],
+      "completed": 0,
+      "expected": 10011,
+      "missing": 10011,
+      "prompt_bundle_count": 4
+    },
+    {
+      "arm": "B2-rand",
+      "source": null,
+      "splits": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "expected": 8196,
+          "completed": 0,
+          "missing": 8196,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "threshold_state": "waiting_validation_records",
+          "tau": null
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "expected": 8196,
+          "completed": 0,
+          "missing": 8196,
+          "invalid_response": 0,
+          "invalid_score": 0
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "expected": 6819,
+          "completed": 0,
+          "missing": 6819,
+          "invalid_response": 0,
+          "invalid_score": 0,
+          "threshold_state": "waiting_validation_records",
+          "tau": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "expected": 6822,
+          "completed": 0,
+          "missing": 6822,
+          "invalid_response": 0,
+          "invalid_score": 0
+        }
+      ],
+      "notebooks": [
+        {
+          "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+          "sha256": "c175f069449c1d1d5c6ccc8644ec641ea114caa5526a496fb0efcd23c2255d81",
+          "source_contains_make_lock_call": true,
+          "source_contains_test_lock_call": true
+        }
+      ],
+      "completed": 0,
+      "expected": 30033,
+      "missing": 30033,
+      "prompt_bundle_count": 12,
+      "note": "12 prepared bundles across seeds 42/43/44; no imported inference source. Rerun-66 is part of B2, not another arm."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "checked_records": 20022,
+  "rerun_prompts": 66,
+  "rerun_inputs_verified": true,
+  "source_outputs_unchanged": true,
+  "no_new_downloaded_record_files": true,
+  "scripts_sha256": {
+    "reconcile_donor_prompts.py": "5199c60c6caee4b6587ddccef6e42706a41149df16708dcdfa3af09707490e62",
+    "summarize_donor_reconciliation.py": "db2b62e27d5a2d91196dfc65ea95b585ce8f0323653553eba6a764147b45fe63"
+  },
+  "exports_sha256": {
+    "summary.json": "be5a4c9713692a595c05ac5cd14ba4c0c59dc8199b452d6d9ddc6f4a566aa4d1",
+    "demo_comparison.jsonl": "d906096fa0cfce810673d8aeb8dcf5fa1f9bc64d13093c73692c0dd43b150f73",
+    "downloaded_record_decisions.jsonl": "45aa84240fe341cfae9a7a7911f7bf0aeb6374a55a78e06f6a12efcb7507e498",
+    "mau_can_inference_lai.csv": "947a7618622c027be598796d05900892ba50d3c240c52055cac0538e1242d0fd",
+    "KET_QUA_DOI_CHIEU.md": "d88956b2ad842c7bd9e2b9ddf88d5de428a68d0621bcfd31995926a5b3f9b2f4"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "kernel": "quangdung1111/02-kaggle-qwen-q4-b2-flip-ipynb",
+  "download_command": "kaggle kernels output quangdung1111/02-kaggle-qwen-q4-b2-flip-ipynb -p D:\\JUNIOR\\LabThayTho\\GRACE-summary\\04_Arm_B2_Flip\\output\\kaggle_20261102_quangdung1111_run1",
+  "downloaded_at_audit_utc": "2026-11-02T02:11:54.486979+00:00",
+  "cli_version": "2.2.5",
+  "files": [
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/02-kaggle-qwen-q4-b2-flip-ipynb.log",
+      "bytes": 372661,
+      "sha256": "14f470d2e1a394945e62ca824f0fe8d386d3e077b97a13427e780e8aea4f4631"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_bundles/devign_test_b2_flip.zip",
+      "bytes": 3201983,
+      "sha256": "57243eb59dd37ad527da1d9a0b4541d8a69643421853bd8faddafcc56f53f0d1"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_bundles/devign_validation_b2_flip.zip",
+      "bytes": 3017464,
+      "sha256": "1d90202c3b18fb0975ff42dabe362044eb684afc51a46be74bacc9eae79ad63b"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_bundles/reveal_test_b2_flip.zip",
+      "bytes": 2128940,
+      "sha256": "19977115606a04bd99e613a3f9b6acf00f26f02367e4b7c323fca6397711e351"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_bundles/reveal_validation_b2_flip.zip",
+      "bytes": 2075424,
+      "sha256": "c61e0098beefafa69a12b9633e7d876807699d2e0449f1cef080822128b5d256"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_checkpoint.zip",
+      "bytes": 1045917,
+      "sha256": "ffb3587f665db8a2fb47ac0f7e75fd954084a26d5e19baebba526da0fa11039b"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/checkpoint_status.json",
+      "bytes": 2301,
+      "sha256": "7237878705fb9611b89635d7ce4a396856eac9be6038eb61ece5cb037b3204dd"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/test/records.jsonl",
+      "bytes": 298182,
+      "sha256": "62f1fa7510e0c8f8aa22794967db180a7e875974c83443cd3cec6b8d4d8a48eb"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/test/run_manifest.json",
+      "bytes": 854,
+      "sha256": "b749767b9871e5cec610bd418d160a290164abb204f2645f06e052698e4ec124"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/validation/evaluation.json",
+      "bytes": 465,
+      "sha256": "c1db564efa016306c2d6f8475e32b28ca97e01271e25da774e5327140ebb5954"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/validation/records.jsonl",
+      "bytes": 3576744,
+      "sha256": "179c082df802a511dd72121be9bb6d72e5d81cced0b6566dc10b4f8672d3b99d"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/validation/run_manifest.json",
+      "bytes": 860,
+      "sha256": "6a8f9c9ee8e595732b34d68f355fdf3bf27ed766596d34c903e36bd7403ae40d"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/reveal/validation/evaluation.json",
+      "bytes": 467,
+      "sha256": "19449c7ae89a765e1eff0d695556c5bf0cb8e0cf8923ba5ca2183bd72aac8572"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/reveal/validation/records.jsonl",
+      "bytes": 2975546,
+      "sha256": "fa63f43705f867827238302ae511aae8b05d92e8f5394bb328df03397ee811b8"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/reveal/validation/run_manifest.json",
+      "bytes": 860,
+      "sha256": "ca130bfe88e24411113e266d9562b9c6beda85c4b10a0a117519839b3502c1e9"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics/cmake.log",
+      "bytes": 92,
+      "sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics/cuda_compiler.log",
+      "bytes": 208,
+      "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics/events.log",
+      "bytes": 5711,
+      "sha256": "b59d47dc6575d81df6ab4d77d669eef094361d367e621e312467247ff3d4a3d7"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics/gpu.log",
+      "bytes": 2057,
+      "sha256": "7cc16698ec78472fb53a5e3b6eef89af63644ac8b51ebd94a367f9dd1fd2ed34"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics/inference_batch.log",
+      "bytes": 402941,
+      "sha256": "99f5af01eda0e0879840866219d889cffa2b6666aec9b575e0c313e220abde3e"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics/install_dependencies.log",
+      "bytes": 5809,
+      "sha256": "b753e78e902a8e8353985174c3473ab427a41fc407be2e6eb145c2f692ff0310"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics/install_llama_cuda.log",
+      "bytes": 1017022,
+      "sha256": "02015ead72482e29531246767f8147900bb97742d4f7d4b4f2f1a9b13459fab2"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics/pip.log",
+      "bytes": 74,
+      "sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_diagnostics.zip",
+      "bytes": 181335,
+      "sha256": "5b4add8e73a4a41796a6d2c48e9433b61f9a4d8ad3f653aa7619867fce232053"
+    },
+    {
+      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/kaggle_inference.py",
+      "bytes": 15941,
+      "sha256": "7734c1c443cc89a3c92f8f1806c1678322063b7d8023c785f7f5ed1e3ad27ec8"
+    }
+  ]
+}

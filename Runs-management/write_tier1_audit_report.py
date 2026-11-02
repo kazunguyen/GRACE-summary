@@ -1,5 +1,6 @@
 """Render the current artifact audit as a reviewable Markdown report."""
 import json
+from refresh_current_status import prepend_current
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
 s=json.loads((HERE/'KIEM_TOAN_DIEU_KIEN_TANG_1.json').read_text(encoding='utf-8'))
@@ -12,7 +13,8 @@ for r in sets:
     for name,value in r.get('flags',{}).items():
         if any(word in name for word in ('violation','mismatch','wrong_label','bad_prompt_hash','unknown_id','unexpected_demo_id')): assert value==0,(r['arm'],name,value)
 unique_inference={r['records_sha256']:r for r in s['inference_sets']}
-assert sum(r['count'] for r in unique_inference.values())==4396
+historical_inference_count = sum(r['count'] for r in unique_inference.values())
+# This renderer retains the dated audit body; live progress comes from current_status.json.
 table=[]
 for arm in ('B0','B1','B2','B2-flip','B2-rep'):
     rr={(r['dataset'],r['split']):r for r in sets if r['arm']==arm}
@@ -20,6 +22,10 @@ for arm in ('B0','B1','B2','B2-flip','B2-rep'):
     table.append('| '+arm+' | '+' | '.join(f'{n:,}' for n in counts)+' | '+f'{sum(counts):,}'+' |')
 frozen_ok=sum(r['matches'] for r in s['frozen_file_checks'])
 report='''# Kiểm toán điều kiện trước chạy Tầng 1
+
+<!-- donor-rerun-risk-note -->
+**Theo dõi donor/rerun:** B2/flip/rep có nguy cơ khi đổi prompt tham chiếu; B0/B1 không trực tiếp phụ thuộc donor. Chưa chốt danh sách cần inference lại; phải so hash toàn bộ trước. Xem [NGUY_CO_CHAY_LAI_DO_DONOR.md](NGUY_CO_CHAY_LAI_DO_DONOR.md).
+<!-- /donor-rerun-risk-note -->
 
 Kiểm tra ngày 01/11/2026 trong GRACE-summary. Tiêu chí: [Phương án 2](../../REPORT_TO_TEACHER/20261029/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf), Bước 1–4 và yêu cầu Bước 5 trang 20. Chấp nhận inference Kaggle GPU thay server tự host; không coi thiếu server/API endpoint là lỗi. Bước 0 không được đánh giá theo phạm vi trước đó. B3, H2 và đối chứng Tầng 2/3 không được coi là thiếu để bắt đầu riêng Tầng 1. Việc người dùng đã yêu cầu bỏ qua smoke test không bị đổi thành điều kiện chặn mới trong báo cáo này.
 
@@ -88,5 +94,8 @@ Có thể tiếp tục công việc validation/thăm dò, nhưng chưa có cơ s
 - Chi tiết từng tập prompt, token p50/p95, flags, inference identity và ví dụ donor ngoài kho: [KIEM_TOAN_DIEU_KIEN_TANG_1.json](KIEM_TOAN_DIEU_KIEN_TANG_1.json).
 - Script kiểm toán: [audit_tier1_readiness.py](audit_tier1_readiness.py); không gọi mạng/model và không sửa input. Kiểm toán chỉ xác minh dữ liệu hiện có, không tự tạo ngưỡng, preregistration hoặc chạy test.
 '''
+report = report.replace('4.396', f'{historical_inference_count:,}'.replace(',', '.'))
+title, body = report.split('\n', 1)
+report = prepend_current(title+'\n\n## Snapshot lịch sử kiểm toán 01/11/2026\n\nCác mục bên dưới mô tả lúc kiểm toán, không phải trạng thái hiện tại.\n'+body)
 (HERE/'KIEM_TOAN_DIEU_KIEN_TANG_1.md').write_text(report,encoding='utf-8')
 print('Readiness report written')

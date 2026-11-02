@@ -152,5 +152,6 @@ for folder in [BASE]+[ROOT/f for f in FOLDERS.values()]:
                 'mentions_thresholds_json':'thresholds.json' in code,'contains_test_runs':"'test'" in code,
                 'mentions_prereg_gate':'preregistration' in code or 'registered_at' in code})
 summary['status']='Audit complete; absence means not found locally, not proof about external Kaggle/OSF state.'
-(OUT/'KIEM_TOAN_DIEU_KIEN_TANG_1.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+# Preserve the original dated audit; fresh probes have a separate destination.
+(OUT/'KIEM_TOAN_DIEU_KIEN_TANG_1_CURRENT.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
 print('Audit JSON written',flush=True)

@@ -1,8 +1,40 @@
 # Kiểm toán điều kiện trước chạy Tầng 1
 
-Kiểm tra ngày 01/11/2026 trong GRACE-summary. Tiêu chí: [Phương án 2](../../REPORT_TO_TEACHER/20261029/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf), Bước 1–4 và yêu cầu Bước 5 trang 20. Chấp nhận inference Kaggle GPU thay server tự host; không coi thiếu server/API endpoint là lỗi. Bước 0 không được đánh giá theo phạm vi trước đó. B3, H2 và đối chứng Tầng 2/3 không được coi là thiếu để bắt đầu riêng Tầng 1. Việc người dùng đã yêu cầu bỏ qua smoke test không bị đổi thành điều kiện chặn mới trong báo cáo này.
+<!-- current-status:start -->
+## Trạng thái hiện tại — đối chiếu artifact local
 
-Các phát hiện trong phần kiểm toán chính phản ánh artifact có sẵn tại lúc lập báo cáo. Phần bổ sung sau I-05 ở Mục 3 và trường `post_audit_inference_update` trong JSON ghi trạng thái được xác minh sau đó; không viết lại kết luận lịch sử hay các hạn chế giao thức.
+Nguồn: [current_status.json](current_status.json), kiểm tra UTC 2026-11-02T03:39:30.129091+00:00.
+Snapshot kiểm toán/ngưỡng ngày 01/11 được giữ lịch sử; bảng này cập nhật tiến độ, không tạo khóa mới.
+
+| Arm | Devign val | Devign test | REVEAL val | REVEAL test | Tổng |
+|---|---:|---:|---:|---:|---:|
+| B0 | 2732/2732 | 2732/2732 | 2273/2273 | 2274/2274 | 10011/10011 |
+| B1 | 2732/2732 | 429/2732 | 2273/2273 | 0/2274 | 5434/10011 |
+| B2 | 2732/2732 | 2732/2732 | 2273/2273 | 2274/2274 | 10011/10011 |
+| B2-flip | 2732/2732 | 230/2732 | 2273/2273 | 0/2274 | 5235/10011 |
+| B2-rep | 0/2732 | 0/2732 | 0/2273 | 0/2274 | 0/10011 |
+| B2-rand | Chưa có output | Chưa có output | Chưa có output | Chưa có output | 0/30033 |
+
+Validation đủ nhưng chưa có khóa local: B1/devign, B1/reveal, B2-flip/devign, B2-flip/reveal.
+
+Source notebook (kiểm tra tĩnh): B0: có lời gọi khóa trước test; B1: chưa có lời gọi khóa trước test; B2: chưa có lời gọi khóa trước test; B2-flip: có lời gọi khóa trước test; B2-rand: có lời gọi khóa trước test. Không chứng minh thứ tự khóa của các run lịch sử.
+
+Bằng chứng lịch sử [B1 I-07](b1_I07_20261102.json): 5.434 record, 0 invalid score, 3 invalid raw response; [B2-flip I-06](b2_flip_I06_20261102/KET_QUA_I06_B2_FLIP.md): 5.235 record, 0 invalid. Flip Devign donor mới cần sửa 28 validation trước khóa; xem [resume](B2_FLIP_DONOR_MOI_RESUME.md).
+
+B2 Devign donor mới cần 66 lượt; B2-flip cần 4.809 lượt bổ sung. Chưa có output GPU phiên donor mới. B2-rand đã có 12 bundle và notebook chạy kèm B2 rerun-66; chưa có output inference.
+
+Watcher chưa được xác minh đang chạy; không tự khởi động. Các lỗi nghiệm thu prompt/protocol/OSF và lịch sử test trước khóa vẫn giữ nguyên.
+<!-- current-status:end -->
+
+## Snapshot lịch sử kiểm toán 01/11/2026
+
+Các mục bên dưới mô tả lúc kiểm toán, không phải trạng thái hiện tại.
+
+<!-- donor-rerun-risk-note -->
+**Theo dõi donor/rerun:** B2/flip/rep có nguy cơ khi đổi prompt tham chiếu; B0/B1 không trực tiếp phụ thuộc donor. Chưa chốt danh sách cần inference lại; phải so hash toàn bộ trước. Xem [NGUY_CO_CHAY_LAI_DO_DONOR.md](NGUY_CO_CHAY_LAI_DO_DONOR.md).
+<!-- /donor-rerun-risk-note -->
+
+Kiểm tra ngày 01/11/2026 trong GRACE-summary. Tiêu chí: [Phương án 2](../../REPORT_TO_TEACHER/20261029/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf), Bước 1–4 và yêu cầu Bước 5 trang 20. Chấp nhận inference Kaggle GPU thay server tự host; không coi thiếu server/API endpoint là lỗi. Bước 0 không được đánh giá theo phạm vi trước đó. B3, H2 và đối chứng Tầng 2/3 không được coi là thiếu để bắt đầu riêng Tầng 1. Việc người dùng đã yêu cầu bỏ qua smoke test không bị đổi thành điều kiện chặn mới trong báo cáo này.
 
 **Kết luận: prompt Tầng 1 đã đầy đủ và ghép cặp đúng với B2 hiện có, nhưng chưa hoàn tất điều kiện để gọi các run test tiếp theo là ma trận xác nhận đúng protocol.** Những điểm cần xử lý là kho donor Devign chưa thống nhất, nghiệm thu prompt bằng người, đăng ký trước, và ngưỡng validation trước test. Không sửa dữ liệu/prompt/notebook inference hoặc chạy thêm LLM trong đợt kiểm toán này.
 
@@ -45,8 +77,6 @@ Graph 40/80 thay 25/25; B0/B1 giữ các câu dẫn trống thay vì bỏ toàn 
 5/2.732 Devign validation và 16/2.732 Devign test có demo B2 ngoài tập keep_in_bank của snapshot mới. Flip/rep cố ý dùng cùng demo với B2 nên kế thừa chênh lệch này. Không thể sửa riêng 21 demo rồi vẫn gọi là cùng pipeline truy hồi: kho dùng fit whitening/chọn ứng viên cũng là một phần giao thức. Cần thống nhất một bộ B2 tham chiếu đúng kho đã chốt, sau đó các arm ghép cặp bám bộ đó; CodeT5/CPG đã cache có thể tái dùng. Nếu tiếp tục bộ B2 cũ, phải mô tả rõ đây là bộ ghép cặp lịch sử/thăm dò, chưa đáp ứng kho sạch mà protocol mới khai báo.
 
 ## 3. Kết quả inference có thể xác nhận từ bản sao hiện tại
-
-> **Cập nhật bổ sung sau thời điểm chụp kiểm toán:** các con số I-02 trong bảng dưới đây là snapshot tại lúc kiểm toán ban đầu, không còn là trạng thái output mới nhất. Sau khi nhập lượt Kaggle I-05 ngày 01/11/2026, toàn bộ B2 đã đủ 10.011/10.011 records cho bốn split, 0 invalid; B2/ReVeal validation cũng đã đủ và tau=0,12 đã được khóa. Xem [I-05](RUNS.md) và [trạng thái khóa ngưỡng](threshold_lock_status.json). Bổ sung này chỉ cập nhật bằng chứng inference/threshold; các kết luận riêng về donor Devign, chấm prompt, schema/protocol và thứ tự test đã chạy trước khóa vẫn còn hiệu lực, nên không đồng nghĩa các điều kiện chạy xác nhận đã hoàn tất.
 
 | Arm | Devign validation | ReVeal validation | Devign test | ReVeal test |
 |---|---:|---:|---:|---:|

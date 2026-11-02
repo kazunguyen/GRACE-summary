@@ -1,0 +1,100 @@
+{
+  "verified_on": "2026-11-02",
+  "timezone": "Asia/Bangkok",
+  "run_id": "I-07",
+  "arm": "B1",
+  "source": "../03_Arm_B1_Graph_Only/output/kaggle_run_01/",
+  "status": {
+    "state": "timed_out",
+    "timed_out": true,
+    "started_at": "2026-11-01T10:17:36.632750+00:00",
+    "deadline_at": "2026-11-01T18:17:19.694163+00:00",
+    "stop_new_records_at": "2026-11-01T18:12:19.694163+00:00",
+    "max_runtime_hours": 7.995294837024477,
+    "checkpoint_reserve_seconds": 300,
+    "runs": {
+      "devign/validation": {
+        "state": "complete",
+        "bundle": "/kaggle/working/b1_discovered_bundles/5f564faf46be_unpacked_b1.zip",
+        "output": "/kaggle/working/grace_b1_runs/devign/validation",
+        "count": 2732,
+        "completed": 2732,
+        "records_path": "/kaggle/working/grace_b1_runs/devign/validation/records.jsonl",
+        "bundle_sha256": "96bc0703a662b301825a248ef3726680d666cd9fda8a1b19ba2fdeda6fb17d75",
+        "evaluation": "/kaggle/working/grace_b1_runs/devign/validation/evaluation.json"
+      },
+      "reveal/validation": {
+        "state": "complete",
+        "bundle": "/kaggle/working/b1_discovered_bundles/06ce58851502_unpacked_b1.zip",
+        "output": "/kaggle/working/grace_b1_runs/reveal/validation",
+        "count": 2273,
+        "completed": 2273,
+        "records_path": "/kaggle/working/grace_b1_runs/reveal/validation/records.jsonl",
+        "bundle_sha256": "d1681555a40f460bb4e4bcb0c42bc9648e77096a51835455380c9f2cd33e0f1f",
+        "evaluation": "/kaggle/working/grace_b1_runs/reveal/validation/evaluation.json"
+      },
+      "devign/test": {
+        "state": "checkpointed",
+        "bundle": "/kaggle/working/b1_discovered_bundles/2ff1b407c18c_unpacked_b1.zip",
+        "output": "/kaggle/working/grace_b1_runs/devign/test",
+        "count": 2732,
+        "completed": 429,
+        "records_path": "/kaggle/working/grace_b1_runs/devign/test/records.jsonl",
+        "bundle_sha256": "c6666b1e989e4cfa6c173d142dd062df49b02e3495c55473d0a035a11c7937b5"
+      },
+      "reveal/test": {
+        "state": "pending",
+        "bundle": "/kaggle/working/b1_discovered_bundles/6eb3e679e454_unpacked_b1.zip",
+        "output": "/kaggle/working/grace_b1_runs/reveal/test"
+      }
+    },
+    "completed_records_total": 5434,
+    "last_checkpoint_at": "2026-11-01T18:12:21.824215+00:00",
+    "timed_out_at": "2026-11-01T18:12:21.824630+00:00",
+    "stopped_after_run": "devign/test"
+  },
+  "splits": [
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "expected": 2732,
+      "completed": 2732,
+      "unique_ids": 2732,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "identity_mismatch": 0,
+      "prompt_hash_mismatch": 0,
+      "records_sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "expected": 2273,
+      "completed": 2273,
+      "unique_ids": 2273,
+      "invalid_response": 3,
+      "invalid_score": 0,
+      "identity_mismatch": 0,
+      "prompt_hash_mismatch": 0,
+      "records_sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9"
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "expected": 2732,
+      "completed": 429,
+      "unique_ids": 429,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "identity_mismatch": 0,
+      "prompt_hash_mismatch": 0,
+      "records_sha256": "c2faac7860ad97afff2eb9aaff2c5d1efefebbbe1ed1959d0dec0dae19f5c917"
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "expected": 2274,
+      "completed": 0
+    }
+  ]
+}

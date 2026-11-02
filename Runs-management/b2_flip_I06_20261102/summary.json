@@ -1,0 +1,203 @@
+{
+  "run_id": "I-06",
+  "arm": "B2-flip",
+  "kernel": "quangdung1111/02-kaggle-qwen-q4-b2-flip-ipynb",
+  "created_utc": "2026-11-02T02:11:54.639436+00:00",
+  "started_at_utc": "2026-11-01T14:46:02.242542+00:00",
+  "stopped_at_utc": "2026-11-02T00:15:49.270841+00:00",
+  "started_at_bangkok": "2026-11-01T21:46:02.242542+07:00",
+  "stopped_at_bangkok": "2026-11-02T07:15:49.270841+07:00",
+  "elapsed_seconds": 34187.028299,
+  "status": {
+    "state": "timed_out",
+    "timed_out": true,
+    "started_at": "2026-11-01T14:46:02.242542+00:00",
+    "deadline_at": "2026-11-02T00:20:44.690030+00:00",
+    "stop_new_records_at": "2026-11-02T00:15:44.690030+00:00",
+    "max_runtime_hours": 9.578457635574871,
+    "checkpoint_reserve_seconds": 300,
+    "runs": {
+      "devign/validation": {
+        "state": "complete",
+        "bundle": "/kaggle/working/grace_b2_flip_bundles/devign_validation_b2_flip.zip",
+        "output": "/kaggle/working/grace_b2_flip_four_split_9h35/devign/validation",
+        "count": 2732,
+        "completed": 2732,
+        "records_path": "/kaggle/working/grace_b2_flip_four_split_9h35/devign/validation/records.jsonl",
+        "bundle_sha256": "1d90202c3b18fb0975ff42dabe362044eb684afc51a46be74bacc9eae79ad63b",
+        "evaluation": "/kaggle/working/grace_b2_flip_four_split_9h35/devign/validation/evaluation.json"
+      },
+      "reveal/validation": {
+        "state": "complete",
+        "bundle": "/kaggle/working/grace_b2_flip_bundles/reveal_validation_b2_flip.zip",
+        "output": "/kaggle/working/grace_b2_flip_four_split_9h35/reveal/validation",
+        "count": 2273,
+        "completed": 2273,
+        "records_path": "/kaggle/working/grace_b2_flip_four_split_9h35/reveal/validation/records.jsonl",
+        "bundle_sha256": "c61e0098beefafa69a12b9633e7d876807699d2e0449f1cef080822128b5d256",
+        "evaluation": "/kaggle/working/grace_b2_flip_four_split_9h35/reveal/validation/evaluation.json"
+      },
+      "devign/test": {
+        "state": "checkpointed",
+        "bundle": "/kaggle/working/grace_b2_flip_bundles/devign_test_b2_flip.zip",
+        "output": "/kaggle/working/grace_b2_flip_four_split_9h35/devign/test",
+        "count": 2732,
+        "completed": 230,
+        "records_path": "/kaggle/working/grace_b2_flip_four_split_9h35/devign/test/records.jsonl",
+        "bundle_sha256": "57243eb59dd37ad527da1d9a0b4541d8a69643421853bd8faddafcc56f53f0d1"
+      },
+      "reveal/test": {
+        "state": "pending",
+        "bundle": "/kaggle/working/grace_b2_flip_bundles/reveal_test_b2_flip.zip",
+        "output": "/kaggle/working/grace_b2_flip_four_split_9h35/reveal/test"
+      }
+    },
+    "completed_records_total": 5235,
+    "last_checkpoint_at": "2026-11-02T00:15:49.270487+00:00",
+    "timed_out_at": "2026-11-02T00:15:49.270841+00:00",
+    "stopped_after_run": "devign/test"
+  },
+  "metrics_definition": "raw greedy 0/1 response; TP=label1/raw1; TN=label0/raw0; FP=label0/raw1; FN=label1/raw0; not validation-tuned thresholds",
+  "totals": {
+    "count": 5235,
+    "TP": 913,
+    "TN": 1887,
+    "FP": 1819,
+    "FN": 616,
+    "invalid_response": 0,
+    "invalid_score": 0,
+    "raw_vs_score_05_disagreements": 0,
+    "expected": 10011,
+    "remaining": 4776,
+    "rerun_completed": 33,
+    "pending_changed": 33,
+    "keep_completed": 5202,
+    "all_changed": 66,
+    "completion_percent": 52.29247827389871,
+    "inference_calls_to_complete_unified": 4809
+  },
+  "by_split": [
+    {
+      "count": 2732,
+      "TP": 746,
+      "TN": 585,
+      "FP": 960,
+      "FN": 441,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "raw_vs_score_05_disagreements": 0,
+      "dataset": "devign",
+      "split": "validation",
+      "expected": 2732,
+      "remaining": 0,
+      "rerun_completed": 28,
+      "pending_changed": 0,
+      "keep_completed": 2704,
+      "all_changed": 28
+    },
+    {
+      "count": 2273,
+      "TP": 85,
+      "TN": 1261,
+      "FP": 802,
+      "FN": 125,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "raw_vs_score_05_disagreements": 0,
+      "dataset": "reveal",
+      "split": "validation",
+      "expected": 2273,
+      "remaining": 0,
+      "rerun_completed": 0,
+      "pending_changed": 0,
+      "keep_completed": 2273,
+      "all_changed": 0
+    },
+    {
+      "count": 230,
+      "TP": 82,
+      "TN": 41,
+      "FP": 57,
+      "FN": 50,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "raw_vs_score_05_disagreements": 0,
+      "dataset": "devign",
+      "split": "test",
+      "expected": 2732,
+      "remaining": 2502,
+      "rerun_completed": 5,
+      "pending_changed": 33,
+      "keep_completed": 225,
+      "all_changed": 38
+    },
+    {
+      "count": 0,
+      "TP": 0,
+      "TN": 0,
+      "FP": 0,
+      "FN": 0,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "raw_vs_score_05_disagreements": 0,
+      "dataset": "reveal",
+      "split": "test",
+      "expected": 2274,
+      "remaining": 2274,
+      "rerun_completed": 0,
+      "pending_changed": 0,
+      "keep_completed": 0,
+      "all_changed": 0
+    }
+  ],
+  "inference_identity": {
+    "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "quantization": "Q4_K_M",
+    "llama_cpp_python": "0.3.16",
+    "scoring": "unconstrained_first_token_logits_v1",
+    "gpu_layers": -1,
+    "context_tokens": 8192
+  },
+  "bundle_proofs": [
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "bundle_sha256": "1d90202c3b18fb0975ff42dabe362044eb684afc51a46be74bacc9eae79ad63b",
+      "prompts_sha256": "73a5608bfc540c84ec8044f0660a1f66e67dab5fc9dc99aa9d389d921603d5b5",
+      "count": 2732,
+      "local_current_prompt_file_matches": true
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "bundle_sha256": "c61e0098beefafa69a12b9633e7d876807699d2e0449f1cef080822128b5d256",
+      "prompts_sha256": "2ba78981b400c37d4678e55a524b19628de43c80d24399db8f5c1f450e5c8284",
+      "count": 2273,
+      "local_current_prompt_file_matches": true
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "bundle_sha256": "57243eb59dd37ad527da1d9a0b4541d8a69643421853bd8faddafcc56f53f0d1",
+      "prompts_sha256": "4810dbf4b71953e394ec528fa08335403ce323f6df849495260bc76bd977195e",
+      "count": 2732,
+      "local_current_prompt_file_matches": true
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "bundle_sha256": "19977115606a04bd99e613a3f9b6acf00f26f02367e4b7c323fca6397711e351",
+      "prompts_sha256": "792ca9e3b2e16429943e336584879e87d0f956587c7f9886f0102650964ca364",
+      "count": 2274,
+      "local_current_prompt_file_matches": true
+    }
+  ],
+  "checkpoint_files_crosschecked": 9,
+  "checkpoint_zip_sha256": "ffb3587f665db8a2fb47ac0f7e75fd954084a26d5e19baebba526da0fa11039b",
+  "threshold_evidence_in_download": [],
+  "script_sha256": "6a554e18e9afdc6332b2d37a23298cc9f119a1956dd2429cc544a0471e91ac56",
+  "llm_calls_during_audit": 0,
+  "original_prompts_outputs_thresholds_modified": false
+}

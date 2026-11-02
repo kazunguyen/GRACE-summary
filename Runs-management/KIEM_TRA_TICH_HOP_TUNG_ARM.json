@@ -1,0 +1,302 @@
+{
+  "scope": "01-05 active folders in GRACE-summary; static call-path audit plus first real prompt schema probe",
+  "arms": [
+    {
+      "arm": "B2",
+      "folder": "01_Author_Baseline_Unified",
+      "prompt_notebooks": [
+        "01_Author_Baseline_Unified/notebooks/01_prepare_grace_b2.ipynb"
+      ],
+      "inference_notebooks": [
+        "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb"
+      ],
+      "direct_prompt_audit_call": false,
+      "direct_supervised_anchor_call": false,
+      "inference_calls": [
+        "Llama",
+        "binary_scores",
+        "evaluate_output",
+        "fsync",
+        "run_batch"
+      ],
+      "auto_threshold_lock": false,
+      "test_threshold_gate": false,
+      "kit_prompt_audit_schema_probe": "KeyError: 'evidence'",
+      "prompt_manifests": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "variant": null,
+          "retrieval_scope": null,
+          "outside_new_frozen_bank": null,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "count": 2732,
+          "variant": null,
+          "retrieval_scope": null,
+          "outside_new_frozen_bank": null,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "variant": null,
+          "retrieval_scope": null,
+          "outside_new_frozen_bank": null,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "count": 2274,
+          "variant": null,
+          "retrieval_scope": null,
+          "outside_new_frozen_bank": null,
+          "freeze_manifest_sha256": null
+        }
+      ]
+    },
+    {
+      "arm": "B0",
+      "folder": "02_Arm_B0_Source_Only",
+      "prompt_notebooks": [
+        "02_Arm_B0_Source_Only/notebooks/01_prepare_b0_prompts.ipynb"
+      ],
+      "inference_notebooks": [
+        "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb"
+      ],
+      "direct_prompt_audit_call": false,
+      "direct_supervised_anchor_call": false,
+      "inference_calls": [
+        "Llama",
+        "binary_scores",
+        "evaluate_output",
+        "fsync",
+        "make_lock",
+        "persist_lock",
+        "require_test_lock",
+        "run_batch"
+      ],
+      "auto_threshold_lock": true,
+      "test_threshold_gate": true,
+      "kit_prompt_audit_schema_probe": "KeyError: 'evidence'",
+      "prompt_manifests": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "variant": "b0_b2_empty_blocks_v1",
+          "retrieval_scope": null,
+          "outside_new_frozen_bank": null,
+          "freeze_manifest_sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448"
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "count": 2732,
+          "variant": "b0_b2_empty_blocks_v1",
+          "retrieval_scope": null,
+          "outside_new_frozen_bank": null,
+          "freeze_manifest_sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448"
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "variant": "b0_b2_empty_blocks_v1",
+          "retrieval_scope": null,
+          "outside_new_frozen_bank": null,
+          "freeze_manifest_sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448"
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "count": 2274,
+          "variant": "b0_b2_empty_blocks_v1",
+          "retrieval_scope": null,
+          "outside_new_frozen_bank": null,
+          "freeze_manifest_sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448"
+        }
+      ]
+    },
+    {
+      "arm": "B1",
+      "folder": "03_Arm_B1_Graph_Only",
+      "prompt_notebooks": [
+        "03_Arm_B1_Graph_Only/notebooks/01_prepare_b1_prompts.ipynb"
+      ],
+      "inference_notebooks": [
+        "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1.ipynb"
+      ],
+      "direct_prompt_audit_call": false,
+      "direct_supervised_anchor_call": false,
+      "inference_calls": [
+        "Llama",
+        "binary_scores",
+        "evaluate_output",
+        "fsync",
+        "run_batch"
+      ],
+      "auto_threshold_lock": false,
+      "test_threshold_gate": false,
+      "kit_prompt_audit_schema_probe": "KeyError: 'evidence'",
+      "prompt_manifests": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "variant": "b1_b2_empty_demo_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 5,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "count": 2732,
+          "variant": "b1_b2_empty_demo_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 16,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "variant": "b1_b2_empty_demo_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 0,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "count": 2274,
+          "variant": "b1_b2_empty_demo_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 0,
+          "freeze_manifest_sha256": null
+        }
+      ]
+    },
+    {
+      "arm": "B2-flip",
+      "folder": "04_Arm_B2_Flip",
+      "prompt_notebooks": [
+        "04_Arm_B2_Flip/notebooks/01_prepare_b2_flip_prompts.ipynb"
+      ],
+      "inference_notebooks": [
+        "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb"
+      ],
+      "direct_prompt_audit_call": false,
+      "direct_supervised_anchor_call": false,
+      "inference_calls": [
+        "Llama",
+        "binary_scores",
+        "evaluate_output",
+        "fsync",
+        "run_batch"
+      ],
+      "auto_threshold_lock": false,
+      "test_threshold_gate": false,
+      "kit_prompt_audit_schema_probe": "KeyError: 'evidence'",
+      "prompt_manifests": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "variant": "b2_flip_paired_baseline_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 5,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "count": 2732,
+          "variant": "b2_flip_paired_baseline_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 16,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "variant": "b2_flip_paired_baseline_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 0,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "count": 2274,
+          "variant": "b2_flip_paired_baseline_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 0,
+          "freeze_manifest_sha256": null
+        }
+      ]
+    },
+    {
+      "arm": "B2-rep",
+      "folder": "05_Arm_B2_Rep",
+      "prompt_notebooks": [
+        "05_Arm_B2_Rep/notebooks/01_prepare_b2_rep_prompts.ipynb"
+      ],
+      "inference_notebooks": [],
+      "direct_prompt_audit_call": false,
+      "direct_supervised_anchor_call": false,
+      "inference_calls": [],
+      "auto_threshold_lock": false,
+      "test_threshold_gate": false,
+      "kit_prompt_audit_schema_probe": "KeyError: 'evidence'",
+      "prompt_manifests": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "variant": "b2_repeat_paired_baseline_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 5,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "count": 2732,
+          "variant": "b2_repeat_paired_baseline_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 16,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "variant": "b2_repeat_paired_baseline_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 0,
+          "freeze_manifest_sha256": null
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "count": 2274,
+          "variant": "b2_repeat_paired_baseline_v1",
+          "retrieval_scope": "paired_to_existing_B2_not_reselected",
+          "outside_new_frozen_bank": 0,
+          "freeze_manifest_sha256": null
+        }
+      ]
+    }
+  ],
+  "audit_and_anchor_artifacts": [],
+  "supervised_cli_input": "npz with ids and X; current CodeT5 cache stores vectors.npy + manifest.json; adapter/export required"
+}

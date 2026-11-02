@@ -1,5 +1,9 @@
 # Quy ước dữ liệu, graph và score cho ma trận
 
+<!-- donor-rerun-risk-note -->
+**Lưu ý phiên dữ liệu đang chạy:** snapshot donor mới đã tồn tại nhưng cache B2 hiện tại chưa tự chuyển sang kho đó. Phân biệt chiến dịch B2 cũ với phiên dùng kho thống nhất; đánh giá nguy cơ chạy lại theo [NGUY_CO_CHAY_LAI_DO_DONOR.md](NGUY_CO_CHAY_LAI_DO_DONOR.md). Không sửa ngầm prompt hoặc dùng ghi chú này để kích hoạt inference lại.
+<!-- /donor-rerun-risk-note -->
+
 Ngày chốt kỹ thuật: 01/11/2026. Đây là quyết định kỹ thuật chuẩn bị; chưa phải đăng ký trước và chưa nghiệm thu prompt/GPU. Không thay thế artifact lịch sử.
 
 ## Dữ liệu và retrieval

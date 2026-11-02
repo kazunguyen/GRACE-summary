@@ -1,0 +1,13 @@
+# Local generated copies excluded from the run-management commit
+/donor_reconciliation_20261101/cache/
+/donor_reconciliation_20261101/new_reference/
+/donor_reconciliation_20261101/rerun_inputs/
+/donor_reconciliation_20261101/demo_comparison.csv
+/donor_reconciliation_20261101/demo_comparison.jsonl
+/donor_reconciliation_20261101/downloaded_record_decisions.csv
+/donor_reconciliation_20261101/downloaded_record_decisions.jsonl
+/b2_flip_I06_20261102/all_prompt_comparison.csv
+/b2_flip_I06_20261102/all_prompt_comparison.jsonl
+/b2_flip_I06_20261102/downloaded_record_decisions.csv
+/b2_flip_I06_20261102/downloaded_record_decisions.jsonl
+/b2_flip_I06_20261102/changed_prompt_text_review.jsonl

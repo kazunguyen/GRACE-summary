@@ -1,0 +1,55 @@
+{
+  "old": {
+    "input_sha256": "652fd28c99d46aceacaa70416ba6e0cfcad44b2f2ce641063f42dd5b5fb21741",
+    "ordered_retrieval_fingerprint": "4e074dae18843e1acc20618cd0c409ada069e3ca828abdd7e0073052aab45107",
+    "count": 21750,
+    "cache_sha256": "79ab1f6f429cbc3cc63cd5b00e3bcdf238676cc3d6f034a1c0adc4223917105a"
+  },
+  "new": {
+    "input_sha256": "7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62",
+    "ordered_retrieval_fingerprint": "6d9a9103556dc33ec253ebe5d9bb2cd1ab3f657e9916ea0d411c02311bf0fa64",
+    "count": 21691,
+    "cache_sha256": "61b28762917e68e84adf9dec07b4171707fc9a7af1dc2c4fc9a375f5e1f0a8be"
+  },
+  "ordered_retrieval_bank_identical": false,
+  "reproduction": {
+    "old_demo_reproduced": 5464,
+    "old_performance": {
+      "ambiguous_scalar_fallbacks": 206,
+      "changed_demo_scalar_checks": 0,
+      "seconds": 28.20366361300694
+    },
+    "new_performance": {
+      "ambiguous_scalar_fallbacks": 201,
+      "changed_demo_scalar_checks": 66,
+      "seconds": 29.63641688200005
+    }
+  },
+  "codet5_cache": [
+    {
+      "split": "train",
+      "manifest_sha256": "233e9c16bfb70de6c8cd9fc4a191ab653fbe4d3fc506f82d0385e27a3c794bdd",
+      "vectors_sha256": "a29c3d0fc7e6bad3a7c7763389fcb6dd065b1a6a76c443f8776d75d0598dd059"
+    },
+    {
+      "split": "validation",
+      "manifest_sha256": "9373f6317af11470beb12bfd1d05db04ceab02ccfe8a50dde8562e8c99f42d5b",
+      "vectors_sha256": "8af87a32f1a6d939911f8a8225af4e10537eb818483161deb3acda8248f714c8"
+    },
+    {
+      "split": "test",
+      "manifest_sha256": "4bdb968f3f4aeb35a64a12dfd9d20e296fb1dc8db0f368fa0a7334b22d2a2496",
+      "vectors_sha256": "91ee340fb76588957c4239328b34f72817ac71b0b76b146d619934f56e4f1d07"
+    }
+  ],
+  "query_specs": [
+    {
+      "split": "validation",
+      "specs_sha256": "3956d1f673d3ee37be8ba707a7baf04b14cfe73770466aef1d72540e4c7a2fed"
+    },
+    {
+      "split": "test",
+      "specs_sha256": "0441f99f66b9675898ac9e98092f7c6f52346e6e956ca70d4a3a47fa67b2817c"
+    }
+  ]
+}

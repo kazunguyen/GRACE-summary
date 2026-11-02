@@ -1,0 +1,45 @@
+{
+  "old": {
+    "input_sha256": "16b69accf8d3916b4e1cb47f63f850535c4fd380576d1e59d100e9df60dde067",
+    "ordered_retrieval_fingerprint": "2b464f575156e9b14727e0780a039bfc7e9b1f107e557d0bf961ecd9e869b033",
+    "count": 17636,
+    "cache_sha256": "40ea95cca711b69ea42069a026c9f43c9b357623b01cec39635b30ad9a8df9f9"
+  },
+  "new": {
+    "input_sha256": "6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce",
+    "ordered_retrieval_fingerprint": "2b464f575156e9b14727e0780a039bfc7e9b1f107e557d0bf961ecd9e869b033",
+    "count": 17636,
+    "cache_sha256": "40ea95cca711b69ea42069a026c9f43c9b357623b01cec39635b30ad9a8df9f9"
+  },
+  "ordered_retrieval_bank_identical": true,
+  "reproduction": {
+    "method": "identical ordered donor IDs/code/labels/AST and same cached vector lookup; retrieval unchanged"
+  },
+  "codet5_cache": [
+    {
+      "split": "train",
+      "manifest_sha256": "ed6094691de1f44e69bb22d60d9097463e6807689938757a4085884805edd1cb",
+      "vectors_sha256": "225d6c798a8b12357f5d2cf48fa42186d6e14ed997613b0da099fb7a8a127c18"
+    },
+    {
+      "split": "validation",
+      "manifest_sha256": "44de7ed99740250bf2c9391092c49d83db33086b8dfe96bf698162a9de35c933",
+      "vectors_sha256": "bfc8479762b5f31cb3bad91891c4c63eef21b0d79cb9c1c270e47487904af5f7"
+    },
+    {
+      "split": "test",
+      "manifest_sha256": "e45128310844bc4b0ae4a6ec189dfedfcba33c73d129b9cbeb43b09586fec908",
+      "vectors_sha256": "3415da26e5c81a52383d1f22b0d9b765bf7601e9e19c891a68edbd945c8542f3"
+    }
+  ],
+  "query_specs": [
+    {
+      "split": "validation",
+      "specs_sha256": "c74224056c010c0f84f588e4ef7825556812e15a2b0a59c35bbcbf179856b716"
+    },
+    {
+      "split": "test",
+      "specs_sha256": "1cd12ff5664f263d27086fc2bfdb42976bf25cb1e7e861348a018003ac2c1e62"
+    }
+  ]
+}
