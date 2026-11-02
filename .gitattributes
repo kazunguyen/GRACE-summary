@@ -1,0 +1,13 @@
+
+# Preserve exact snapshot/cache bytes and SHA256 on Windows/Linux
+/01_Author_Baseline_Unified/evaluation_contract.yaml -text
+/01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml -text
+/01_Author_Baseline_Unified/output/research_freeze_20261101/** -text
+/01_Author_Baseline_Unified/output/local_full/devign/raw/** -text
+/01_Author_Baseline_Unified/output/local_full/reveal/raw/** -text
+/01_Author_Baseline_Unified/output/local_full/devign/embedding_cache/** -text
+/01_Author_Baseline_Unified/output/local_full/reveal/embedding_cache/** -text
+/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/** -text
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/** -text
+/Runs-management/donor_reconciliation_20261101/cache/*_new_* -text
+/Runs-management/donor_reconciliation_20261101/new_reference/B2/** -text

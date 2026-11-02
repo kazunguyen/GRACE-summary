@@ -123,9 +123,31 @@ Cần notebook inference đúng phiên, ZIP prompt, model GGUF đúng SHA, check
 
 ### Người nhận tái tạo prompt/dữ liệu
 
-Cần thêm snapshot raw/CPG/CodeT5/freeze, donor new_reference và manifest/bằng chứng đối chiếu tương ứng. Git đang bỏ qua output/, cache donor, new_reference và một số bảng lớn; **clone/pull source không tự có đủ input chạy**. Bàn giao chúng bằng gói dữ liệu riêng có hash, giữ đường dẫn tương đối như bảng trên. Không cần gửi .venv-wsl/ hoặc uv-cache/; tạo môi trường lại từ requirements. Đây là gói cần bàn giao, chưa có script đóng gói tự động toàn bộ.
+Đợt bàn giao input 02/11/2026 đưa raw gốc/frozen, manifest, CodeT5 vectors cho cả train/validation/test của hai dataset, compact donor bank mới và B2 new_reference vào Git. **CPG Joern, donors frozen kèm graph và specs nguyên bản vượt 100 MiB được skip**, nên clone/pull vẫn chưa đủ để tái dựng mọi bước từ đầu. Bàn giao file skip riêng đúng đường dẫn/hash; xem danh sách chi tiết và cách khôi phục specs cũ từ ZIP ở mục dưới. Không cần gửi .venv-wsl/ hoặc uv-cache/; tạo môi trường lại từ requirements.
 
 Nếu thật sự cần dựng lại: notebook01 B2 mặc định DOWNLOAD_RAW=False, REBUILD_CPG=False và chỉ đọc sáu cache hoàn tất. Đổi CPG_ROOT/BUNDLE_ROOT sang phiên mới trước khi rebuild; chỉnh JOERN_HOME, BATCH_SIZE/JAVA_OPTS trong notebook recovery. CodeT5 encoder nằm ở prepare_embedding_cache.py (--raw-dir, --out, --batch-size), chạy WSL/Linux do có fcntl; không nhầm việc notebook01 đọc CachedEmbedder với chạy encoder mới. Hướng dẫn cũ của baseline có đoạn lịch sử; lấy cell cấu hình hiện tại và contract làm chuẩn.
+
+### Tình trạng input trong Git — 02/11/2026
+
+Danh mục **78 file đủ điều kiện**, trong đó 2 contract đã có trước và 76 file được bổ sung; **16 file trên 100 MiB được giữ local, không push**. [Danh sách từng file/size/hash và file skip](Runs-management/PROMPT_INPUTS_GIT_20261102.md), [inventory JSON](Runs-management/prompt_input_inventory_20261102.json).
+
+| Input | Phạm vi đã đưa vào Git |
+|---|---|
+| Contract | evaluation_contract.yaml và diagnostic_kit/configs/protocol.yaml của baseline |
+| Raw/freeze | Đủ Devign/REVEAL validation/test; kèm train, train_manifest/keep_in_bank, stats, near_pairs và freeze_manifest |
+| CodeT5 | Sáu bộ vectors.npy + manifest/provenance: train/validation/test của mỗi dataset; N×768 float32, đã khớp ID/hash code và checksum retrieval |
+| Donor mới | Compact bank 21.691 Devign + 17.636 REVEAL, manifest/retrieval/whitening hiện có và prompt B2 new_reference đủ bốn tập |
+| Graph/specs | Manifest/audit nhỏ và bốn ZIP B2 cũ có specs; CPG nguyên bản 6 file, donors graph 2 file, specs/donor copies 8 file vượt ngưỡng nên skip |
+
+Bốn vector mục tiêu lần lượt 2.732/2.732/2.273/2.274 dòng (Devign val/test, REVEAL val/test), mỗi file 6,66–8,00 MiB. Vector train 64,03/53,28 MiB cũng được đưa vào Git. Raw train frozen vẫn gồm mẫu bị loại; dùng keep_in_bank hoặc compact new_bank khi lấy donor đã chốt. Compact AST representation không thay thế full CPG nodes/edges.
+
+Kiểm input đã lấy từ remote, dùng Python chuẩn:
+
+~~~bash
+python -B Runs-management/verify_prompt_inputs_git.py --git-ref origin/baseline-unified
+~~~
+
+Pass xác nhận 78 file đủ điều kiện có đúng byte/hash ở local và ref Git. Các graph lớn vẫn cần chuyển riêng; ZIP B2 cũ giúp khôi phục specs cũ, không chứa toàn bộ graph donor và không phải phiên donor mới.
 
 ## 6. Chạy xong một lượt phải ghi vào file nào?
 

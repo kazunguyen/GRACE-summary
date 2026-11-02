@@ -1,0 +1,53 @@
+{
+  "dataset": "devign",
+  "normalization": "C/C++ lexical tokens; comments/format whitespace removed; literals preserved; token list SHA256",
+  "near_method": "exact token-3gram set Jaccard >= 0.9; complete prefix join; short code uses whole token sequence",
+  "near_policy": "flag only; eval flags compare with original train, including removed donors",
+  "per_split": {
+    "train": {
+      "n": 21854,
+      "positive": 10018,
+      "negative": 11836,
+      "near_flags": 515,
+      "exact_overlap": 22
+    },
+    "validation": {
+      "n": 2732,
+      "positive": 1187,
+      "negative": 1545,
+      "near_flags": 240,
+      "exact_overlap": 8
+    },
+    "test": {
+      "n": 2732,
+      "positive": 1255,
+      "negative": 1477,
+      "near_flags": 260,
+      "exact_overlap": 14
+    }
+  },
+  "bank_removals": {
+    "duplicate_train": 3,
+    "label_conflict": 138,
+    "overlap_eval_exact": 22
+  },
+  "donor_count": 21691,
+  "donor_missing_graphs": 13,
+  "donor_positive": 9933,
+  "input_sha256": {
+    "train": "e9b8df664175a0ec50f4c2b388684ac23f80c0a3798329531e7aea720502ab8d",
+    "validation": "d66a977b7358343f8364b1351cc318bc52c5eae6c48cc46664de4017fc87084b",
+    "test": "d2d72e446e31d062766f014ae37f787428943b8e54fd85a03bc92fd1e69f252e"
+  },
+  "cpg_train_sha256": "64d33f3403254fb6f8d2c8dc3815eeeed51254c33d523cd2ccf85ead08395cfb",
+  "files_sha256": {
+    "donors.jsonl": "7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62",
+    "near_pairs.jsonl": "421b1d2f595de756f55d24038a02fdfa52a51325a7cbc820df8551160f301810",
+    "test_manifest.jsonl": "f0f8672a88cddbe5c348847c285b843981b310c12117b5c8fdc3ccd785b759da",
+    "test_raw.jsonl": "9fdb601ac2ba3e21a96e7312d6218518ac350182be9fcb2125b4175633d4640b",
+    "train_manifest.jsonl": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4",
+    "train_raw.jsonl": "3a87fbf479877717402531e51922955f88282043fc972641317f13ca3b4838d0",
+    "validation_manifest.jsonl": "7a2eeec9a9aa2b472b2f4df0e6af91f6b90efab38d5ac44f9491adcf699b8eee",
+    "validation_raw.jsonl": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5"
+  }
+}

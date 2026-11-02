@@ -1,0 +1,22 @@
+{
+  "dataset": "reveal",
+  "repo": "claudios/ReVeal",
+  "revision": "71f62e1e6e2053173e7de31a342d2c38b3fe2dcc",
+  "splits": {
+    "train": {
+      "count": 18187,
+      "sha256": "e8a8a8e269fe8960931093d5d00d8ab7e6fdfae7812eea99de6ac60c131adb78",
+      "id_policy": "split_row_index"
+    },
+    "validation": {
+      "count": 2273,
+      "sha256": "0c300b7872af930d5eb5bb5018cb5d89853621fc221eaeee763a11a2051fd364",
+      "id_policy": "split_row_index"
+    },
+    "test": {
+      "count": 2274,
+      "sha256": "a3096c2eaecf55ea7bd93b9ec8db31f1c91f6cc85e71e18553bf750c84a129f6",
+      "id_policy": "split_row_index"
+    }
+  }
+}

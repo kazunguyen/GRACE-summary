@@ -1,0 +1,61 @@
+{
+  "source": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_verified_20261031",
+  "journal": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/joern_context_accepted_20261031/results.jsonl",
+  "policy": "method-name-and-minimum-size-only; scientific review required",
+  "splits": [
+    {
+      "dataset": "devign",
+      "split": "train",
+      "rows": 21854,
+      "merged": 3,
+      "still_missing": 13,
+      "output": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/train.jsonl",
+      "link_to_prior": false
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "rows": 2732,
+      "merged": 0,
+      "still_missing": 3,
+      "output": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/validation.jsonl",
+      "link_to_prior": true
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "rows": 2732,
+      "merged": 0,
+      "still_missing": 2,
+      "output": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/test.jsonl",
+      "link_to_prior": true
+    },
+    {
+      "dataset": "reveal",
+      "split": "train",
+      "rows": 18187,
+      "merged": 10,
+      "still_missing": 172,
+      "output": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/train.jsonl",
+      "link_to_prior": false
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "rows": 2273,
+      "merged": 1,
+      "still_missing": 27,
+      "output": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/validation.jsonl",
+      "link_to_prior": false
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "rows": 2274,
+      "merged": 0,
+      "still_missing": 23,
+      "output": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/test.jsonl",
+      "link_to_prior": true
+    }
+  ]
+}

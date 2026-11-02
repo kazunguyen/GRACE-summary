@@ -1,0 +1,56 @@
+{
+  "cpg": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031",
+  "rows": 50052,
+  "missing": 240,
+  "categories": {
+    "missing_source_or_build_context": 34,
+    "incomplete_joern_ast": 13,
+    "unexpanded_macro_template": 184,
+    "joern_parser_failure": 9
+  },
+  "splits": [
+    {
+      "dataset": "devign",
+      "split": "train",
+      "rows": 21854,
+      "with_graph": 21841,
+      "missing": 13
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "rows": 2732,
+      "with_graph": 2729,
+      "missing": 3
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "rows": 2732,
+      "with_graph": 2730,
+      "missing": 2
+    },
+    {
+      "dataset": "reveal",
+      "split": "train",
+      "rows": 18187,
+      "with_graph": 18015,
+      "missing": 172
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "rows": 2273,
+      "with_graph": 2246,
+      "missing": 27
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "rows": 2274,
+      "with_graph": 2251,
+      "missing": 23
+    }
+  ],
+  "remaining_report": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/remaining_missing.jsonl"
+}
