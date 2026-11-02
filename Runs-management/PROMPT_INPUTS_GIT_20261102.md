@@ -76,3 +76,7 @@ Các cache donor phiên cũ, môi trường Python, model GGUF/CodeT5 weights v�
 ## Bằng chứng bàn giao
 
 Commit dữ liệu: `bef5d2ea983c095b2b4e5388ef1ef931da678646`, đã push và kiểm trực tiếp trên `origin/baseline-unified`. Verifier đạt 78/78 file; 16 đường dẫn skip không có trong tree remote. [Kết quả JSON](prompt_inputs_git_verification_20261102.json), [worklog](../worklogs/2026-11-02_prompt_inputs_git_delivery.md).
+
+## Output và bundle B2-rand — nguồn riêng
+
+[Google Drive — bundle prompt, output và checkpoint B2-rand I-09](https://drive.google.com/drive/folders/17VoIiqOO0yArU4_bWYCzkLA2f20rbGzH?usp=sharing). Đây là gói riêng với cache 16 file ở đầu tài liệu. Danh sách 97 file và SHA-256 trong [b2_rand_drive_manifest_20261102.json](b2_rand_drive_manifest_20261102.json); checksum ghi từ bản bàn giao local đã so với nguồn, chưa được xác minh lại trên Drive. Khi tải về, đặt file đúng các đường dẫn `06_Arm_B2_Rand/...` trong manifest. Model GGUF và bundle B2 donor rerun không thuộc gói này.

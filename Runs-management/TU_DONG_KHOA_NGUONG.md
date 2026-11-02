@@ -1,6 +1,6 @@
 # Tự động khóa ngưỡng và bản ghi phân tích khi inference đang chạy
 
-**Hiện trạng sau đối chiếu 02/11/2026:** xem [HIEN_TRANG.md](HIEN_TRANG.md) và [current_status.json](current_status.json). Hai file này bổ sung các snapshot kiểm toán/ngưỡng ngày 01/11; không tạo khóa mới. B2 hiện chưa tích hợp helper vào notebook; watcher chưa được xác minh đang chạy. B2-rand đã có 12 bundle và notebook chạy kèm B2 rerun-66, chưa có output inference.
+**Hiện trạng sau đối chiếu 02/11/2026:** xem [HIEN_TRANG.md](HIEN_TRANG.md) và [current_status.json](current_status.json). Hai file này bổ sung các snapshot kiểm toán/ngưỡng ngày 01/11; không tạo khóa mới. B2 hiện chưa tích hợp helper vào notebook; watcher chưa được xác minh đang chạy. B2-rand I-09 đã có 4.798 record validation seed 42; 66 B2 donor rerun đã ghép vào phiên donor mới riêng.
 
 <!-- donor-rerun-risk-note -->
 **Nguy cơ do donor:** watcher/khóa ngưỡng không tự thay donor và không tự chạy lại LLM. Các run B2/flip/rep có thể cần phiên inference khác nếu prompt đổi khi thống nhất donor; ngưỡng mới chỉ được tính từ validation của đúng phiên. Theo dõi tại [NGUY_CO_CHAY_LAI_DO_DONOR.md](NGUY_CO_CHAY_LAI_DO_DONOR.md).
@@ -32,7 +32,7 @@ Chạy một lần thủ công nếu cần: `python Runs-management/auto_lock_va
 ## Notebook Kaggle đã được cập nhật cho phiên sau
 
 - Notebook inference B0 đã nhúng validation_lock.py, tự khóa tau sau khi đủ validation và lưu thresholds.json cùng checkpoint. Notebook B2 hiện tại chưa nhúng helper và chưa gọi make_lock/require_test_lock; có module helper B2 riêng không đồng nghĩa notebook đã tích hợp.
-- Với runtime đã tích hợp helper (B0, B2-flip phiên mới, B2-rand), test bị chặn nếu thiếu khóa đúng arm/dataset hoặc khác model/tokenizer/backend/validation prompt identity. Khi chạy test, metrics theo tau khóa được lưu riêng với raw greedy và ngưỡng 0,5.
+- B0 và B2-flip phiên mới có helper kiểm khóa theo identity. Notebook B2-rand khóa ngưỡng riêng sau đủ validation ba seed trước test; phần donor rerun dùng helper B2. Không suy rằng mọi runtime đều có cùng kiểm tra hay cùng output metric.
 - Thư mục output/checkpoint được giữ nguyên; resume validation đã hoàn thành tạo khóa từ records có sẵn, không cần GPU suy luận lại.
 - Notebook hiện đang chạy trên Kaggle vẫn là phiên mã đã nạp; sửa file local không thay đổi tiến trình cloud. Dùng notebook cập nhật ở phiên sau để nhận cơ chế tự khóa/chặn test. Nếu test đã được suy luận bằng phiên cũ, có thể chấm score offline bằng tau validation nhưng phải giữ khai báo thứ tự thực tế.
 - B1 và B2-flip đã có notebook và output inference (I-07/I-06); tích hợp helper khóa ngưỡng phải được kiểm riêng. B2-flip phiên donor mới đã có luồng khóa trước test; I-07 B1 chưa có bằng chứng khóa trước 429 test. B2-rep vẫn cần lượt gọi model độc lập.

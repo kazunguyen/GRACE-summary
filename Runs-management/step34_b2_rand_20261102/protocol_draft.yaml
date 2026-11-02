@@ -1,0 +1,24 @@
+schema: grace_b2_rand_analysis_draft_v1
+status: pending_researcher_review_not_registered
+arm: B2-rand
+seeds: [42, 43, 44]
+datasets: [devign, reveal]
+model_sha256: f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335
+tokenizer_revision: b2cff646eb4bb1d68355c01b18ae02e7cf42d120
+backend: llama-cpp-python
+backend_version: 0.3.16
+scoring: unconstrained_first_token_logits_v1
+context_tokens: 8192
+reserve_tokens: 64
+graph_nodes_max: 40
+graph_edges_max: 80
+graph_budget_tokens: 1500
+demo_budget_tokens: 1500
+threshold_rule: validation_mcc_grid_v1
+run_budget_hours: 9
+checkpoint_reserve_seconds: 300
+source_bundle_sha256: 684167868f69b55c62409eb1c97802a9bda10a8bac613404b527096933ef0014
+source_checkpoint_sha256: 9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92
+test_exposure: previously_exposed_for_other_arms
+b2_rand_test_records_in_imported_checkpoint: 0
+open_decisions: [H2_2_80_percent, holm_family, degenerate_ci, demo_below_25_percent, reviewer_attestation]

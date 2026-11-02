@@ -151,6 +151,12 @@ Pass xác nhận 78 file đủ điều kiện có đúng byte/hash ở local và
 
 Đã xác minh push dữ liệu tại commit `bef5d2e` trên `origin/baseline-unified`: 78/78 file khớp byte/hash, 16 file skip không có trong tree remote. [Bằng chứng kiểm remote](Runs-management/prompt_inputs_git_verification_20261102.json), [worklog bàn giao](worklogs/2026-11-02_prompt_inputs_git_delivery.md).
 
+### Bundle và checkpoint B2-rand trên Google Drive
+
+[Google Drive — output B2-rand, bundle và checkpoint I-09](https://drive.google.com/drive/folders/17VoIiqOO0yArU4_bWYCzkLA2f20rbGzH?usp=sharing). Link do người dùng cung cấp; chưa tải lại hoặc xác minh nội dung trên Drive. Gói bàn giao local gồm 97 file, 347.745.695 byte, kể cả notebook có output; đối chiếu theo [manifest SHA-256](Runs-management/b2_rand_drive_manifest_20261102.json).
+
+Bundle Kaggle `grace_b2_rand_inputs.zip` SHA-256: `684167868f69b55c62409eb1c97802a9bda10a8bac613404b527096933ef0014`. Checkpoint `grace_b2_rand_checkpoint.zip` SHA-256: `9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92`. Khi khôi phục, đặt các file dưới `06_Arm_B2_Rand/output/` đúng cấu trúc trong manifest; notebook có output lưu riêng trong `06_Arm_B2_Rand/notebooks/`. Model GGUF và bundle donor rerun là nguồn riêng.
+
 ### Tải cache lớn từ Google Drive
 
 **[Google Drive — cache Joern/donor/specs để tái sử dụng dựng prompt](https://drive.google.com/drive/folders/1oV49c5JgLJl5sD1_v7NPlDOs0Hik_0Zl?usp=sharing)**. Đây là nguồn tải 16 file lớn không được đưa vào Git, do người dùng cung cấp ngày 02/11/2026.

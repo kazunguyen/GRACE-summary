@@ -12,8 +12,8 @@ FOLDERS = {'B0': '02_Arm_B0_Source_Only', 'B1': '03_Arm_B1_Graph_Only',
            'B2': BASE, 'B2-flip': '04_Arm_B2_Flip', 'B2-rep': '05_Arm_B2_Rep',
            'B2-rand': '06_Arm_B2_Rand'}
 SOURCES = {'B0': '02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs',
-           'B1': '03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs',
-           'B2': BASE + '/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h',
+           'B1': '03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs',
+           'B2': BASE + '/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102',
            'B2-flip': '04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35'}
 SPLITS = [('devign', 'validation', 2732), ('devign', 'test', 2732),
           ('reveal', 'validation', 2273), ('reveal', 'test', 2274)]
@@ -40,11 +40,38 @@ def collect(root=ROOT, here=HERE):
         source = root / SOURCES[arm] if arm in SOURCES else None
         prompt_root = root / folder / 'output/bundles'
         if arm == 'B2':
-            prompt_root = root / BASE / 'output/local_full/bundles_recovered_joern_final_20261031'
+            prompt_root = here / 'donor_reconciliation_20261101/new_reference/B2'
         entry = {'arm': arm, 'source': SOURCES.get(arm), 'splits': [], 'notebooks': []}
         for dataset, split, expected_count in SPLITS:
             if arm == 'B2-rand':
-                expected_count *= 3
+                seed_details = []
+                for seed in (42, 43, 44):
+                    record_path = root / folder / 'output/kaggle_run_01/grace_b2_rand_three_seed_11h' / f'seed_{seed}' / dataset / split / 'records.jsonl'
+                    actual = rows(record_path) if record_path.exists() else []
+                    expected_path = prompt_root / f'seed_{seed}' / dataset / split / 'prompts.jsonl'
+                    expected = {str(r['id']): r for r in rows(expected_path)} if actual else {}
+                    manifest = read(record_path.with_name('run_manifest.json')) if actual else {}
+                    seen = set()
+                    for row in actual:
+                        uid = str(row['id']); ref = expected.get(uid)
+                        if uid in seen or ref is None or row['arm'] != arm or row['dataset'] != dataset or row['split'] != split:
+                            raise ValueError(f'Unexpected or duplicate record: {arm}/{seed}/{dataset}/{split}/{uid}')
+                        if row['label'] != ref['label'] or row['prompt_sha256'] != ref['prompt_sha256'] or row['model_sha256'] != manifest['model_sha256']:
+                            raise ValueError(f'Prompt/label/model mismatch: {arm}/{seed}/{uid}')
+                        seen.add(uid)
+                    detail = {'seed': seed, 'completed': len(actual), 'expected': expected_count,
+                              'invalid_response': sum(r.get('response_valid') is not True for r in actual),
+                              'invalid_score': sum(not (r.get('valid') and isinstance(r.get('s'), (int, float)) and math.isfinite(r['s']) and 0 <= r['s'] <= 1) for r in actual)}
+                    if actual:
+                        detail.update(records_sha256=sha(record_path), records_path=record_path.relative_to(root).as_posix())
+                    seed_details.append(detail)
+                completed = sum(d['completed'] for d in seed_details)
+                item = {'dataset': dataset, 'split': split, 'expected': expected_count*3, 'completed': completed,
+                        'missing': expected_count*3-completed, 'invalid_response': sum(d['invalid_response'] for d in seed_details),
+                        'invalid_score': sum(d['invalid_score'] for d in seed_details), 'seeds': seed_details}
+                if split == 'validation': item.update(threshold_state='waiting_validation_records', tau=None)
+                entry['splits'].append(item)
+                continue
             record_path = source/dataset/split/'records.jsonl' if source else None
             actual = rows(record_path) if record_path and record_path.exists() else []
             expected_path = prompt_root/dataset/split/'prompts.jsonl'
@@ -61,6 +88,11 @@ def collect(root=ROOT, here=HERE):
                     raise ValueError(f'Prompt/label mismatch: {arm}/{uid}')
                 seen.add(uid)
             locked = locks.get(f'{arm}/{dataset}')
+            if arm == 'B2' and dataset == 'devign':
+                lock_path = source / 'thresholds_devign.json'
+                locked = read(lock_path)['entries']['B2/devign']
+                if locked['validation_prompt_set_sha256'] != sha(prompt_root/dataset/'validation'/'prompts.jsonl'):
+                    raise ValueError('B2 Devign threshold prompt set mismatch')
             item = {'dataset': dataset, 'split': split, 'expected': expected_count,
                     'completed': len(actual), 'missing': expected_count-len(actual),
                     'invalid_response': sum(r.get('response_valid') is not True for r in actual),
@@ -69,7 +101,7 @@ def collect(root=ROOT, here=HERE):
             if actual:
                 item.update(records_sha256=sha(record_path), records_path=record_path.relative_to(root).as_posix())
             if split == 'validation':
-                item['threshold_state'] = 'locked_historical_prompt_version' if locked else ('validation_complete_unlocked' if len(actual)==expected_count else 'waiting_validation_records')
+                item['threshold_state'] = ('locked_frozen_donor_version' if arm == 'B2' and dataset == 'devign' else 'locked_historical_prompt_version') if locked else ('validation_complete_unlocked' if len(actual)==expected_count else 'waiting_validation_records')
                 item['tau'] = locked['tau'] if locked else None
             entry['splits'].append(item)
         for path in sorted((root/folder/'notebooks').glob('02_*kaggle*.ipynb')):
@@ -81,9 +113,9 @@ def collect(root=ROOT, here=HERE):
         entry['completed'] = sum(s['completed'] for s in entry['splits'])
         entry['expected'] = 30033 if arm == 'B2-rand' else 10011
         entry['missing'] = entry['expected']-entry['completed']
-        entry['prompt_bundle_count'] = len(list(prompt_root.rglob('bundle_manifest.json')))
+        entry['prompt_bundle_count'] = len(list(prompt_root.rglob('manifest.json' if arm == 'B2' else 'bundle_manifest.json')))
         if arm == 'B2-rand':
-            entry['note'] = '12 prepared bundles across seeds 42/43/44; no imported inference source. Rerun-66 is part of B2, not another arm.'
+            entry['note'] = 'Imported seed-specific records from kaggle_run_01. Rerun-66 is part of B2, not another arm.'
         result['arms'].append(entry)
     return result
 
@@ -96,8 +128,6 @@ def current_section(here=HERE):
              '|---|---:|---:|---:|---:|---:|']
     for arm in state['arms']:
         values = [str(s['completed'])+'/'+str(s['expected']) for s in arm['splits']]
-        if arm['arm']=='B2-rand':
-            values = ['Chưa có output']*4
         lines.append('| '+arm['arm']+' | '+' | '.join(values)+' | '+str(arm['completed'])+'/'+str(arm['expected'])+' |')
     unlocked = [a['arm']+'/'+s['dataset'] for a in state['arms'] for s in a['splits']
                 if s.get('threshold_state') == 'validation_complete_unlocked']
@@ -107,8 +137,8 @@ def current_section(here=HERE):
     lines += ['', 'Source notebook (kiểm tra tĩnh): '+'; '.join(gates)+'. Không chứng minh thứ tự khóa của các run lịch sử.']
     lines += ['', 'Bằng chứng lịch sử [B1 I-07](b1_I07_20261102.json): 5.434 record, 0 invalid score, 3 invalid raw response; [B2-flip I-06](b2_flip_I06_20261102/KET_QUA_I06_B2_FLIP.md): 5.235 record, 0 invalid. '
               'Flip Devign donor mới cần sửa 28 validation trước khóa; xem [resume](B2_FLIP_DONOR_MOI_RESUME.md).',
-              '', 'B2 Devign donor mới cần 66 lượt; B2-flip cần 4.809 lượt bổ sung. Chưa có output GPU phiên donor mới. '
-              'B2-rand đã có 12 bundle và notebook chạy kèm B2 rerun-66; chưa có output inference.',
+              '', 'B2 donor rerun 66 record đã ghép vào phiên donor mới riêng, giữ output B2 lịch sử; Devign dùng khóa validation phiên mới. B2-flip cần 4.809 lượt bổ sung. '
+              'B2-rand đã nhập seed 42; seed 43/44 chưa chạy. Xem I-09 trong RUNS.md.',
               '', 'Watcher chưa được xác minh đang chạy; không tự khởi động. Các lỗi nghiệm thu prompt/protocol/OSF và lịch sử test trước khóa vẫn giữ nguyên.',
               '<!-- current-status:end -->', '']
     return '\n'.join(lines)

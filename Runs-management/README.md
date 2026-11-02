@@ -6,6 +6,7 @@ Thư mục này lưu **sổ chạy, trạng thái, ngưỡng và bằng chứng 
 
 | File | Vai trò | Khi nào ghi? |
 |---|---|---|
+| [step34_b2_rand_20261102/](step34_b2_rand_20261102/README.md) | Bằng chứng checkpoint B2-rand, phiếu chấm và hồ sơ bước 4 nháp | Trước khi tiếp tục I-09; chưa nghiệm thu hoặc đăng ký |
 | [dry_run_validation_20261102/](dry_run_validation_20261102/README.md) | Dry-run đủ validation 10 arm: 70.070 dòng/28 tập, kết luận và hồ sơ hai người chấm | 28/28 đạt sau đối chiếu nguồn; 5 arm blocked và chấm tay còn thiếu |
 | [RUNS.md](RUNS.md) | Sổ duy nhất cho mọi lượt Joern, CodeT5, prompt, inference | Trước khi nhận/chạy và sau mỗi lần hoàn tất, timeout, lỗi, resume |
 | [HIEN_TRANG.md](HIEN_TRANG.md) | Bảng record đã kiểm local; sinh từ [current_status.json](current_status.json) | Dùng refresh_current_status.py sau khi cập nhật nguồn đúng phiên; không sửa tay |
@@ -26,6 +27,7 @@ Mẫu ghi run, notebook và đường dẫn input/output: xem [README gốc](../
 | Runtime khóa | validation_lock.py | Được B0, helper B2, flip và builder rerun-66 import/nhúng; xóa sẽ làm hỏng luồng |
 | Khóa local theo dõi | auto_lock_validation.py, watch_validation.py, start_validation_watch.ps1 | Chọn khóa từ đủ validation và vận hành watcher khi chủ động bật; không có kết nối tải Kaggle |
 | Kiểm khóa | check_locked_thresholds.py | Đối chiếu ngưỡng đã lưu bằng sklearn, chỉ đọc validation |
+| Ghép B2 | merge_b2_donor_rerun.py | Đối chiếu output I-09 với B2 cũ và khóa validation; ghi phiên donor mới riêng, không ghi đè nguồn |
 | Trạng thái | refresh_current_status.py | Đọc các nguồn canonical trong SOURCES, kiểm record và sinh current_status.json/HIEN_TRANG.md |
 | Audit | audit_tier1_readiness.py, audit_arm_integration.py, audit_b2_flip_I06_20261102.py | Tái kiểm điều kiện, đường gọi và hash/migration; xuất bản CURRENT riêng |
 | Tái tạo donor | reconcile_donor_prompts.py, summarize_donor_reconciliation.py | Dấu vết retrieval/prompt thay đổi và kiểm export; không chạy chúng chỉ để resume |

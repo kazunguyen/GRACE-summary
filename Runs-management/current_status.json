@@ -1,6 +1,6 @@
 {
   "schema": "local_progress_v1",
-  "checked_at_utc": "2026-11-02T05:51:57.568885+00:00",
+  "checked_at_utc": "2026-11-02T15:50:38.466903+00:00",
   "scope": "Known imported outputs only; no cloud status inferred",
   "thresholds_fitted": false,
   "historical_snapshots_modified": false,
@@ -78,7 +78,7 @@
     },
     {
       "arm": "B1",
-      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs",
       "splits": [
         {
           "dataset": "devign",
@@ -89,7 +89,7 @@
           "invalid_response": 0,
           "invalid_score": 0,
           "records_sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
-          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/devign/validation/records.jsonl",
+          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/devign/validation/records.jsonl",
           "threshold_state": "validation_complete_unlocked",
           "tau": null
         },
@@ -97,12 +97,12 @@
           "dataset": "devign",
           "split": "test",
           "expected": 2732,
-          "completed": 429,
-          "missing": 2303,
+          "completed": 2732,
+          "missing": 0,
           "invalid_response": 0,
           "invalid_score": 0,
-          "records_sha256": "c2faac7860ad97afff2eb9aaff2c5d1efefebbbe1ed1959d0dec0dae19f5c917",
-          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/devign/test/records.jsonl"
+          "records_sha256": "15673b8f6788b1d6b55e66438cba292435178303d820b8c3d249cd850254ace4",
+          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/devign/test/records.jsonl"
         },
         {
           "dataset": "reveal",
@@ -113,7 +113,7 @@
           "invalid_response": 3,
           "invalid_score": 0,
           "records_sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
-          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/reveal/validation/records.jsonl",
+          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/reveal/validation/records.jsonl",
           "threshold_state": "validation_complete_unlocked",
           "tau": null
         },
@@ -121,28 +121,30 @@
           "dataset": "reveal",
           "split": "test",
           "expected": 2274,
-          "completed": 0,
-          "missing": 2274,
-          "invalid_response": 0,
-          "invalid_score": 0
+          "completed": 2274,
+          "missing": 0,
+          "invalid_response": 2,
+          "invalid_score": 0,
+          "records_sha256": "26057b7af6fe20dd40a829598555709b963f7615c6a04d8f228f63e6bea2c166",
+          "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/reveal/test/records.jsonl"
         }
       ],
       "notebooks": [
         {
           "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1.ipynb",
-          "sha256": "e477a1c51c1a2f05320263cb0c537f9209cbe912898d0f7fd2f90eec66b304d8",
+          "sha256": "6e501ab2f57b964e9c43a807297df4407620bcb9a02f0a3744d742341dce22fb",
           "source_contains_make_lock_call": false,
           "source_contains_test_lock_call": false
         }
       ],
-      "completed": 5434,
+      "completed": 10011,
       "expected": 10011,
-      "missing": 4577,
+      "missing": 0,
       "prompt_bundle_count": 4
     },
     {
       "arm": "B2",
-      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102",
       "splits": [
         {
           "dataset": "devign",
@@ -152,9 +154,9 @@
           "missing": 0,
           "invalid_response": 0,
           "invalid_score": 0,
-          "records_sha256": "39ecf541d2d3b440a87177f0d8f98c28cc3eb25b4247ace085bf0e1890ceb79a",
-          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/validation/records.jsonl",
-          "threshold_state": "locked_historical_prompt_version",
+          "records_sha256": "fd40fb2c228a0fe343bdd7b4c238635043276341c801793fbd425af766f7eb32",
+          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/devign/validation/records.jsonl",
+          "threshold_state": "locked_frozen_donor_version",
           "tau": 0.7
         },
         {
@@ -165,8 +167,8 @@
           "missing": 0,
           "invalid_response": 0,
           "invalid_score": 0,
-          "records_sha256": "0dbcf384bd0f640250f71aa03113765b7927a37c6d550807fc2ea851b94c78f1",
-          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/test/records.jsonl"
+          "records_sha256": "d0a61bfa6cc1700ddd5a6d668d4c42d808cce5fbc71b42b300fdd29060c71304",
+          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/devign/test/records.jsonl"
         },
         {
           "dataset": "reveal",
@@ -177,7 +179,7 @@
           "invalid_response": 0,
           "invalid_score": 0,
           "records_sha256": "221a794e55d8f900ce3986e27cdf227a23a947aa4dd864b6ed597fe5363fa994",
-          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/validation/records.jsonl",
+          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/reveal/validation/records.jsonl",
           "threshold_state": "locked_historical_prompt_version",
           "tau": 0.12
         },
@@ -190,7 +192,7 @@
           "invalid_response": 0,
           "invalid_score": 0,
           "records_sha256": "dcdaf0d0b52451b295e73cda7ba2e95653051035fcf3a9cd48e4b8d2ba39a415",
-          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/test/records.jsonl"
+          "records_path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/reveal/test/records.jsonl"
         }
       ],
       "notebooks": [
@@ -329,10 +331,35 @@
           "dataset": "devign",
           "split": "validation",
           "expected": 8196,
-          "completed": 0,
-          "missing": 8196,
+          "completed": 2732,
+          "missing": 5464,
           "invalid_response": 0,
           "invalid_score": 0,
+          "seeds": [
+            {
+              "seed": 42,
+              "completed": 2732,
+              "expected": 2732,
+              "invalid_response": 0,
+              "invalid_score": 0,
+              "records_sha256": "6f6bc0d6f0495fc7e69a834799718768d18ec12a41dfb61e7f2229dfaec91a65",
+              "records_path": "06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_three_seed_11h/seed_42/devign/validation/records.jsonl"
+            },
+            {
+              "seed": 43,
+              "completed": 0,
+              "expected": 2732,
+              "invalid_response": 0,
+              "invalid_score": 0
+            },
+            {
+              "seed": 44,
+              "completed": 0,
+              "expected": 2732,
+              "invalid_response": 0,
+              "invalid_score": 0
+            }
+          ],
           "threshold_state": "waiting_validation_records",
           "tau": null
         },
@@ -343,16 +370,64 @@
           "completed": 0,
           "missing": 8196,
           "invalid_response": 0,
-          "invalid_score": 0
+          "invalid_score": 0,
+          "seeds": [
+            {
+              "seed": 42,
+              "completed": 0,
+              "expected": 2732,
+              "invalid_response": 0,
+              "invalid_score": 0
+            },
+            {
+              "seed": 43,
+              "completed": 0,
+              "expected": 2732,
+              "invalid_response": 0,
+              "invalid_score": 0
+            },
+            {
+              "seed": 44,
+              "completed": 0,
+              "expected": 2732,
+              "invalid_response": 0,
+              "invalid_score": 0
+            }
+          ]
         },
         {
           "dataset": "reveal",
           "split": "validation",
           "expected": 6819,
-          "completed": 0,
-          "missing": 6819,
-          "invalid_response": 0,
+          "completed": 2066,
+          "missing": 4753,
+          "invalid_response": 1,
           "invalid_score": 0,
+          "seeds": [
+            {
+              "seed": 42,
+              "completed": 2066,
+              "expected": 2273,
+              "invalid_response": 1,
+              "invalid_score": 0,
+              "records_sha256": "74261d5eb005e55513cce0ce1898678e24e83a3cdac843612a7bd9e56b52076e",
+              "records_path": "06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_three_seed_11h/seed_42/reveal/validation/records.jsonl"
+            },
+            {
+              "seed": 43,
+              "completed": 0,
+              "expected": 2273,
+              "invalid_response": 0,
+              "invalid_score": 0
+            },
+            {
+              "seed": 44,
+              "completed": 0,
+              "expected": 2273,
+              "invalid_response": 0,
+              "invalid_score": 0
+            }
+          ],
           "threshold_state": "waiting_validation_records",
           "tau": null
         },
@@ -363,22 +438,45 @@
           "completed": 0,
           "missing": 6822,
           "invalid_response": 0,
-          "invalid_score": 0
+          "invalid_score": 0,
+          "seeds": [
+            {
+              "seed": 42,
+              "completed": 0,
+              "expected": 2274,
+              "invalid_response": 0,
+              "invalid_score": 0
+            },
+            {
+              "seed": 43,
+              "completed": 0,
+              "expected": 2274,
+              "invalid_response": 0,
+              "invalid_score": 0
+            },
+            {
+              "seed": 44,
+              "completed": 0,
+              "expected": 2274,
+              "invalid_response": 0,
+              "invalid_score": 0
+            }
+          ]
         }
       ],
       "notebooks": [
         {
           "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
-          "sha256": "c175f069449c1d1d5c6ccc8644ec641ea114caa5526a496fb0efcd23c2255d81",
+          "sha256": "6970dac4269931b1e85171fc3bdc7d642a0bd495485ef4cac757ab9ef2a12a66",
           "source_contains_make_lock_call": true,
           "source_contains_test_lock_call": true
         }
       ],
-      "completed": 0,
+      "completed": 4798,
       "expected": 30033,
-      "missing": 30033,
+      "missing": 25235,
       "prompt_bundle_count": 12,
-      "note": "12 prepared bundles across seeds 42/43/44; no imported inference source. Rerun-66 is part of B2, not another arm."
+      "note": "Imported seed-specific records from kaggle_run_01. Rerun-66 is part of B2, not another arm."
     }
   ]
 }

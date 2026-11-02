@@ -1,0 +1,128 @@
+{
+  "verified_at_utc": "2026-11-02T15:57:50.042959+00:00",
+  "scope": "Integrity and prompt provenance only; no test records/metrics read; no inference or threshold fitting",
+  "checkpoint_sha256": "9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92",
+  "input_zip_sha256": "684167868f69b55c62409eb1c97802a9bda10a8bac613404b527096933ef0014",
+  "audit_sha256": "d4d3c63caa3923e167905a7bb7b4cc20db5ee4a0170ac49abced028054f9312d",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "validation_records_verified": 4798,
+  "b2_rand_test_records": 0,
+  "same_as_current_reference_donor_count": 0,
+  "same_as_current_reference_donor_examples": [],
+  "checkpoint_record_hashes": {
+    "seed_42/devign/validation/records.jsonl": "6f6bc0d6f0495fc7e69a834799718768d18ec12a41dfb61e7f2229dfaec91a65",
+    "seed_42/reveal/validation/records.jsonl": "74261d5eb005e55513cce0ce1898678e24e83a3cdac843612a7bd9e56b52076e"
+  },
+  "sets": [
+    {
+      "seed": 42,
+      "dataset": "devign",
+      "split": "validation",
+      "prompts": 2732,
+      "completed": 2732,
+      "audited_prompts_sha256": "8112a6478f8eecd8e7011af881ce9057d02caf42cb8367515108785ff55ad65a",
+      "reference_prompts_sha256": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c"
+    },
+    {
+      "seed": 43,
+      "dataset": "devign",
+      "split": "validation",
+      "prompts": 2732,
+      "completed": 0,
+      "audited_prompts_sha256": "1e9b6fc3d3e5e129ecf1e779b959056de0f9b3b5b8386b366b74443c9f383f24",
+      "reference_prompts_sha256": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c"
+    },
+    {
+      "seed": 44,
+      "dataset": "devign",
+      "split": "validation",
+      "prompts": 2732,
+      "completed": 0,
+      "audited_prompts_sha256": "fe0c739a29a591cf75b957ef2e86c53fb7ed6b83ba9c4fd29509d76490d10c7e",
+      "reference_prompts_sha256": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c"
+    },
+    {
+      "seed": 42,
+      "dataset": "reveal",
+      "split": "validation",
+      "prompts": 2273,
+      "completed": 2066,
+      "audited_prompts_sha256": "dd08b1ffd36690bf6f2ab00f8fda1708d6b88e6fe9957893519075d35d06d8a3",
+      "reference_prompts_sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081"
+    },
+    {
+      "seed": 43,
+      "dataset": "reveal",
+      "split": "validation",
+      "prompts": 2273,
+      "completed": 0,
+      "audited_prompts_sha256": "c4d6550b0432ba4e347d2444fe39648054c4616a49fa0d5c6a11f50f1e5a4ad6",
+      "reference_prompts_sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081"
+    },
+    {
+      "seed": 44,
+      "dataset": "reveal",
+      "split": "validation",
+      "prompts": 2273,
+      "completed": 0,
+      "audited_prompts_sha256": "8401afc0a212b45d5eaed4bf1a74919414b0e9683699b9f0d268432341ae81d1",
+      "reference_prompts_sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081"
+    },
+    {
+      "seed": 42,
+      "dataset": "devign",
+      "split": "test",
+      "prompts": 2732,
+      "completed": 0,
+      "audited_prompts_sha256": "237a138fc911224fe8d0059bc101971f33d8a1e182e7be3d911535d2a3fcb7cb",
+      "reference_prompts_sha256": "9508b80980cba2c774f6237d696861a0dc4ee8b63f1b6962d0f2c81ad9f42415"
+    },
+    {
+      "seed": 43,
+      "dataset": "devign",
+      "split": "test",
+      "prompts": 2732,
+      "completed": 0,
+      "audited_prompts_sha256": "6bcd35410960ce4de0f6b9ae048d7fc5ee295ed93baa995b26754cd0f5561f98",
+      "reference_prompts_sha256": "9508b80980cba2c774f6237d696861a0dc4ee8b63f1b6962d0f2c81ad9f42415"
+    },
+    {
+      "seed": 44,
+      "dataset": "devign",
+      "split": "test",
+      "prompts": 2732,
+      "completed": 0,
+      "audited_prompts_sha256": "b3ef2ef95ccb5d99b739ed6fbf30aa876f170f8d2def26d48ebe3eece81261d9",
+      "reference_prompts_sha256": "9508b80980cba2c774f6237d696861a0dc4ee8b63f1b6962d0f2c81ad9f42415"
+    },
+    {
+      "seed": 42,
+      "dataset": "reveal",
+      "split": "test",
+      "prompts": 2274,
+      "completed": 0,
+      "audited_prompts_sha256": "39ccb2c61797c272a4dcca0419887587e3197bcc7869497ad6a52e8d19c93a66",
+      "reference_prompts_sha256": "d4dc02f46868217a56e9d3c92a664e0f25afa69307e5110bb5b8191834a52f78"
+    },
+    {
+      "seed": 43,
+      "dataset": "reveal",
+      "split": "test",
+      "prompts": 2274,
+      "completed": 0,
+      "audited_prompts_sha256": "a1ff4f3295b70a477150b9e118f7bef3abfe8edacb557222e1efd9fcdcc518d9",
+      "reference_prompts_sha256": "d4dc02f46868217a56e9d3c92a664e0f25afa69307e5110bb5b8191834a52f78"
+    },
+    {
+      "seed": 44,
+      "dataset": "reveal",
+      "split": "test",
+      "prompts": 2274,
+      "completed": 0,
+      "audited_prompts_sha256": "8e35d22c5d1413d67200730fec4ce58270d2d7250a84f572394d024ffe825785",
+      "reference_prompts_sha256": "d4dc02f46868217a56e9d3c92a664e0f25afa69307e5110bb5b8191834a52f78"
+    }
+  ],
+  "human_review": "pending_two_real_reviewers",
+  "registration": "not_completed_not_osf"
+}

@@ -8,10 +8,10 @@
 |---|---|---|
 | 0 — Offline lịch sử | B0_offline ở workspace nguồn đã tái tạo 36 run, P_pre/P_post, repair–harm/oracle/routing; nằm ngoài repo bàn giao này | Có thể tích hợp sớm group-aware OOF/routing CI; expert DeepSeek nhị phân lịch sử không thay thế expert Qwen mới |
 | 1 — Backend | Qwen3-Coder-30B-A3B Q4_K_M, model/tokenizer pin, llama-cpp-python0.3.16, có inference thật | B0 có helper khóa; notebook B1/B2 hiện chưa có make_lock/require_test_lock. Watcher chưa xác minh đang chạy |
-| 2 — Freeze/raw/CPG/embedding | Freeze donor, cache CodeT5, CPG Joern cuối; B2 tham chiếu mới, bundle flip mới và B2 rerun-66 | Áp dụng donor mới vào inference B2/flip; rep bám đúng phiên B2 cuối. Không encode/parse/retrieve lại chỉ để resume |
+| 2 — Freeze/raw/CPG/embedding | Freeze donor, cache CodeT5, CPG Joern cuối; B2 tham chiếu mới, bundle flip mới và B2 rerun-66 | B2 donor mới đã ghép đủ; flip còn cần chuyển donor; rep bám đúng phiên B2 cuối. Không encode/parse/retrieve lại chỉ để resume |
 | 3 — Prompt/audit | Hậu kiểm 100.110 dòng/40 tập của 6 arm; dry-run mới đủ validation 10 arm/28 tập, 70.070 dòng; 28/28 đạt sau đối chiếu nguồn | B1-H2 và bốn arm B3 blocked vì thiếu đầu vào; chưa đủ 15 arm. Đã có 60 mẫu/hai phiếu trống, chưa có hai người chấm |
 | 4 — Đăng ký trước | Analysis lock local có thời điểm sau khi inference bắt đầu, hash/tag lịch sử | Chưa OSF; không gọi preregistration hồi tố. Amendment dùng thời điểm thật, giữ lịch sử tiếp xúc test |
-| 5 — Ma trận | B0=10.011; B2=10.011; B1=5.434; flip=5.235; rep/rand chưa có output | B1 còn 4.577; B2 donor mới thêm 66; flip thêm 4.809. Đồng bộ gate/validation/ngưỡng đúng phiên trước test mới; rep gọi model mới |
+| 5 — Ma trận | B0/B1/B2=10.011 mỗi arm; B2 donor mới đã ghép 66; flip=5.235; B2-rand=4.798 validation seed 42; rep chưa có output | B1 đủ record nhưng cần làm rõ lịch sử khóa; flip thêm 4.809. Đồng bộ gate/validation/ngưỡng đúng phiên trước test mới; rep gọi model mới |
 | 6 — Anchor và giá trị bổ sung | Có supervised_anchor.py/complementarity.py trong kit | Chưa có anchor_scores/summary SUP-LR/MLP/METRIC ba seed cho chiến dịch này; cần adapter cache, expert Qwen ghép ID và cùng folds |
 | 7 — Bảng/thống kê | Có stats.py/evaluate_final.py và contrast/biên delta | Sinh metric/CI từ ma trận và anchors mới; bootstrap5.000, báo lần suy biến, Holm, tách nguồn bất định |
 | 8 — Review/label audit | Có lịch sử review và make_case_packets.py | Chưa đủ 100 target/dataset, hai người chấm độc lập, phân xử,60 ca SUP-LR/B2 và audit50FN+50FP/dataset |
@@ -22,7 +22,7 @@
 - Khóa local B0/Devign, B0/REVEAL, B2/Devign tạo ~09:57 UTC ngày 01/11, sau khi test tương ứng đã xong. B2/REVEAL có phần test trước khóa ~10:42 UTC. B1/flip đã chạy429/230 test nhưng chưa có bằng chứng khóa trước các mẫu đó. Không backdate hay gọi run cũ xác nhận hồi tố.
 - B0 có 1.132 raw response không phải0/1 dù score valid đủ; B1 có3 raw invalid ở REVEAL validation. Báo valid score/raw riêng, không ép invalid thành nhãn0.
 - B2-rep mới có notebook prompt, chưa có runner inference riêng/output. Prompt giống B2 phải gọi backend mới; resume checkpoint không phải repeat độc lập.
-- B2-rand mới có notebook/bundle. Notebook chạy B2 rerun-66 trước rồi tự chuyển sang rand; folder 07 là bổ sung B2, không phải arm thứ16.
+- B2-rand I-09 có 4.798 validation seed 42; test và seed 43/44 chưa chạy. B2 rerun-66 thuộc B2 và đã ghép vào phiên donor mới riêng; folder 07 không phải arm thứ 16.
 
 ## 3. Điều kiện tích hợp và audit
 
@@ -37,8 +37,8 @@ B0/B1 giữ scaffold trống, graph 40/80, native logits và Kaggle là các quy
 | Arm | Kết quả tái dùng theo thay đổi donor | GPU tiếp theo |
 |---|---|---|
 | B0 | Toàn bộ | Không rerun chỉ vì đổi donor |
-| B1 | Toàn bộ5.434 record | 4.577 mẫu thiếu; đồng bộ gate và khóa validation trước test mới |
-| B2 | REVEAL giữ; Devign giữ prompt không đổi | 28 validation+38 test=66; ghép đủ2.732 validation trước khóa phiên mới |
+| B1 | Toàn bộ 10.011 record I-08 | Kiểm và công bố lịch sử khóa trước khi kết luận |
+| B2 | Đã ghép đủ 10.011 record phiên donor mới; REVEAL giữ nguyên | Không còn lượt B2 rerun do donor; khóa Devign mới lưu riêng, giữ nguyên lịch sử test |
 | B2-flip | 5.202/5.235 record I-06 | Sửa 28 validation+5 test, rồi4.776 mẫu thiếu=4.809 lượt;33 test đổi prompt chưa chạy nằm trong4.776 |
 | B2-rep | Chưa có output | Chốt B2 phiên cuối, sinh prompt giống từng ký tự, gọi model độc lập |
 
@@ -61,3 +61,11 @@ Freeze Devign 21.691 donor, REVEAL 17.636; SHA manifest e1d3c6b17c3a0b5c1e052037
 Các số test xanh trong báo cáo cũ chỉ chứng minh lần kiểm đó. test_validation_lock.py còn một lỗi vì notebook B2 thiếu helper; không xóa test để báo xanh, không suy ra CPU test đã nghiệm thu GPU.
 
 Sau đợt dọn đã chạy lại test trạng thái/ngưỡng và frozen resume: **14 passed, 1 failed**. Lỗi duy nhất là test notebook B2 thiếu helper nêu trên; sáu kiểm thử flip vẫn pass. Hash ngưỡng/snapshot gốc giữ nguyên; không có inference GPU hay khóa mới.
+
+## 02/11/2026 — Ghép output B2 donor mới
+
+Đã kiểm và ghép 28 validation + 38 test B2 donor rerun từ I-09 với output B2 cũ thành [phiên B2 donor mới](../01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/merge_report.json): 2.704 + 28 Devign validation, 2.694 + 38 Devign test; REVEAL giữ nguyên 2.273 validation và 2.274 test. Đối chiếu đủ ID, nhãn, hash prompt và identity model/backend/tokenizer; khóa Devign được xác minh trên 2.732 validation và 38 test mới có timestamp sau khóa. Record test cũ có lịch sử trước khóa mới; không tuyên bố toàn bộ B2 là test xác nhận mới. Không thay output hoặc khóa lịch sử; không chọn lại ngưỡng hay thực hiện inference. B2-rand seed 42 có 4.798 validation, không cộng vào B2.
+
+## 02/11/2026 — Chuẩn bị bước 3–4 cho B2-rand
+
+Theo lựa chọn người dùng, ưu tiên B2-rand; giữ B1-H2 và bốn arm B3 blocked, quyết định H2.2/Holm/CI/demo dưới 25% chờ chủ nhiệm. Đã xác minh 12 tập B2-rand đúng hash audit, checkpoint 4.798 validation, 0 test B2-rand trong checkpoint, 30.033 donor không trùng donor B2 phiên mới. Test probe 20, research contract 4 và test trạng thái/audit/dry-run 16 đều pass; hai verifier lịch sử audit 100.110 dòng và dry-run 70.070 dòng pass. Không chạy LLM, không fit ngưỡng, không đọc metric test hoặc sửa output lịch sử. [Hồ sơ](step34_b2_rand_20261102/README.md). Hai người thật chưa chấm; Bước 3 chưa nghiệm thu đầy đủ. Bước 4 là draft local chờ duyệt/chốt, chưa commit/tag; OSF không thực hiện.

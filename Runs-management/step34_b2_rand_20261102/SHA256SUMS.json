@@ -1,0 +1,11 @@
+{
+  "note": "Local draft evidence, not a registration timestamp",
+  "files": {
+    "checkpoint_verification.json": "f99f5d60b4411871a7c93816020315dacfee159c3674112ef52c0b8e4c40ecce",
+    "verify_checkpoint.py": "d8c84ed766ed31a33323e803b9dbad6d194cddec5bb45bc557dbada39976576b",
+    "review_status.py": "524eb38b9db5bd1256a9c0eaad7b906bec14ae31bac5643f6b5ddd46bd8ccdc2",
+    "preregistration_draft.md": "732c866dce6e19a0a2c0c5fc17e68e9b8158b74db38fc80a457a98f5f94bd1bc",
+    "protocol_draft.yaml": "204951a505a2f36e32c8f7678af0a04662eaf4382248e2bb522fead98cdd11ba",
+    "README.md": "805d675f8bb437e43194af19f1d1554acb36f5d465a9fb03087646cb58fee88e"
+  }
+}

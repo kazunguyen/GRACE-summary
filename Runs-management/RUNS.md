@@ -8,7 +8,7 @@
 **Hậu kiểm prompt/output ngày 02/11/2026 — hoàn thành bước audit tự động:** đã kiểm 100.110 dòng prompt/40 tập của 6 arm và đối chiếu 30.691 output; hash, payload/variant và token thực tế đạt kiểm tra, 30.691 score tính lại từ logprob đều khớp. Cờ regex đã được phân loại theo code nguồn; không còn cờ rò rỉ nhãn chưa giải quyết trong phạm vi kiểm tra tự động. Vẫn có **403 dòng demo dưới 25% (68 dòng đã inference)** cần xử lý theo contract; B0 có 1.132 raw response không hợp lệ và B1 có 3, nhưng 0 score lỗi. Đã chuẩn bị 60 prompt và hai phiếu chấm trống; **chưa có hai người chấm**, chưa nghiệm thu toàn nghiên cứu. Giữ 9 arm chưa có prompt ở trạng thái chưa chuẩn bị, không inference lại hoặc tính khóa mới. [Kết luận và danh sách cần xử lý](prompt_audit_20261102/KET_QUA.md), [bộ mẫu chấm](prompt_audit_20261102/manual_packet.md). Audit hậu kiểm không đổi thứ tự test trước khóa, tình trạng donor lịch sử hoặc OSF.
 <!-- /prompt-integrity-audit-20261102 -->
 
-**Đối chiếu lại local ngày 02/11/2026:** đã kiểm các nguồn output hiện có; chưa thấy inference mới ngoài I-02… I-07 đã ghi. Các checkpoint trùng được coi là cùng lượt/nguồn, không cộng thành expert mới. Chuẩn bị notebook/bundle không được ghi thành GPU run hoàn tất.
+**Đối chiếu lại local ngày 02/11/2026:** đã nhập I-08 và I-09; các ghi chú thời điểm trước đó được giữ trong sổ lịch sử. Các checkpoint trùng được coi là cùng lượt/nguồn, không cộng thành expert mới. Chuẩn bị notebook/bundle không được ghi thành GPU run hoàn tất.
 
 ## Bảng arm đã chạy và việc tiếp theo
 
@@ -16,10 +16,10 @@
 |---|---:|---:|---:|---:|---|
 | B0 — I-03 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên cũ; không rerun do donor; giữ lịch sử khóa sau test |
 | B1 — I-07 | 2.732 | 429 | 2.273 | 0 | Còn 4.577; khóa validation/gate đúng phiên trước test mới |
-| B2 — I-02/I-04/I-05 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên cũ; donor mới thêm 66 Devign=28val+38 test |
+| B2 — I-02/I-04/I-05 + I-09 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên donor mới: 66 Devign thay bằng I-09, các record khác giữ nguyên; output cũ được bảo toàn |
 | B2-flip — I-06 | 2.732 | 230 | 2.273 | 0 | Giữ 5.202; sửa 33 và chạy 4.776 thiếu=4.809 lượt bổ sung |
 | B2-rep | 0 | 0 | 0 | 0 | Chốt phiên B2 cuối, dựng prompt đúng phiên và runner gọi mới model |
-| B2-rand | 0 | 0 | 0 | 0 | Đủ 12 bundle/3seed và notebook chạy kèm B2 rerun-66; chưa inference |
+| B2-rand | 2.732 | 0 | 2.066 | 0 | Seed 42 validation đang dở; seed 43/44 chưa chạy; xem I-09 |
 
 Số liệu/nguồn: [HIEN_TRANG.md](HIEN_TRANG.md), [current_status.json](current_status.json). Sổ này lưu từng phiên J/E/P/I; bảng hiện tại không thay bằng chứng/history của các phiên cũ. Tổng record Tầng 1 đã nhập 30.691; không đồng nghĩa mọi điều kiện xác nhận đã hoàn tất. B0 valid score đủ nhưng raw invalid 1.132; B1 raw invalid 3, score invalid 0. Không gộp hai khái niệm invalid.
 
@@ -109,6 +109,11 @@ Lượt worker thread dở được giữ [riêng](dry_run_validation_20261102_i
 
 Sau I-05, Qwen Q4 B2 đã có đủ **10.011/10.011 prediction**, gồm 2.732 Devign validation, 2.273 REVEAL validation, 2.732 Devign test và 2.274 REVEAL test. Lượt I-04 dừng ở 8.714; I-05 tiếp tục 1.297 mẫu cuối. Confusion matrix đầy đủ và hash từng prompt nằm trong `merge_manifest.json` ở artifact I-05. I-06 là arm B2-flip riêng, không cộng các prediction này vào B2.
 
+
+| I-08 | Kaggle Qwen Q4 B1, lượt 2 tiếp tục I-07 (`duchuynguyen1802/02-kaggle-qwen-q4-b1-ipynb`) | **2026-11-02 06:59:00–13:32:01 Asia/Bangkok** (UTC 01/11 23:59:00 → 02/11 06:32:01), theo checkpoint status. | **Hoàn tất 10.011/10.011**: Devign validation 2.732, REVEAL validation 2.273, Devign test 2.732, REVEAL test 2.274. Thêm 4.577; 5.434 record cũ khớp nguyên vẹn, không trùng ID; toàn bộ khớp prompt/label/model. 0 invalid score; 5 invalid raw response (3 REVEAL validation, 2 REVEAL test). Checkpoint SHA-256 `613cbe9e92da5291177239d3c7eac799ec5f46fce4623dd551ca53c4efbbce99`. Chưa có bằng chứng khóa ngưỡng trước test; hoàn tất inference không đồng nghĩa khóa ngưỡng. | [output lượt 2](../03_Arm_B1_Graph_Only/output/kaggle_run_02/), [records và status](../03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/), [checkpoint](../03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_checkpoint.zip), [lượt cha I-07](../03_Arm_B1_Graph_Only/output/kaggle_run_01/) |
+
+| I-09 | Kaggle B2-rand seed 42 và B2 donor rerun-66, `duchuynguyen1802/02-kaggle-qwen-q4-b2-rand-ipynb` | **2026-11-02 07:04:23–15:59:13 Asia/Bangkok** (UTC 00:04:23–08:59:13), theo status của donor validation và rand validation. | Phiên dừng theo ngân sách. **B2-rand seed 42: 4.798/10.011** gồm Devign validation 2.732/2.732, REVEAL validation 2.066/2.273, test 0; seed 43/44 chưa chạy; tổng **4.798/30.033**, còn 25.235. 0 invalid score, 1 invalid raw. Riêng **B2 donor rerun-66: 28/28 validation + 38/38 test**, 0 invalid score/raw; không cộng vào B2-rand, đã ghép vào phiên B2 donor mới riêng và giữ nguyên B2 lịch sử. Đã kiểm ZIP, số record, ID duy nhất, label/hash prompt/model với input local; checkpoint SHA-256 `9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92`. | [output gốc](../06_Arm_B2_Rand/output/kaggle_run_01/), [checkpoint](../06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_checkpoint.zip), [seed 42](../06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_three_seed_11h/seed_42/), [B2 donor rerun](../06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_three_seed_11h/b2_donor_rerun_66/) |
+
 ## Quy tắc cập nhật
 
 ### Ghi nhận và bàn giao mỗi lượt
@@ -130,3 +135,9 @@ Khi thêm run: ghi ID mới, dataset/split, đường dẫn input/output, trạn
 **Dọn script xử lý (2026-10-31 19:13):** đã xóa các script phục hồi/audit tạm J-07…J-12 sau khi hoàn tất; CPG, manifest, journal và báo cáo audit được giữ lại.
 
 Đã dọn thêm các script retry Joern sau khi hoàn tất phục hồi; giữ prepare_embedding_cache.py vì pipeline tạo bundle còn phụ thuộc file này.
+
+## Chuẩn bị bước 3–4 trước tiếp tục B2-rand — 02/11/2026
+
+Đã đối chiếu ZIP input 12 tập với hash audit, checkpoint seed 42 4.798 validation và identity; 0 test B2-rand trong checkpoint đã nhập. 30.033 demo B2-rand đều khác demo B2 tham chiếu donor mới. Đã chạy lại 20 test probe, 4 test research contract, 16 test trạng thái/audit/dry-run; verifier audit 100.110 dòng và dry-run 70.070 dòng đều pass. Chưa gọi LLM, fit tau hoặc sửa output/khóa lịch sử. [Bằng chứng và hồ sơ](step34_b2_rand_20261102/README.md).
+
+Hai reviewer thật chưa chấm; các quyết định nghiên cứu H2.2, Holm/CI và demo dưới 25% chờ chủ nhiệm. Năm arm H2/B3 thiếu input vẫn blocked; không gọi toàn bộ bước 3 đã nghiệm thu. Hồ sơ bước 4 là draft local, chưa chốt/commit/tag, OSF không thực hiện; không gọi preregistration hồi tố.
