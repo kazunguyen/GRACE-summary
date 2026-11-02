@@ -1,83 +1,44 @@
 {
   "status": "verified",
-  "source_files_checked": 106,
+  "source_files_checked": 28,
+  "missing_local_sources": 78,
   "prompt_rows": 100110,
   "manual_packets": 60,
-  "scores_recomputed_from_logprobs": 30691,
-  "human_ratings_still_blank": true,
+  "scores_recomputed_from_logprobs": 10011,
+  "available_inference_sets_checked": 4,
+  "human_review_completed": true,
+  "reviewers": [
+    "HuuHieu03",
+    "Dung"
+  ],
+  "cohen_kappa_multiclass": 0.8507,
+  "cohen_kappa_binary": 0.8485,
+  "agreed_samples": 59,
+  "total_samples": 60,
+  "adjudication_resolved": true,
   "historical_hashes_unchanged": true,
   "inference_manifest_checks": [
     {
-      "path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/validation/run_manifest.json",
-      "sha256": "80dbdd5c88fa832e0a29a3bf53751e54ca17b09204cb97995fb438ed46ad6774",
-      "status": "pass"
-    },
-    {
-      "path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/devign/validation/run_manifest.json",
-      "sha256": "be2f906cd5312c6f8f2d451221199bf868f757746d0850bda3b61e01cd9c94a0",
-      "status": "pass"
-    },
-    {
       "path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/validation/run_manifest.json",
-      "sha256": "4919e19298f1f2412ce19a01a535ad20079e2c1accb43dfe7ba930faf8d6b917",
-      "status": "pass"
-    },
-    {
-      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/validation/run_manifest.json",
-      "sha256": "6a8f9c9ee8e595732b34d68f355fdf3bf27ed766596d34c903e36bd7403ae40d",
-      "status": "pass"
-    },
-    {
-      "path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/test/run_manifest.json",
-      "sha256": "7fcf3a864b8c347accb98c1a3822c992dd47607776201c841368a56bf6c041f7",
-      "status": "pass"
-    },
-    {
-      "path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/devign/test/run_manifest.json",
-      "sha256": "b514cff623ae05c0d173a6b60167949497d62565b412733fc5eff8133bc20b94",
+      "sha256": "05ddfc39a4ad83c2dda38595f9b3891a14cdb85a8a6b07e72773554ea122f971",
       "status": "pass"
     },
     {
       "path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/test/run_manifest.json",
-      "sha256": "5378cdd86bf44f9206150646b7d1fbb9ba63ab0b2e6f219278f901faee2477ce",
-      "status": "pass"
-    },
-    {
-      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/test/run_manifest.json",
-      "sha256": "b749767b9871e5cec610bd418d160a290164abb204f2645f06e052698e4ec124",
-      "status": "pass"
-    },
-    {
-      "path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/validation/run_manifest.json",
-      "sha256": "bdb0286403d9f0a7de825047cc905665cdd26351d4413f6a8173f541549afaf5",
-      "status": "pass"
-    },
-    {
-      "path": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/reveal/validation/run_manifest.json",
-      "sha256": "7cf8aafac49ee886d8d125f6641d8927272a22eb369ebdcdd89c2fdd3bc0ef4f",
+      "sha256": "a3cd0b8d6fc0748827ef224f2b3eb3bb0736dfdf44c010f93d04cfd45749ad08",
       "status": "pass"
     },
     {
       "path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/validation/run_manifest.json",
-      "sha256": "c4fbd655f2e163fc25655293c800a48a0139f5bdd6fc2cda71f8c6f1057878c8",
-      "status": "pass"
-    },
-    {
-      "path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/reveal/validation/run_manifest.json",
-      "sha256": "ca130bfe88e24411113e266d9562b9c6beda85c4b10a0a117519839b3502c1e9",
-      "status": "pass"
-    },
-    {
-      "path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/test/run_manifest.json",
-      "sha256": "9c6fc5fa24e0bc53df85aceeec2fca476d65f3608793fdd5119e1733c0aa87b8",
+      "sha256": "69a6c58cedd99d1ba6dca77358b1e23ce586b734717ea9f5533f8f6e28d9b9bc",
       "status": "pass"
     },
     {
       "path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/test/run_manifest.json",
-      "sha256": "d4d26e259497aac2914832be56945b759776f1a5c124b50ef8de6b4a72345603",
+      "sha256": "240440c1f8e01e174e08a4ca8366dfdc883405224c9b6d0cf0b4c7f49aa365a8",
       "status": "pass"
     }
   ],
-  "final_status_sha256": "ff354e471d5c6b48386300512d7fab8f1394cb3800ca4fc94888c1748ecf2f49",
-  "audit_summary_sha256": "d4d3c63caa3923e167905a7bb7b4cc20db5ee4a0170ac49abced028054f9312d"
+  "final_status_sha256": "5069e483e226499162ee938a0262c97288e94360c986212d5605f0e0fec4e6cb",
+  "audit_summary_sha256": "44f619c5de0f31f9925c3c9b0c904bcda9084d613d7c8f6b968107f0077d44d5"
 }

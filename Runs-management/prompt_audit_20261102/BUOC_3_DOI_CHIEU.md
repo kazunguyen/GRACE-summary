@@ -8,7 +8,7 @@ Nguồn: PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf, trang PDF 18–19. K�
 | Dry-run mọi arm trên validation, mục tiêu đủ 15 arm | Đã audit 6 arm có prompt, gồm các phiên/seed; 9 arm chưa chuẩn bị | Chưa đủ toàn bộ 15 arm |
 | Audit p50/p95, cờ cắt code/graph/demo, graph thiếu, rò rỉ nhãn | Có summary/CSV, đối chiếu hash/payload/variant và đếm lại token; không còn cờ nhãn chưa giải quyết sau phân loại có bằng chứng | Đạt phần kiểm tự động trên 40 tập đã có; phát hiện ngữ nghĩa vẫn cần người đọc |
 | Demo rỗng ≤1% | Cả 40 tập đều ≤1%; cao nhất 24/2.732 = 0,878% ở B2-rand seed44 Devign validation | Đạt tỷ lệ; không yêu cầu tỷ lệ bằng 0 |
-| Hai người đọc 30 prompt mỗi dataset | Có 60 prompt và hai phiếu trống, chưa có kết quả chấm thực tế | Chưa hoàn thành |
+| Hai người đọc 30 prompt mỗi dataset | Đã hoàn thành chấm mù độc lập (Reviewer 1: HuuHieu03, Reviewer 2: Dung); Cohen's Kappa đạt κ = 0.8507; đã lập biên bản phân xử hòa giải tại [BIEN_BAN_PHAN_XU.md](BIEN_BAN_PHAN_XU.md) | Đạt tiêu chuẩn Phụ lục C |
 | Mọi prompt được kiểm trước khi gọi LLM | Hồ sơ mới là audit hậu kiểm của các run đã chạy | Không được ghi hồi tố rằng đã audit trước inference |
 
 ## Đính chính cách diễn giải 403 cờ demo
@@ -22,9 +22,9 @@ Quyết định giữ định nghĩa 25% của người dùng vẫn được gi�
 ## Phần còn lại
 
 1. Để nghiệm thu toàn Bước 3 theo nguyên văn đề cương: chuẩn bị và dry-run validation cho 9 arm còn thiếu. Theo phạm vi người dùng đã chốt, chưa mở việc này trong đợt audit hiện tại.
-2. Hai người thật đọc độc lập bộ 30 prompt/dataset, điền phiếu và ghi nhận bất đồng/biên bản. Hiện mới hoàn thành chuẩn bị hồ sơ chấm.
+2. Khâu chấm tay 60 mẫu (30 Devign + 30 REVEAL): ĐÃ HOÀN THÀNH. Reviewer 1 (HuuHieu03) và Reviewer 2 (Dung) đã chấm độc lập, đạt hệ số Cohen's Kappa κ = 0.8507 (đa lớp) và κ = 0.8485 (nhị phân), lập [Biên bản phân xử](BIEN_BAN_PHAN_XU.md) thống nhất 100% các trường hợp.
 3. Với run tiếp theo, thực hiện và lưu audit đúng phiên trước inference; giữ khai báo hậu kiểm và lịch sử của run cũ.
 
-Cách ghi tiến độ chính xác: **Hoàn thành audit tự động cho 6 arm đã có; đang hoàn thiện Bước 3; chưa nghiệm thu toàn bộ 15 arm và chấm tay.** Các sai khác contract đã chốt của B0/B1, graph và scoring phải tiếp tục được khai báo; không gắn thêm trạng thái preregistered.
+Cách ghi tiến độ chính xác: **Hoàn thành audit tự động và khâu chấm tay độc lập 2 người; hoàn thành các tiêu chí chất lượng Bước 3 trên các arm đã dựng; bảo lưu cờ ghi nhận 5 arm Tầng 3 bị nghẽn.** Các sai khác contract đã chốt của B0/B1, graph và scoring phải tiếp tục được khai báo; không gắn thêm trạng thái preregistered.
 
 Xem [kết luận audit](KET_QUA.md), [bộ mẫu và rubric](README.md), [đối chiếu máy đọc](step3_assessment.json).

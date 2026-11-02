@@ -102,3 +102,72 @@ def test_domain_label_strings_are_narrowly_classified():
         m=re.search(r'\bLabel\s*:',text,re.I)
         flag={'pattern':r'\bLabel\s*:','offset':m.start(),'excerpt':text[max(0,m.start()-70):m.end()+100]}
         assert bool(known_source_domain_label(flag))==expected
+
+
+def test_completed_human_audit_and_cohen_kappa():
+    import csv
+    from sklearn.metrics import cohen_kappa_score
+    audit_dir = Path(__file__).resolve().parent / 'prompt_audit_20261102'
+
+    r1_path = audit_dir / 'reviewer_1.csv'
+    r2_path = audit_dir / 'reviewer_2.csv'
+    assert r1_path.exists() and r2_path.exists()
+
+    with r1_path.open(encoding='utf-8-sig') as f:
+        s1 = list(csv.DictReader(f))
+    with r2_path.open(encoding='utf-8-sig') as f:
+        s2 = list(csv.DictReader(f))
+
+    assert len(s1) == 60 and len(s2) == 60
+    assert sum(r['dataset'] == 'devign' for r in s1) == 30
+    assert sum(r['dataset'] == 'reveal' for r in s1) == 30
+    assert sum(r['dataset'] == 'devign' for r in s2) == 30
+    assert sum(r['dataset'] == 'reveal' for r in s2) == 30
+
+    valid_verdicts = {'pass', 'fail', 'unclear'}
+    assert all(r['overall_verdict'] in valid_verdicts for r in s1)
+    assert all(r['overall_verdict'] in valid_verdicts for r in s2)
+    assert all(r['reviewer_name'] == 'HuuHieu03' for r in s1)
+    assert all(r['reviewer_name'] == 'Dung' for r in s2)
+
+    v1 = [r['overall_verdict'] for r in s1]
+    v2 = [r['overall_verdict'] for r in s2]
+    kappa_multi = cohen_kappa_score(v1, v2)
+    b1 = [1 if x == 'pass' else 0 for x in v1]
+    b2 = [1 if x == 'pass' else 0 for x in v2]
+    kappa_bin = cohen_kappa_score(b1, b2)
+    assert kappa_multi >= 0.80, f"Multiclass kappa {kappa_multi} < 0.80"
+    assert kappa_bin >= 0.80, f"Binary kappa {kappa_bin} < 0.80"
+
+    adjudication_file = audit_dir / 'BIEN_BAN_PHAN_XU.md'
+    assert adjudication_file.exists()
+    adj_content = adjudication_file.read_text(encoding='utf-8')
+    assert 'HuuHieu03' in adj_content and 'Dung' in adj_content
+    assert 'devign:test:25813' in adj_content
+
+    final_status = json.loads((audit_dir / 'final_status.json').read_text(encoding='utf-8'))
+    assert final_status['manual_review'] == 'completed'
+    assert final_status['adjudication_status'] == 'consensus_resolved'
+    assert abs(final_status['cohen_kappa_multiclass'] - round(kappa_multi, 4)) < 1e-4
+    assert abs(final_status['cohen_kappa_binary'] - round(kappa_bin, 4)) < 1e-4
+
+    step3 = json.loads((audit_dir / 'step3_assessment.json').read_text(encoding='utf-8'))
+    assert step3['criteria']['two_human_reviewers']['status'] == 'pass'
+    assert step3['criteria']['two_human_reviewers']['cohen_kappa_multiclass'] >= 0.80
+
+
+def test_delivery_sha256_integrity():
+    import hashlib
+    audit_dir = Path(__file__).resolve().parent / 'prompt_audit_20261102'
+    deliv_path = audit_dir / 'DELIVERY_SHA256.json'
+    assert deliv_path.exists()
+    deliv = json.loads(deliv_path.read_text(encoding='utf-8'))
+    for fname, expected in deliv.get('files', {}).items():
+        fp = audit_dir / fname
+        if fp.exists():
+            actual = hashlib.sha256(fp.read_bytes()).hexdigest()
+            if actual != expected:
+                text = fp.read_text(encoding='utf-8', errors='ignore')
+                lf_hash = hashlib.sha256(text.replace('\r\n', '\n').encode('utf-8')).hexdigest()
+                assert lf_hash == expected, f"Hash mismatch for {fname}: actual={actual}, expected={expected}"
+
