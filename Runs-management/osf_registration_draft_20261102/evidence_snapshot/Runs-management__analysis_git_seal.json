@@ -1,0 +1,13 @@
+{
+  "tag": "analysis-lock-20261101-v1",
+  "commit": "282033d3ed30b9f91392fec063bd2b2ce10266f4",
+  "parent_head_unchanged": "db85bae2d7d52f20a3a1caecbfb1516ee5f61a9e",
+  "sealed_at_utc": "2026-11-01T10:03:42.424215+00:00",
+  "scope": [
+    "Runs-management/analysis_lock_20261101",
+    "Runs-management/validation_lock.py",
+    "Runs-management/auto_lock_validation.py",
+    "Runs-management/test_validation_lock.py"
+  ],
+  "registration_status": "local_dated_analysis_record_not_OSF_registration"
+}

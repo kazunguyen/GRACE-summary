@@ -1,0 +1,523 @@
+{
+  "schema": "dated_analysis_record_v1",
+  "created_at_utc": "2026-11-01T10:02:28.614281+00:00",
+  "created_at_Asia_Bangkok": "2026-11-01T17:02:28.614281+07:00",
+  "registration_status": "local_analysis_record_after_inference_started",
+  "osf_publication_status": "not_published_no_connected_OSF_tool",
+  "run_started_before_record": true,
+  "external_test_progress": "unknown; user reports inference running",
+  "not_a_retroactive_preregistration": true,
+  "threshold_rules": {
+    "version": "validation_mcc_grid_v1",
+    "grid": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15,
+      0.16,
+      0.17,
+      0.18,
+      0.19,
+      0.2,
+      0.21,
+      0.22,
+      0.23,
+      0.24,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29,
+      0.3,
+      0.31,
+      0.32,
+      0.33,
+      0.34,
+      0.35,
+      0.36,
+      0.37,
+      0.38,
+      0.39,
+      0.4,
+      0.41,
+      0.42,
+      0.43,
+      0.44,
+      0.45,
+      0.46,
+      0.47,
+      0.48,
+      0.49,
+      0.5,
+      0.51,
+      0.52,
+      0.53,
+      0.54,
+      0.55,
+      0.56,
+      0.57,
+      0.58,
+      0.59,
+      0.6,
+      0.61,
+      0.62,
+      0.63,
+      0.64,
+      0.65,
+      0.66,
+      0.67,
+      0.68,
+      0.69,
+      0.7,
+      0.71,
+      0.72,
+      0.73,
+      0.74,
+      0.75,
+      0.76,
+      0.77,
+      0.78,
+      0.79,
+      0.8,
+      0.81,
+      0.82,
+      0.83,
+      0.84,
+      0.85,
+      0.86,
+      0.87,
+      0.88,
+      0.89,
+      0.9,
+      0.91,
+      0.92,
+      0.93,
+      0.94,
+      0.95,
+      0.96,
+      0.97,
+      0.98,
+      0.99
+    ],
+    "objective": "MCC on finite valid validation scores only",
+    "comparison": "score >= threshold",
+    "tie_break": "within 1e-9: closest to 0.5, then lower threshold",
+    "degenerate": "if every MCC is undefined, lock 0.5 with MCC=null; report explicitly",
+    "coverage": "require every validation ID; invalid rows retained in coverage but excluded from fitting",
+    "test_usage": "never read test records or metrics to choose threshold"
+  },
+  "threshold_rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+  "model": {
+    "primary_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "serving": "llama-cpp-python 0.3.16, GGUF Q4_K_M, Kaggle 2×T4; native raw logits",
+    "fallback_models": [
+      "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "Qwen/Qwen2.5-Coder-14B-Instruct"
+    ],
+    "decoding": {
+      "temperature": 0.0,
+      "max_tokens": 1,
+      "logprobs": true,
+      "top_logprobs": 5,
+      "seed": 42
+    },
+    "guided_choice": false,
+    "quantization_note": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+    "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "backend_config": "configs/backend_native.yaml"
+  },
+  "seeds": {
+    "headline": 42,
+    "all": [
+      42,
+      43,
+      44
+    ],
+    "stochastic_arms": [
+      "B2-rand",
+      "B1-shuf",
+      "SUP-LR",
+      "SUP-MLP",
+      "SUP-METRIC"
+    ]
+  },
+  "stats": {
+    "n_boot": 5000,
+    "bootstrap_seed": 20261117,
+    "cluster_unit": "commit_id nếu dataset có (Devign); nếu không, từng mẫu và ghi rõ",
+    "family_correction": "holm",
+    "margins": {
+      "mcc": 0.03,
+      "auroc": 0.02,
+      "ba": 0.01,
+      "mcc_meta": 0.02
+    },
+    "verdict_rule": "benefit: CI>0 và Δ>=δ | no_meaningful_benefit: cận trên CI<δ | harm: CI<0 | inconclusive: còn lại"
+  },
+  "primary_contrasts": [
+    {
+      "name": "H1.1",
+      "hypothesis": "GRACE không vượt zero-shot",
+      "a": "B0",
+      "b": "B2",
+      "metrics": [
+        "mcc",
+        "auroc"
+      ],
+      "margins": {
+        "mcc": 0.03,
+        "auroc": 0.02
+      }
+    },
+    {
+      "name": "H2.1",
+      "hypothesis": "Demo tác động qua nhãn (net sensitivity >= 15 điểm)",
+      "a": "B2",
+      "b": "B2-flip",
+      "metrics": [
+        "mcc"
+      ]
+    },
+    {
+      "name": "H2.2a",
+      "hypothesis": "Nội dung demo không mang tín hiệu",
+      "a": "B2",
+      "b": "B2-rand",
+      "metrics": [
+        "auroc",
+        "mcc"
+      ],
+      "margins": {
+        "auroc": 0.02,
+        "mcc": 0.03
+      }
+    },
+    {
+      "name": "H2.2b",
+      "hypothesis": "Demo bỏ nhãn không hơn không demo",
+      "a": "B1",
+      "b": "B2-nolabel",
+      "metrics": [
+        "auroc",
+        "mcc"
+      ],
+      "margins": {
+        "auroc": 0.02,
+        "mcc": 0.03
+      }
+    },
+    {
+      "name": "H2.2c",
+      "hypothesis": "Chỉ gợi ý nhãn đã tái tạo tác dụng của demo",
+      "a": "B2-labelonly",
+      "b": "B2",
+      "metrics": [
+        "auroc",
+        "mcc"
+      ],
+      "margins": {
+        "auroc": 0.02,
+        "mcc": 0.03
+      }
+    },
+    {
+      "name": "H2.3",
+      "hypothesis": "Cặp tương phản chỉ dịch chuyển điểm hoạt động",
+      "a": "B2",
+      "b": "B3",
+      "metrics": [
+        "auroc",
+        "mcc"
+      ],
+      "margins": {
+        "auroc": 0.02,
+        "mcc": 0.03
+      }
+    },
+    {
+      "name": "H3.1a",
+      "hypothesis": "Graph không thêm tín hiệu",
+      "a": "B0",
+      "b": "B1",
+      "metrics": [
+        "auroc",
+        "mcc"
+      ],
+      "margins": {
+        "auroc": 0.02,
+        "mcc": 0.03
+      }
+    },
+    {
+      "name": "H3.1b",
+      "hypothesis": "Graph xáo trộn không khác graph thật",
+      "a": "B1-shuf",
+      "b": "B1",
+      "metrics": [
+        "auroc",
+        "mcc"
+      ],
+      "margins": {
+        "auroc": 0.02,
+        "mcc": 0.03
+      }
+    },
+    {
+      "name": "H3.1c",
+      "hypothesis": "Đóng gói H2 không khác prefix",
+      "a": "B1",
+      "b": "B1-H2",
+      "metrics": [
+        "auroc",
+        "mcc"
+      ],
+      "margins": {
+        "auroc": 0.02,
+        "mcc": 0.03
+      }
+    },
+    {
+      "name": "H5.1",
+      "hypothesis": "Mốc có giám sát thắng rõ",
+      "a": "B2",
+      "b": "SUP-LR",
+      "metrics": [
+        "mcc",
+        "auroc"
+      ],
+      "margins": {
+        "mcc": 0.15,
+        "auroc": 0.05
+      }
+    },
+    {
+      "name": "H5.3",
+      "hypothesis": "LLM không bổ sung tín hiệu sau truy vấn",
+      "a": "P-PRE",
+      "b": "P-POST",
+      "metrics": [
+        "mcc"
+      ],
+      "margins": {
+        "mcc": 0.02
+      }
+    }
+  ],
+  "prompt_inventory": [
+    {
+      "arm": "B0",
+      "dataset": "devign",
+      "split": "validation",
+      "manifest_path": "02_Arm_B0_Source_Only/output/bundles/devign/validation/bundle_manifest.json",
+      "manifest_sha256": "ce149af0b98eb8e152c08cd17d0cbe9d07f5c4d4b7d5b8892a32e05c5b6216bf",
+      "prompt_set_sha256": "e22f50ed315672cfc85697c2ba86d16137f1d5899e77bb5fb50ffe060caab4fc",
+      "count": 2732,
+      "variant": "b0_b2_empty_blocks_v1"
+    },
+    {
+      "arm": "B0",
+      "dataset": "devign",
+      "split": "test",
+      "manifest_path": "02_Arm_B0_Source_Only/output/bundles/devign/test/bundle_manifest.json",
+      "manifest_sha256": "b3ec508c01141b44c1ee1b3266d5c96924eb782862d705d663c25390d2bff0da",
+      "prompt_set_sha256": "e42dfb74ac03f4a243295637442c023809aeea52fd189267b38c558585e7f651",
+      "count": 2732,
+      "variant": "b0_b2_empty_blocks_v1"
+    },
+    {
+      "arm": "B0",
+      "dataset": "reveal",
+      "split": "validation",
+      "manifest_path": "02_Arm_B0_Source_Only/output/bundles/reveal/validation/bundle_manifest.json",
+      "manifest_sha256": "09fe9bda9195916cfcfb0348ccc7fc6cda5cb2344c041dce5a78cf0f57e80b3b",
+      "prompt_set_sha256": "81800b52fb1e32fbfe0114a92f64a5674c5a67729d51ae7d363987503b7f8d34",
+      "count": 2273,
+      "variant": "b0_b2_empty_blocks_v1"
+    },
+    {
+      "arm": "B0",
+      "dataset": "reveal",
+      "split": "test",
+      "manifest_path": "02_Arm_B0_Source_Only/output/bundles/reveal/test/bundle_manifest.json",
+      "manifest_sha256": "58f87da585b9f0f0a6655d1111a12dfc8497f53b7b5de2e20980529ce6c05050",
+      "prompt_set_sha256": "c20079cd2542e73db09c9cbc0fb7d6c6eea87cc53560b636816c82d9f2b8d8af",
+      "count": 2274,
+      "variant": "b0_b2_empty_blocks_v1"
+    },
+    {
+      "arm": "B1",
+      "dataset": "devign",
+      "split": "validation",
+      "manifest_path": "03_Arm_B1_Graph_Only/output/bundles/devign/validation/bundle_manifest.json",
+      "manifest_sha256": "fa4989437a5ddc13e9cfe5bedff2565e678fb15d675f74300e3537b327565c6b",
+      "prompt_set_sha256": "ee0f4d7890f977aa726333ae9a9e28bdbef47ddc2c2a16b22a4acf72c738b486",
+      "count": 2732,
+      "variant": "b1_b2_empty_demo_v1"
+    },
+    {
+      "arm": "B1",
+      "dataset": "devign",
+      "split": "test",
+      "manifest_path": "03_Arm_B1_Graph_Only/output/bundles/devign/test/bundle_manifest.json",
+      "manifest_sha256": "6edc718b91ce0493466be09d3acc42a2f9f921c6deebe12a6171bc798194c5ac",
+      "prompt_set_sha256": "35489f064b1ceb35ac8bfd6c7c0c43968f04391c48e557aebb2333e25f123d8b",
+      "count": 2732,
+      "variant": "b1_b2_empty_demo_v1"
+    },
+    {
+      "arm": "B1",
+      "dataset": "reveal",
+      "split": "validation",
+      "manifest_path": "03_Arm_B1_Graph_Only/output/bundles/reveal/validation/bundle_manifest.json",
+      "manifest_sha256": "c8a4edabffd8461af75ef60de18d45c6072c4762c11e923a0588718825148547",
+      "prompt_set_sha256": "14290046152cca4ce54e70fc4486650cdd3a7524569a72d2b86575fd84d19c52",
+      "count": 2273,
+      "variant": "b1_b2_empty_demo_v1"
+    },
+    {
+      "arm": "B1",
+      "dataset": "reveal",
+      "split": "test",
+      "manifest_path": "03_Arm_B1_Graph_Only/output/bundles/reveal/test/bundle_manifest.json",
+      "manifest_sha256": "8806ce54de56768cfb5157f5dfdc3565cfc49e3e7cf9ee602ba72705721c39c5",
+      "prompt_set_sha256": "b11d94f9bb8ac88dfc4bb14354387438180906da9f6bc535b2da0ee17edea04f",
+      "count": 2274,
+      "variant": "b1_b2_empty_demo_v1"
+    },
+    {
+      "arm": "B2",
+      "dataset": "devign",
+      "split": "validation",
+      "manifest_path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/validation/bundle_manifest.json",
+      "manifest_sha256": "5725a5c11c9d5ec50b32ba942dd6edd6444f87c5cd183bffd73e238190fb5f2d",
+      "prompt_set_sha256": "e42592eaf0cfcd74fb483ee8a45ef3b49fb9f42a5ecead26c3e8ea96f4e842c3",
+      "count": 2732,
+      "variant": "baseline_b2_figure6"
+    },
+    {
+      "arm": "B2",
+      "dataset": "devign",
+      "split": "test",
+      "manifest_path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/test/bundle_manifest.json",
+      "manifest_sha256": "9aaaa62a31a41a221ee5c2f9cb224c1aac1322aef75d7acb068c0aacfc6b23d2",
+      "prompt_set_sha256": "9cac0bc7657390983da8c594a6354eaf339f2c5869d27ce9a6602630d6cbeb72",
+      "count": 2732,
+      "variant": "baseline_b2_figure6"
+    },
+    {
+      "arm": "B2",
+      "dataset": "reveal",
+      "split": "validation",
+      "manifest_path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/bundle_manifest.json",
+      "manifest_sha256": "bb2be09c158a3632ca3ee211864c0da929f0a5b8875367878049c964cae42a8b",
+      "prompt_set_sha256": "531b274808e0435ce47c6d1831903e4421486a034c6884a2a67ba01e779b3e42",
+      "count": 2273,
+      "variant": "baseline_b2_figure6"
+    },
+    {
+      "arm": "B2",
+      "dataset": "reveal",
+      "split": "test",
+      "manifest_path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/test/bundle_manifest.json",
+      "manifest_sha256": "05f36fa908aa2a7d41710655f6de55c3bc580624c546d718d081bc14699b9ebc",
+      "prompt_set_sha256": "b0030bc08e2605f7416a1b88d7ab0702d0f10601bdcaa596f1f71e2879e9dcff",
+      "count": 2274,
+      "variant": "baseline_b2_figure6"
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "devign",
+      "split": "validation",
+      "manifest_path": "04_Arm_B2_Flip/output/bundles/devign/validation/bundle_manifest.json",
+      "manifest_sha256": "6c404ef156478c4b348696567c1d6d4d1adf8ee9426e2dc25a4b56ceee2ae843",
+      "prompt_set_sha256": "73a5608bfc540c84ec8044f0660a1f66e67dab5fc9dc99aa9d389d921603d5b5",
+      "count": 2732,
+      "variant": "b2_flip_paired_baseline_v1"
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "devign",
+      "split": "test",
+      "manifest_path": "04_Arm_B2_Flip/output/bundles/devign/test/bundle_manifest.json",
+      "manifest_sha256": "9590c3529d241f6e72a8d558f0f4830f5d687009717bb588cafcb4497f09c640",
+      "prompt_set_sha256": "4810dbf4b71953e394ec528fa08335403ce323f6df849495260bc76bd977195e",
+      "count": 2732,
+      "variant": "b2_flip_paired_baseline_v1"
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "reveal",
+      "split": "validation",
+      "manifest_path": "04_Arm_B2_Flip/output/bundles/reveal/validation/bundle_manifest.json",
+      "manifest_sha256": "93344420e25bf70c92d53f66e6e2c3eff82c24de3685597ad7ac59a1876c7431",
+      "prompt_set_sha256": "2ba78981b400c37d4678e55a524b19628de43c80d24399db8f5c1f450e5c8284",
+      "count": 2273,
+      "variant": "b2_flip_paired_baseline_v1"
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "reveal",
+      "split": "test",
+      "manifest_path": "04_Arm_B2_Flip/output/bundles/reveal/test/bundle_manifest.json",
+      "manifest_sha256": "23ef83d57dce452321a4a79d41c31fbca9eb06e8e8574fa34175d579d537bce3",
+      "prompt_set_sha256": "792ca9e3b2e16429943e336584879e87d0f956587c7f9886f0102650964ca364",
+      "count": 2274,
+      "variant": "b2_flip_paired_baseline_v1"
+    },
+    {
+      "arm": "B2-rep",
+      "dataset": "devign",
+      "split": "validation",
+      "manifest_path": "05_Arm_B2_Rep/output/bundles/devign/validation/bundle_manifest.json",
+      "manifest_sha256": "8b117b972e4e792775cdca468dddd9b592c6bb35cf274834859f174716d5288a",
+      "prompt_set_sha256": "046fa5ac6c33592cf2e86b57d589b444a37fbf35487a9eee12a623d2ad1c5ea8",
+      "count": 2732,
+      "variant": "b2_repeat_paired_baseline_v1"
+    },
+    {
+      "arm": "B2-rep",
+      "dataset": "devign",
+      "split": "test",
+      "manifest_path": "05_Arm_B2_Rep/output/bundles/devign/test/bundle_manifest.json",
+      "manifest_sha256": "53929dc686c591a4d7892f5b21e21d5530bda1413d64eb733a202ad3387b42e8",
+      "prompt_set_sha256": "7442b23747b6accade377c6fb1a87f9a810cca183a1a12658165987219ce18e3",
+      "count": 2732,
+      "variant": "b2_repeat_paired_baseline_v1"
+    },
+    {
+      "arm": "B2-rep",
+      "dataset": "reveal",
+      "split": "validation",
+      "manifest_path": "05_Arm_B2_Rep/output/bundles/reveal/validation/bundle_manifest.json",
+      "manifest_sha256": "4d1afe955d2977579315d11e22b9b4793ce3f066276eeb0a2dccb4fcd1b2e5c9",
+      "prompt_set_sha256": "540578c6dfaba2a032faddc275302dd5f5d7bfb4057441c902feb824a1ca8913",
+      "count": 2273,
+      "variant": "b2_repeat_paired_baseline_v1"
+    },
+    {
+      "arm": "B2-rep",
+      "dataset": "reveal",
+      "split": "test",
+      "manifest_path": "05_Arm_B2_Rep/output/bundles/reveal/test/bundle_manifest.json",
+      "manifest_sha256": "20114d91ecf781e062bf37731ed6604437d0e1cfd26fe4a07e90acc0a3bdca9d",
+      "prompt_set_sha256": "79980a11011f6f4f5a55df77310429e7fa78ff9882d9ab813e4b0b635040da8b",
+      "count": 2274,
+      "variant": "b2_repeat_paired_baseline_v1"
+    }
+  ],
+  "donor_scope": "existing paired B2; known mismatch versus new Devign bank (5 validation,16 test prompts); no donor changes during current run",
+  "test_use": "GPU scores may be generated already; threshold fitting reads validation records only. Test-first chronology remains disclosed.",
+  "source_protocol_sha256": "47ca1c2626b5849be1eefe8ab34f4cf11b19df7f0de0c604ad54ca210103b39c"
+}
