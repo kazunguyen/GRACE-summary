@@ -1,0 +1,19 @@
+{
+  "model_name": "Qwen2.5-Coder-30B-Instruct-Q4_K_M.gguf",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "quantization": "Q4_K_M",
+  "runtime_engine": "llama-cpp-python 0.3.16",
+  "context_limit_tokens": 8192,
+  "sampling": {
+    "temperature": 0.0,
+    "seed": 42,
+    "max_tokens": 1,
+    "top_logprobs": 5
+  },
+  "token_ids": {
+    "0": 15,
+    "1": 16
+  },
+  "scoring_protocol": "s = exp(logit_1) / (exp(logit_0) + exp(logit_1)) = sigmoid(logit_1 - logit_0)",
+  "guided_choice": false
+}

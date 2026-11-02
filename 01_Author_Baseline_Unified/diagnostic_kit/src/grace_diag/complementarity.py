@@ -21,7 +21,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 import numpy as np
 from scipy.special import logit as _logit
 from sklearn.linear_model import LogisticRegression, Ridge
-from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import StratifiedGroupKFold, StratifiedKFold
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
@@ -123,8 +123,35 @@ def fit_pre_post(X_pre: np.ndarray, s: np.ndarray, valid: np.ndarray, p_gate: np
     X_pre = np.asarray(X_pre, dtype=float)
     X_post = np.column_stack([X_pre, expert_features(s, valid, p_gate)])
     oof_pre, oof_post = np.zeros(len(y)), np.zeros(len(y))
-    skf = StratifiedKFold(n_splits=n_folds, shuffle=True, random_state=seed)
-    for tr, te in skf.split(X_pre, y):
+    use_group_cv = False
+    if groups is not None:
+        try:
+            grps = np.asarray(groups)
+            if len(grps) == len(y):
+                uniq_groups = np.unique(grps)
+                if len(uniq_groups) >= n_folds:
+                    use_group_cv = True
+        except Exception:
+            use_group_cv = False
+
+    if use_group_cv:
+        try:
+            cv = StratifiedGroupKFold(n_splits=n_folds, shuffle=True, random_state=seed)
+            cand_splits = list(cv.split(X_pre, y, groups=groups))
+            # Kiểm tra mọi fold train phải có ít nhất 2 lớp để huấn luyện Logistic Regression
+            if any(len(np.unique(y[tr])) < 2 for tr, _ in cand_splits):
+                cv = StratifiedKFold(n_splits=n_folds, shuffle=True, random_state=seed)
+                splits = list(cv.split(X_pre, y))
+            else:
+                splits = cand_splits
+        except Exception:
+            cv = StratifiedKFold(n_splits=n_folds, shuffle=True, random_state=seed)
+            splits = list(cv.split(X_pre, y))
+    else:
+        cv = StratifiedKFold(n_splits=n_folds, shuffle=True, random_state=seed)
+        splits = list(cv.split(X_pre, y))
+
+    for tr, te in splits:
         m_pre = make_pipeline(StandardScaler(), LogisticRegression(C=C, max_iter=2000, random_state=seed)).fit(X_pre[tr], y[tr])
         m_post = make_pipeline(StandardScaler(), LogisticRegression(C=C, max_iter=2000, random_state=seed)).fit(X_post[tr], y[tr])
         oof_pre[te] = m_pre.predict_proba(X_pre[te])[:, 1]
@@ -143,9 +170,15 @@ def fit_pre_post(X_pre: np.ndarray, s: np.ndarray, valid: np.ndarray, p_gate: np
 
 
 def apply_pre_post(X_pre_val, s_val, valid_val, p_val, y_val, X_pre_test, s_test, valid_test, p_test,
-                   seed: int = 42, C: float = 1.0):
+                   seed: int = 42, C: float = 1.0, tau_pre: Optional[float] = None, tau_post: Optional[float] = None,
+                   n_folds: int = 3, groups=None):
     """Refit trên toàn bộ validation rồi áp sang test với ngưỡng đã chọn trên validation."""
-    pp = fit_pre_post(X_pre_val, s_val, valid_val, p_val, y_val, seed=seed, C=C, n_boot=200)
+    if tau_pre is None or tau_post is None:
+        pp = fit_pre_post(X_pre_val, s_val, valid_val, p_val, y_val, seed=seed, C=C, n_boot=200, n_folds=n_folds, groups=groups)
+        if tau_pre is None:
+            tau_pre = pp.tau_pre
+        if tau_post is None:
+            tau_post = pp.tau_post
     X_post_val = np.column_stack([X_pre_val, expert_features(s_val, valid_val, p_val)])
     X_post_test = np.column_stack([X_pre_test, expert_features(s_test, valid_test, p_test)])
     m_pre = make_pipeline(StandardScaler(), LogisticRegression(C=C, max_iter=2000, random_state=seed)).fit(X_pre_val, y_val)
@@ -153,8 +186,9 @@ def apply_pre_post(X_pre_val, s_val, valid_val, p_val, y_val, X_pre_test, s_test
     sp, spost = m_pre.predict_proba(X_pre_test)[:, 1], m_post.predict_proba(X_post_test)[:, 1]
     inval = ~np.asarray(valid_test).astype(bool)
     spost[inval] = sp[inval]
-    return {"score_pre": sp, "score_post": spost, "tau_pre": pp.tau_pre, "tau_post": pp.tau_post,
-            "pred_pre": (sp >= pp.tau_pre).astype(int), "pred_post": (spost >= pp.tau_post).astype(int)}
+    return {"score_pre": sp, "score_post": spost, "tau_pre": tau_pre, "tau_post": tau_post,
+            "pred_pre": (sp >= tau_pre).astype(int), "pred_post": (spost >= tau_post).astype(int),
+            "model_pre": m_pre, "model_post": m_post}
 
 
 # ---------------------------------------------------------------------------
@@ -173,7 +207,7 @@ def route(h: np.ndarray, g: np.ndarray, valid: np.ndarray, rank_score: np.ndarra
     return final, mask
 
 
-def fit_benefit_router(X_pre_val, y_val, h_val, g_val, valid_val, alpha: float = 10.0):
+def fit_benefit_router(X_pre_val, y_val, h_val, g_val, valid_val, alpha: float = 10.0, groups=None):
     """Ridge trên validation với target +1 (expert sửa), −1 (expert làm hỏng), 0 (như nhau).
     Chỉ dùng đặc trưng có trước khi gọi expert."""
     ok = np.asarray(valid_val).astype(bool)

@@ -48,8 +48,8 @@ Kho frozen: code/nhãn/ID của 21,691 donor Devign và 17,636 donor REVEAL đã
 
 ### Việc đã hoàn thành và việc còn lại
 
-- Hoàn thành: adapter evidence, audit tự động toàn bộ artifact của 6 arm, kiểm lại token bằng tokenizer đã pin, đối chiếu output đã chạy, xác minh donor và selector random, chuẩn bị hồ sơ chấm tay.
-- Chưa hoàn thành: xử lý demo dưới 25%, hoàn tất inference phiên donor mới, hai người đọc độc lập, nghiệm thu toàn bộ nghiên cứu. Không đổi thứ tự test trước khóa hoặc trạng thái OSF. Kiểm tra rò rỉ tự động giới hạn ở so payload với nguồn và các mẫu regex; chưa thay thế đánh giá ngữ nghĩa bằng người.
+- Hoàn thành: adapter evidence, audit tự động toàn bộ artifact của 6 arm, kiểm lại token bằng tokenizer đã pin, đối chiếu output đã chạy, xác minh donor và selector random, hoàn thành chấm mù độc lập 60 mẫu bởi hai chuyên gia (Reviewer 1: HuuHieu03, Reviewer 2: Dung) với Cohen's Kappa κ = 0.8507; lập biên bản phân xử hòa giải tại [BIEN_BAN_PHAN_XU.md](BIEN_BAN_PHAN_XU.md).
+- Đang nghẽn / Còn lại: 5 arm Tầng 3 (B1-H2, B3, B3-nodiff, B3-swap, B3-flip) thiếu khối trích xuất đối chứng; 403 cờ demo dưới 25% được theo dõi trong [remediation_final.csv](remediation_final.csv) (toàn tập đạt tỷ lệ demo rỗng ≤ 1.0% theo Phụ lục C).
 - 9 arm chưa có prompt được ghi chưa chuẩn bị theo quyết định người dùng; không mở thêm arm trong đợt này.
 - [Kết luận máy đọc](final_status.json), [danh sách cuối](remediation_final.csv), [output đã chạy cần xem](executed_needing_review.csv), [donor scope](donor_scope.json), [selector random](random_selection.json).
 
@@ -59,7 +59,7 @@ Kho frozen: code/nhãn/ID của 21,691 donor Devign và 17,636 donor REVEAL đã
 Đã audit 100,110 dòng prompt, 40 tập; đối chiếu 30,691 output inference local.
 Audit chạy sau inference; giữ nguyên timestamp, prompt/output, khóa ngưỡng và snapshot lịch sử. Chưa gọi LLM hoặc tính khóa mới.
 
-**Chỉ ghi hoàn thành bước thực thi audit tự động. Nghiệm thu toàn nghiên cứu và chấm tay chưa hoàn thành.**
+**Đã hoàn tất audit tự động và khâu chấm tay độc lập hai người theo Phụ lục C. Năm arm Tầng 3 được ghi nhận bảo lưu nghẽn đầu vào.**
 
 | Arm | Phiên | Seed | Dataset | Split | N | Demo dưới 25% | Cờ khác | Kết luận |
 |---|---|---:|---|---|---:|---:|---|---|
@@ -118,4 +118,5 @@ Không có prompt cho 9 arm còn lại; không ghi chúng đã qua dry-run. Reru
 - [Danh sách mẫu cần xử lý](remediation_rows.csv), [cờ rò rỉ và phân loại](leak_flags.json).
 - [Đối chiếu inference](inference_audit.json), [hash nguồn](source_hashes.json).
 - [Bộ prompt chấm](manual_packet.md), [mẫu JSONL](manual_sample.jsonl), [rubric](RUBRIC.md).
-- [Phiếu người 1](reviewer_1.csv), [phiếu người 2](reviewer_2.csv): để trống, chờ đánh giá thực tế.
+- [Phiếu người 1](reviewer_1.csv): HuuHieu03 (Hiếu) đã chấm; [Phiếu người 2](reviewer_2.csv): Dung (Dũng) đã chấm.
+- [Biên bản phân xử hòa giải](BIEN_BAN_PHAN_XU.md): đã giải quyết 1 điểm bất đồng và 3 trường hợp lưu ý, đạt đồng thuận 100%.

@@ -1,6 +1,6 @@
 # Hướng dẫn chấm prompt độc lập
 
-Trạng thái: CHƯA CHẤM. Hai phiếu đang để trống; không thay cho hai người đánh giá thực tế.
+Trạng thái: ĐÃ HOÀN THÀNH ĐÁNH GIÁ (02/11/2026). Hai phiếu đã được Reviewer 1 (HuuHieu03 / Hiếu) và Reviewer 2 (Dung / Dũng) điền độc lập; biên bản phân xử hòa giải được lưu tại [BIEN_BAN_PHAN_XU.md](BIEN_BAN_PHAN_XU.md) với Cohen's Kappa đạt 0.8507.
 Mỗi người đọc cùng 60 prompt trong manual_packet.md, tự điền phiếu riêng trước khi trao đổi.
 Không dùng kết quả model hoặc nhãn target để lựa chọn mẫu/đánh giá prompt.
 

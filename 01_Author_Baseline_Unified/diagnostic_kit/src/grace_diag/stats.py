@@ -227,7 +227,7 @@ def mcnemar_test(y, pa, pb) -> Dict[str, float]:
     if b + c < 25:
         p = binomtest(min(b, c), b + c, 0.5, alternative="two-sided").pvalue
         return {"b": b, "c": c, "p_value": float(p), "method": "exact"}
-    stat = (abs(b - c) - 1) ** 2 / (b + c)
+    stat = (max(0.0, abs(b - c) - 1.0)) ** 2 / (b + c)
     return {"b": b, "c": c, "p_value": float(chi2.sf(stat, 1)), "method": "chi2_cc"}
 
 

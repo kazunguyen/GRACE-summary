@@ -1,6 +1,9 @@
 """Generate function-level CPGs with batched Joern runs on native Linux."""
 import argparse
-import fcntl
+try:
+    import fcntl
+except ImportError:
+    fcntl = None
 import hashlib
 import json
 import os
@@ -276,7 +279,8 @@ def main():
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open('a+') as lock:
         print('Waiting for exclusive output lock:', lock_path, flush=True)
-        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        if fcntl is not None:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
         print('Acquired exclusive output lock.', flush=True)
         run(args)
 

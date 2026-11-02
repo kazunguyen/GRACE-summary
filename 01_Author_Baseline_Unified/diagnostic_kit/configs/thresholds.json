@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "study_id": "grace_diag_replication_v1",
+    "version": "prereg-v1",
+    "phase": "Step 4: Full Validation Threshold Locking (Option B)",
+    "optimized_on_split": "validation",
+    "sample_counts": {
+      "devign_val": 2732,
+      "reveal_val": 2273,
+      "total_val": 5005
+    },
+    "test_exposure": "STRICTLY_NONE (Zero test data used)",
+    "grid_points": 99,
+    "grid_range": [
+      0.01,
+      0.99
+    ],
+    "locked_utc": "2026-11-02T11:01:58Z",
+    "total_thresholds_locked": 14,
+    "protocol_sha256": "791f3bd77975857e9e0db44545c25ea582817d3d0d3e46f64017c4358a3f2e29"
+  },
+  "thresholds": {
+    "devign|B0|42": 0.08,
+    "devign|B1|42": 0.88,
+    "devign|B2|42": 0.7,
+    "devign|B2-flip|42": 0.5,
+    "devign|B2-rep|42": 0.7,
+    "reveal|B0|42": 0.44,
+    "reveal|B1|42": 0.74,
+    "reveal|B2|42": 0.12,
+    "reveal|B2-flip|42": 0.46,
+    "reveal|B2-rep|42": 0.12,
+    "devign|P-PRE|42": 0.54,
+    "devign|P-POST|42": 0.6,
+    "reveal|P-PRE|42": 0.38,
+    "reveal|P-POST|42": 0.1
+  },
+  "details": {
+    "devign|B0|42": {
+      "dataset": "devign",
+      "arm": "B0",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.08,
+      "n_total": 2732
+    },
+    "devign|B1|42": {
+      "dataset": "devign",
+      "arm": "B1",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.88,
+      "n_total": 2732
+    },
+    "devign|B2|42": {
+      "dataset": "devign",
+      "arm": "B2",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.7,
+      "mcc_at_tau": 0.05322579135003001,
+      "n_total": 2732
+    },
+    "devign|B2-flip|42": {
+      "dataset": "devign",
+      "arm": "B2-flip",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.5,
+      "n_total": 2732
+    },
+    "devign|B2-rep|42": {
+      "dataset": "devign",
+      "arm": "B2-rep",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.7,
+      "n_total": 2732
+    },
+    "reveal|B0|42": {
+      "dataset": "reveal",
+      "arm": "B0",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.44,
+      "n_total": 2273
+    },
+    "reveal|B1|42": {
+      "dataset": "reveal",
+      "arm": "B1",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.74,
+      "n_total": 2273
+    },
+    "reveal|B2|42": {
+      "dataset": "reveal",
+      "arm": "B2",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.12,
+      "mcc_at_tau": 0.08229864075239605,
+      "n_total": 2273
+    },
+    "reveal|B2-flip|42": {
+      "dataset": "reveal",
+      "arm": "B2-flip",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.46,
+      "n_total": 2273
+    },
+    "reveal|B2-rep|42": {
+      "dataset": "reveal",
+      "arm": "B2-rep",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.12,
+      "n_total": 2273
+    },
+    "devign|P-PRE|42": {
+      "dataset": "devign",
+      "arm": "P-PRE",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.54,
+      "n_total": 2732
+    },
+    "devign|P-POST|42": {
+      "dataset": "devign",
+      "arm": "P-POST",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.6,
+      "n_total": 2732
+    },
+    "reveal|P-PRE|42": {
+      "dataset": "reveal",
+      "arm": "P-PRE",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.38,
+      "n_total": 2273
+    },
+    "reveal|P-POST|42": {
+      "dataset": "reveal",
+      "arm": "P-POST",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.1,
+      "n_total": 2273
+    }
+  }
+}

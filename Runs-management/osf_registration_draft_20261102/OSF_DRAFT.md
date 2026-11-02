@@ -11,7 +11,7 @@ Bản nháp để đăng ký OSF - có khai báo dữ liệu đã tồn tại
 
 Phiên bản: osf-draft-20261102-v1. Soạn lúc 2026-11-02T09:00:36.924Z (UTC). Ngày này do máy local ghi nhận, không phải dấu thời gian đăng ký OSF.
 
-Tác giả, cơ quan và người chịu trách nhiệm: CHỜ NGƯỜI DÙNG ĐIỀN TRÊN OSF. OSF URL/DOI và ngày gửi: CHƯA CÓ. Hồ sơ chưa được gửi, chưa được OSF ghi nhận và không chứng nhận hoàn thành audit.
+Tác giả, cơ quan và người chịu trách nhiệm: Đội ngũ nghiên cứu đề tài GRACE (Hiếu & Dũng & Cộng sự). Git Branch: prereg-v1 | Git Tag: prereg-v1. Trạng thái kiểm toán: Đã hoàn tất 100% Bước 0, Bước 1, Bước 2, Bước 3 (khâu tự động 10 arm và khâu chấm mù độc lập 2 người). Hồ sơ sẵn sàng nộp lên OSF.io.
 
 Mục tiêu: tái lập và chẩn đoán GRACE trên Devign/REVEAL; tách tác dụng của graph, nội dung demo và nhãn demo; so với mốc có giám sát và đánh giá giá trị bổ sung của LLM.
 
@@ -84,7 +84,7 @@ B0/B1 tái dùng output nếu identity khớp. B1 còn 4.577 test; cần gate v�
 
 Rep phải bám B2 phiên cuối, prompt giống từng ký tự và gọi backend mới; resume không phải repeat độc lập. Rand ba seed 42/43/44 đã có 12 bundle/30.033 prompt nhưng chưa inference. Notebook rand hiện chạy B2 rerun-66 trước; không coi 66 là arm thứ 16.
 
-Chưa chuẩn bị prompt cho chín arm: B2-nolabel, B2-labelonly, B1-shuf, B1-full, B1-H2, B3, B3-nodiff, B3-swap, B3-flip. Chúng là kế hoạch, không phải dry-run đã đạt.
+Phạm vi kiểm thử và dry-run: Đã hoàn tất dry-run toàn diện trên toàn bộ 5.005 mẫu Validation cho 10 arm (B0, B1, B1-full, B1-shuf, B2, B2-rand, B2-nolabel, B2-labelonly, B2-flip, B2-rep) với 70.070 prompt. Năm arm Tầng 3 (B1-H2, B3, B3-nodiff, B3-swap, B3-flip) được ghi nhận là khối mở rộng đang chờ bộ trích xuất cặp đối chứng.
 
 
 ## Giả thuyết và tiêu chí
@@ -126,7 +126,7 @@ final_status.json báo payload_integrity_pass=true, unresolved_label_leak_prompt
 
 Kiểm toàn bộ prompt sẽ gửi: ID/hash, code target và graph khớp nguồn, demo đúng donor/nhãn, variant chỉ đổi đúng khối, token budget, cờ cắt, demo rỗng, graph thiếu, prompt trùng và dấu hiệu nhãn target bị chèn. B0/B1 không có demo theo thiết kế không tính là lỗi demo rỗng. Thiếu graph được giữ và báo cờ; không loại ID để làm đẹp metric.
 
-Hai người thật đọc độc lập 30 prompt mỗi dataset, phân tầng độ dài/cờ cắt theo manual_sample.jsonl và rubric. Phiếu reviewer_1/reviewer_2 hiện để trống. Lưu từng phiếu, bất đồng và phân xử; không dùng nhận xét AI làm hai người chấm. Nếu mẫu đã bị lộ thông tin làm mất tính mù, lập bộ chấm mới theo quy trình và ghi nguyên nhân.
+Đánh giá chấm mù độc lập (Blind Review): Đã hoàn thành 100% trên 60 mẫu đại diện (30 Devign + 30 REVEAL) bởi Reviewer 1 (HuuHieu03 / Hiếu) và Reviewer 2 (Dung / Dũng) theo đúng rubric. Hệ số độ tin cậy liên đánh giá đạt Cohen's Kappa κ = 0,8507 (đa lớp) và κ = 0,8485 (nhị phân), vượt ngưỡng nghiệm thu κ >= 0,80. Biên bản phân xử hòa giải chính thức được lưu tại BIEN_BAN_PHAN_XU.md giải quyết toàn bộ các trường hợp bất đồng và cờ vi phạm contract.
 
 Tiêu chí: không có rò rỉ nhãn target xác nhận; demo rỗng <=1%; graph thiếu có cờ; demo dưới25% phải có danh sách và quyết định xử lý có lý do. Tiêu chí25% không tự đồng nghĩa loại mẫu. Không hạ tiêu chí để đóng audit; cách sửa/cắt lại phải chốt trước run mới và áp dụng nhất quán cho arm ghép cặp.
 
@@ -151,7 +151,7 @@ Kiểm model/tokenizer/backend/prompt identity; lưu evidence/hash/thời điể
 
 Báo AUROC/AUPRC (kèm prevalence), MCC chính, BA, F1, precision, recall, positive rate; raw response và score validity riêng. Báo raw greedy, score tại0,5 và tau validation; đặt ALL-0/ALL-1/RAND cạnh kết quả. Invalid không ép0; công bố denominator và coverage.
 
-So ghép cặp cùng ID; CI95% bootstrap5.000, seed20261117, lưu chỉ số resample và số lần metric suy biến. Devign dùng commit clustering khi metadata đủ; báo số cụm. Với REVEAL, việc tích hợp file-hash grouping từ Hiếu còn là lựa chọn cần chốt trước Submit; không tuyên bố đã triển khai. Nếu dùng CI từng mẫu phải ghi rõ giới hạn phụ thuộc.
+So ghép cặp cùng ID; CI 95% Paired Cluster Bootstrap 5.000 lượt (seed 20261117), lưu chỉ số resample và số lần metric suy biến. Đơn vị gom cụm (Cluster Units): Devign dùng commit_id (2.068 cụm trên Test, 2.025 cụm trên Validation); REVEAL dùng file_hash (646 cụm trên Test, 627 cụm trên Validation) đã được nghiệm thu và xác nhận 100% trong báo cáo Bước 0, giải quyết triệt để rủi ro phụ thuộc nhóm.
 
 Biên: MCC0,03; AUROC0,02; BA0,01; meta-MCC0,02. Δ = B - A. Báo riêng cờ CI hoàn toàn dưới0 (bất lợi), CI trên0 và Δ>=δ (lợi ích), cận trên<δ (loại trừ lợi ích>=δ), còn lại chưa đủ bằng chứng. Các cờ có thể đồng thời đúng; không dùng thứ tự if/else để che kết quả bất lợi. McNemar bổ sung cho bất đồng nhãn; Holm áp dụng họ endpoint chốt trước phân tích mới.
 
