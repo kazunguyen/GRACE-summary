@@ -141,3 +141,9 @@ Khi thêm run: ghi ID mới, dataset/split, đường dẫn input/output, trạn
 Đã đối chiếu ZIP input 12 tập với hash audit, checkpoint seed 42 4.798 validation và identity; 0 test B2-rand trong checkpoint đã nhập. 30.033 demo B2-rand đều khác demo B2 tham chiếu donor mới. Đã chạy lại 20 test probe, 4 test research contract, 16 test trạng thái/audit/dry-run; verifier audit 100.110 dòng và dry-run 70.070 dòng đều pass. Chưa gọi LLM, fit tau hoặc sửa output/khóa lịch sử. [Bằng chứng và hồ sơ](step34_b2_rand_20261102/README.md).
 
 Hai reviewer thật chưa chấm; các quyết định nghiên cứu H2.2, Holm/CI và demo dưới 25% chờ chủ nhiệm. Năm arm H2/B3 thiếu input vẫn blocked; không gọi toàn bộ bước 3 đã nghiệm thu. Hồ sơ bước 4 là draft local, chưa chốt/commit/tag, OSF không thực hiện; không gọi preregistration hồi tố.
+
+## Chuẩn bị tiếp tục B2-rand sau I-09 — chỉ validation
+
+Theo yêu cầu người dùng, notebook B2-rand bắt buộc khôi phục checkpoint I-09 hoặc hậu duệ cùng record và chỉ chạy validation còn thiếu: seed 42 REVEAL 207; seed 43 và 44 mỗi seed 5.005. Giữ 66 output B2 donor đã hoàn thành, không inference lại; đối chiếu hash prefix 4.798 record I-09, donor/khóa và 12 tập prompt đã audit. Đủ validation thì dừng, không tự chọn tau hoặc chạy test; timeout/validation xong đều đóng gói checkpoint. Giới hạn 9 giờ mỗi phiên với dự phòng 5 phút. [Notebook](../06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb).
+
+Kiểm thử CPU/mô phỏng bằng checkpoint và bundle I-09 thật: nhận ZIP/thư mục giải nén/cả hai trùng nội dung; từ chối checkpoint hỏng; kiểm lịch chạy và dừng sau validation. Mô phỏng dùng record giả trong thư mục tạm, không gọi GPU, không fit tau, không thay checkpoint gốc.
