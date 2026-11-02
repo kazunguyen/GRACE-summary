@@ -49,7 +49,7 @@ test = [r for r in rows if r['split'] == 'test']
 assert (len(validation), len(test)) == (28, 38)
 ```
 
-Folder này chuẩn bị bundle và không có notebook inference riêng. Luồng thực thi 66 mẫu đã được tích hợp vào [notebook B2-rand](../06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb): chạy 28 validation, khóa ngưỡng từ validation đầy đủ rồi 38 test, sau đó tự tiếp tục B2-rand. Chưa có output GPU rerun mới được nhập. Không ghi đè prompt/output/threshold của chiến dịch cũ.
+Folder này chuẩn bị bundle và không có notebook inference riêng. Luồng thực thi 66 mẫu đã được tích hợp vào [notebook B2-rand](../06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb): chạy 28 validation, khóa ngưỡng từ validation đầy đủ rồi 38 test, sau đó tự tiếp tục B2-rand. Đã nhập 66 output GPU I-09 và ghép vào phiên B2 donor mới riêng; xem [merge report](../01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/merge_report.json). Không ghi đè prompt/output/threshold của chiến dịch cũ.
 
 Đóng gói lại bằng `python build_bundle.py`. Kiểm tra bằng `python verify_bundle.py output/grace_b2_devign_donor_rerun_66_20261102.zip`.
 

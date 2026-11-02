@@ -1,0 +1,110 @@
+{
+  "scope": "B1; post-inference only; not human review",
+  "checked_at_utc": "2026-11-02T15:46:22.467903+00:00",
+  "splits": [
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "n": 2732,
+      "prior_records_equal": 2732,
+      "raw_invalid": 0,
+      "invalid_score_or_logprob_mismatch": 0,
+      "graph_missing": 3,
+      "nonempty_demo_or_scaffold_mismatch": 0,
+      "prompt_identity_mismatch": 0,
+      "prompt_hash_mismatch": 0,
+      "prompt_sha256": "ee0f4d7890f977aa726333ae9a9e28bdbef47ddc2c2a16b22a4acf72c738b486",
+      "records_sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
+      "prior_token_audit": {
+        "tokens_p50": 1820.0,
+        "tokens_p95": 3410.0,
+        "rate_code_truncated": 0.021961932650073207,
+        "rate_graph_truncated": 0.9275256222547584,
+        "rate_graph_missing": 0.0010980966325036604,
+        "n_regex_flags": 1,
+        "status": "pass_automatic_checks"
+      }
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "n": 2732,
+      "prior_records_equal": 429,
+      "raw_invalid": 0,
+      "invalid_score_or_logprob_mismatch": 0,
+      "graph_missing": 2,
+      "nonempty_demo_or_scaffold_mismatch": 0,
+      "prompt_identity_mismatch": 0,
+      "prompt_hash_mismatch": 0,
+      "prompt_sha256": "35489f064b1ceb35ac8bfd6c7c0c43968f04391c48e557aebb2333e25f123d8b",
+      "records_sha256": "15673b8f6788b1d6b55e66438cba292435178303d820b8c3d249cd850254ace4",
+      "prior_token_audit": {
+        "tokens_p50": 1835.0,
+        "tokens_p95": 3340.249999999999,
+        "rate_code_truncated": 0.017203513909224012,
+        "rate_graph_truncated": 0.9366764275256223,
+        "rate_graph_missing": 0.0007320644216691069,
+        "n_regex_flags": 0,
+        "status": "pass_automatic_checks"
+      }
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "n": 2273,
+      "prior_records_equal": 2273,
+      "raw_invalid": 3,
+      "invalid_score_or_logprob_mismatch": 0,
+      "graph_missing": 27,
+      "nonempty_demo_or_scaffold_mismatch": 0,
+      "prompt_identity_mismatch": 0,
+      "prompt_hash_mismatch": 0,
+      "prompt_sha256": "14290046152cca4ce54e70fc4486650cdd3a7524569a72d2b86575fd84d19c52",
+      "records_sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
+      "prior_token_audit": {
+        "tokens_p50": 1717.0,
+        "tokens_p95": 2922.6000000000017,
+        "rate_code_truncated": 0.014958205015398152,
+        "rate_graph_truncated": 0.9296084469863617,
+        "rate_graph_missing": 0.011878574571051475,
+        "n_regex_flags": 1,
+        "status": "needs_remediation"
+      }
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "n": 2274,
+      "prior_records_equal": 0,
+      "raw_invalid": 2,
+      "invalid_score_or_logprob_mismatch": 0,
+      "graph_missing": 23,
+      "nonempty_demo_or_scaffold_mismatch": 0,
+      "prompt_identity_mismatch": 0,
+      "prompt_hash_mismatch": 0,
+      "prompt_sha256": "b11d94f9bb8ac88dfc4bb14354387438180906da9f6bc535b2da0ee17edea04f",
+      "records_sha256": "26057b7af6fe20dd40a829598555709b963f7615c6a04d8f228f63e6bea2c166",
+      "prior_token_audit": {
+        "tokens_p50": 1732.0,
+        "tokens_p95": 2978.0499999999997,
+        "rate_code_truncated": 0.020668425681618294,
+        "rate_graph_truncated": 0.940193491644679,
+        "rate_graph_missing": 0.010114335971855761,
+        "n_regex_flags": 0,
+        "status": "pass_automatic_checks"
+      }
+    }
+  ],
+  "source_hashes": {
+    "03_Arm_B1_Graph_Only\\output\\bundles\\devign\\validation\\prompts.jsonl": "ee0f4d7890f977aa726333ae9a9e28bdbef47ddc2c2a16b22a4acf72c738b486",
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\devign\\validation\\records.jsonl": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
+    "03_Arm_B1_Graph_Only\\output\\bundles\\devign\\test\\prompts.jsonl": "35489f064b1ceb35ac8bfd6c7c0c43968f04391c48e557aebb2333e25f123d8b",
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\devign\\test\\records.jsonl": "15673b8f6788b1d6b55e66438cba292435178303d820b8c3d249cd850254ace4",
+    "03_Arm_B1_Graph_Only\\output\\bundles\\reveal\\validation\\prompts.jsonl": "14290046152cca4ce54e70fc4486650cdd3a7524569a72d2b86575fd84d19c52",
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\reveal\\validation\\records.jsonl": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
+    "03_Arm_B1_Graph_Only\\output\\bundles\\reveal\\test\\prompts.jsonl": "b11d94f9bb8ac88dfc4bb14354387438180906da9f6bc535b2da0ee17edea04f",
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\reveal\\test\\records.jsonl": "26057b7af6fe20dd40a829598555709b963f7615c6a04d8f228f63e6bea2c166"
+  },
+  "checkpoint_sha256": "613cbe9e92da5291177239d3c7eac799ec5f46fce4623dd551ca53c4efbbce99",
+  "total": 10011
+}
