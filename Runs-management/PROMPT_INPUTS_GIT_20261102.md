@@ -4,6 +4,14 @@ Phạm vi: Devign validation/test, REVEAL validation/test, cùng train donor dù
 
 Trước đợt này chỉ hai contract trong danh sách được Git theo dõi. Đợt này bổ sung 76 file dữ liệu/metadata, tổng danh mục đủ điều kiện 78 file, khoảng 726,35 MiB. [Inventory JSON](prompt_input_inventory_20261102.json) ghi từng đường dẫn, byte, SHA256 và trạng thái trước khi bổ sung. Trạng thái remote được kiểm bằng lệnh verifier dưới đây sau push.
 
+## Nguồn tải các file lớn ngoài Git
+
+[Google Drive — 16 cache/input lớn](https://drive.google.com/drive/folders/1oV49c5JgLJl5sD1_v7NPlDOs0Hik_0Zl?usp=sharing). Tải **GRACE_large_inputs_20261102.zip**, 2272473727 byte (2,12 GiB); dung lượng payload sau giải nén 22,35 GiB.
+
+SHA256 ZIP đã kiểm từ gói local: `ba930b27c769af4c53594f2ce912595ea9276416c392a18139ef09d43c6c63e0`.
+
+Giải nén vào gốc GRACE-summary, giữ cấu trúc đường dẫn; sau đó chạy `python -B VERIFY_RESTORE.py --root .`. ZIP kèm manifest SHA256 từng file và hướng dẫn khôi phục. [Hướng dẫn đầy đủ trong README](../README.md#tải-cache-lớn-từ-google-drive). Link do người dùng cung cấp; checksum lấy từ gói local đã kiểm, không phải kết quả tải lại từ Drive.
+
 ## Đã đưa vào Git
 
 | Nhóm | Đường dẫn tính từ repo | Nội dung |
@@ -30,7 +38,7 @@ CodeT5 pin: Salesforce/codet5-base@02cd2d31bb7c6d0e4d91156167b2de044989c733. Đ�
 
 Hai vector train lần lượt 64,03 và 53,28 MiB, cũng được đưa vào Git.
 
-## File vượt 100 MiB — giữ local, không push
+## File vượt 100 MiB — tải qua Drive, không push Git
 
 | Đường dẫn từ repo | MiB |
 |---|---:|
@@ -51,7 +59,7 @@ Hai vector train lần lượt 64,03 và 53,28 MiB, cũng được đưa vào Gi
 | 01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl | 218.95 |
 | 01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl.donors.jsonl | 1799.67 |
 
-**Clone/pull vẫn thiếu CPG Joern nguyên bản và donors frozen kèm graph**, nên chưa thể chạy mọi bước dựng lại từ đầu chỉ từ Git. Cần bàn giao các file skip riêng, đúng đường dẫn và hash trong freeze/bundle manifest. Không chạy lại Joern/encoder để lấp thiếu một cách âm thầm.
+**Clone/pull vẫn thiếu CPG Joern nguyên bản và donors frozen kèm graph**, nên chưa thể chạy mọi bước dựng lại từ đầu chỉ từ Git. Tải các file này từ link Drive ở đầu tài liệu, rồi khôi phục đúng đường dẫn và hash trong freeze/bundle manifest. Không chạy lại Joern/encoder để lấp thiếu một cách âm thầm.
 
 Bốn ZIP B2 cũ đã tồn tại sẵn (18–34 MiB/file) chứa specs.jsonl, prompts.jsonl, bundle_manifest và specs manifest. Có thể giải nén vào chính thư mục dataset/split tương ứng để khôi phục specs cũ bị skip; kiểm spec_sha256 trước khi dùng. ZIP không chứa donors.jsonl/CPG train đầy đủ và không phải bundle donor mới. B2 new_reference chứa prompt đã chốt donor mới; không ghép lẫn phiên.
 

@@ -123,13 +123,13 @@ Cần notebook inference đúng phiên, ZIP prompt, model GGUF đúng SHA, check
 
 ### Người nhận tái tạo prompt/dữ liệu
 
-Đợt bàn giao input 02/11/2026 đưa raw gốc/frozen, manifest, CodeT5 vectors cho cả train/validation/test của hai dataset, compact donor bank mới và B2 new_reference vào Git. **CPG Joern, donors frozen kèm graph và specs nguyên bản vượt 100 MiB được skip**, nên clone/pull vẫn chưa đủ để tái dựng mọi bước từ đầu. Bàn giao file skip riêng đúng đường dẫn/hash; xem danh sách chi tiết và cách khôi phục specs cũ từ ZIP ở mục dưới. Không cần gửi .venv-wsl/ hoặc uv-cache/; tạo môi trường lại từ requirements.
+Đợt bàn giao input 02/11/2026 đưa raw gốc/frozen, manifest, CodeT5 vectors cho cả train/validation/test của hai dataset, compact donor bank mới và B2 new_reference vào Git. **CPG Joern, donors frozen kèm graph và specs nguyên bản vượt 100 MiB được skip**, nên clone/pull vẫn chưa đủ để tái dựng mọi bước từ đầu. Tải file skip qua Google Drive ở mục bên dưới và khôi phục đúng đường dẫn/hash. Không cần gửi .venv-wsl/ hoặc uv-cache/; tạo môi trường lại từ requirements.
 
 Nếu thật sự cần dựng lại: notebook01 B2 mặc định DOWNLOAD_RAW=False, REBUILD_CPG=False và chỉ đọc sáu cache hoàn tất. Đổi CPG_ROOT/BUNDLE_ROOT sang phiên mới trước khi rebuild; chỉnh JOERN_HOME, BATCH_SIZE/JAVA_OPTS trong notebook recovery. CodeT5 encoder nằm ở prepare_embedding_cache.py (--raw-dir, --out, --batch-size), chạy WSL/Linux do có fcntl; không nhầm việc notebook01 đọc CachedEmbedder với chạy encoder mới. Hướng dẫn cũ của baseline có đoạn lịch sử; lấy cell cấu hình hiện tại và contract làm chuẩn.
 
 ### Tình trạng input trong Git — 02/11/2026
 
-Danh mục **78 file đủ điều kiện**, trong đó 2 contract đã có trước và 76 file được bổ sung; **16 file trên 100 MiB được giữ local, không push**. [Danh sách từng file/size/hash và file skip](Runs-management/PROMPT_INPUTS_GIT_20261102.md), [inventory JSON](Runs-management/prompt_input_inventory_20261102.json).
+Danh mục **78 file đủ điều kiện**, trong đó 2 contract đã có trước và 76 file được bổ sung; **16 file trên 100 MiB không push Git; tải qua Google Drive ở mục bên dưới**. [Danh sách từng file/size/hash và file skip](Runs-management/PROMPT_INPUTS_GIT_20261102.md), [inventory JSON](Runs-management/prompt_input_inventory_20261102.json).
 
 | Input | Phạm vi đã đưa vào Git |
 |---|---|
@@ -150,6 +150,39 @@ python -B Runs-management/verify_prompt_inputs_git.py --git-ref origin/baseline-
 Pass xác nhận 78 file đủ điều kiện có đúng byte/hash ở local và ref Git. Các graph lớn vẫn cần chuyển riêng; ZIP B2 cũ giúp khôi phục specs cũ, không chứa toàn bộ graph donor và không phải phiên donor mới.
 
 Đã xác minh push dữ liệu tại commit `bef5d2e` trên `origin/baseline-unified`: 78/78 file khớp byte/hash, 16 file skip không có trong tree remote. [Bằng chứng kiểm remote](Runs-management/prompt_inputs_git_verification_20261102.json), [worklog bàn giao](worklogs/2026-11-02_prompt_inputs_git_delivery.md).
+
+### Tải cache lớn từ Google Drive
+
+**[Google Drive — cache Joern/donor/specs để tái sử dụng dựng prompt](https://drive.google.com/drive/folders/1oV49c5JgLJl5sD1_v7NPlDOs0Hik_0Zl?usp=sharing)**. Đây là nguồn tải 16 file lớn không được đưa vào Git, do người dùng cung cấp ngày 02/11/2026.
+
+1. Clone/pull repo để lấy contract, raw/freeze, sáu cache CodeT5 và B2 reference đã đưa vào Git.
+2. Mở link Drive trên, tải GRACE_large_inputs_20261102.zip (2.272.473.727 byte, khoảng 2,12 GiB).
+3. Kiểm SHA256 của ZIP so với giá trị đã kiểm từ gói local:
+
+~~~text
+ba930b27c769af4c53594f2ce912595ea9276416c392a18139ef09d43c6c63e0
+~~~
+
+Trên PowerShell:
+
+~~~powershell
+Get-FileHash .\GRACE_large_inputs_20261102.zip -Algorithm SHA256
+~~~
+
+4. Giải nén ZIP vào **gốc thư mục GRACE-summary**, giữ nguyên cấu trúc 01_Author_Baseline_Unified/output/...; không đặt thêm một tầng thư mục. Ví dụ trên Windows:
+
+~~~bash
+python -m zipfile -e D:/Downloads/GRACE_large_inputs_20261102.zip D:/JUNIOR/LabThayTho/GRACE-summary
+~~~
+
+5. Từ gốc repo, kiểm 16 file vừa khôi phục và 78 input đã lấy qua Git:
+
+~~~bash
+python -B VERIFY_RESTORE.py --root .
+python -B Runs-management/verify_prompt_inputs_git.py --git-ref origin/baseline-unified
+~~~
+
+ZIP có đủ 16 payload (22,35 GiB sau giải nén), kèm DRIVE_INPUTS_MANIFEST_20261102.json, README_RESTORE.md và VERIFY_RESTORE.py. Sáu CPG Joern và hai donor frozen kèm graph giúp phục hồi các input lớn; bốn specs/bốn donor copies B2 cũ giữ đúng phiên lịch sử. **B2 donor mới dùng new_reference/B2 trong Git**; giữ riêng phiên donor cũ/mới khi dựng prompt.
 
 ## 6. Chạy xong một lượt phải ghi vào file nào?
 
