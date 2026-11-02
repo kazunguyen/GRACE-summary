@@ -36,4 +36,4 @@ Giữ Qwen3-Coder-30B-A3B-Instruct Q4_K_M, llama-cpp-python 0.3.16, model SHA-25
 
 Mỗi split có `records.jsonl`, `run_manifest.json`, `evaluation.json` khi hoàn tất. Metric raw greedy kèm coverage; metric score tại ngưỡng 0,5 được tách riêng; AUROC/AUPRC dùng score. Notebook không chọn ngưỡng từ test. Dữ liệu/prompt mới chưa được đánh dấu là lượt xác nhận đã đăng ký trước.
 
-Hai notebook mới được giao ở trạng thái chưa chạy. Đã kiểm tra offline cú pháp notebook, scaffold/truncation, tìm input nhiều account, ZIP lồng, xung đột, checkpoint an toàn và luồng prepare → inference → resume với backend giả. Các kiểm tra đó không đại diện cho throughput hay nghiệm thu CUDA thực tế.
+Ghi chú lịch sử lúc bàn giao notebook: hai notebook khi đó chưa chạy. Hiện B0 I-03 đã có đủ 10.011 output; xem [README chung](../README.md) và [RUNS.md](../Runs-management/RUNS.md), không suy ra nghiệm thu protocol từ số lượng output. Đã kiểm tra offline cú pháp notebook, scaffold/truncation, tìm input nhiều account, ZIP lồng, xung đột, checkpoint an toàn và luồng prepare → inference → resume với backend giả. Các kiểm tra đó không đại diện cho throughput hay nghiệm thu CUDA thực tế.

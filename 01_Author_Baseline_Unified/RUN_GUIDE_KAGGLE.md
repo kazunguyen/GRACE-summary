@@ -1,5 +1,7 @@
 # Chạy GRACE B2 và Qwen3-Coder Q4_K_M
 
+> Flow bàn giao và cấu hình hiện hành xem [README chung](../README.md). Tài liệu dưới đây giữ cả mô tả lịch sử; không lấy các câu “chưa chạy”, smoke LIMIT=20 hoặc BUNDLE_PATH cũ làm trạng thái/default của notebook hiện tại. Phần môi trường WSL vẫn dùng để tham khảo.
+
 Hai notebook tách chuẩn bị prompt và inference. Model được chọn là `ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF`, biến thể `Q4_K_M`, chạy bằng `llama-cpp-python`; đây là thay đổi so với các lượt BF16 cũ. Notebook sẽ xác định revision Hugging Face, tải đúng file và lưu SHA-256 trong run manifest. Ghim revision thu được trước lượt xác nhận.
 
 

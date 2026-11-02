@@ -10,4 +10,4 @@ Baseline phục dựng thống nhất; không khẳng định trùng hoàn toàn
 
 Đọc [RUN_GUIDE.md](RUN_GUIDE.md), [DIAGNOSTIC_INTEGRATION.md](DIAGNOSTIC_INTEGRATION.md). Quyết định cũ tại [ARCHITECTURE_DECISIONS.md](ARCHITECTURE_DECISIONS.md) là lịch sử, trừ phần cập nhật đầu file. Không trộn kết quả hợp đồng byte cũ với hợp đồng token.
 
-Model inference đã chọn là `ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF` Q4_K_M qua llama.cpp; `backbone_llm` BF16 trong contract là nguồn tokenizer và đường chạy Transformers cũ. Xem [hướng dẫn hai notebook](RUN_GUIDE_KAGGLE.md). Chưa kiểm chứng model hay GPU trên Kaggle.
+Model inference đã chọn là `ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF` Q4_K_M qua llama.cpp; `backbone_llm` BF16 trong contract là nguồn tokenizer và đường chạy Transformers cũ. Xem [hướng dẫn hai notebook](RUN_GUIDE_KAGGLE.md). Đã có inference B2 I-05 đủ 10.011 mẫu; tiến độ và giới hạn nghiệm thu xem [README chung](../README.md) và [sổ run](../Runs-management/RUNS.md).
