@@ -1,6 +1,9 @@
 """Stage 1: embed raw train/validation/test only, with resumable batch checkpoints."""
 import argparse
-import fcntl
+try:
+    import fcntl
+except ImportError:
+    fcntl = None
 import hashlib
 import json
 import os
@@ -68,7 +71,8 @@ def main():
     if args.batch_size < 1: ap.error('batch-size must be positive')
     args.out.mkdir(parents=True, exist_ok=True)
     lock = (args.out / '.lock').open('a')
-    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    if fcntl is not None:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     embedder = None
     for split in ('train', 'validation', 'test'):
         rows = read_codes(args.raw_dir / (split + '.jsonl'))
