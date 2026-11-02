@@ -1,0 +1,11 @@
+{
+  "hardware": "Kaggle Dual Nvidia T4 (16GB x 2)",
+  "n_records_measured": 2732,
+  "mean_latency_seconds": 6.690970843744148,
+  "median_latency_seconds": 5.613910261499768,
+  "std_latency_seconds": 3.0755421607723408,
+  "min_latency_seconds": 1.7613948139996864,
+  "max_latency_seconds": 18.626601773999937,
+  "prompts_per_minute": 8.967308541793775,
+  "estimated_hours_for_10k_prompts": 18.606474754645184
+}
