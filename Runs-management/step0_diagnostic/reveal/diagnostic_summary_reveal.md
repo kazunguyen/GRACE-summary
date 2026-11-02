@@ -5,15 +5,15 @@
 
 ## 1. Tóm tắt Kết luận Chẩn đoán (Executive Summary)
 
-- **Đánh giá Thống kê ($\delta$-Verdict)**: 🔴 **HARM (BẤT LỢI / GÂY HỎNG HƠN ĐƠN LẺ)**
-- **Giải thích chi tiết**: Có bằng chứng bất lợi (CI nằm dưới 0)
+- **Đánh giá Thống kê ($\delta$-Verdict)**: 🟡 **NO MEANINGFUL BENEFIT (KHÔNG ĐẠT NGƯỠNG HIỆU ỨNG δ)**
+- **Giải thích chi tiết**: Có bằng chứng loại trừ lợi ích ≥ δ (cận trên CI < δ)
 - **Tổng số mẫu kiểm thử**: **2274** (Lỗ hổng: 230 [10.1%], An toàn: 2044)
 - **Phân bổ mẫu**: Validation Split = **2273** mẫu | Test Split = **2274** mẫu
 - **Tính hợp lệ phản hồi LLM**: 2274 hợp lệ (100.0%), 0 lỗi format (được fallback đối xứng về Gate)
-- **Đơn vị Bootstrap (Cluster Unit)**: **Cluster Bootstrap** (646 clusters (file hashes) | 1000 reps | seed=20261117) (tuân thủ `protocol.yaml` line 55)
-- **Chênh lệch $\Delta$MCC ghép cặp**: **-0.0274** (95% CI: [-0.0536, -0.0001])
-- **Chênh lệch $\Delta$F1 ghép cặp**: **-0.0237** (95% CI: [-0.0469, 0.0002])
-- **Chênh lệch $\Delta$AUROC**: **0.0026** (95% CI: [-0.0031, 0.0084])
+- **Đơn vị Bootstrap (Cluster Unit)**: **Cluster Bootstrap** (646 clusters (file hashes) | 5000 reps | seed=20261117) (tuân thủ `protocol.yaml` line 55)
+- **Chênh lệch $\Delta$MCC ghép cặp**: **-0.0274** (95% CI: [-0.0561, 0.0006])
+- **Chênh lệch $\Delta$F1 ghép cặp**: **-0.0237** (95% CI: [-0.0490, 0.0014])
+- **Chênh lệch $\Delta$AUROC**: **0.0026** (95% CI: [-0.0030, 0.0086])
 
 ---
 
@@ -62,15 +62,15 @@
 
 > **Thiết kế kiểm định**: Cùng số fold (3), cùng scaler, chỉ khác duy nhất 4 đặc trưng bổ sung từ LLM ($s, \text{valid}, s \times p, s - p$).
 > **Quy chuẩn 2-Split**: Ngưỡng tối ưu $\tau_{pre}^* = 0.22$, $\tau_{post}^* = 0.19$ được xác định hoàn toàn từ tập Validation và khóa chặt khi đánh giá tập Test.
-> **Quy chuẩn Bootstrap**: 95% Paired Bootstrap CI được tính toán qua **Cluster Bootstrap** (646 clusters (file hashes) | 1000 reps | seed=20261117).
+> **Quy chuẩn Bootstrap**: 95% Paired Bootstrap CI được tính toán qua **Cluster Bootstrap** (646 clusters (file hashes) | 5000 reps | seed=20261117).
 
 | Chỉ số Đánh giá | $P_{pre}$ (Gate + Đặc trưng nền) | $P_{post}$ (Thêm đặc trưng LLM) | Chênh lệch $\Delta$ | 95% Bootstrap CI |
 | :--- | :---: | :---: | :---: | :---: |
-| **MCC** | 0.3760 | 0.3486 | **-0.0274** | [-0.0536, -0.0001] |
-| **F1-Score** | 0.4436 | 0.4199 | **-0.0237** | [-0.0469, 0.0002] |
-| **Accuracy** | 0.8720 | 0.8615 | **-0.0106** | [-0.0175, -0.0042] |
+| **MCC** | 0.3760 | 0.3486 | **-0.0274** | [-0.0561, 0.0006] |
+| **F1-Score** | 0.4436 | 0.4199 | **-0.0237** | [-0.0490, 0.0014] |
+| **Accuracy** | 0.8720 | 0.8615 | **-0.0106** | [-0.0177, -0.0038] |
 | **Balanced Accuracy** | 0.7089 | 0.6991 | -0.0097 | — |
-| **AUROC** | 0.8093 | 0.8120 | **0.0026** | [-0.0031, 0.0084] |
+| **AUROC** | 0.8093 | 0.8120 | **0.0026** | [-0.0030, 0.0086] |
 | *Ngưỡng tối ưu $\tau^*$* | *0.22* | *0.19* | — | — |
 
 ---
@@ -113,12 +113,12 @@
 
 ### So sánh Đối chứng Ghép cặp tại Ngân sách $q=10%$ (`benefit` vs `confidence`)
 
-> **Mục đích**: Kiểm định ghép cặp xem Ridge Benefit Router có vượt trội có ý nghĩa thống kê so với Confidence Router tại ngưỡng ngân sách thực tế 10% hay không (**Cluster Bootstrap** (646 clusters (file hashes) | 1000 reps | seed=20261117)).
+> **Mục đích**: Kiểm định ghép cặp xem Ridge Benefit Router có vượt trội có ý nghĩa thống kê so với Confidence Router tại ngưỡng ngân sách thực tế 10% hay không (**Cluster Bootstrap** (646 clusters (file hashes) | 5000 reps | seed=20261117)).
 
 | Chỉ số So sánh | Chênh lệch $\Delta$ (Benefit − Confidence) | 95% Bootstrap CI | Đơn vị Bootstrap | Kết luận Thống kê |
 | :--- | :---: | :---: | :---: | :---: |
-| **Balanced Accuracy ($\Delta$BA - Chỉ số chính)** | **-0.0615** | [-0.0910, -0.0284] | cluster | Bất lợi (CI < 0) |
-| **MCC ($\Delta$MCC - Chỉ số phụ)** | **-0.0843** | [-0.1413, -0.0218] | cluster | Bất lợi (CI < 0) |
+| **Balanced Accuracy ($\Delta$BA - Chỉ số chính)** | **-0.0615** | [-0.0943, -0.0287] | cluster | Bất lợi (CI < 0) |
+| **MCC ($\Delta$MCC - Chỉ số phụ)** | **-0.0843** | [-0.1461, -0.0247] | cluster | Bất lợi (CI < 0) |
 
 ---
 

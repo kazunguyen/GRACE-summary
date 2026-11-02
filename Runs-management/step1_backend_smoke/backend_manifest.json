@@ -1,5 +1,5 @@
 {
-  "model_name": "Qwen2.5-Coder-30B-Instruct-Q4_K_M.gguf",
+  "model_name": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
   "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
   "quantization": "Q4_K_M",
   "runtime_engine": "llama-cpp-python 0.3.16",

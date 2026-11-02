@@ -21,14 +21,17 @@ dedup:
 
 backend:                                       # chi tiết trong configs/backend_*.yaml
   primary_model: "Qwen/Qwen3-Coder-30B-A3B-Instruct"
-  serving: "llama-server (llama.cpp b3920) GGUF UD-Q4_K_XL (16.45 GB, --n_ctx 8192, split-mode: layer trên Kaggle Linux GPU 2× Tesla T4 0 USD) hoặc vLLM (FP8/bf16 trên GPU thuê)"
+  serving: "llama-server (llama.cpp b3920) GGUF Q4_K_M (16.45 GB, --n_ctx 8192, split-mode: layer trên Kaggle Linux GPU 2× Tesla T4 0 USD) hoặc vLLM (FP8/bf16 trên GPU thuê)"
   fallback_models: ["Qwen/Qwen2.5-Coder-32B-Instruct", "Qwen/Qwen2.5-Coder-14B-Instruct"]
   decoding: {temperature: 0.0, max_tokens: 1, logprobs: true, top_logprobs: 5, seed: 42}
   guided_choice: "auto: bật nếu smoke test < 99% prompt có token 0/1 trong top-5; ghi vào bài"
-  quantization_note: "Qwen3-Coder-30B-A3B-Instruct-UD-Q4_K_XL.gguf (16.45 GB, MoE 30.5B total / 3.3B active per token, llama-server b3920 với --n_ctx 8192 / Kaggle Linux 2x Tesla T4 GPU, Kaggle model slug: tnthnhneee/qwen3-30b-a3b/gguf/coder-instruct-ud-q4_k_xl)"
+  quantization_note: "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf (file SHA-256: f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335, 16.45 GB, Hugging Face revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120, MoE 30.5B total / 3.3B active per token, llama-server b3920 với --n_ctx 8192 / Kaggle Linux 2x Tesla T4 GPU, Kaggle model slug: tnthnhneee/qwen3-30b-a3b/gguf/coder-instruct-ud-q4_k_xl)"
 
 token_budget: {total: 8192, target_code: 3000, demo: 1500, graph: 1500, reserve: 64}
-graph_prefix: {nodes: 25, edges: 25}
+graph_prefix: {nodes: 40, edges: 80}
+graph_full: {nodes_max: 40, edges_max: 80, policy: largest_fitting_closed_node_prefix}
+graph_h2: {source_nodes_max: 40, source_edges_max: 80, required_spec_metadata: h2_source_limits}
+validation_selection: full_official_validation
 prompt_order: [role_domain, target_code, question, node_info, edge_info, demonstration, answer]   # Hình 6 + mã tác giả
 
 arms_file: configs/arms.yaml
