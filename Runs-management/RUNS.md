@@ -1,5 +1,13 @@
 # GRACE-summary — sổ theo dõi mọi lượt chạy
 
+<!-- full-validation-dryrun-20261102 -->
+**Dry-run validation 02/11/2026 — P-10:** hoàn tất 70.070 dòng/28 tập cho 10 arm đủ đầu vào trên đủ 2.732 Devign + 2.273 REVEAL; sau đối chiếu nguồn 28/28 tập đạt audit tự động, 0 lỗi dựng, 0 cờ nhãn chưa giải quyết trong phạm vi kiểm tra. Giữ 176 cờ demo và 390 cờ graph thiếu (562 dòng hợp nhất); mỗi tập demo rỗng ≤1%. B1-shuf giữ 30 target graph trống có cờ ở cả ba seed. Năm arm H2/B3 blocked; đã tạo 60 mẫu/hai phiếu trống, chưa có hai người chấm nên Bước 3 chưa hoàn tất. Không có inference/score/tau mới. [Báo cáo](dry_run_validation_20261102/KET_QUA.md), [kiểm bàn giao](dry_run_validation_20261102/verification.json). Ghi chú 9 arm chưa chuẩn bị bên dưới là phạm vi hậu kiểm trước lượt này.
+<!-- /full-validation-dryrun-20261102 -->
+
+<!-- prompt-integrity-audit-20261102 -->
+**Hậu kiểm prompt/output ngày 02/11/2026 — hoàn thành bước audit tự động:** đã kiểm 100.110 dòng prompt/40 tập của 6 arm và đối chiếu 30.691 output; hash, payload/variant và token thực tế đạt kiểm tra, 30.691 score tính lại từ logprob đều khớp. Cờ regex đã được phân loại theo code nguồn; không còn cờ rò rỉ nhãn chưa giải quyết trong phạm vi kiểm tra tự động. Vẫn có **403 dòng demo dưới 25% (68 dòng đã inference)** cần xử lý theo contract; B0 có 1.132 raw response không hợp lệ và B1 có 3, nhưng 0 score lỗi. Đã chuẩn bị 60 prompt và hai phiếu chấm trống; **chưa có hai người chấm**, chưa nghiệm thu toàn nghiên cứu. Giữ 9 arm chưa có prompt ở trạng thái chưa chuẩn bị, không inference lại hoặc tính khóa mới. [Kết luận và danh sách cần xử lý](prompt_audit_20261102/KET_QUA.md), [bộ mẫu chấm](prompt_audit_20261102/manual_packet.md). Audit hậu kiểm không đổi thứ tự test trước khóa, tình trạng donor lịch sử hoặc OSF.
+<!-- /prompt-integrity-audit-20261102 -->
+
 **Đối chiếu lại local ngày 02/11/2026:** đã kiểm các nguồn output hiện có; chưa thấy inference mới ngoài I-02… I-07 đã ghi. Các checkpoint trùng được coi là cùng lượt/nguồn, không cộng thành expert mới. Chuẩn bị notebook/bundle không được ghi thành GPU run hoàn tất.
 
 ## Bảng arm đã chạy và việc tiếp theo
@@ -77,6 +85,14 @@ Các bundle dưới đây được tạo từ snapshot J-12, dùng cache CodeT5 
 | P-09 | REVEAL test | 21:41:41 | 2.274 / 23 | `ad72b47a3b0705df004b9d2cde7a3e990b60dd4e54f43e7c84ef3154d13a26db` — [ZIP](../01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/test/reveal_test_b2_kaggle.zip), [manifest](../01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/test/bundle_manifest.json) |
 
 Bốn bundle có tổng 10.011 prompt, 55 target thiếu graph. Inference Kaggle B2 đã hoàn tất ở I-05 trên đủ 10.011 prompt của bốn split; prediction, metric, status và ZIP cuối đã được hợp nhất tại output/local_full/inference_qwen_q4_b2_20261101/. Chi tiết ở Mục 4.
+
+### Dry-run toàn validation — 02/11/2026
+
+| ID | Phạm vi | Kết quả | Bằng chứng |
+|---|---|---|---|
+| P-10 | CPU-only, 10 arm, 14 arm/seed × 2 dataset; đủ validation | 70.070/70.070 dòng, 28/28 tập đạt sau đối chiếu nguồn; 5 arm blocked vì thiếu input, không gọi LLM | [Kết quả/nguồn/token/cắt](dry_run_validation_20261102/KET_QUA.md), [summary bộ dò gốc](dry_run_validation_20261102/summary.json), [kết luận cuối](dry_run_validation_20261102/final_status.json), [verification](dry_run_validation_20261102/verification.json) |
+
+Lượt worker thread dở được giữ [riêng](dry_run_validation_20261102_interrupted_threads/ATTEMPT_STATUS.json), không tính hoàn tất. Chuyển sang process CPU giữ nguyên renderer/tokenizer. B0/B1 khớp prompt lịch sử; B2/rep khớp B2 frozen; flip chỉ đổi nhãn demo. Bộ dò ban đầu có một cảnh báo ở B1-shuf REVEAL seed44, đã [truy đúng node donor](dry_run_validation_20261102/leak_review.json) và giữ nguyên dữ liệu gốc. Không suy thời gian chạy từ mtime; thời điểm hoàn tất kiểm tra ghi trong JSON.
 
 ## 4. Inference
 

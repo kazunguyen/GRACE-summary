@@ -1,0 +1,23 @@
+[
+  {
+    "id": "devign:validation:11968",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 450,
+    "classification": "cpp_member_label",
+    "excerpt": "      offset >> 2,\n\n            (unsigned int)value, s->chr ? s->chr->label : \"NODEV\");\n\n\n\n    switch (offset >> 2) {\n\n    case 0x10: /* UTXD */\n\n        ch = value;\n\n        if"
+  },
+  {
+    "id": "devign:validation:11968",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 4002,
+    "classification": "cpp_member_label",
+    "excerpt": "ALL) '(unsigned int)value'\nNode 30064771077: (CALL) 's->chr ? s->chr->label : \"NODEV\"'\nNode 30064771078: (CALL) 's->chr'\nNode 30064771079: (CALL) 's->chr->label'\nNode 3006477108"
+  },
+  {
+    "id": "devign:validation:11968",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 6253,
+    "classification": "cpp_member_label",
+    "excerpt": " to %s\\n\",\n\n            offset, (unsigned int)value, s->chr ? s->chr->label : \"NODEV\");\n\n\n\n    switch (offset >> 2) {\n\n    case 0x10: /* UTXD */\n\n        ch = value;\n\n        if"
+  }
+]

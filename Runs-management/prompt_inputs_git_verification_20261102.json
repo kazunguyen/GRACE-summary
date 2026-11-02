@@ -1,0 +1,92 @@
+{
+  "status": "pass",
+  "verified_eligible_files": 78,
+  "expected_eligible_files": 78,
+  "git_ref": "origin/baseline-unified",
+  "skipped_over_100_mib": [
+    {
+      "path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/donors.jsonl",
+      "bytes": 3427793374,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/donors.jsonl",
+      "bytes": 1887092268,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/test.jsonl",
+      "bytes": 411848839,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/train.jsonl",
+      "bytes": 3457848883,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/validation.jsonl",
+      "bytes": 434640689,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/test.jsonl",
+      "bytes": 249316680,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/train.jsonl",
+      "bytes": 1916980569,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/validation.jsonl",
+      "bytes": 226343119,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/test/specs.jsonl",
+      "bytes": 418289114,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/test/specs.jsonl.donors.jsonl",
+      "bytes": 3434393270,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/validation/specs.jsonl",
+      "bytes": 440926391,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/validation/specs.jsonl.donors.jsonl",
+      "bytes": 3434393270,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/test/specs.jsonl",
+      "bytes": 253172397,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/test/specs.jsonl.donors.jsonl",
+      "bytes": 1887092268,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl",
+      "bytes": 229585470,
+      "present_local": true
+    },
+    {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl.donors.jsonl",
+      "bytes": 1887092268,
+      "present_local": true
+    }
+  ],
+  "errors": [],
+  "scope": "eligible input files only; full CPG/donor graphs still require separate transfer",
+  "verified_git_commit": "bef5d2ea983c095b2b4e5388ef1ef931da678646",
+  "checked_at_utc": "2026-11-02T11:41:35.417Z"
+}

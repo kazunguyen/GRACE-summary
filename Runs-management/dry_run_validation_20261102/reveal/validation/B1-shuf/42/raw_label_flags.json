@@ -1,0 +1,16 @@
+[
+  {
+    "id": "reveal:validation:1311",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 2909,
+    "classification": "needs_review",
+    "excerpt": ", %s\" , (...'\nNode 30064771745: (CALL) '( label_type == 1 ) ? \"Packet Label: \" :...'\nNode 30064771746: (CALL) 'label_type == 1'\nNode 30064771747: (CALL) 'i = 0'\nNode 3006477174"
+  },
+  {
+    "id": "reveal:validation:2144",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 8368,
+    "classification": "needs_review",
+    "excerpt": "clabel ;\n else {\n error_line ( \"warning: unknown channel descriptions label: %d\" , clabel ) ;\n channel_identities [ idents ++ ] = 0xff ;\n }\n channel_reorder [ i ] = cindex ++ ;"
+  }
+]

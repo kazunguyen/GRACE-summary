@@ -1,0 +1,35 @@
+{
+  "dataset": "devign",
+  "split": "validation",
+  "arm": "B2",
+  "count": 2732,
+  "limit": null,
+  "exploratory": false,
+  "missing_graphs_allowed": true,
+  "missing_target_graphs": 3,
+  "input_sha256": {
+    "train": "64d33f3403254fb6f8d2c8dc3815eeeed51254c33d523cd2ccf85ead08395cfb",
+    "validation": "61ea6fe89569e7df38bee998025518dae02db5269b7bf17b97183d8c2fcb2950",
+    "test": "eb7c447772fc400c10111bdf13a4c0c8aacab7c4dcd0e0935a04ce67d0f485a1"
+  },
+  "spec_sha256": "3956d1f673d3ee37be8ba707a7baf04b14cfe73770466aef1d72540e4c7a2fed",
+  "prompts_sha256": "e42592eaf0cfcd74fb483ee8a45ef3b49fb9f42a5ecead26c3e8ea96f4e842c3",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "quantization": "Q4_K_M",
+  "prompt_budget_tokens": 8192,
+  "source_sha256": {
+    "prepare_kaggle_bundle.py": "43823b9a98e6e15d9af6917060f3d14ec882a745a7d37763466513919ec8f9cf",
+    "prepare_joern_cpg.py": "26d788606d4cb81fdf8366355d6cde06f786cf84e358ef17bb423c049aa220bd",
+    "export_diagnostic_specs.py": "238828819398f8fc71b7f547c7bf186828310c369d29016d772779d4b3d4a7e6",
+    "embedding_engine.py": "82e9bde7f96c83e892856bde140fd71a9c387c2daba6d9500406f631a1c59230",
+    "retrieval_engine.py": "fc028735e8d417ca0bc2b72a96e6b615be09c26dc82f2fdb63227bdbb91d6228",
+    "prepare_embedding_cache.py": "a6336b338f3e2e46e31f20c6addfc96b8993261a7773aa2c7f451cd9f9270698",
+    "prompt_builder.py": "63836ee3ad62680b3a45f445f3540a044d2ea5210d3a1ac5e7d6498fefd03578",
+    "diagnostic_kit/src/grace_diag/probes.py": "094513209fac4cc290cd2d1e1f5e641bf36e6b1c5c49eba3825949a923715d10",
+    "diagnostic_kit/src/grace_diag/token_budget.py": "a875defa7c5df77c5f93fdc5fb39e1c91419b983317680c831a068cf986c6cf0",
+    "evaluation_contract.yaml": "7e631ddb0f84b759133b5c08a85d60ee5c98ea9fd802064fc087b637151c54d4"
+  },
+  "note": "Exact dedup only; complete near-duplicate and CPG provenance audits before confirmation."
+}

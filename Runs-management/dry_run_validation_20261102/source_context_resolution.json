@@ -1,0 +1,21 @@
+{
+  "dataset": "reveal",
+  "arm": "B1-shuf",
+  "seed": 44,
+  "id": "reveal:validation:1629",
+  "prompt_sha256": "534baead87d2824fe386e84b6eacd18931c99dfe26d3402337c64bce0e697c28",
+  "raw_flag": {
+    "id": "reveal:validation:1629",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 3483,
+    "classification": "needs_review",
+    "excerpt": "'& label'\nNode 30064771247: (CALL) 'proto_item_append_text ( item , \" Label:...'\nNode 30064771248: (CALL) 'offset += 2 * ccLabel'\nNode 30064771249: (CALL) '2 * ccLabel'\nNode 30"
+  },
+  "donor_uid": "reveal:train:664",
+  "node_id": "30064771247",
+  "source_node_code": "proto_item_append_text ( item , \" Label: \\\"%s\\\"\" , label )",
+  "donor_source": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/donors.jsonl",
+  "donor_index": "reveal_donor_graph_index.csv",
+  "resolution": "protocol_field_label_format_string_in_frozen_donor_graph; node display clipped at 40 characters",
+  "target_answer_not_inserted": true
+}

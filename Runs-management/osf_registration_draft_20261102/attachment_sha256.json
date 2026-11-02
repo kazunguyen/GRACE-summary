@@ -1,0 +1,96 @@
+{
+  "prepared_at_utc": "2026-11-02T09:00:36.924Z",
+  "status": "LOCAL_DRAFT_NOT_SUBMITTED_TO_OSF",
+  "files": [
+    {
+      "path": "OSF_DRAFT.md",
+      "bytes": 21006,
+      "sha256": "81d055e1f8f65b521e5a2ad1e764a85a42eeec9c142ade53f65167493d78c873"
+    },
+    {
+      "path": "document.json",
+      "bytes": 26341,
+      "sha256": "ab0e3a7660c39d38095ebe03a8ade088ccb38ebbefae5810b644b001f4acc03a"
+    },
+    {
+      "path": "source_inventory.json",
+      "bytes": 2811,
+      "sha256": "c3152f46dce60d846a47273f0f95683e157652008c4e776212aca61c52eea090"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1678,
+      "sha256": "6726305c031bf9de2da8182b95963ebb68b2134a87ae5c1f665ec261b8d461ea"
+    },
+    {
+      "path": "output/pdf/GRACE_OSF_DRAFT_20261102.pdf",
+      "bytes": 106583,
+      "sha256": "a89992a07927340381414961a09637d1d3f397ec05fcb4002aa71824c6012a1a"
+    },
+    {
+      "path": "evidence_snapshot/01_Author_Baseline_Unified__evaluation_contract.yaml",
+      "bytes": 4700,
+      "sha256": "95c686d77d78f050160c6dce6e0e3edda007ffb2c2cfddc53e1323486bbdbcb3"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__current_status.json",
+      "bytes": 13678,
+      "sha256": "36c7cd92d513dba1d17c973c59ea19b0d29aacd30c36a9195cdb4388f178113c"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__thresholds.json",
+      "bytes": 43626,
+      "sha256": "4f26113168fad67b9fb573652bc1f96eabf8d5ce0173d972fda9bfb5a59d9172"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__analysis_git_seal.json",
+      "bytes": 510,
+      "sha256": "1d278dcf143be5468a62aa225b57fc47d5cbf0ce74a6ed2ecd0795c2f1064b0f"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__analysis_lock_20261101__preregistration.md",
+      "bytes": 4341,
+      "sha256": "016c81866e467da39d012dd2c06a2e5b5a9a58e3b0835272fc79a0405d0767ba"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__analysis_lock_20261101__protocol.analysis.json",
+      "bytes": 15793,
+      "sha256": "467badecf9c3f539e3aa2bf9800319f7a823864851131f1ec702739733ab75d3"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__TIEN_DO_PHUONG_AN_2.md",
+      "bytes": 8382,
+      "sha256": "a572a1b7b11f246fa35dfa97c0a10499abec06116fd89f69a4476f8c6ad040d2"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__prompt_audit_20261102__final_status.json",
+      "bytes": 940,
+      "sha256": "ff354e471d5c6b48386300512d7fab8f1394cb3800ca4fc94888c1748ecf2f49"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__prompt_audit_20261102__verification.json",
+      "bytes": 3962,
+      "sha256": "509cb45736b761fc1ae1e0cd15d98f4dbb1d985e7195623dc9478e2c7d518288"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__prompt_audit_20261102__source_hashes.json",
+      "bytes": 16453,
+      "sha256": "c6c135dbe3551a63820972ae6a3ebea8a23f5681cbb8731be47dd491bff198ba"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__prompt_audit_20261102__remediation_final.csv",
+      "bytes": 121364,
+      "sha256": "8d8f2be2f3a3a7dd8188c3847a8554ff09a97679203e18134f0a2b3109f4fb40"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__prompt_audit_20261102__manual_sample.jsonl",
+      "bytes": 309042,
+      "sha256": "ab628b712d32f359540c88a7b2c17c97c8553688240c0e5b1f62336b8d68816d"
+    },
+    {
+      "path": "evidence_snapshot/Runs-management__MA_TRAN_RUN.md",
+      "bytes": 9949,
+      "sha256": "fad71cc56c14424a14ac5b9129bda7e603d34130d9c2cd36e269eb6d8c109849"
+    }
+  ]
+}

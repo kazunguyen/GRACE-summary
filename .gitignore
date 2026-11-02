@@ -17,3 +17,24 @@ model/
 
 # WSL Python environment (local only)
 /.venv-wsl/
+
+# Exact oversized prompt inputs (>100 MiB); retained locally
+/01_Author_Baseline_Unified/output/research_freeze_20261101/devign/donors.jsonl
+/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/donors.jsonl
+/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/test.jsonl
+/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/train.jsonl
+/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/devign/cpg/validation.jsonl
+/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/test.jsonl
+/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/train.jsonl
+/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/validation.jsonl
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/test/specs.jsonl
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/test/specs.jsonl.donors.jsonl
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/validation/specs.jsonl
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/validation/specs.jsonl.donors.jsonl
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/test/specs.jsonl
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/test/specs.jsonl.donors.jsonl
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl
+/01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl.donors.jsonl
+
+data/
+

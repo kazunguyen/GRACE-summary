@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-02",
+  "timezone": "Asia/Bangkok",
+  "human_review": "prepare packets and blank sheets; await two real reviewers",
+  "demo_cutoff_policy": "retain below-25-percent flag; list affected samples, no new inference",
+  "missing_arm_scope": "record nine missing arms as not prepared; audit six existing arms only",
+  "automatic_audit": "completed; study acceptance remains incomplete",
+  "new_inference_authorized_or_performed": false,
+  "new_thresholds_fitted": false
+}

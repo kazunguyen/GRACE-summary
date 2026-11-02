@@ -1,0 +1,149 @@
+{
+  "checked_at_utc": "2026-11-02T08:36:47.411455+00:00",
+  "snapshot_sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448",
+  "datasets": {
+    "devign": {
+      "frozen_donors_verified": 21691,
+      "train_manifest_sha256": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4",
+      "cache_sha256": "61b28762917e68e84adf9dec07b4171707fc9a7af1dc2c4fc9a375f5e1f0a8be",
+      "code_label_id_checks": "pass",
+      "legacy_B2_targets_outside_frozen_bank": [
+        {
+          "id": "devign:validation:11825",
+          "split": "validation",
+          "donor_id": "devign:train:17432",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:validation:17338",
+          "split": "validation",
+          "donor_id": "devign:train:538",
+          "removal_reason": "duplicate_train"
+        },
+        {
+          "id": "devign:validation:18419",
+          "split": "validation",
+          "donor_id": "devign:train:21140",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:validation:19666",
+          "split": "validation",
+          "donor_id": "devign:train:25438",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:validation:22895",
+          "split": "validation",
+          "donor_id": "devign:train:17432",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:test:1426",
+          "split": "test",
+          "donor_id": "devign:train:21650",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:1473",
+          "split": "test",
+          "donor_id": "devign:train:12467",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:2246",
+          "split": "test",
+          "donor_id": "devign:train:26169",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:test:3158",
+          "split": "test",
+          "donor_id": "devign:train:23060",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:5908",
+          "split": "test",
+          "donor_id": "devign:train:6623",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:6519",
+          "split": "test",
+          "donor_id": "devign:train:11561",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:test:7048",
+          "split": "test",
+          "donor_id": "devign:train:6623",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:9162",
+          "split": "test",
+          "donor_id": "devign:train:8708",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:9176",
+          "split": "test",
+          "donor_id": "devign:train:19594",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:9896",
+          "split": "test",
+          "donor_id": "devign:train:922",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:test:11383",
+          "split": "test",
+          "donor_id": "devign:train:24468",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:test:14476",
+          "split": "test",
+          "donor_id": "devign:train:27172",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:19075",
+          "split": "test",
+          "donor_id": "devign:train:25438",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:test:21511",
+          "split": "test",
+          "donor_id": "devign:train:8753",
+          "removal_reason": "overlap_eval_exact"
+        },
+        {
+          "id": "devign:test:22392",
+          "split": "test",
+          "donor_id": "devign:train:15477",
+          "removal_reason": "label_conflict"
+        },
+        {
+          "id": "devign:test:24291",
+          "split": "test",
+          "donor_id": "devign:train:9520",
+          "removal_reason": "overlap_eval_exact"
+        }
+      ],
+      "note": "Legacy B2/flip/rep remains a separate prompt version; not retroactively treated as using the frozen bank."
+    },
+    "reveal": {
+      "frozen_donors_verified": 17636,
+      "train_manifest_sha256": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b",
+      "cache_sha256": "40ea95cca711b69ea42069a026c9f43c9b357623b01cec39635b30ad9a8df9f9",
+      "code_label_id_checks": "pass",
+      "legacy_B2_targets_outside_frozen_bank": [],
+      "note": "Legacy B2/flip/rep remains a separate prompt version; not retroactively treated as using the frozen bank."
+    }
+  }
+}

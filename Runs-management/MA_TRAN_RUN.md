@@ -1,5 +1,7 @@
 # Ma trận quản lý run GRACE
 
+**Dry-run validation mới 02/11/2026:** 10 arm đủ đầu vào đã dựng 70.070 dòng/28 tập, sau đối chiếu nguồn 28/28 đạt audit tự động. B1-shuf/B2-rand có seed42/43/44. B1-H2 và B3/B3-nodiff/B3-swap/B3-flip blocked do thiếu đầu vào. 30 target thiếu graph vẫn giữ graph trống/cờ missing ở các seed B1-shuf. [Kết quả và token/cắt](dry_run_validation_20261102/KET_QUA.md), [kết luận cuối](dry_run_validation_20261102/final_status.json). Đây là prompt dry-run CPU; tiến độ inference trong HIEN_TRANG/RUNS giữ nguyên. Hai người chấm còn thiếu nên Bước 3 chưa hoàn tất.
+
 **Hiện trạng sau đối chiếu 02/11/2026:** xem [HIEN_TRANG.md](HIEN_TRANG.md) và [current_status.json](current_status.json). Hai file này bổ sung các snapshot kiểm toán/ngưỡng ngày 01/11; không tạo khóa mới. B2 hiện chưa tích hợp helper vào notebook; watcher chưa được xác minh đang chạy. B2-rand đã có 12 bundle và notebook chạy kèm B2 rerun-66, chưa có output inference.
 
 <!-- donor-rerun-risk-note -->

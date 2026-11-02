@@ -1,0 +1,23 @@
+{
+  "dataset": "reveal",
+  "split": "validation",
+  "train_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/train.jsonl",
+  "train_sha256": "0d1cecbbd2b9de730e5a31bc868304e2f8d1ddb82aba550c970d6d9368a1f2ec",
+  "target_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/output/local_full/cpg_recovered_joern_final_20261031/reveal/cpg/validation.jsonl",
+  "target_sha256": "5e663edd0160eeb7ed516cd3d8e86dc9ea5466c6c8a80264f6843f1225bd82e2",
+  "other_target_sha256": "92a0e279314ff8d4e0f16df673a1a67ca3bf42c178d35bbd7381b4959a44ac52",
+  "spec_sha256": "c74224056c010c0f84f588e4ef7825556812e15a2b0a59c35bbcbf179856b716",
+  "donor_sha256": "16b69accf8d3916b4e1cb47f63f850535c4fd380576d1e59d100e9df60dde067",
+  "train_count": 18187,
+  "donor_count": 17636,
+  "excluded_conflict_rows": 426,
+  "excluded_target_overlap_rows": 125,
+  "target_count": 2273,
+  "label_counts": {
+    "0": 2063,
+    "1": 210
+  },
+  "graph_missing": 27,
+  "embedding": "Salesforce/codet5-base@02cd2d31bb7c6d0e4d91156167b2de044989c733",
+  "note": "Exact dedup uses stripped source text; normalize and near-duplicate audit must be completed before confirmatory runs."
+}

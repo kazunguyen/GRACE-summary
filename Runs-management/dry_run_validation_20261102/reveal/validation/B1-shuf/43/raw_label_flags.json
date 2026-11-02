@@ -1,0 +1,9 @@
+[
+  {
+    "id": "reveal:validation:2144",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 8368,
+    "classification": "needs_review",
+    "excerpt": "clabel ;\n else {\n error_line ( \"warning: unknown channel descriptions label: %d\" , clabel ) ;\n channel_identities [ idents ++ ] = 0xff ;\n }\n channel_reorder [ i ] = cindex ++ ;"
+  }
+]

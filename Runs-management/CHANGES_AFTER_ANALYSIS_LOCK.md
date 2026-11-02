@@ -1,5 +1,15 @@
 # Nhật ký sau analysis-lock-20261101-v1
 
+## 02/11/2026 — Dry-run toàn validation cho các arm đủ đầu vào
+
+Theo lựa chọn người dùng: chạy đủ 2.732 Devign + 2.273 REVEAL, giữ 5 arm thiếu H2/B3 blocked; B1-shuf giữ 3/27 target thiếu graph bằng graph trống/cờ missing ở mọi seed. Đã dựng 70.070 dòng/28 tập cho 10 arm, sau đối chiếu nguồn 28/28 đạt; kiểm độc lập ID/hash/budget/donor và phiếu chấm. Giữ nguyên bộ dò gốc (27 pass, 1 needs_review) cùng bằng chứng cảnh báo nhầm: node donor hiển thị cắt 40 ký tự, chuỗi Label là trường giao thức. 176 cờ demo/390 cờ graph thiếu được giữ, tỷ lệ demo rỗng mỗi tập ≤1%.
+
+Thêm driver CPU dùng renderer chung, adapter scaffold và graph prefix cache đã kiểm, lazy donor graph index/process workers; lưu lượt thread dở riêng. Test probe 20 pass, test driver 4 pass. Chuẩn bị 60 mẫu và hai phiếu trống; chưa có hai người chấm, chưa hoàn thành Bước 3. Không inference, sinh score hoặc fit tau; hash threshold/snapshot niêm phong giữ nguyên, không sửa lịch sử test hoặc OSF. [Hồ sơ](dry_run_validation_20261102/README.md), [báo cáo](dry_run_validation_20261102/KET_QUA.md), [nguồn](dry_run_validation_20261102/source_hashes.json).
+
+## 02/11/2026 — Audit hậu kiểm prompt/output và chuẩn bị hồ sơ chấm
+
+Đã hoàn thành thực thi audit CPU 100.110 prompt/40 tập của 6 arm và đối chiếu 30.691 output; 106 nguồn hash khớp, 30.691 score tính lại từ logprob khớp, 0 score lỗi. Giữ cờ regex gốc và ghi riêng phân loại cú pháp C/C++; có 403 dòng demo dưới 25% (68 dòng đã inference: B2 46, B2-flip 22) cần xử lý, chưa sửa prompt hoặc inference lại. Báo riêng 1.135 raw response không hợp lệ (B0 1.132, B1 3). Theo quyết định người dùng: giữ tiêu chí 25%, ghi 9 arm thiếu là chưa chuẩn bị và tạo bộ 60 prompt/hai phiếu chấm trống. Chưa có hai người đánh giá hoặc nghiệm thu toàn nghiên cứu; không đổi donor/output/ngưỡng/snapshot/tag, lịch sử test trước khóa hoặc OSF. [Kết luận](prompt_audit_20261102/KET_QUA.md), [hồ sơ chấm](prompt_audit_20261102/README.md).
+
 
 ## 02/11/2026 — Dọn Runs-management và bổ sung flow bàn giao
 

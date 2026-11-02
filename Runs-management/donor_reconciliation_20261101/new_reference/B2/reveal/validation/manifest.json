@@ -1,0 +1,10 @@
+{
+  "arm": "B2",
+  "dataset": "reveal",
+  "split": "validation",
+  "count": 2273,
+  "prompt_changes": 0,
+  "prompts_sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081",
+  "review_only": true,
+  "active_original_bundle_unchanged": true
+}

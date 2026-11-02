@@ -1,0 +1,16 @@
+[
+  {
+    "id": "reveal:validation:1629",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 3483,
+    "classification": "needs_review",
+    "excerpt": "'& label'\nNode 30064771247: (CALL) 'proto_item_append_text ( item , \" Label:...'\nNode 30064771248: (CALL) 'offset += 2 * ccLabel'\nNode 30064771249: (CALL) '2 * ccLabel'\nNode 30"
+  },
+  {
+    "id": "reveal:validation:2144",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 8368,
+    "classification": "needs_review",
+    "excerpt": "clabel ;\n else {\n error_line ( \"warning: unknown channel descriptions label: %d\" , clabel ) ;\n channel_identities [ idents ++ ] = 0xff ;\n }\n channel_reorder [ i ] = cindex ++ ;"
+  }
+]

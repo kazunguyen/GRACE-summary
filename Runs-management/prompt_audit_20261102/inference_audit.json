@@ -1,0 +1,148 @@
+{
+  "sets": [
+    {
+      "arm": "B0",
+      "dataset": "devign",
+      "split": "validation",
+      "count": 2732,
+      "invalid_response": 284,
+      "invalid_score": 0,
+      "records_sha256": "d856cf6b2271d4fb6f22dc999c83efe3c0e6ec29b8bc4e1340e28a6093c44ce1",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/validation/records.jsonl"
+    },
+    {
+      "arm": "B1",
+      "dataset": "devign",
+      "split": "validation",
+      "count": 2732,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/devign/validation/records.jsonl"
+    },
+    {
+      "arm": "B2",
+      "dataset": "devign",
+      "split": "validation",
+      "count": 2732,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "39ecf541d2d3b440a87177f0d8f98c28cc3eb25b4247ace085bf0e1890ceb79a",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/validation/records.jsonl"
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "devign",
+      "split": "validation",
+      "count": 2732,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "179c082df802a511dd72121be9bb6d72e5d81cced0b6566dc10b4f8672d3b99d",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/validation/records.jsonl"
+    },
+    {
+      "arm": "B0",
+      "dataset": "devign",
+      "split": "test",
+      "count": 2732,
+      "invalid_response": 302,
+      "invalid_score": 0,
+      "records_sha256": "e5eed103294d0ce4f74a5d2f719f128104a79e5f6f3a92bd00da23a947c7fdb6",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/test/records.jsonl"
+    },
+    {
+      "arm": "B1",
+      "dataset": "devign",
+      "split": "test",
+      "count": 429,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "c2faac7860ad97afff2eb9aaff2c5d1efefebbbe1ed1959d0dec0dae19f5c917",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/devign/test/records.jsonl"
+    },
+    {
+      "arm": "B2",
+      "dataset": "devign",
+      "split": "test",
+      "count": 2732,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "0dbcf384bd0f640250f71aa03113765b7927a37c6d550807fc2ea851b94c78f1",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/test/records.jsonl"
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "devign",
+      "split": "test",
+      "count": 230,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "62f1fa7510e0c8f8aa22794967db180a7e875974c83443cd3cec6b8d4d8a48eb",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/test/records.jsonl"
+    },
+    {
+      "arm": "B0",
+      "dataset": "reveal",
+      "split": "validation",
+      "count": 2273,
+      "invalid_response": 261,
+      "invalid_score": 0,
+      "records_sha256": "80397c2e90f78cb2d67a94313a5cd02a09901ec64e56176f7d903e85385446d7",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/validation/records.jsonl"
+    },
+    {
+      "arm": "B1",
+      "dataset": "reveal",
+      "split": "validation",
+      "count": 2273,
+      "invalid_response": 3,
+      "invalid_score": 0,
+      "records_sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_01/grace_b1_runs/reveal/validation/records.jsonl"
+    },
+    {
+      "arm": "B2",
+      "dataset": "reveal",
+      "split": "validation",
+      "count": 2273,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "221a794e55d8f900ce3986e27cdf227a23a947aa4dd864b6ed597fe5363fa994",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/validation/records.jsonl"
+    },
+    {
+      "arm": "B2-flip",
+      "dataset": "reveal",
+      "split": "validation",
+      "count": 2273,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "fa63f43705f867827238302ae511aae8b05d92e8f5394bb328df03397ee811b8",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/reveal/validation/records.jsonl"
+    },
+    {
+      "arm": "B0",
+      "dataset": "reveal",
+      "split": "test",
+      "count": 2274,
+      "invalid_response": 285,
+      "invalid_score": 0,
+      "records_sha256": "d64fe85a7f8124ec189d1d110c9c22a3926fcc2391d76f0a5d7e9218f231c3a8",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/test/records.jsonl"
+    },
+    {
+      "arm": "B2",
+      "dataset": "reveal",
+      "split": "test",
+      "count": 2274,
+      "invalid_response": 0,
+      "invalid_score": 0,
+      "records_sha256": "dcdaf0d0b52451b295e73cda7ba2e95653051035fcf3a9cd48e4b8d2ba39a415",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/test/records.jsonl"
+    }
+  ],
+  "total": 30691,
+  "invalid_score": 0,
+  "invalid_response": 1135,
+  "note": "Raw-response validity and score validity are separate. Audit does not alter test-before-lock chronology."
+}

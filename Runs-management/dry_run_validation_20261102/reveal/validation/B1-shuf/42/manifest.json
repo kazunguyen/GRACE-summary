@@ -1,0 +1,27 @@
+{
+  "mode": "dry-run-only",
+  "arm": "B1-shuf",
+  "seed": 42,
+  "dataset": "reveal",
+  "split": "validation",
+  "count": 2273,
+  "expected": 2273,
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "donor_snapshot_sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448",
+  "graph_prefix": {
+    "nodes": 40,
+    "edges": 80
+  },
+  "budget": {
+    "total": 8192,
+    "target_code": 3000,
+    "graph": 1500,
+    "demo": 1500,
+    "reserve": 64
+  },
+  "prompt_variant": "project_frozen_donor_dryrun_v1",
+  "preserves_empty_scaffold_B0_B1_family": true,
+  "source_label_not_passed_to_renderer": true,
+  "prompts_sha256": "165ffb04fc04e230cfe9af37f762dc627171a0d4977d7ccf503c3b10f25b1be3",
+  "llm_calls": 0
+}

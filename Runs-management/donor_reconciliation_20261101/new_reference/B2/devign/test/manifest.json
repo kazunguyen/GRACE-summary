@@ -1,0 +1,10 @@
+{
+  "arm": "B2",
+  "dataset": "devign",
+  "split": "test",
+  "count": 2732,
+  "prompt_changes": 38,
+  "prompts_sha256": "9508b80980cba2c774f6237d696861a0dc4ee8b63f1b6962d0f2c81ad9f42415",
+  "review_only": true,
+  "active_original_bundle_unchanged": true
+}

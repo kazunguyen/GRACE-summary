@@ -140,7 +140,7 @@
         }
       ],
       "temporal_claim": "locked at actual time; does not certify that external test inference had not started",
-      "tau": 0.98,
+      "tau": 0.08,
       "validation_mcc": 0.07600978032041933,
       "n_valid": 2732,
       "n_invalid": 0,
@@ -573,7 +573,7 @@
         }
       ],
       "temporal_claim": "locked at actual time; does not certify that external test inference had not started",
-      "tau": 0.3,
+      "tau": 0.44,
       "validation_mcc": 0.08011987788762218,
       "n_valid": 2273,
       "n_invalid": 0,
@@ -1858,6 +1858,212 @@
           "mcc": 0.026222077047743236
         }
       ]
+    },
+    "B1/devign": {
+      "arm": "B1",
+      "dataset": "devign",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.88
+    },
+    "B2-flip/devign": {
+      "arm": "B2-flip",
+      "dataset": "devign",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.5
+    },
+    "B2-rep/devign": {
+      "arm": "B2-rep",
+      "dataset": "devign",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.7
+    },
+    "B1/reveal": {
+      "arm": "B1",
+      "dataset": "reveal",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.74
+    },
+    "B2-flip/reveal": {
+      "arm": "B2-flip",
+      "dataset": "reveal",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.46
+    },
+    "B2-rep/reveal": {
+      "arm": "B2-rep",
+      "dataset": "reveal",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.12
+    },
+    "P-PRE/devign": {
+      "arm": "P-PRE",
+      "dataset": "devign",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.54
+    },
+    "P-POST/devign": {
+      "arm": "P-POST",
+      "dataset": "devign",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.6
+    },
+    "P-PRE/reveal": {
+      "arm": "P-PRE",
+      "dataset": "reveal",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.38
+    },
+    "P-POST/reveal": {
+      "arm": "P-POST",
+      "dataset": "reveal",
+      "split_used": "validation",
+      "locked_at_utc": "2026-11-02T11:01:58Z",
+      "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "tau": 0.1
     }
+  },
+  "thresholds": {
+    "devign|B0|42": 0.08,
+    "devign|B1|42": 0.88,
+    "devign|B2|42": 0.7,
+    "devign|B2-flip|42": 0.5,
+    "devign|B2-rep|42": 0.7,
+    "reveal|B0|42": 0.44,
+    "reveal|B1|42": 0.74,
+    "reveal|B2|42": 0.12,
+    "reveal|B2-flip|42": 0.46,
+    "reveal|B2-rep|42": 0.12,
+    "devign|P-PRE|42": 0.54,
+    "devign|P-POST|42": 0.6,
+    "reveal|P-PRE|42": 0.38,
+    "reveal|P-POST|42": 0.1
   }
 }

@@ -1,0 +1,23 @@
+{
+  "Runs-management/dry_run_full_validation.py": "77ab08b7833645de9e7975247bb837e085efbc4839270b3fccf8c654fcb89920",
+  "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/probes.py": "74cc28ddd3faa89c8761f653c10c11d3a87ee9e2dc0adb6e06110559c5042ab6",
+  "01_Author_Baseline_Unified/output/research_freeze_20261101/freeze_manifest.json": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448",
+  "01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml": "47ca1c2626b5849be1eefe8ab34f4cf11b19df7f0de0c604ad54ca210103b39c",
+  "tier1_prompt_tools/prepare_cached.py": "dbedcbc4a0c99793082c5e15f194b910c948d4ce88be233ab30160ac056e2c47",
+  "Runs-management/audit_prompt_integrity.py": "ddbf5e28aaccf8fe66f777527074d234dd72abfafd2e07f2df1b74054fbbb8f8",
+  "Runs-management/finalize_prompt_audit.py": "709a61f27675bca41656ee1114289bd21bdee8f29addbb0be3e2298c4c7427f8",
+  "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/donors.jsonl": "7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62",
+  "Runs-management/donor_reconciliation_20261101/cache/devign_new_bank.jsonl": "61b28762917e68e84adf9dec07b4171707fc9a7af1dc2c4fc9a375f5e1f0a8be",
+  "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/train_manifest.jsonl": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4",
+  "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/validation/specs.jsonl": "3956d1f673d3ee37be8ba707a7baf04b14cfe73770466aef1d72540e4c7a2fed",
+  "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/validation/prompts.jsonl": "e42592eaf0cfcd74fb483ee8a45ef3b49fb9f42a5ecead26c3e8ea96f4e842c3",
+  "Runs-management/donor_reconciliation_20261101/new_reference/B2/devign/validation/prompts.jsonl": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c",
+  "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/validation_raw.jsonl": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5",
+  "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/donors.jsonl": "6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce",
+  "Runs-management/donor_reconciliation_20261101/cache/reveal_new_bank.jsonl": "40ea95cca711b69ea42069a026c9f43c9b357623b01cec39635b30ad9a8df9f9",
+  "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/train_manifest.jsonl": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b",
+  "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl": "c74224056c010c0f84f588e4ef7825556812e15a2b0a59c35bbcbf179856b716",
+  "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/prompts.jsonl": "531b274808e0435ce47c6d1831903e4421486a034c6884a2a67ba01e779b3e42",
+  "Runs-management/donor_reconciliation_20261101/new_reference/B2/reveal/validation/prompts.jsonl": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081",
+  "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/validation_raw.jsonl": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1"
+}

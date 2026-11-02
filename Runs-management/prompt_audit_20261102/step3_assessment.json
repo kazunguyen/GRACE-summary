@@ -1,0 +1,78 @@
+{
+  "assessed_at_utc": "2026-11-02T09:21:37.503Z",
+  "pdf_source": "D:/JUNIOR/LabThayTho/REPORT_TO_TEACHER/20261029/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf",
+  "pdf_sha256": "c18437ccd371b63b1d05163c53d11935fa75fa7153b623fe24c3d244a38623c4",
+  "pdf_pages": [
+    18,
+    19
+  ],
+  "overall_step3": "not_complete",
+  "scope": "Full Step 3 of the proposal, not only the six prepared arms",
+  "criteria": {
+    "required_unit_tests": {
+      "file": "01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py",
+      "passed": 20,
+      "failed": 0,
+      "status": "pass_required_probe_test_file_only"
+    },
+    "full_15_arm_validation_dry_run": {
+      "required": 15,
+      "prepared_arms": 6,
+      "missing_arms": [
+        "B2-nolabel",
+        "B2-labelonly",
+        "B1-shuf",
+        "B1-full",
+        "B1-H2",
+        "B3",
+        "B3-nodiff",
+        "B3-swap",
+        "B3-flip"
+      ],
+      "status": "incomplete"
+    },
+    "automatic_integrity_audit": {
+      "prompt_rows": 100110,
+      "sets": 40,
+      "payload_integrity_pass": true,
+      "unresolved_label_flags": 0,
+      "status": "pass_within_existing_artifact_scope_and_static_detection_limits"
+    },
+    "demo_empty_acceptance": {
+      "definition": "truncated demo retains below 25% original token length; zero-content expected demos also empty",
+      "pdf_limit": 0.01,
+      "sets_over_limit": 0,
+      "max_rate": 0.008784773060029283,
+      "max_set": {
+        "arm": "B2-rand",
+        "phase": "frozen",
+        "seed": 44,
+        "dataset": "devign",
+        "split": "validation",
+        "count": 2732,
+        "empty": 24
+      },
+      "status": "pass_for_all_40_existing_sets",
+      "clarification": "403 flagged rows are not 403 automatic rerun requirements. Passing the per-arm/split rate does not remove individual flags."
+    },
+    "graph_missing": {
+      "status": "flagged_in_audit"
+    },
+    "two_human_reviewers": {
+      "required_raters": 2,
+      "prompts_per_dataset": 30,
+      "prepared_prompts": 60,
+      "submitted_review_sheets": 0,
+      "status": "pending"
+    },
+    "before_llm_audit": {
+      "status": "post_run_audit_does_not_certify_historical_pre_inference_audit"
+    }
+  },
+  "decisions_preserved": {
+    "no_new_missing_arm_preparation": true,
+    "no_inference_rerun": true,
+    "no_new_threshold_fitting": true,
+    "human_review_not_fabricated": true
+  }
+}

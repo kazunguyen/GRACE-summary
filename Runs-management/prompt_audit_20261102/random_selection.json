@@ -1,0 +1,105 @@
+{
+  "checked_at_utc": "2026-11-02T08:38:26.033159+00:00",
+  "numpy_used_for_recheck": "1.26.4",
+  "source_policy": "default_rng(stable_seed(id,seed)), reject baseline B2 demo, maximum 10 draws",
+  "total": 30033,
+  "sets": [
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "seed": 42,
+      "count": 2732,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "seed": 43,
+      "count": 2732,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "seed": 44,
+      "count": 2732,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "seed": 42,
+      "count": 2732,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "seed": 43,
+      "count": 2732,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "seed": 44,
+      "count": 2732,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "seed": 42,
+      "count": 2273,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "seed": 43,
+      "count": 2273,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "seed": 44,
+      "count": 2273,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 42,
+      "count": 2274,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 43,
+      "count": 2274,
+      "mismatches": [],
+      "status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 44,
+      "count": 2274,
+      "mismatches": [],
+      "status": "pass"
+    }
+  ],
+  "all_pass": true
+}

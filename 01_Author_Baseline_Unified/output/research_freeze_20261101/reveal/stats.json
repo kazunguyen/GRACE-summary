@@ -1,0 +1,52 @@
+{
+  "dataset": "reveal",
+  "normalization": "C/C++ lexical tokens; comments/format whitespace removed; literals preserved; token list SHA256",
+  "near_method": "exact token-3gram set Jaccard >= 0.9; complete prefix join; short code uses whole token sequence",
+  "near_policy": "flag only; eval flags compare with original train, including removed donors",
+  "per_split": {
+    "train": {
+      "n": 18187,
+      "positive": 1800,
+      "negative": 16387,
+      "near_flags": 942,
+      "exact_overlap": 125
+    },
+    "validation": {
+      "n": 2273,
+      "positive": 210,
+      "negative": 2063,
+      "near_flags": 285,
+      "exact_overlap": 69
+    },
+    "test": {
+      "n": 2274,
+      "positive": 230,
+      "negative": 2044,
+      "near_flags": 296,
+      "exact_overlap": 56
+    }
+  },
+  "bank_removals": {
+    "label_conflict": 426,
+    "overlap_eval_exact": 125
+  },
+  "donor_count": 17636,
+  "donor_missing_graphs": 127,
+  "donor_positive": 1522,
+  "input_sha256": {
+    "train": "e8a8a8e269fe8960931093d5d00d8ab7e6fdfae7812eea99de6ac60c131adb78",
+    "validation": "0c300b7872af930d5eb5bb5018cb5d89853621fc221eaeee763a11a2051fd364",
+    "test": "a3096c2eaecf55ea7bd93b9ec8db31f1c91f6cc85e71e18553bf750c84a129f6"
+  },
+  "cpg_train_sha256": "0d1cecbbd2b9de730e5a31bc868304e2f8d1ddb82aba550c970d6d9368a1f2ec",
+  "files_sha256": {
+    "donors.jsonl": "6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce",
+    "near_pairs.jsonl": "59c27ba8889dbda7e5dceff20e60ffc1df82b5c52978ec5058d4d668bebfda4d",
+    "test_manifest.jsonl": "19cc3f580f0441387ab3d194b0a06bb87ba3e3cf82ce5a818b70bf8c545c1f66",
+    "test_raw.jsonl": "466015aa06b08fd86d73a8feabe86b4dfb3e708b054a63ec2eccfb362fd977ab",
+    "train_manifest.jsonl": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b",
+    "train_raw.jsonl": "9be77b0037191fd995390486a057ffa4e3394f1ae3059ac54514e95016090a76",
+    "validation_manifest.jsonl": "b6632ec3a62f93f917e8f64365917b5546fcd1b426a67fbfa30b56d71d9d7267",
+    "validation_raw.jsonl": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "created_local_date": "2026-11-01",
+  "script_sha256": "7b26114a30b2c623025cad68d6612777e2e10203318b5eb98eb9e231da78520f",
+  "datasets": {
+    "devign": {
+      "dataset": "devign",
+      "normalization": "C/C++ lexical tokens; comments/format whitespace removed; literals preserved; token list SHA256",
+      "near_method": "exact token-3gram set Jaccard >= 0.9; complete prefix join; short code uses whole token sequence",
+      "near_policy": "flag only; eval flags compare with original train, including removed donors",
+      "per_split": {
+        "train": {
+          "n": 21854,
+          "positive": 10018,
+          "negative": 11836,
+          "near_flags": 515,
+          "exact_overlap": 22
+        },
+        "validation": {
+          "n": 2732,
+          "positive": 1187,
+          "negative": 1545,
+          "near_flags": 240,
+          "exact_overlap": 8
+        },
+        "test": {
+          "n": 2732,
+          "positive": 1255,
+          "negative": 1477,
+          "near_flags": 260,
+          "exact_overlap": 14
+        }
+      },
+      "bank_removals": {
+        "duplicate_train": 3,
+        "label_conflict": 138,
+        "overlap_eval_exact": 22
+      },
+      "donor_count": 21691,
+      "donor_missing_graphs": 13,
+      "donor_positive": 9933,
+      "input_sha256": {
+        "train": "e9b8df664175a0ec50f4c2b388684ac23f80c0a3798329531e7aea720502ab8d",
+        "validation": "d66a977b7358343f8364b1351cc318bc52c5eae6c48cc46664de4017fc87084b",
+        "test": "d2d72e446e31d062766f014ae37f787428943b8e54fd85a03bc92fd1e69f252e"
+      },
+      "cpg_train_sha256": "64d33f3403254fb6f8d2c8dc3815eeeed51254c33d523cd2ccf85ead08395cfb",
+      "files_sha256": {
+        "donors.jsonl": "7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62",
+        "near_pairs.jsonl": "421b1d2f595de756f55d24038a02fdfa52a51325a7cbc820df8551160f301810",
+        "test_manifest.jsonl": "f0f8672a88cddbe5c348847c285b843981b310c12117b5c8fdc3ccd785b759da",
+        "test_raw.jsonl": "9fdb601ac2ba3e21a96e7312d6218518ac350182be9fcb2125b4175633d4640b",
+        "train_manifest.jsonl": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4",
+        "train_raw.jsonl": "3a87fbf479877717402531e51922955f88282043fc972641317f13ca3b4838d0",
+        "validation_manifest.jsonl": "7a2eeec9a9aa2b472b2f4df0e6af91f6b90efab38d5ac44f9491adcf699b8eee",
+        "validation_raw.jsonl": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5"
+      }
+    },
+    "reveal": {
+      "dataset": "reveal",
+      "normalization": "C/C++ lexical tokens; comments/format whitespace removed; literals preserved; token list SHA256",
+      "near_method": "exact token-3gram set Jaccard >= 0.9; complete prefix join; short code uses whole token sequence",
+      "near_policy": "flag only; eval flags compare with original train, including removed donors",
+      "per_split": {
+        "train": {
+          "n": 18187,
+          "positive": 1800,
+          "negative": 16387,
+          "near_flags": 942,
+          "exact_overlap": 125
+        },
+        "validation": {
+          "n": 2273,
+          "positive": 210,
+          "negative": 2063,
+          "near_flags": 285,
+          "exact_overlap": 69
+        },
+        "test": {
+          "n": 2274,
+          "positive": 230,
+          "negative": 2044,
+          "near_flags": 296,
+          "exact_overlap": 56
+        }
+      },
+      "bank_removals": {
+        "label_conflict": 426,
+        "overlap_eval_exact": 125
+      },
+      "donor_count": 17636,
+      "donor_missing_graphs": 127,
+      "donor_positive": 1522,
+      "input_sha256": {
+        "train": "e8a8a8e269fe8960931093d5d00d8ab7e6fdfae7812eea99de6ac60c131adb78",
+        "validation": "0c300b7872af930d5eb5bb5018cb5d89853621fc221eaeee763a11a2051fd364",
+        "test": "a3096c2eaecf55ea7bd93b9ec8db31f1c91f6cc85e71e18553bf750c84a129f6"
+      },
+      "cpg_train_sha256": "0d1cecbbd2b9de730e5a31bc868304e2f8d1ddb82aba550c970d6d9368a1f2ec",
+      "files_sha256": {
+        "donors.jsonl": "6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce",
+        "near_pairs.jsonl": "59c27ba8889dbda7e5dceff20e60ffc1df82b5c52978ec5058d4d668bebfda4d",
+        "test_manifest.jsonl": "19cc3f580f0441387ab3d194b0a06bb87ba3e3cf82ce5a818b70bf8c545c1f66",
+        "test_raw.jsonl": "466015aa06b08fd86d73a8feabe86b4dfb3e708b054a63ec2eccfb362fd977ab",
+        "train_manifest.jsonl": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b",
+        "train_raw.jsonl": "9be77b0037191fd995390486a057ffa4e3394f1ae3059ac54514e95016090a76",
+        "validation_manifest.jsonl": "b6632ec3a62f93f917e8f64365917b5546fcd1b426a67fbfa30b56d71d9d7267",
+        "validation_raw.jsonl": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1"
+      }
+    }
+  },
+  "graph_sources": {
+    "devign/train": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\devign\\cpg\\train.jsonl",
+      "sha256": "64d33f3403254fb6f8d2c8dc3815eeeed51254c33d523cd2ccf85ead08395cfb"
+    },
+    "devign/validation": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\devign\\cpg\\validation.jsonl",
+      "sha256": "61ea6fe89569e7df38bee998025518dae02db5269b7bf17b97183d8c2fcb2950"
+    },
+    "devign/test": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\devign\\cpg\\test.jsonl",
+      "sha256": "eb7c447772fc400c10111bdf13a4c0c8aacab7c4dcd0e0935a04ce67d0f485a1"
+    },
+    "reveal/train": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\reveal\\cpg\\train.jsonl",
+      "sha256": "0d1cecbbd2b9de730e5a31bc868304e2f8d1ddb82aba550c970d6d9368a1f2ec"
+    },
+    "reveal/validation": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\reveal\\cpg\\validation.jsonl",
+      "sha256": "5e663edd0160eeb7ed516cd3d8e86dc9ea5466c6c8a80264f6843f1225bd82e2"
+    },
+    "reveal/test": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\reveal\\cpg\\test.jsonl",
+      "sha256": "92a0e279314ff8d4e0f16df673a1a67ca3bf42c178d35bbd7381b4959a44ac52"
+    }
+  },
+  "verification": "Donor IDs equal keep_in_bank set; unique IDs and normalized groups; labels and raw code SHA256 match manifests; graph source SHA256 recorded."
+}

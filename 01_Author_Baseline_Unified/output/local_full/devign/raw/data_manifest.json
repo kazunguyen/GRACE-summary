@@ -1,0 +1,22 @@
+{
+  "dataset": "devign",
+  "repo": "DetectVul/devign",
+  "revision": "db50acfa25d02fe99e9d50064b613fae3e934b11",
+  "splits": {
+    "train": {
+      "count": 21854,
+      "sha256": "e9b8df664175a0ec50f4c2b388684ac23f80c0a3798329531e7aea720502ab8d",
+      "id_policy": "source_id"
+    },
+    "validation": {
+      "count": 2732,
+      "sha256": "d66a977b7358343f8364b1351cc318bc52c5eae6c48cc46664de4017fc87084b",
+      "id_policy": "source_id"
+    },
+    "test": {
+      "count": 2732,
+      "sha256": "d2d72e446e31d062766f014ae37f787428943b8e54fd85a03bc92fd1e69f252e",
+      "id_policy": "source_id"
+    }
+  }
+}
