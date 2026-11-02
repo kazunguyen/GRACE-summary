@@ -1,0 +1,9 @@
+{
+  "status": "interrupted_not_completed",
+  "reason": "shared tokenizer graph fits serialize inside Python threads; replace worker concurrency with separate CPU processes without changing renderer",
+  "last_reported_fitted_devign_donor_graphs": 2560,
+  "planned_devign_unique_donor_graphs": 6761,
+  "rendered_prompt_rows": 0,
+  "llm_calls": 0,
+  "kept_as_attempt_evidence": true
+}

@@ -9,7 +9,7 @@
 | 0 — Offline lịch sử | B0_offline ở workspace nguồn đã tái tạo 36 run, P_pre/P_post, repair–harm/oracle/routing; nằm ngoài repo bàn giao này | Có thể tích hợp sớm group-aware OOF/routing CI; expert DeepSeek nhị phân lịch sử không thay thế expert Qwen mới |
 | 1 — Backend | Qwen3-Coder-30B-A3B Q4_K_M, model/tokenizer pin, llama-cpp-python0.3.16, có inference thật | B0 có helper khóa; notebook B1/B2 hiện chưa có make_lock/require_test_lock. Watcher chưa xác minh đang chạy |
 | 2 — Freeze/raw/CPG/embedding | Freeze donor, cache CodeT5, CPG Joern cuối; B2 tham chiếu mới, bundle flip mới và B2 rerun-66 | Áp dụng donor mới vào inference B2/flip; rep bám đúng phiên B2 cuối. Không encode/parse/retrieve lại chỉ để resume |
-| 3 — Prompt/audit | 5 arm Tầng 1 đủ 50.055 prompt; rand có 12 bundle/30.033 prompt | Adapter evidence cho prompt_audit, kiểm variant, hai người đọc 30 prompt/dataset; H2 kiểm nguồn graph. Chưa nghiệm thu bằng người |
+| 3 — Prompt/audit | Hậu kiểm 100.110 dòng/40 tập của 6 arm; dry-run mới đủ validation 10 arm/28 tập, 70.070 dòng; 28/28 đạt sau đối chiếu nguồn | B1-H2 và bốn arm B3 blocked vì thiếu đầu vào; chưa đủ 15 arm. Đã có 60 mẫu/hai phiếu trống, chưa có hai người chấm |
 | 4 — Đăng ký trước | Analysis lock local có thời điểm sau khi inference bắt đầu, hash/tag lịch sử | Chưa OSF; không gọi preregistration hồi tố. Amendment dùng thời điểm thật, giữ lịch sử tiếp xúc test |
 | 5 — Ma trận | B0=10.011; B2=10.011; B1=5.434; flip=5.235; rep/rand chưa có output | B1 còn 4.577; B2 donor mới thêm 66; flip thêm 4.809. Đồng bộ gate/validation/ngưỡng đúng phiên trước test mới; rep gọi model mới |
 | 6 — Anchor và giá trị bổ sung | Có supervised_anchor.py/complementarity.py trong kit | Chưa có anchor_scores/summary SUP-LR/MLP/METRIC ba seed cho chiến dịch này; cần adapter cache, expert Qwen ghép ID và cùng folds |
@@ -28,7 +28,7 @@
 
 Kiểm toán gốc 01/11: [JSON điều kiện](KIEM_TOAN_DIEU_KIEN_TANG_1.json), [JSON tích hợp](KIEM_TRA_TICH_HOP_TUNG_ARM.json). Đây là snapshot, không phải tiến độ hôm nay; script audit còn giữ xuất *_CURRENT riêng.
 
-Prompt Tầng 1 đã kiểm ID/label/hash/ghép cặp và metadata ngân sách. Kit prompt_audit cần trường evidence; prompt hiện tại chưa có adapter đầy đủ và chưa có nghiệm thu con người theo rubric. Có module trong diagnostic_kit không chứng minh notebook đã gọi module đó. Anchor là đối chứng dùng chung, không train lại một bộ riêng cho từng arm LLM.
+Đã có adapter evidence và audit tự động cho các artifact hiện hữu; dry-run [toàn validation 10 arm](dry_run_validation_20261102/KET_QUA.md) đã qua [kiểm bàn giao](dry_run_validation_20261102/verification.json). B1-H2/B3/B3-nodiff/B3-swap/B3-flip blocked vì thiếu evidence/cặp demo/Key difference; chưa nghiệm thu 15 arm hoặc bằng người. [Kết luận cuối](dry_run_validation_20261102/final_status.json) giữ một cảnh báo nhầm ở bộ dò gốc và bằng chứng giải quyết bằng nguồn frozen riêng. Demo rỗng ≤1% đạt ở mọi tập; 176 cờ demo và 390 cờ thiếu graph vẫn giữ. Hai người cần đọc 30 prompt/dataset và lập biên bản thật. Có module trong kit không chứng minh notebook đã gọi module đó; các hạn chế runtime B2 còn nguyên. Anchor là đối chứng dùng chung, không train lại riêng cho từng arm LLM.
 
 B0/B1 giữ scaffold trống, graph 40/80, native logits và Kaggle là các quyết định contract đã thống nhất, khác một số ví dụ PDF. Ghi đúng variant; không đổi âm thầm rồi gộp kết quả hai phiên.
 

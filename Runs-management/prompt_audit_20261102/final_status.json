@@ -1,0 +1,36 @@
+{
+  "checked_at_utc": "2026-11-02T08:56:40.397715+00:00",
+  "automatic_audit_execution": "completed",
+  "prompt_rows_checked": 100110,
+  "prompt_sets_checked": 40,
+  "inference_records_checked": 30691,
+  "exact_token_recheck": true,
+  "payload_integrity_pass": true,
+  "unresolved_label_leak_prompts": 0,
+  "demo_below25_rows": 403,
+  "executed_rows_needing_review": 68,
+  "score_invalid": 0,
+  "raw_response_invalid": 1135,
+  "random_selection_pass": true,
+  "manual_review": "pending_two_real_reviewers",
+  "manual_sample_count": 60,
+  "not_prepared_arms": [
+    "B2-nolabel",
+    "B2-labelonly",
+    "B1-shuf",
+    "B1-full",
+    "B1-H2",
+    "B3",
+    "B3-nodiff",
+    "B3-swap",
+    "B3-flip"
+  ],
+  "study_acceptance": "not_complete_demo_remediation_and_manual_review_pending",
+  "llm_calls": 0,
+  "new_thresholds_fitted": false,
+  "legacy_donor_scope": {
+    "devign": 21,
+    "reveal": 0
+  },
+  "raw_artifacts_overwritten": false
+}

@@ -8,6 +8,8 @@ Repo làm việc chung cho baseline GRACE và ma trận arm trên Devign/REVEAL.
 - [Tiến độ và điều kiện nghiệm thu](Runs-management/TIEN_DO_PHUONG_AN_2.md): thiếu gì, khi nào được thêm cải tiến.
 - [Mục lục Runs-management](Runs-management/README.md): file nào cần giữ, file nào cần cập nhật.
 
+- [Hồ sơ audit prompt/output và kết luận Bước 3](#8-hồ-sơ-audit-và-nghiệm-thu-bước-3): vị trí báo cáo, danh sách cờ và bộ phiếu chấm.
+
 ## 1. Flow chung: chạy đúng bước đang thiếu
 
 ~~~text
@@ -156,3 +158,37 @@ Lệnh này chỉ đọc các nguồn trong SOURCES và ghi current_status.json 
 4. **Sau mốc đó mới mở cải tiến phương pháp** như retrieval/demo/graph/model/prompt mới: branch/variant + input/output/ngưỡng riêng, amendment có thời điểm, so ghép cặp với baseline đã khóa. Không thay baseline đang chạy để thử cải tiến rồi trộn output.
 
 Các arm Tầng 2/3 đã định nghĩa trong ma trận là ablation theo kế hoạch, không phải cải tiến phát sinh. Chi tiết điều kiện ở [TIEN_DO_PHUONG_AN_2.md](Runs-management/TIEN_DO_PHUONG_AN_2.md).
+
+
+## 8. Hồ sơ audit và nghiệm thu Bước 3
+
+**Nơi lưu audit:** [Runs-management/prompt_audit_20261102/](Runs-management/prompt_audit_20261102/README.md).
+
+- [Kết luận và các cờ cần theo dõi](Runs-management/prompt_audit_20261102/KET_QUA.md); [đối chiếu chính xác Bước 3](Runs-management/prompt_audit_20261102/BUOC_3_DOI_CHIEU.md).
+- [audit_summary.json](Runs-management/prompt_audit_20261102/audit_summary.json): thống kê theo arm/phiên/seed/dataset/split, token p50/p95, cắt, demo rỗng, graph thiếu; [audit_rows.csv](Runs-management/prompt_audit_20261102/audit_rows.csv): kết quả từng prompt.
+- [final_status.json](Runs-management/prompt_audit_20261102/final_status.json): kết luận sau phân loại cảnh báo nhầm; [verification.json](Runs-management/prompt_audit_20261102/verification.json): kiểm nguồn/hash/score và hồ sơ chấm; [source_hashes.json](Runs-management/prompt_audit_20261102/source_hashes.json): provenance.
+- [Danh sách cờ cuối](Runs-management/prompt_audit_20261102/remediation_final.csv), [68 dòng đã inference cần xem](Runs-management/prompt_audit_20261102/executed_needing_review.csv), [ví dụ demo dưới 25%](Runs-management/prompt_audit_20261102/VI_DU_CAN_XU_LY.md).
+- [Bộ 60 prompt chấm](Runs-management/prompt_audit_20261102/manual_packet.md), [mẫu JSONL](Runs-management/prompt_audit_20261102/manual_sample.jsonl), [rubric](Runs-management/prompt_audit_20261102/RUBRIC.md), [phiếu người 1](Runs-management/prompt_audit_20261102/reviewer_1.csv), [phiếu người 2](Runs-management/prompt_audit_20261102/reviewer_2.csv). Hai phiếu còn trống; chỉ ghi hoàn thành chấm tay sau khi có đánh giá thực tế.
+
+**Phạm vi 100.110 prompt/40 tập:** B0 10.011, B1 10.011, B2 20.022 (donor cũ + mới), B2-flip 20.022 (cũ + mới), B2-rep 10.011, B2-rand 30.033 (seed42/43/44). Đây là số dòng audit, có prompt trùng giữa phiên và rep, không phải 100.110 lượt inference độc lập. Output đã đối chiếu là 30.691; toàn bộ score khớp phép tính lại từ logprob. Cache/output lớn vẫn ở local, không tự có sau clone.
+
+**Dry-run validation mới — 02/11/2026:** đã dựng **70.070 dòng prompt/28 tập** cho **10 arm**: B0, B1, B1-full, B1-shuf, B2, B2-rand, B2-nolabel, B2-labelonly, B2-flip, B2-rep. B1-shuf và B2-rand có seed42/43/44; các arm khác seed42. Sau đối chiếu nguồn, **28/28 tập đạt audit tự động**, 0 lỗi dựng và 0 cờ nhãn chưa giải quyết trong phạm vi kiểm tra. Bộ dò gốc giữ 27 pass + 1 needs_review; cảnh báo còn lại là chuỗi Label trong node donor bị cắt, đã truy đúng nguồn frozen. [Báo cáo](Runs-management/dry_run_validation_20261102/KET_QUA.md), [hồ sơ và lệnh tái tạo](Runs-management/dry_run_validation_20261102/README.md), [kiểm bàn giao](Runs-management/dry_run_validation_20261102/verification.json), [kết luận cuối](Runs-management/dry_run_validation_20261102/final_status.json).
+
+Giữ **176 dòng cờ demo** và **390 dòng thiếu graph** trong [562 dòng cần theo dõi](Runs-management/dry_run_validation_20261102/review_flags.csv); các loại có giao nhau. 30 target thiếu graph vẫn xuất hiện ở cả ba seed B1-shuf với graph trống/cờ missing. Mỗi tập đạt demo rỗng ≤1%, cao nhất 24/2.732 = 0,878%. Đã tạo [60 mẫu chấm đúng phiên dry-run](Runs-management/dry_run_validation_20261102/manual_packet.md), [rubric cho 10 arm](Runs-management/dry_run_validation_20261102/RUBRIC.md) và hai phiếu trống. Năm arm B1-H2/B3/B3-nodiff/B3-swap/B3-flip giữ blocked do thiếu đầu vào. Không inference LLM hoặc tính ngưỡng; số output đã nhập giữ nguyên.
+
+### Kết luận Bước 3 trong Phương án 2
+
+Nguồn: [đề cương PDF, trang 18–19](../REPORT_TO_TEACHER/20261029/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf). **Chưa hoàn thành toàn bộ Bước 3.**
+
+| Yêu cầu | Tình trạng |
+|---|---|
+| pytest tests/test_probes.py | 20/20 pass; thêm 4/4 test bộ chạy dry-run; không tuyên bố mọi test notebook đều xanh |
+| Dry-run/audit validation đủ 15 arm | Đã đủ validation 10 arm/28 tập, 70.070 dòng; 5 arm H2/B3 blocked do thiếu đầu vào |
+| Báo cáo toàn vẹn, token p50/p95, cờ cắt/graph thiếu và rò rỉ nhãn | Có trên 40 tập hậu kiểm và 28 tập dry-run; đọc kết luận sau phân loại cảnh báo cùng số liệu bộ dò gốc |
+| Demo rỗng ≤1% | Đạt ở cả 40 tập hậu kiểm và 28 tập dry-run; cao nhất 24/2.732 = 0,878% |
+| Hai người đọc 30 prompt mỗi dataset | Đã chuẩn bị 60 mẫu/phiếu đúng phiên dry-run 10 arm; chưa có chấm thực tế |
+| Audit trước khi gọi LLM | Dry-run mới là chuẩn bị trước inference tương lai; hồ sơ hậu kiểm không đổi lịch sử các run đã chạy |
+
+**Lưu ý quan trọng:** demo dưới 25% gốc là cờ ở cấp từng prompt, còn tiêu chí nghiệm thu trong PDF là tỷ lệ demo rỗng **≤1%**. Trong hồ sơ hậu kiểm 100.110 dòng có 403 dòng bị gắn cờ, trong đó 68 dòng đã inference, không tự động đồng nghĩa toàn bộ arm trượt hoặc phải chạy lại; mọi tập hiện có đều dưới 1%. Giữ danh sách để theo dõi, không xóa cờ. Các nhãn cần xử lý trong báo cáo audit ban đầu phải đọc cùng ngưỡng 1% khi đánh giá Bước 3.
+
+Cách ghi tiến độ: **Đã hoàn tất dry-run/audit toàn validation cho 10 arm đủ đầu vào; Bước 3 còn thiếu 5 arm H2/B3 và hai người chấm.** Audit 100.110 dòng là hồ sơ hậu kiểm riêng, không cộng với dry-run thành số lượt inference. Các artifact cũ ghi 9 arm chưa chuẩn bị phản ánh phạm vi trước lượt dry-run này. Trước inference tiếp theo, dùng đúng phiên prompt/manifest đã audit; giữ nguyên score/ngưỡng/snapshot và trạng thái OSF.

@@ -1,0 +1,23 @@
+{
+  "scope": "full official validation for arms with sufficient inputs; no inference",
+  "datasets": {
+    "devign_validation": 2732,
+    "reveal_validation": 2273
+  },
+  "missing_inputs": "keep B1-H2 and B3/B3-nodiff/B3-swap/B3-flip blocked; do not fabricate inputs",
+  "B1_shuf_missing_target_graph": {
+    "policy": "retain target, render empty graph, flag missing; do not replace or drop",
+    "devign": 3,
+    "reveal": 27,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "user_confirmed": true
+  },
+  "demo_gutted_definition": "truncated to below 25% of original tokens remains flagged",
+  "demo_empty_acceptance": "per-set rate <=1%, as PDF Step 3; individual flags are retained",
+  "human_review": "two real reviewers not yet available; prepare 30 prompts per dataset and blank sheets",
+  "thresholds": "do not fit tau or change historical locks"
+}

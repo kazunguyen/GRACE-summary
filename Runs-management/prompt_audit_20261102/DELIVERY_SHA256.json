@@ -1,0 +1,29 @@
+{
+  "scope": "Generated audit artifacts only; original inputs are in source_hashes.json",
+  "files": {
+    "audit_rows.csv": "62be63d43eb1a473e7c7c3cba941d57ea1eb65c363991ae0d1af09bc729783f0",
+    "audit_summary.json": "d4d3c63caa3923e167905a7bb7b4cc20db5ee4a0170ac49abced028054f9312d",
+    "donor_scope.json": "fa03a7420f51032a2f6cad3b25e73d20258893189057525bff5fb53ed31e33a0",
+    "executed_needing_review.csv": "289985cd9a6187164365f998fab2c8a8f553d40ee8fd253f50421bead28aed5b",
+    "final_status.json": "ff354e471d5c6b48386300512d7fab8f1394cb3800ca4fc94888c1748ecf2f49",
+    "inference_audit.json": "0802a865bcab8dc0040164bb831329f550c6e5c0ac15f2e014c0d4f12c9af6d0",
+    "invalid_raw_responses.csv": "b19f3c7be185cdb5726d8820b33e8cb45229fadd57a6eac76f043a2c24a2450d",
+    "KET_QUA.md": "f15b00232ad02fed43944f8e735e0ebe952cb4af80dc7514c3a5c4d395bd4dad",
+    "leak_flags.json": "3716d2d153367562c6b30f04ab91e5186439b58c3281ec201768536a13f90bb3",
+    "leak_review.json": "9c2f151a09aaa00a6e1cb976605c97ae7cfcb54646b10ecdf0f6ecc1484852b3",
+    "manual_packet.md": "1a42377de84e858f87566f9354dac976c183ef6de70d106f5b2b77a57916070b",
+    "manual_sample.jsonl": "ab628b712d32f359540c88a7b2c17c97c8553688240c0e5b1f62336b8d68816d",
+    "random_selection.json": "80d4ac624dce225636166be05c24f79d873eddd01dd2e937978b811b0164e70c",
+    "raw_response_coverage.json": "6a51a50192a7fc7513b67396c215bc7166c48b3e2560bd62d04135489b9a4060",
+    "README.md": "bf8a280c48eb4a69e2e5e2e58105b99c08a1928364466a043182c758ed927b1c",
+    "remediation_final.csv": "8d8f2be2f3a3a7dd8188c3847a8554ff09a97679203e18134f0a2b3109f4fb40",
+    "remediation_rows.csv": "7e0d1f75d303a7ecccd5a7bddfb95cc30b19385152238c6ecd02ea5c64b6a4a8",
+    "reviewer_1.csv": "1297b1fb73e0d86af4824f84b28225f3dae31925506b39b0e2e0face04b36f45",
+    "reviewer_2.csv": "1297b1fb73e0d86af4824f84b28225f3dae31925506b39b0e2e0face04b36f45",
+    "RUBRIC.md": "fab6a21bb076b64a723e46e6e69cc8ea7e122d889c529d0c57850e56e5b602c5",
+    "source_hashes.json": "c6c135dbe3551a63820972ae6a3ebea8a23f5681cbb8731be47dd491bff198ba",
+    "USER_DECISIONS.json": "bfa61b2a5cf0c52ce8f2e40f074463b697ca8ca2ef661b41d4265ece85ee9c42",
+    "verification.json": "509cb45736b761fc1ae1e0cd15d98f4dbb1d985e7195623dc9478e2c7d518288",
+    "VI_DU_CAN_XU_LY.md": "b93ae7e0dc8c8d3ed73afce9fa4b292db0bc37c029142dd5ec9c5ab79959520d"
+  }
+}

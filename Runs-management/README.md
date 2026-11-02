@@ -6,6 +6,7 @@ Thư mục này lưu **sổ chạy, trạng thái, ngưỡng và bằng chứng 
 
 | File | Vai trò | Khi nào ghi? |
 |---|---|---|
+| [dry_run_validation_20261102/](dry_run_validation_20261102/README.md) | Dry-run đủ validation 10 arm: 70.070 dòng/28 tập, kết luận và hồ sơ hai người chấm | 28/28 đạt sau đối chiếu nguồn; 5 arm blocked và chấm tay còn thiếu |
 | [RUNS.md](RUNS.md) | Sổ duy nhất cho mọi lượt Joern, CodeT5, prompt, inference | Trước khi nhận/chạy và sau mỗi lần hoàn tất, timeout, lỗi, resume |
 | [HIEN_TRANG.md](HIEN_TRANG.md) | Bảng record đã kiểm local; sinh từ [current_status.json](current_status.json) | Dùng refresh_current_status.py sau khi cập nhật nguồn đúng phiên; không sửa tay |
 | [MA_TRAN_RUN.md](MA_TRAN_RUN.md) | Định nghĩa arm/tầng/seed, ghi chú cấu hình | Khi chốt kế hoạch hoặc đổi trạng thái/variant của arm |
@@ -51,3 +52,9 @@ Một số dữ liệu lớn trong hai thư mục bằng chứng bị .gitignore
 Đã xóa .pytest_cache/, __pycache__/, hai .offline_test_thresholds*/ chứa score test giả, log watcher cũ/empty stderr, năm script một lần và bốn báo cáo Markdown trùng. Đã thêm ignore cho file tạm tái sinh. Không xóa prediction/checkpoint, donor reference, cache CodeT5/CPG, ngưỡng hoặc snapshot thật. Tài liệu lịch sử còn trong Git và CHANGES_AFTER_ANALYSIS_LOCK.md.
 
 Không chạy auto_lock_validation.py hoặc bật watcher chỉ để refresh bảng tiến độ: chúng có thể tạo khóa khi validation đã đủ. Đợt dọn này chỉ kiểm/cập nhật trạng thái, chưa tạo khóa hoặc sửa runtime B1/B2.
+
+## Bàn giao Git sau audit/dry-run
+
+Git giữ code, manifest/hash, summary, CSV dry-run nhỏ và packet chấm. 28 file prompts.jsonl sinh từ dry_run_validation_20261102 và bảng prompt_audit_20261102/audit_rows.csv đầy đủ được giữ local, không commit theo phạm vi bàn giao đã thống nhất. Các đường dẫn đó vẫn được giữ trong checksum/provenance; không sửa manifest để giả định clone có đủ input.
+
+Trên máy mới cần nhận gói dữ liệu đúng hash hoặc tái tạo bằng input pinned theo README của từng audit trước khi chạy verifier. Không thay hash hoặc ghi đè snapshot lịch sử. Các file README bên trong gói audit được giữ nguyên bytes để checksum bàn giao còn khớp.

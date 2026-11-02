@@ -1,0 +1,39 @@
+{
+  "arms": {
+    "B0": {
+      "completed": 10011,
+      "invalid_raw": 1132,
+      "invalid_score": 0,
+      "raw_tokens": {
+        "Looking": 1132
+      },
+      "response_coverage": 0.8869243831785036
+    },
+    "B1": {
+      "completed": 5434,
+      "invalid_raw": 3,
+      "invalid_score": 0,
+      "raw_tokens": {
+        "Looking": 3
+      },
+      "response_coverage": 0.9994479205005521
+    },
+    "B2": {
+      "completed": 10011,
+      "invalid_raw": 0,
+      "invalid_score": 0,
+      "raw_tokens": {},
+      "response_coverage": 1.0
+    },
+    "B2-flip": {
+      "completed": 5235,
+      "invalid_raw": 0,
+      "invalid_score": 0,
+      "raw_tokens": {},
+      "response_coverage": 1.0
+    }
+  },
+  "total_raw_invalid": 1135,
+  "total_score_invalid": 0,
+  "interpretation": "A non-label greedy token is a raw-response format failure, not an invalid finite 0/1 logit score. Preserve both fields; do not map raw failures to label 0 or silently drop valid scores."
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "reveal:validation:1865",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 8897,
+    "classification": "needs_review",
+    "excerpt": "g\" , draw_info -> pointsize ) ;\n ( void ) SetImageProperty ( image , \"label:pointsize\" , pointsize ) ;\n }\n draw_info = DestroyDrawInfo ( draw_info ) ;\n if ( status == MagickFal"
+  },
+  {
+    "id": "reveal:validation:2144",
+    "pattern": "\\bLabel\\s*:",
+    "offset": 8368,
+    "classification": "needs_review",
+    "excerpt": "clabel ;\n else {\n error_line ( \"warning: unknown channel descriptions label: %d\" , clabel ) ;\n channel_identities [ idents ++ ] = 0xff ;\n }\n channel_reorder [ i ] = cindex ++ ;"
+  }
+]

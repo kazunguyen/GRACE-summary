@@ -1,0 +1,130 @@
+[
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B1-H2",
+    "seed": 42,
+    "expected": 2732,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "h2_evidence": 2732,
+      "h2_source_limits": 2732
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B3",
+    "seed": 42,
+    "expected": 2732,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "demonstrations_pair": 2732,
+      "security_difference": 2732
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B3-nodiff",
+    "seed": 42,
+    "expected": 2732,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "demonstrations_pair": 2732
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B3-swap",
+    "seed": 42,
+    "expected": 2732,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "demonstrations_pair": 2732,
+      "security_difference": 2732
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B3-flip",
+    "seed": 42,
+    "expected": 2732,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "demonstrations_pair": 2732,
+      "security_difference": 2732
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B1-H2",
+    "seed": 42,
+    "expected": 2273,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "h2_evidence": 2273,
+      "h2_source_limits": 2273
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B3",
+    "seed": 42,
+    "expected": 2273,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "demonstrations_pair": 2273,
+      "security_difference": 2273
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B3-nodiff",
+    "seed": 42,
+    "expected": 2273,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "demonstrations_pair": 2273
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B3-swap",
+    "seed": 42,
+    "expected": 2273,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "demonstrations_pair": 2273,
+      "security_difference": 2273
+    },
+    "llm_calls": 0
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B3-flip",
+    "seed": 42,
+    "expected": 2273,
+    "status": "blocked_missing_inputs",
+    "missing_fields": {
+      "demonstrations_pair": 2273,
+      "security_difference": 2273
+    },
+    "llm_calls": 0
+  }
+]
