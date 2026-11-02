@@ -23,9 +23,9 @@ B2 ReVeal đã đủ 2.273/2.273 validation và khóa tau=0,12 sau khi nhập ou
 
 ## Helper tự động hóa và trạng thái vận hành
 
-Giải thích ngưỡng, kết quả bốn khóa và trích dẫn trang 15, 16, 20, 38–39 của PDF: [KET_QUA_CHOT_NGUONG.md](KET_QUA_CHOT_NGUONG.md). Bốn khóa đã được đối chiếu lại độc lập bằng sklearn trong lần cập nhật này.
+Giải thích phương pháp chọn ngưỡng và căn cứ PDF được gộp ở cuối tài liệu này. Bốn khóa đã được đối chiếu lại độc lập bằng sklearn trong lần cập nhật này.
 
-Bộ theo dõi local [watch_validation.py](watch_validation.py) có khả năng chạy ẩn, quét artifact mỗi 60 giây và tự dừng khi đủ 10 khóa arm/dataset. Tại đối chiếu 02/11/2026 chưa xác minh process đang chạy: không có PID và log dừng ngày 01/11. Đợt này không bật watcher. Khi checkpoint được tải/nhập về các folder arm hoặc folder Kaggle B2 như hiện tại, script tự kiểm ID/label/prompt/model/seed, gộp các bản checkpoint lặp mà không đếm hai lần, rồi khóa khi đủ validation. Không mở records/metrics test để chọn tau. Log ở threshold_watch.log và threshold_watch.stderr.log; PID ở threshold_watch.pid. Tạo file threshold_watch.stop để dừng; dùng start_validation_watch.ps1 để bật lại sau khi máy/process dừng. Đây là helper local, không phải dịch vụ tự tải output từ tài khoản Kaggle.
+Bộ theo dõi local [watch_validation.py](watch_validation.py) có khả năng chạy ẩn, quét artifact mỗi 60 giây và tự dừng khi đủ 10 khóa arm/dataset. Tại đối chiếu 02/11/2026 chưa xác minh process đang chạy: không có PID và log dừng ngày 01/11. Đợt này không bật watcher. Khi checkpoint được tải/nhập về các folder arm hoặc folder Kaggle B2 như hiện tại, script tự kiểm ID/label/prompt/model/seed, gộp các bản checkpoint lặp mà không đếm hai lần, rồi khóa khi đủ validation. Không mở records/metrics test để chọn tau. Khi chạy, helper tạo threshold_watch.log/threshold_watch.stderr.log và threshold_watch.pid; log tạm cũ đã dọn. Tạo file threshold_watch.stop để dừng; dùng start_validation_watch.ps1 để bật lại sau khi máy/process dừng. Đây là helper local, không phải dịch vụ tự tải output từ tài khoản Kaggle.
 
 Chạy một lần thủ công nếu cần: `python Runs-management/auto_lock_validation.py`. Helper không có kết nối Kaggle nên kết quả cloud phải được nhập về local trước khi watcher nhìn thấy.
 
@@ -51,3 +51,32 @@ Gói [analysis_record_for_OSF_20261101.zip](analysis_record_for_OSF_20261101.zip
 - 8 test B0, gồm luồng validation → tự khóa → test → resume bằng backend giả. Giữ output notebook người dùng khi cập nhật source.
 - 4 ngưỡng thật được kiểm tra độc lập với sklearn, không đọc test records/metrics.
 - Không phải chạy lại Joern, CodeT5 hoặc inference để tính các ngưỡng này.
+
+
+## Chốt ngưỡng là gì?
+
+LLM đã cho score s = p(1)/(p(0)+p(1)) từ logits gốc của hai token nhãn đầu ra. Ngưỡng tau là mốc đổi score thành nhãn: s >= tau → 1 (vulnerable); s < tau → 0 (non-vulnerable). Đây là bước quyết định nhãn từ score đã có, không huấn luyện lại model, không sửa prompt hoặc token raw, không cần inference lại.
+
+Ví dụ với B2 REVEAL tau=0,12: s=0,20 cho nhãn 1, s=0,08 cho nhãn 0. Với ngưỡng 0,5, s=0,20 trước đó cho nhãn 0. Số 0,12 là điểm vận hành được chọn từ validation, không có nghĩa mẫu có xác suất lỗ hổng thực tế 12%; score hai token chưa được chứng minh là xác suất đã hiệu chuẩn.
+
+## Tôi đã chọn thế nào?
+
+1. Đòi đủ toàn bộ validation ID cho đúng arm/dataset, không fit trên checkpoint còn dở; khớp label, prompt hash, model hash và seed. Gộp checkpoint trùng bằng ID, không đếm hai lần; xung đột score thì từ chối khóa.
+2. Với từng ngưỡng trong 0,01; 0,02; ...; 0,99, chuyển score validation thành nhãn bằng s >= tau rồi tính MCC so với nhãn thật validation. Chỉ dùng score valid hữu hạn; ghi coverage/invalid.
+3. Chọn MCC lớn nhất. Nếu hòa trong 1e-9, chọn tau gần 0,5 nhất; nếu vẫn hòa, chọn ngưỡng nhỏ hơn. Quy tắc này đã có trước trong bản ghi analysis-lock, không chọn bằng kết quả test.
+4. Lưu tau, toàn bộ grid MCC, số mẫu, thời điểm khóa, quy tắc và hash bằng chứng vào thresholds.json. Ngưỡng đã khóa không được âm thầm đổi sau khi nhìn test.
+
+MCC trong bảng là chất lượng trên validation dùng để chọn tau, không phải kết quả test cuối. Thay ngưỡng có thể đổi precision/recall/MCC/F1 nhưng không thay score hoặc thứ hạng, nên bản thân việc đổi tau không cải thiện AUROC/AUPRC. Cần tiếp tục báo riêng raw greedy, ngưỡng 0,5 và tau validation.
+
+## Nguồn trực tiếp trong PDF Phương án 2
+
+PDF: [PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf](../../REPORT_TO_TEACHER/20261029/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf). Số trang dưới đây theo số trang PDF (1–40), đã kiểm trực tiếp nội dung trang.
+
+- **Trang 15, Mục 6.5 — Chỉ số:** bảng quy định chỉ số có ngưỡng tính ở hai mức, trích: “Tính ở hai ngưỡng: s ≥ 0,5 (câu trả lời của model) và τ* tối ưu MCC trên validation”. Đây là căn cứ cho mục tiêu tối đa MCC trên validation và việc vẫn phải báo kết quả ngưỡng 0,5.
+- **Trang 16, Mục 6.7 — Đăng ký trước và kiểm soát tiếp xúc test:** trích: “Ngưỡng τ* và mọi lựa chọn cấu hình chốt trên validation.” Đây là căn cứ không dùng test để chọn tau và không chọn lại sau khi xem kết quả test.
+- **Trang 20, Bước 5 — Chạy ma trận cấu hình:** mục tiêu ghi: “Validation trước để chọn τ* cho từng arm”; phần việc làm yêu cầu không chạy test của arm trước khi tau của arm được ghi trong thresholds.json. Đây là căn cứ có khóa riêng và lưu file trước test.
+- **Trang 38–39, Phụ lục B.3, hàm pick_threshold:** `grid = np.linspace(0.01, 0.99, 99)` và chọn max theo MCC, rồi ưu tiên gần 0,5. Script triển khai cùng grid/mục tiêu; xử lý MCC không xác định tường minh bằng None, tránh lỗi truthiness của đoạn rút gọn `mcc(...) or -2` khi MCC bằng 0.
+
+## Quan hệ với phiên inference đã bắt đầu
+
+Chọn tau chỉ cần CPU và validation, nên làm độc lập với inference GPU. Các score test đã sinh có thể được chấm lại offline bằng tau cố định, không cần gọi LLM lại. Tuy nhiên, nếu test đã chạy trước thời điểm khóa thì thứ tự đó không trở thành đúng yêu cầu đăng ký trước của PDF một cách hồi tố; phải giữ khai báo thời điểm thật. Notebook B0 hiện có helper tự khóa và kiểm tra trước test; notebook B2 hiện tại chưa có các lời gọi này. Helper B2 riêng đã có nhưng chưa được notebook nhúng. Phiên cloud đã nạp mã cũ không tự nhận thay đổi từ file local.

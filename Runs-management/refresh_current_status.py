@@ -113,9 +113,6 @@ def current_section(here=HERE):
               '<!-- current-status:end -->', '']
     return '\n'.join(lines)
 
-def prepend_current(text, here=HERE):
-    title, body = text.split('\n', 1)
-    return title+'\n\n'+current_section(here)+'\n'+body.lstrip('\n')
 
 if __name__ == '__main__':
     state = collect()

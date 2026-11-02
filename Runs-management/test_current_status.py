@@ -1,8 +1,5 @@
 """Progress scans must not mutate locks or silently accept stale/duplicate outputs."""
 import json
-from pathlib import Path
-import subprocess
-import sys
 
 import pytest
 import refresh_current_status as status
@@ -56,24 +53,3 @@ def test_bad_import_is_rejected(tmp_path, monkeypatch, change):
     path.write_text('\n'.join(map(json.dumps, records)), encoding='utf-8')
     with pytest.raises(ValueError):
         status.collect(root, here)
-
-
-def test_regenerators_preserve_progress_and_historical_json(tmp_path):
-    here = Path(__file__).resolve().parent
-    names = ['write_tier1_audit_report.py', 'write_threshold_explanation.py', 'refresh_current_status.py',
-             'KIEM_TOAN_DIEU_KIEN_TANG_1.json', 'current_status.json', 'thresholds.json']
-    for name in names:
-        (tmp_path/name).write_bytes((here/name).read_bytes())
-    snapshots = {n:(tmp_path/n).read_bytes() for n in names if n.endswith('.json')}
-    for script, output in [('write_tier1_audit_report.py', 'KIEM_TOAN_DIEU_KIEN_TANG_1.md'),
-                           ('write_threshold_explanation.py', 'KET_QUA_CHOT_NGUONG.md')]:
-        subprocess.run([sys.executable, '-B', str(tmp_path/script)], check=True, capture_output=True)
-        first = (tmp_path/output).read_bytes()
-        text = first.decode('utf-8')
-        assert '| B1 | 2732/2732 | 429/2732 | 2273/2273 | 0/2274 | 5434/10011 |' in text
-        assert '| B2-flip | 2732/2732 | 230/2732 |' in text
-        assert 'B2: chưa có lời gọi khóa trước test' in text
-        subprocess.run([sys.executable, '-B', str(tmp_path/script)], check=True, capture_output=True)
-        assert (tmp_path/output).read_bytes() == first
-    for name, original in snapshots.items():
-        assert (tmp_path/name).read_bytes() == original

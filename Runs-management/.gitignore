@@ -11,3 +11,13 @@
 /b2_flip_I06_20261102/downloaded_record_decisions.csv
 /b2_flip_I06_20261102/downloaded_record_decisions.jsonl
 /b2_flip_I06_20261102/changed_prompt_text_review.jsonl
+
+# Ephemeral local checks and watcher output
+/.offline_test_thresholds/
+/.offline_test_thresholds_final/
+/.pytest_cache/
+/__pycache__/
+/threshold_watch.log
+/threshold_watch.stderr.log
+/threshold_watch.pid
+/threshold_watch.stop

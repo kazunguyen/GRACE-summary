@@ -1,8 +1,17 @@
 # Nhật ký sau analysis-lock-20261101-v1
 
+
+## 02/11/2026 — Dọn Runs-management và bổ sung flow bàn giao
+
+Theo lựa chọn người dùng: gộp kiểm toán/biên bản đối chiếu vào TIEN_DO_PHUONG_AN_2.md; gộp giải thích ngưỡng vào TU_DONG_KHOA_NGUONG.md. Bỏ bốn Markdown trùng (KIEM_TOAN_DIEU_KIEN_TANG_1.md, KIEM_TRA_TICH_HOP_TUNG_ARM.md, DOI_CHIEU_CODE_20261102.md, KET_QUA_CHOT_NGUONG.md), năm script một lần (create_analysis_record.py, seal_analysis_record.py, install_threshold_pipeline.py, write_tier1_audit_report.py, write_threshold_explanation.py), test giả/cache Python/pytest và log watcher tạm. Bỏ test dành riêng cho hai generator đã nghỉ; giữ test coverage/identity/ngưỡng và lỗi tích hợp B2 đã biết.
+
+Giữ nguyên helper đang import, thresholds, snapshot niêm phong/JSON kiểm toán gốc, bằng chứng I-06/I-07, donor new_reference/cache và các input còn phụ thuộc. Sửa liên kết sau khi gộp; thêm README gốc và mục lục quản lý, flow cấu hình từng arm, nơi lưu dữ liệu/checkpoint, protocol ghi run J/E/P/I, bảng đã chạy/việc tiếp theo và gói bàn giao ngoài Git.
+
+Kiểm lại tiến độ từ artifact: B0/B2=10.011/arm, B1=5.434, flip=5.235; chưa có rep/rand hoặc GPU migration mới. Không tạo I-08. Group-aware/CI offline có thể tích hợp sớm nếu không đổi inference; cải tiến phương pháp chờ mốc Tầng1 được nghiệm thu, lưu phiên riêng. Chưa sửa runtime, tính khóa mới hoặc gọi LLM.
+
 ## 02/11/2026 — Đồng bộ tài liệu với code theo quyết định người dùng
 
-Thêm current_status.json/HIEN_TRANG.md từ các output đã nhập; giữ nguyên snapshot JSON lịch sử và thresholds.json, chưa tính khóa mới. Sửa mô tả B2 chưa nhúng helper, watcher chưa xác minh đang chạy, bổ sung 12 bundle B2-rand và notebook chạy kèm B2 rerun-66; sửa liên kết script đã dọn. Generator giữ bảng hiện tại bên trên nội dung kiểm toán lịch sử; audit mới xuất *_CURRENT.json, không ghi đè snapshot. Reconciliation từ chối ghi đè export lịch sử; summarizer kiểm theo inventory lịch sử và xuất *_CURRENT. Không sửa runtime các arm. Commit chỉ Runs-management với code/tài liệu/bằng chứng nhỏ; cache và bản sao prompt giữ local. Xem [biên bản đối chiếu](DOI_CHIEU_CODE_20261102.md).
+Thêm current_status.json/HIEN_TRANG.md từ các output đã nhập; giữ nguyên snapshot JSON lịch sử và thresholds.json, chưa tính khóa mới. Sửa mô tả B2 chưa nhúng helper, watcher chưa xác minh đang chạy, bổ sung 12 bundle B2-rand và notebook chạy kèm B2 rerun-66; sửa liên kết script đã dọn. Generator giữ bảng hiện tại bên trên nội dung kiểm toán lịch sử; audit mới xuất *_CURRENT.json, không ghi đè snapshot. Reconciliation từ chối ghi đè export lịch sử; summarizer kiểm theo inventory lịch sử và xuất *_CURRENT. Không sửa runtime các arm. Commit chỉ Runs-management với code/tài liệu/bằng chứng nhỏ; cache và bản sao prompt giữ local. Xem [biên bản đối chiếu](TIEN_DO_PHUONG_AN_2.md).
 
 **02/11/2026 — bổ sung bằng chứng B1 I-07:** xác minh 5.434 record đã chạy từ 01–02/11; cập nhật sổ run, ma trận và tiến độ. Hai validation đủ score, Devign test 429, REVEAL test 0; 0 invalid score, 3 invalid raw response. Đây là sửa thông tin quản lý, không chạy inference mới, không thay khóa ngưỡng hoặc bản ghi phân tích đã niêm phong. [Bằng chứng](b1_I07_20261102.json).
 

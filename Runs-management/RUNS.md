@@ -1,24 +1,24 @@
-# GRACE-summary — sổ theo dõi các lượt chạy
+# GRACE-summary — sổ theo dõi mọi lượt chạy
 
-**Xác nhận của người dùng về việc sử dụng metric test — 02/11/2026 (Asia/Bangkok):** Người dùng xác nhận không điều chỉnh ngưỡng τ, prompt, model hoặc lựa chọn arm dựa trên metric test, khi được hỏi về việc một số arm đã inference test trước khi khóa τ. Đây là khai báo của người dùng trong hội thoại, chưa phải kết luận kiểm toán độc lập. Xác nhận này không đồng nghĩa đã xác minh người dùng chưa từng xem metric test. Lịch sử test chạy trước khóa vẫn được giữ nguyên; việc chọn τ phải chỉ dùng validation, không dùng metric test để chọn hoặc điều chỉnh τ.
+**Đối chiếu lại local ngày 02/11/2026:** đã kiểm các nguồn output hiện có; chưa thấy inference mới ngoài I-02… I-07 đã ghi. Các checkpoint trùng được coi là cùng lượt/nguồn, không cộng thành expert mới. Chuẩn bị notebook/bundle không được ghi thành GPU run hoàn tất.
 
-**Hiện trạng sau đối chiếu 02/11/2026:** xem [HIEN_TRANG.md](HIEN_TRANG.md) và [current_status.json](current_status.json). Hai file này bổ sung các snapshot kiểm toán/ngưỡng ngày 01/11; không tạo khóa mới. B2 hiện chưa tích hợp helper vào notebook; watcher chưa được xác minh đang chạy. B2-rand đã có 12 bundle và notebook chạy kèm B2 rerun-66, chưa có output inference.
+## Bảng arm đã chạy và việc tiếp theo
 
-**Cập nhật B1 ngày 02/11/2026:** đã xác minh output `kaggle_run_01`, ghi bổ sung là **I-07** (ID theo thứ tự nhập sổ, không phải thời gian chạy): **5.434/10.011 mẫu (54,28%)**, gồm Devign validation 2.732, REVEAL validation 2.273, Devign test 429, REVEAL test 0; còn **4.577** mẫu. Dừng do hết ngân sách thời gian. Đã đối chiếu toàn bộ record: không trùng ID, đúng arm/dataset/split/model và hash prompt; **0 invalid score, 3 invalid raw response** ở REVEAL validation. Hai validation đã đủ score; chưa có bằng chứng khóa ngưỡng B1 trước 429 test. Xem [bằng chứng B1](b1_I07_20261102.json) và [sổ run](RUNS.md). Các nhận định chưa có inference B1 trong snapshot cũ chỉ mô tả thời điểm kiểm toán.
+| Arm | Devign val | Devign test | REVEAL val | REVEAL test | Tiếp theo |
+|---|---:|---:|---:|---:|---|
+| B0 — I-03 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên cũ; không rerun do donor; giữ lịch sử khóa sau test |
+| B1 — I-07 | 2.732 | 429 | 2.273 | 0 | Còn 4.577; khóa validation/gate đúng phiên trước test mới |
+| B2 — I-02/I-04/I-05 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên cũ; donor mới thêm 66 Devign=28val+38 test |
+| B2-flip — I-06 | 2.732 | 230 | 2.273 | 0 | Giữ 5.202; sửa 33 và chạy 4.776 thiếu=4.809 lượt bổ sung |
+| B2-rep | 0 | 0 | 0 | 0 | Chốt phiên B2 cuối, dựng prompt đúng phiên và runner gọi mới model |
+| B2-rand | 0 | 0 | 0 | 0 | Đủ 12 bundle/3seed và notebook chạy kèm B2 rerun-66; chưa inference |
 
-<!-- donor-rerun-risk-note -->
-**Đối chiếu donor:** đã so **20.022 output B0/B2** ngày 01/11 và **5.235 output B2-flip I-06** nhập ngày 02/11. Khi chuyển kho thống nhất, cần inference mới **66 mẫu B2 Devign** và **33 mẫu B2-flip Devign đã chạy (28 validation + 5 test)**; 33 B2-flip test đổi prompt còn chưa chạy dùng input mới khi chạy lần đầu. [Bằng chứng B0/B2](donor_reconciliation_20261101/KET_QUA_DOI_CHIEU.md), [I-06 B2-flip](b2_flip_I06_20261102/KET_QUA_I06_B2_FLIP.md). Các lượt đối chiếu chỉ dùng CPU/cache, chưa tự inference lại; prompt/output/ngưỡng hiện tại giữ nguyên. Điều kiện: [NGUY_CO_CHAY_LAI_DO_DONOR.md](NGUY_CO_CHAY_LAI_DO_DONOR.md).
-<!-- /donor-rerun-risk-note -->
+Số liệu/nguồn: [HIEN_TRANG.md](HIEN_TRANG.md), [current_status.json](current_status.json). Sổ này lưu từng phiên J/E/P/I; bảng hiện tại không thay bằng chứng/history của các phiên cũ. Tổng record Tầng 1 đã nhập 30.691; không đồng nghĩa mọi điều kiện xác nhận đã hoàn tất. B0 valid score đủ nhưng raw invalid 1.132; B1 raw invalid 3, score invalid 0. Không gộp hai khái niệm invalid.
 
-Tự động chọn ngưỡng validation và bản ghi phân tích local: [TU_DONG_KHOA_NGUONG.md](TU_DONG_KHOA_NGUONG.md); trạng thái/khóa đang có tại threshold_lock_status.json và thresholds.json.
+- [README chạy/bàn giao](../README.md): chọn notebook, chỉnh cell nào, input/output, mốc thêm cải tiến.
+- [Mục lục quản lý](README.md), [ma trận15 arm](MA_TRAN_RUN.md), [tiến độ/điều kiện](TIEN_DO_PHUONG_AN_2.md), [contract/quy ước](QUY_UOC_FRAMEWORK_20261101.md).
+- [Donor/rerun](NGUY_CO_CHAY_LAI_DO_DONOR.md), [resume flip](B2_FLIP_DONOR_MOI_RESUME.md), [khóa validation](TU_DONG_KHOA_NGUONG.md).
 
-Kiểm toán điều kiện trước test xác nhận Tầng 1: [KIEM_TOAN_DIEU_KIEN_TANG_1.md](KIEM_TOAN_DIEU_KIEN_TANG_1.md), có snapshot kiểm toán và phần bổ sung sau I-05. Đủ 50.055 prompt; B0 và B2 đã có output bốn split, các ngưỡng validation hiện khóa cho B0/Devign, B0/ReVeal, B2/Devign và B2/ReVeal. Điều kiện donor/protocol/audit và ngưỡng của những arm còn lại vẫn cần xử lý; B2/ReVeal test đã chạy một phần trước khi khóa.
-
-Ma trận cấu hình dự kiến và ghi chú từng arm: [MA_TRAN_RUN.md](MA_TRAN_RUN.md).
-
-Tiến độ theo đề cương: [TIEN_DO_PHUONG_AN_2.md](TIEN_DO_PHUONG_AN_2.md). Quy ước dữ liệu/graph/score đã chốt: [QUY_UOC_FRAMEWORK_20261101.md](QUY_UOC_FRAMEWORK_20261101.md).
-
-Cập nhật: **2026-11-02 (Asia/Bangkok), sau khi nhập checkpoint B2-flip I-06 và bổ sung bằng chứng B1 I-07**. Phạm vi: baseline và các arm có bằng chứng trong repository này. Đây là bản tổng hợp từ Git, notebook đã lưu output, log, manifest và journal hiện có; không phải danh sách mọi lần thử trên máy khác/Kaggle.
 
 **Cách đọc thời gian:** Đồng hồ hiện đã khớp: UTC 08:54 tương ứng WSL 15:54 (Asia/Bangkok) lúc đối chiếu. Trước khi chỉnh đồng hồ, mtime của các file do notebook 01/03/04 ghi trên ổ D thấp hơn thời gian WSL lúc chạy **7 giờ**; các khoảng artifact của những notebook này trong bảng đã cộng 7 giờ. Timestamp gốc trong file không bị sửa. Thời gian ghi trực tiếp trong log Joern cũ và mốc của cache nhập từ hệ thống khác được giữ theo nguồn. `≈` là khoảng suy từ artifact, chưa phải runtime đo trực tiếp; không dùng mtime để đo thời lượng chính xác qua các máy.
 
@@ -94,6 +94,17 @@ Bốn bundle có tổng 10.011 prompt, 55 target thiếu graph. Inference Kaggle
 Sau I-05, Qwen Q4 B2 đã có đủ **10.011/10.011 prediction**, gồm 2.732 Devign validation, 2.273 REVEAL validation, 2.732 Devign test và 2.274 REVEAL test. Lượt I-04 dừng ở 8.714; I-05 tiếp tục 1.297 mẫu cuối. Confusion matrix đầy đủ và hash từng prompt nằm trong `merge_manifest.json` ở artifact I-05. I-06 là arm B2-flip riêng, không cộng các prediction này vào B2.
 
 ## Quy tắc cập nhật
+
+### Ghi nhận và bàn giao mỗi lượt
+
+1. Trước chạy: nhận phần việc bằng arm/dataset/split/seed + phiên donor/prompt; ghi người/account, planned/running và checkpoint cha. Tránh hai người chạy trùng ngoài repeat chủ đích.
+2. Sau mỗi phiên, kể cả lỗi/timeout: thêm dòng J-xx (Joern), E-xx (CodeT5), P-xx (retrieval/spec/prompt/ZIP), I-xx (inference), với thời gian thật và nguồn timestamp, input/output, số mẫu duy nhất, hash/manifest, trạng thái, checkpoint tiếp tục và người phụ trách.
+3. Resume có output mới: tạo dòng phiên mới trỏ parent; ghi số bổ sung và lũy kế riêng, giữ output cũ. Không sửa run cũ thành phiên prompt/model/donor khác; không cộng lại record lũy kế.
+4. Nhập/kiểm artifact về output của arm trước khi cập nhật bảng. Sau khi map nguồn canonical đúng phiên, chạy refresh_current_status.py để sinh HIEN_TRANG.md/current_status.json; lệnh không tự ghi sổ này hoặc khóa ngưỡng. Rand/migration partial cần adapter và ghép đúng phiên trước khi đưa vào bảng tự động.
+5. Đổi kế hoạch ghi MA_TRAN_RUN.md/TIEN_DO_PHUONG_AN_2.md; đổi giao thức/cải tiến ghi CHANGES_AFTER_ANALYSIS_LOCK.md. Phần offline có thể cải thiện sớm; đổi phương pháp chờ mốc Tầng 1 trong README.
+
+Chưa có kết quả GPU mới thì chỉ ghi prepared/planned; không tạo một dòng completed I-08 giả để ghi nhận việc sửa README.
+
 
 **Chuẩn bị tiếp tục B2-flip sau I-06 (02/11/2026, chưa phải run GPU B2-flip phiên donor mới):** đã sửa notebook tạo prompt và inference để dùng donor thống nhất, sinh đủ 10.011 prompt và kiểm thử CPU cơ chế giữ 5.202 record/sửa 33 record trước khi chạy 4.776 mẫu thiếu. Checkpoint I-06 được giữ nguyên, ngưỡng phiên mới khóa trên validation đầy đủ. [Artifact và thứ tự thực thi](B2_FLIP_DONOR_MOI_RESUME.md). Chưa có inference GPU B2-flip phiên donor mới; I-07 là bổ sung bằng chứng B1 đã chạy trước đó.
 
