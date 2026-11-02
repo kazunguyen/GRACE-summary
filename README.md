@@ -149,6 +149,8 @@ python -B Runs-management/verify_prompt_inputs_git.py --git-ref origin/baseline-
 
 Pass xác nhận 78 file đủ điều kiện có đúng byte/hash ở local và ref Git. Các graph lớn vẫn cần chuyển riêng; ZIP B2 cũ giúp khôi phục specs cũ, không chứa toàn bộ graph donor và không phải phiên donor mới.
 
+Đã xác minh push dữ liệu tại commit `bef5d2e` trên `origin/baseline-unified`: 78/78 file khớp byte/hash, 16 file skip không có trong tree remote. [Bằng chứng kiểm remote](Runs-management/prompt_inputs_git_verification_20261102.json), [worklog bàn giao](worklogs/2026-11-02_prompt_inputs_git_delivery.md).
+
 ## 6. Chạy xong một lượt phải ghi vào file nào?
 
 **Bắt buộc với mọi lượt, kể cả timeout/lỗi:** cập nhật [Runs-management/RUNS.md](Runs-management/RUNS.md).

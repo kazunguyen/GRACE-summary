@@ -64,3 +64,7 @@ python -B Runs-management/verify_prompt_inputs_git.py --git-ref origin/baseline-
 Verifier chỉ dùng thư viện chuẩn, kiểm size/SHA256 và blob Git của 78 file đủ điều kiện. Các file skip được báo riêng; pass chỉ xác nhận phần đã đưa vào Git, không xác nhận đã có toàn bộ graph local. Git attributes giữ nguyên byte raw/cache để SHA256 không thay đổi do chuyển LF/CRLF.
 
 Các cache donor phiên cũ, môi trường Python, model GGUF/CodeT5 weights và output inference không thuộc lần bàn giao input này. Model/tokenizer pin và nơi cấu hình đã ghi trong README gốc; tải đúng phiên khi dựng môi trường.
+
+## Bằng chứng bàn giao
+
+Commit dữ liệu: `bef5d2ea983c095b2b4e5388ef1ef931da678646`, đã push và kiểm trực tiếp trên `origin/baseline-unified`. Verifier đạt 78/78 file; 16 đường dẫn skip không có trong tree remote. [Kết quả JSON](prompt_inputs_git_verification_20261102.json), [worklog](../worklogs/2026-11-02_prompt_inputs_git_delivery.md).
