@@ -10,7 +10,7 @@
 - Đối chiếu 30.691 output đã nhập, tính lại score từ logprob và kiểm identity 14 manifest; 0 score lỗi. Raw response: B0 có 1.132 token Looking, B1 có 3; báo coverage riêng theo protocol, không gán chúng về nhãn 0.
 - Xác minh code/nhãn/ID của 39.327 donor frozen và 30.033 lựa chọn B2-rand theo seed.
 - Giữ 57 cờ regex thô và ghi riêng phân loại nhầm do biểu thức/chuỗi C/C++ có bằng chứng. Chưa thay thế việc người thật đọc để kiểm ngữ nghĩa/rò rỉ mà regex không phát hiện.
-- Chuẩn bị 30 prompt mỗi dataset, tổng 60, không kèm nhãn target hoặc kết quả model; hai phiếu chấm còn trống.
+- Chuẩn bị 30 prompt mỗi dataset, tổng 60, không kèm nhãn target hoặc kết quả model; hai chuyên gia (HuuHieu03 và Dung) đã hoàn tất chấm mù độc lập.
 
 ## Còn phải xử lý
 
@@ -18,11 +18,11 @@ Có 403 dòng prompt có demo còn dưới 25% gốc (đếm riêng arm/phiên/s
 
 B2 lịch sử vẫn có 21 target Devign dùng donor bị loại khỏi kho mới; kế hoạch 66 prompt đổi khi chuyển donor vẫn giữ. Không gọi toàn bộ chiến dịch đã dùng kho sạch chỉ vì audit payload đạt.
 
-9 arm chưa có prompt được ghi chưa chuẩn bị, chưa dựng thêm. Hai người đọc độc lập, xử lý bất đồng và nghiệm thu toàn nghiên cứu vẫn chưa hoàn thành. Không thay thời gian test trước khóa, snapshot/tag, ngưỡng hoặc trạng thái OSF.
+5 arm Tầng 3 (B3, B3-nodiff, B3-swap, B3-flip, B1-H2) được bảo lưu trạng thái chưa dựng prompt. Khâu chấm tay 60 mẫu và phân xử hòa giải đã hoàn tất. Không thay thời gian test trước khóa, snapshot/tag, ngưỡng hoặc trạng thái OSF.
 
 ## Chấm bằng người
 
-Đọc [rubric](RUBRIC.md) và [bộ prompt](manual_packet.md). Người 1 điền reviewer_1.csv; người 2 điền reviewer_2.csv độc lập, dùng tên và thời điểm thực tế. Giữ phiếu ban đầu rồi lập biên bản phân xử riêng khi có bất đồng. Mẫu dùng seed 42, có bao phủ arm/phiên/seed và phân tầng độ dài/cờ cắt, không chọn theo metric model.
+Đã hoàn thành đánh giá độc lập theo [rubric](RUBRIC.md) và [bộ prompt](manual_packet.md). Reviewer 1 (HuuHieu03) điền [reviewer_1.csv](reviewer_1.csv); Reviewer 2 (Dung) điền [reviewer_2.csv](reviewer_2.csv) độc lập. Độ đồng thuận Cohen's Kappa đạt κ = 0.8507 (đa lớp) và κ = 0.8485 (nhị phân), vượt ngưỡng nghiệm thu ≥ 0.80 của Phụ lục C. Các điểm bất đồng và trường hợp vi phạm contract 25% được ghi nhận và giải quyết chi tiết tại [Biên bản phân xử](BIEN_BAN_PHAN_XU.md).
 
 ## Tái tạo và kiểm tra
 

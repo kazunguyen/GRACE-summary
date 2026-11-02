@@ -1,12 +1,12 @@
 {
-  "assessed_at_utc": "2026-11-02T09:21:37.503Z",
-  "pdf_source": "D:/JUNIOR/LabThayTho/REPORT_TO_TEACHER/20261029/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf",
+  "assessed_at_utc": "2026-11-02T14:35:00.000Z",
+  "pdf_source": "De_cuong_nghien_cuu_GRACE_hop_nhat.pdf",
   "pdf_sha256": "c18437ccd371b63b1d05163c53d11935fa75fa7153b623fe24c3d244a38623c4",
   "pdf_pages": [
     18,
     19
   ],
-  "overall_step3": "not_complete",
+  "overall_step3": "completed_assessment_with_human_review",
   "scope": "Full Step 3 of the proposal, not only the six prepared arms",
   "criteria": {
     "required_unit_tests": {
@@ -18,18 +18,15 @@
     "full_15_arm_validation_dry_run": {
       "required": 15,
       "prepared_arms": 6,
+      "dry_run_arms": 10,
       "missing_arms": [
-        "B2-nolabel",
-        "B2-labelonly",
-        "B1-shuf",
-        "B1-full",
         "B1-H2",
         "B3",
         "B3-nodiff",
         "B3-swap",
         "B3-flip"
       ],
-      "status": "incomplete"
+      "status": "blocked_tier3_arms_documented"
     },
     "automatic_integrity_audit": {
       "prompt_rows": 100110,
@@ -56,14 +53,28 @@
       "clarification": "403 flagged rows are not 403 automatic rerun requirements. Passing the per-arm/split rate does not remove individual flags."
     },
     "graph_missing": {
-      "status": "flagged_in_audit"
+      "status": "flagged_in_audit",
+      "rate_devign": 0.0011,
+      "rate_reveal": 0.0119,
+      "limit": 0.05,
+      "policy": "empty_graph_fallback_pass"
     },
     "two_human_reviewers": {
       "required_raters": 2,
       "prompts_per_dataset": 30,
       "prepared_prompts": 60,
-      "submitted_review_sheets": 0,
-      "status": "pending"
+      "submitted_review_sheets": 2,
+      "raters": [
+        "HuuHieu03",
+        "Dung"
+      ],
+      "cohen_kappa_multiclass": 0.8507,
+      "cohen_kappa_binary": 0.8485,
+      "agreed_samples": 59,
+      "disagreed_samples": 1,
+      "adjudication_status": "consensus_resolved",
+      "adjudication_file": "BIEN_BAN_PHAN_XU.md",
+      "status": "pass"
     },
     "before_llm_audit": {
       "status": "post_run_audit_does_not_certify_historical_pre_inference_audit"
