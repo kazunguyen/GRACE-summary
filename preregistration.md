@@ -72,7 +72,7 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
    - Hiệu chỉnh họ đa kiểm định theo phương pháp Holm-Bonferroni (`family_correction: holm`).
 4. **Phân Tích Bổ Sung (Complementarity & Routing):**
    - 34 đặc trưng cơ sở $P_\text{pre}$ bao gồm 5 logit từ các mô hình nền tảng, xác suất tổng hợp $p$, $|p - 0.5|$, độ lệch MLP-Lexical, và 26 code metrics.
-   - 4 đặc trưng từ LLM gồm: điểm $s$, cờ $valid$, tương tác $s \cdot p$, và độ lệch $s - p$. Invalid được gán fallback đối xứng ($s = 0.5, valid = 0$).
+   - 4 đặc trưng từ LLM gồm: điểm $s$, cờ `valid` của **score**, tương tác $s \cdot p$, và độ lệch $s - p$. Khi không có score hợp lệ, meta-model dùng fallback đối xứng ($s = 0.5, valid = 0$); `response_valid` của raw greedy được báo riêng.
    - Mô hình meta sử dụng Logistic Regression ($C = 1.0$), 3-fold Out-Of-Fold (OOF).
    - Kiểm tra định tuyến tại các mức ngân sách 5%, 10%, 25% với Paired Bootstrap CI trực tiếp giữa Benefit Router vs Confidence Router, 20 seed ngẫu nhiên cho baseline RANDOM và trần Oracle.
 
@@ -113,10 +113,11 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
    - Đồ thị CPG: $\le 1,500$ tokens.
    - Dự phòng (Reserve): $64$ tokens.
    - Đơn vị đo: Duy nhất bằng tokenizer của model (`Qwen3-Coder-30B-A3B-Instruct`).
-3. **Đầu Ra & Cách Tính Điểm:**
-   - Model trả đúng 1 token (`0` hoặc `1`).
-   - Điểm số liên tục $s = \frac{p(1)}{p(0) + p(1)}$ trích xuất từ top-5 logprob của token đầu tiên.
-   - Nếu cả hai token vắng mặt trong top-5 logprob, đánh dấu `invalid` và báo cáo tỷ lệ (không ép về 0).
+3. **Đầu Ra, Score & Validity của Inference Đã Chạy:**
+   - Notebook Kaggle gọi `llama-cpp-python` trực tiếp, đọc toàn bộ logits ở vị trí token đầu tiên sau prompt; xác định token ID riêng cho `0` và `1`, rồi tính `logprob_0`, `logprob_1`. Điểm $s = \frac{p(1)}{p(0)+p(1)} = \operatorname{sigmoid}(\operatorname{logit}_1-\operatorname{logit}_0)$. `top5` được lưu để chẩn đoán, **không phải** điều kiện để lấy score.
+   - `valid` là cờ **score hợp lệ**: hai token ID phải xác định được, khác nhau, nằm trong vocabulary; logits phải hữu hạn và $s$ tính được. Nếu thiếu logits, logits không hữu hạn, tokenizer không khớp hoặc backend lỗi thì không có score hợp lệ; không ép score về 0. Trong notebook hiện tại, lỗi trước khi ghi record sẽ dừng lượt chạy hoặc để checkpoint giữ các record đã hoàn tất, thay vì tự tạo record `valid=false` cho mẫu lỗi.
+   - `raw` là token greedy trên **toàn vocabulary**; `response_valid = true` chỉ khi raw sau giải mã là đúng `0` hoặc `1`. Raw khác hai nhãn có thể xảy ra dù `valid=true` và $s$ hữu hạn. Báo riêng số lượng/tỷ lệ `valid` và `response_valid`; không loại score hữu hạn chỉ vì raw không hợp lệ. `pred_argmax` của score dùng $s \ge 0.5$; khi đánh giá theo ngưỡng khóa thì dùng $s \ge \tau^*$, không đồng nhất hai dự đoán này với raw greedy.
+   - Parser OpenAI-compatible cũ trong `llm_backend.py` dùng `top_logprobs` và chỉ cho score hợp lệ khi **cả token `0` lẫn token `1`** có mặt trong top-k; thiếu một trong hai là invalid. Quy tắc đó áp dụng cho chế độ API cũ, không phải cách notebook Kaggle đã tính score từ logits đầy đủ.
 
 ---
 
@@ -124,7 +125,7 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 
 1. **Lợi thế SUP-LR biến mất:** Nếu sau khi khử trùng và kiểm toán nhãn, mô hình SUP-LR không còn vượt trội B2, dừng nghiên cứu để rà soát toàn bộ quy trình tiền xử lý dữ liệu trước khi viết báo cáo.
 2. **Thất bại Kiểm toán Prompt Audit:** Nếu tỷ lệ demonstration rỗng $> 1\%$, tỷ lệ thiếu đồ thị $> 5\%$ (ngoài các ca Joern lỗi đã gắn cờ), hoặc phát hiện rò rỉ nhãn target $> 0$, dừng quy trình, sửa hợp đồng dựng prompt, và chạy lại toàn bộ arm bị ảnh hưởng.
-3. **Thất bại Smoke Test Backend:** Nếu tỷ lệ phản hồi hợp lệ có token 0/1 trong top-5 logprob $< 99\%$, không tiến hành chạy ma trận xác nhận cho đến khi backend mô hình đạt độ ổn định định lượng.
+3. **Thất bại Smoke Test Backend:** Nếu tỷ lệ phản hồi hợp lệ có token 0/1 trong top-5 logprob $< 99\%$, không tiến hành chạy ma trận xác nhận cho đến khi backend mô hình đạt độ ổn định định lượng. Đây là tiêu chí smoke test API ở Bước 1, không phải định nghĩa `valid` của score trong inference Kaggle dùng logits đầy đủ.
 4. **Đóng băng Giao thức Nghiêm ngặt:** Tuyệt đối không mở thêm arm, không thêm mô hình, không điều chỉnh ngưỡng sau khi đã quan sát dữ liệu test. Bất kỳ phân tích bổ sung nào phát sinh sau thời điểm này đều phải phân loại là "thăm dò sau đăng ký" (exploratory post-hoc) và ghi rõ trong bài báo.
 
 ---
