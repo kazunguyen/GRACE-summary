@@ -1,14 +1,21 @@
 {
-  "prepared_at_utc": "2026-11-03T08:58:00.086464+00:00",
+  "prepared_at_utc": "2026-11-03T09:39:34.575635+00:00",
   "study_id": "grace_diag_replication_v1",
   "version": "prereg-v1",
   "status": "OSF_PREREGISTRATION_READY_FOR_REGISTRY_SUBMISSION",
   "target_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M)",
   "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
   "dry_run_15arms_status": {
-    "rendered_prompts": 95095,
-    "all_15_arms_complete": true,
-    "blocked_arms": [],
+    "rendered_prompts": 70070,
+    "dry_run_arms": 10,
+    "all_15_arms_complete": false,
+    "blocked_arms": [
+      "B1-H2",
+      "B3",
+      "B3-nodiff",
+      "B3-swap",
+      "B3-flip"
+    ],
     "n_label_leak": 0,
     "llm_calls": 0
   },
@@ -16,18 +23,18 @@
   "files": [
     {
       "path": "preregistration.md",
-      "bytes": 31722,
-      "sha256": "3e2d5cfae282acc971b6226a97ae5b98a3b44850331f6cbbe15634d5ebe193c2"
+      "bytes": 33424,
+      "sha256": "4f2dc618a032dffb9b1f84a0ce3f838fe9848374c42e00eef8370e4de0966ee2"
     },
     {
       "path": "preregistration_en.md",
-      "bytes": 31722,
-      "sha256": "3e2d5cfae282acc971b6226a97ae5b98a3b44850331f6cbbe15634d5ebe193c2"
+      "bytes": 33424,
+      "sha256": "4f2dc618a032dffb9b1f84a0ce3f838fe9848374c42e00eef8370e4de0966ee2"
     },
     {
       "path": "preregistration_vi.md",
-      "bytes": 35226,
-      "sha256": "780fc8b4e15ea748e9dd37f1f0bdf55f29f541cf677374db689faf78d7fc874d"
+      "bytes": 36973,
+      "sha256": "522d520305c7b31416097ba5f1877d8be3dd0a4762b5f936de52710f786f9f3b"
     },
     {
       "path": "CHANGES_AFTER_PREREG.md",
@@ -36,8 +43,8 @@
     },
     {
       "path": "output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf",
-      "bytes": 366330,
-      "sha256": "8c81a7f428d159aa951f1c70eb9362c665c85c2decf8a444264abe2afd22228d"
+      "bytes": 352193,
+      "sha256": "1e41222847fd5b060b4320edba1096cea3cc46f0a6367d14d9af7f8594b912a2"
     },
     {
       "path": "configs/protocol.yaml",
