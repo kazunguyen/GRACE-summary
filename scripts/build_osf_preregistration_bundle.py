@@ -2,7 +2,7 @@
 """Build and verify the complete OSF Preregistration Bundle for GRACE replication.
 
 This script:
-1. Compiles preregistration.md into a publication-quality PDF using ReportLab with Arial Unicode support:
+1. Compiles preregistration.md into a PDF using ReportLab and Matplotlib mathtext:
    Runs-management/osf_registration_draft_20261102/output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf
 2. Computes and records SHA-256 digests for all protocol, data manifest, threshold lock, and code assets into:
    Runs-management/osf_registration_draft_20261102/attachment_sha256.json
@@ -14,12 +14,11 @@ import sys
 if hasattr(sys.stdout, 'reconfigure'): sys.stdout.reconfigure(encoding='utf-8')
 if hasattr(sys.stderr, 'reconfigure'): sys.stderr.reconfigure(encoding='utf-8')
 
-import csv
 import hashlib
+import html
 import json
 import os
 import re
-import shutil
 import tempfile
 import zipfile
 from datetime import datetime, timezone
@@ -31,6 +30,15 @@ PDF_DIR = OSF_DIR / "output" / "pdf"
 PDF_FILE = PDF_DIR / "GRACE_OSF_PREREGISTRATION_20261102.pdf"
 ZIP_FILE = OSF_DIR / "GRACE_OSF_PREREGISTRATION_20261102.zip"
 HASHES_FILE = OSF_DIR / "attachment_sha256.json"
+PREREG_MD = REPO_ROOT / "preregistration.md"
+
+
+def prereg_version() -> str:
+    """Use the document's own version as the single source for PDF and bundle."""
+    match = re.search(r"^- \*\*Version:\*\*\s*`([^`]+)`", PREREG_MD.read_text(encoding="utf-8"), re.MULTILINE)
+    if not match:
+        raise ValueError(f"Missing Version metadata in {PREREG_MD}")
+    return match.group(1)
 
 
 def sha256_file(path: Path) -> str:
@@ -51,6 +59,11 @@ def markdown_to_pdf(md_path: Path, pdf_path: Path) -> None:
     from reportlab.pdfbase import pdfmetrics
     from reportlab.pdfbase.ttfonts import TTFont
     from reportlab.pdfgen import canvas
+    from matplotlib.mathtext import math_to_image
+    from matplotlib.font_manager import FontProperties
+    from PIL import Image as PILImage
+
+    version = prereg_version()
 
     # Register Unicode Arial fonts
     arial_path = "C:/Windows/Fonts/arial.ttf"
@@ -97,7 +110,7 @@ def markdown_to_pdf(md_path: Path, pdf_path: Path) -> None:
             
             # Header (pages > 1)
             if self._pageNumber > 1:
-                self.drawString(54, 800, "GRACE Preregistration Protocol v1 (OSF Registry Draft)")
+                self.drawString(54, 800, f"GRACE Preregistration {version} (Prepared for OSF)")
                 self.setStrokeColor(colors.HexColor("#CCCCCC"))
                 self.setLineWidth(0.5)
                 self.line(54, 792, 541, 792)
@@ -105,7 +118,7 @@ def markdown_to_pdf(md_path: Path, pdf_path: Path) -> None:
             # Footer
             page_text = f"Page {self._pageNumber} of {page_count}"
             self.drawRightString(541, 35, page_text)
-            self.drawString(54, 35, "OSF Registries Pre-registration Archive • Strict Confidentiality & Integrity Lock")
+            self.drawString(54, 35, "Prepared for OSF Registry Submission • Not yet submitted")
             self.setStrokeColor(colors.HexColor("#CCCCCC"))
             self.setLineWidth(0.5)
             self.line(54, 45, 541, 45)
@@ -180,6 +193,67 @@ def markdown_to_pdf(md_path: Path, pdf_path: Path) -> None:
         leading=11,
         textColor=colors.white,
     )
+    math_block_style = ParagraphStyle(
+        "MathBlock",
+        parent=body_style,
+        alignment=1,
+        spaceBefore=5,
+        spaceAfter=9,
+    )
+
+    math_dir = tempfile.TemporaryDirectory(prefix="grace-osf-math-")
+    math_cache: dict[tuple[str, float, float], str] = {}
+    inline_token = re.compile(
+        r"\$\$.*?\$\$|\$[^$]+\$|\[[^\]]+\]\(https?://[^)]+\)|`[^`]+`|\*\*.*?\*\*|\*[^*]+\*",
+        re.DOTALL,
+    )
+
+    def render_math(expr: str, font_size: float, max_width: float) -> str:
+        """Render LaTeX-style math as a sharp PNG for ReportLab paragraphs."""
+        expr = re.sub(r"\\operatorname\{([^{}]+)\}", r"\\mathrm{\1}", expr.strip())
+        expr = re.sub(r"\\text\{([^{}]+)\}", r"\\mathrm{\1}", expr)
+        expr = re.sub(r"\\ge(?![A-Za-z])", r"\\geq", expr)
+        expr = re.sub(r"\\le(?![A-Za-z])", r"\\leq", expr)
+        key = (expr, font_size, max_width)
+        if key in math_cache:
+            return math_cache[key]
+        digest = hashlib.sha256(repr(key).encode("utf-8")).hexdigest()[:20]
+        path = Path(math_dir.name) / f"{digest}.png"
+        dpi = 240
+        math_to_image(f"${expr}$", path, prop=FontProperties(size=font_size), dpi=dpi, format="png")
+        with PILImage.open(path) as im:
+            width, height = (dimension * 72.0 / dpi for dimension in im.size)
+        scale = min(1.0, max_width / width)
+        width *= scale
+        height *= scale
+        markup = (f"<img src='{html.escape(path.as_posix(), quote=True)}' "
+                  f"width='{width:.2f}' height='{height:.2f}' valign='middle'/>")
+        math_cache[key] = markup
+        return markup
+
+    def render_inline(value: str, font_size: float = 9, max_width: float = 470) -> str:
+        """Convert supported Markdown inline tokens to safe ReportLab markup."""
+        parts = []
+        cursor = 0
+        for match in inline_token.finditer(value):
+            parts.append(html.escape(value[cursor:match.start()]))
+            token = match.group(0)
+            if token.startswith("$$"):
+                parts.append(render_math(token[2:-2], font_size + 1, max_width))
+            elif token.startswith("$"):
+                parts.append(render_math(token[1:-1], font_size, max_width))
+            elif token.startswith("["):
+                label, url = re.fullmatch(r"\[([^\]]+)\]\((https?://[^)]+)\)", token).groups()
+                parts.append(f"<link href='{html.escape(url, quote=True)}'>{render_inline(label, font_size, max_width)}</link>")
+            elif token.startswith("`"):
+                parts.append(f"<font face='Courier'>{html.escape(token[1:-1])}</font>")
+            elif token.startswith("**"):
+                parts.append(f"<b>{render_inline(token[2:-2], font_size, max_width)}</b>")
+            else:
+                parts.append(f"<i>{render_inline(token[1:-1], font_size, max_width)}</i>")
+            cursor = match.end()
+        parts.append(html.escape(value[cursor:]))
+        return "".join(parts)
 
     story = []
     lines = md_path.read_text(encoding="utf-8").splitlines()
@@ -193,9 +267,11 @@ def markdown_to_pdf(md_path: Path, pdf_path: Path) -> None:
         if not table_rows:
             in_table = False
             return
-        # Parse table cells
+        # Parse table cells, using visible link labels instead of printing URLs.
         data = []
         is_hdr = True
+        first_cells = [c.strip() for c in table_rows[0].split("|")[1:-1]]
+        col_width = 487.0 / len(first_cells)
         for row in table_rows:
             cells = [c.strip() for c in row.split("|")[1:-1]]
             if not cells or all(re.match(r"^:?-+:?$", c) for c in cells):
@@ -203,11 +279,7 @@ def markdown_to_pdf(md_path: Path, pdf_path: Path) -> None:
             row_data = []
             for cell in cells:
                 st = table_header if is_hdr else table_cell
-                # Clean markdown inline formatting
-                clean = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", cell)
-                clean = re.sub(r"\*(.*?)\*", r"<i>\1</i>", clean)
-                clean = re.sub(r"`(.*?)`", r"<font face='Courier'>\1</font>", clean)
-                clean = clean.replace("$", "")
+                clean = render_inline(cell, font_size=8 if is_hdr else 7.5, max_width=col_width - 10)
                 row_data.append(Paragraph(clean, st))
             data.append(row_data)
             is_hdr = False
@@ -248,39 +320,33 @@ def markdown_to_pdf(md_path: Path, pdf_path: Path) -> None:
             continue
 
         if line.startswith("# "):
-            story.append(Paragraph(line[2:], title_style))
+            story.append(Paragraph(render_inline(line[2:], font_size=18), title_style))
             story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor("#1E3A8A"), spaceAfter=10))
         elif line.startswith("## "):
-            story.append(Paragraph(line[3:], h1_style))
+            story.append(Paragraph(render_inline(line[3:], font_size=13), h1_style))
             story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#DBEAFE"), spaceAfter=6))
         elif line.startswith("### "):
-            story.append(Paragraph(line[4:], h2_style))
+            story.append(Paragraph(render_inline(line[4:], font_size=11), h2_style))
         elif line.startswith("- ") or line.startswith("* "):
-            content = line[2:]
-            content = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", content)
-            content = re.sub(r"`(.*?)`", r"<font face='Courier'>\1</font>", content)
-            content = content.replace("$", "")
+            content = render_inline(line[2:])
             story.append(Paragraph(f"• {content}", bullet_style))
         elif re.match(r"^\d+\.\s", line):
             m = re.match(r"^(\d+\.)\s(.*)", line)
-            content = m.group(2)
-            content = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", content)
-            content = re.sub(r"`(.*?)`", r"<font face='Courier'>\1</font>", content)
-            content = content.replace("$", "")
+            content = render_inline(m.group(2))
             story.append(Paragraph(f"<b>{m.group(1)}</b> {content}", bullet_style))
+        elif line.strip().startswith("$$") and line.strip().endswith("$$"):
+            story.append(Paragraph(render_inline(line.strip(), font_size=11), math_block_style))
         elif line.strip() == "---":
             story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#D1D5DB"), spaceBefore=6, spaceAfter=6))
         else:
-            content = line
-            content = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", content)
-            content = re.sub(r"`(.*?)`", r"<font face='Courier'>\1</font>", content)
-            content = content.replace("$", "")
+            content = render_inline(line)
             story.append(Paragraph(content, body_style))
 
     if in_table:
         flush_table()
 
     doc.build(story, canvasmaker=NumberedCanvas)
+    math_dir.cleanup()
     print(f"Generated PDF successfully: {pdf_path} ({pdf_path.stat().st_size:,} bytes)")
 
 
@@ -288,21 +354,14 @@ def build_inventory_and_zip():
     OSF_DIR.mkdir(parents=True, exist_ok=True)
     PDF_DIR.mkdir(parents=True, exist_ok=True)
 
-    # 1. Compile PDF
-    prereg_md = REPO_ROOT / "preregistration.md"
-    markdown_to_pdf(prereg_md, PDF_FILE)
-
-    # Also compile draft PDF in output/pdf/GRACE_OSF_DRAFT_20261102.pdf for backward compatibility
-    draft_pdf = PDF_DIR / "GRACE_OSF_DRAFT_20261102.pdf"
-    if prereg_md.exists():
-        shutil.copy2(PDF_FILE, draft_pdf)
+    # 1. Compile the current PDF. Historical DRAFT aliases are not recreated.
+    markdown_to_pdf(PREREG_MD, PDF_FILE)
 
     # 2. Gather assets to register
     assets = [
         # Preregistration documents
-        ("preregistration.md", REPO_ROOT / "preregistration.md"),
+        ("preregistration.md", PREREG_MD),
         ("output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf", PDF_FILE),
-        ("output/pdf/GRACE_OSF_DRAFT_20261102.pdf", draft_pdf),
         # Protocol configs
         ("configs/protocol.yaml", REPO_ROOT / "configs" / "protocol.yaml"),
         ("configs/thresholds.json", REPO_ROOT / "configs" / "thresholds.json"),
@@ -353,7 +412,7 @@ def build_inventory_and_zip():
     inventory = {
         "prepared_at_utc": datetime.now(timezone.utc).isoformat(),
         "study_id": "grace_diag_replication_v1",
-        "version": "prereg-v2-15arms",
+        "version": prereg_version(),
         "status": "OSF_PREREGISTRATION_READY_FOR_REGISTRY_SUBMISSION",
         "target_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M)",
         "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
@@ -368,7 +427,8 @@ def build_inventory_and_zip():
         "files": files_manifest,
     }
 
-    HASHES_FILE.write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    with HASHES_FILE.open("w", encoding="utf-8", newline="\n") as output:
+        output.write(json.dumps(inventory, ensure_ascii=False, indent=2) + "\n")
     print(f"Recorded SHA-256 for {len(files_manifest)} artifacts in {HASHES_FILE}")
 
     # 3. Create stand-alone ZIP archive
@@ -376,10 +436,6 @@ def build_inventory_and_zip():
         for rel_name, path in assets:
             zf.write(path, arcname=rel_name)
         zf.write(HASHES_FILE, arcname="attachment_sha256.json")
-
-    # Also update GRACE_OSF_DRAFT_20261102.zip for backward compatibility
-    draft_zip = OSF_DIR / "GRACE_OSF_DRAFT_20261102.zip"
-    shutil.copy2(ZIP_FILE, draft_zip)
 
     zip_size = ZIP_FILE.stat().st_size
     zip_sha = sha256_file(ZIP_FILE)
