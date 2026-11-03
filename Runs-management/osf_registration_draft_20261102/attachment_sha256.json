@@ -1,5 +1,5 @@
 {
-  "prepared_at_utc": "2026-11-03T07:39:48.077678+00:00",
+  "prepared_at_utc": "2026-11-03T10:42:38.190877+00:00",
   "study_id": "grace_diag_replication_v1",
   "version": "prereg-v1",
   "status": "OSF_PREREGISTRATION_READY_FOR_REGISTRY_SUBMISSION",
@@ -32,7 +32,7 @@
     {
       "path": "output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf",
       "bytes": 365709,
-      "sha256": "fb0a331370e6cf521934e615c7a28d5d28a2caf41bc3718a5985fecd21add14b"
+      "sha256": "22648ead896baf5c1032de700c12fb97bd6dc44f0a8049292532ae6c0468b14c"
     },
     {
       "path": "configs/protocol.yaml",
