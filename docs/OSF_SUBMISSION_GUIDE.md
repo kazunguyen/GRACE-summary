@@ -59,7 +59,7 @@ Trước khi truy cập cổng OSF Registries, người nộp cần đảm bảo
 
 * **Description (Tóm tắt đề cương / Abstract):**
   ```text
-  This preregistration outlines a diagnostic replication and ablation study of GRACE (Graph-based In-Context Learning for Vulnerability Detection). We systematically decompose the GRACE pipeline across 15 diagnostic arms on Devign (N=5,464) and REVEAL (N=4,547) benchmarks using Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M). The study investigates: (1) whether textualized Code Property Graphs (CPG) convey genuine structural signal over raw source code (B0 vs B1 vs B1-shuf vs B1-full vs B1-H2); (2) whether in-context demonstrations operate through semantic program logic or surface label biases (B2 vs B2-rand vs B2-nolabel vs B2-labelonly vs B2-flip vs B2-rep); (3) whether contrastive demonstration pairs with differential explanations provide operational improvements (B3 vs B3-nodiff vs B3-swap vs B3-flip); and (4) whether LLM representations offer orthogonal complementarity when routed alongside frozen CodeT5 embeddings and supervised baselines. All 14 decision thresholds are strictly locked on validation splits prior to test evaluation under a zero-test-exposure protocol.
+  This preregistration documents a diagnostic replication of GRACE across 15 arms on Devign and REVEAL using Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M). B0, B1 and B2 test inference and exploratory metrics preceded OSF submission; 230 B2-flip Devign test raw labels were also viewed. The 14 current decision thresholds were selected on validation, but their lock is not claimed to predate every historical test run. The registration specifies rules for future analyses and discloses prior exposure; independent confirmation requires data not used to shape the plan.
   ```
 
 * **License:**
@@ -106,8 +106,8 @@ Sao chép nguyên văn 11 giả thuyết từ Bảng 4.3 trong `preregistration.
   ```text
   PRIOR DATA EXPOSURE DISCLOSURE:
   Validation sets of Devign (N=2,732) and REVEAL (N=2,273) have been accessed during exploratory pilot runs, threshold optimization, and offline dry-run verification.
-  TEST SET COMMITMENT (ZERO-TEST-EXPOSURE):
-  The test sets (Devign N=2,732; REVEAL N=2,274) have strictly NOT been subjected to model inference or threshold tuning for this preregistered protocol. All 14 decision thresholds (tau*) are frozen on validation splits and sealed in configs/thresholds.json prior to test execution. Any subsequent modification will be classified as exploratory post-hoc and documented in CHANGES_AFTER_PREREG.md.
+  TEST EXPOSURE DISCLOSURE:
+  B0, B1 and B2 test inference and exploratory MCC/AUROC preceded OSF submission; 230 B2-flip Devign test raw labels were viewed. B2-rand validation inference partly ran. Threshold values were fitted on validation, but the lock did not precede every historical test run. Classify each remaining analysis by its actual state at submission and document later amendments in CHANGES_AFTER_PREREG.md.
   ```
 
 * **Sample Sizes (Cỡ mẫu):**
@@ -172,10 +172,9 @@ Sau khi OSF Registries phê duyệt và cấp mã DOI / Registration URL:
 1. **Ghi lại mã định danh:** Lưu lại URL đăng ký chính thức (dạng `https://osf.io/XXXXX`) và DOI.
 2. **Xác nhận thẻ Git Tag chính thức (`prereg-v1`):**
    ```powershell
-   git tag -a "prereg-v1" -m "Official OSF Preregistration v1: GRACE Diagnostic Replication (15 arms, Qwen3-Coder-30B, exposure ledger, self-signing locked thresholds)"
-   git push origin prereg-v1
+   git ls-remote --tags origin prereg-v1
    ```
 3. **Khóa Bất Biến Tuyệt Đối:**
    - Giữ nguyên toàn bộ tệp byte trong `Runs-management/osf_registration_draft_20261102/`.
    - Tuyệt đối không sửa lại file PDF hay ZIP cũ để chèn URL sau đăng ký (tất cả thông tin bổ sung sau khi gửi phải được ghi vào biên bản mới `OSF_CONFIRMATION_RECEIPT.md`).
-4. **Tiến hành Bước 5 (Test Set Inference):** Chỉ sau khi hồ sơ trên OSF đã có trạng thái *Approved* / *Active*, nhóm nghiên cứu mới được phép bắt đầu chạy suy luận trên tập Test.
+4. **Tiến hành công việc test còn thiếu:** Sau khi hồ sơ OSF có trạng thái *Approved* / *Active*, chạy các phần test mới hoặc cần chạy lại theo giao thức đã khóa. Những lượt test lịch sử đã khai báo vẫn giữ nguyên timestamp và manifest.

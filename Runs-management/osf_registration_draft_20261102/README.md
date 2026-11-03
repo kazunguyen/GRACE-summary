@@ -3,7 +3,7 @@
 **Status:** READY FOR OSF REGISTRY SUBMISSION  
 **Study ID:** `grace_diag_replication_v1`  
 **Document & Package Version:** `prereg-v1`  
-**Git Tag / Permanent Commit:** `prereg-v1` (`7f98e10dca292f4962ded372d01487d88e2c2e97`)  
+**Git Tag for submission:** `prereg-v1` (verify that it resolves to the exact commit of the submitted package)
 **Pack Generation Date:** 2026-11-03 (Asia/Bangkok)  
 
 ---
@@ -40,4 +40,4 @@
 4. Upload `output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf` as primary document, `GRACE_OSF_PREREGISTRATION_20261102.zip` as archive, and `attachment_sha256.json` as checksum verification.
 5. Provide permanent GitHub repository tag: `https://github.com/kazunguyen/GRACE-summary/tree/prereg-v1`
 6. Submit and confirm via email links sent to all contributors.
-7. **Strict Zero-Test-Exposure Rule:** No inference on the test split may be initiated before the registration is confirmed and active on OSF Registries.
+7. **Existing test exposure:** B0/B1/B2 test inference and exploratory metrics preceded OSF submission; B2-flip Devign test has 230 viewed raw labels. Preserve their timestamps and manifests. Apply validation → threshold lock → test to work still unexecuted, and record the actual OSF URL/timestamp after approval.

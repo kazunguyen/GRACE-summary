@@ -57,7 +57,7 @@ Before logging into OSF Registries, verify that:
 
 * **Description (Abstract):**
   ```text
-  This preregistration outlines a diagnostic replication and ablation study of GRACE (Graph-based In-Context Learning for Vulnerability Detection). We systematically decompose the GRACE pipeline across 15 diagnostic arms on Devign (N=5,464) and REVEAL (N=4,547) benchmarks using Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M). The study investigates: (1) whether textualized Code Property Graphs (CPG) convey genuine structural signal over raw source code (B0 vs B1 vs B1-shuf vs B1-full vs B1-H2); (2) whether in-context demonstrations operate through semantic program logic or surface label biases (B2 vs B2-rand vs B2-nolabel vs B2-labelonly vs B2-flip vs B2-rep); (3) whether contrastive demonstration pairs with differential explanations provide operational improvements (B3 vs B3-nodiff vs B3-swap vs B3-flip); and (4) whether LLM representations offer orthogonal complementarity when routed alongside frozen CodeT5 embeddings and supervised baselines. All 14 decision thresholds are strictly locked on validation splits prior to test evaluation under a zero-test-exposure protocol.
+  This preregistration documents a diagnostic replication of GRACE across 15 arms on Devign and REVEAL using Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M). B0, B1 and B2 test inference and exploratory metrics preceded OSF submission; 230 B2-flip Devign test raw labels were also viewed. The 14 current decision thresholds were selected on validation, but their lock is not claimed to predate every historical test run. The registration specifies rules for future analyses and discloses prior exposure; independent confirmation requires data not used to shape the plan.
   ```
 
 * **License:**
@@ -102,7 +102,7 @@ Copy verbatim the 11 pre-registered hypotheses:
 
 * **Existing Data Declaration:**
   - Select: **Registration following analysis of the data** (for Tier 1 arms B0, B1, B2 on Devign and ReVeal test sets where exploratory metrics were computed prior to formal pre-registration).
-  - Select: **Registration prior to analysis of the data** (for all Tier 2–3 arms, Table B bootstrap contrasts, Table D routing analyses, and blind review audits).
+  - Use **Registration prior to analysis of the data** only for each analysis genuinely unperformed at submission. Disclose partial B2-rand validation inference and the 230 B2-flip Devign test raw labels; do not classify all Tier 2–3 work uniformly.
 
 * **Existing Data Explanation:**
   Paste the Exposure Ledger table from Section 1.2 of `preregistration.md`.
@@ -164,6 +164,6 @@ Once approved:
 1. Record official registration URL (`https://osf.io/XXXXX`) and DOI.
 2. Verify git tag `prereg-v1` on GitHub:
    ```powershell
-   git push origin prereg-v1
+   git ls-remote --tags origin prereg-v1
    ```
-3. Proceed with Step 5 (confirmatory test inference).
+3. Proceed with new or required rerun test work under the frozen protocol; preserve historical run timestamps and manifests.

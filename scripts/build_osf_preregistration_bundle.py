@@ -363,6 +363,7 @@ def build_inventory_and_zip():
         ("preregistration.md", PREREG_MD),
         ("preregistration_en.md", REPO_ROOT / "preregistration_en.md"),
         ("preregistration_vi.md", REPO_ROOT / "preregistration_vi.md"),
+        ("CHANGES_AFTER_PREREG.md", REPO_ROOT / "CHANGES_AFTER_PREREG.md"),
         ("output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf", PDF_FILE),
         # Protocol configs
         ("configs/protocol.yaml", REPO_ROOT / "configs" / "protocol.yaml"),

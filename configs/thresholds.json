@@ -123,24 +123,27 @@
       "tau_star": 0.38
     }
   },
-  "locked_sha256": "a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831",
+  "locked_sha256": "9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3",
   "metadata": {
     "grid_points": 99,
     "grid_range": [
       0.01,
       0.99
     ],
-    "locked_utc": "2026-11-03T05:54:25Z",
+    "locked_utc": "2026-11-03T08:57:36Z",
     "optimized_on_split": "validation",
     "phase": "Step 4: Full Validation Threshold Locking (Option B)",
-    "protocol_sha256": "acbea32853ff7741065b774d671aff06d569b3e403c9bd696606a840501c02ce",
+    "previous_locked_sha256": "a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831",
+    "previous_protocol_sha256": "acbea32853ff7741065b774d671aff06d569b3e403c9bd696606a840501c02ce",
+    "protocol_sha256": "273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116",
+    "reseal_reason": "Protocol disclosure corrected after historical test exposure; threshold values unchanged; no refit",
     "sample_counts": {
       "devign_val": 2732,
       "reveal_val": 2273,
       "total_val": 5005
     },
     "study_id": "grace_diag_replication_v1",
-    "test_exposure": "STRICTLY_NONE (Zero test data used)",
+    "test_exposure": "Threshold values computed on validation only; earlier test inference/metrics existed and are disclosed in exposure_ledger",
     "total_thresholds_locked": 14,
     "version": "prereg-v1"
   },
