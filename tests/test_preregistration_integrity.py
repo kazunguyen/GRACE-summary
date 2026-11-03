@@ -2,8 +2,8 @@
 """Kiểm thử tự động toàn diện cho Bước 4: Preregistration Integrity & Contract Compliance.
 
 Xác nhận tính toàn vẹn, tính nhất quán và tính bất biến của Giao thức Đăng ký trước:
-1. Xác nhận định danh mô hình (Provenance): Qwen3-Coder-30B-A3B-Instruct (UD-Q4_K_XL, 16.45 GB, llama-server, --n_ctx 8192, Kaggle GPU 2x T4).
-2. Xác nhận loại bỏ hoàn toàn các vết sót cũ về mô hình 7B Q4_K_M trong tài liệu preregistration và cấu hình protocol.
+1. Xác nhận định danh mô hình thực chạy (Provenance): Qwen3-Coder-30B-A3B-Instruct Q4_K_M, SHA-256 của GGUF và backend llama-cpp-python trên Kaggle GPU 2x T4.
+2. Phân biệt cấu hình inference thực chạy với phương án server/fallback trong protocol lịch sử đã khóa.
 3. Xác nhận định nghĩa đơn vị gom nhóm (cluster units): Devign (commit_id, 2068 cụm) và ReVeal (file_hash, 646 cụm).
 4. Xác nhận khóa chặt chẽ các giả thuyết khoa học: H1.1, H1.2, H5.3 (routing q=10% paired bootstrap CI) và quy tắc quyết định với biên thực chất delta = 0.02.
 5. Xác nhận đồng bộ 14 ngưỡng tối ưu tau* khóa từ Validation trong configs/thresholds.json và configs/thresholds_flat.json.
@@ -33,16 +33,17 @@ def test_preregistration_document_provenance():
     assert PREREG_MD.exists(), "Tệp preregistration.md không tồn tại!"
     text = PREREG_MD.read_text(encoding="utf-8")
 
-    # 1. Provenance mô hình mục tiêu
+    # Provenance của các notebook inference thực chạy
     assert "Qwen3-Coder-30B-A3B-Instruct" in text, "Thiếu định danh mô hình Qwen3-Coder-30B-A3B-Instruct!"
     assert "Q4_K_M" in text, "Thiếu định dạng lượng tử hóa Q4_K_M!"
-    assert "16.45 GB" in text, "Thiếu dung lượng mô hình 16.45 GB!"
-    assert "llama-server" in text, "Thiếu serving backend llama-server!"
-    assert "--n_ctx 8192" in text, "Thiếu tham số context length --n_ctx 8192!"
+    assert "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF" in text
+    assert "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335" in text
+    assert "llama-cpp-python 0.3.16" in text
+    assert "n_ctx=8192" in text
     assert "Kaggle" in text, "Thiếu môi trường Kaggle!"
     assert "Tesla T4" in text, "Thiếu cấu hình phần cứng Tesla T4!"
 
-    # 2. Không còn tồn dư 7B hoặc Q4_K_M trong preregistration.md
+    # Không trộn model 7B vào phần đối chiếu này.
     assert "7B" not in text, "Vẫn còn vết sót mô hình 7B trong preregistration.md!"
     assert "Q4_K_M" in text, "Thiếu định danh lượng tử hóa Q4_K_M trong preregistration.md!"
 

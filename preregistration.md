@@ -154,14 +154,12 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 
 ### 7.2. Checkpoint Mô Hình & Môi Trường Suy Luận (Provenance Chuẩn Hóa)
 
-- **Primary Architecture:** `Qwen/Qwen3-Coder-30B-A3B-Instruct` (MoE: 30.5B total params, 3.3B active params per token, 48 layers, 48 routed experts, 8 routed per token). tại revision Hugging Face `b2cff646eb4bb1d68355c01b18ae02e7cf42d120`.
-- **Target Serving Backend:** `llama-server` (llama.cpp b3920) với GGUF Quantization Q4_K_M (`Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf`, file SHA-256: `f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335`, kích thước 16.45 GB) trên Kaggle Linux GPU 2× Tesla T4 (0 USD, split-mode: layer, CUDA0: 8.48 GB, CUDA1: 8.18 GB).
-- **Serving Parameters:** `--n_ctx 8192`, `--ctx-size 8192`, `--n_batch 2048`, `--n_ubatch 512`, `--split-mode layer`, `--parallel 1`, Flash-Attention kích hoạt.
-- **Kaggle Model Dataset Slug:** `tnthnhneee/qwen3-30b-a3b/gguf/coder-instruct-ud-q4_k_xl`.
-- **API Interface:** OpenAI-compatible REST API `/v1/chat/completions` qua Cloudflare HTTPS Tunnel.
-- **Decoding Hyperparameters:** `temperature = 0.0`, `max_tokens = 1`, `logprobs = true`, `top_logprobs = 5`, `seed = 42`.
-- **Loại bỏ triệt để tồn dư:** Loại bỏ hoàn toàn mọi vết sót cũ về các dòng mô hình không chính thức hoặc cấu hình lượng tử hóa cũ trong toàn bộ tài liệu đăng ký và quy trình thực nghiệm.
-- **Fallback Backend:** vLLM (FP8/bf16 trên GPU thuê) hoặc các dòng Qwen2.5-Coder (32B / 14B).
+- **Kiến trúc và tokenizer:** `Qwen/Qwen3-Coder-30B-A3B-Instruct`; tokenizer ở revision `b2cff646eb4bb1d68355c01b18ae02e7cf42d120`.
+- **Trọng số model thực chạy:** GGUF từ `ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF`, file `Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf`, lượng tử hóa `Q4_K_M`, SHA-256 `f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335`. Manifest của các lượt B0, B1, B2, B2-flip và B2-rand đã có output đều ghi cùng định danh này.
+- **Backend inference thực chạy:** `llama-cpp-python 0.3.16` gọi trực tiếp `Llama(...)` trên Kaggle GPU 2× Tesla T4, với `n_ctx=8192`, `n_batch=256`, `n_gpu_layers=-1`, `logits_all=True`; chấm điểm từ logits token đầu của nhãn `0` và `1`. Đây là cấu hình trong notebook và run manifest, không phải `llama-server` qua REST/Cloudflare.
+- **Nguồn file model trên Kaggle:** Notebook B2 tìm đúng tên GGUF trong output của `quangdung1111/qwen3coder30b-prepare-notebook`; các notebook arm khác tìm file GGUF gắn làm Input và kiểm SHA-256 trước khi inference. Slug `tnthnhneee/qwen3-30b-a3b/gguf/coder-instruct-ud-q4_k_xl` trong bản protocol cũ không định danh file `Q4_K_M` đã chạy.
+- **Phạm vi model fallback:** Không có run inference B0/B1/B2/B2-flip/B2-rand đã đối chiếu nào dùng vLLM hoặc Qwen2.5-Coder. Các lựa chọn đó trong `protocol.yaml` là phương án dự kiến trước đây, không được gộp vào kết quả của model GGUF trên.
+- **Ghi chú về bản khóa:** Hai bản `protocol.yaml` được giữ nguyên như artifact lịch sử vì `thresholds.json` lưu SHA-256 của protocol đã khóa. Phần này là đối chiếu hậu kiểm với notebook và output thực chạy, không thay đổi thời điểm hay nội dung bản khóa cũ.
 
 ---
 
