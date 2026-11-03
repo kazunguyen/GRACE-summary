@@ -5,12 +5,14 @@
 **Phiên bản:** `prereg-v2-15arms`  
 **Ngày hoàn thiện gói nộp:** 2026-11-02 (UTC)  
 
+Bản Markdown nháp cũ `OSF_DRAFT.md` đã được chuyển vào `../osf_drafts_pending_delete_20261103/` để chờ xóa. PDF/ZIP preregistration chính là deliverable; trạng thái ở đây là sẵn sàng nộp, chưa phải hồ sơ đã được OSF xác nhận.
+
 ---
 
 ## 1. Danh Mục Tệp Nộp Chính (Submission Deliverables)
 
 1. **Tệp PDF văn bản đăng ký chính thức:**
-   - Đường dẫn: `output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf` (và bản copy tương thích ngược `output/pdf/GRACE_OSF_DRAFT_20261102.pdf`).
+   - Đường dẫn: `output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf` (bản copy tương thích ngược đã được chuyển vào `../osf_drafts_pending_delete_20261103/GRACE_OSF_DRAFT_20261102.pdf` để chờ xóa).
    - Được biên dịch tự động từ `preregistration.md` qua ReportLab với font Arial Unicode đầy đủ, có tiêu đề đầu trang và đánh số trang.
 2. **Gói ZIP mã nguồn & cấu hình độc lập (Stand-alone Reproducible Archive):**
    - Đường dẫn: `GRACE_OSF_PREREGISTRATION_20261102.zip` (và bản copy tương thích ngược `GRACE_OSF_DRAFT_20261102.zip`).
