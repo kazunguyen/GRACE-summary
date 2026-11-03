@@ -4,9 +4,9 @@
 - **Version:** `prereg-v1`
 - **Registration Date:** 2026-10-31 (Cập nhật chuẩn hóa hoàn thiện Bước 4: 2026-11-02)
 - **Repository Version / Git Tag:** `prereg-v1`
-- **Protocol Configuration File:** `grace_diag_kit/configs/protocol.yaml` & `configs/protocol.yaml`
-- **Locked Thresholds File:** `configs/thresholds.json` & `configs/thresholds_flat.json`
-- **Tài liệu đề cương gốc:** `00_Reports_and_Docs/De_cuong_nghien_cuu_GRACE_hop_nhat.pdf`
+- **Protocol Configuration File:** [`01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml) & [`configs/protocol.yaml`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/configs/protocol.yaml)
+- **Locked Thresholds File:** [`configs/thresholds.json`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/configs/thresholds.json) & [`configs/thresholds_flat.json`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/configs/thresholds_flat.json)
+- **Tài liệu đề cương gốc:** [`00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf)
 
 ---
 
