@@ -361,9 +361,12 @@ def build_inventory_and_zip():
     assets = [
         # Preregistration documents
         ("preregistration.md", PREREG_MD),
+        ("preregistration_en.md", REPO_ROOT / "preregistration_en.md"),
+        ("preregistration_vi.md", REPO_ROOT / "preregistration_vi.md"),
         ("output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf", PDF_FILE),
         # Protocol configs
         ("configs/protocol.yaml", REPO_ROOT / "configs" / "protocol.yaml"),
+        ("configs/protocol_en.yaml", REPO_ROOT / "configs" / "protocol_en.yaml"),
         ("configs/arms.yaml", REPO_ROOT / "configs" / "arms.yaml"),
         ("configs/thresholds.json", REPO_ROOT / "configs" / "thresholds.json"),
         ("configs/thresholds_flat.json", REPO_ROOT / "configs" / "thresholds_flat.json"),

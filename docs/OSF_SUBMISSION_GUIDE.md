@@ -2,7 +2,7 @@
 ## (Step-by-Step OSF Registries Submission Guide for GRACE Replication)
 
 > **Mã hồ sơ:** `grace_diag_replication_v1`  
-> **Phiên bản:** `prereg-v2-15arms`  
+> **Phiên bản:** `prereg-v1`  
 > **Tài liệu nộp chính:** `Runs-management/osf_registration_draft_20261102/output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf`  
 > **Tệp nén độc lập đính kèm:** `Runs-management/osf_registration_draft_20261102/GRACE_OSF_PREREGISTRATION_20261102.zip`  
 > **Bảng mã băm kiểm toán:** `Runs-management/osf_registration_draft_20261102/attachment_sha256.json`  
@@ -28,9 +28,9 @@ Trước khi truy cập cổng OSF Registries, người nộp cần đảm bảo
    python scripts/build_osf_preregistration_bundle.py
    ```
 4. Đã đối chiếu các tệp đầu ra tại `Runs-management/osf_registration_draft_20261102/`:
-   - `output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf` (~110 KB)
-   - `GRACE_OSF_PREREGISTRATION_20261102.zip` (~292 KB)
-   - `attachment_sha256.json` (chứa SHA-256 của 30 tệp cốt lõi)
+   - `output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf` (~365 KB)
+   - `GRACE_OSF_PREREGISTRATION_20261102.zip` (~420 KB)
+   - `attachment_sha256.json` (chứa SHA-256 của 39 tệp cốt lõi)
 
 ---
 
@@ -145,7 +145,7 @@ Tại phần **Files / Attachments** của form OSF:
    `Runs-management/osf_registration_draft_20261102/attachment_sha256.json`
 4. Trong ô chú thích (File Description), ghi rõ:
    ```text
-   Stand-alone reproducible preregistration pack containing protocol YAML, frozen threshold tables, analysis lock manifests, 15-arm validation dry-run audit summary (95,095 prompts rendered, 0 leaks, 0 LLM calls), and core diagnostic evaluation code. All files verified against SHA-256 digests in attachment_sha256.json.
+   Stand-alone reproducible preregistration pack containing protocol YAML, frozen threshold tables, analysis lock manifests, 15-arm validation dry-run audit summary (95,095 prompts rendered, 0 leaks, 0 LLM calls), and core diagnostic evaluation code. All files verified against SHA-256 digests in attachment_sha256.json. Permanent GitHub repository tag: https://github.com/kazunguyen/GRACE-summary/tree/prereg-v1
    ```
 
 ---
@@ -170,10 +170,10 @@ Tại phần **Files / Attachments** của form OSF:
 
 Sau khi OSF Registries phê duyệt và cấp mã DOI / Registration URL:
 1. **Ghi lại mã định danh:** Lưu lại URL đăng ký chính thức (dạng `https://osf.io/XXXXX`) và DOI.
-2. **Tạo thẻ Git Tag chính thức:**
+2. **Xác nhận thẻ Git Tag chính thức (`prereg-v1`):**
    ```powershell
-   git tag -a "prereg-v2-15arms" -m "Official OSF Preregistration: GRACE Diagnostic Replication (15 arms, Qwen3-Coder-30B, locked thresholds)"
-   git push origin prereg-v2-15arms
+   git tag -a "prereg-v1" -m "Official OSF Preregistration v1: GRACE Diagnostic Replication (15 arms, Qwen3-Coder-30B, exposure ledger, self-signing locked thresholds)"
+   git push origin prereg-v1
    ```
 3. **Khóa Bất Biến Tuyệt Đối:**
    - Giữ nguyên toàn bộ tệp byte trong `Runs-management/osf_registration_draft_20261102/`.
