@@ -1,5 +1,5 @@
 {
-  "prepared_at_utc": "2026-11-03T09:39:34.575635+00:00",
+  "prepared_at_utc": "2026-11-03T14:09:11.413740+00:00",
   "study_id": "grace_diag_replication_v1",
   "version": "prereg-v1",
   "status": "OSF_PREREGISTRATION_READY_FOR_REGISTRY_SUBMISSION",
@@ -23,18 +23,18 @@
   "files": [
     {
       "path": "preregistration.md",
-      "bytes": 33424,
-      "sha256": "4f2dc618a032dffb9b1f84a0ce3f838fe9848374c42e00eef8370e4de0966ee2"
+      "bytes": 34340,
+      "sha256": "d32afc87f2a87de3b19df8465e4cc57e204bc45ecf238cb1bae3bde8e53b7e5b"
     },
     {
       "path": "preregistration_en.md",
-      "bytes": 33424,
-      "sha256": "4f2dc618a032dffb9b1f84a0ce3f838fe9848374c42e00eef8370e4de0966ee2"
+      "bytes": 34340,
+      "sha256": "d32afc87f2a87de3b19df8465e4cc57e204bc45ecf238cb1bae3bde8e53b7e5b"
     },
     {
       "path": "preregistration_vi.md",
-      "bytes": 36973,
-      "sha256": "522d520305c7b31416097ba5f1877d8be3dd0a4762b5f936de52710f786f9f3b"
+      "bytes": 38063,
+      "sha256": "caac5dd9ed318f491b04497a228c15ec265977d8224e753311d45e43fad3c64e"
     },
     {
       "path": "CHANGES_AFTER_PREREG.md",
@@ -43,8 +43,8 @@
     },
     {
       "path": "output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf",
-      "bytes": 352193,
-      "sha256": "1e41222847fd5b060b4320edba1096cea3cc46f0a6367d14d9af7f8594b912a2"
+      "bytes": 352378,
+      "sha256": "0f705db32fa2a820d7d9cb676cb446d79ee5f90d411ddf0bc67281217c6f0579"
     },
     {
       "path": "configs/protocol.yaml",

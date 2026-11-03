@@ -126,7 +126,7 @@ Copy verbatim the 11 pre-registered hypotheses:
     * 'no_meaningful_benefit': CI upper bound < delta.
     * 'harm': CI upper bound < 0.
     * 'inconclusive': CI overlaps 0 or upper bound >= delta with lower bound <= 0.
-  - Threshold Fitting: 14 optimal thresholds tau* locked via argmax MCC on validation grid [0.01, 0.99] step 0.01.
+   - Threshold Record: 14 tau* values selected on validation grid [0.01, 0.99] step 0.01. Current `configs/thresholds.json` `locked_sha256`: `9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3`. The earlier `a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831` is retained as `previous_locked_sha256`. The protocol disclosure was corrected and the lock resealed on 2026-11-03 without refitting values; this does not establish a lock before historical test runs.
   ```
 
 ---
@@ -142,7 +142,7 @@ Under **Files / Attachments**:
    `Runs-management/osf_registration_draft_20261102/attachment_sha256.json`
 4. In the File Description field, write:
    ```text
-   Stand-alone reproducible preregistration pack containing protocol YAML, frozen threshold tables, analysis lock manifests, 15-arm validation dry-run audit summary (95,095 prompts rendered, 0 leaks, 0 LLM calls), and core diagnostic evaluation code. All files verified against SHA-256 digests in attachment_sha256.json. Permanent GitHub repository tag: https://github.com/kazunguyen/GRACE-summary/tree/prereg-v1
+   Stand-alone preregistration pack containing protocol YAML, threshold records, analysis lock manifests, the available validation dry-run audit summary (70,070 prompts across 10 arms; five arms blocked; no unresolved label-leak flags within the checked scope; 0 LLM calls), and core diagnostic evaluation code. Packaged files were verified against SHA-256 digests in attachment_sha256.json. Permanent GitHub repository tag for the submitted commit: https://github.com/kazunguyen/GRACE-summary/tree/prereg-v1
    ```
 
 ---

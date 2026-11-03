@@ -129,7 +129,7 @@ Sao chép nguyên văn 11 giả thuyết từ Bảng 4.3 trong `preregistration.
     * 'no_meaningful_benefit': CI upper bound < delta.
     * 'harm': CI upper bound < 0.
     * 'inconclusive': CI overlaps 0 and upper bound >= delta.
-  - Threshold Fitting: 14 optimal thresholds tau* locked via argmax MCC on validation grid [0.01, 0.99] step 0.01.
+   - Threshold Record: 14 giá trị tau* chọn trên validation theo grid [0.01, 0.99], bước 0.01. `locked_sha256` hiện hành trong `configs/thresholds.json`: `9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3`. Giá trị cũ `a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831` được giữ ở `previous_locked_sha256`. Giao thức được sửa phần khai báo tiếp xúc và khóa được niêm phong lại ngày 03/11/2026, không fit lại ngưỡng; lần niêm phong này không chứng minh ngưỡng đã khóa trước các lượt test lịch sử.
   ```
 
 ---
@@ -145,7 +145,7 @@ Tại phần **Files / Attachments** của form OSF:
    `Runs-management/osf_registration_draft_20261102/attachment_sha256.json`
 4. Trong ô chú thích (File Description), ghi rõ:
    ```text
-   Stand-alone reproducible preregistration pack containing protocol YAML, frozen threshold tables, analysis lock manifests, 15-arm validation dry-run audit summary (95,095 prompts rendered, 0 leaks, 0 LLM calls), and core diagnostic evaluation code. All files verified against SHA-256 digests in attachment_sha256.json. Permanent GitHub repository tag: https://github.com/kazunguyen/GRACE-summary/tree/prereg-v1
+   Stand-alone preregistration pack containing protocol YAML, threshold records, analysis lock manifests, the available validation dry-run audit summary (70,070 prompts across 10 arms; five arms blocked; no unresolved label-leak flags within the checked scope; 0 LLM calls), and core diagnostic evaluation code. Packaged files were verified against SHA-256 digests in attachment_sha256.json. Permanent GitHub repository tag for the submitted commit: https://github.com/kazunguyen/GRACE-summary/tree/prereg-v1
    ```
 
 ---
