@@ -370,7 +370,7 @@ def build_inventory_and_zip():
         ("configs/arms.yaml", REPO_ROOT / "configs" / "arms.yaml"),
         ("configs/thresholds.json", REPO_ROOT / "configs" / "thresholds.json"),
         ("configs/thresholds_flat.json", REPO_ROOT / "configs" / "thresholds_flat.json"),
-        ("runs/thresholds.json", REPO_ROOT / "runs" / "thresholds.json"),
+        ("Runs-management/thresholds.json", REPO_ROOT / "Runs-management" / "thresholds.json"),
         ("01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "protocol.yaml"),
         ("01_Author_Baseline_Unified/diagnostic_kit/configs/arms.yaml", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "arms.yaml"),
         ("01_Author_Baseline_Unified/diagnostic_kit/configs/thresholds.json", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "thresholds.json"),

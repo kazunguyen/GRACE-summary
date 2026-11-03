@@ -17,11 +17,13 @@
 | B0 — I-03 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên cũ; không rerun do donor; giữ lịch sử khóa sau test |
 | B1 — I-07 | 2.732 | 429 | 2.273 | 0 | Còn 4.577; khóa validation/gate đúng phiên trước test mới |
 | B2 — I-02/I-04/I-05 + I-09 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên donor mới: 66 Devign thay bằng I-09, các record khác giữ nguyên; output cũ được bảo toàn |
-| B2-flip — I-06 | 2.732 | 230 | 2.273 | 0 | Giữ 5.202; sửa 33 và chạy 4.776 thiếu=4.809 lượt bổ sung |
+| B2-flip — I-06 | 2.732 | 230 | 2.273 | 0 | Chưa có inference lại theo donor mới; giữ 5.202, chạy lại 33 đã đổi prompt và chạy 4.776 còn thiếu = 4.809 lượt bổ sung |
 | B2-rep | 0 | 0 | 0 | 0 | Chốt phiên B2 cuối, dựng prompt đúng phiên và runner gọi mới model |
 | B2-rand | 2.732 | 0 | 2.066 | 0 | Seed 42 validation đang dở; seed 43/44 chưa chạy; xem I-09 |
 
 Số liệu/nguồn: [HIEN_TRANG.md](HIEN_TRANG.md), [current_status.json](current_status.json). Sổ này lưu từng phiên J/E/P/I; bảng hiện tại không thay bằng chứng/history của các phiên cũ. Tổng record Tầng 1 đã nhập 30.691; không đồng nghĩa mọi điều kiện xác nhận đã hoàn tất. B0 valid score đủ nhưng raw invalid 1.132; B1 raw invalid 3, score invalid 0. Không gộp hai khái niệm invalid.
+
+**B2-flip sau chốt donor — kiểm tra ngày 03/11/2026:** Chưa tìm thấy output inference GPU phiên donor mới; artifact hiện có vẫn là I-06 theo donor B2 cũ. Donor mới làm đổi demo/prompt của **28 Devign validation** và **38 Devign test**. Trong I-06, 28 validation và 5 test đã chạy nên cần **inference lại 33 mẫu**; 33 test còn lại chưa từng chạy, cần dùng prompt mới ở lần inference đầu. REVEAL validation/test không đổi prompt do donor. Bundle và notebook resume mới chỉ ở trạng thái chuẩn bị, không tính là đã chạy lại. [Kế hoạch và artifact chuẩn bị](B2_FLIP_DONOR_MOI_RESUME.md), [đối chiếu I-06](b2_flip_I06_20261102/KET_QUA_I06_B2_FLIP.md).
 
 - [README chạy/bàn giao](../README.md): chọn notebook, chỉnh cell nào, input/output, mốc thêm cải tiến.
 - [Mục lục quản lý](README.md), [ma trận15 arm](MA_TRAN_RUN.md), [tiến độ/điều kiện](TIEN_DO_PHUONG_AN_2.md), [contract/quy ước](QUY_UOC_FRAMEWORK_20261101.md).

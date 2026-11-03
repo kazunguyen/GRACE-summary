@@ -8,23 +8,21 @@
 - **Locked Thresholds File:** [`configs/thresholds.json`](https://github.com/kazunguyen/GRACE-summary/blob/prereg-v1/configs/thresholds.json) & [`configs/thresholds_flat.json`](https://github.com/kazunguyen/GRACE-summary/blob/prereg-v1/configs/thresholds_flat.json)
 - **Original Research Proposal Document:** [`00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf`](https://github.com/kazunguyen/GRACE-summary/blob/prereg-v1/00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf)
 
+The date 2026-10-31 above identifies the historical protocol document; it is **not** an OSF submission or approval timestamp. The actual OSF registration URL and timestamp remain pending. The `prereg-v1` tag identifies a repository snapshot, not proof that every decision preceded the test runs listed below.
+
 ---
 
 ## 1. Test Exposure Disclosure & Exposure Ledger
 
 The test sets of Devign and ReVeal were previously exposed during the initial exploratory phase (including 36 exploratory API test runs, the dev-100 subset, and preliminary H1–H3 motivation measurements).
 
-To guarantee scientific validity and rigorous confirmatory standing:
-1. All configuration choices, hyperparameters, token budgets, prompt templates, and 15 experimental arms are **strictly locked on the official validation set** prior to executing confirmatory test runs.
-2. The optimal classification threshold $\tau^*$ for every arm is searched for and frozen entirely on the validation split (`configs/thresholds.json` and `runs/thresholds.json`), and is never tuned based on test results.
-3. All exploratory results from earlier phases are treated strictly as academic motivation evidence and relegated to appendices, separated entirely from confirmatory results.
-4. Any post-registration modification must be transparently documented with justification in `CHANGES_AFTER_PREREG.md`.
+The exposure ledger below records test inference and exploratory metric inspection before OSF submission. The current protocol, prompts, arms and thresholds are documented for subsequent work; this document does **not** claim that every decision was frozen before those historical test runs. Threshold values in `configs/thresholds.json` were selected on validation, but no evidence establishes that their lock preceded every Tier 1 or B2-flip test inference. The earlier Tier 1 metrics are existing-data results following analysis, not prospectively confirmed by this registration. Future changes and analyses must be dated and disclosed in `CHANGES_AFTER_PREREG.md`; any claim of prospective confirmation applies only to a specific analysis demonstrably unperformed when OSF registration occurs.
 
 ### 1.1. OSF Existing Data Declarations
 
 According to Open Science Framework (OSF) registration classifications:
 - **Registration following analysis of the data:** Applies to Tier 1 arms (B0, B1, B2) on the test sets of Devign and ReVeal because exploratory metrics (MCC, AUROC) were computed during the exploratory phase. In Table B of the paper, these contrast pairs are explicitly marked as "observed prior to registration".
-- **Registration prior to analysis of the data:** Applies to all Tier 2–3 arms (B2-rand, B2-nolabel, B2-labelonly, B1-shuf, B1-full, B1-H2, B3, B3-nodiff, B3-swap, B3-flip) and all unexecuted confirmatory analyses: Table B (paired bootstrap contrasts with Holm correction), Table D (complementarity analysis, budget routing), and the 2-rater blind review audit.
+- **Registration prior to analysis of the data:** Applies only to the specified Tier 2–3 test analyses and confirmatory contrasts that remain unperformed at the actual OSF submission time, including planned Table B/D analyses and the 2-rater audit where still unperformed. This is an analysis-level classification: B2-rand validation inference has begun, and 230 B2-flip Devign test raw labels were viewed before registration and are marked for rerun. Those exposures remain disclosed even if the planned contrasts have not been computed.
 
 ### 1.2. Exposure Ledger & 3-Condition Audit for Keep vs. Rerun
 
@@ -47,7 +45,7 @@ In accordance with scientific advisory directives, the research team audited his
 | **B2-flip** | ReVeal | Test | Unexecuted | None | None (`none`) | Yes (`yes`) | Retain (`keep`) |
 | **B2-rep** | Both | Val / Test | Unexecuted | None | None (`none`) | Yes (`yes`) | Fresh run without cache (`rerun_repeat_only`) |
 | **B2-rand** | Both | Validation | 2026-11-02T00:04:23Z | `484b901` | None (`none`) | Yes (`yes`) | Retain (`keep`) |
-| **Tier 2–3**| Both | Val / Test | Unexecuted | None | None (`none`) | Yes (`yes`) | Pre-registered prior to analysis (`prior_to_analysis`) |
+| **Remaining Tier 2–3 work** | Both | As applicable | Not yet executed; see B2-flip and B2-rand rows above | None | None (`none`) | Pending per run | Classify each planned analysis by its actual exposure at OSF submission |
 
 ---
 
@@ -90,7 +88,7 @@ Pre-declared $\delta$ margins: General standard for practical equivalence margin
      $$\tau^*(d, a, r) = \operatorname{argmax}_{\tau \in \{0.01, 0.02, \dots, 0.99\}} \operatorname{MCC}(y_\text{val}(d), \mathbf{1}[s_\text{val}(d, a, r) \ge \tau])$$
    - **Tie-break rule:** In case of ties, select the threshold closest to 0.5 (`closest_to_0.5`); if tied in distance to 0.5, take the smaller threshold. Use only valid validation samples (`valid == True`); thresholds yielding undefined MCC (all predictions in one class) are discarded.
    - **Threshold Inheritance Rule:** Label intervention and repetition probes ($B2\text{-rep}$, $B2\text{-flip}$, $B3\text{-flip}$, $B3\text{-swap}$) **must not select $\tau^*$ independently on validation**, but instead directly inherit the locked $\tau^*$ of the corresponding base arm ($B2$ or $B3$). Re-optimizing thresholds for an arm with inverted labels or repetitions would "repair" the intervention effect and confound threshold tuning variance with the experimental treatment.
-   - All 14 optimal thresholds $\tau^*$ are locked into `configs/thresholds.json` and `runs/thresholds.json` prior to any test inference:
+   - The following 14 threshold values are recorded in `configs/thresholds.json` and `Runs-management/thresholds.json`. They were selected on validation; the lock is **not** represented as predating every historical test inference in the exposure ledger:
      - **Devign LLM Arms**: `devign|B0|42` = 0.08, `devign|B1|42` = 0.88, `devign|B2|42` = 0.70, `devign|B2-flip|42` = 0.70 (inherited from B2), `devign|B2-rep|42` = 0.70 (inherited from B2).
      - **ReVeal LLM Arms**: `reveal|B0|42` = 0.44, `reveal|B1|42` = 0.74, `reveal|B2|42` = 0.12, `reveal|B2-flip|42` = 0.12 (inherited from B2), `reveal|B2-rep|42` = 0.12 (inherited from B2).
      - **Meta-Models**: `devign|P-PRE|42` = 0.54, `devign|P-POST|42` = 0.60; `reveal|P-PRE|42` = 0.38, `reveal|P-POST|42` = 0.10.
@@ -157,7 +155,7 @@ Pre-declared $\delta$ margins: General standard for practical equivalence margin
 1. **SUP-LR Advantage Disappears:** If after deduplication and label auditing SUP-LR no longer significantly outperforms B2, halt the study to review preprocessing before drafting.
 2. **Prompt Audit Failure:** If empty demonstration rate $> 1\%$, missing graph rate $> 5\%$ (excluding flagged Joern errors), or target label leakage $> 0$, halt pipeline, correct prompt contract, and rerun all affected arms.
 3. **Backend Smoke Test Failure:** If valid response rate containing token 0/1 in top-5 logprob $< 99\%$, do not execute confirmatory matrix until backend achieves quantitative stability. This is Step 1 API smoke test criteria, not the validity definition in Kaggle full-logit inference.
-4. **Strict Protocol Freeze:** Absolutely no new arms, no additional models, and no threshold tuning after observing test data. Any post-hoc analyses must be labeled "exploratory post-hoc" in the final manuscript.
+4. **Prospective Protocol Freeze:** From the documented freeze onward, changes to arms, models or thresholds require a dated amendment and explicit exploratory classification. This rule does not retroactively describe the already exposed Tier 1/B2-flip test runs. Any later analyses outside the registered plan must be labeled "exploratory post-hoc" in the final manuscript.
 
 ---
 
@@ -201,12 +199,12 @@ Pre-declared $\delta$ margins: General standard for practical equivalence margin
 - [x] **Backend Smoke Test:** $\ge 99\%$ prompts contain both tokens 0 and 1 in top-k ($k = 20$); repeated call agreement $\ge 98\%$ ($100\%$ observed); throughput and latency measured; fail-fast 0 retry on context limit exceedance.
 - [x] **Data Manifests:** SHA-256 hashes frozen; single deduplication audit completed (excluded 18 Devign cases, 129 ReVeal cases); donor bank sanitized (21,691 Devign, 17,636 ReVeal).
 - [x] **Testing & Prompt Audit:** pytest tests/ green (100% pass); prompt audit: label leakage $= 0$, empty demos $\le 1\%$ ($0.0\%$ on Devign, $0.7\%$ on ReVeal); missing graphs flagged; 30 prompts per dataset curated in `manual_sample.jsonl`.
-- [x] **Research Protocol:** `protocol.yaml` completed; `preregistration.md` finalized, tagged `prereg-v1`, and ready for OSF submission prior to confirmatory test inference.
-- [x] **Threshold Lock Step 5:** $\tau^*$ of every arm selected on validation via `grace_diag.thresholds`, locked (`locked_sha256`) in `thresholds.json` and committed prior to test runs; repeated/inverted probes ($B2\text{-flip}$, $B2\text{-rep}$, $B3\text{-flip}$, $B3\text{-swap}$) inherit base arm $\tau^*$.
+- [x] **Research Protocol and Exposure Disclosure:** Current protocol and `preregistration.md` are documented under `prereg-v1` for OSF submission; actual OSF submission is pending. Tier 1 test inference and exploratory metrics predate submission and are declared as existing data following analysis.
+- [x] **Current Threshold Record (Step 5):** The 14 $\tau^*$ values are documented as validation-selected in `thresholds.json` with `locked_sha256`; the available history does not establish a lock before all earlier test runs. Repeated/inverted probes ($B2\text{-flip}$, $B2\text{-rep}$, $B3\text{-flip}$, $B3\text{-swap}$) inherit the base-arm $\tau^*$ under the current protocol. Historical Tier 1 test results remain disclosed as following analysis.
 - [x] **Test Exposure Ledger:** Populated for all arms executed prior to pre-registration (`exposure_ledger`); retained arms have `manifest.json` matching frozen protocol and records with logprobs sufficient to reconstruct $s$; zero B2-rep runs ever read from cache (`repeat: true`, `tag="repeat"`).
 - [x] **Execution Schema B.2:** All test runs produce `records.jsonl` matching schema B.2 and environment `manifest.json`; caching keyed by complete execution identity; candidate-score validity and raw verdict validity separated transparently.
 - [x] **Meta-Models & Routing Step 6:** SUP-LR/SUP-MLP/SUP-METRIC evaluated across 3 seeds; P_pre/P_post share identical StratifiedGroupKFold folds with symmetric fallback; routing evaluated with 20 random seeds, oracle ceiling, and paired bootstrap CI at q=10%.
 - [x] **Final Evaluation & Tables A/B/C/D:** Tables A, B, C, D and both figures generated from a single unified script (`evaluate_final.py`), without manual editing; Table B includes pre-declared decision verdicts under $\delta = 0.02$ and degenerate bootstrap count tracking.
-- [x] **11 Scientific Hypotheses Cross-Check:** Hypothesis mapping table 4.3 (H1.1–H6.1) locked with pre-declared support / reject / inconclusive criteria based on practical margin $\delta$ prior to test execution.
+- [x] **11 Scientific Hypotheses Cross-Check:** Table 4.3 documents support / reject / inconclusive criteria and practical margin $\delta$ for the current plan. These criteria are not claimed to predate historical Tier 1 test exposure; prospective status must be assessed separately for each still-unperformed contrast.
 - [ ] **Blind Review & Label Audit (Step 8):** Blind review $\kappa$ (retrieval and 60-case packets), conditional analysis tables; label audit on 100 cases per dataset (plan and packet formats finalized, executed in parallel with Step 5 on GPU).
 - [x] **Independent OSF Reproducibility Bundle:** Reproducible pack runnable from README on a clean machine; offline portion requires no GPU; no API keys in logs; 39 artifacts bundled into ZIP with verified SHA-256 cross-check.

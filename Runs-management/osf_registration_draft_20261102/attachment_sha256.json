@@ -1,5 +1,5 @@
 {
-  "prepared_at_utc": "2026-11-03T07:39:48.077678+00:00",
+  "prepared_at_utc": "2026-11-03T08:30:14.577918+00:00",
   "study_id": "grace_diag_replication_v1",
   "version": "prereg-v1",
   "status": "OSF_PREREGISTRATION_READY_FOR_REGISTRY_SUBMISSION",
@@ -16,23 +16,23 @@
   "files": [
     {
       "path": "preregistration.md",
-      "bytes": 30494,
-      "sha256": "c6e455b3a60912e97339553151a433735cfe41e7a2e9dd82c83fcfe37b6c51dc"
+      "bytes": 31722,
+      "sha256": "3e2d5cfae282acc971b6226a97ae5b98a3b44850331f6cbbe15634d5ebe193c2"
     },
     {
       "path": "preregistration_en.md",
-      "bytes": 30494,
-      "sha256": "c6e455b3a60912e97339553151a433735cfe41e7a2e9dd82c83fcfe37b6c51dc"
+      "bytes": 31722,
+      "sha256": "3e2d5cfae282acc971b6226a97ae5b98a3b44850331f6cbbe15634d5ebe193c2"
     },
     {
       "path": "preregistration_vi.md",
-      "bytes": 34155,
-      "sha256": "56650ee242b302cc08c92695b9ee9d345381742bdb591e646d9b6a4b75b9f636"
+      "bytes": 35226,
+      "sha256": "780fc8b4e15ea748e9dd37f1f0bdf55f29f541cf677374db689faf78d7fc874d"
     },
     {
       "path": "output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf",
-      "bytes": 365709,
-      "sha256": "fb0a331370e6cf521934e615c7a28d5d28a2caf41bc3718a5985fecd21add14b"
+      "bytes": 366330,
+      "sha256": "9c555e43ed487b010b4ac326018e909695919d986a96248ac901e39d83fad1dd"
     },
     {
       "path": "configs/protocol.yaml",
@@ -60,9 +60,9 @@
       "sha256": "b71dc716bf03303168e9388e97a7ec4aab804e7b58716aae3731ca7ef06c59d9"
     },
     {
-      "path": "runs/thresholds.json",
-      "bytes": 1778,
-      "sha256": "80cf131d9a3d734a8d0df2556c0817d2f3e76e5dbc068a785abe932ac1956298"
+      "path": "Runs-management/thresholds.json",
+      "bytes": 51520,
+      "sha256": "96b864a3a91edf6a578ec853028d9c9cfe714addce21a6af399334ecfa1af6e5"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml",
@@ -81,8 +81,8 @@
     },
     {
       "path": "Runs-management/threshold_lock_status.json",
-      "bytes": 2926,
-      "sha256": "53c572978df065a8ffbe0cd5d438f6fe08fab4cf4a8a21fa51241552de640e68"
+      "bytes": 2808,
+      "sha256": "602aaf7caa15948bfcb66c8724c2b55237b1e6cd6df9dd76380fecacc9858c6b"
     },
     {
       "path": "Runs-management/analysis_lock_20261101/CHANGES_AFTER_ANALYSIS_LOCK.md",
@@ -96,28 +96,28 @@
     },
     {
       "path": "Runs-management/analysis_lock_20261101/protocol.analysis.json",
-      "bytes": 16316,
-      "sha256": "0f9afb45c15d51f5bbf3fa658dc4613db9f6cf7990d6f372c0c2f296b2194993"
+      "bytes": 15793,
+      "sha256": "467badecf9c3f539e3aa2bf9800319f7a823864851131f1ec702739733ab75d3"
     },
     {
       "path": "Runs-management/analysis_lock_20261101/protocol.template.snapshot.yaml",
-      "bytes": 7717,
-      "sha256": "26af074974b92cccf6873c6b0438baf5dd2c5634cf9a9539be55a9b3ce646394"
+      "bytes": 7618,
+      "sha256": "47ca1c2626b5849be1eefe8ab34f4cf11b19df7f0de0c604ad54ca210103b39c"
     },
     {
       "path": "Runs-management/analysis_lock_20261101/SHA256SUMS.json",
-      "bytes": 687,
-      "sha256": "2e00cb66712d6bc816c204697b66fc229114101c48fbe306ed819ac66b835873"
+      "bytes": 676,
+      "sha256": "94421f62b21ef056c6c3f46cda9eb499d72368b9184b79315f64ffcd9869039b"
     },
     {
       "path": "Runs-management/analysis_lock_20261101/thresholds.initial.json",
-      "bytes": 34221,
-      "sha256": "5862d5c8c8b75b3ca6bbdce28e2d5ed6582cbdbe0c3f5693d0b0992bba7e076d"
+      "bytes": 32801,
+      "sha256": "39080ae54e985d29af214ee8ea9b222e97c717ffbfaaee327d5af5d58d4d2611"
     },
     {
       "path": "Runs-management/analysis_lock_20261101/threshold_rules.json",
-      "bytes": 1906,
-      "sha256": "5d7d5f9b61d2f40e43e2370425e6a5ed37f64d79163e52264e65a74936ecbd17"
+      "bytes": 1793,
+      "sha256": "6eecafda1479deb6740cf5daaa73f98dffd5d52a55f5cc01a40f249020222d27"
     },
     {
       "path": "01_Author_Baseline_Unified/output/research_freeze_20261101/freeze_manifest.json",
@@ -126,48 +126,48 @@
     },
     {
       "path": "Runs-management/step0_diagnostic/devign/diagnostic_report_devign.json",
-      "bytes": 13985,
-      "sha256": "c8b3df26a8f13f9cbcf9e2f4e024f2f3d93df86e8d2ff4a4b20de890b12b10f2"
+      "bytes": 13473,
+      "sha256": "0c697847cb31e0d06ce7f7478ba4af9653b58a0aac324fd30052c17142a6fac0"
     },
     {
       "path": "Runs-management/step0_diagnostic/reveal/diagnostic_report_reveal.json",
-      "bytes": 14019,
-      "sha256": "9f02fa3dcf171c03638b3cb98875bde2b1c18bc9d9d5e55359fb0e911958818f"
+      "bytes": 13507,
+      "sha256": "5f6632acf8548f594e00c272548f87d44e8875f29f11884834a3fb0611ed08c1"
     },
     {
       "path": "Runs-management/dry_run_validation_20261102/summary.json",
-      "bytes": 62831,
-      "sha256": "552be39a8c7800a7deacd8502d165e246f2548b21874c67d3d21b35f965f26ca"
+      "bytes": 60923,
+      "sha256": "7f28a8b72c8c4733e8e25d9f8ec56ccdfd27b715138733fff64cc272d0fc7674"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/probes.py",
-      "bytes": 20350,
-      "sha256": "a92d84bbe434ffb8973c11cd05ecaa2acaa7009a4925d450170e758fd7d9b5a9"
+      "bytes": 19969,
+      "sha256": "74cc28ddd3faa89c8761f653c10c11d3a87ee9e2dc0adb6e06110559c5042ab6"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/token_budget.py",
-      "bytes": 2694,
-      "sha256": "1b8867bd5c51a941e02a526e22b136a321686b796e92ad5980d06f8f903b057f"
+      "bytes": 2633,
+      "sha256": "259fd5b62dc665d97da7d5e1036f7f965d206e9bc20723ff3debf0d683380a2b"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/sink_evidence.py",
-      "bytes": 3975,
-      "sha256": "8b8110ee576b941416b56f0aec287795c00904437b5568b8ff9fdf2c954d5dcb"
+      "bytes": 3866,
+      "sha256": "4b62c79d0086341c4de0dd8576c98d1cfb221d18b339819bcd141f90f675fa0a"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/contrastive_pair_builder.py",
-      "bytes": 6117,
-      "sha256": "52158adac2a71409cf6faef8bceda8909e4359a37ee3b270358580f21e9d2079"
+      "bytes": 5953,
+      "sha256": "9eceed872caa5c742e3e372f0ff014adb857005e9beb2f8f13e35e13dac86325"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/prompt_audit.py",
-      "bytes": 6141,
-      "sha256": "e99a5d55933cd5336377fa3b1344b9d049bdece7a919aed1329e98614a86e7bb"
+      "bytes": 6026,
+      "sha256": "2c532c036a26049c2d0d8d2c90e7ea869cc66b198599dff096286cee135c9647"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/evaluate_final.py",
-      "bytes": 13403,
-      "sha256": "592e55ffa2026b088ef21daacb9cafc1c4fc0e408c0942172cfca115130ce680"
+      "bytes": 13146,
+      "sha256": "f43eb50fe4507549c55348f621c1f1a48e9b276e514a1387234949eb4f96de14"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/thresholds.py",
@@ -176,28 +176,28 @@
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/llm_backend.py",
-      "bytes": 10342,
-      "sha256": "71b8d050b470850f665fdacbe093a1a98e55ec0f8669d3e293d47c449751704a"
+      "bytes": 10129,
+      "sha256": "cfcdff993cb9d64d374f1c74473b49e6f2ec52ebafbe42c519b8368ca6de1dc9"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/stats.py",
-      "bytes": 12647,
-      "sha256": "4c4f72e2f47cb770641c0e7bd5eaa40d91733ccfe4b300743fa0737f2b2605dd"
+      "bytes": 12347,
+      "sha256": "09092c71f3bed1dda660d98a8eb326bda8e58d4f36f4205a0995e1933f95a6c1"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/complementarity.py",
-      "bytes": 18329,
-      "sha256": "2e979a6d050b17586dda9e7855125f27c6d1cd7a9e2d96c5d9ed92f5068d4573"
+      "bytes": 18022,
+      "sha256": "ec688eeafd2261e3d72f6e1d21a5a1c367bb9697a2b2e6733f5cc1b0fb40d34c"
     },
     {
       "path": "Runs-management/dry_run_full_validation.py",
-      "bytes": 32102,
-      "sha256": "07e88275c672d56312ffdbb240cecde7cc1659ed7a493a4b8fa587cd9bff2a47"
+      "bytes": 31614,
+      "sha256": "1fc0d7702044ed8ebed13e5337a2721049fb5451f5a4c883759c938437237fda"
     },
     {
       "path": "Runs-management/finalize_prompt_audit.py",
-      "bytes": 8303,
-      "sha256": "38e71c9cd04c7584070c13f573c40bcf4d966b3170263cf3ea60d14af8d6974f"
+      "bytes": 8110,
+      "sha256": "30eed9694cf07ff6df73f64fb2340bb71edeffc9adacd0020ee17e752378be06"
     },
     {
       "path": "01_Author_Baseline_Unified/diagnostic_kit/CHANGELOG.md",
