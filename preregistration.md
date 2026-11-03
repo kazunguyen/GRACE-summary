@@ -135,20 +135,22 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 
 | Tập Dữ Liệu | Phân Vùng / Mục | Số Dòng (Samples) | Tỷ Lệ Positive (Vuln) | Đường Dẫn Tệp | Mã Băm SHA-256 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Devign** | Raw Train | 21,854 | 45.84% | `data/raw/devign_train.jsonl` | `e456e20da10aa9a30df406d78dcf5f15f91da8c49fd5028584ca248b03f13f35` |
-| **Devign** | Raw Validation | 2,732 | 43.45% | `data/raw/devign_validation.jsonl` | `7318bc4aab8fecdac3ce1afe51c7833714be1b807c5437ab2c7dc0384a6543e0` |
-| **Devign** | Raw Test | 2,732 | 45.94% | `data/raw/devign_test.jsonl` | `7f77094d9328624036cbd43ab1281aaf0c3378e220d5b3a10ba0a98922ab39c6` |
+| **Devign** | Raw Train | 21,854 | 45.84% | [`data/raw/devign_train.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/devign/train_raw.jsonl) | `e456e20da10aa9a30df406d78dcf5f15f91da8c49fd5028584ca248b03f13f35` |
+| **Devign** | Raw Validation | 2,732 | 43.45% | [`data/raw/devign_validation.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/devign/validation_raw.jsonl) | `7318bc4aab8fecdac3ce1afe51c7833714be1b807c5437ab2c7dc0384a6543e0` |
+| **Devign** | Raw Test | 2,732 | 45.94% | [`data/raw/devign_test.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/devign/test_raw.jsonl) | `7f77094d9328624036cbd43ab1281aaf0c3378e220d5b3a10ba0a98922ab39c6` |
 | **Devign** | Clean Donors Bank | 21,691 | 45.91% | `data/manifests/devign_donor_clean.jsonl` | `5eda46695ea98091168c2a87591010b4fe6c08597a376c3361b4cf40297d1dfe` |
-| **Devign** | **Manifest Concatenation** | - | - | `data/manifests/devign_manifest_stats.json` | **`5a084a10e5c191039e56e351bf8d722fe017424f159a84d6b92be86a1d0f4952`** |
+| **Devign** | **Manifest Concatenation** | - | - | [`data/manifests/devign_manifest_stats.json`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/devign/stats.json) | **`5a084a10e5c191039e56e351bf8d722fe017424f159a84d6b92be86a1d0f4952`** |
 | **Devign** | Val Subset 600 (Seed 42) | 600 | 43.50% | `data/specs/devign_val_subset600.jsonl` | `88f749c000a7b110ed87641d9d5dc4bc912b9f2fdb3dcc2a97753238a4dbcdfd` |
 | **Devign** | Test Specs | 2,732 | 45.94% | `data/specs/devign_test.jsonl` | `bd0f4d025afd051c064ab58c1495a887c5851b6408e2d47d39ae64d421b898c6` |
-| **ReVeal** | Raw Train | 18,187 | 9.90% | `data/raw/reveal_train.jsonl` | `87c6ec979d8724d1db25217ae6c5637fedaca5350fc954baab4c615efc56f66c` |
-| **ReVeal** | Raw Validation | 2,273 | 9.24% | `data/raw/reveal_validation.jsonl` | `03ccd535ecc5c85601377d1880f05307d20577e195cc8808d2c5cbd880725d50` |
-| **ReVeal** | Raw Test | 2,274 | 10.11% | `data/raw/reveal_test.jsonl` | `5132c4a2cab7cea81435b5039af964cab184e6ce7b4d9e2df524962b0f6d45f3` |
+| **ReVeal** | Raw Train | 18,187 | 9.90% | [`data/raw/reveal_train.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/train_raw.jsonl) | `87c6ec979d8724d1db25217ae6c5637fedaca5350fc954baab4c615efc56f66c` |
+| **ReVeal** | Raw Validation | 2,273 | 9.24% | [`data/raw/reveal_validation.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/validation_raw.jsonl) | `03ccd535ecc5c85601377d1880f05307d20577e195cc8808d2c5cbd880725d50` |
+| **ReVeal** | Raw Test | 2,274 | 10.11% | [`data/raw/reveal_test.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/test_raw.jsonl) | `5132c4a2cab7cea81435b5039af964cab184e6ce7b4d9e2df524962b0f6d45f3` |
 | **ReVeal** | Clean Donors Bank | 17,636 | 9.57% | `data/manifests/reveal_donor_clean.jsonl` | `9e891cf5b8dfa93c2c3d9d5039e328c5d36c115d173051c5991fc0939e1d372d` |
-| **ReVeal** | **Manifest Concatenation** | - | - | `data/manifests/reveal_manifest_stats.json` | **`59498c4a4ab038babe558675c183c2b104b0145590fb0accf8b02cd5440d57f7`** |
+| **ReVeal** | **Manifest Concatenation** | - | - | [`data/manifests/reveal_manifest_stats.json`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/stats.json) | **`59498c4a4ab038babe558675c183c2b104b0145590fb0accf8b02cd5440d57f7`** |
 | **ReVeal** | Val Subset 600 (Seed 42) | 600 | 9.17% | `data/specs/reveal_val_subset600.jsonl` | `72ce24b2629588a7edf5206c99b26865b630a489580a6b03964c368fad79858e` |
 | **ReVeal** | Test Specs | 2,274 | 10.11% | `data/specs/reveal_test.jsonl` | `26d79cec7a31e45a99cf8f22266aa793f323eacb6328cf8d5bd2fc1b34131deb` |
+
+**Lưu ý đối chiếu artifact:** Tên hiển thị trong cột đường dẫn được giữ theo bản đăng ký; các link GitHub dẫn tới file tương ứng trong snapshot `research_freeze_20261101`. SHA-256 đang in trong bảng **không khớp byte** với các file raw/stats đã liên kết, nên chưa được dùng để xác thực những link đó. Các dòng donor và specs chưa có link trực tiếp: hai file donor local vượt giới hạn GitHub, các file specs đầy đủ cũng vượt giới hạn, còn file subset 600 theo đúng tên bảng chưa được tìm thấy. Cần đối chiếu và chốt lại hash/đường dẫn trước khi dùng bảng này làm inventory nộp OSF.
 
 ### 7.2. Checkpoint Mô Hình & Môi Trường Suy Luận (Provenance Chuẩn Hóa)
 
@@ -167,7 +169,7 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 
 - [x] **Bước 0:** Metric lịch sử tạo lại từ file từng mẫu (sai khác $\le 0.001$); bảng sửa–hỏng có hàng ALL-0 / ALL-1 / RANDOM; paired bootstrap 5,000 reps; cluster unit resolved: Devign (2,068 commit groups), ReVeal (646 file hash groups); StratifiedGroupKFold OOF; Paired Bootstrap CI cho Routing q=10% (Benefit vs Confidence).
 - [x] **Smoke Test Backend:** $\ge 99\%$ prompt có token 0/1 trong top-5 logprob ($100\%$ đạt được); hai lần chạy trùng $\ge 98\%$ ($100\%$ trùng); thông lượng và độ trễ đã đo; fail-fast 0 retry khi context exceeded.
-- [x] **Manifest Dữ Liệu:** Đã băm SHA-256 đóng băng; một kiểm toán trùng lặp duy nhất (loại 18 ca Devign, 129 ca ReVeal); kho donor đã khử trùng (21,711 Devign, 17,620 ReVeal).
+- [x] **Manifest Dữ Liệu:** Đã băm SHA-256 đóng băng; một kiểm toán trùng lặp duy nhất (loại 18 ca Devign, 129 ca ReVeal); kho donor đã khử trùng (21,691 Devign, 17,636 ReVeal).
 - [x] **Kiểm Thử & Prompt Audit:** 669/669 tests xanh (100%); prompt audit: rò rỉ nhãn $= 0$, demo rỗng $\le 1\%$ ($0.0\%$ trên Devign, $0.7\%$ trên ReVeal); đồ thị thiếu được gắn cờ; 30 prompt mỗi dataset đã sẵn sàng trong `manual_sample.jsonl`.
 - [x] **Giao Thức Nghiên Cứu:** `protocol.yaml` điền đủ; `preregistration.md` hoàn thiện gắn tag `prereg-v1` trước lượt test đầu tiên.
 - [x] **Khóa Ngưỡng Bước 5:** 14/14 ngưỡng tối ưu $\tau^*$ của mọi arm chọn trên validation, ghi trong `thresholds.json` và `thresholds_flat.json` trước khi chạy test; rào chắn cấm chạy test nếu chưa có file ngưỡng.
