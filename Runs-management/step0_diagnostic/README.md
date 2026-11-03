@@ -13,12 +13,12 @@ Thư mục này lưu trữ các tệp kết quả nghiệm thu chính thức c�
   - Đơn vị gom cụm: `commit_id` (2.025 cụm trên Validation, 2.068 cụm trên Test).
   - Ngưỡng Gate: $\tau_{\text{gate}} = 0,36$.
   - Ngưỡng tối ưu xác định từ Validation: $\tau_{\text{pre}}^* = 0,34$, $\tau_{\text{post}}^* = 0,56$.
-  - Số lượt Paired Bootstrap CI: 1.000 lượt (seed = `20261117`).
+  - Số lượt Paired Bootstrap CI: 5.000 lượt (seed = `20261117`).
 - **REVEAL**:
   - Đơn vị gom cụm: `file_hash` (627 cụm trên Validation, 646 cụm trên Test).
   - Ngưỡng Gate: $\tau_{\text{gate}} = 0,17$.
   - Ngưỡng tối ưu xác định từ Validation: $\tau_{\text{pre}}^* = 0,22$, $\tau_{\text{post}}^* = 0,19$.
-  - Số lượt Paired Bootstrap CI: 1.000 lượt (seed = `20261117`).
+  - Số lượt Paired Bootstrap CI: 5.000 lượt (seed = `20261117`).
 
 ---
 

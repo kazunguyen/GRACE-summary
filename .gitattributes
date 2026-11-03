@@ -1,7 +1,12 @@
 
 # Preserve exact snapshot/cache bytes and SHA256 on Windows/Linux
+/configs/protocol.yaml -text
+/configs/thresholds.json -text
+/configs/thresholds_flat.json -text
 /01_Author_Baseline_Unified/evaluation_contract.yaml -text
 /01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml -text
+/01_Author_Baseline_Unified/diagnostic_kit/configs/thresholds.json -text
+/01_Author_Baseline_Unified/diagnostic_kit/configs/thresholds_flat.json -text
 /01_Author_Baseline_Unified/output/research_freeze_20261101/** -text
 /01_Author_Baseline_Unified/output/local_full/devign/raw/** -text
 /01_Author_Baseline_Unified/output/local_full/reveal/raw/** -text

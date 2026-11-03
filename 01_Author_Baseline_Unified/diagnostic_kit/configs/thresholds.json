@@ -17,7 +17,7 @@
     ],
     "locked_utc": "2026-11-02T11:01:58Z",
     "total_thresholds_locked": 14,
-    "protocol_sha256": "791f3bd77975857e9e0db44545c25ea582817d3d0d3e46f64017c4358a3f2e29"
+    "protocol_sha256": "49cd2a2d521c97470fc18e7dbc12e089bbe83b049e4220e09aa1683dcf445e69"
   },
   "thresholds": {
     "devign|B0|42": 0.08,

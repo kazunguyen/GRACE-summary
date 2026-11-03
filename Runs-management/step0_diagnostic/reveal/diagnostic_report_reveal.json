@@ -12,7 +12,7 @@
     "n_invalid_llm": 0,
     "tau_gate": 0.17,
     "seed": 20261117,
-    "n_boot": 1000,
+    "n_boot": 5000,
     "n_folds": 3,
     "margin_mcc_delta": 0.02,
     "cluster_unit_arg": "auto",
@@ -21,40 +21,40 @@
     "bootstrap_unit": "cluster"
   },
   "verdict": {
-    "delta_verdict": "harm",
-    "verdict_description": "Có bằng chứng bất lợi (CI nằm dưới 0)",
+    "delta_verdict": "no_meaningful_benefit",
+    "verdict_description": "Có bằng chứng loại trừ lợi ích ≥ δ (cận trên CI < δ)",
     "delta_mcc": {
       "delta": -0.027389545771585977,
-      "lo": -0.053596512283163214,
-      "hi": -0.00013337325118373155,
-      "n_boot": 1000,
+      "lo": -0.056082402607251766,
+      "hi": 0.0005710210655561493,
+      "n_boot": 5000,
       "n_degenerate": 0,
       "seed": 20261117,
       "unit": "cluster"
     },
     "delta_auroc": {
       "delta": 0.0026440057857568533,
-      "lo": -0.0030612222948969425,
-      "hi": 0.008421064989539753,
-      "n_boot": 1000,
+      "lo": -0.0029667679108611456,
+      "hi": 0.00859221103188648,
+      "n_boot": 5000,
       "n_degenerate": 0,
       "seed": 20261117,
       "unit": "cluster"
     },
     "delta_f1": {
       "delta": -0.023705143509079596,
-      "lo": -0.046942925904395666,
-      "hi": 0.00016712597758185922,
-      "n_boot": 1000,
+      "lo": -0.04903272268055837,
+      "hi": 0.0013607933217518393,
+      "n_boot": 5000,
       "n_degenerate": 0,
       "seed": 20261117,
       "unit": "cluster"
     },
     "delta_accuracy": {
       "delta": -0.01055408970976257,
-      "lo": -0.017498340938916744,
-      "hi": -0.004165819430182662,
-      "n_boot": 1000,
+      "lo": -0.01771933508852828,
+      "hi": -0.003847470313589312,
+      "n_boot": 5000,
       "n_degenerate": 0,
       "seed": 20261117,
       "unit": "cluster"
@@ -239,18 +239,18 @@
       },
       "delta_mcc": {
         "delta": -0.005753960813247305,
-        "lo": -0.029932653322314783,
-        "hi": 0.01952004769422558,
-        "n_boot": 1000,
+        "lo": -0.03053363412173362,
+        "hi": 0.019197554653664357,
+        "n_boot": 5000,
         "n_degenerate": 0,
         "seed": 20261117,
         "unit": "cluster"
       },
       "delta_auroc": {
         "delta": -0.005837545876324346,
-        "lo": -0.027016152268278044,
-        "hi": 0.00997878805298194,
-        "n_boot": 1000,
+        "lo": -0.028719952871956472,
+        "hi": 0.009886577889316045,
+        "n_boot": 5000,
         "n_degenerate": 0,
         "seed": 20261117,
         "unit": "cluster"
@@ -491,18 +491,18 @@
     "contrast": "benefit_minus_confidence",
     "delta_balanced_accuracy": {
       "delta": -0.06149281034629461,
-      "lo": -0.09101504156868039,
-      "hi": -0.028392886671993203,
-      "n_boot": 1000,
+      "lo": -0.09433652824260175,
+      "hi": -0.0286871989080812,
+      "n_boot": 5000,
       "n_degenerate": 0,
       "seed": 20261117,
       "unit": "cluster"
     },
     "delta_mcc": {
       "delta": -0.0842946903198396,
-      "lo": -0.14127010119740613,
-      "hi": -0.02181004679987852,
-      "n_boot": 1000,
+      "lo": -0.14605435330242467,
+      "hi": -0.024658860037969486,
+      "n_boot": 5000,
       "n_degenerate": 0,
       "seed": 20261117,
       "unit": "cluster"

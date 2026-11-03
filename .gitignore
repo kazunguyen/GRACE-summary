@@ -15,6 +15,12 @@ model/
 *.zip
 *.tar.gz
 
+# OSF Preregistration Deliverables whitelist
+!/Runs-management/osf_registration_draft_20261102/*.zip
+!/Runs-management/osf_registration_draft_20261102/output/
+!/Runs-management/osf_registration_draft_20261102/output/**
+
+
 # WSL Python environment (local only)
 /.venv-wsl/
 

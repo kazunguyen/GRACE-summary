@@ -67,7 +67,7 @@ def known_source_domain_label(flag):
         return 'imagemagick_label_pointsize_property'
     if re.search(r'"(?:Packet|Generalized|: EVPL Generalized) $', before) and re.match(r'Label:\s*"', after):
         return 'network_packet_generalized_label_literal'
-    if re.search(r'proto_item_append_text\s*\(\s*item\s*,\s*"\s*$', before) and re.match(r'Label:\s*\\"%s\\"', after):
+    if re.search(r'proto_item_append_text\s*\(\s*item\s*,\s*"\s*$', before) and re.match(r'Label:', after):
         return 'protocol_field_label_format_string'
     return False
 

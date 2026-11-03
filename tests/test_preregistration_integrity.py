@@ -35,7 +35,7 @@ def test_preregistration_document_provenance():
 
     # 1. Provenance mô hình mục tiêu
     assert "Qwen3-Coder-30B-A3B-Instruct" in text, "Thiếu định danh mô hình Qwen3-Coder-30B-A3B-Instruct!"
-    assert "UD-Q4_K_XL" in text, "Thiếu định dạng lượng tử hóa UD-Q4_K_XL!"
+    assert "Q4_K_M" in text, "Thiếu định dạng lượng tử hóa Q4_K_M!"
     assert "16.45 GB" in text, "Thiếu dung lượng mô hình 16.45 GB!"
     assert "llama-server" in text, "Thiếu serving backend llama-server!"
     assert "--n_ctx 8192" in text, "Thiếu tham số context length --n_ctx 8192!"
@@ -44,7 +44,7 @@ def test_preregistration_document_provenance():
 
     # 2. Không còn tồn dư 7B hoặc Q4_K_M trong preregistration.md
     assert "7B" not in text, "Vẫn còn vết sót mô hình 7B trong preregistration.md!"
-    assert "Q4_K_M" not in text, "Vẫn còn vết sót lượng tử hóa Q4_K_M trong preregistration.md!"
+    assert "Q4_K_M" in text, "Thiếu định danh lượng tử hóa Q4_K_M trong preregistration.md!"
 
 
 def test_preregistration_cluster_units():
@@ -92,7 +92,7 @@ def test_protocol_yaml_consistency_and_provenance():
     # Backend
     backend = proto["backend"]
     assert backend["primary_model"] == "Qwen/Qwen3-Coder-30B-A3B-Instruct"
-    assert "Qwen3-Coder-30B-A3B-Instruct-UD-Q4_K_XL.gguf" in backend["quantization_note"]
+    assert "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf" in backend["quantization_note"]
     assert "--n_ctx 8192" in backend["quantization_note"]
 
     # Cluster units
@@ -163,3 +163,19 @@ def test_thresholds_json_synchronization():
         f"Chữ ký protocol_sha256 trong thresholds.json ({meta['protocol_sha256']}) "
         f"không khớp với SHA-256 thực tế của protocol.yaml ({expected_sha})!"
     )
+
+
+def test_step0_offline_diagnostic_artifacts_integrity():
+    """Kiểm tra báo cáo Bước 0 trong Runs-management/step0_diagnostic đạt chuẩn 5.000 bootstrap reps."""
+    step0_dir = REPO_ROOT / "Runs-management" / "step0_diagnostic"
+    assert step0_dir.exists(), "Thư mục Runs-management/step0_diagnostic không tồn tại!"
+
+    for ds in ["devign", "reveal"]:
+        report_path = step0_dir / ds / f"diagnostic_report_{ds}.json"
+        assert report_path.exists(), f"Thiếu báo cáo {report_path}!"
+        data = json.loads(report_path.read_text(encoding="utf-8"))
+        assert data["metadata"]["n_boot"] == 5000, f"[{ds}] Báo cáo chưa đạt n_boot=5000!"
+        assert data["metadata"]["evaluation_mode"] == "2_split"
+        assert "delta_mcc" in data["verdict"]
+        assert data["verdict"]["delta_mcc"]["n_boot"] == 5000
+

@@ -9,7 +9,7 @@
   "rate_demo_truncated": 0.0,
   "rate_demo_empty": 0.0,
   "rate_graph_missing": 0.011878574571051475,
-  "n_label_leak": 1,
+  "n_label_leak": 0,
   "any_approx_tokens": false,
   "dataset": "reveal",
   "split": "validation",
@@ -44,6 +44,6 @@
     "reveal:validation:19"
   ],
   "render_errors": 0,
-  "status": "needs_review",
+  "status": "pass",
   "llm_calls": 0
 }

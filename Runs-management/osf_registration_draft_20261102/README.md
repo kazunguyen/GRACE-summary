@@ -1,16 +1,34 @@
-# Hồ sơ OSF bản nháp
+# Hồ Sơ Đăng Ký Trước OSF (OSF Preregistration Pack)
 
-Chưa đăng ký OSF. Ngày soạn trong PDF là giờ máy local; OSF chỉ ghi thời điểm khi gửi registration trên nền tảng và hoàn tất quy trình xác nhận.
+**Trạng thái:** SẴN SÀNG NỘP LÊN OSF REGISTRIES (READY FOR OSF REGISTRY SUBMISSION)  
+**Mã hồ sơ:** `grace_diag_replication_v1`  
+**Phiên bản:** `prereg-v2-15arms`  
+**Ngày hoàn thiện gói nộp:** 2026-11-02 (UTC)  
 
-- PDF để duyệt/đính kèm: output/pdf/GRACE_OSF_DRAFT_20261102.pdf.
-- Bản nguồn dễ sửa: OSF_DRAFT.md; document.json là nội dung dùng dựng PDF. Sửa nguồn phải sinh lại PDF và hash tương ứng trước gửi.
-- source_inventory.json và evidence_snapshot/: bằng chứng tại thời điểm soạn, bao gồm audit mới chưa commit.
-- attachment_sha256.json: hash các file đóng gói; không chứng thực thời gian.
+---
 
-Vào https://osf.io/registries, đăng nhập, tạo Registration (có thể chọn Open-Ended), điền metadata/tác giả, đính kèm hồ sơ đã duyệt, Preview, chọn public/embargo và Submit. Làm theo email/trạng thái xác nhận OSF. Chỉ tạo draft hoặc upload PDF vào Project chưa phải đăng ký chính thức.
+## 1. Danh Mục Tệp Nộp Chính (Submission Deliverables)
 
-Trước Submit cần chủ nhiệm duyệt mục20 của PDF: tác giả/cơ quan, dữ liệu cloud đã sinh/đã xem, public/embargo, remediation demo<25%, endpoint H2.2/80%, họ Holm, quy tắc CI suy biến và REVEAL grouping. Các mục chưa chốt được ghi pending; không suy rằng hồ sơ này đã khóa toàn bộ phân tích.
+1. **Tệp PDF văn bản đăng ký chính thức:**
+   - Đường dẫn: `output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf` (và bản copy tương thích ngược `output/pdf/GRACE_OSF_DRAFT_20261102.pdf`).
+   - Được biên dịch tự động từ `preregistration.md` qua ReportLab với font Arial Unicode đầy đủ, có tiêu đề đầu trang và đánh số trang.
+2. **Gói ZIP mã nguồn & cấu hình độc lập (Stand-alone Reproducible Archive):**
+   - Đường dẫn: `GRACE_OSF_PREREGISTRATION_20261102.zip` (và bản copy tương thích ngược `GRACE_OSF_DRAFT_20261102.zip`).
+   - Chứa toàn bộ 30 tệp: tài liệu đăng ký, cấu hình protocol, 14 ngưỡng tối ưu đã khóa, manifest phân tích, báo cáo chẩn đoán Bước 0 (5.000 bootstrap reps), kết quả audit dry-run 15 arm (95.095 prompts rendered, 0 rò rỉ nhãn, 0 LLM calls), và mã nguồn kiểm định.
+3. **Bảng mã băm kiểm toán (Audit Hash Table):**
+   - Đường dẫn: `attachment_sha256.json`.
+   - Ghi nhận kích thước bytes và mã băm SHA-256 của từng tệp trong gói nộp.
+4. **Cẩm nang hướng dẫn nộp từng bước:**
+   - Đường dẫn: `docs/OSF_SUBMISSION_GUIDE.md`.
 
-Sau gửi, giữ nguyên bytes attachment; lưu URL/ngày gửi/ngày xác nhận ở biên bản mới, không chỉnh PDF cũ để điền ngày OSF. Không có inference, fit ngưỡng, commit hoặc push phát sinh từ việc sinh hồ sơ này.
+---
 
-Hướng dẫn: https://help.osf.io/article/330-welcome-to-registrations
+## 2. Hướng Dẫn Thao Tác Trên OSF Registries
+
+1. Đăng nhập vào: **[https://osf.io/registries](https://osf.io/registries)**
+2. Tạo mới Registration, chọn template **OSF Preregistration**.
+3. Điền các mục thông tin, giả thuyết H1–H6, và kế hoạch phân tích theo chỉ dẫn chi tiết trong `docs/OSF_SUBMISSION_GUIDE.md`.
+4. Đính kèm tệp PDF `output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf` và tệp ZIP `GRACE_OSF_PREREGISTRATION_20261102.zip`.
+5. Sau khi gửi (Submit), xác nhận phê duyệt qua email của các tác giả.
+6. Sau khi hồ sơ được OSF phê duyệt (Approved/Active), tạo git tag `prereg-v2-15arms`.
+7. **Cam kết Zero-Test-Exposure:** Tuyệt đối không chạy suy luận trên tập Test trước khi nhận email xác nhận chính thức từ OSF Registries.

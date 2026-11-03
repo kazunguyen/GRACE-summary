@@ -37,7 +37,10 @@ class TokenCounter:
         if self.tok is None or not getattr(self.tok, "chat_template", None):
             return self.count(prompt) + 16
         messages = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]
-        return len(self.tok.apply_chat_template(messages, tokenize=True, add_generation_prompt=True))
+        res = self.tok.apply_chat_template(messages, tokenize=True, add_generation_prompt=True)
+        if hasattr(res, "__getitem__") and "input_ids" in res:
+            return len(res["input_ids"])
+        return len(res)
 
     def fit(self, text: str, budget: int, marker: str = "\n/* [TRUNCATED] */") -> FitResult:
         """Cắt text để số token <= budget (kể cả marker). Tìm nhị phân theo ký tự để

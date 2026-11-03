@@ -51,4 +51,14 @@
 /dry_run_validation_20261102/reveal/validation/B2-rand/44/prompts.jsonl
 /dry_run_validation_20261102/reveal/validation/B2-rep/42/prompts.jsonl
 /dry_run_validation_20261102/reveal/validation/B2/42/prompts.jsonl
+/dry_run_validation_20261102/devign/validation/B1-H2/42/prompts.jsonl
+/dry_run_validation_20261102/devign/validation/B3/42/prompts.jsonl
+/dry_run_validation_20261102/devign/validation/B3-nodiff/42/prompts.jsonl
+/dry_run_validation_20261102/devign/validation/B3-swap/42/prompts.jsonl
+/dry_run_validation_20261102/devign/validation/B3-flip/42/prompts.jsonl
+/dry_run_validation_20261102/reveal/validation/B1-H2/42/prompts.jsonl
+/dry_run_validation_20261102/reveal/validation/B3/42/prompts.jsonl
+/dry_run_validation_20261102/reveal/validation/B3-nodiff/42/prompts.jsonl
+/dry_run_validation_20261102/reveal/validation/B3-swap/42/prompts.jsonl
+/dry_run_validation_20261102/reveal/validation/B3-flip/42/prompts.jsonl
 /prompt_audit_20261102/audit_rows.csv

@@ -7,7 +7,7 @@ Thư mục này lưu trữ hồ sơ bằng chứng nghiệm thu của **Bước 
 ---
 
 ## 2. Thông số kỹ thuật Backend & Mô hình
-- **Model**: `Qwen2.5-Coder-30B-Instruct-Q4_K_M.gguf`
+- **Model**: `Qwen3-Coder-30B-A3B-Instruct GGUF Q4_K_M` (file: `Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf`)
 - **Mã băm SHA-256**: `f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335`
 - **Runtime**: `llama-cpp-python == 0.3.16`
 - **Cấu hình giải mã**:

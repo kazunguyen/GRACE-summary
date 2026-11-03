@@ -60,8 +60,8 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
    - Tìm kiếm ngưỡng tối ưu $\tau^*$ trên lưới 99 điểm $[0.01, 0.99]$ (bước 0.01) dựa trên cực đại hóa chỉ số MCC trên tập validation:
      $$\tau^* = \operatorname{argmax}_{\tau \in [0.01, 0.99]} \left(\operatorname{MCC}(y_\text{val}, \hat{y}_\tau), -|\tau - 0.5|\right)$$
    - Khóa toàn bộ 14 ngưỡng tối ưu $\tau^*$ vào `configs/thresholds.json` và `configs/thresholds_flat.json` trước khi chạy suy luận trên test:
-     - **Devign LLM Arms**: `devign|B0|42` = 0.08, `devign|B1|42` = 0.88, `devign|B2|42` = 0.98, `devign|B2-flip|42` = 0.50, `devign|B2-rep|42` = 0.98.
-     - **ReVeal LLM Arms**: `reveal|B0|42` = 0.44, `reveal|B1|42` = 0.74, `reveal|B2|42` = 0.99, `reveal|B2-flip|42` = 0.46, `reveal|B2-rep|42` = 0.99.
+     - **Devign LLM Arms**: `devign|B0|42` = 0.08, `devign|B1|42` = 0.88, `devign|B2|42` = 0.70, `devign|B2-flip|42` = 0.50, `devign|B2-rep|42` = 0.70.
+     - **ReVeal LLM Arms**: `reveal|B0|42` = 0.44, `reveal|B1|42` = 0.74, `reveal|B2|42` = 0.12, `reveal|B2-flip|42` = 0.46, `reveal|B2-rep|42` = 0.12.
      - **Meta-Models**: `devign|P-PRE|42` = 0.54, `devign|P-POST|42` = 0.60; `reveal|P-PRE|42` = 0.38, `reveal|P-POST|42` = 0.10.
 3. **Thống Kê Khẳng Định & So Sánh Cặp (Bảng B):**
    - Paired Bootstrap $B = 5000$ lần lặp với seed cố định `20261117`.
@@ -85,7 +85,7 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 | **Sàn & Mốc** | ALL-0, ALL-1, RAND | Dự đoán hằng số 0, hằng số 1, ngẫu nhiên theo phân bố nhãn | Không gọi LLM; baseline phân bố nhãn | Tất cả |
 | **Sàn & Mốc** | SUP-LR, SUP-MLP, SUP-METRIC | Logistic Regression trên CodeT5 768d, MLP 768→128→1, LR trên 26 code metrics | Mốc có giám sát trên embedding đóng băng (3 seed 42, 43, 44) | RQ5 |
 | **Tầng 1** | **B0** | Role + domain + target code + binary question | Zero-shot; không đồ thị CPG, không demonstration | RQ1 |
-| **Tầng 1** | **B1** | B0 + CPG nodes & edges (prefix 25 nút / 25 cạnh) | Thêm đồ thị CPG như bản tái triển khai | RQ1, RQ3 |
+| **Tầng 1** | **B1** | B0 + CPG nodes & edges (prefix 40 nút / 80 cạnh) | Thêm đồ thị CPG như bản tái triển khai | RQ1, RQ3 |
 | **Tầng 1** | **B2** | B1 + 1 demo truy hồi từ kho clean donor kèm nhãn thật | GRACE hoàn chỉnh | RQ1, RQ2 |
 | **Tầng 1** | **B2-flip** | B2 nhưng đảo nhãn demo ($1 \leftrightarrow 0$) ở câu dẫn | Đo độ nhạy nhãn (label sensitivity) | RQ2 |
 | **Tầng 1** | **B2-rep** | B2 chạy lần 2 với cùng prompt (bỏ qua cache) | Đo biến động tự nhiên từ batching / GPU nondeterminism | RQ2 |
@@ -138,22 +138,22 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 | **Devign** | Raw Train | 21,854 | 45.84% | `data/raw/devign_train.jsonl` | `e456e20da10aa9a30df406d78dcf5f15f91da8c49fd5028584ca248b03f13f35` |
 | **Devign** | Raw Validation | 2,732 | 43.45% | `data/raw/devign_validation.jsonl` | `7318bc4aab8fecdac3ce1afe51c7833714be1b807c5437ab2c7dc0384a6543e0` |
 | **Devign** | Raw Test | 2,732 | 45.94% | `data/raw/devign_test.jsonl` | `7f77094d9328624036cbd43ab1281aaf0c3378e220d5b3a10ba0a98922ab39c6` |
-| **Devign** | Clean Donors Bank | 21,711 | 45.91% | `data/manifests/devign_donor_clean.jsonl` | `5eda46695ea98091168c2a87591010b4fe6c08597a376c3361b4cf40297d1dfe` |
+| **Devign** | Clean Donors Bank | 21,691 | 45.91% | `data/manifests/devign_donor_clean.jsonl` | `5eda46695ea98091168c2a87591010b4fe6c08597a376c3361b4cf40297d1dfe` |
 | **Devign** | **Manifest Concatenation** | - | - | `data/manifests/devign_manifest_stats.json` | **`5a084a10e5c191039e56e351bf8d722fe017424f159a84d6b92be86a1d0f4952`** |
 | **Devign** | Val Subset 600 (Seed 42) | 600 | 43.50% | `data/specs/devign_val_subset600.jsonl` | `88f749c000a7b110ed87641d9d5dc4bc912b9f2fdb3dcc2a97753238a4dbcdfd` |
 | **Devign** | Test Specs | 2,732 | 45.94% | `data/specs/devign_test.jsonl` | `bd0f4d025afd051c064ab58c1495a887c5851b6408e2d47d39ae64d421b898c6` |
 | **ReVeal** | Raw Train | 18,187 | 9.90% | `data/raw/reveal_train.jsonl` | `87c6ec979d8724d1db25217ae6c5637fedaca5350fc954baab4c615efc56f66c` |
 | **ReVeal** | Raw Validation | 2,273 | 9.24% | `data/raw/reveal_validation.jsonl` | `03ccd535ecc5c85601377d1880f05307d20577e195cc8808d2c5cbd880725d50` |
 | **ReVeal** | Raw Test | 2,274 | 10.11% | `data/raw/reveal_test.jsonl` | `5132c4a2cab7cea81435b5039af964cab184e6ce7b4d9e2df524962b0f6d45f3` |
-| **ReVeal** | Clean Donors Bank | 17,620 | 9.57% | `data/manifests/reveal_donor_clean.jsonl` | `9e891cf5b8dfa93c2c3d9d5039e328c5d36c115d173051c5991fc0939e1d372d` |
+| **ReVeal** | Clean Donors Bank | 17,636 | 9.57% | `data/manifests/reveal_donor_clean.jsonl` | `9e891cf5b8dfa93c2c3d9d5039e328c5d36c115d173051c5991fc0939e1d372d` |
 | **ReVeal** | **Manifest Concatenation** | - | - | `data/manifests/reveal_manifest_stats.json` | **`59498c4a4ab038babe558675c183c2b104b0145590fb0accf8b02cd5440d57f7`** |
 | **ReVeal** | Val Subset 600 (Seed 42) | 600 | 9.17% | `data/specs/reveal_val_subset600.jsonl` | `72ce24b2629588a7edf5206c99b26865b630a489580a6b03964c368fad79858e` |
 | **ReVeal** | Test Specs | 2,274 | 10.11% | `data/specs/reveal_test.jsonl` | `26d79cec7a31e45a99cf8f22266aa793f323eacb6328cf8d5bd2fc1b34131deb` |
 
 ### 7.2. Checkpoint Mô Hình & Môi Trường Suy Luận (Provenance Chuẩn Hóa)
 
-- **Primary Architecture:** `Qwen/Qwen3-Coder-30B-A3B-Instruct` (MoE: 30.5B total params, 3.3B active params per token, 48 layers, 48 routed experts, 8 routed per token).
-- **Target Serving Backend:** `llama-server` (llama.cpp b3920) với GGUF Quantization UD-Q4_K_XL (`Qwen3-Coder-30B-A3B-Instruct-UD-Q4_K_XL.gguf`, kích thước 16.45 GB) trên Kaggle Linux GPU 2× Tesla T4 (0 USD, split-mode: layer, CUDA0: 8.48 GB, CUDA1: 8.18 GB).
+- **Primary Architecture:** `Qwen/Qwen3-Coder-30B-A3B-Instruct` (MoE: 30.5B total params, 3.3B active params per token, 48 layers, 48 routed experts, 8 routed per token). tại revision Hugging Face `b2cff646eb4bb1d68355c01b18ae02e7cf42d120`.
+- **Target Serving Backend:** `llama-server` (llama.cpp b3920) với GGUF Quantization Q4_K_M (`Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf`, file SHA-256: `f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335`, kích thước 16.45 GB) trên Kaggle Linux GPU 2× Tesla T4 (0 USD, split-mode: layer, CUDA0: 8.48 GB, CUDA1: 8.18 GB).
 - **Serving Parameters:** `--n_ctx 8192`, `--ctx-size 8192`, `--n_batch 2048`, `--n_ubatch 512`, `--split-mode layer`, `--parallel 1`, Flash-Attention kích hoạt.
 - **Kaggle Model Dataset Slug:** `tnthnhneee/qwen3-30b-a3b/gguf/coder-instruct-ud-q4_k_xl`.
 - **API Interface:** OpenAI-compatible REST API `/v1/chat/completions` qua Cloudflare HTTPS Tunnel.
