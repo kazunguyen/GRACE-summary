@@ -165,6 +165,13 @@ def test_thresholds_json_synchronization():
         f"không khớp với SHA-256 thực tế của protocol.yaml ({expected_sha})!"
     )
 
+    # Xác nhận thresholds.json hợp lệ qua hàm load_locked tamper-proof của grace_diag.thresholds
+    from grace_diag.thresholds import load_locked
+    locked_thresholds = load_locked(THRESHOLDS_JSON)
+    assert len(locked_thresholds) == 14
+    for k in expected_keys:
+        assert k in locked_thresholds
+
 
 def test_step0_offline_diagnostic_artifacts_integrity():
     """Kiểm tra báo cáo Bước 0 trong Runs-management/step0_diagnostic đạt chuẩn 5.000 bootstrap reps."""

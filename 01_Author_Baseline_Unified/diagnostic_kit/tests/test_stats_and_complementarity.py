@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 
+import math
 import numpy as np
 import pytest
 
@@ -89,10 +90,45 @@ def test_routing_curves_shapes():
 def test_parse_top_logprobs_and_response():
     out = parse_top_logprobs({"1": -0.2, " 0": -1.8, "The": -5.0})
     assert out["valid"] and out["pred_argmax"] == 1 and 0.8 < out["s"] < 0.9
-    assert parse_top_logprobs({"The": -0.1})["valid"] is False
+    assert out["both_in_topk"] and not out["s_bounded"]
+    none = parse_top_logprobs({"The": -0.1})
+    assert none["valid"] is False and none["both_in_topk"] is False
+    # chỉ "1" có mặt: "0" nhận cận trên = p(token thấp nhất trong top-k), KHÔNG phải 0
+    one = parse_top_logprobs({"1": -0.05, "The": -4.0, "Yes": -6.0})
+    assert one["valid"] and one["s_bounded"] and not one["both_in_topk"]
+    assert one["p0"] == pytest.approx(math.exp(-6.0)) and one["s"] < 1.0 and one["pred_argmax"] == 1
     top = [SimpleNamespace(token="0", logprob=-0.1), SimpleNamespace(token="1", logprob=-2.4)]
     resp = SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content="0"),
                                                     logprobs=SimpleNamespace(content=[SimpleNamespace(token="0", logprob=-0.1, top_logprobs=top)]))],
                            usage=SimpleNamespace(prompt_tokens=1500, completion_tokens=1))
     r = FirstTokenScorer.parse_response(resp, 0.1)
     assert r.valid and r.pred_argmax == 0 and r.s < 0.2 and r.usage["prompt_tokens"] == 1500
+
+
+def test_request_key_and_repeat_tag():
+    from grace_diag.llm_backend import BackendConfig, request_key
+    cfg = BackendConfig(base_url="http://x", model="m")
+    k0 = request_key("prompt", cfg)
+    assert k0 == request_key("prompt", cfg) and k0 != request_key("prompt", cfg, tag="repeat")
+
+
+def test_locked_thresholds_roundtrip(tmp_path):
+    from grace_diag import thresholds as T
+    val = {("devign", "B2", 42): {"y": [0, 1, 0, 1, 1, 0, 1, 0], "s": [0.1, 0.9, 0.3, 0.8, 0.55, 0.45, 0.7, 0.2]},
+           ("devign", "B2-rep", 42): {"y": [0, 1], "s": [0.2, 0.8]}}
+    arms = {"B2": {"name": "B2"}, "B2-rep": {"name": "B2-rep", "threshold_from": "B2"}, "B2-flip": {"name": "B2-flip", "threshold_from": "B2"}}
+    th = T.compute_thresholds(val, arms)
+    assert th["devign|B2|42"]["policy"] == "argmax_mcc_validation"
+    assert th["devign|B2-rep|42"]["tau"] == th["devign|B2|42"]["tau"] == th["devign|B2-flip|42"]["tau"]
+    assert th["devign|B2-flip|42"]["policy"] == "inherit_from:B2"
+    out = tmp_path / "thresholds.json"
+    digest = T.write_locked(out, th, {"f": "abc"}, "0.01..0.99")
+    loaded = T.load_locked(out)
+    assert loaded["devign|B2|42"]["tau"] == th["devign|B2|42"]["tau"] and len(digest) == 64
+    # sửa tay file đã khóa -> phát hiện
+    assert th["devign|B2|42"]["tau"] == 0.5          # tách hoàn hảo, hòa -> gần 0,5
+    txt = out.read_text(encoding="utf-8").replace('"tau": 0.5', '"tau": 0.37', 1)
+    assert '"tau": 0.37' in txt
+    out.write_text(txt, encoding="utf-8")
+    with pytest.raises(SystemExit):
+        T.load_locked(out)

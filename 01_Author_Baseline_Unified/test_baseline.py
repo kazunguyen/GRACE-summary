@@ -25,9 +25,13 @@ from run_pipeline import run_pipeline
 class BaselineIntegrityTests(unittest.TestCase):
     def test_incomplete_label_logprobs_are_invalid(self):
         from grace_diag.llm_backend import parse_top_logprobs
-        self.assertFalse(parse_top_logprobs({'1': -0.2})['valid'])
-        self.assertFalse(parse_top_logprobs({'0': -0.2})['valid'])
+        self.assertFalse(parse_top_logprobs({'The': -0.2})['valid'])
+        self.assertFalse(parse_top_logprobs({'1': -0.2})['both_in_topk'])
+        self.assertTrue(parse_top_logprobs({'1': -0.2})['s_bounded'])
+        self.assertFalse(parse_top_logprobs({'0': -0.2})['both_in_topk'])
+        self.assertTrue(parse_top_logprobs({'0': -0.2})['s_bounded'])
         self.assertTrue(parse_top_logprobs({'0': -1.0, '1': -0.5})['valid'])
+        self.assertTrue(parse_top_logprobs({'0': -1.0, '1': -0.5})['both_in_topk'])
 
     def test_b2_matches_kit_renderer(self):
         from tokenizers_support import MockTokenizer

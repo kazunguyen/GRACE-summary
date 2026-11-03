@@ -25,6 +25,7 @@ backend:                                       # chi tiết trong configs/backen
   fallback_models: ["Qwen/Qwen2.5-Coder-32B-Instruct", "Qwen/Qwen2.5-Coder-14B-Instruct"]
   decoding: {temperature: 0.0, max_tokens: 1, logprobs: true, top_logprobs: 5, seed: 42}
   guided_choice: "auto: bật nếu smoke test < 99% prompt có token 0/1 trong top-5; ghi vào bài"
+  missing_digit_rule: "token 0/1 vắng trong top-k nhận cận trên p <= p(token thấp nhất trong top-k); cờ s_bounded; báo tỷ lệ"
   quantization_note: "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf (file SHA-256: f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335, 16.45 GB, Hugging Face revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120, MoE 30.5B total / 3.3B active per token, llama-server b3920 với --n_ctx 8192 / Kaggle Linux 2x Tesla T4 GPU, Kaggle model slug: tnthnhneee/qwen3-30b-a3b/gguf/coder-instruct-ud-q4_k_xl)"
 
 token_budget: {total: 8192, target_code: 3000, demo: 1500, graph: 1500, reserve: 64}
@@ -44,8 +45,16 @@ seeds: {headline: 42, all: [42, 43, 44], stochastic_arms: [B2-rand, B1-shuf, SUP
 scoring:
   score: "s = p(1) / (p(0) + p(1)) từ top-5 logprob của token đầu tiên"
   invalid: "cả hai token vắng mặt trong top-5 → invalid; báo tỷ lệ; không ép về 0"
-  thresholds: "s >= 0.5 (câu trả lời của model) và τ* = argmax MCC trên validation, lưới 0.01..0.99 bước 0.01"
-thresholds: {grid: null, locked_file: configs/thresholds.json, total_locked: 14}   # null = linspace(0.01, 0.99, 99)
+  thresholds: "s >= 0.5 (câu trả lời của model) và τ* = argmax MCC trên validation, lưới 0.01..0.99 bước 0.01, hòa -> gần 0.5"
+thresholds:
+  grid: null                                    # null = linspace(0.01, 0.99, 99)
+  rule: "τ*[dataset, arm, seed] = argmax MCC trên validation của chính arm đó; chỉ mẫu hợp lệ; MCC không xác định bị bỏ qua"
+  tie_break: closest_to_0.5
+  inherit: "B2-rep, B2-flip -> τ* của B2; B3-flip, B3-swap -> τ* của B3 (không chọn lại ngưỡng cho probe lặp/đảo)"
+  validation_set: "toàn bộ official validation; Devign manifest: 5a084a10e5c191039e56e351bf8d722fe017424f159a84d6b92be86a1d0f4952; ReVeal manifest: 59498c4a4ab038babe558675c183c2b104b0145590fb0accf8b02cd5440d57f7"
+  order: "validation -> python -m grace_diag.thresholds (khóa, sha256) -> test -> evaluate_final --thresholds"
+  locked_file: configs/thresholds.json
+  total_locked: 14
 
 metrics:
   threshold_free: [auroc, auprc]
@@ -87,6 +96,35 @@ blind_review:
   retrieval_relevance: {targets_per_dataset: 100, raters: 2, adjudicator: third_rater, rubric: [sink, variable, guard, evidence_line]}
   error_packets: {cells: [FN_repaired, FN_created, FP_repaired, FP_created], per_cell: 15, raters: 2}
   label_audit: {per_dataset: 100, source: "50 FN + 50 FP của SUP-LR", verdicts: [label_ok, label_suspicious, not_enough_context]}
+
+exposure_ledger:
+  template: {arm: "", dataset: "", split: "", first_run_utc: "", commit: "", metrics_viewed: "none|labels_only|mcc_auroc|contrasts",
+             identity_matches_frozen_protocol: "yes|no", action: "keep|rerun|rerun_repeat_only"}
+  entries:
+    - {arm: B0, dataset: devign, split: validation, first_run_utc: "2026-11-01T04:21:38Z", commit: "7b045e7", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B0, dataset: devign, split: test, first_run_utc: "2026-11-01T04:21:38Z", commit: "7b045e7", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B0, dataset: reveal, split: validation, first_run_utc: "2026-11-01T04:21:38Z", commit: "7b045e7", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B0, dataset: reveal, split: test, first_run_utc: "2026-11-01T04:21:38Z", commit: "7b045e7", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B1, dataset: devign, split: validation, first_run_utc: "2026-11-01T10:17:36Z", commit: "0785f78", metrics_viewed: labels_only, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B1, dataset: devign, split: test, first_run_utc: "2026-11-01T10:17:36Z", commit: "0785f78", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B1, dataset: reveal, split: validation, first_run_utc: "2026-11-01T10:17:36Z", commit: "0785f78", metrics_viewed: labels_only, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B1, dataset: reveal, split: test, first_run_utc: "2026-11-01T23:59:00Z", commit: "0785f78", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2, dataset: devign, split: validation, first_run_utc: "2026-10-31T17:05:34Z", commit: "8f48ea9", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2, dataset: devign, split: test, first_run_utc: "2026-11-01T02:12:23Z", commit: "8f48ea9", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2, dataset: reveal, split: validation, first_run_utc: "2026-10-31T17:05:34Z", commit: "8f48ea9", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2, dataset: reveal, split: test, first_run_utc: "2026-11-01T02:12:23Z", commit: "8f48ea9", metrics_viewed: mcc_auroc, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2-flip, dataset: devign, split: validation, first_run_utc: "2026-11-01T14:46:02Z", commit: "484b901", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2-flip, dataset: devign, split: test, first_run_utc: "2026-11-01T14:46:02Z", commit: "484b901", metrics_viewed: labels_only, identity_matches_frozen_protocol: "yes", action: rerun}
+    - {arm: B2-flip, dataset: reveal, split: validation, first_run_utc: "2026-11-01T14:46:02Z", commit: "484b901", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2-flip, dataset: reveal, split: test, first_run_utc: "unexecuted", commit: "none", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2-rep, dataset: devign, split: validation, first_run_utc: "unexecuted", commit: "none", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: rerun_repeat_only}
+    - {arm: B2-rep, dataset: devign, split: test, first_run_utc: "unexecuted", commit: "none", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: rerun_repeat_only}
+    - {arm: B2-rep, dataset: reveal, split: validation, first_run_utc: "unexecuted", commit: "none", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: rerun_repeat_only}
+    - {arm: B2-rep, dataset: reveal, split: test, first_run_utc: "unexecuted", commit: "none", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: rerun_repeat_only}
+    - {arm: B2-rand, dataset: devign, split: validation, first_run_utc: "2026-11-02T00:04:23Z", commit: "484b901", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
+    - {arm: B2-rand, dataset: reveal, split: validation, first_run_utc: "2026-11-02T00:04:23Z", commit: "484b901", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
+  osf_existing_data_level: "following_analysis (Tier 1 on Devign/ReVeal test); prior_to_analysis (Tiers 2-3 and unexecuted Table B/D contrasts)"
+  plan_frozen_evidence: "Commit 49cd2a2 (2026-11-01) and unified syllabus 00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf"
 
 stop_rules:
   - "Nếu lợi thế của SUP-LR biến mất sau khử trùng/kiểm toán nhãn: sửa dữ liệu trước, không viết."

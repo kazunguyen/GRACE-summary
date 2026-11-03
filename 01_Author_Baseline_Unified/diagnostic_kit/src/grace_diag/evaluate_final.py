@@ -60,29 +60,39 @@ def arrays(records: Dict[str, Dict], ids: List[str]):
     return y, s, valid, pred, grp
 
 
-def table_a(data, out_dir: Path, grid=None, prelocked_taus: Optional[Dict[Tuple[str, str, int], float]] = None) -> Dict[Tuple[str, str, int], float]:
+def table_a(data, out_dir: Path, locked: Dict[str, Any]) -> Dict[Tuple[str, str, int], float]:
+    """Bảng A. Ngưỡng τ* CHỈ đọc từ thresholds.json đã khóa (grace_diag.thresholds); không tính lại
+    ở đây và không mặc định 0,5: arm có test mà không có ngưỡng khóa là lỗi giao thức."""
     rows, taus = [], {}
-    if prelocked_taus:
-        taus.update(prelocked_taus)
     keys = sorted({(d, a, sd) for (d, a, sd, sp) in data})
+    missing = []
     for d, a, sd in keys:
-        val, test = data.get((d, a, sd, "validation")), data.get((d, a, sd, "test"))
-        tau = taus.get((d, a, sd), 0.5)
-        if val and (d, a, sd) not in taus:
-            vids = sorted(val)
-            yv, sv, vv, _, _ = arrays(val, vids)
-            tau, _ = S.pick_threshold(yv[vv], sv[vv], grid)
-            taus[(d, a, sd)] = tau
+        test = data.get((d, a, sd, "test"))
         if not test:
             continue
+        entry = locked.get(f"{d}|{a}|{sd}")
+        if entry is None:
+            missing.append(f"{d}|{a}|{sd}")
+            continue
+        tau = float(entry["tau"]) if isinstance(entry, dict) else float(entry)
+        tau_policy = entry.get("policy") if isinstance(entry, dict) else "locked_validation"
+        ids = sorted(test)
+        y, s, valid, pred, _ = arrays(test, ids)
+        taus[(d, a, sd)] = tau
         ok = valid
         m05 = S.thresholded_metrics(y[ok], pred[ok])
         mt = S.thresholded_metrics(y[ok], (s[ok] >= tau).astype(int))
+        bounded = float(np.mean([bool(test[i].get("s_bounded", False)) for i in ids]))
         rows.append({"dataset": d, "arm": a, "seed": sd, "n": len(ids), "invalid_rate": float((~valid).mean()),
+                     "s_bounded_rate": bounded,
                      "auroc": S.auroc(y[ok], s[ok]), "auprc": S.auprc(y[ok], s[ok]),
                      "mcc@0.5": m05["mcc"], "ba@0.5": m05["balanced_accuracy"], "f1@0.5": m05["f1"], "ppr@0.5": m05["positive_rate"],
-                     "tau*": tau, "mcc@tau": mt["mcc"], "ba@tau": mt["balanced_accuracy"], "f1@tau": mt["f1"], "ppr@tau": mt["positive_rate"],
+                     "tau*": tau, "tau_policy": tau_policy, "mcc@tau": mt["mcc"], "ba@tau": mt["balanced_accuracy"],
+                     "f1@tau": mt["f1"], "ppr@tau": mt["positive_rate"],
                      "TP": m05["TP"], "FP": m05["FP"], "TN": m05["TN"], "FN": m05["FN"]})
+    if missing:
+        raise SystemExit("Thiếu ngưỡng đã khóa cho arm có test: " + ", ".join(missing) +
+                         "  -> chạy python -m grace_diag.thresholds trên validation TRƯỚC khi đánh giá test")
     for d in sorted({k[0] for k in keys}):
         any_test = next((data[k] for k in data if k[0] == d and k[3] == "test"), None)
         if any_test:
@@ -222,42 +232,24 @@ def _main():
     ap.add_argument("--runs", required=True, type=Path)
     ap.add_argument("--protocol", required=True, type=Path)
     ap.add_argument("--anchor-csv", type=Path)
-    ap.add_argument("--thresholds", type=Path, help="Đường dẫn file thresholds.json đã khóa từ Validation")
+    ap.add_argument("--thresholds", required=True, type=Path, help="thresholds.json đã khóa từ grace_diag.thresholds")
     ap.add_argument("--out", required=True, type=Path)
     a = ap.parse_args()
+    from .thresholds import load_locked
     proto = yaml.safe_load(a.protocol.read_text(encoding="utf-8"))
+    locked = load_locked(a.thresholds)
     data = load_runs(a.runs)
     labels = {}
     for (d, arm, sd, sp), rec in data.items():
         labels.setdefault((d, sp), {}).update({i: r["label"] for i, r in rec.items()})
     load_anchor(a.anchor_csv, labels, data)
     a.out.mkdir(parents=True, exist_ok=True)
-    prelocked = None
-    thresh_file = a.thresholds
-    if thresh_file is None:
-        locked_p = proto.get("thresholds", {}).get("locked_file")
-        if locked_p and Path(locked_p).exists():
-            thresh_file = Path(locked_p)
-        elif Path("configs/thresholds.json").exists():
-            thresh_file = Path("configs/thresholds.json")
-
-    if thresh_file and thresh_file.exists():
-        raw_t = json.loads(thresh_file.read_text(encoding="utf-8"))
-        raw_dict = raw_t.get("thresholds", raw_t)
-        prelocked = {}
-        for k, v in raw_dict.items():
-            parts = k.split("|")
-            if len(parts) == 3:
-                prelocked[(parts[0], parts[1], int(parts[2]))] = float(v)
-
-    taus = table_a(data, a.out, proto.get("thresholds", {}).get("grid"), prelocked_taus=prelocked)
+    taus = table_a(data, a.out, locked)
     table_b(data, taus, proto["primary_contrasts"], a.out, proto["stats"]["n_boot"], proto["stats"]["bootstrap_seed"])
     table_c(data, a.out)
     figures(data, taus, a.out)
-    if thresh_file and thresh_file.exists():
-        (a.out / "thresholds.json").write_text(thresh_file.read_text(encoding="utf-8"), encoding="utf-8")
-    elif not (a.out / "thresholds.json").exists():
-        json.dump({f"{k[0]}|{k[1]}|{k[2]}": v for k, v in taus.items()}, open(a.out / "thresholds.json", "w"), indent=2)
+    json.dump({"thresholds_file": str(a.thresholds), "used": {f"{k[0]}|{k[1]}|{k[2]}": v for k, v in taus.items()}},
+              open(a.out / "thresholds_used.json", "w"), indent=2)
     print("wrote", a.out)
 
 
