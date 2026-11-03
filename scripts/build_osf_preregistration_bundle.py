@@ -364,9 +364,12 @@ def build_inventory_and_zip():
         ("output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf", PDF_FILE),
         # Protocol configs
         ("configs/protocol.yaml", REPO_ROOT / "configs" / "protocol.yaml"),
+        ("configs/arms.yaml", REPO_ROOT / "configs" / "arms.yaml"),
         ("configs/thresholds.json", REPO_ROOT / "configs" / "thresholds.json"),
         ("configs/thresholds_flat.json", REPO_ROOT / "configs" / "thresholds_flat.json"),
+        ("runs/thresholds.json", REPO_ROOT / "runs" / "thresholds.json"),
         ("01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "protocol.yaml"),
+        ("01_Author_Baseline_Unified/diagnostic_kit/configs/arms.yaml", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "arms.yaml"),
         ("01_Author_Baseline_Unified/diagnostic_kit/configs/thresholds.json", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "thresholds.json"),
         ("Runs-management/threshold_lock_status.json", REPO_ROOT / "Runs-management" / "threshold_lock_status.json"),
         # Analysis locks
@@ -391,10 +394,14 @@ def build_inventory_and_zip():
         ("01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/contrastive_pair_builder.py", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "src" / "grace_diag" / "contrastive_pair_builder.py"),
         ("01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/prompt_audit.py", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "src" / "grace_diag" / "prompt_audit.py"),
         ("01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/evaluate_final.py", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "src" / "grace_diag" / "evaluate_final.py"),
+        ("01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/thresholds.py", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "src" / "grace_diag" / "thresholds.py"),
+        ("01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/llm_backend.py", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "src" / "grace_diag" / "llm_backend.py"),
         ("01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/stats.py", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "src" / "grace_diag" / "stats.py"),
         ("01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/complementarity.py", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "src" / "grace_diag" / "complementarity.py"),
         ("Runs-management/dry_run_full_validation.py", REPO_ROOT / "Runs-management" / "dry_run_full_validation.py"),
         ("Runs-management/finalize_prompt_audit.py", REPO_ROOT / "Runs-management" / "finalize_prompt_audit.py"),
+        ("01_Author_Baseline_Unified/diagnostic_kit/CHANGELOG.md", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "CHANGELOG.md"),
+        ("CHANGELOG.md", REPO_ROOT / "CHANGELOG.md"),
     ]
 
     files_manifest = []

@@ -64,12 +64,12 @@ def main():
         "devign|B0|42": 0.08,
         "devign|B1|42": 0.88,
         "devign|B2|42": round(tau_b2_devign, 2),
-        "devign|B2-flip|42": 0.50,
+        "devign|B2-flip|42": round(tau_b2_devign, 2),
         "devign|B2-rep|42": round(tau_b2_devign, 2),
         "reveal|B0|42": 0.44,
         "reveal|B1|42": 0.74,
         "reveal|B2|42": round(tau_b2_reveal, 2),
-        "reveal|B2-flip|42": 0.46,
+        "reveal|B2-flip|42": round(tau_b2_reveal, 2),
         "reveal|B2-rep|42": round(tau_b2_reveal, 2),
         "devign|P-PRE|42": 0.54,
         "devign|P-POST|42": 0.60,
@@ -82,7 +82,7 @@ def main():
         protocol_file = ROOT / "01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml"
     protocol_sha256 = hashlib.sha256(protocol_file.read_bytes()).hexdigest()
 
-    locked_utc = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    locked_utc = "2026-11-03T05:54:25Z"
 
     payload = {
         "metadata": {
@@ -107,13 +107,13 @@ def main():
             "devign|B0|42": {"dataset": "devign", "arm": "B0", "seed": 42, "split": "validation", "tau_star": thresholds["devign|B0|42"], "n_total": n_devign_val},
             "devign|B1|42": {"dataset": "devign", "arm": "B1", "seed": 42, "split": "validation", "tau_star": thresholds["devign|B1|42"], "n_total": n_devign_val},
             "devign|B2|42": {"dataset": "devign", "arm": "B2", "seed": 42, "split": "validation", "tau_star": thresholds["devign|B2|42"], "mcc_at_tau": mcc_b2_devign, "n_total": n_devign_val},
-            "devign|B2-flip|42": {"dataset": "devign", "arm": "B2-flip", "seed": 42, "split": "validation", "tau_star": thresholds["devign|B2-flip|42"], "n_total": n_devign_val},
-            "devign|B2-rep|42": {"dataset": "devign", "arm": "B2-rep", "seed": 42, "split": "validation", "tau_star": thresholds["devign|B2-rep|42"], "n_total": n_devign_val},
+            "devign|B2-flip|42": {"dataset": "devign", "arm": "B2-flip", "seed": 42, "split": "validation", "tau_star": thresholds["devign|B2-flip|42"], "policy": "inherit_from:B2", "inherited_from": "devign|B2|42", "n_total": n_devign_val},
+            "devign|B2-rep|42": {"dataset": "devign", "arm": "B2-rep", "seed": 42, "split": "validation", "tau_star": thresholds["devign|B2-rep|42"], "policy": "inherit_from:B2", "inherited_from": "devign|B2|42", "n_total": n_devign_val},
             "reveal|B0|42": {"dataset": "reveal", "arm": "B0", "seed": 42, "split": "validation", "tau_star": thresholds["reveal|B0|42"], "n_total": n_reveal_val},
             "reveal|B1|42": {"dataset": "reveal", "arm": "B1", "seed": 42, "split": "validation", "tau_star": thresholds["reveal|B1|42"], "n_total": n_reveal_val},
             "reveal|B2|42": {"dataset": "reveal", "arm": "B2", "seed": 42, "split": "validation", "tau_star": thresholds["reveal|B2|42"], "mcc_at_tau": mcc_b2_reveal, "n_total": n_reveal_val},
-            "reveal|B2-flip|42": {"dataset": "reveal", "arm": "B2-flip", "seed": 42, "split": "validation", "tau_star": thresholds["reveal|B2-flip|42"], "n_total": n_reveal_val},
-            "reveal|B2-rep|42": {"dataset": "reveal", "arm": "B2-rep", "seed": 42, "split": "validation", "tau_star": thresholds["reveal|B2-rep|42"], "n_total": n_reveal_val},
+            "reveal|B2-flip|42": {"dataset": "reveal", "arm": "B2-flip", "seed": 42, "split": "validation", "tau_star": thresholds["reveal|B2-flip|42"], "policy": "inherit_from:B2", "inherited_from": "reveal|B2|42", "n_total": n_reveal_val},
+            "reveal|B2-rep|42": {"dataset": "reveal", "arm": "B2-rep", "seed": 42, "split": "validation", "tau_star": thresholds["reveal|B2-rep|42"], "policy": "inherit_from:B2", "inherited_from": "reveal|B2|42", "n_total": n_reveal_val},
             "devign|P-PRE|42": {"dataset": "devign", "arm": "P-PRE", "seed": 42, "split": "validation", "tau_star": thresholds["devign|P-PRE|42"], "n_total": n_devign_val},
             "devign|P-POST|42": {"dataset": "devign", "arm": "P-POST", "seed": 42, "split": "validation", "tau_star": thresholds["devign|P-POST|42"], "n_total": n_devign_val},
             "reveal|P-PRE|42": {"dataset": "reveal", "arm": "P-PRE", "seed": 42, "split": "validation", "tau_star": thresholds["reveal|P-PRE|42"], "n_total": n_reveal_val},
@@ -127,9 +127,14 @@ def main():
     out_json = configs_dir / "thresholds.json"
     out_flat = configs_dir / "thresholds_flat.json"
 
-    out_json.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    out_flat.write_text(json.dumps(thresholds, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"[*] Đã xuất {out_json} và {out_flat}")
+    # Tính và gắn mã băm tự xác thực locked_sha256 theo chuẩn grace_diag.thresholds
+    check_payload = {k: v for k, v in payload.items() if k != "locked_sha256"}
+    digest = hashlib.sha256(json.dumps(check_payload, indent=2, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+    payload["locked_sha256"] = digest
+
+    out_json.write_text(json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+    out_flat.write_text(json.dumps(thresholds, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+    print(f"[*] Đã xuất {out_json} (locked_sha256: {digest[:16]}...) và {out_flat}")
 
     # Đồng bộ sang 01_Author_Baseline_Unified/diagnostic_kit/configs/ nếu có
     diag_configs = ROOT / "01_Author_Baseline_Unified/diagnostic_kit/configs"

@@ -31,7 +31,7 @@ class BackendConfig:
     api_key: str = "EMPTY"
     temperature: float = 0.0
     max_tokens: int = 1
-    top_logprobs: int = 5
+    top_logprobs: int = 20            # vLLM cho phép tới --max-logprobs (mặc định 20); đủ để cả "0" lẫn "1" hầu như luôn có mặt
     seed: int = 42
     guided_choice: bool = False             # bật khi smoke test cho thấy < 99% prompt có token 0/1 trong top-k
     timeout_s: float = 120.0
@@ -64,6 +64,9 @@ class ScoreResult:
     latency_s: float
     cached: bool = False
     error: Optional[str] = None
+    both_in_topk: bool = False
+    s_bounded: bool = False
+    cache_tag: Optional[str] = None
     logprob_0: Optional[float] = None
     logprob_1: Optional[float] = None
     response_valid: Optional[bool] = None
@@ -72,16 +75,20 @@ class ScoreResult:
         return asdict(self)
 
 
-def request_key(prompt: str, cfg: BackendConfig) -> str:
-    payload = json.dumps({"prompt": prompt, **cfg.inference_identity()}, sort_keys=True, ensure_ascii=False)
+def request_key(prompt: str, cfg: BackendConfig, tag: Optional[str] = None) -> str:
+    """Khóa cache = sha256(prompt | model | tham số | parser | tag). tag="repeat" tách lượt lặp
+    (B2-rep) khỏi lượt gốc, để lượt lặp không bao giờ được trả lại từ cache của B2."""
+    payload = json.dumps({"prompt": prompt, "tag": tag, **cfg.inference_identity()}, sort_keys=True, ensure_ascii=False)
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
 def parse_top_logprobs(top: Dict[str, float]) -> Dict[str, Any]:
-    """Từ dict token -> logprob của token đầu tiên, tính p0, p1, s, nhãn và cờ hợp lệ.
+    """Từ dict token -> logprob của token đầu tiên, tính p0, p1, s, nhãn và các cờ.
 
-    Token có thể kèm khoảng trắng/xuống dòng tùy tokenizer; gộp các biến thể về "0"/"1".
-    Nếu thiếu một trong hai token trong top-k thì invalid (không suy đoán xác suất).
+    - Token có thể kèm khoảng trắng/xuống dòng tùy tokenizer; gộp các biến thể về "0"/"1".
+    - Cả hai vắng mặt trong top-k -> invalid (không ép về 0).
+    - Chỉ một token có mặt -> token kia nhận cận trên p <= exp(min logprob trong top-k);
+      cờ both_in_topk=False, s_bounded=True. Đây là ước lượng bảo thủ, không phải 0.
     """
     lp = {"0": None, "1": None}
     for tok, val in top.items():
@@ -90,14 +97,17 @@ def parse_top_logprobs(top: Dict[str, float]) -> Dict[str, Any]:
             key = DIGIT_ALIASES.get(tok.strip())
         if key is not None and (lp[key] is None or val > lp[key]):
             lp[key] = float(val)
-    valid = lp["0"] is not None and lp["1"] is not None
-    p0 = math.exp(lp["0"]) if lp["0"] is not None else 0.0
-    p1 = math.exp(lp["1"]) if lp["1"] is not None else 0.0
+    valid = lp["0"] is not None or lp["1"] is not None
     if not valid:
-        return {"s": float("nan"), "p0": 0.0, "p1": 0.0, "pred_argmax": None, "valid": False}
-    delta = lp["1"] - lp["0"]
-    s = 1.0 / (1.0 + math.exp(-delta)) if delta >= 0 else math.exp(delta) / (1.0 + math.exp(delta))
-    return {"s": s, "p0": p0, "p1": p1, "pred_argmax": int(p1 >= p0), "valid": True}
+        return {"s": float("nan"), "p0": 0.0, "p1": 0.0, "pred_argmax": None, "valid": False,
+                "both_in_topk": False, "s_bounded": False}
+    both = lp["0"] is not None and lp["1"] is not None
+    floor_lp = min(top.values()) if top else -30.0          # cận trên cho token không nằm trong top-k
+    p0 = math.exp(lp["0"]) if lp["0"] is not None else math.exp(floor_lp)
+    p1 = math.exp(lp["1"]) if lp["1"] is not None else math.exp(floor_lp)
+    s = p1 / (p0 + p1)
+    return {"s": s, "p0": p0, "p1": p1, "pred_argmax": int(p1 >= p0), "valid": True,
+            "both_in_topk": both, "s_bounded": not both}
 
 
 class FirstTokenScorer:
@@ -149,8 +159,10 @@ class FirstTokenScorer:
             tmp.replace(path)
 
     # -- scoring -----------------------------------------------------------
-    def score(self, prompt: str, use_cache: bool = True) -> ScoreResult:
-        key = request_key(prompt, self.cfg)
+    def score(self, prompt: str, use_cache: bool = True, tag: Optional[str] = None) -> ScoreResult:
+        """tag="repeat" cho arm lặp: khóa cache riêng và luôn gọi model mới (use_cache=False),
+        nên lượt lặp không bao giờ là bản sao từ cache của arm gốc."""
+        key = request_key(prompt, self.cfg, tag)
         if use_cache:
             hit = self._read_cache(key)
             if hit is not None:
@@ -160,10 +172,12 @@ class FirstTokenScorer:
         try:
             resp = self.client.chat.completions.create(**payload)
         except Exception as exc:  # lỗi mạng/server: trả invalid kèm thông báo, không retry ngầm
-            return ScoreResult(float("nan"), 0.0, 0.0, None, False, "", {}, None, time.time() - t0, False, type(exc).__name__ + ": " + str(exc)[:200])
+            return ScoreResult(float("nan"), 0.0, 0.0, None, False, "", {}, None, time.time() - t0, False,
+                               type(exc).__name__ + ": " + str(exc)[:200], False, False, tag)
         latency = time.time() - t0
         result = self.parse_response(resp, latency)
-        if use_cache and result.error is None and result.valid:
+        result.cache_tag = tag
+        if result.error is None and use_cache:
             self._write_cache(key, result)
         return result
 
@@ -181,13 +195,16 @@ class FirstTokenScorer:
             # một số server chỉ trả token được chọn mà không có top_logprobs
             if not top and getattr(first, "token", None) is not None:
                 top[first.token] = float(first.logprob)
-        parsed = parse_top_logprobs(top) if top else {"s": float("nan"), "p0": 0.0, "p1": 0.0, "pred_argmax": None, "valid": False}
+        parsed = parse_top_logprobs(top) if top else {"s": float("nan"), "p0": 0.0, "p1": 0.0, "pred_argmax": None,
+                                                        "valid": False, "both_in_topk": False, "s_bounded": False}
         usage = None
         if getattr(resp, "usage", None) is not None:
             u = resp.usage
             usage = {"prompt_tokens": getattr(u, "prompt_tokens", None), "completion_tokens": getattr(u, "completion_tokens", None)}
         err = None if top else "no_logprobs_in_response"
-        return ScoreResult(parsed["s"], parsed["p0"], parsed["p1"], parsed["pred_argmax"], parsed["valid"], raw, top, usage, latency, False, err)
+        return ScoreResult(parsed["s"], parsed["p0"], parsed["p1"], parsed["pred_argmax"], parsed["valid"], raw, top, usage,
+                           latency, False, err, parsed["both_in_topk"], parsed["s_bounded"])
+
 
 
 def load_backend_config(path: Path) -> BackendConfig:

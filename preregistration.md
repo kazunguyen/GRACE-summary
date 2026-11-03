@@ -10,15 +10,44 @@
 
 ---
 
-## 1. Công Bố Minh Bạch Về Tiếp Xúc Dữ Liệu Test (Test Exposure Disclosure)
+## 1. Công Bố Minh Bạch Về Tiếp Xúc Dữ Liệu Test (Test Exposure Disclosure & Ledger)
 
 Tập dữ liệu kiểm thử (test set) của Devign và ReVeal đã từng được tiếp xúc trong giai đoạn thăm dò sơ bộ ban đầu (gồm 36 lượt chạy API thử nghiệm, tập dev-100, và các phép đo động cơ H1–H3). 
 
 Nhằm đảm bảo tính hợp thức và giá trị xác nhận khoa học:
 1. Mọi lựa chọn cấu hình, siêu tham số, ngân sách token, template prompt và 15 arm thử nghiệm đều được **chốt cứng trên tập validation chính thức** trước khi thực hiện lượt chạy test xác nhận.
-2. Ngưỡng phân lớp tối ưu $\tau^*$ của mọi arm được tìm kiếm và cố định hoàn toàn trên tập validation (`thresholds.json`), không bao giờ điều chỉnh dựa trên kết quả test. Cam kết Zero-Test-Exposure.
+2. Ngưỡng phân lớp tối ưu $\tau^*$ của mọi arm được tìm kiếm và cố định hoàn toàn trên tập validation (`configs/thresholds.json` và `runs/thresholds.json`), không bao giờ điều chỉnh dựa trên kết quả test.
 3. Toàn bộ kết quả trong giai đoạn thăm dò trước đây chỉ được xem là bằng chứng động cơ học thuật và được đưa vào phụ lục, tách biệt hoàn toàn khỏi kết quả xác nhận.
 4. Mọi thay đổi phát sinh sau thời điểm đăng ký này bắt buộc phải ghi nhật ký minh bạch kèm lý do trong `CHANGES_AFTER_PREREG.md`.
+
+### 1.1. Khai Báo Mức Dữ Liệu Có Sẵn Trên OSF (OSF Existing Data Declarations)
+
+Theo phân loại của Open Science Framework (OSF):
+- **Registration following analysis of the data:** Áp dụng cho các arm Tầng 1 (B0, B1, B2) trên tập Test của Devign và ReVeal do các chỉ số thăm dò (MCC, AUROC) đã được tính toán trong giai đoạn thăm dò. Trong Bảng B của bài báo, các cặp so sánh này được ghi nhận rõ trạng thái "đã xem trước đăng ký".
+- **Registration prior to analysis of the data:** Áp dụng cho toàn bộ các arm Tầng 2–3 (B2-rand, B2-nolabel, B2-labelonly, B1-shuf, B1-full, B1-H2, B3, B3-nodiff, B3-swap, B3-flip) và mọi phân tích xác nhận chưa thực hiện: Bảng B (paired bootstrap contrasts có hiệu chỉnh Holm), Bảng D (phân tích bổ sung, routing ngân sách), và kiểm toán chấm mù 2 người (blind review audit).
+
+### 1.2. Bảng Kê Tiếp Xúc (Exposure Ledger) & Kiểm Toán 3 Điều Kiện Giữ / Chạy Lại
+
+Thực hiện theo chỉ đạo của Cố vấn khoa học, nhóm nghiên cứu đã kiểm toán 3 điều kiện đối với các lượt chạy lịch sử:
+- **Điều kiện 1 (Khớp giao thức):** Kiểm tra đối chiếu manifest của lượt cũ với `protocol.yaml`. Tất cả các lượt giữ lại đều dùng chung checkpoint `Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf` (SHA-256 `f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335`), backend `llama-cpp-python 0.3.16`, context limit 8,192 tokens, và thứ tự prompt Hình 6 chuẩn mực.
+- **Điều kiện 2 (Độ đầy đủ logprob và cận trên):** Toàn bộ record đều lưu logprob của token `0` và `1` để tính $s = \operatorname{sigmoid}(\operatorname{logit}_1 - \operatorname{logit}_0)$. Đối với các token vắng mặt trong top-k (nếu có), áp dụng cận trên bảo thủ $p \le p(\text{token thấp nhất trong top-}k)$ kèm cờ `s_bounded`, bảo đảm tỷ lệ bị chặn $< 1\%$.
+- **Điều kiện 3 (Cách ly cache B2-rep):** Arm B2-rep chưa từng chạy trên GPU; khi thực thi bắt buộc bật `repeat: true` và `tag="repeat"` trong bộ chẩn đoán v1.1 để cô lập cache, bảo đảm không bao giờ nhận lại câu trả lời từ cache của B2.
+
+| Arm | Dataset | Split | Lần Chạy Đầu (UTC) | Commit | Nội Dung Đã Xem | Khớp Giao Thức Khóa? | Hành Động |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **B0** | Devign | Val / Test | 2026-11-01T04:21:38Z | `7b045e7` | MCC, AUROC, CM | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B0** | ReVeal | Val / Test | 2026-11-01T04:21:38Z | `7b045e7` | MCC, AUROC, CM | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B1** | Devign | Val / Test | 2026-11-01T10:17:36Z | `0785f78` | MCC, AUROC | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B1** | ReVeal | Val / Test | 2026-11-01T10:17:36Z | `0785f78` | MCC, AUROC | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B2** | Devign | Val / Test | 2026-10-31T17:05:34Z | `8f48ea9` | MCC, AUROC, CM | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B2** | ReVeal | Val / Test | 2026-10-31T17:05:34Z | `8f48ea9` | MCC, AUROC, CM | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B2-flip** | Devign | Validation | 2026-11-01T14:46:02Z | `484b901` | Chưa xem (`none`) | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B2-flip** | Devign | Test | 2026-11-01T14:46:02Z | `484b901` | Nhãn thô 230 mẫu | Có (`yes`) | Chạy lại (`rerun`) |
+| **B2-flip** | ReVeal | Validation | 2026-11-01T14:46:02Z | `484b901` | Chưa xem (`none`) | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B2-flip** | ReVeal | Test | Chưa chạy | Chưa có | Chưa xem (`none`) | Có (`yes`) | Giữ nguyên (`keep`) |
+| **B2-rep** | Cả hai | Val / Test | Chưa chạy | Chưa có | Chưa xem (`none`) | Có (`yes`) | Chạy mới không cache (`rerun_repeat_only`) |
+| **B2-rand** | Cả hai | Validation | 2026-11-02T00:04:23Z | `484b901` | Chưa xem (`none`) | Có (`yes`) | Giữ nguyên (`keep`) |
+| **Tầng 2–3**| Cả hai | Val / Test | Chưa chạy | Chưa có | Chưa xem (`none`) | Có (`yes`) | Đăng ký trước khi phân tích (`prior_to_analysis`) |
 
 ---
 
@@ -57,11 +86,13 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
    - Các cặp gần trùng (Jaccard token 3-gram $\ge 0.9$) được gắn cờ để phân tích độ nhạy (báo cáo cả trên test đầy đủ và test đã lọc gần trùng).
 2. **Khóa 14 Ngưỡng Quyết Định Tối Ưu ($\tau^*$):**
    - Không dùng ngưỡng tùy tiện.
-   - Tìm kiếm ngưỡng tối ưu $\tau^*$ trên lưới 99 điểm $[0.01, 0.99]$ (bước 0.01) dựa trên cực đại hóa chỉ số MCC trên tập validation:
-     $$\tau^* = \operatorname{argmax}_{\tau \in [0.01, 0.99]} \left(\operatorname{MCC}(y_\text{val}, \hat{y}_\tau), -|\tau - 0.5|\right)$$
-   - Khóa toàn bộ 14 ngưỡng tối ưu $\tau^*$ vào `configs/thresholds.json` và `configs/thresholds_flat.json` trước khi chạy suy luận trên test:
-     - **Devign LLM Arms**: `devign|B0|42` = 0.08, `devign|B1|42` = 0.88, `devign|B2|42` = 0.70, `devign|B2-flip|42` = 0.50, `devign|B2-rep|42` = 0.70.
-     - **ReVeal LLM Arms**: `reveal|B0|42` = 0.44, `reveal|B1|42` = 0.74, `reveal|B2|42` = 0.12, `reveal|B2-flip|42` = 0.46, `reveal|B2-rep|42` = 0.12.
+   - Công thức xác định ngưỡng tối ưu riêng cho từng dataset $d$, arm $a$, và seed $r$:
+     $$\tau^*(d, a, r) = \operatorname{argmax}_{\tau \in \{0.01, 0.02, \dots, 0.99\}} \operatorname{MCC}(y_\text{val}(d), \mathbf{1}[s_\text{val}(d, a, r) \ge \tau])$$
+   - **Quy tắc phá hòa (Tie-break):** Trong trường hợp có nhiều giá trị $\tau$ cùng đạt cực đại MCC, chọn giá trị gần $0.5$ nhất (`closest_to_0.5`); nếu khoảng cách tới $0.5$ bằng nhau thì lấy ngưỡng nhỏ hơn. Chỉ sử dụng các mẫu hợp lệ trên validation (`valid == True`); các ngưỡng khiến MCC không xác định (mọi dự đoán về cùng 1 lớp) bị bỏ qua.
+   - **Quy tắc thừa kế ngưỡng (Threshold Inheritance Rule):** Các probe can thiệp nhãn hoặc lặp ($B2\text{-rep}$, $B2\text{-flip}$, $B3\text{-flip}$, $B3\text{-swap}$) **bắt buộc không chọn $\tau^*$ độc lập trên validation**, mà thừa kế trực tiếp giá trị $\tau^*$ đã khóa của arm gốc tương ứng ($B2$ hoặc $B3$). Việc chọn lại ngưỡng cho một arm đã bị đảo nhãn hay lặp sẽ "sửa" đúng hiệu ứng cần đo lường và làm trộn lẫn biến động do chọn ngưỡng vào hiệu ứng can thiệp.
+   - Toàn bộ 14 ngưỡng tối ưu $\tau^*$ được khóa chặt chẽ vào `configs/thresholds.json` và `runs/thresholds.json` trước khi thực hiện bất kỳ lượt suy luận hay đánh giá test nào:
+     - **Devign LLM Arms**: `devign|B0|42` = 0.08, `devign|B1|42` = 0.88, `devign|B2|42` = 0.70, `devign|B2-flip|42` = 0.70 (thừa kế từ B2), `devign|B2-rep|42` = 0.70 (thừa kế từ B2).
+     - **ReVeal LLM Arms**: `reveal|B0|42` = 0.44, `reveal|B1|42` = 0.74, `reveal|B2|42` = 0.12, `reveal|B2-flip|42` = 0.12 (thừa kế từ B2), `reveal|B2-rep|42` = 0.12 (thừa kế từ B2).
      - **Meta-Models**: `devign|P-PRE|42` = 0.54, `devign|P-POST|42` = 0.60; `reveal|P-PRE|42` = 0.38, `reveal|P-POST|42` = 0.10.
 3. **Thống Kê Khẳng Định & So Sánh Cặp (Bảng B):**
    - Paired Bootstrap $B = 5000$ lần lặp với seed cố định `20261117`.
@@ -141,17 +172,17 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 | **Devign** | Raw Test | 2,732 | 45.94% | [`data/raw/devign_test.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/devign/test_raw.jsonl) | `7f77094d9328624036cbd43ab1281aaf0c3378e220d5b3a10ba0a98922ab39c6` |
 | **Devign** | Clean Donors Bank | 21,691 | 45.91% | [`data/manifests/devign_donor_clean.jsonl`](https://drive.google.com/file/d/10f_cARhg4BoMeIn4Q57qLzGiQuZUv00_/view?usp=sharing) | `5eda46695ea98091168c2a87591010b4fe6c08597a376c3361b4cf40297d1dfe` |
 | **Devign** | **Manifest Concatenation** | - | - | [`data/manifests/devign_manifest_stats.json`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/devign/stats.json) | **`5a084a10e5c191039e56e351bf8d722fe017424f159a84d6b92be86a1d0f4952`** |
-| **Devign** | Val Subset 600 (Seed 42) | 600 | 43.50% | `data/specs/devign_val_subset600.jsonl` | `88f749c000a7b110ed87641d9d5dc4bc912b9f2fdb3dcc2a97753238a4dbcdfd` |
+| **Devign** | Val Subset 600 (Seed 42) | 600 | 43.50% | [`data/specs/devign_val_subset600.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/data/specs/devign_val_subset600.jsonl) | `88f749c000a7b110ed87641d9d5dc4bc912b9f2fdb3dcc2a97753238a4dbcdfd` |
 | **Devign** | Test Specs | 2,732 | 45.94% | `data/specs/devign_test.jsonl` | `bd0f4d025afd051c064ab58c1495a887c5851b6408e2d47d39ae64d421b898c6` |
 | **ReVeal** | Raw Train | 18,187 | 9.90% | [`data/raw/reveal_train.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/train_raw.jsonl) | `87c6ec979d8724d1db25217ae6c5637fedaca5350fc954baab4c615efc56f66c` |
 | **ReVeal** | Raw Validation | 2,273 | 9.24% | [`data/raw/reveal_validation.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/validation_raw.jsonl) | `03ccd535ecc5c85601377d1880f05307d20577e195cc8808d2c5cbd880725d50` |
 | **ReVeal** | Raw Test | 2,274 | 10.11% | [`data/raw/reveal_test.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/test_raw.jsonl) | `5132c4a2cab7cea81435b5039af964cab184e6ce7b4d9e2df524962b0f6d45f3` |
 | **ReVeal** | Clean Donors Bank | 17,636 | 9.57% | [`data/manifests/reveal_donor_clean.jsonl`](https://drive.google.com/file/d/162syKwALRE2EvMbP5bBHA4P9eis30hjA/view?usp=sharing) | `9e891cf5b8dfa93c2c3d9d5039e328c5d36c115d173051c5991fc0939e1d372d` |
 | **ReVeal** | **Manifest Concatenation** | - | - | [`data/manifests/reveal_manifest_stats.json`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/stats.json) | **`59498c4a4ab038babe558675c183c2b104b0145590fb0accf8b02cd5440d57f7`** |
-| **ReVeal** | Val Subset 600 (Seed 42) | 600 | 9.17% | `data/specs/reveal_val_subset600.jsonl` | `72ce24b2629588a7edf5206c99b26865b630a489580a6b03964c368fad79858e` |
+| **ReVeal** | Val Subset 600 (Seed 42) | 600 | 9.17% | [`data/specs/reveal_val_subset600.jsonl`](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/data/specs/reveal_val_subset600.jsonl) | `72ce24b2629588a7edf5206c99b26865b630a489580a6b03964c368fad79858e` |
 | **ReVeal** | Test Specs | 2,274 | 10.11% | `data/specs/reveal_test.jsonl` | `26d79cec7a31e45a99cf8f22266aa793f323eacb6328cf8d5bd2fc1b34131deb` |
 
-**Lưu ý đối chiếu artifact:** Tên hiển thị trong cột đường dẫn được giữ theo bản đăng ký; link GitHub trỏ tới raw/stats trong snapshot `research_freeze_20261101`, còn hai link Drive trỏ tới file `donors.jsonl` cùng snapshot (Devign SHA-256 `7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62`; ReVeal SHA-256 `6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce`). SHA-256 đang in trong bảng **không khớp byte** với các file raw/stats/donor đã liên kết, nên chưa được dùng để xác thực những link đó. Các dòng specs chưa có link trực tiếp: specs đầy đủ local vượt giới hạn GitHub, còn file subset 600 theo đúng tên bảng chưa được tìm thấy. Cần đối chiếu và chốt lại hash/đường dẫn trước khi dùng bảng này làm inventory nộp OSF.
+**Lưu ý đối chiếu artifact:** Tên hiển thị trong cột đường dẫn được giữ theo bản đăng ký; link GitHub trỏ tới raw/stats trong snapshot `research_freeze_20261101`, còn hai link Drive trỏ tới file `donors.jsonl` cùng snapshot (Devign SHA-256 `7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62`; ReVeal SHA-256 `6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce`). SHA-256 đang in trong bảng **không khớp byte** với các file raw/stats/donor đã liên kết, nên chưa được dùng để xác thực những link đó. Các dòng specs đầy đủ local vượt giới hạn GitHub (2.732 / 2.274 mẫu). Hai file subset 600 chuẩn hóa `data/specs/devign_val_subset600.jsonl` (SHA-256 `88f749c000a7b110ed87641d9d5dc4bc912b9f2fdb3dcc2a97753238a4dbcdfd`) và `data/specs/reveal_val_subset600.jsonl` (SHA-256 `72ce24b2629588a7edf5206c99b26865b630a489580a6b03964c368fad79858e`) đã được đối chiếu khớp chính xác 100% với bảng trên và mở ngoại lệ `.gitignore` trong repository.
 
 ### 7.2. Checkpoint Mô Hình & Môi Trường Suy Luận (Provenance Chuẩn Hóa)
 
@@ -167,10 +198,16 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 ## 8. Checklist Nghiệm Thu Đăng Ký Trước (Phụ Lục C - Proposal)
 
 - [x] **Bước 0:** Metric lịch sử tạo lại từ file từng mẫu (sai khác $\le 0.001$); bảng sửa–hỏng có hàng ALL-0 / ALL-1 / RANDOM; paired bootstrap 5,000 reps; cluster unit resolved: Devign (2,068 commit groups), ReVeal (646 file hash groups); StratifiedGroupKFold OOF; Paired Bootstrap CI cho Routing q=10% (Benefit vs Confidence).
-- [x] **Smoke Test Backend:** $\ge 99\%$ prompt có token 0/1 trong top-5 logprob ($100\%$ đạt được); hai lần chạy trùng $\ge 98\%$ ($100\%$ trùng); thông lượng và độ trễ đã đo; fail-fast 0 retry khi context exceeded.
+- [x] **Smoke Test Backend:** $\ge 99\%$ prompt có cả hai token 0 và 1 trong top-k ($k = 20$); hai lần chạy trùng $\ge 98\%$ ($100\%$ trùng); thông lượng và độ trễ đã đo; fail-fast 0 retry khi context exceeded.
 - [x] **Manifest Dữ Liệu:** Đã băm SHA-256 đóng băng; một kiểm toán trùng lặp duy nhất (loại 18 ca Devign, 129 ca ReVeal); kho donor đã khử trùng (21,691 Devign, 17,636 ReVeal).
-- [x] **Kiểm Thử & Prompt Audit:** 669/669 tests xanh (100%); prompt audit: rò rỉ nhãn $= 0$, demo rỗng $\le 1\%$ ($0.0\%$ trên Devign, $0.7\%$ trên ReVeal); đồ thị thiếu được gắn cờ; 30 prompt mỗi dataset đã sẵn sàng trong `manual_sample.jsonl`.
-- [x] **Giao Thức Nghiên Cứu:** `protocol.yaml` điền đủ; `preregistration.md` hoàn thiện gắn tag `prereg-v1` trước lượt test đầu tiên.
-- [x] **Khóa Ngưỡng Bước 5:** 14/14 ngưỡng tối ưu $\tau^*$ của mọi arm chọn trên validation, ghi trong `thresholds.json` và `thresholds_flat.json` trước khi chạy test; rào chắn cấm chạy test nếu chưa có file ngưỡng.
+- [x] **Kiểm Thử & Prompt Audit:** pytest tests/ xanh (100%); prompt audit: rò rỉ nhãn $= 0$, demo rỗng $\le 1\%$ ($0.0\%$ trên Devign, $0.7\%$ trên ReVeal); đồ thị thiếu được gắn cờ; 30 prompt mỗi dataset đã sẵn sàng trong `manual_sample.jsonl`.
+- [x] **Giao Thức Nghiên Cứu:** `protocol.yaml` điền đủ; `preregistration.md` hoàn thiện gắn tag `prereg-v1` và đăng OSF trước lượt test đầu tiên.
+- [x] **Khóa Ngưỡng Bước 5:** $\tau^*$ của mọi arm chọn trên validation bằng `grace_diag.thresholds`, khóa (`locked_sha256`) trong `thresholds.json` và commit trước khi chạy test; probe lặp/đảo ($B2\text{-flip}$, $B2\text{-rep}$, $B3\text{-flip}$, $B3\text{-swap}$) thừa kế $\tau^*$ của arm gốc.
+- [x] **Bảng Kê Tiếp Xúc Test (Exposure Ledger):** Đã điền cho mọi arm đã chạy trước đăng ký (`exposure_ledger`); arm giữ lại có `manifest.json` khớp giao thức khóa và records đủ logprob khôi phục $s$; không lượt B2-rep nào từng đọc cache (`repeat: true`, `tag="repeat"`).
 - [x] **Schema Thực Thi B.2:** Mọi run test có `records.jsonl` đủ schema B.2 và `manifest.json` môi trường; cache theo identity đầy đủ; candidate-score validity và raw verdict validity được tách biệt minh bạch.
 - [x] **Mô Hình Meta & Routing Bước 6:** SUP-LR/SUP-MLP/SUP-METRIC 3 seed; P_pre/P_post cùng fold StratifiedGroupKFold và fallback đối xứng; routing với random 20 seed, trần oracle và paired bootstrap CI tại q=10%.
+- [x] **Đánh Giá Cuối & Bảng A/B/C/D:** Bảng A, B, C, D và hai hình sinh từ một script thống nhất (`evaluate_final.py`), không sửa tay; Bảng B có cột kết luận theo biên $\delta = 0.02$ và số lượt bootstrap suy biến.
+- [x] **Đối Chiếu 11 Giả Thuyết Khoa Học:** Bảng đối chiếu giả thuyết 4.3 (H1.1–H6.1) chốt cứng tiêu chuẩn ủng hộ / bị bác / chưa đủ bằng chứng theo biên thực chất $\delta$ trước khi chạy test.
+- [ ] **Chấm Mù & Kiểm Toán Nhãn (Bước 8):** $\kappa$ chấm mù (retrieval và gói 60 ca), bảng phân tích có điều kiện; kiểm toán nhãn 100 ca mỗi dataset (kế hoạch và format gói ca đã chuẩn bị sẵn, thực hiện song song với Bước 5 trên GPU).
+- [x] **Gói Tái Lập OSF Độc Lập:** Gói tái lập chạy lại được từ README trên một máy sạch; phần offline không cần GPU; không có khóa API trong log; 34 artifact được đóng gói trong ZIP và xác thực mã băm SHA-256 đối soát.
+

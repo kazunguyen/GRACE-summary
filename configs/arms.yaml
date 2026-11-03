@@ -1,6 +1,8 @@
 # Định nghĩa arm/probe. Mỗi arm khác arm gốc đúng một điểm (cột "khác gì").
 # graph: none | prefix | fill | h2 | shuffle      demo: none | retrieved | random | nolabel | labelonly | contrastive
 # label: true | flip | none                        order: normal | swap        diff: true | false
+# threshold_from: <arm gốc> -> arm này KHÔNG chọn τ* riêng mà dùng τ* đã khóa của arm gốc (probe lặp/đảo nhãn/đảo thứ tự)
+# repeat: true -> gọi model mới, cache tách riêng (không bao giờ lấy lại câu trả lời của arm gốc)
 arms:
   - {name: B0,           graph: none,    demo: none,                        base: null,  rq: [RQ1],       note: "zero-shot thuần"}
   - {name: B1,           graph: prefix,  demo: none,                        base: B0,    rq: [RQ1, RQ3],  note: "thêm graph prefix 25/25 (= GRACE w/o demonstration)"}
@@ -11,12 +13,12 @@ arms:
   - {name: B2-rand,      graph: prefix,  demo: random,      label: true,    base: B2,    rq: [RQ2],       note: "demo ngẫu nhiên kèm nhãn thật của nó"}
   - {name: B2-nolabel,   graph: prefix,  demo: retrieved,   label: none,    base: B2,    rq: [RQ2],       note: "bỏ nhãn demo"}
   - {name: B2-labelonly, graph: prefix,  demo: labelonly,   label: true,    base: B2,    rq: [RQ2],       note: "chỉ câu gợi ý nhãn, không mã demo"}
-  - {name: B2-flip,      graph: prefix,  demo: retrieved,   label: flip,    base: B2,    rq: [RQ2],       note: "đảo nhãn demo"}
-  - {name: B2-rep,       graph: prefix,  demo: retrieved,   label: true,    base: B2,    rq: [RQ2],       repeat: true, note: "chạy lại cùng prompt"}
+  - {name: B2-flip,      graph: prefix,  demo: retrieved,   label: flip,    base: B2,    rq: [RQ2],       threshold_from: B2, note: "đảo nhãn demo; dùng τ* của B2"}
+  - {name: B2-rep,       graph: prefix,  demo: retrieved,   label: true,    base: B2,    rq: [RQ2],       repeat: true, threshold_from: B2, note: "gọi model lần hai, không cache; dùng τ* của B2"}
   - {name: B3,           graph: prefix,  demo: contrastive, label: true,    base: B1,    rq: [RQ2, RQ4],  diff: true,  note: "cặp tương phản + Key difference"}
   - {name: B3-nodiff,    graph: prefix,  demo: contrastive, label: true,    base: B3,    rq: [RQ2],       diff: false, note: "bỏ khối Key difference"}
-  - {name: B3-swap,      graph: prefix,  demo: contrastive, label: true,    base: B3,    rq: [RQ2],       diff: true,  order: swap, note: "đảo thứ tự hai demo"}
-  - {name: B3-flip,      graph: prefix,  demo: contrastive, label: flip,    base: B3,    rq: [RQ2],       diff: true,  note: "đảo nhãn cả hai demo"}
+  - {name: B3-swap,      graph: prefix,  demo: contrastive, label: true,    base: B3,    rq: [RQ2],       diff: true,  order: swap, threshold_from: B3, note: "đảo thứ tự hai demo; dùng τ* của B3"}
+  - {name: B3-flip,      graph: prefix,  demo: contrastive, label: flip,    base: B3,    rq: [RQ2],       diff: true,  threshold_from: B3, note: "đảo nhãn cả hai demo; dùng τ* của B3"}
 # Các arm không gọi LLM (tính bằng supervised_anchor.py và complementarity.py):
 #   ALL-1, ALL-0, RAND            mốc sàn theo phân bố nhãn
 #   SUP-LR, SUP-MLP, SUP-METRIC   mốc có giám sát (embedding CodeT5 đóng băng; 26 code metrics)
