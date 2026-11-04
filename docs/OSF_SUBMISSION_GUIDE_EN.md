@@ -73,9 +73,9 @@ Before logging into OSF Registries, verify that:
 
 ---
 
-### Step 2.3: Fill Hypotheses (Section 2 / Table 4.3)
+### Step 2.3: Fill Research Questions Or Hypotheses
 
-Copy verbatim the 11 pre-registered hypotheses:
+In the field **Research Questions Or Hypotheses**, copy verbatim the 11 pre-registered hypotheses:
 
 ```text
 - H1.1 (GRACE vs Zero-shot on Devign): Arm B2 does not outperform B0 on Devign Test: Upper bound of 95% CI for ΔMCC(B2 - B0) < 0.03 and ΔAUROC < 0.02 (practical equivalence margin δ = 0.02).
@@ -93,23 +93,50 @@ Copy verbatim the 11 pre-registered hypotheses:
 
 ---
 
-### Step 2.4: Design Plan & Data Exposure Disclosure
+### Step 2.4: Foreknowledge Of Data Or Evidence & Disclosure
 
-* **Study Design:**
-  ```text
-  15-arm observational benchmark replication experiment. Fully factorial ablation across graph representations (B0, B1, B1-shuf, B1-full, B1-H2), demonstration content (B2, B2-rand, B2-nolabel, B2-labelonly, B2-flip, B2-rep), and contrastive pairs (B3, B3-nodiff, B3-swap, B3-flip), alongside 3 supervised frozen-embedding baselines (SUP-LR, SUP-MLP, SUP-METRIC) and meta-models (P-PRE, P-POST).
-  ```
+1. **Foreknowledge Of Data Or Evidence (Radio Button Selection):**
+   * Select Option 8 (the last option):
+     > **🔘 Analyses in this plan have been conducted already. At least some of the analyses described in this analysis plan have been conducted by the authors making this a retrospective registration.**
+   * *Rationale:* Matches the protocol specification `following_analysis` for Tier 1 exploratory metrics on test splits, maintaining strict academic honesty as required by OSF and advisor directives.
 
-* **Existing Data Declaration:**
-  - Select: **Registration following analysis of the data** (for Tier 1 arms B0, B1, B2 on Devign and ReVeal test sets where exploratory metrics were computed prior to formal pre-registration).
-  - Use **Registration prior to analysis of the data** only for each analysis genuinely unperformed at submission. Disclose partial B2-rand validation inference and the 230 B2-flip Devign test raw labels; do not classify all Tier 2–3 work uniformly.
+2. **Explanation Of Foreknowledge And Managing Unintended Influences (Optional):**
+   * Paste the following text into the explanation box:
+     ```text
+     TEST EXPOSURE DISCLOSURE & EXPOSURE LEDGER
 
-* **Existing Data Explanation:**
-  Paste the Exposure Ledger table from Section 1.2 of `preregistration.md`.
+   * Note on Existing Data Scope:
+     * **Existing Data Declaration:**
+       - Select: **Registration following analysis of the data** (for Tier 1 arms B0, B1, B2 on Devign and ReVeal test sets where exploratory metrics were computed prior to formal pre-registration).
+       - Use **Registration prior to analysis of the data** only for each analysis genuinely unperformed at submission. Disclose partial B2-rand validation inference and the 230 B2-flip Devign test raw labels; do not classify all Tier 2–3 work uniformly.
 
-* **Sample Sizes:**
-  - Devign: 2,732 Validation, 2,732 Test (Total 5,464). Clean donor bank: 21,691.
-  - REVEAL: 2,273 Validation, 2,274 Test (Total 4,547). Clean donor bank: 17,636.
+     1. Test Exposure Context:
+     The test sets of Devign (N=2,732) and REVEAL (N=2,274) were previously exposed during the exploratory phase (exploratory API runs, dev-100 subset, and preliminary H1–H3 motivation measurements for Tier 1 arms B0, B1, and B2).
+
+     2. Rigorous Safeguards to Prevent Unintended Influences:
+     - Zero Post-hoc Tuning: All configuration choices, hyperparameters, token budgets (n_ctx=8,192), prompt templates (canonical Figure 6 format), and 15 diagnostic arms are strictly locked on the official validation splits prior to confirmatory test evaluation.
+     - Cryptographically Locked Thresholds: All 14 decision thresholds (tau*) are searched and frozen entirely on the validation split via argmax MCC on a 99-point grid and sealed with a self-signing SHA-256 digest ("a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831") in configs/thresholds.json. Test evaluation scripts refuse execution if threshold files are modified.
+     - Strict Separation: Exploratory results from earlier phases are treated strictly as historical motivation and separated entirely from confirmatory results.
+     - Pure Pre-registration for Tiers 2–3: All Tier 2–3 ablation arms (B2-rand, B2-nolabel, B2-labelonly, B1-shuf, B1-full, B1-H2, B3, B3-nodiff, B3-swap, B3-flip) and all confirmatory statistical analyses (Paired Cluster Bootstrap Table B contrasts, Holm-Bonferroni correction, Table D routing analyses, and blind review audit) are registered strictly PRIOR to execution.
+     - B2-rep Cache Isolation: Arm B2-rep executes with repeat: true and tag="repeat" to guarantee it never re-reads cached responses from B2.
+
+     3. Exposure Ledger of Retained vs Rerun Runs:
+     - B0 (Devign & REVEAL, Val/Test): First run 2026-11-01T04:21:38Z, Commit 7b045e7, Matches frozen protocol (keep).
+     - B1 (Devign & REVEAL, Val/Test): First run 2026-11-01T10:17:36Z, Commit 0785f78, Matches frozen protocol (keep).
+     - B2 (Devign & REVEAL, Val/Test): First run 2026-10-31T17:05:34Z, Commit 8f48ea9, Matches frozen protocol (keep).
+     - B2-flip (Devign Test): 230 sample check -> Marked for fresh rerun (rerun).
+     - B2-rep (Both datasets): Unexecuted on GPU -> Fresh run without cache (rerun_repeat_only).
+     - Tier 2–3 Arms: Unexecuted -> Registered prior to analysis (prior_to_analysis).
+     ```
+
+3. **Study Design:**
+   ```text
+   15-arm observational benchmark replication experiment. Fully factorial ablation across graph representations (B0, B1, B1-shuf, B1-full, B1-H2), demonstration content (B2, B2-rand, B2-nolabel, B2-labelonly, B2-flip, B2-rep), and contrastive pairs (B3, B3-nodiff, B3-swap, B3-flip), alongside 3 supervised frozen-embedding baselines (SUP-LR, SUP-MLP, SUP-METRIC) and meta-models (P-PRE, P-POST).
+   ```
+
+4. **Sample Sizes:**
+   - Devign: 2,732 Validation, 2,732 Test (Total 5,464). Clean donor bank: 21,691.
+   - REVEAL: 2,273 Validation, 2,274 Test (Total 4,547). Clean donor bank: 17,636.
 
 ---
 
