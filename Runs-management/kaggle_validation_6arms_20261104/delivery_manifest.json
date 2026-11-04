@@ -1,0 +1,359 @@
+{
+  "scope": "validation_only",
+  "source": {
+    "path": "Runs-management/hieu_zip_step34_20261104/audit_manifest.json",
+    "sha256": "2a26a3355c3f65df496df2506dc177ece9d2481047925f27fa85ae78403ed2f7"
+  },
+  "backend": {
+    "path": "Runs-management/step1_backend_smoke/backend_manifest.json",
+    "sha256": "2eb1072eb348ff380d357ad60c46ef06b2cb029162070aae350d2798207d1e8a"
+  },
+  "arms": {
+    "B1-full": {
+      "bundle": "grace_b1_full_validation_inputs.zip",
+      "sha256": "010a57de6966c6093f47d487f3e5627ecdb3142e857abe7e5ed6db1a3147d13c",
+      "sets": [
+        {
+          "name": "seed_42/devign_validation.zip",
+          "sha256": "3d483b4d9a7f4433428ffde0bce8df05832258e34f092dbbe0a16257f3abdafb",
+          "arm": "B1-full",
+          "seed": 42,
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "prompts_sha256": "cb2a03a0feeb60584fafac2f9e2c32607bcdc0568cbe297661ae96964fc9c594",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1-full/42/prompts.jsonl",
+            "sha256": "b764764daf72c890e1e2916ae332621d9a9813d6758e59ab4a51e7690d558388"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_42/reveal_validation.zip",
+          "sha256": "dda232c598fb60b658b66b446cbf90b144bd80e88b38154aab37ef24feadbb35",
+          "arm": "B1-full",
+          "seed": 42,
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "prompts_sha256": "8fcd884dd10a725fea926616fbc069fd98b1ee374210ef7411b88ba5e3bfffb2",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1-full/42/prompts.jsonl",
+            "sha256": "376ca7a5bae3e71424108af4bf2ed6cfee6ca227f6f3769e3fd9d77130e96718"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        }
+      ],
+      "notebook": "02_kaggle_qwen_q4_b1_full_validation.ipynb",
+      "notebook_sha256": "dcfff73568daddd1e97934c0f2175d4b36b36339032049fffb16160a541b34bf"
+    },
+    "B1-shuf": {
+      "bundle": "grace_b1_shuf_validation_inputs.zip",
+      "sha256": "298596a11807dd5877e554352fe78f83c5b9582b5aaa7152dc8e56d14fcaf995",
+      "sets": [
+        {
+          "name": "seed_42/devign_validation.zip",
+          "sha256": "4829639640e845febf6ecba0a87d35fe4b6f61ad8ce1187424895b4dce209ae0",
+          "arm": "B1-shuf",
+          "seed": 42,
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "prompts_sha256": "8f20f7700fd12fd24f546e618a3b1d9c28870bdb9627c206d3eee1fe897a3921",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1-shuf/42/prompts.jsonl",
+            "sha256": "916cae9c0683e4c1ad8513c5c13102f8c994a2fa0108db332ed83eccb649b051"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_43/devign_validation.zip",
+          "sha256": "4e2d9b3086fed6a2044bc645a24afab62752ff0de2ad4818334adeffd7c796e5",
+          "arm": "B1-shuf",
+          "seed": 43,
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "prompts_sha256": "0d760caaa956dac7ae0e6b0e9d021b5723e012d671dafd7bfe5dbfac807d026b",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1-shuf/43/prompts.jsonl",
+            "sha256": "bf1b4a115c0b181d05f46a6a2e03776ca69e74c6d895cb8d46defcbfb0ae8dd5"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_44/devign_validation.zip",
+          "sha256": "c1c2663877cae818717494980bcfba214ea7bcba82e76e9b77ff609ea9a48c90",
+          "arm": "B1-shuf",
+          "seed": 44,
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "prompts_sha256": "3399a5d9ddf5d2fb4beb62989f65aca3b226eac05295bf5cab7bbc165fe0ed7c",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1-shuf/44/prompts.jsonl",
+            "sha256": "f52412b7914e2132dfbdc9e388dd1dec9567997c5344de1ebd006d45487dae64"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_42/reveal_validation.zip",
+          "sha256": "13ea16283a28696caf27306273da4556b98cbd120d960b0d6372ed7bedb92882",
+          "arm": "B1-shuf",
+          "seed": 42,
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "prompts_sha256": "4826bc3ebdf98d495d92b1082da0cdba1021ce28a9c3a31868499ef1e900440e",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1-shuf/42/prompts.jsonl",
+            "sha256": "165ffb04fc04e230cfe9af37f762dc627171a0d4977d7ccf503c3b10f25b1be3"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_43/reveal_validation.zip",
+          "sha256": "b9a987f9b6904eba330325d8da8b332ea91bd73ddb75ba9db300529d9f1136d2",
+          "arm": "B1-shuf",
+          "seed": 43,
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "prompts_sha256": "85d7508dbaf5fa3d36552f7ea6c4eadba096c36a1f21c887579a2dc52568a7fd",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1-shuf/43/prompts.jsonl",
+            "sha256": "cd67b4ef1aca7b4e3e537fb218641e222b00fa2965fe9a87f016d841a9959547"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_44/reveal_validation.zip",
+          "sha256": "cd4548f2e4940ca1f8c6debf195c051e4e295449d207d22093af70fd04df1559",
+          "arm": "B1-shuf",
+          "seed": 44,
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "prompts_sha256": "61f864cba245384127c601eff10c3050370f7f6c9b86333f28399b25272a4d57",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1-shuf/44/prompts.jsonl",
+            "sha256": "1fa862bd5901e2e150c699563f2a228beea4c3963e4e1ae9a7019215adc94c13"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        }
+      ],
+      "notebook": "02_kaggle_qwen_q4_b1_shuf_validation.ipynb",
+      "notebook_sha256": "d9ed03125e8f309e28b5f06d14be3038e3fe77277fe9ae0ac33857d777aa9759"
+    },
+    "B2-nolabel": {
+      "bundle": "grace_b2_nolabel_validation_inputs.zip",
+      "sha256": "d8de94867798808bd2d1502869a6e19b98742be7d79e04bfc7254ea0f96c48bf",
+      "sets": [
+        {
+          "name": "seed_42/devign_validation.zip",
+          "sha256": "356d827a78a9abb26bb10f7824b064a84310786ee6345c5ad52be14955999467",
+          "arm": "B2-nolabel",
+          "seed": 42,
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "prompts_sha256": "8dc9a553cefd7233dc049cc201b526ca7f121d5a3fb1cf335892913d6559a17a",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-nolabel/42/prompts.jsonl",
+            "sha256": "a14a92e1d8d7c3ba1c4554355c9c0da9d6ae0ab44c7ee107f8ccd0d554729e84"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_42/reveal_validation.zip",
+          "sha256": "9bca4fa5ffa710926281ec338668dfaa13a7c58c2ba34159f51201d901df8f00",
+          "arm": "B2-nolabel",
+          "seed": 42,
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "prompts_sha256": "048fe78499c9a460ecd4d5b7bafbf75d671e72acab44b257326c5e507a3f313a",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-nolabel/42/prompts.jsonl",
+            "sha256": "4dabeedaaf0264b33fef4742b293bfc1a0040bc1471be053c72f0c6dcc211b83"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        }
+      ],
+      "notebook": "02_kaggle_qwen_q4_b2_nolabel_validation.ipynb",
+      "notebook_sha256": "099325d9a24e2df72e43a33f77250ea1590302409d7d5cb1b5a7a035f605364a"
+    },
+    "B2-labelonly": {
+      "bundle": "grace_b2_labelonly_validation_inputs.zip",
+      "sha256": "3ae90c655bbb9f5d0cde4fe2096df13fc4bae1c7f69bfaccdb3791eb7c439a20",
+      "sets": [
+        {
+          "name": "seed_42/devign_validation.zip",
+          "sha256": "bfcc45cd032ebec2bc66ec8b743758e82505a6f0be2e452faa458734d5978f77",
+          "arm": "B2-labelonly",
+          "seed": 42,
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "prompts_sha256": "0e1effed7c3c7e4f992fbb8367241ef12b8456baceb74f3d4dbc5f1b0b6b7400",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-labelonly/42/prompts.jsonl",
+            "sha256": "a148604f826d711993283f28209fa1f44fb51f3e965d302efa56f1e49205227f"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_42/reveal_validation.zip",
+          "sha256": "d7d7ecb7ad1402f788e78fe86af92268253203323234a8696c49b3ac7ff6301f",
+          "arm": "B2-labelonly",
+          "seed": 42,
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "prompts_sha256": "c0784d4a046df51ecacb194e284b028ad3a7fa3adbae71b96267f12c43557e1d",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-labelonly/42/prompts.jsonl",
+            "sha256": "7094a13ec56cb11c5a130d8869b84eff79289f196af8853a05d7aa82b93918ab"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        }
+      ],
+      "notebook": "02_kaggle_qwen_q4_b2_labelonly_validation.ipynb",
+      "notebook_sha256": "6a54f85e4537e66ab1a1c57615232e3b8a99850a70308c3d1bcadb0fcdb3d8db"
+    },
+    "B2-rep": {
+      "bundle": "grace_b2_rep_validation_inputs.zip",
+      "sha256": "1a0a8cbe38e7afb91398a0b8ff4874f0b968c438c2c6caba88a1b5c22c3f7a06",
+      "sets": [
+        {
+          "name": "seed_42/devign_validation.zip",
+          "sha256": "88fa08ede85159404940322b0ee3a82e9b95cc7cf1def402f9deef60c4ffa3b9",
+          "arm": "B2-rep",
+          "seed": 42,
+          "dataset": "devign",
+          "split": "validation",
+          "count": 2732,
+          "prompts_sha256": "7497b362adb91cad6fda5bd3dfdc23674407c716fda6ce080fb378251e7d0e08",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-rep/42/prompts.jsonl",
+            "sha256": "21ff95372719300158bbf5b58fce3bad6e476ca10d8122dd9cddbeef93168d98"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        },
+        {
+          "name": "seed_42/reveal_validation.zip",
+          "sha256": "3906bdcaa28c7f0dc5f950cc823f3f805750d70d6893307d3716d6cf8216262f",
+          "arm": "B2-rep",
+          "seed": 42,
+          "dataset": "reveal",
+          "split": "validation",
+          "count": 2273,
+          "prompts_sha256": "c85c1fa30283e59f7c9dc4e0f4a62fd9e582f0171f427d3e5afcb3d1962b5bad",
+          "source": {
+            "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-rep/42/prompts.jsonl",
+            "sha256": "09e305d76c6a366b4e8d2f76764fa394416f65abe3a1eeda29493940be9027e5"
+          },
+          "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "prompt_budget_tokens": 8192,
+          "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+          "quantization": "Q4_K_M"
+        }
+      ],
+      "notebook": "02_kaggle_qwen_q4_b2_rep_validation.ipynb",
+      "notebook_sha256": "9f3431b85ef1c4b0a9ffac4512978f0d4cd06ecd9779a36f48903ce1f2a4bb7f"
+    },
+    "B2-rand": {
+      "bundle": "grace_b2_rand_inputs.zip",
+      "sha256": "684167868f69b55c62409eb1c97802a9bda10a8bac613404b527096933ef0014",
+      "notebook": "02_kaggle_qwen_q4_b2_rand.ipynb",
+      "sets": [
+        {
+          "dataset": "devign",
+          "seed": 42,
+          "count": 2732
+        },
+        {
+          "dataset": "reveal",
+          "seed": 42,
+          "count": 2273
+        },
+        {
+          "dataset": "devign",
+          "seed": 43,
+          "count": 2732
+        },
+        {
+          "dataset": "reveal",
+          "seed": 43,
+          "count": 2273
+        },
+        {
+          "dataset": "devign",
+          "seed": 44,
+          "count": 2732
+        },
+        {
+          "dataset": "reveal",
+          "seed": 44,
+          "count": 2273
+        }
+      ],
+      "checkpoint": "grace_b2_rand_checkpoint.zip",
+      "checkpoint_sha256": "9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92",
+      "notebook_sha256": "500be66d2cf1d2e1b043d059be83ea56cae4fc341ef1ef16483527ffc0e478f3"
+    }
+  }
+}
