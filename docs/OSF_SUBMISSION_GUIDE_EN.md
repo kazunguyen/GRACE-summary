@@ -57,7 +57,7 @@ Before logging into OSF Registries, verify that:
 
 * **Description (Abstract):**
   ```text
-  This preregistration outlines a diagnostic replication and ablation study of GRACE (Graph-based In-Context Learning for Vulnerability Detection). We systematically decompose the GRACE pipeline across 15 diagnostic arms on Devign (N=5,464) and REVEAL (N=4,547) benchmarks using Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M). The study investigates: (1) whether textualized Code Property Graphs (CPG) convey genuine structural signal over raw source code (B0 vs B1 vs B1-shuf vs B1-full vs B1-H2); (2) whether in-context demonstrations operate through semantic program logic or surface label biases (B2 vs B2-rand vs B2-nolabel vs B2-labelonly vs B2-flip vs B2-rep); (3) whether contrastive demonstration pairs with differential explanations provide operational improvements (B3 vs B3-nodiff vs B3-swap vs B3-flip); and (4) whether LLM representations offer orthogonal complementarity when routed alongside frozen CodeT5 embeddings and supervised baselines. All 14 decision thresholds are strictly locked on validation splits prior to test evaluation under a zero-test-exposure protocol.
+  This preregistration documents a diagnostic replication of GRACE across 15 arms on Devign and REVEAL using Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M). B0, B1 and B2 test inference and exploratory metrics preceded OSF submission; 230 B2-flip Devign test raw labels were also viewed. The 14 current decision thresholds were selected on validation, but their lock is not claimed to predate every historical test run. The registration specifies rules for future analyses and discloses prior exposure; independent confirmation requires data not used to shape the plan.
   ```
 
 * **License:**
@@ -105,6 +105,11 @@ In the field **Research Questions Or Hypotheses**, copy verbatim the 11 pre-regi
      ```text
      TEST EXPOSURE DISCLOSURE & EXPOSURE LEDGER
 
+   * Note on Existing Data Scope:
+     * **Existing Data Declaration:**
+       - Select: **Registration following analysis of the data** (for Tier 1 arms B0, B1, B2 on Devign and ReVeal test sets where exploratory metrics were computed prior to formal pre-registration).
+       - Use **Registration prior to analysis of the data** only for each analysis genuinely unperformed at submission. Disclose partial B2-rand validation inference and the 230 B2-flip Devign test raw labels; do not classify all Tier 2–3 work uniformly.
+
      1. Test Exposure Context:
      The test sets of Devign (N=2,732) and REVEAL (N=2,274) were previously exposed during the exploratory phase (exploratory API runs, dev-100 subset, and preliminary H1–H3 motivation measurements for Tier 1 arms B0, B1, and B2).
 
@@ -148,7 +153,7 @@ In the field **Research Questions Or Hypotheses**, copy verbatim the 11 pre-regi
     * 'no_meaningful_benefit': CI upper bound < delta.
     * 'harm': CI upper bound < 0.
     * 'inconclusive': CI overlaps 0 or upper bound >= delta with lower bound <= 0.
-  - Threshold Fitting: 14 optimal thresholds tau* locked via argmax MCC on validation grid [0.01, 0.99] step 0.01.
+   - Threshold Record: 14 tau* values selected on validation grid [0.01, 0.99] step 0.01. Current `configs/thresholds.json` `locked_sha256`: `9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3`. The earlier `a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831` is retained as `previous_locked_sha256`. The protocol disclosure was corrected and the lock resealed on 2026-11-03 without refitting values; this does not establish a lock before historical test runs.
   ```
 
 ---
@@ -164,7 +169,7 @@ Under **Files / Attachments**:
    `Runs-management/osf_registration_draft_20261102/attachment_sha256.json`
 4. In the File Description field, write:
    ```text
-   Stand-alone reproducible preregistration pack containing protocol YAML, frozen threshold tables, analysis lock manifests, 15-arm validation dry-run audit summary (95,095 prompts rendered, 0 leaks, 0 LLM calls), and core diagnostic evaluation code. All files verified against SHA-256 digests in attachment_sha256.json. Permanent GitHub repository tag: https://github.com/kazunguyen/GRACE-summary/tree/prereg-v1
+   Stand-alone preregistration pack containing protocol YAML, threshold records, analysis lock manifests, the available validation dry-run audit summary (70,070 prompts across 10 arms; five arms blocked; no unresolved label-leak flags within the checked scope; 0 LLM calls), and core diagnostic evaluation code. Packaged files were verified against SHA-256 digests in attachment_sha256.json. Permanent GitHub repository tag for the submitted commit: https://github.com/kazunguyen/GRACE-summary/tree/prereg-v1
    ```
 
 ---
@@ -186,6 +191,6 @@ Once approved:
 1. Record official registration URL (`https://osf.io/XXXXX`) and DOI.
 2. Verify git tag `prereg-v1` on GitHub:
    ```powershell
-   git push origin prereg-v1
+   git ls-remote --tags origin prereg-v1
    ```
-3. Proceed with Step 5 (confirmatory test inference).
+3. Proceed with new or required rerun test work under the frozen protocol; preserve historical run timestamps and manifests.

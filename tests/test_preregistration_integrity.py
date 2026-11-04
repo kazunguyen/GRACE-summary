@@ -128,7 +128,8 @@ def test_thresholds_json_synchronization():
     assert meta["study_id"] == "grace_diag_replication_v1"
     assert meta["version"] == "prereg-v1"
     assert meta["optimized_on_split"] == "validation"
-    assert "STRICTLY_NONE" in meta["test_exposure"]
+    assert "earlier test inference/metrics existed" in meta["test_exposure"]
+    assert meta["reseal_reason"].endswith("threshold values unchanged; no refit")
     assert meta["total_thresholds_locked"] == 14
 
     thresholds = data["thresholds"]

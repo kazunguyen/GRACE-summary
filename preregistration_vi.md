@@ -6,7 +6,10 @@
 - **Repository Version / Git Tag:** `prereg-v1`
 - **Protocol Configuration File:** [`01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml`](https://github.com/kazunguyen/GRACE-summary/blob/prereg-v1/01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml) & [`configs/protocol.yaml`](https://github.com/kazunguyen/GRACE-summary/blob/prereg-v1/configs/protocol.yaml)
 - **Locked Thresholds File:** [`configs/thresholds.json`](https://github.com/kazunguyen/GRACE-summary/blob/prereg-v1/configs/thresholds.json) & [`configs/thresholds_flat.json`](https://github.com/kazunguyen/GRACE-summary/blob/prereg-v1/configs/thresholds_flat.json)
+- **Định danh khóa ngưỡng hiện hành (`locked_sha256`):** `9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3` (niêm phong lại ngày 03/11/2026; `a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831` chỉ được giữ trong `previous_locked_sha256` để truy lịch sử).
 - **Tài liệu đề cương gốc:** [`00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf`](https://github.com/kazunguyen/GRACE-summary/blob/prereg-v1/00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf)
+
+Ngày 2026-10-31 ở trên là ngày ghi trên tài liệu giao thức lịch sử, **không phải** thời điểm gửi hoặc được OSF phê duyệt. URL và thời điểm đăng ký OSF thực tế còn chờ bổ sung. Tag `prereg-v1` chỉ định danh một snapshot của repository, không chứng minh mọi quyết định đã có trước các lượt test kê dưới đây.
 
 ---
 
@@ -14,17 +17,13 @@
 
 Tập dữ liệu kiểm thử (test set) của Devign và ReVeal đã từng được tiếp xúc trong giai đoạn thăm dò sơ bộ ban đầu (gồm 36 lượt chạy API thử nghiệm, tập dev-100, và các phép đo động cơ H1–H3). 
 
-Nhằm đảm bảo tính hợp thức và giá trị xác nhận khoa học:
-1. Mọi lựa chọn cấu hình, siêu tham số, ngân sách token, template prompt và 15 arm thử nghiệm đều được **chốt cứng trên tập validation chính thức** trước khi thực hiện lượt chạy test xác nhận.
-2. Ngưỡng phân lớp tối ưu $\tau^*$ của mọi arm được tìm kiếm và cố định hoàn toàn trên tập validation (`configs/thresholds.json` và `runs/thresholds.json`), không bao giờ điều chỉnh dựa trên kết quả test.
-3. Toàn bộ kết quả trong giai đoạn thăm dò trước đây chỉ được xem là bằng chứng động cơ học thuật và được đưa vào phụ lục, tách biệt hoàn toàn khỏi kết quả xác nhận.
-4. Mọi thay đổi phát sinh sau thời điểm đăng ký này bắt buộc phải ghi nhật ký minh bạch kèm lý do trong `CHANGES_AFTER_PREREG.md`.
+Bảng kê tiếp xúc bên dưới ghi lại các lượt suy luận test và việc xem metric thăm dò trước khi gửi OSF. Giao thức, prompt, arm và ngưỡng hiện tại được ghi lại cho công việc tiếp theo; tài liệu này **không khẳng định** mọi quyết định đã được khóa trước các lượt test lịch sử đó. Các giá trị ngưỡng trong `configs/thresholds.json` được chọn trên validation, nhưng chưa có bằng chứng việc khóa ngưỡng xảy ra trước mọi lượt test Tầng 1 hoặc B2-flip. Metric Tầng 1 đã xem là kết quả existing data ở mức following analysis, không phải kết quả xác nhận tiến cứu của lần đăng ký này; 230 nhãn raw của B2-flip Devign test đã được xem, còn B2-rand đã bắt đầu suy luận validation. Chạy lại về sau không xóa các tiếp xúc đó. Mọi thay đổi và phân tích về sau phải ghi ngày, lý do trong `CHANGES_AFTER_PREREG.md`; chỉ gọi một phân tích là xác nhận tiến cứu khi chứng minh được nó chưa thực hiện tại thời điểm đăng ký OSF.
 
 ### 1.1. Khai Báo Mức Dữ Liệu Có Sẵn Trên OSF (OSF Existing Data Declarations)
 
 Theo phân loại của Open Science Framework (OSF):
-- **Registration following analysis of the data:** Áp dụng cho các arm Tầng 1 (B0, B1, B2) trên tập Test của Devign và ReVeal do các chỉ số thăm dò (MCC, AUROC) đã được tính toán trong giai đoạn thăm dò. Trong Bảng B của bài báo, các cặp so sánh này được ghi nhận rõ trạng thái "đã xem trước đăng ký".
-- **Registration prior to analysis of the data:** Áp dụng cho toàn bộ các arm Tầng 2–3 (B2-rand, B2-nolabel, B2-labelonly, B1-shuf, B1-full, B1-H2, B3, B3-nodiff, B3-swap, B3-flip) và mọi phân tích xác nhận chưa thực hiện: Bảng B (paired bootstrap contrasts có hiệu chỉnh Holm), Bảng D (phân tích bổ sung, routing ngân sách), và kiểm toán chấm mù 2 người (blind review audit).
+- **Registration following analysis of the data:** Áp dụng cho các arm Tầng 1 (B0, B1, B2) trên tập Test của Devign và ReVeal do các chỉ số thăm dò (MCC, AUROC) đã được tính toán trong giai đoạn thăm dò. Khi Bảng B được tạo, các cặp so sánh lịch sử này phải được ghi là "đã xem trước đăng ký"; Bảng B hiện chưa được tạo.
+- **Registration prior to analysis of the data:** Chỉ áp dụng cho từng phân tích test hoặc cặp so sánh chứng minh được là chưa làm tại thời điểm thực sự gửi OSF, gồm các phân tích Bảng B/D đủ điều kiện; không tự động áp dụng cho cả một tầng hoặc gói 60 prompt đã được hai người chấm xong. B2-rand đã chạy một phần validation, còn 230 nhãn raw của B2-flip Devign test đã được xem trước đăng ký và được đánh dấu chạy lại. Các tiếp xúc đó vẫn phải khai báo dù các so sánh dự kiến chưa được tính.
 
 ### 1.2. Bảng Kê Tiếp Xúc (Exposure Ledger) & Kiểm Toán 3 Điều Kiện Giữ / Chạy Lại
 
@@ -47,7 +46,7 @@ Thực hiện theo chỉ đạo của Cố vấn khoa học, nhóm nghiên cứu
 | **B2-flip** | ReVeal | Test | Chưa chạy | Chưa có | Chưa xem (`none`) | Có (`yes`) | Giữ nguyên (`keep`) |
 | **B2-rep** | Cả hai | Val / Test | Chưa chạy | Chưa có | Chưa xem (`none`) | Có (`yes`) | Chạy mới không cache (`rerun_repeat_only`) |
 | **B2-rand** | Cả hai | Validation | 2026-11-02T00:04:23Z | `484b901` | Chưa xem (`none`) | Có (`yes`) | Giữ nguyên (`keep`) |
-| **Tầng 2–3**| Cả hai | Val / Test | Chưa chạy | Chưa có | Chưa xem (`none`) | Có (`yes`) | Đăng ký trước khi phân tích (`prior_to_analysis`) |
+| **Phần còn lại Tầng 2–3** | Cả hai | Tùy arm | Chưa chạy; xem các dòng B2-flip và B2-rand ở trên | Chưa có | Chưa xem (`none`) | Cần đối chiếu từng run | Phân loại từng phân tích theo tiếp xúc thực tế khi gửi OSF |
 
 ---
 
@@ -90,7 +89,7 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
      $$\tau^*(d, a, r) = \operatorname{argmax}_{\tau \in \{0.01, 0.02, \dots, 0.99\}} \operatorname{MCC}(y_\text{val}(d), \mathbf{1}[s_\text{val}(d, a, r) \ge \tau])$$
    - **Quy tắc phá hòa (Tie-break):** Trong trường hợp có nhiều giá trị $\tau$ cùng đạt cực đại MCC, chọn giá trị gần $0.5$ nhất (`closest_to_0.5`); nếu khoảng cách tới $0.5$ bằng nhau thì lấy ngưỡng nhỏ hơn. Chỉ sử dụng các mẫu hợp lệ trên validation (`valid == True`); các ngưỡng khiến MCC không xác định (mọi dự đoán về cùng 1 lớp) bị bỏ qua.
    - **Quy tắc thừa kế ngưỡng (Threshold Inheritance Rule):** Các probe can thiệp nhãn hoặc lặp ($B2\text{-rep}$, $B2\text{-flip}$, $B3\text{-flip}$, $B3\text{-swap}$) **bắt buộc không chọn $\tau^*$ độc lập trên validation**, mà thừa kế trực tiếp giá trị $\tau^*$ đã khóa của arm gốc tương ứng ($B2$ hoặc $B3$). Việc chọn lại ngưỡng cho một arm đã bị đảo nhãn hay lặp sẽ "sửa" đúng hiệu ứng cần đo lường và làm trộn lẫn biến động do chọn ngưỡng vào hiệu ứng can thiệp.
-   - Toàn bộ 14 ngưỡng tối ưu $\tau^*$ được khóa chặt chẽ vào `configs/thresholds.json` và `runs/thresholds.json` trước khi thực hiện bất kỳ lượt suy luận hay đánh giá test nào:
+   - 14 giá trị ngưỡng sau được ghi trong `configs/thresholds.json` và `Runs-management/thresholds.json`. `locked_sha256` hiện hành là `9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3`; `a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831` là định danh bản khóa trước, chỉ giữ để truy nguồn. Giao thức được sửa phần khai báo tiếp xúc và niêm phong lại ngày 03/11/2026, **không fit lại** 14 giá trị. Chúng được chọn trên validation; lần niêm phong lại **không** chứng minh bản khóa có trước các lượt test lịch sử:
      - **Devign LLM Arms**: `devign|B0|42` = 0.08, `devign|B1|42` = 0.88, `devign|B2|42` = 0.70, `devign|B2-flip|42` = 0.70 (thừa kế từ B2), `devign|B2-rep|42` = 0.70 (thừa kế từ B2).
      - **ReVeal LLM Arms**: `reveal|B0|42` = 0.44, `reveal|B1|42` = 0.74, `reveal|B2|42` = 0.12, `reveal|B2-flip|42` = 0.12 (thừa kế từ B2), `reveal|B2-rep|42` = 0.12 (thừa kế từ B2).
      - **Meta-Models**: `devign|P-PRE|42` = 0.54, `devign|P-POST|42` = 0.60; `reveal|P-PRE|42` = 0.38, `reveal|P-POST|42` = 0.10.
@@ -157,7 +156,7 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 1. **Lợi thế SUP-LR biến mất:** Nếu sau khi khử trùng và kiểm toán nhãn, mô hình SUP-LR không còn vượt trội B2, dừng nghiên cứu để rà soát toàn bộ quy trình tiền xử lý dữ liệu trước khi viết báo cáo.
 2. **Thất bại Kiểm toán Prompt Audit:** Nếu tỷ lệ demonstration rỗng $> 1\%$, tỷ lệ thiếu đồ thị $> 5\%$ (ngoài các ca Joern lỗi đã gắn cờ), hoặc phát hiện rò rỉ nhãn target $> 0$, dừng quy trình, sửa hợp đồng dựng prompt, và chạy lại toàn bộ arm bị ảnh hưởng.
 3. **Thất bại Smoke Test Backend:** Nếu tỷ lệ phản hồi hợp lệ có token 0/1 trong top-5 logprob $< 99\%$, không tiến hành chạy ma trận xác nhận cho đến khi backend mô hình đạt độ ổn định định lượng. Đây là tiêu chí smoke test API ở Bước 1, không phải định nghĩa `valid` của score trong inference Kaggle dùng logits đầy đủ.
-4. **Đóng băng Giao thức Nghiêm ngặt:** Tuyệt đối không mở thêm arm, không thêm mô hình, không điều chỉnh ngưỡng sau khi đã quan sát dữ liệu test. Bất kỳ phân tích bổ sung nào phát sinh sau thời điểm này đều phải phân loại là "thăm dò sau đăng ký" (exploratory post-hoc) và ghi rõ trong bài báo.
+4. **Đóng băng giao thức cho công việc tiếp theo:** Kể từ bản khóa có chứng cứ, thay đổi arm, model hoặc ngưỡng phải có amendment ghi ngày và phân loại thăm dò rõ ràng. Quy tắc này không được dùng để mô tả hồi tố các lượt test Tầng 1/B2-flip đã tiếp xúc. Các phân tích ngoài kế hoạch đăng ký về sau phải ghi là "thăm dò sau đăng ký" trong bài báo.
 
 ---
 
@@ -197,17 +196,19 @@ Biên $\delta$ khai báo trước: Quy chuẩn chung cho biên thực chất kho
 
 ## 8. Checklist Nghiệm Thu Đăng Ký Trước (Phụ Lục C - Proposal)
 
+Phụ lục này cũng theo dõi các đầu ra dự kiến sau khi đăng ký. Ô chưa đánh dấu ghi nhận công việc còn phải làm ở giai đoạn sau; riêng trạng thái đó không quyết định hồ sơ đã sẵn sàng nộp OSF hay chưa.
+
 - [x] **Bước 0:** Metric lịch sử tạo lại từ file từng mẫu (sai khác $\le 0.001$); bảng sửa–hỏng có hàng ALL-0 / ALL-1 / RANDOM; paired bootstrap 5,000 reps; cluster unit resolved: Devign (2,068 commit groups), ReVeal (646 file hash groups); StratifiedGroupKFold OOF; Paired Bootstrap CI cho Routing q=10% (Benefit vs Confidence).
-- [x] **Smoke Test Backend:** $\ge 99\%$ prompt có cả hai token 0 và 1 trong top-k ($k = 20$); hai lần chạy trùng $\ge 98\%$ ($100\%$ trùng); thông lượng và độ trễ đã đo; fail-fast 0 retry khi context exceeded.
-- [x] **Manifest Dữ Liệu:** Đã băm SHA-256 đóng băng; một kiểm toán trùng lặp duy nhất (loại 18 ca Devign, 129 ca ReVeal); kho donor đã khử trùng (21,691 Devign, 17,636 ReVeal).
-- [x] **Kiểm Thử & Prompt Audit:** pytest tests/ xanh (100%); prompt audit: rò rỉ nhãn $= 0$, demo rỗng $\le 1\%$ ($0.0\%$ trên Devign, $0.7\%$ trên ReVeal); đồ thị thiếu được gắn cờ; 30 prompt mỗi dataset đã sẵn sàng trong `manual_sample.jsonl`.
-- [x] **Giao Thức Nghiên Cứu:** `protocol.yaml` điền đủ; `preregistration.md` hoàn thiện gắn tag `prereg-v1` và đăng OSF trước lượt test đầu tiên.
-- [x] **Khóa Ngưỡng Bước 5:** $\tau^*$ của mọi arm chọn trên validation bằng `grace_diag.thresholds`, khóa (`locked_sha256`) trong `thresholds.json` và commit trước khi chạy test; probe lặp/đảo ($B2\text{-flip}$, $B2\text{-rep}$, $B3\text{-flip}$, $B3\text{-swap}$) thừa kế $\tau^*$ của arm gốc.
-- [x] **Bảng Kê Tiếp Xúc Test (Exposure Ledger):** Đã điền cho mọi arm đã chạy trước đăng ký (`exposure_ledger`); arm giữ lại có `manifest.json` khớp giao thức khóa và records đủ logprob khôi phục $s$; không lượt B2-rep nào từng đọc cache (`repeat: true`, `tag="repeat"`).
-- [x] **Schema Thực Thi B.2:** Mọi run test có `records.jsonl` đủ schema B.2 và `manifest.json` môi trường; cache theo identity đầy đủ; candidate-score validity và raw verdict validity được tách biệt minh bạch.
-- [x] **Mô Hình Meta & Routing Bước 6:** SUP-LR/SUP-MLP/SUP-METRIC 3 seed; P_pre/P_post cùng fold StratifiedGroupKFold và fallback đối xứng; routing với random 20 seed, trần oracle và paired bootstrap CI tại q=10%.
-- [x] **Đánh Giá Cuối & Bảng A/B/C/D:** Bảng A, B, C, D và hai hình sinh từ một script thống nhất (`evaluate_final.py`), không sửa tay; Bảng B có cột kết luận theo biên $\delta = 0.02$ và số lượt bootstrap suy biến.
-- [x] **Đối Chiếu 11 Giả Thuyết Khoa Học:** Bảng đối chiếu giả thuyết 4.3 (H1.1–H6.1) chốt cứng tiêu chuẩn ủng hộ / bị bác / chưa đủ bằng chứng theo biên thực chất $\delta$ trước khi chạy test.
-- [ ] **Chấm Mù & Kiểm Toán Nhãn (Bước 8):** $\kappa$ chấm mù (retrieval và gói 60 ca), bảng phân tích có điều kiện; kiểm toán nhãn 100 ca mỗi dataset (kế hoạch và format gói ca đã chuẩn bị sẵn, thực hiện song song với Bước 5 trên GPU).
-- [x] **Gói Tái Lập OSF Độc Lập:** Gói tái lập chạy lại được từ README trên một máy sạch; phần offline không cần GPU; không có khóa API trong log; 39 artifact được đóng gói trong ZIP và xác thực mã băm SHA-256 đối soát.
+- [x] **Smoke test backend (phạm vi đã đo):** Trong 20 prompt mẫu, cả token 0 và 1 đều có trong top-5 logprob (100%); hai lần gọi trùng 100%, đã đo thông lượng và độ trễ. Báo cáo này chưa kiểm chứng riêng tiêu chí API top-20 hoặc cơ chế fail-fast.
+- [x] **Manifest dữ liệu (nêu rõ phạm vi):** Kiểm toán trùng lặp loại 18 ca Devign và 129 ca ReVeal; kho donor đã khử trùng có 21.691 và 17.636 mẫu. Manifest đóng băng đã có, nhưng SHA-256 in trong Bảng 7.1 không xác thực mọi file raw/stats/donor được liên kết; xem ghi chú đối chiếu ngay dưới bảng.
+- [x] **Kiểm thử và audit prompt (artifact đã có):** Các test và kiểm tra tự động đạt trong phạm vi artifact đã kiểm; gói chấm có 30 prompt mỗi dataset và hai người đã hoàn thành chấm 60 prompt. Không còn cờ rò rỉ nhãn chưa giải quyết trong phạm vi này. Dry-run validation đủ 15 arm chưa xong: còn 5 arm bị chặn; dấu tick không có nghĩa đã nghiệm thu prompt toàn nghiên cứu.
+- [x] **Giao thức và công bố tiếp xúc:** Giao thức hiện tại và `preregistration.md` đã được ghi dưới tag `prereg-v1` để chuẩn bị gửi OSF; việc gửi OSF thực tế còn chờ. Suy luận test Tầng 1 và các metric thăm dò đã có trước đăng ký, được khai báo là existing data mức following analysis.
+- [x] **Bản ghi ngưỡng hiện tại (Bước 5):** 14 giá trị $\tau^*$ được ghi là chọn trên validation trong `thresholds.json` với `locked_sha256` hiện hành `9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3`; định danh cũ còn trong `previous_locked_sha256`. Lần niêm phong lại ngày 03/11/2026 không fit lại ngưỡng và không chứng minh đã khóa trước lượt test lịch sử. Các probe lặp/đảo ($B2\text{-flip}$, $B2\text{-rep}$, $B3\text{-flip}$, $B3\text{-swap}$) thừa kế $\tau^*$ của arm gốc theo giao thức hiện tại. Test Tầng 1 lịch sử vẫn được khai báo ở mức following analysis.
+- [x] **Bảng kê tiếp xúc test (lịch sử đã ghi):** `exposure_ledger` ghi các arm đã chạy được biết đến, dataset, split, lần chạy đầu, kết quả đã xem và quyết định giữ/chạy lại. Các cờ identity còn cần đối chiếu từng dòng với run manifest lịch sử; B2-rep chưa chạy nên chưa có lượt B2-rep dùng lại cache.
+- [ ] **Schema thực thi B.2:** B1 và B2 theo donor đã chốt mỗi arm có 10.011 record, ID không trùng, có điểm số, logprob của cả hai token số và `run_manifest.json`. Trường Kaggle khác B.2: dùng `prompt_sha256` và object `tokens` thay cho tên trường B.2; thiếu `truncated`, `both_in_topk`, `s_bounded`, `cache_tag` và `group`. Run manifest cũng không ghi hash protocol/specs như `manifest.json` của kit. Giữ nguyên output gốc; kiểm bản chuẩn hóa riêng theo B.2, nối group từ manifest đóng băng theo ID và ghi `unknown` cho trường không khôi phục được. Cần kiểm thêm cache identity và các run còn lại.
+- [ ] **Mô hình meta và routing Bước 6:** Bước 0 lịch sử đã hoàn tất trong phạm vi của nó: có P_pre/P_post, đường routing oracle/random và CI paired cluster bootstrap 5.000 lượt cho benefit so với confidence tại q=10% trên cả hai dataset. Expert DeepSeek lịch sử không thay thế expert Qwen của Bước 6. Chiến dịch này chưa có artifact điểm SUP-LR/SUP-MLP/SUP-METRIC ba seed hoặc kết quả P_pre/P_post và routing hoàn chỉnh dựa trên Qwen.
+- [ ] **Đánh giá cuối và Bảng A/B/C/D:** Chưa sinh và kiểm chứng đủ Bảng A–D cùng hai loại hình cuối của chiến dịch này. `evaluate_final.py` hiện tạo Bảng A–C và hình, chưa tạo Bảng D từ Bước 6; Bảng B chưa xuất cột trạng thái tiếp xúc test theo đề cương. Bảng C còn buộc nhánh B3 có B2-rep. Cần hoàn tất đầu vào và script, rồi kiểm số dòng, cặp so sánh, kết luận và số lượt bootstrap suy biến; chỉ có file CSV chưa chứng minh bảng đầy đủ.
+- [x] **Đối chiếu 11 giả thuyết:** Bảng 4.3 ghi tiêu chuẩn ủng hộ / bác bỏ / chưa đủ bằng chứng và biên thực chất $\delta$ của kế hoạch hiện tại. Không khẳng định các tiêu chuẩn này có trước test Tầng 1 lịch sử; trạng thái tiến cứu phải xét riêng cho từng so sánh chưa làm.
+- [ ] **Chấm mù và kiểm toán nhãn (Bước 8):** Hai người đã chấm gói 60 prompt, phân xử xong và ghi $\kappa$. Bảng phân tích có điều kiện và kiểm toán nhãn 100 ca mỗi dataset chưa hoàn tất; tiêu chí gộp này tiếp tục để trống.
+- [x] **Đóng gói và xác thực hash OSF:** ZIP có 40 artifact cùng `attachment_sha256.json`; đã giải nén và đối chiếu SHA-256 thành công. Dấu tick này chưa khẳng định đã tái lập trên máy sạch độc lập hoặc đã kiểm tra credential riêng.
 

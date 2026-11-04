@@ -1,11 +1,13 @@
 # Giao thức đăng ký trước — bản để commit + tag prereg-v1
 study_id: grace_diag_replication_v1
 version: prereg-v1
-registered_at: "2026-10-31"            # ngày tag chính thức; cập nhật hoàn thiện Bước 4: 2026-11-02
+registered_at: null                    # chỉ điền ngày/giờ thực tế sau khi OSF xác nhận
+historical_document_date: "2026-10-31"
 test_exposure_disclosure: >
   Test Devign/ReVeal đã được xem trong giai đoạn thăm dò (36 run qua API, dev-100, H1–H3).
-  Mọi lựa chọn cấu hình, ngưỡng và arm của lượt xác nhận được chốt trên official validation
-  trước khi chạy test; kết quả lịch sử chỉ là bằng chứng động cơ (phụ lục).
+  B0/B1/B2 đã chạy test và xem metric trước khi gửi OSF; B2-flip đã xem 230 nhãn raw Devign test.
+  Ngưỡng hiện tại chọn trên validation nhưng không có bằng chứng đã khóa trước mọi test lịch sử.
+  Chỉ các phân tích thực sự chưa làm tại thời điểm gửi mới có thể được đăng ký trước phân tích.
 
 datasets:
   devign:  {hf: "DetectVul/devign@main",  retrieval_bank: train, threshold_split: validation, conclusion_split: test}
@@ -21,12 +23,13 @@ dedup:
 
 backend:                                       # chi tiết trong configs/backend_*.yaml
   primary_model: "Qwen/Qwen3-Coder-30B-A3B-Instruct"
-  serving: "llama-server (llama.cpp b3920) GGUF Q4_K_M (16.45 GB, --n_ctx 8192, split-mode: layer trên Kaggle Linux GPU 2× Tesla T4 0 USD) hoặc vLLM (FP8/bf16 trên GPU thuê)"
+  serving: "Các run B0/B1/B2/B2-flip/B2-rand đã đối chiếu: llama-cpp-python 0.3.16, GGUF Q4_K_M, n_ctx 8192 trên Kaggle"
+  api_fallback_scope: "llama-server/vLLM chỉ là phương án dự kiến, chưa dùng trong các run đã đối chiếu; nếu dùng phải ghi run identity riêng"
   fallback_models: ["Qwen/Qwen2.5-Coder-32B-Instruct", "Qwen/Qwen2.5-Coder-14B-Instruct"]
   decoding: {temperature: 0.0, max_tokens: 1, logprobs: true, top_logprobs: 5, seed: 42}
   guided_choice: "auto: bật nếu smoke test < 99% prompt có token 0/1 trong top-5; ghi vào bài"
-  missing_digit_rule: "token 0/1 vắng trong top-k nhận cận trên p <= p(token thấp nhất trong top-k); cờ s_bounded; báo tỷ lệ"
-  quantization_note: "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf (file SHA-256: f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335, 16.45 GB, Hugging Face revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120, MoE 30.5B total / 3.3B active per token, llama-server b3920 với --n_ctx 8192 / Kaggle Linux 2x Tesla T4 GPU, Kaggle model slug: tnthnhneee/qwen3-30b-a3b/gguf/coder-instruct-ud-q4_k_xl)"
+  missing_digit_rule: "Chỉ cho backend API top-k: token 0/1 vắng nhận cận trên p <= p(token thấp nhất trong top-k), cờ s_bounded và báo tỷ lệ; không áp dụng cho run Kaggle full logits"
+  quantization_note: "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf; SHA-256 f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335; nguồn ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF; tokenizer revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120; --n_ctx 8192 ở backend API dự kiến, n_ctx 8192 trong notebook đã chạy"
 
 token_budget: {total: 8192, target_code: 3000, demo: 1500, graph: 1500, reserve: 64}
 graph_prefix: {nodes: 40, edges: 80}
@@ -43,8 +46,9 @@ tiers:
 seeds: {headline: 42, all: [42, 43, 44], stochastic_arms: [B2-rand, B1-shuf, SUP-LR, SUP-MLP, SUP-METRIC]}
 
 scoring:
-  score: "s = p(1) / (p(0) + p(1)) từ top-5 logprob của token đầu tiên"
-  invalid: "cả hai token vắng mặt trong top-5 → invalid; báo tỷ lệ; không ép về 0"
+  score: "Run Kaggle thực tế: s = sigmoid(logit_1 - logit_0) từ logits toàn vocabulary ở token đầu tiên; top5 chỉ chẩn đoán"
+  invalid: "valid của score cần cả hai token ID và logits hữu hạn; response_valid của raw greedy báo riêng; lỗi trước record dừng/checkpoint, không ép score về 0"
+  api_topk_rule: "Nếu backend API chỉ có top-k logprob: cần cả 0/1 hoặc dùng cận trên với s_bounded; báo tỷ lệ, nếu >1% thì chạy lại với top_logprobs=20 theo phản hồi của thầy"
   thresholds: "s >= 0.5 (câu trả lời của model) và τ* = argmax MCC trên validation, lưới 0.01..0.99 bước 0.01, hòa -> gần 0.5"
 thresholds:
   grid: null                                    # null = linspace(0.01, 0.99, 99)
@@ -52,7 +56,7 @@ thresholds:
   tie_break: closest_to_0.5
   inherit: "B2-rep, B2-flip -> τ* của B2; B3-flip, B3-swap -> τ* của B3 (không chọn lại ngưỡng cho probe lặp/đảo)"
   validation_set: "toàn bộ official validation; Devign manifest: 5a084a10e5c191039e56e351bf8d722fe017424f159a84d6b92be86a1d0f4952; ReVeal manifest: 59498c4a4ab038babe558675c183c2b104b0145590fb0accf8b02cd5440d57f7"
-  order: "validation -> python -m grace_diag.thresholds (khóa, sha256) -> test -> evaluate_final --thresholds"
+  order: "Arm chưa chạy test: validation -> tính tau* -> khóa/hash/commit -> test -> evaluate_final --thresholds; arm cũ khai báo test đã tiếp xúc, không áp dụng hồi tố"
   locked_file: configs/thresholds.json
   total_locked: 14
 
@@ -123,11 +127,11 @@ exposure_ledger:
     - {arm: B2-rep, dataset: reveal, split: test, first_run_utc: "unexecuted", commit: "none", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: rerun_repeat_only}
     - {arm: B2-rand, dataset: devign, split: validation, first_run_utc: "2026-11-02T00:04:23Z", commit: "484b901", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
     - {arm: B2-rand, dataset: reveal, split: validation, first_run_utc: "2026-11-02T00:04:23Z", commit: "484b901", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
-  osf_existing_data_level: "following_analysis (Tier 1 on Devign/ReVeal test); prior_to_analysis (Tiers 2-3 and unexecuted Table B/D contrasts)"
-  plan_frozen_evidence: "Commit 49cd2a2 (2026-11-01) and unified syllabus 00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf"
+  osf_existing_data_level: "following_analysis: B0/B1/B2 test đã xem metric; B2-flip Devign test 230 raw labels đã xem; B2-rand validation đã chạy một phần; prior_to_analysis chỉ cho từng phân tích thực sự chưa làm khi gửi OSF"
+  plan_frozen_evidence: "Commit 49cd2a2 (2026-11-01) là bản ghi kế hoạch lịch sử sau khi inference bắt đầu, không phải bằng chứng OSF đăng ký trước; xem exposure_ledger"
 
 stop_rules:
   - "Nếu lợi thế của SUP-LR biến mất sau khử trùng/kiểm toán nhãn: sửa dữ liệu trước, không viết."
   - "Nếu audit cho thấy graph/demo không thực sự tới model (demo rỗng, graph thiếu > 5%): sửa contract, chạy lại arm liên quan."
   - "Nếu smoke test không đạt: không đăng ký trước cho đến khi backend ổn định."
-  - "Không mở thêm model/ngưỡng/arm sau khi đã xem test; mọi bổ sung ghi 'thăm dò' và để bản tạp chí."
+  - "Từ bản đăng ký hiện tại, mọi đổi model/ngưỡng/arm phải có amendment ghi ngày và phân loại thăm dò; không áp dụng quy tắc này hồi tố cho run đã tiếp xúc."

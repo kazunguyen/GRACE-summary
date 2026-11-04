@@ -1,11 +1,13 @@
 # Pre-registration Protocol Specification — Commit + Tag prereg-v1
 study_id: grace_diag_replication_v1
 version: prereg-v1
-registered_at: "2026-10-31"            # Official tag date; Step 4 standardization completed: 2026-11-02
+registered_at: null                    # Fill only after actual OSF approval
+historical_document_date: "2026-10-31"
 test_exposure_disclosure: >
   Devign and ReVeal test sets were exposed during the exploratory phase (36 API runs, dev-100, H1–H3).
-  All configuration choices, thresholds, and experimental arms for confirmatory evaluation are strictly
-  locked on official validation prior to running test sets; historical results serve only as motivation evidence (appendix).
+  B0/B1/B2 test inference and exploratory metrics preceded OSF submission; 230 B2-flip Devign test raw labels were viewed.
+  Current thresholds were selected on validation, but their lock is not proven to precede every historical test run.
+  Prior-to-analysis status applies only to analyses still unperformed at actual OSF submission.
 
 datasets:
   devign:  {hf: "DetectVul/devign@main",  retrieval_bank: train, threshold_split: validation, conclusion_split: test}
@@ -21,12 +23,13 @@ dedup:
 
 backend:                                       # Detailed in configs/backend_*.yaml
   primary_model: "Qwen/Qwen3-Coder-30B-A3B-Instruct"
-  serving: "llama-server (llama.cpp b3920) GGUF Q4_K_M (16.45 GB, --n_ctx 8192, split-mode: layer on Kaggle Linux GPU 2× Tesla T4 $0) or vLLM (FP8/bf16 on rented GPU)"
+  serving: "Reconciled B0/B1/B2/B2-flip/B2-rand runs: llama-cpp-python 0.3.16, GGUF Q4_K_M, n_ctx 8192 on Kaggle"
+  api_fallback_scope: "llama-server/vLLM were prospective options, unused in reconciled runs; any future use requires a separate run identity"
   fallback_models: ["Qwen/Qwen2.5-Coder-32B-Instruct", "Qwen/Qwen2.5-Coder-14B-Instruct"]
   decoding: {temperature: 0.0, max_tokens: 1, logprobs: true, top_logprobs: 5, seed: 42}
   guided_choice: "auto: enabled if smoke test < 99% prompts have tokens 0/1 in top-5; documented in paper"
-  missing_digit_rule: "tokens 0/1 absent from top-k receive conservative upper bound p <= p(lowest token); flagged s_bounded; report rates"
-  quantization_note: "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf (file SHA-256: f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335, 16.45 GB, Hugging Face revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120, MoE 30.5B total / 3.3B active per token, llama-server b3920 with --n_ctx 8192 / Kaggle Linux 2x Tesla T4 GPU, Kaggle model slug: tnthnhneee/qwen3-30b-a3b/gguf/coder-instruct-ud-q4_k_xl)"
+  missing_digit_rule: "API top-k backend only: missing 0/1 receives upper bound p <= p(lowest token), flagged s_bounded and reported; not used for executed Kaggle full-logit runs"
+  quantization_note: "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf; SHA-256 f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335; source ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF; tokenizer revision b2cff646eb4bb1d68355c01b18ae02e7cf42d120; --n_ctx 8192 planned for API backend, n_ctx 8192 used by executed notebooks"
 
 token_budget: {total: 8192, target_code: 3000, demo: 1500, graph: 1500, reserve: 64}
 graph_prefix: {nodes: 40, edges: 80}
@@ -43,8 +46,9 @@ tiers:
 seeds: {headline: 42, all: [42, 43, 44], stochastic_arms: [B2-rand, B1-shuf, SUP-LR, SUP-MLP, SUP-METRIC]}
 
 scoring:
-  score: "s = p(1) / (p(0) + p(1)) from top-5 logprobs of first generated token"
-  invalid: "both tokens absent from top-5 -> invalid; report rates; do not force to 0"
+  score: "Executed Kaggle runs: s = sigmoid(logit_1 - logit_0) from full-vocabulary first-token logits; top5 is diagnostic only"
+  invalid: "score valid requires both token IDs and finite logits; report raw greedy response_valid separately; pre-record errors stop/checkpoint, not force score to 0"
+  api_topk_rule: "If an API backend only returns top-k logprobs: require 0/1 or use upper bounds with s_bounded; report rate and rerun with top_logprobs=20 if >1% per teacher response"
   thresholds: "s >= 0.5 (model argmax) and tau* = argmax MCC on validation, grid 0.01..0.99 step 0.01, ties -> closest to 0.5"
 thresholds:
   grid: null                                    # null = linspace(0.01, 0.99, 99)
@@ -52,7 +56,7 @@ thresholds:
   tie_break: closest_to_0.5
   inherit: "B2-rep, B2-flip -> tau* of B2; B3-flip, B3-swap -> tau* of B3 (no independent re-tuning for repetition/inversion probes)"
   validation_set: "full official validation; Devign manifest: 5a084a10e5c191039e56e351bf8d722fe017424f159a84d6b92be86a1d0f4952; ReVeal manifest: 59498c4a4ab038babe558675c183c2b104b0145590fb0accf8b02cd5440d57f7"
-  order: "validation -> python -m grace_diag.thresholds (lock, sha256) -> test -> evaluate_final --thresholds"
+  order: "For arms without test exposure: validation -> compute tau* -> lock/hash/commit -> test -> evaluate_final --thresholds; disclose historical test exposure without retroactive claims"
   locked_file: configs/thresholds.json
   total_locked: 14
 
@@ -123,11 +127,11 @@ exposure_ledger:
     - {arm: B2-rep, dataset: reveal, split: test, first_run_utc: "unexecuted", commit: "none", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: rerun_repeat_only}
     - {arm: B2-rand, dataset: devign, split: validation, first_run_utc: "2026-11-02T00:04:23Z", commit: "484b901", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
     - {arm: B2-rand, dataset: reveal, split: validation, first_run_utc: "2026-11-02T00:04:23Z", commit: "484b901", metrics_viewed: none, identity_matches_frozen_protocol: "yes", action: keep}
-  osf_existing_data_level: "following_analysis (Tier 1 on Devign/ReVeal test); prior_to_analysis (Tiers 2-3 and unexecuted Table B/D contrasts)"
-  plan_frozen_evidence: "Commit 49cd2a2 (2026-11-01) and unified syllabus 00_Reports_and_Docs/PhuongAn2_De_cuong_nghien_cuu_GRACE_hop_nhat.pdf"
+  osf_existing_data_level: "following_analysis: B0/B1/B2 test metrics viewed; 230 B2-flip Devign test raw labels viewed; B2-rand validation partly run; prior_to_analysis only for each analysis still unperformed at OSF submission"
+  plan_frozen_evidence: "Commit 49cd2a2 (2026-11-01) is a historical local plan recorded after inference began, not proof of OSF preregistration; see exposure_ledger"
 
 stop_rules:
   - "If SUP-LR advantage disappears after sanitization/label audit: resolve data issues first, do not draft."
   - "If prompt audit shows graph/demo missing from model (empty demo, graph missing > 5%): fix contract, rerun affected arms."
   - "If smoke test fails: do not pre-register until backend is quantitatively stable."
-  - "Do not open additional models/thresholds/arms after observing test; all additions marked 'exploratory' and reserved for journal version."
+  - "From the present registration onward, model/threshold/arm changes require a dated exploratory amendment; this rule does not retroactively characterize exposed runs."

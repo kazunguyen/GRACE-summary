@@ -2,7 +2,7 @@
   "algorithm": "sha256",
   "prompt_file_hashes": "verified by verify_full_validation_dry_run.py; artifacts unchanged during documentation update",
   "files": {
-    "blocked_arms.json": "602ca99ac893b1f2b2819e1f2e79b0a110fe7ec3e520940d8837442a57cd2146",
+    "blocked_arms.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
     "devign/validation/B0/42/audit_rows.csv": "e8c585e601d3d4d70b335ab79d81addd4805d5a23b95ca66c25b00338c74bb99",
     "devign/validation/B0/42/audit_summary.json": "50171893aafb208dd47cbcfaf4ea4d7ce94dab79c9fa82c6c96192187c135b9b",
     "devign/validation/B0/42/manifest.json": "b3bd22b0d30cbfd13e47b172f933f4ede4bd69c9f6d9674d3c4408a17ed182c3",
@@ -75,7 +75,7 @@
     "devign/validation/B2-rep/42/raw_label_flags.json": "f209b03cb4877ca88fabf4eb1fea00af42f075c8f094c614d182d5aa2bb605d9",
     "devign_donor_graph_index.csv": "0d1acb3487c14b1a107262ed2abbd5462f16889f242472be9a2281a3d68a98e8",
     "final_status.json": "0ffbdbcc3a2a89a95439c7cc29b1d4a51d55dddee794e0b7e593fb6f75b502ae",
-    "KET_QUA.md": "5272611f51f585c5543871e28ac71e81f6ebb18f0687d1970d9ee56cf0748b6b",
+    "KET_QUA.md": "21951913eca187a25d3512e58dcf3bf31a32da42df17284bef3a10b6a765d8e4",
     "leak_review.json": "63ef38b8968e854be6f7bdd9464271b4e214998f531e01281acef200378fe02c",
     "manual_packet.md": "0a7163e9eb8083c3a96b3f2281c459e53f8eddf44c9507a7ed3c63d4c46a04c7",
     "manual_sample.jsonl": "58e073a51506d3bf34f792562c80b2feff912f8ba6ac4dcf6a9f07ea45c025d7",
@@ -107,7 +107,7 @@
     "reveal/validation/B1-shuf/43/prompts.jsonl": "cd67b4ef1aca7b4e3e537fb218641e222b00fa2965fe9a87f016d841a9959547",
     "reveal/validation/B1-shuf/43/raw_label_flags.json": "8a70ff52a3e48fa857ab08fd4863831398d15165e32287fed0247bae9578b394",
     "reveal/validation/B1-shuf/44/audit_rows.csv": "540f50e717f7da17f52d7fc35913e803c5819f8fdf7b4945810f204d100ce96a",
-    "reveal/validation/B1-shuf/44/audit_summary.json": "ca815d81d1a9606d4a5ec806655d2949153fe83b449dab2efdba30950aa739dc",
+    "reveal/validation/B1-shuf/44/audit_summary.json": "cae9f6d5d679141d29c6af44613293147a68ff11f53135e4afad26aad067579f",
     "reveal/validation/B1-shuf/44/manifest.json": "f025a6378790e498fe5d3864fa7f51ad871376fcfe6db77ae50f21c9d05f6adb",
     "reveal/validation/B1-shuf/44/prompts.jsonl": "1fa862bd5901e2e150c699563f2a228beea4c3963e4e1ae9a7019215adc94c13",
     "reveal/validation/B1-shuf/44/raw_label_flags.json": "e377c9a335b04fe9673fd954918572dfe00aaa16f76113b403a140d3d49d8ba8",
@@ -157,9 +157,9 @@
     "review_flags.csv": "758aa1c29bfe5d96ecd8ba9b799db3e0fb6017d7762040bf29c05a9317b6fbe1",
     "RUBRIC.md": "aee50e2c6dce549e26bf54afda24691a311af73fcc0ea82e635fb173f8886bc3",
     "source_context_resolution.json": "9498d69ce8f8444a400448492ed6ffd7344d768e62d6b3467824118924d97d0b",
-    "source_hashes.json": "2f2859e240bbdadf469278d93a951a2420a8edc9728ee1c527f7d9d632cdfff5",
-    "summary.json": "1c2d4dbff2765b34297ea78ea581dcf50a25c66d5f547f272e2831aa52229fb1",
+    "source_hashes.json": "e77b099578aa8b6a7013677136381365d0f2e6f43ec4739be4fdb51a11ae55a9",
+    "summary.json": "7f28a8b72c8c4733e8e25d9f8ec56ccdfd27b715138733fff64cc272d0fc7674",
     "USER_DECISIONS.json": "6206699f7253b0556a16724e6dcf29b9f6f043653446c430e08375a0d89b699a",
-    "verification.json": "409dbb6caeb6c79b6fd0c4a5edd0bba50e8e00c5901702eaca565e64719f45e2"
+    "verification.json": "dcbbceb5b1a7faa1c2e9fb0bc295c19f731af6b8cb7eda475b74568a4db83dfd"
   }
 }

@@ -363,6 +363,7 @@ def build_inventory_and_zip():
         ("preregistration.md", PREREG_MD),
         ("preregistration_en.md", REPO_ROOT / "preregistration_en.md"),
         ("preregistration_vi.md", REPO_ROOT / "preregistration_vi.md"),
+        ("CHANGES_AFTER_PREREG.md", REPO_ROOT / "CHANGES_AFTER_PREREG.md"),
         ("output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf", PDF_FILE),
         # Protocol configs
         ("configs/protocol.yaml", REPO_ROOT / "configs" / "protocol.yaml"),
@@ -370,7 +371,7 @@ def build_inventory_and_zip():
         ("configs/arms.yaml", REPO_ROOT / "configs" / "arms.yaml"),
         ("configs/thresholds.json", REPO_ROOT / "configs" / "thresholds.json"),
         ("configs/thresholds_flat.json", REPO_ROOT / "configs" / "thresholds_flat.json"),
-        ("runs/thresholds.json", REPO_ROOT / "runs" / "thresholds.json"),
+        ("Runs-management/thresholds.json", REPO_ROOT / "Runs-management" / "thresholds.json"),
         ("01_Author_Baseline_Unified/diagnostic_kit/configs/protocol.yaml", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "protocol.yaml"),
         ("01_Author_Baseline_Unified/diagnostic_kit/configs/arms.yaml", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "arms.yaml"),
         ("01_Author_Baseline_Unified/diagnostic_kit/configs/thresholds.json", REPO_ROOT / "01_Author_Baseline_Unified" / "diagnostic_kit" / "configs" / "thresholds.json"),
@@ -419,6 +420,9 @@ def build_inventory_and_zip():
             "sha256": f_sha,
         })
 
+    dry_run_verification = json.loads((REPO_ROOT / "Runs-management" / "dry_run_validation_20261102" / "verification.json").read_text(encoding="utf-8"))
+    step3_assessment = json.loads((REPO_ROOT / "Runs-management" / "prompt_audit_20261102" / "step3_assessment.json").read_text(encoding="utf-8"))
+    dry_run_scope = step3_assessment["criteria"]["full_15_arm_validation_dry_run"]
     inventory = {
         "prepared_at_utc": datetime.now(timezone.utc).isoformat(),
         "study_id": "grace_diag_replication_v1",
@@ -427,9 +431,10 @@ def build_inventory_and_zip():
         "target_model": "Qwen/Qwen3-Coder-30B-A3B-Instruct (GGUF Q4_K_M)",
         "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
         "dry_run_15arms_status": {
-            "rendered_prompts": 95095,
-            "all_15_arms_complete": True,
-            "blocked_arms": [],
+            "rendered_prompts": dry_run_verification["rendered_prompt_rows"],
+            "dry_run_arms": dry_run_scope["dry_run_arms"],
+            "all_15_arms_complete": not dry_run_scope["missing_arms"],
+            "blocked_arms": dry_run_scope["missing_arms"],
             "n_label_leak": 0,
             "llm_calls": 0,
         },
