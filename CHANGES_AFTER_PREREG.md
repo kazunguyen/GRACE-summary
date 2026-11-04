@@ -15,3 +15,9 @@ Future changes after OSF registration must be appended here with the date, reaso
 
 - Packaged audited validation prompts and portable notebooks for B1-full, B1-shuf, B2-nolabel, B2-labelonly, B2-rep and B2-rand. B2-rand resumes I-09. B2-rep uses an isolated checkpoint and fresh inference.
 - Scope: Step 5 validation delivery. No model calls, threshold fitting, test results or registered analysis rules changed. Operational packaging only. This entry introduces no exploratory analysis.
+
+## 2026-11-04 — B2-rep provenance and Kaggle backend clarification
+
+- Record and validate repeat=true and tag=repeat for the B2-rep validation runner so resume can enforce the registered repeat identity. Legacy checkpoints without those fields require a separate provenance review.
+- For these Kaggle notebooks use the direct llama-cpp-python 0.3.16, Q4_K_M, full-logit execution path documented in the submitted preregistration narrative. The frozen YAML serving line lists separate server alternatives. The delivery manifest and README document the execution choice.
+- Scope: Step 5 validation provenance and repeat isolation for RQ2. This operational clarification changes no prompt, threshold, frozen artifact, or analysis rule and introduces no exploratory analysis.
