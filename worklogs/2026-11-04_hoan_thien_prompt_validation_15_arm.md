@@ -254,3 +254,9 @@ Người dùng xác nhận đóng gói B2-rand, B1-full, B1-shuf, B2-nolabel, B2
 
 - [Hướng dẫn và danh sách bàn giao](../Runs-management/kaggle_validation_6arms_20261104/README.md)
 - [Manifest bàn giao](../Runs-management/kaggle_validation_6arms_20261104/delivery_manifest.json)
+
+## Chốt định danh B2-rep và backend Kaggle
+
+B2-rep tiếp tục gọi inference mới trên prompt B2, dùng output riêng và ghi repeat=true, tag=repeat trong run manifest và records. Khi resume, notebook đối chiếu hai trường ở cả manifest và từng record. Checkpoint của bản cũ thiếu hai trường sẽ bị từ chối. Bundle và hash prompt giữ nguyên.
+
+Chốt dùng llama-cpp-python 0.3.16, GGUF Q4_K_M đã pin, context 8.192, batch 256, full logits token đầu, theo đoạn mô tả backend Kaggle trong preregistration đóng băng và protocol vận hành. Ghi rõ khác biệt với mục serving trong YAML của ZIP OSF, vốn liệt kê llama-server/vLLM. Làm rõ ở manifest bàn giao và README, không sửa artifact OSF hay khóa ngưỡng.

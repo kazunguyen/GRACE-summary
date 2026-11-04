@@ -313,7 +313,11 @@
         }
       ],
       "notebook": "02_kaggle_qwen_q4_b2_rep_validation.ipynb",
-      "notebook_sha256": "9f3431b85ef1c4b0a9ffac4512978f0d4cd06ecd9779a36f48903ce1f2a4bb7f"
+      "notebook_sha256": "2e6bfb53c9fc4525a014a9d79ad862b5c3fbc40fd3bcf8e24729ab91257e7a8e",
+      "run_identity": {
+        "repeat": true,
+        "tag": "repeat"
+      }
     },
     "B2-rand": {
       "bundle": "grace_b2_rand_inputs.zip",
@@ -355,5 +359,12 @@
       "checkpoint_sha256": "9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92",
       "notebook_sha256": "500be66d2cf1d2e1b043d059be83ea56cae4fc341ef1ef16483527ffc0e478f3"
     }
+  },
+  "kaggle_execution": {
+    "backend": "llama-cpp-python",
+    "version": "0.3.16",
+    "context_tokens": 8192,
+    "scoring": "unconstrained_first_token_logits_v1",
+    "source": "Frozen OSF preregistration.md inference backend paragraph and configs/protocol.yaml in working repository"
   }
 }
