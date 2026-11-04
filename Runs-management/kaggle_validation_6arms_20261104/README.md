@@ -18,3 +18,9 @@ Dùng prompt từ manifest validation-only đã audit. Chỉ chạy validation, 
 5. Tải checkpoint ZIP và log từ Kaggle Output. Mỗi phiên đặt ngân sách inference 9 giờ và dành 5 phút cuối để đóng gói checkpoint.
 
 [Manifest và SHA-256](delivery_manifest.json)
+
+## Backend áp dụng cho các lượt Kaggle
+
+Dùng `llama-cpp-python==0.3.16` với Qwen3-Coder-30B-A3B-Instruct GGUF Q4_K_M đã pin SHA-256, tokenizer revision đã pin, hai GPU T4, context 8.192, batch 256 và full logits ở token đầu. Score là sigmoid(logit_1 − logit_0). Top-5 dùng cho chẩn đoán. Đây là đường chạy Kaggle được ghi trong preregistration của gói OSF và trong protocol vận hành. Mục serving của YAML trong ZIP đóng băng còn liệt kê llama-server/vLLM. Hai backend đó là phương án riêng và không dùng cho gói Kaggle này.
+
+B2-rep ghi `repeat: true` và `tag: repeat` trong run manifest và records. Resume yêu cầu checkpoint B2-rep mang đủ hai trường. Nếu có checkpoint từ notebook cũ, giữ riêng để kiểm provenance.
