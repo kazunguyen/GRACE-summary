@@ -10,3 +10,8 @@ The historical `prereg-v1` Git tag predates the current OSF package. It is not e
 - Updated both OSF submission guides and the package README to remove zero-test-exposure claims. A registration URL and timestamp must be added only after actual OSF approval, without changing the submitted PDF/ZIP bytes.
 
 Future changes after OSF registration must be appended here with the date, reason, affected analyses and whether they are exploratory.
+
+## 2026-11-04 — Kaggle validation packaging
+
+- Packaged audited validation prompts and portable notebooks for B1-full, B1-shuf, B2-nolabel, B2-labelonly, B2-rep and B2-rand. B2-rand resumes I-09. B2-rep uses an isolated checkpoint and fresh inference.
+- Scope: Step 5 validation delivery. No model calls, threshold fitting, test results or registered analysis rules changed. Operational packaging only. This entry introduces no exploratory analysis.

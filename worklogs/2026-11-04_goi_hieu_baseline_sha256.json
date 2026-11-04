@@ -1,0 +1,202 @@
+{
+  "schema": "grace_local_pre_remediation_inventory_v1",
+  "scope": "Local package as first inspected, not authenticated sender delivery",
+  "original_download_archive_found": false,
+  "current_directory_is_byte_identical_layout": false,
+  "pre_remediation_file_count": 20,
+  "current_file_count": 13,
+  "baseline_files_still_in_directory": 12,
+  "baseline_files_in_archive": 8,
+  "added_file": "validation_active_manifest.json",
+  "sha256_comparisons": {
+    "match": 20,
+    "mismatch": 0,
+    "no_independent_file_checksum": 0
+  },
+  "entries": [
+    {
+      "relative_path": "configs/protocol.yaml",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/configs/protocol.yaml",
+      "archived": false,
+      "sha256": "acbea32853ff7741065b774d671aff06d569b3e403c9bd696606a840501c02ce",
+      "expected_sha256": "acbea32853ff7741065b774d671aff06d569b3e403c9bd696606a840501c02ce",
+      "evidence": "Git 7f98e10:configs/protocol.yaml",
+      "match": true,
+      "git_blob_sha1": "15fa797addb423d96f970702efc5875321b8291f",
+      "historical_identity": "registered_at: \"2026-10-31\"            # ngày tag chính thức; cập nhật hoàn thiện Bước 4: 2026-11-02"
+    },
+    {
+      "relative_path": "configs/thresholds.json",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/configs/thresholds.json",
+      "archived": false,
+      "sha256": "fa64b38329480b0b3921612ecd6c8d34b10db135cb59440cd9e71bb550f7c409",
+      "expected_sha256": "fa64b38329480b0b3921612ecd6c8d34b10db135cb59440cd9e71bb550f7c409",
+      "evidence": "Git 7f98e10:configs/thresholds.json",
+      "match": true,
+      "git_blob_sha1": "1feb3b6bbff7ba44cc08edf4d87f3c9edc6a4edd",
+      "historical_identity": "a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831"
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/devign/validation/B1-H2/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/devign/validation/B1-H2/42/prompts.jsonl",
+      "archived": false,
+      "sha256": "c9407277cdb15570368ede0e3e455fa9fd3f5ea657052aadcd47e087a4a6a7a2",
+      "expected_sha256": "c9407277cdb15570368ede0e3e455fa9fd3f5ea657052aadcd47e087a4a6a7a2",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/devign/validation/B1-H2/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/devign/validation/B3-flip/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/tmp/grace_b3_withdrawn_20261104/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/devign/validation/B3-flip/42/prompts.jsonl",
+      "archived": true,
+      "sha256": "aed1af08e517ecc10722b73340821f9ce4aec952780e77001b308617d7845db0",
+      "expected_sha256": "aed1af08e517ecc10722b73340821f9ce4aec952780e77001b308617d7845db0",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/devign/validation/B3-flip/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/devign/validation/B3-nodiff/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/tmp/grace_b3_withdrawn_20261104/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/devign/validation/B3-nodiff/42/prompts.jsonl",
+      "archived": true,
+      "sha256": "d912ad63bb1dfb59144a4dd9fac3bae98479516d8a1baa59d9794305efb4441e",
+      "expected_sha256": "d912ad63bb1dfb59144a4dd9fac3bae98479516d8a1baa59d9794305efb4441e",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/devign/validation/B3-nodiff/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/devign/validation/B3-swap/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/tmp/grace_b3_withdrawn_20261104/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/devign/validation/B3-swap/42/prompts.jsonl",
+      "archived": true,
+      "sha256": "079dbf7c1e7d883c7df6c0aff66bd528bb66bce7f939670ebb1fbb0a9fe21f1b",
+      "expected_sha256": "079dbf7c1e7d883c7df6c0aff66bd528bb66bce7f939670ebb1fbb0a9fe21f1b",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/devign/validation/B3-swap/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/devign/validation/B3/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/tmp/grace_b3_withdrawn_20261104/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/devign/validation/B3/42/prompts.jsonl",
+      "archived": true,
+      "sha256": "c397b395ed9d4d96e2f55b6fc6b1f0c8b188248f0d8c88c8537c30859193e8a7",
+      "expected_sha256": "c397b395ed9d4d96e2f55b6fc6b1f0c8b188248f0d8c88c8537c30859193e8a7",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/devign/validation/B3/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/reveal/validation/B1-H2/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/reveal/validation/B1-H2/42/prompts.jsonl",
+      "archived": false,
+      "sha256": "b85025697fa66d74ad6fd68fdc544a8430855f1315fbef06b63aa6df373e0aa4",
+      "expected_sha256": "b85025697fa66d74ad6fd68fdc544a8430855f1315fbef06b63aa6df373e0aa4",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/reveal/validation/B1-H2/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/reveal/validation/B3-flip/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/tmp/grace_b3_withdrawn_20261104/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/reveal/validation/B3-flip/42/prompts.jsonl",
+      "archived": true,
+      "sha256": "d07c3cd3231e4456a171051a94725eeb27ddecb7515d5504302040561be18764",
+      "expected_sha256": "d07c3cd3231e4456a171051a94725eeb27ddecb7515d5504302040561be18764",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/reveal/validation/B3-flip/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/reveal/validation/B3-nodiff/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/tmp/grace_b3_withdrawn_20261104/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/reveal/validation/B3-nodiff/42/prompts.jsonl",
+      "archived": true,
+      "sha256": "d96424fdb1943f55a65e94adf26223cd08d3164ce9a3c5fe4cfbb5fca83a7603",
+      "expected_sha256": "d96424fdb1943f55a65e94adf26223cd08d3164ce9a3c5fe4cfbb5fca83a7603",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/reveal/validation/B3-nodiff/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/reveal/validation/B3-swap/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/tmp/grace_b3_withdrawn_20261104/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/reveal/validation/B3-swap/42/prompts.jsonl",
+      "archived": true,
+      "sha256": "90adbde689a2aa050fc1e2616f7fe26a630110ea5dbace9cf64ce3a453ec984e",
+      "expected_sha256": "90adbde689a2aa050fc1e2616f7fe26a630110ea5dbace9cf64ce3a453ec984e",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/reveal/validation/B3-swap/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/dry_run_validation_20261102/reveal/validation/B3/42/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/tmp/grace_b3_withdrawn_20261104/grace_15arms_prompts_and_clean_specs/prompts/dry_run_validation_20261102/reveal/validation/B3/42/prompts.jsonl",
+      "archived": true,
+      "sha256": "2d2464301137656cd6b1b4a53995d8d1dd122a971f1523b4a39acaa7f2a1df69",
+      "expected_sha256": "2d2464301137656cd6b1b4a53995d8d1dd122a971f1523b4a39acaa7f2a1df69",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/dry_run_validation_20261102/reveal/validation/B3/42/manifest.json",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/reference_B2/devign/test/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/prompts/reference_B2/devign/test/prompts.jsonl",
+      "archived": false,
+      "sha256": "9508b80980cba2c774f6237d696861a0dc4ee8b63f1b6962d0f2c81ad9f42415",
+      "expected_sha256": "9508b80980cba2c774f6237d696861a0dc4ee8b63f1b6962d0f2c81ad9f42415",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/donor_reconciliation_20261101/new_reference/B2/devign/test/prompts.jsonl",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/reference_B2/devign/validation/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/prompts/reference_B2/devign/validation/prompts.jsonl",
+      "archived": false,
+      "sha256": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c",
+      "expected_sha256": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/donor_reconciliation_20261101/new_reference/B2/devign/validation/prompts.jsonl",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/reference_B2/reveal/test/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/prompts/reference_B2/reveal/test/prompts.jsonl",
+      "archived": false,
+      "sha256": "d4dc02f46868217a56e9d3c92a664e0f25afa69307e5110bb5b8191834a52f78",
+      "expected_sha256": "d4dc02f46868217a56e9d3c92a664e0f25afa69307e5110bb5b8191834a52f78",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/donor_reconciliation_20261101/new_reference/B2/reveal/test/prompts.jsonl",
+      "match": true
+    },
+    {
+      "relative_path": "prompts/reference_B2/reveal/validation/prompts.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/prompts/reference_B2/reveal/validation/prompts.jsonl",
+      "archived": false,
+      "sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081",
+      "expected_sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081",
+      "evidence": "D:/JUNIOR/LabThayTho/GRACE-summary/Runs-management/donor_reconciliation_20261101/new_reference/B2/reveal/validation/prompts.jsonl",
+      "match": true
+    },
+    {
+      "relative_path": "specs/devign_test_15arms.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/specs/devign_test_15arms.jsonl",
+      "archived": false,
+      "sha256": "d50f9742505cd29af343c5c59d12c648c408c67d874d968e80c606260757703e",
+      "expected_sha256": "d50f9742505cd29af343c5c59d12c648c408c67d874d968e80c606260757703e",
+      "evidence": "SHA-256 recorded by initial local audit before remediation",
+      "match": true
+    },
+    {
+      "relative_path": "specs/devign_validation_15arms.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/specs/devign_validation_15arms.jsonl",
+      "archived": false,
+      "sha256": "379afdca1264ad1bc37ab9b4fcb3cd910b81149334cdcd5e0b622e6aa30aece7",
+      "expected_sha256": "379afdca1264ad1bc37ab9b4fcb3cd910b81149334cdcd5e0b622e6aa30aece7",
+      "evidence": "SHA-256 recorded by initial local audit before remediation",
+      "match": true
+    },
+    {
+      "relative_path": "specs/reveal_test_15arms.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/specs/reveal_test_15arms.jsonl",
+      "archived": false,
+      "sha256": "5387b5f3a1865766982e0e4c8f935834acf3c2726a531ac966f3d65d1d85233c",
+      "expected_sha256": "5387b5f3a1865766982e0e4c8f935834acf3c2726a531ac966f3d65d1d85233c",
+      "evidence": "SHA-256 recorded by initial local audit before remediation",
+      "match": true
+    },
+    {
+      "relative_path": "specs/reveal_validation_15arms.jsonl",
+      "location": "D:/JUNIOR/LabThayTho/GRACE-summary/grace_15arms_prompts_and_clean_specs/specs/reveal_validation_15arms.jsonl",
+      "archived": false,
+      "sha256": "f929f58b8c3f8bcd07a5d9bf7881be66fa20c5f034be56c81aada24b08b0584b",
+      "expected_sha256": "f929f58b8c3f8bcd07a5d9bf7881be66fa20c5f034be56c81aada24b08b0584b",
+      "evidence": "SHA-256 recorded by initial local audit before remediation",
+      "match": true
+    }
+  ]
+}
