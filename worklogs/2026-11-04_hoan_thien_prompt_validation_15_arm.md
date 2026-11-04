@@ -323,3 +323,30 @@ Phân biệt cổng audit: `preregistration.md` mục 6 có ngưỡng dừng t�
 ## Đính chính nguồn xác nhận 28 mẫu Devign validation — 04/11/2026
 
 Người dùng xác nhận chính tay đã chạy và nắm rõ nguyên nhân 28 mẫu Devign validation đổi prompt hash: 5 mẫu liên quan donor cũ bị loại khi làm sạch kho và 23 mẫu đổi thứ hạng do PCA CodeT5. Ghi nhận đây là thông tin do người thực hiện xác nhận; không tiếp tục liệt kê phân rã 5 + 23 trong các điểm cần chất vấn Hiếu. Lượt kiểm local đã xác nhận 28 hash I-05 lệch frozen và records I-09 khớp. Các câu trước đó nói chưa có bảng provenance theo từng ID phản ánh giới hạn của lần kiểm bằng file, không phủ nhận xác nhận trực tiếp này của người thực hiện. Việc đính chính không thay đổi kết luận riêng về họ B3 hoặc B1-H2.
+
+
+## Kiểm chứng phản hồi Hiếu về B3 và B1-H2 — 04/11/2026
+
+Đối chiếu các khẳng định trong phản hồi Hiếu với `Runs-management/sanitize_specs_15arms.py`, `01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/contrastive_pair_builder.py`, `probes.py`, cấu hình protocol và kết quả audit ZIP ghi ở trên. Kết luận: hướng tạm hoãn B3 và B1-H2 khỏi lượt confirmatory phù hợp với bằng chứng hiện có; một số diễn giải cần giới hạn như sau.
+
+### Devign B3
+
+- Mã sanitizer xác nhận điều kiện giữ cặp: hai donor đều có trong clean bank, một donor chính là B2 canonical donor, và nhãn của hai donor đối lập. Cặp không thỏa đủ điều kiện được dựng lại bằng `build_contrastive_pair`. Vì vậy không thể kết luận cả 747 cặp được tái sinh chỉ do donor cũ bị loại khỏi bank.
+- Bộ chọn counterpart trong mã hiện hành dùng Jaccard trên token code của target; nếu không có token/candidate chung, chọn phần tử đầu trong pool. Hàm mô tả khác biệt dùng heuristic; khi không tìm được tín hiệu theo các nhánh heuristic, trả câu mặc định ở dòng 127 của `contrastive_pair_builder.py`. Điều này xác nhận nguy cơ chất lượng giải thích/cặp không đủ căn cứ cho confirmatory, nhưng riêng mã nguồn không chứng minh mức “suy giảm ngữ nghĩa” của toàn bộ 747 trường hợp; cần đánh giá theo từng cặp nếu muốn lượng hóa.
+- Worklog đã xác nhận 747/2.732 cặp trong ZIP prompt Devign khác cặp ghi ở specs. Nguồn selector/selection log có thẩm quyền trước freeze chưa được xác minh trong hồ sơ đã rà. Giữ B3 ngoài confirmatory cho đến khi truy được nguồn và đối chiếu theo target; không mặc định specs hay prompt là nguồn chuẩn chỉ từ phép đối chiếu hiện có.
+
+### ReVeal B3
+
+- Sanitizer tạo canonical ID bằng chỉ số `idx` trong lúc đọc specs, không sắp xếp theo hash target. Do đó, ID dạng `reveal:validation:0` ở hai artifact không đủ để chứng minh cùng target nếu thứ tự đầu vào khác nhau.
+- Worklog ghi nhận tại `reveal:validation:0` code donor trong prompt khác code donor trong specs; vì vậy namespace/index mismatch có thể giải thích sai target mapping, nhưng không chứng minh cặp donor khớp 1-to-1. Kết luận toàn diện cần mapping ổn định theo target (UID nguồn nếu có; nếu không, target-code hash kèm kiểm soát duplicate) và đối chiếu code/hash của từng donor.
+- Với bằng chứng hiện có, chưa xác minh được mapping bit-for-bit cho toàn bộ ZIP; yêu cầu mapping theo target là bước khắc phục trước xét nghiệm thu, không phải bằng chứng rằng tất cả các cặp ReVeal đều sai.
+
+### B1-H2
+
+- probes.py xác nhận renderer trả `missing=True` và không render evidence khi `h2_evidence` rỗng sau `strip()`. Chuỗi fallback `No guarded sink evidence detected.` là không rỗng nên renderer sẽ render nó và không tự gắn `missing=True`. Muốn ghi nhận thiếu evidence, spec cần để trường này rỗng (hoặc có cờ missing được xử lý rõ ràng ở một bước đã kiểm chứng).
+- Cấu hình protocol giới hạn nguồn H2 ở tối đa 40 node/80 edge. Bản Round 3 lấy node ngoài closed prefix ở 672 target không đáp ứng giới hạn đó nếu các node ấy thực sự được dùng làm nguồn evidence; cần giữ artifact đó tách riêng, không nhập vào confirmatory theo cấu hình hiện hành.
+- Caveat: sanitizer ghi `h2_source_limits: {nodes: 40, edges: 80}` vào spec, và renderer kiểm metadata này. Metadata được gán trong spec không tự chứng minh evidence thực tế được trích từ đúng closed prefix. Cần provenance/log của bước trích xuất để xác minh nguồn graph theo từng target trước khi coi metadata là bằng chứng.
+
+### Trạng thái và bước tiếp theo
+
+Theo phản hồi Hiếu, nhóm tạm hoãn toàn bộ B3 và B1-H2 khỏi lượt chạy confirmatory hiện tại, tập trung GPU Kaggle cho B1-full, B1-shuf, B2-nolabel, B2-labelonly và B2-rep, rồi xử lý riêng B3/H2 bằng đối soát hash và chuẩn hóa extractor. Worklog trước đó xác nhận B3 đã bị loại khỏi manifest active và B1-H2 chưa nghiệm thu; kế hoạch năm arm và trạng thái Kaggle ở trên được ghi nhận là thông tin Hiếu báo, chưa được audit độc lập trong lượt đối chiếu này.
