@@ -16,3 +16,5 @@
 /01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/** -text
 /Runs-management/donor_reconciliation_20261101/cache/*_new_* -text
 /Runs-management/donor_reconciliation_20261101/new_reference/B2/** -text
+
+/Runs-management/osf_registration_draft_20261102/** -text
