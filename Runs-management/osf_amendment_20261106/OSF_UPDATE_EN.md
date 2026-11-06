@@ -91,8 +91,10 @@ The submitted PDF's page footers saying "Not yet submitted" reflect preparation 
 
 ## 3. Immutable evidence references
 
-- E1: [Original optimizer at the 1 November commit](https://github.com/kazunguyen/GRACE-summary/blob/282033d3ed30b9f91392fec063bd2b2ce10266f4/Runs-management/validation_lock.py).
-- E2: [Historical B0 threshold artifact at the same commit](https://github.com/kazunguyen/GRACE-summary/blob/282033d3ed30b9f91392fec063bd2b2ce10266f4/Runs-management/analysis_lock_20261101/thresholds.initial.json).
+- E1: [Preserved original optimizer at the publicly accessible evidence snapshot](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/validation_lock.py); SHA-256 `9d83acbe5a1767d0e91c6e5950ab73e92c6b4d05980422486a1876564e4db711`.
+- E2: [Preserved historical B0 threshold artifact at the same public snapshot](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/analysis_lock_20261101/thresholds.initial.json); SHA-256 `39080ae54e985d29af214ee8ea9b222e97c717ffbfaaee327d5af5d58d4d2611`.
+
+Access/provenance note (7 November 2026): The original E1/E2 URLs at commit `282033d3ed30b9f91392fec063bd2b2ce10266f4` returned HTTP 404 on public GitHub. Both replacement URLs above were publicly accessible. Git-blob byte comparisons confirmed that each replacement file has the same SHA-256 as its counterpart in the locally retained 1 November commit. The replacement URLs identify preserved copies at the later evidence snapshot; they do not independently establish a publicly accessible 1 November timestamp or absence of prior test exposure.
 - E3: [Fixed-value export script showing B0/B1 constants](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/scripts/lock_full_validation_thresholds.py).
 - E4: [Verification wrapper added on 6 November](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/osf_amendment_20261106/verify_validation_thresholds.py).
 - E5: [Computed thresholds, 99-point MCC sweeps and file-read audit](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/osf_amendment_20261106/validation_threshold_verification.json).
