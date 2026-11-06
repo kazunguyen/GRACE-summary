@@ -2,6 +2,12 @@
 
 The study has a public OSF registration at <https://osf.io/fqgh2/overview>, reported as registered on Nov 3, 2026 at 11:13 PM (Asia/Bangkok) in `AGENTS.md`. The registration documents the protocol as submitted at that time; it does not establish that protocol decisions preceded historical test runs. The `prereg-v1` Git tag is a repository snapshot, not a timestamp for OSF submission. Any amendment discussed in later planning documents is a separate, not-yet-submitted update unless a newer OSF record is added here.
 
+## 2026-11-06 — Add retrospective and B3 feasibility evidence to OSF update
+
+- Archived the already disclosed Colab I-14 exploratory test output and integrity audit (5,006 records; prediction archive contains no label fields), plus the post-hoc B0/B1/B2/B2-flip analysis referenced by the amendment. Commit: `90c5b3ff5f5e86927ab2a8b451c99c458fcddcaf`.
+- Archived a versioned B3 selector candidate and a CPU feasibility check. Six real validation-target attempts paused because there is no two-person-reviewed verified pair pool; no B3 inference or threshold fitting occurred. This is a blocker report, not evidence that no genuine security-fix pairs exist. Commit: `f445a30c8315aeb6c49337acde6cf9df0ac0d6f8`.
+- Updated the prepared OSF amendment with E23-E28. The update remains a draft and has not been submitted.
+
 ## 2026-11-06 — Supersede Colab B1-H2 thresholds; return all arms to Kaggle
 
 - The user has returned all arms to the preregistered Kaggle environment (2×T4); the OSF update no longer requests Colab/L4 as an additional authorized platform.
