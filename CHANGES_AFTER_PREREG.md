@@ -2,6 +2,13 @@
 
 The study has a public OSF registration at <https://osf.io/fqgh2/overview>, reported as registered on Nov 3, 2026 at 11:13 PM (Asia/Bangkok) in `AGENTS.md`. The registration documents the protocol as submitted at that time; it does not establish that protocol decisions preceded historical test runs. The `prereg-v1` Git tag is a repository snapshot, not a timestamp for OSF submission. Any amendment discussed in later planning documents is a separate, not-yet-submitted update unless a newer OSF record is added here.
 
+## 2026-11-06 — Supersede Colab B1-H2 thresholds; return all arms to Kaggle
+
+- The user has returned all arms to the preregistered Kaggle environment (2×T4); the OSF update no longer requests Colab/L4 as an additional authorized platform.
+- B1-H2 Colab I-12/I-13 validation, the Colab-derived thresholds Devign 0.09/ReVeal 0.67, and Colab I-14 test inference are retained as historical, platform-deviant exploratory work. The old values and test output are superseded and must not be reused or treated as confirmatory.
+- The Kaggle validation inference is complete (5,005 records). Independent verification selected Devign tau=0.09 (MCC 0.0667928192, n=2,732) and ReVeal tau=0.21 (MCC 0.0836323479, n=2,273). Exact IDs, prompt hashes, frozen labels, scores and all 99 MCC grid points were checked; no test data was read. The Devign number coincides with Colab by independent recomputation; ReVeal differs. Current config seal: cecd6c604481da846e37d1899324f1177566bdf0a422d0a632467b2c235a6a47. See Runs-management/b1h2_kaggle_validation_audit_20261106.json and the associated lock/evidence archive.
+- Preserve the old Colab lock at commit `846279676b60ca1185210642e75699b914e36a4d` as historical evidence. The new Kaggle lock and independent verification are recorded separately. The OSF amendment draft has been updated; it remains not submitted.
+
 ## 2026-11-06 — Add B1-H2 supplemental lock to the prepared OSF update
 
 - Added section B1a and fixed-commit references E14-E18 to the prepared English OSF update, synchronized its Justification and Vietnamese submission guide, and disclosed commit `846279676b60ca1185210642e75699b914e36a4d`. B1-H2 was already registered as an arm; its thresholds 0.09/0.67 were absent from the original 14-value lock and were subsequently selected from complete Colab L4 validation before any recorded B1-H2 test inference.
