@@ -10,7 +10,8 @@
   "enable_internet": true,
   "keywords": [],
   "dataset_sources": [
-    "thanhduy9a4tv/grace-b3-validation-inputs"
+    "thanhduy9a4tv/grace-b3-validation-inputs",
+    "thanhduy9a4tv/grace-b3-validation-checkpoint"
   ],
   "kernel_sources": [
     "thanhduy9a4tv/qwen3coder30b-prepare-notebook"
