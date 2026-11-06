@@ -64,5 +64,7 @@
 /prompt_audit_20261102/audit_rows.csv
 launch_resume_b3_*.py
 launch_b3_*.py
+cancel_b3_*.py
 track_b3_*.py
+track_lznt123_*.py
 
