@@ -5,7 +5,7 @@ The study has a public OSF registration at <https://osf.io/fqgh2/overview>, repo
 ## 2026-11-06 — Add retrospective and B3 feasibility evidence to OSF update
 
 - Archived the already disclosed Colab I-14 exploratory test output and integrity audit (5,006 records; prediction archive contains no label fields), plus the post-hoc B0/B1/B2/B2-flip analysis referenced by the amendment. Commit: `90c5b3ff5f5e86927ab2a8b451c99c458fcddcaf`.
-- Archived a versioned B3 selector candidate and a CPU feasibility check. Six real validation-target attempts paused because there is no two-person-reviewed verified pair pool; no B3 inference or threshold fitting occurred. This is a blocker report, not evidence that no genuine security-fix pairs exist. Commit: `f445a30c8315aeb6c49337acde6cf9df0ac0d6f8`.
+- Archived the implemented amended B3 selector algorithm, its software tests, synthetic prompt smoke output, and CPU feasibility check. The implementation tests passed; six real validation-target attempts paused because there is no two-person-reviewed verified pair pool, so no real B3 prompt set or inference exists. This blocker report is not evidence that no genuine security-fix pairs exist. Commit: `f445a30c8315aeb6c49337acde6cf9df0ac0d6f8`.
 - Updated the prepared OSF amendment with E23-E28. The update remains a draft and has not been submitted.
 
 ## 2026-11-06 — Supersede Colab B1-H2 thresholds; return all arms to Kaggle
