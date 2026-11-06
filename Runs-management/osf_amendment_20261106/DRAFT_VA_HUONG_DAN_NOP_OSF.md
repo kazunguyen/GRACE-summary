@@ -2,7 +2,7 @@
 
 Ngày soạn: 06/11/2026 (Asia/Bangkok). Trạng thái: DRAFT, chưa nộp OSF.
 
-Bản tiếng Anh để điền form: [OSF_UPDATE_EN.md](OSF_UPDATE_EN.md). Lý do cập nhật để sao chép: [OSF_JUSTIFICATION_EN.txt](OSF_JUSTIFICATION_EN.txt). Quy trình nộp từng bước: [HUONG_DAN_NOP_OSF.md](HUONG_DAN_NOP_OSF.md). Bản update dẫn bằng chứng B0/B1 ở commit d9127fc7b12a128d8499012454ad134733f810ff, Kaggle B1-H2 ở 4838a55135e2d9a5b19292815e3c4b5a12467ed9, retrospective I-14/reanalysis ở 90c5b3ff5f5e86927ab2a8b451c99c458fcddcaf, B3 algorithm implementation/feasibility ở f445a30c8315aeb6c49337acde6cf9df0ac0d6f8 và source screening/smoke-test log ở 6f6dfd2ecf02530b73a8e9576fbe1f87b9121297; phần bên dưới được giữ làm bản làm việc và đối chiếu.
+Bản tiếng Anh để điền form: [OSF_UPDATE_EN.md](OSF_UPDATE_EN.md). Lý do cập nhật để sao chép: [OSF_JUSTIFICATION_EN.txt](OSF_JUSTIFICATION_EN.txt). Quy trình nộp từng bước: [HUONG_DAN_NOP_OSF.md](HUONG_DAN_NOP_OSF.md). Bản update dẫn bằng chứng B0/B1 ở commit d9127fc7b12a128d8499012454ad134733f810ff, Kaggle B1-H2 ở 4838a55135e2d9a5b19292815e3c4b5a12467ed9, retrospective I-14/reanalysis ở 90c5b3ff5f5e86927ab2a8b451c99c458fcddcaf, B3 algorithm implementation/feasibility ở f445a30c8315aeb6c49337acde6cf9df0ac0d6f8, source screening/smoke-test log ở 6f6dfd2ecf02530b73a8e9576fbe1f87b9121297 và run ledger ở 91dbb08d771ee01760ee0d9c5e0a666b651ffbee; phần bên dưới được giữ làm bản làm việc và đối chiếu.
 
 Bổ sung B1-H2: Kaggle đã hoàn tất validation 5.005 mẫu và khóa tau từ validation-only: Devign 0,09 (MCC 0,0667928192), ReVeal 0,21 (MCC 0,0836323479). Ngưỡng Colab 0,09/0,67 chỉ là bằng chứng lịch sử exploratory/superseded. Chưa ghi nhận inference test Kaggle mới trong hồ sơ hiện tại; chỉ được chạy sau khóa này.
 

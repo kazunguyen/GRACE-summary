@@ -2,7 +2,7 @@
 
 Prepared: 6 November 2026 (Asia/Bangkok). Status: prepared for author review and submission; not yet submitted. Original registration: https://osf.io/fqgh2/overview
 
-Original PDF SHA-256: `22648ead896baf5c1032de700c12fb97bd6dc44f0a8049292532ae6c0468b14c`. The update date is the actual OSF submission date, not this preparation date. B0/B1 verification evidence commit: `d9127fc7b12a128d8499012454ad134733f810ff`. Historical, superseded Colab B1-H2 lock evidence: `846279676b60ca1185210642e75699b914e36a4d`. Current Kaggle B1-H2 validation lock/evidence commit: `4838a55135e2d9a5b19292815e3c4b5a12467ed9`. Additional retrospective I-14/reanalysis evidence commit: `90c5b3ff5f5e86927ab2a8b451c99c458fcddcaf`. B3 algorithm implementation and feasibility evidence commit: `f445a30c8315aeb6c49337acde6cf9df0ac0d6f8`. Additional source screening and implementation-worklog commit: `6f6dfd2ecf02530b73a8e9576fbe1f87b9121297`. Publish all cited commits before submitting the OSF update.
+Original PDF SHA-256: `22648ead896baf5c1032de700c12fb97bd6dc44f0a8049292532ae6c0468b14c`. The update date is the actual OSF submission date, not this preparation date. B0/B1 verification evidence commit: `d9127fc7b12a128d8499012454ad134733f810ff`. Historical, superseded Colab B1-H2 lock evidence: `846279676b60ca1185210642e75699b914e36a4d`. Current Kaggle B1-H2 validation lock/evidence commit: `4838a55135e2d9a5b19292815e3c4b5a12467ed9`. Additional retrospective I-14/reanalysis evidence commit: `90c5b3ff5f5e86927ab2a8b451c99c458fcddcaf`. B3 algorithm implementation and feasibility evidence commit: `f445a30c8315aeb6c49337acde6cf9df0ac0d6f8`. Additional source screening and implementation-worklog commit: `6f6dfd2ecf02530b73a8e9576fbe1f87b9121297`. Current B1-H2 run-ledger commit: `91dbb08d771ee01760ee0d9c5e0a666b651ffbee`. Publish all cited commits before submitting the OSF update.
 
 ## 1. Justification
 
@@ -101,7 +101,7 @@ The submitted PDF's page footers saying "Not yet submitted" reflect preparation 
 - E8: [Isolated reproduction stdout](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/osf_amendment_20261106/isolated_verification_stdout.txt).
 - E9: [Isolated reproduction file-read audit](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/osf_amendment_20261106/isolated_validation_verification.json).
 - E10: [Reproduction instructions](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/osf_amendment_20261106/README.md).
-- E11: [Recorded execution history, including Colab L4](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/RUNS.md).
+- E11: [Recorded execution history, including Colab I-14 and the Kaggle validation lock](https://github.com/kazunguyen/GRACE-summary/blob/91dbb08d771ee01760ee0d9c5e0a666b651ffbee/Runs-management/RUNS.md).
 - E12: [Original B3/probe threshold inheritance settings](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/configs/arms.yaml).
 - E13: [Recorded integrity checks](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/osf_amendment_20261106/VALIDATION_CHECKS.md).
 - E14: [Historical Colab B1-H2 validation-label join and threshold-locking script; not the current lock](https://github.com/kazunguyen/GRACE-summary/blob/846279676b60ca1185210642e75699b914e36a4d/Runs-management/lock_b1h2_validation_thresholds.py).
