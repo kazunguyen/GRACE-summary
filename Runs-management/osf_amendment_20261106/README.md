@@ -2,7 +2,9 @@
 
 Prepared 6 November 2026. OSF status: not submitted by this preparation.
 
-`OSF_UPDATE_EN.md` contains the English submission text with immutable evidence links; `OSF_JUSTIFICATION_EN.txt` contains the justification to paste into OSF; `HUONG_DAN_NOP_OSF.md` gives the submission steps in Vietnamese. `DRAFT_VA_HUONG_DAN_NOP_OSF.md` is the detailed working draft. The update concerns B0/B1 threshold correction, replacement of the B3 pairing method, and the addition of Colab L4/compatible runtime. The frozen OSF PDF/ZIP and active protocol/threshold/arm configurations are not changed by these artifacts.
+`OSF_UPDATE_EN.md` contains the English submission text with immutable evidence links; `OSF_JUSTIFICATION_EN.txt` contains the justification to paste into OSF; `HUONG_DAN_NOP_OSF.md` gives the submission steps in Vietnamese. `DRAFT_VA_HUONG_DAN_NOP_OSF.md` is the detailed working draft. The update concerns B0/B1 threshold correction, the B1-H2 supplemental lock, replacement of the B3 pairing method, and the addition of Colab L4/compatible runtime. These documentation artifacts do not modify the frozen OSF PDF/ZIP or active protocol/threshold/arm configurations. The separate B1-H2 implementation commit `846279676b60ca1185210642e75699b914e36a4d` already extended the active threshold configuration from 14 to 16 values; the update now discloses that action.
+
+Section B1a and references E14-E18 report B1-H2 thresholds 0.09/0.67 and the supplemental checksum `eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5`. That lock preserves the original 14 values and does not yet implement the separate B0/B1 corrections. Publish the B1-H2 commit and latest documentation commit before using their links in an OSF submission.
 
 ## Evidence files
 

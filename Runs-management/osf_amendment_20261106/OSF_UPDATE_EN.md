@@ -1,16 +1,18 @@
-# GRACE registration update: threshold correction, revised B3 and Colab L4
+# GRACE registration update: threshold correction, B1-H2 lock, revised B3 and Colab L4
 
 Prepared: 6 November 2026 (Asia/Bangkok). Status: prepared for author review and submission; not yet submitted. Original registration: https://osf.io/fqgh2/overview
 
-Original PDF SHA-256: `22648ead896baf5c1032de700c12fb97bd6dc44f0a8049292532ae6c0468b14c`. The update date is the actual OSF submission date, not this preparation date. Evidence commit: `d9127fc7b12a128d8499012454ad134733f810ff`.
+Original PDF SHA-256: `22648ead896baf5c1032de700c12fb97bd6dc44f0a8049292532ae6c0468b14c`. The update date is the actual OSF submission date, not this preparation date. B0/B1 verification evidence commit: `d9127fc7b12a128d8499012454ad134733f810ff`. B1-H2 supplemental-lock evidence commit: `846279676b60ca1185210642e75699b914e36a4d`. Publish all cited commits before submitting the OSF update.
 
 ## 1. Justification
 
-We request a transparent amendment to the existing GRACE registration for three reasons: (1) correction of B0/B1 decision thresholds that were carried into the submitted threshold table as fixed values rather than recomputed from the complete validation splits; (2) replacement of the B3 demonstration-pair construction and difference-generation procedure with a verified same-function, vulnerable/patched design; and (3) addition of Google Colab with a single NVIDIA L4 and a documented compatible runtime as an alternative to Kaggle with two Tesla T4 GPUs, due to the compute configurations and runtime images available to our team.
+We request a transparent amendment to the existing GRACE registration for four reasons: (1) correction of B0/B1 decision thresholds that were carried into the submitted threshold table as fixed values rather than recomputed from the complete validation splits; (2) disclosure of two newly computed B1-H2 validation thresholds for an already registered arm absent from the original 14-value lock; (3) replacement of the B3 demonstration-pair construction and difference-generation procedure with a verified same-function, vulnerable/patched design; and (4) addition of Google Colab with a single NVIDIA L4 and a documented compatible runtime as an alternative to Kaggle with two Tesla T4 GPUs, due to the compute configurations and runtime images available to our team.
 
 This is an amendment to an ongoing study. B0/B1/B2/B2-flip inference outputs and metrics, and a post-hoc reanalysis including validation-selected thresholds and paired bootstrap contrasts, existed before this amendment. B1-H2 validation inference has also already been performed on Colab L4. These activities are disclosed retrospectively; this update does not establish that they were preregistered before execution or analysis. The original registration and its PDF/ZIP attachments remain preserved. The revised methods below apply from the actual amendment date to the work to which they relate. Hypotheses, sample sizes, data partitions, model weights, quantization, tokenizer, scoring, decoding, seeds and statistical decision rules remain as registered except for the specific threshold, B3 and execution-environment changes stated below.
 
 Reproducible validation-only threshold evidence is archived at commit d9127fc7b12a128d8499012454ad134733f810ff. The original optimizer is byte-identical to the 1 November implementation. The verifier reproduces all four corrected thresholds using complete validation only; source/input hashes and file-read audits are provided: https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/osf_amendment_20261106/README.md
+
+B1-H2 was already specified in the registered experimental matrix. Its thresholds were subsequently selected on all 5,005 original B1-H2 validation predictions from Colab L4, joined by exact ID to frozen validation labels: Devign 0.09 and ReVeal 0.67. The lock was recorded on 6 November 2026 before any B1-H2 test inference reported in the run ledger; no B1-H2 test records or labels were used for threshold selection. The earlier validation execution and the supplemental lock are disclosed as activities preceding this amendment. Evidence: https://github.com/kazunguyen/GRACE-summary/blob/846279676b60ca1185210642e75699b914e36a4d/Runs-management/b1h2_threshold_lock_20261106.json
 
 ## 2. Updated methods and disclosures
 
@@ -32,6 +34,25 @@ The B0 values 0.98 and 0.30 are present in the historical validation threshold a
 The corrected thresholds were additionally reproduced by executing the original `Runs-management/validation_lock.py` implementation, byte-identical to the version at commit 282033d (SHA-256 `9d83acbe5a1767d0e91c6e5950ab73e92c6b4d05980422486a1876564e4db711`), using exclusively the four complete validation record files. An enforced file-read allowlist restricted that verification run to those validation files and the two source files. It reproduced all four corrected thresholds without reading test records, test metrics or submitted threshold values. The verification evidence records input/source hashes, all 99 MCC grid points and actual file-read paths. See the separate computational-provenance note and `validation_threshold_verification.json`; historical test exposure remains disclosed separately.
 
 Evidence E1-E8 below documents the original optimizer, historical B0 thresholds, the fixed-value export script, the verification run, exact validation inputs and the independent reproduction in a directory without test inputs. The verifier was added on 6 November; the optimizer itself dates to 1 November. The new verifier does not retroactively establish a historical execution date. No specific merge-conflict cause or unique optimum is asserted.
+
+### B1a. Supplemental B1-H2 validation threshold lock
+
+B1-H2 is already listed in Section 4 of the submitted PDF (page 6) and in the research proposal's experimental matrix. However, neither Section 3.2 of that PDF (page 4) nor the original attached threshold files contains numeric B1-H2 thresholds. This update supplements the threshold record for the existing arm; the experimental matrix is not expanded by this addition. The blanket checklist statement that every arm's threshold was already locked is corrected accordingly.
+
+The registered per-arm validation-MCC rule applies independently to B1-H2. It does not inherit B1's threshold. The original B1-H2 validation prompts were used, including the 100-row I-12 pilot and the 4,905-row I-13 continuation, rather than the later v5/v6 candidates. All 5,005 unique prediction IDs were joined exactly to frozen validation labels. The same 99-point 0.01-0.99 MCC grid, valid-score selection and registered tie-break rule were applied.
+
+| Dataset | Threshold key | Valid validation samples | Supplemental tau* | Validation MCC |
+|---|---|---:|---:|---:|
+| Devign | devign\|B1-H2\|42 | 2,732 | 0.09 | 0.0618579754 |
+| ReVeal | reveal\|B1-H2\|42 | 2,273 | 0.67 | 0.0894829367 |
+
+The per-dataset entries record lock times of `2026-11-06T08:30:38.222305+00:00` and `2026-11-06T08:30:38.365040+00:00`, respectively (approximately 15:30:38 Asia/Bangkok). The supplemental lock is recorded at commit `846279676b60ca1185210642e75699b914e36a4d`. No B1-H2 test inference is recorded at this point, and no test records or labels were used to select these two thresholds. The thresholds are fixed before the corresponding B1-H2 test evaluation; the earlier Colab validation and this lock are disclosed retrospectively relative to the amendment submission.
+
+The primary file is `configs/thresholds.json` (plural). The flat configuration, diagnostic-kit mirrors and `Runs-management/thresholds.json` were synchronized. This supplement adds exactly two keys, increasing the configuration from 14 to 16 thresholds while preserving all 14 existing values. The previous self-checksum is `9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3`; the supplemental self-checksum is `eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5`. This is the embedded `locked_sha256` identity, not a SHA-256 of the complete file including that field.
+
+The B1-H2 supplement itself retains the originally submitted B0/B1 values; it does not implement the B0/B1 corrections in B1 above. Those corrections are a separate part of this amendment and require their own recorded lock identity when implemented. Do not describe the supplemental checksum as the final combined lock for every proposed correction.
+
+This threshold evidence is tied to Google Colab Runtime Version 2026.10 on one NVIDIA L4 rather than the registered Kaggle two-T4 environment. Model, tokenizer, quantization, backend version, seed, context and first-token scoring identities are recorded in the lock. Full-layer GPU offload remains unverified. The supplement does not remove the disclosed platform deviation or retrospectively convert the earlier exploratory validation into a prospective run. Evidence E14-E18 below provides the locking script, supplemental artifact, configuration, dated entries and worklog.
 
 ### B2. Replacement of the B3 method
 
@@ -77,7 +98,7 @@ At preparation of this draft on 2026-11-06:
 
 - B0, B1, B2 and B2-flip have full validation/test inference outputs on both datasets. Historical raw scores and provenance remain preserved.
 - B2-rand has 7,789 of 15,015 planned three-seed validation records in the imported I-11 checkpoint; its test outputs have not been produced in that checkpoint. B2-rep remains unexecuted in the local run ledger.
-- B1-H2 original validation prompts were executed on Colab L4 on 2026-11-06: I-12 has 100 rows and I-13 has 4,905, together covering 5,005 unique validation IDs. These are the original prompt variant, not the later v5/v6 candidates. Observed runtime was Colab 2026.10, Python 3.13.16, CUDA toolkit 13.0.88 and driver 580.82.07; the audited Kaggle runtime recorded Python 3.13.15. Full GPU-layer placement was not verified in the retained L4 logs. This update records those runs retrospectively and does not erase their earlier exploratory/deviation designation.
+- B1-H2 original validation prompts were executed on Colab L4 on 2026-11-06: I-12 has 100 rows and I-13 has 4,905, together covering 5,005 unique validation IDs. These are the original prompt variant, not the later v5/v6 candidates. Predictions were subsequently joined to frozen validation labels, and thresholds 0.09/0.67 were locked as described in B1a before any B1-H2 test inference recorded in the ledger. Observed runtime was Colab 2026.10, Python 3.13.16, CUDA toolkit 13.0.88 and driver 580.82.07; the audited Kaggle runtime recorded Python 3.13.15. Full GPU-layer placement was not verified in the retained L4 logs. This update records those activities retrospectively and does not erase their earlier exploratory/deviation designation.
 - The 2026-11-06 reanalysis recalculated validation thresholds, test metrics, sensitivity results and selected paired-bootstrap contrasts. These results were inspected before this update; the original blanket statement that all bootstrap analyses remained unperformed is superseded for this work. This reanalysis is not equivalent to a completed confirmatory Holm analysis of all 11 registered contrasts.
 - No verified amended B3 inference output is established by this draft. Update this statement if additional runs or outputs are known at the actual submission time.
 
@@ -98,5 +119,10 @@ The submitted PDF's page footers saying "Not yet submitted" reflect preparation 
 - E11: [Recorded execution history, including Colab L4](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/RUNS.md).
 - E12: [Original B3/probe threshold inheritance settings](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/configs/arms.yaml).
 - E13: [Recorded integrity checks](https://github.com/kazunguyen/GRACE-summary/blob/d9127fc7b12a128d8499012454ad134733f810ff/Runs-management/osf_amendment_20261106/VALIDATION_CHECKS.md).
+- E14: [B1-H2 validation-label join and threshold-locking script](https://github.com/kazunguyen/GRACE-summary/blob/846279676b60ca1185210642e75699b914e36a4d/Runs-management/lock_b1h2_validation_thresholds.py).
+- E15: [B1-H2 supplemental-lock artifact and source identities](https://github.com/kazunguyen/GRACE-summary/blob/846279676b60ca1185210642e75699b914e36a4d/Runs-management/b1h2_threshold_lock_20261106.json).
+- E16: [Sixteen-value configuration and supplemental self-checksum](https://github.com/kazunguyen/GRACE-summary/blob/846279676b60ca1185210642e75699b914e36a4d/configs/thresholds.json).
+- E17: [Per-dataset B1-H2 lock entries with timestamps](https://github.com/kazunguyen/GRACE-summary/blob/846279676b60ca1185210642e75699b914e36a4d/Runs-management/thresholds.json).
+- E18: [B1-H2 validation and threshold-selection worklog](https://github.com/kazunguyen/GRACE-summary/blob/846279676b60ca1185210642e75699b914e36a4d/11_Arm_B1H2_Evidence/worklogs/2026-11-06_b1h2_remaining_validation_results.md).
 
 Validation-input ZIP SHA-256: `4737fc0ac8685dc0c70cdc5493e10dbc468ad5097753d19a4532a0237af17596`. Original-optimizer SHA-256: `9d83acbe5a1767d0e91c6e5950ab73e92c6b4d05980422486a1876564e4db711`.
