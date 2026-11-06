@@ -1,0 +1,7 @@
+B0 devign validation n=2732 valid=2732 tau=0.98 MCC=0.076009780320
+B0 reveal validation n=2273 valid=2273 tau=0.30 MCC=0.080119877888
+B1 devign validation n=2732 valid=2732 tau=0.98 MCC=0.074754926497
+B1 reveal validation n=2273 valid=2273 tau=0.63 MCC=0.083264067697
+PASS: all four thresholds match; four validation inputs; zero test files read.
+Optimizer SHA256: 9d83acbe5a1767d0e91c6e5950ab73e92c6b4d05980422486a1876564e4db711
+Evidence: D:\JUNIOR\LabThayTho\GRACE-summary\Runs-management\osf_amendment_20261106\osf-validation-only-9zeyswnc\Runs-management\osf_amendment_20261106\validation_threshold_verification.json

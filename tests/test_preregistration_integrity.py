@@ -6,7 +6,7 @@ Xác nhận tính toàn vẹn, tính nhất quán và tính bất biến của G
 2. Phân biệt cấu hình inference thực chạy với phương án server/fallback trong protocol lịch sử đã khóa.
 3. Xác nhận định nghĩa đơn vị gom nhóm (cluster units): Devign (commit_id, 2068 cụm) và ReVeal (file_hash, 646 cụm).
 4. Xác nhận khóa chặt chẽ các giả thuyết khoa học: H1.1, H1.2, H5.3 (routing q=10% paired bootstrap CI) và quy tắc quyết định với biên thực chất delta = 0.02.
-5. Xác nhận đồng bộ 14 ngưỡng tối ưu tau* khóa từ Validation trong configs/thresholds.json và configs/thresholds_flat.json.
+5. Xác nhận đồng bộ 16 ngưỡng Validation: giữ 14 giá trị cũ và bổ sung hai giá trị B1-H2 trong configs/thresholds.json và configs/thresholds_flat.json.
 6. Xác nhận tính đồng bộ tuyệt đối giữa configs/protocol.yaml và grace_diag_kit/configs/protocol.yaml.
 7. Xác nhận chữ ký băm SHA-256 của protocol.yaml khớp hoàn toàn với metadata trong thresholds.json.
 """
@@ -15,6 +15,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from zipfile import ZipFile
 import pytest
 import yaml
 
@@ -117,7 +118,7 @@ def test_protocol_yaml_consistency_and_provenance():
 
 
 def test_thresholds_json_synchronization():
-    """Kiểm tra tính toàn vẹn của bảng 14 ngưỡng tối ưu tau* khóa từ Validation."""
+    """Preserve the registered 14 values and verify the two B1-H2 supplements."""
     assert THRESHOLDS_JSON.exists(), "configs/thresholds.json không tồn tại!"
     assert THRESHOLDS_FLAT.exists(), "configs/thresholds_flat.json không tồn tại!"
 
@@ -129,14 +130,34 @@ def test_thresholds_json_synchronization():
     assert meta["version"] == "prereg-v1"
     assert meta["optimized_on_split"] == "validation"
     assert "earlier test inference/metrics existed" in meta["test_exposure"]
-    assert meta["reseal_reason"].endswith("threshold values unchanged; no refit")
-    assert meta["total_thresholds_locked"] == 14
+    assert "B1-H2" in meta["reseal_reason"]
+    assert meta["total_thresholds_locked"] == 16
 
     thresholds = data["thresholds"]
-    assert len(thresholds) == 14, f"Mong đợi 14 ngưỡng nhưng có {len(thresholds)}"
-    assert len(flat) == 14, f"Mong đợi 14 flat ngưỡng nhưng có {len(flat)}"
+    assert len(thresholds) == 16, f"Expected 16 thresholds, got {len(thresholds)}"
+    assert len(flat) == 16, f"Expected 16 flat thresholds, got {len(flat)}"
 
-    # 14 keys cụ thể
+    # Compare against the immutable submitted archive, not a mutable config mirror.
+    bundle = REPO_ROOT / "Runs-management/osf_registration_draft_20261102/GRACE_OSF_PREREGISTRATION_20261102.zip"
+    with ZipFile(bundle) as archive:
+        registered = json.loads(archive.read("configs/thresholds.json"))
+    assert len(registered["thresholds"]) == 14
+    assert all(thresholds[key] == value for key, value in registered["thresholds"].items())
+    supplement = json.loads((REPO_ROOT / "Runs-management/b1h2_threshold_lock_20261106.json").read_text(encoding="utf-8"))
+    # The archived ZIP predates the disclosure reseal; its numeric values match,
+    # but the immediate predecessor is the later 9252... seal, not a010....
+    assert meta["previous_locked_sha256"] == supplement["previous_config_lock_sha256"] == (
+        "9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3"
+    )
+    assert supplement["config_lock_sha256"] == data["locked_sha256"]
+    for dataset, expected_tau, expected_n in [("devign", 0.09, 2732), ("reveal", 0.67, 2273)]:
+        key = f"{dataset}|B1-H2|42"
+        entry = supplement["locks"][dataset]
+        assert entry["tau"] == thresholds[key] == expected_tau
+        assert entry["n_valid"] == entry["n_expected"] == expected_n
+        assert data["details"][key]["validation_evidence_sha256"] == entry["validation_evidence_sha256"]
+
+    # The original 14 keys plus exactly two B1-H2 keys.
     expected_keys = [
         "devign|B0|42",
         "devign|B1|42",
@@ -152,7 +173,10 @@ def test_thresholds_json_synchronization():
         "devign|P-POST|42",
         "reveal|P-PRE|42",
         "reveal|P-POST|42",
+        "devign|B1-H2|42",
+        "reveal|B1-H2|42",
     ]
+    assert set(thresholds) == set(flat) == set(expected_keys)
     for k in expected_keys:
         assert k in thresholds, f"Thiếu key {k} trong thresholds.json!"
         assert k in flat, f"Thiếu key {k} trong thresholds_flat.json!"
@@ -169,7 +193,7 @@ def test_thresholds_json_synchronization():
     # Xác nhận thresholds.json hợp lệ qua hàm load_locked tamper-proof của grace_diag.thresholds
     from grace_diag.thresholds import load_locked
     locked_thresholds = load_locked(THRESHOLDS_JSON)
-    assert len(locked_thresholds) == 14
+    assert len(locked_thresholds) == 16
     for k in expected_keys:
         assert k in locked_thresholds
 

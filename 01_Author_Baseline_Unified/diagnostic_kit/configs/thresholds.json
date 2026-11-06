@@ -8,6 +8,19 @@
       "split": "validation",
       "tau_star": 0.08
     },
+    "devign|B1-H2|42": {
+      "arm": "B1-H2",
+      "dataset": "devign",
+      "mcc_at_tau": 0.06185797539166471,
+      "n_total": 2732,
+      "n_valid": 2732,
+      "platform_deviation": "Colab Runtime Version 2026.10 / single NVIDIA L4; preregistered Kaggle execution uses 2xT4",
+      "prompt_set_sha256": "fcdde8abf140bd0422d9a9e0cd48b0eeee5d08a4df8eb95d3434ce4b5e9083c2",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.09,
+      "validation_evidence_sha256": "28f49a9d85b4809a22882aafeb1febb70ff026d82ff336791b5e0b4d0acec24e"
+    },
     "devign|B1|42": {
       "arm": "B1",
       "dataset": "devign",
@@ -69,6 +82,19 @@
       "split": "validation",
       "tau_star": 0.44
     },
+    "reveal|B1-H2|42": {
+      "arm": "B1-H2",
+      "dataset": "reveal",
+      "mcc_at_tau": 0.08948293674935981,
+      "n_total": 2273,
+      "n_valid": 2273,
+      "platform_deviation": "Colab Runtime Version 2026.10 / single NVIDIA L4; preregistered Kaggle execution uses 2xT4",
+      "prompt_set_sha256": "fcdde8abf140bd0422d9a9e0cd48b0eeee5d08a4df8eb95d3434ce4b5e9083c2",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.67,
+      "validation_evidence_sha256": "007da3d8816cef1afe6c7e147f123238160eda687d507ba0fc7c2070a0328694"
+    },
     "reveal|B1|42": {
       "arm": "B1",
       "dataset": "reveal",
@@ -123,20 +149,20 @@
       "tau_star": 0.38
     }
   },
-  "locked_sha256": "9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3",
+  "locked_sha256": "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5",
   "metadata": {
     "grid_points": 99,
     "grid_range": [
       0.01,
       0.99
     ],
-    "locked_utc": "2026-11-03T08:57:36Z",
+    "locked_utc": "2026-11-06T08:30:38Z",
     "optimized_on_split": "validation",
     "phase": "Step 4: Full Validation Threshold Locking (Option B)",
-    "previous_locked_sha256": "a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831",
+    "previous_locked_sha256": "9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3",
     "previous_protocol_sha256": "acbea32853ff7741065b774d671aff06d569b3e403c9bd696606a840501c02ce",
     "protocol_sha256": "273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116",
-    "reseal_reason": "Protocol disclosure corrected after historical test exposure; threshold values unchanged; no refit",
+    "reseal_reason": "Supplemented with B1-H2 validation-only thresholds after exact-ID join to frozen validation labels; Colab L4 platform deviation disclosed in CHANGES_AFTER_PREREG.md. Existing 14 threshold values unchanged.",
     "sample_counts": {
       "devign_val": 2732,
       "reveal_val": 2273,
@@ -144,11 +170,12 @@
     },
     "study_id": "grace_diag_replication_v1",
     "test_exposure": "Threshold values computed on validation only; earlier test inference/metrics existed and are disclosed in exposure_ledger",
-    "total_thresholds_locked": 14,
+    "total_thresholds_locked": 16,
     "version": "prereg-v1"
   },
   "thresholds": {
     "devign|B0|42": 0.08,
+    "devign|B1-H2|42": 0.09,
     "devign|B1|42": 0.88,
     "devign|B2-flip|42": 0.7,
     "devign|B2-rep|42": 0.7,
@@ -156,6 +183,7 @@
     "devign|P-POST|42": 0.6,
     "devign|P-PRE|42": 0.54,
     "reveal|B0|42": 0.44,
+    "reveal|B1-H2|42": 0.67,
     "reveal|B1|42": 0.74,
     "reveal|B2-flip|42": 0.12,
     "reveal|B2-rep|42": 0.12,
