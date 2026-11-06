@@ -1,0 +1,162 @@
+{
+  "output_zip": "l4_remaining_validation_output.zip",
+  "output_zip_bytes": 1150818,
+  "output_zip_sha256": "efd111b3a961687796a6018042db89a2da80deedecb786ccfa17c4e5b636e8d2",
+  "output_members": [
+    "events.log",
+    "runtime_nvidia_smi.txt",
+    "nvcc_version.txt",
+    "python_version.txt",
+    "system_memory_gib.txt",
+    "install_python_dependencies.log",
+    "install_llama_cpp_cuda.log",
+    "llama_cpp_model_load_offload.log",
+    "load_summary.json",
+    "records.jsonl",
+    "pilot_status.json"
+  ],
+  "bundle_manifest_count": 4905,
+  "bundle_prompt_sha256": "e4f2765732c1c02c344ca9839cd2230e696f24079c7a54ccf4e7c42fbab09fb7",
+  "source_archive_sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+  "records_count": 4905,
+  "unique_records": 4905,
+  "duplicate_ids": 0,
+  "missing_ids_count": 0,
+  "extra_ids_count": 0,
+  "prompt_hash_mismatch_count": 0,
+  "invalid_response_count": 291,
+  "raw_response_counts": {
+    "1": 1569,
+    "0": 3045,
+    "Looking": 291
+  },
+  "bad_score_count": 0,
+  "dataset_counts": {
+    "devign": 2682,
+    "reveal": 2223
+  },
+  "arm_counts": {
+    "B1-H2": 4905
+  },
+  "gpu_counts": {
+    "NVIDIA L4, 23034 MiB, 580.82.07": 4905
+  },
+  "elapsed_s_mean": 0.7290796453914318,
+  "elapsed_s_median": 0.4454820400005701,
+  "elapsed_s_max": 6.789196752999487,
+  "status": {
+    "status": "complete",
+    "expected": 4905,
+    "gpu": "NVIDIA L4, 23034 MiB, 580.82.07",
+    "all_layers_offloaded": false,
+    "runtime_cap_seconds": 32400,
+    "expected_records": 4905,
+    "records_written": 4905
+  },
+  "load_summary": {
+    "status": "loaded",
+    "gpu": "NVIDIA L4, 23034 MiB, 580.82.07",
+    "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+    "model_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "quantization": "Q4_K_M",
+    "llama_cpp_python": "0.3.16",
+    "transformers": "4.57.1",
+    "huggingface_hub": "0.36.2",
+    "tokenizers": "0.22.2",
+    "numpy": "2.1.3",
+    "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "context_tokens": 8192,
+    "n_batch": 256,
+    "gpu_layers_requested": -1,
+    "logits_all": true,
+    "layer_reports": [],
+    "all_layers_offloaded": false,
+    "offload_buffer_lines": [],
+    "load_seconds": 6.306965801999922,
+    "source_archive_sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+    "bundle_sha256": "b696143190173b118f89b5f7e0dccbf90fc9411d019db4de719be2e30cf98137",
+    "bundle_drive_url": "https://drive.google.com/file/d/1FuYcMkEuMBAFYexmg0c1HL5BxPB_L_Vg/view?usp=drivesdk",
+    "prompts_sha256": "e4f2765732c1c02c344ca9839cd2230e696f24079c7a54ccf4e7c42fbab09fb7",
+    "n_prompts": 4905,
+    "validation_continuation": true,
+    "pilot_only": false,
+    "validation_only": true
+  },
+  "last_event_lines": [
+    "[2026-11-06T06:37:51.420548+00:00] [4898/4905] reveal:validation:992: logprob_0=-4.465123 logprob_1=-0.547169 s=0.980506 raw='1'",
+    "[2026-11-06T06:37:51.956770+00:00] [4899/4905] reveal:validation:993: logprob_0=-0.005891 logprob_1=-8.163633 s=0.000286 raw='0'",
+    "[2026-11-06T06:37:52.222972+00:00] [4900/4905] reveal:validation:994: logprob_0=-0.059501 logprob_1=-6.789474 s=0.001193 raw='0'",
+    "[2026-11-06T06:37:52.531259+00:00] [4901/4905] reveal:validation:995: logprob_0=-0.011096 logprob_1=-6.545055 s=0.001451 raw='0'",
+    "[2026-11-06T06:37:52.763754+00:00] [4902/4905] reveal:validation:996: logprob_0=-0.095740 logprob_1=-4.865088 s=0.008415 raw='0'",
+    "[2026-11-06T06:37:53.485592+00:00] [4903/4905] reveal:validation:997: logprob_0=-0.014201 logprob_1=-4.274051 s=0.013928 raw='0'",
+    "[2026-11-06T06:37:53.956074+00:00] [4904/4905] reveal:validation:998: logprob_0=-0.662479 logprob_1=-3.030674 s=0.085630 raw='0'",
+    "[2026-11-06T06:37:54.471134+00:00] [4905/4905] reveal:validation:999: logprob_0=-0.003637 logprob_1=-11.603784 s=0.000009 raw='0'"
+  ],
+  "missing_id_examples": [],
+  "extra_id_examples": [],
+  "hash_mismatch_examples": [],
+  "invalid_response_examples": [
+    {
+      "id": "devign:validation:10018",
+      "raw": "Looking",
+      "s": 0.3673376545695231,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:10110",
+      "raw": "Looking",
+      "s": 0.7627907762296358,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:10215",
+      "raw": "Looking",
+      "s": 0.06308437481725325,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:1033",
+      "raw": "Looking",
+      "s": 0.5237866953033853,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:10383",
+      "raw": "Looking",
+      "s": 0.07718768747862656,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:10389",
+      "raw": "Looking",
+      "s": 0.03428662046572666,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:10501",
+      "raw": "Looking",
+      "s": 0.6755422316279593,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:10739",
+      "raw": "Looking",
+      "s": 0.6704304586514379,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:10762",
+      "raw": "Looking",
+      "s": 0.41407305136038186,
+      "response_valid": false
+    },
+    {
+      "id": "devign:validation:10835",
+      "raw": "Looking",
+      "s": 0.5180261652673855,
+      "response_valid": false
+    }
+  ]
+}
