@@ -81,7 +81,7 @@ Thử fallback lấy cụm có CDG từ cùng CPG Joern khi closed prefix không
 ## Artifact
 
 - Manifest chung tại `grace_15arms_prompts_and_clean_specs/validation_remediated_manifest.json`.
-- Báo cáo H2 tại `Runs-management/validation_h2_cluster_v5_20261104/manifest.json`.
+- Báo cáo H2 tại `11_Arm_B1H2_Evidence/validation_h2_cluster_v5_20261104/manifest.json`.
 - Prompt và audit B3 tại `Runs-management/validation_extensions_remediation_v4_20261104/manifest.json`.
 - Bộ chấm và phiếu Codex tại `Runs-management/validation_remediated_review_20261104/`.
 
@@ -160,10 +160,10 @@ Lượt này đọc trực tiếp ZIP, materialize riêng các prompt dùng đ�
 
 ### Artifact
 
-- [Danh sách validation-only](../Runs-management/hieu_zip_step34_20261104/validation_only_inputs.json)
-- [Manifest audit đủ 38 tập](../Runs-management/hieu_zip_step34_20261104/audit_manifest.json)
-- [Kiểm kê ZIP](../Runs-management/hieu_zip_step34_20261104/zip_inventory.json)
-- [Phiếu Codex](../Runs-management/hieu_zip_step34_20261104/reviewer_codex.csv)
+- [Danh sách validation-only](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/validation_only_inputs.json)
+- [Manifest audit đủ 38 tập](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/audit_manifest.json)
+- [Kiểm kê ZIP](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_inventory.json)
+- [Phiếu Codex](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/reviewer_codex.csv)
 
 ## Khôi phục B3 theo specs trong ZIP
 
@@ -226,8 +226,8 @@ B1-H2 tiếp tục giữ ngoài danh sách. Audit tự động qua nhưng eviden
 
 Có thể chuẩn bị notebook cho 10 arm theo manifest validation-only. Trước lượt inference chính thức dùng để khóa ngưỡng, hoàn thành hồ sơ đọc tay độc lập, đối chiếu bản OSF và smoke test đúng model GGUF, tokenizer, backend nếu cấu hình Kaggle khác cấu hình đã kiểm. Notebook phải lưu score từ logit 0/1, dùng cache tách riêng và gọi mới cho B2-rep. B2-flip và B2-rep kế thừa ngưỡng B2. Chỉ chạy validation và khóa/hash/commit ngưỡng trước test theo protocol. Lượt này không chạy inference hoặc chọn ngưỡng.
 
-- [Manifest đầu vào validation-only](../Runs-management/hieu_zip_step34_20261104/validation_only_inputs.json)
-- [Kết quả audit](../Runs-management/hieu_zip_step34_20261104/audit_manifest.json)
+- [Manifest đầu vào validation-only](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/validation_only_inputs.json)
+- [Kết quả audit](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/audit_manifest.json)
 
 ## Rà lại và chuẩn bị đọc tay Bước 3 cho 10 arm
 
@@ -235,7 +235,7 @@ Có thể chuẩn bị notebook cho 10 arm theo manifest validation-only. Trư�
 
 Đã hoàn thiện bộ đọc mới đúng phạm vi 10 arm. Giữ 45 mẫu Codex đã đọc, bổ sung 8 Devign và 7 ReVeal theo độ dài, cờ cắt và tập arm–seed. Kiểm 60 SHA-256, đủ 30 mẫu mỗi dataset, đủ 28 tập validation. Bộ mới không giao với 31 mẫu lịch sử theo khóa đầy đủ. Đã tạo hai phiếu riêng với các ô chấm trống để hai người đọc độc lập. Chưa có hai lượt chấm trên bộ mới, nên trạng thái nghiệm thu phần đọc tay vẫn mở.
 
-- [Bộ đọc và hướng dẫn](../Runs-management/hieu_zip_step34_20261104/validation_manual_review_10arms/README.md)
+- [Bộ đọc và hướng dẫn](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/validation_manual_review_10arms/README.md)
 - [Biên bản phân xử lịch sử](../Runs-management/prompt_audit_20261102/BIEN_BAN_PHAN_XU.md)
 
 ## Codex đọc bộ validation 60 mẫu của 10 arm
@@ -244,7 +244,7 @@ Có thể chuẩn bị notebook cho 10 arm theo manifest validation-only. Trư�
 
 Đây là một hồ sơ rà Codex. Hai phiếu độc lập để nguyên, chưa đóng điều kiện đọc tay của Bước 3. SHA-256 của phiếu Codex: `bfd87ce8473e13b281fe73de6098ec2e482663d1f8582559489cb15e058bfeb4`.
 
-- [Phiếu Codex theo từng mẫu](../Runs-management/hieu_zip_step34_20261104/validation_manual_review_10arms/reviewer_codex.csv)
+- [Phiếu Codex theo từng mẫu](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/validation_manual_review_10arms/reviewer_codex.csv)
 
 ## Bàn giao notebook Kaggle validation cho sáu arm
 

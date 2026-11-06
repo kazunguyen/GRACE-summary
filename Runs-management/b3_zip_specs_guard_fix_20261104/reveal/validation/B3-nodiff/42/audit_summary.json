@@ -1,0 +1,24 @@
+{
+  "dataset": "reveal",
+  "arm": "B3-nodiff",
+  "rows": 2273,
+  "changed_prompt_texts": 0,
+  "prompt": {
+    "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3-nodiff/42/prompts.jsonl",
+    "sha256": "f40e903c875d704af07d6a49972e6eedaa83898c139aa95befa30004a8734513"
+  },
+  "source_audit": {
+    "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-nodiff/42/audit_summary.json",
+    "sha256": "a567e4ae1fd50b534394987a6ef1ebcc493777426346ef315359f6ba08120ad9"
+  },
+  "audit_rows": {
+    "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3-nodiff/42/audit_rows.csv",
+    "sha256": "5fc72166eafb2eb0af1e1699dc17acddbe12918f7f49ad5d933eb8a0050cb6e8"
+  },
+  "tokens_p50": 2105.0,
+  "tokens_p95": 4987.6,
+  "tokens_max": 7582,
+  "rate_demo_empty": 0.003959524857017158,
+  "rate_graph_missing": 0.011878574571051475,
+  "unresolved_label_flags": 0
+}

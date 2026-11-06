@@ -1,0 +1,24 @@
+{
+  "dataset": "devign",
+  "arm": "B3-flip",
+  "rows": 2732,
+  "changed_prompt_texts": 6,
+  "prompt": {
+    "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-flip/42/prompts.jsonl",
+    "sha256": "7d2de994e5fa57f6ae17bb71011c7e00f03f80d081becfe773958132e09b9a70"
+  },
+  "source_audit": {
+    "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-flip/42/audit_summary.json",
+    "sha256": "b1ea3b38ce0d21522b664a81e0a52e2a268c4b3ebe4cdaaaa0fd8986083685de"
+  },
+  "audit_rows": {
+    "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-flip/42/audit_rows.csv",
+    "sha256": "e61c1c778235992a27d1fb5bdd48574b3363ac85aed19a877f4e6c421f3d4b72"
+  },
+  "tokens_p50": 2467.0,
+  "tokens_p95": 6161.049999999998,
+  "tokens_max": 7624,
+  "rate_demo_empty": 0.006954612005856516,
+  "rate_graph_missing": 0.0010980966325036604,
+  "unresolved_label_flags": 0
+}

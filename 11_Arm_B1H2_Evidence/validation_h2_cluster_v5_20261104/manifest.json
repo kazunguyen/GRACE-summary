@@ -1,0 +1,125 @@
+{
+  "schema": "grace_validation_h2_cluster_candidate_v1",
+  "source_inventory": {
+    "path": "grace_15arms_prompts_and_clean_specs/validation_input_manifest.json",
+    "sha256": "dfb5d98b6c9aa9b359cfcab763fe46a5097ccdd5266a3592617af41180eb0e22"
+  },
+  "input_sets": [
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B1-H2",
+      "seed": 42,
+      "sources": {
+        "joern_specs": {
+          "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/devign/validation/specs.jsonl",
+          "sha256": "3956d1f673d3ee37be8ba707a7baf04b14cfe73770466aef1d72540e4c7a2fed"
+        },
+        "b2_reference": {
+          "path": "grace_15arms_prompts_and_clean_specs/prompts/reference_B2/devign/validation/prompts.jsonl",
+          "sha256": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c"
+        }
+      },
+      "rows": 2732,
+      "tokens_p50": 723.0,
+      "tokens_p95": 2435.45,
+      "tokens_max": 3704,
+      "raw_regex_flagged_prompts": 1,
+      "unresolved_label_flags": 0,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/validation_h2_cluster_v5_20261104/devign/validation/B1-H2/42/prompts.jsonl",
+        "sha256": "5a2d39c883dcddfe7b8e7a7d65c049b47c7416bb9f3e04c18f9e690a0f243dd8"
+      },
+      "h2_coverage": {
+        "no_usable_evidence": 609,
+        "cluster_selected": 452,
+        "cluster_with_nodes_outside_prefix": 447,
+        "missing_cpg": 3
+      },
+      "llm_calls": 0,
+      "manual_review_status": "awaiting_two_independent_reviewers",
+      "rate_code_truncated": 0.021961932650073207,
+      "rate_graph_truncated": 0.0,
+      "rate_demo_truncated": 0.0,
+      "rate_demo_empty": 0.0,
+      "rate_graph_missing": 0.0010980966325036604,
+      "automatic_audit_pass": true
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B1-H2",
+      "seed": 42,
+      "sources": {
+        "joern_specs": {
+          "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl",
+          "sha256": "c74224056c010c0f84f588e4ef7825556812e15a2b0a59c35bbcbf179856b716"
+        },
+        "b2_reference": {
+          "path": "grace_15arms_prompts_and_clean_specs/prompts/reference_B2/reveal/validation/prompts.jsonl",
+          "sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081"
+        }
+      },
+      "rows": 2273,
+      "tokens_p50": 672.0,
+      "tokens_p95": 1895.4000000000024,
+      "tokens_max": 3684,
+      "raw_regex_flagged_prompts": 1,
+      "unresolved_label_flags": 0,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/validation_h2_cluster_v5_20261104/reveal/validation/B1-H2/42/prompts.jsonl",
+        "sha256": "0fde0c479df9463184beea9b589f85b1076ee414d34a470bd1499ad5ae6ecf5a"
+      },
+      "h2_coverage": {
+        "no_usable_evidence": 856,
+        "cluster_selected": 226,
+        "cluster_with_nodes_outside_prefix": 225,
+        "missing_cpg": 27
+      },
+      "llm_calls": 0,
+      "manual_review_status": "awaiting_two_independent_reviewers",
+      "rate_code_truncated": 0.014958205015398152,
+      "rate_graph_truncated": 0.0,
+      "rate_demo_truncated": 0.0,
+      "rate_demo_empty": 0.0,
+      "rate_graph_missing": 0.011878574571051475,
+      "automatic_audit_pass": true
+    }
+  ],
+  "source_files": [
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\11_Arm_B1H2_Evidence\\refine_h2_validation.py",
+      "sha256": "77e2070f9aba660307ea7b5c72d33ac567317b21d50ba3050b06e91bce562611"
+    },
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\11_Arm_B1H2_Evidence\\select_h2_cluster.py",
+      "sha256": "8ff4c2e18bb07103140c7da7d8f53262991cac2e6d151533636a7cf391ac1570"
+    },
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\Runs-management\\remediate_validation_extensions.py",
+      "sha256": "72afe2ca2552d8989579fd951b40d4b3f974fe8705e26c820832711574459b76"
+    },
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-H2-GuardedEvidence\\grace_h2\\evidence.py",
+      "sha256": "c73fa85a1f4ca8167bf3ae0c03c6bc351f0052afc4545d6a613d3555eac0d76a"
+    },
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-H2-GuardedEvidence\\configs\\h2.yaml",
+      "sha256": "1aaefb3de5d7558225d5925fcc76c761d0791b06d03116e12c359ebfdf4c865d"
+    }
+  ],
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "source_limits": {
+    "nodes": 40,
+    "edges": 80
+  },
+  "budget": {
+    "total": 8192,
+    "target_code": 3000,
+    "graph": 1500,
+    "demo": 1500,
+    "reserve": 64
+  },
+  "policy": "Keep the original prefix if it yields a guard. Otherwise select a bounded CDG-centred cluster from the same frozen Joern CPG. The contrast includes graph selection and presentation.",
+  "status": "awaiting_two_independent_reviewers"
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "b1_h2_v5_manual_review_packet_v2",
+  "files": {
+    "manual_packet.md": "c1f3dd17ba4417bd8747d907c963f49e6890f82e85c44632eca20e75411afcd4",
+    "manual_sample.jsonl": "bfacd82c1ceac172200dd3448a0927e00d1879b8c8b7de472c8ebf8bdb4aefa8",
+    "README.md": "8bd0ed12b5611ee7f6c4dccbab7efb15eb683234976bd7cc2ee18ae0d5b57d7d",
+    "reviewer_1.csv": "cf5099752edc7b56a14a1685886a5fe92ae27ac3f4bb71f10d87e758afc6bf98",
+    "reviewer_1_filled.csv": "3e571f7516639d386a9595338ac3c72d56a99bf268ceb7318e98d0e9cf95283f",
+    "reviewer_1_hieu.csv": "3e571f7516639d386a9595338ac3c72d56a99bf268ceb7318e98d0e9cf95283f",
+    "reviewer_2.csv": "cf5099752edc7b56a14a1685886a5fe92ae27ac3f4bb71f10d87e758afc6bf98",
+    "reviewer_2_dung.csv": "684b08e6565ebd445bbd43d3cd12362686ec40a731fdfbcb6ba4097948c6f313",
+    "reviewer_2_filled.csv": "684b08e6565ebd445bbd43d3cd12362686ec40a731fdfbcb6ba4097948c6f313"
+  },
+  "candidate_manifest_sha256": "e585c10ec95d12d3644ec598e8c4df2e6667942166a5c137c8b6f057ee3bd696",
+  "strata": {
+    "devign": {
+      "missing_cpg": {
+        "available": 3,
+        "sampled": 3
+      },
+      "no_usable_evidence": {
+        "available": 606,
+        "sampled": 10
+      },
+      "cdg_cluster": {
+        "available": 452,
+        "sampled": 10
+      },
+      "closed_prefix": {
+        "available": 1671,
+        "sampled": 7
+      }
+    },
+    "reveal": {
+      "missing_cpg": {
+        "available": 27,
+        "sampled": 6
+      },
+      "no_usable_evidence": {
+        "available": 829,
+        "sampled": 10
+      },
+      "cdg_cluster": {
+        "available": 226,
+        "sampled": 8
+      },
+      "closed_prefix": {
+        "available": 1191,
+        "sampled": 6
+      }
+    }
+  },
+  "sample_detail": {
+    "devign": {
+      "missing_cpg": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 1
+      },
+      "no_usable_evidence": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      },
+      "cdg_cluster": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      },
+      "closed_prefix": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      }
+    },
+    "reveal": {
+      "missing_cpg": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      },
+      "no_usable_evidence": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      },
+      "cdg_cluster": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 3
+      },
+      "closed_prefix": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      }
+    }
+  }
+}

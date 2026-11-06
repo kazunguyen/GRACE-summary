@@ -1,0 +1,147 @@
+{
+  "schema": "b1_h2_candidate_independent_audit_v2",
+  "candidate_manifest_sha256": "e585c10ec95d12d3644ec598e8c4df2e6667942166a5c137c8b6f057ee3bd696",
+  "active_validation_manifest_sha256": "fe82d8db7d3618f029200497e73bddc0fe160b334bead0c770a30f830b20a3b4",
+  "frozen_validation_hashes_verified": true,
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "token_counts_independently_recomputed": false,
+  "token_count_note": "Candidate records exact-tokenizer counts and approx=false; the pinned tokenizer files are not present locally, so this audit checks the recorded counts against preregistered caps but does not retokenize prompts.",
+  "source_file_checks": [
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\11_Arm_B1H2_Evidence\\refine_h2_validation.py",
+      "expected_sha256": "77e2070f9aba660307ea7b5c72d33ac567317b21d50ba3050b06e91bce562611",
+      "actual_sha256": "77e2070f9aba660307ea7b5c72d33ac567317b21d50ba3050b06e91bce562611",
+      "match": true
+    },
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\11_Arm_B1H2_Evidence\\select_h2_cluster.py",
+      "expected_sha256": "8ff4c2e18bb07103140c7da7d8f53262991cac2e6d151533636a7cf391ac1570",
+      "actual_sha256": "8ff4c2e18bb07103140c7da7d8f53262991cac2e6d151533636a7cf391ac1570",
+      "match": true
+    },
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\Runs-management\\remediate_validation_extensions.py",
+      "expected_sha256": "72afe2ca2552d8989579fd951b40d4b3f974fe8705e26c820832711574459b76",
+      "actual_sha256": "72afe2ca2552d8989579fd951b40d4b3f974fe8705e26c820832711574459b76",
+      "match": true
+    },
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-H2-GuardedEvidence\\grace_h2\\evidence.py",
+      "expected_sha256": "c73fa85a1f4ca8167bf3ae0c03c6bc351f0052afc4545d6a613d3555eac0d76a",
+      "actual_sha256": "c73fa85a1f4ca8167bf3ae0c03c6bc351f0052afc4545d6a613d3555eac0d76a",
+      "match": true
+    },
+    {
+      "path": "D:\\JUNIOR\\LabThayTho\\GRACE-H2-GuardedEvidence\\configs\\h2.yaml",
+      "expected_sha256": "1aaefb3de5d7558225d5925fcc76c761d0791b06d03116e12c359ebfdf4c865d",
+      "actual_sha256": "1aaefb3de5d7558225d5925fcc76c761d0791b06d03116e12c359ebfdf4c865d",
+      "match": true
+    }
+  ],
+  "policy": "CDG-centered fallback from same frozen CPG; each selected evidence graph bounded to 40 nodes/80 edges; no model/test outcomes used.",
+  "datasets": [
+    {
+      "dataset": "devign",
+      "rows": 2732,
+      "unique_ids": 2732,
+      "id_coverage_pass": true,
+      "prompt_hash_pass": true,
+      "target_code_match_b2_pass": true,
+      "target_label_field_absent": true,
+      "recorded_token_metadata_within_contract_pass": true,
+      "h2_source_40_80_pass": true,
+      "all_selected_nodes_from_frozen_cpg_pass": true,
+      "all_emitted_cdg_cfg_witnesses_found_in_frozen_cpg_pass": true,
+      "max_source_nodes": 40,
+      "max_source_edges": 80,
+      "max_graph_tokens": 1057,
+      "max_total_tokens": 3704,
+      "no_usable_evidence_rows": 609,
+      "guarded_evidence_rows": 2123,
+      "guarded_evidence_rate": 0.777086383601757,
+      "prefix_only_no_usable_evidence_rows_before_fallback": 1061,
+      "cluster_selected_rows": 452,
+      "cluster_with_nodes_outside_prefix_rows": 447,
+      "missing_cpg_rows": 3,
+      "sample_no_evidence_ids": [
+        "devign:validation:8",
+        "devign:validation:10",
+        "devign:validation:15",
+        "devign:validation:22",
+        "devign:validation:137"
+      ],
+      "verified_source_relations": {
+        "cdg": 7647,
+        "cfg": 8710
+      },
+      "raw_regex_flagged": 1,
+      "unresolved_label_flags": 0,
+      "label_scan_matches_creator_counts": true,
+      "graph_missing": 3,
+      "automatic_audit_pass_creator_summary": true
+    },
+    {
+      "dataset": "reveal",
+      "rows": 2273,
+      "unique_ids": 2273,
+      "id_coverage_pass": true,
+      "prompt_hash_pass": true,
+      "target_code_match_b2_pass": true,
+      "target_label_field_absent": true,
+      "recorded_token_metadata_within_contract_pass": true,
+      "h2_source_40_80_pass": true,
+      "all_selected_nodes_from_frozen_cpg_pass": true,
+      "all_emitted_cdg_cfg_witnesses_found_in_frozen_cpg_pass": true,
+      "max_source_nodes": 40,
+      "max_source_edges": 80,
+      "max_graph_tokens": 795,
+      "max_total_tokens": 3684,
+      "no_usable_evidence_rows": 856,
+      "guarded_evidence_rows": 1417,
+      "guarded_evidence_rate": 0.6234051913770348,
+      "prefix_only_no_usable_evidence_rows_before_fallback": 1082,
+      "cluster_selected_rows": 226,
+      "cluster_with_nodes_outside_prefix_rows": 225,
+      "missing_cpg_rows": 27,
+      "sample_no_evidence_ids": [
+        "reveal:validation:1",
+        "reveal:validation:2",
+        "reveal:validation:4",
+        "reveal:validation:6",
+        "reveal:validation:11"
+      ],
+      "verified_source_relations": {
+        "cdg": 4835,
+        "cfg": 5081
+      },
+      "raw_regex_flagged": 1,
+      "unresolved_label_flags": 0,
+      "label_scan_matches_creator_counts": true,
+      "graph_missing": 27,
+      "automatic_audit_pass_creator_summary": true
+    }
+  ],
+  "aggregate_evidence_coverage": {
+    "rows": 5005,
+    "no_usable_guarded_evidence_rows": 1465,
+    "no_usable_guarded_evidence_rate": 0.29270729270729273,
+    "usable_guarded_evidence_rows": 3540,
+    "usable_guarded_evidence_rate": 0.7072927072927073,
+    "prefix_only_no_usable_rows_before_fallback": 2143,
+    "rows_recovered_by_cdg_cluster_fallback": 678,
+    "renderer_graph_missing_rows": 30,
+    "renderer_graph_missing_rate": 0.005994005994005994,
+    "flagged_joern_error_rows_excluded": 30,
+    "post_exclusion_missing_graph_rows": 0,
+    "post_exclusion_denominator": 4975,
+    "post_exclusion_missing_graph_rate": 0.0,
+    "preregistered_graph_missing_stop_rate": 0.05,
+    "interpretation": "The 30 missing-CPG rows are all flagged Joern errors and are excluded by the preregistered rule. Source diagnosis found that the other 1435 no-usable-guard rows still have CPGs; in the blind manual sample, reviewers marked graph_valid pass for sampled no-guard prompts and fail only on the sampled missing-CPG rows. Under the literal missing-graph definition supported by the source and review, the post-exclusion missing-graph rate is 0/4975, below 5%. The 1465/5005 no-usable-guard rate remains a treatment-coverage limitation, but preregistration sets no minimum usable-guard yield.",
+    "status": "registered_missing_graph_gate_pass__substantive_coverage_limitation"
+  },
+  "structural_integrity_pass": true,
+  "overall_pass": null,
+  "overall_status": "structural_integrity_checks_and_literal_missing_graph_gate_pass; full manual acceptance remains unresolved because sampled reviews contain fail/unclear judgments and four overall-verdict disagreements, with no preregistered acceptance threshold for this sample review",
+  "human_review": "Two completed 60-row forms are identity/hash-aligned; each records 47 pass, with HuuHieu03 recording 13 fail and Dung recording 10 fail plus 3 unclear. They agree on 56/60 overall verdicts. Nine graph/variant failures are the sampled missing-CPG Joern-error rows. See 11_Arm_B1H2_Evidence/audit/b1_h2_manual_review_results_20261105.json; names/times are self-reported, not externally authenticated.",
+  "manual_review_results_report": "11_Arm_B1H2_Evidence/audit/b1_h2_manual_review_results_20261105.json"
+}

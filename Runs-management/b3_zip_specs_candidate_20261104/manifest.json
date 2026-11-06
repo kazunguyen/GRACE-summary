@@ -1,0 +1,183 @@
+{
+  "schema": "grace_b3_zip_specs_provisional_v1",
+  "status": "candidate_not_confirmatory_ready",
+  "pair_source_decision": "User instructed to proceed as if ZIP specs were confirmed. No independent evidence of pre-freeze approval was provided.",
+  "source_zip": {
+    "path": "grace_15arms_prompts_and_clean_specs.zip",
+    "sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b"
+  },
+  "reused_candidate": {
+    "path": "D:\\JUNIOR\\LabThayTho\\tmp\\grace_b3_withdrawn_20261104\\Runs-management\\validation_extensions_remediation_v4_20261104\\manifest.json",
+    "sha256": "7936812ad874cebfdff76e5fefabba3d7d752a2d9f7425b07dd03109dbab0785"
+  },
+  "pair_reselection": false,
+  "llm_calls": 0,
+  "allow_test": false,
+  "datasets": [
+    {
+      "dataset": "devign",
+      "verified_pairs": 2732,
+      "spec_member": "specs/devign_validation_15arms.jsonl",
+      "spec_sha256": "379afdca1264ad1bc37ab9b4fcb3cd910b81149334cdcd5e0b622e6aa30aece7",
+      "b2_member": "prompts/reference_B2/devign/validation/prompts.jsonl",
+      "b2_sha256": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c",
+      "difference_counts": {
+        "visible_code_contrast": 1841,
+        "no_supported_difference": 891
+      },
+      "sets": [
+        {
+          "dataset": "devign",
+          "arm": "B3",
+          "seed": 42,
+          "split": "validation",
+          "rows": 2732,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3/42/prompts.jsonl",
+            "sha256": "7a48667322c4206cb6ae1bae2c63edde15446dce6c801bab5db9ad953e6a3224"
+          },
+          "audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3/42/audit_summary.json",
+            "sha256": "cfbe461e9725acc1f57bffba42604111c0417a2dab8fedd46680f62881a61809"
+          },
+          "automatic_audit_pass": true
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-nodiff",
+          "seed": 42,
+          "split": "validation",
+          "rows": 2732,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-nodiff/42/prompts.jsonl",
+            "sha256": "b0e141d8aede034a6519ee41b5e5880eacae5cf52cb347a5cb2095e4986d21b6"
+          },
+          "audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-nodiff/42/audit_summary.json",
+            "sha256": "ad1533f16addb21f60b7091421330ebd5f2ce8b18c381e11958e41d46dad5de3"
+          },
+          "automatic_audit_pass": true
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-swap",
+          "seed": 42,
+          "split": "validation",
+          "rows": 2732,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-swap/42/prompts.jsonl",
+            "sha256": "13e543d3582036723522e8d96e609d59cb926fb59579983b2acc4544eacab622"
+          },
+          "audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-swap/42/audit_summary.json",
+            "sha256": "0298094858b7e63ae0328fba5ea52a38955d6f441108265fd92d9df560c08a4b"
+          },
+          "automatic_audit_pass": true
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-flip",
+          "seed": 42,
+          "split": "validation",
+          "rows": 2732,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-flip/42/prompts.jsonl",
+            "sha256": "d98895a7a27b7b885c09b3b55755ec5191ee1086252539560b5b0e39547dbc44"
+          },
+          "audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-flip/42/audit_summary.json",
+            "sha256": "b1ea3b38ce0d21522b664a81e0a52e2a268c4b3ebe4cdaaaa0fd8986083685de"
+          },
+          "automatic_audit_pass": true
+        }
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "verified_pairs": 2273,
+      "spec_member": "specs/reveal_validation_15arms.jsonl",
+      "spec_sha256": "f929f58b8c3f8bcd07a5d9bf7881be66fa20c5f034be56c81aada24b08b0584b",
+      "b2_member": "prompts/reference_B2/reveal/validation/prompts.jsonl",
+      "b2_sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081",
+      "difference_counts": {
+        "no_supported_difference": 936,
+        "visible_code_contrast": 1337
+      },
+      "sets": [
+        {
+          "dataset": "reveal",
+          "arm": "B3",
+          "seed": 42,
+          "split": "validation",
+          "rows": 2273,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3/42/prompts.jsonl",
+            "sha256": "fb8a57530c2653b57bff4a701a6213e248d9c8537fda074d7d16cc7d7d5e14d7"
+          },
+          "audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3/42/audit_summary.json",
+            "sha256": "852b4a7fd2acc2d6d769a0e8ce75be9868c89925dbe8dfc239277913fd9e105d"
+          },
+          "automatic_audit_pass": true
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-nodiff",
+          "seed": 42,
+          "split": "validation",
+          "rows": 2273,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-nodiff/42/prompts.jsonl",
+            "sha256": "f40e903c875d704af07d6a49972e6eedaa83898c139aa95befa30004a8734513"
+          },
+          "audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-nodiff/42/audit_summary.json",
+            "sha256": "a567e4ae1fd50b534394987a6ef1ebcc493777426346ef315359f6ba08120ad9"
+          },
+          "automatic_audit_pass": true
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-swap",
+          "seed": 42,
+          "split": "validation",
+          "rows": 2273,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-swap/42/prompts.jsonl",
+            "sha256": "01978bee049cc72c357686242d192f4231006faeedec51ad461cc6c012ee262e"
+          },
+          "audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-swap/42/audit_summary.json",
+            "sha256": "48da131ca4d705ce59fadc8016f3ecd08d6698374662eccfd5a341a110f5b629"
+          },
+          "automatic_audit_pass": true
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-flip",
+          "seed": 42,
+          "split": "validation",
+          "rows": 2273,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-flip/42/prompts.jsonl",
+            "sha256": "ff3ff8b81511bc8d833ef6f4850e6fec1bd76d4d04e628f1771c47f0f6c5eb17"
+          },
+          "audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-flip/42/audit_summary.json",
+            "sha256": "9b65ab24b5e7f880ae6c4ca6acb861f71285bad07233e5824f435ef6e276104e"
+          },
+          "automatic_audit_pass": true
+        }
+      ]
+    }
+  ],
+  "same_hash_codex_review": {
+    "unclear": 31,
+    "pass": 9
+  },
+  "remaining_gates": [
+    "Obtain evidence identifying these exact pair specs as the pre-freeze selections.",
+    "Resolve unsupported explanations or agree an explicit handling rule consistent with the submitted protocol.",
+    "Complete the independent-review requirement for formal acceptance."
+  ]
+}

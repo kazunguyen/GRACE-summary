@@ -1,0 +1,24 @@
+{
+  "rows": 2273,
+  "tokens_p50": 2144.0,
+  "tokens_p95": 5025.000000000001,
+  "tokens_max": 7610,
+  "raw_regex_flagged_prompts": 1,
+  "unresolved_label_flags": 0,
+  "prompt": {
+    "path": "Runs-management/validation_extensions_remediation_v4_20261104/reveal/validation/B3-flip/42/prompts.jsonl",
+    "sha256": "ff3ff8b81511bc8d833ef6f4850e6fec1bd76d4d04e628f1771c47f0f6c5eb17"
+  },
+  "llm_calls": 0,
+  "manual_review_status": "awaiting_two_independent_reviewers",
+  "rate_code_truncated": 0.014958205015398152,
+  "rate_graph_truncated": 0.9296084469863617,
+  "rate_demo_truncated": 0.04399472063352398,
+  "rate_demo_empty": 0.003959524857017158,
+  "rate_graph_missing": 0.011878574571051475,
+  "difference_status_counts": {
+    "no_supported_difference": 936,
+    "visible_code_contrast": 1337
+  },
+  "automatic_audit_pass": true
+}

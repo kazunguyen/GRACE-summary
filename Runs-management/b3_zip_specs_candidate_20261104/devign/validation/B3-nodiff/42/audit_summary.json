@@ -1,0 +1,20 @@
+{
+  "rows": 2732,
+  "tokens_p50": 2432.0,
+  "tokens_p95": 6118.649999999997,
+  "tokens_max": 7582,
+  "raw_regex_flagged_prompts": 1,
+  "unresolved_label_flags": 0,
+  "prompt": {
+    "path": "Runs-management/validation_extensions_remediation_v4_20261104/devign/validation/B3-nodiff/42/prompts.jsonl",
+    "sha256": "b0e141d8aede034a6519ee41b5e5880eacae5cf52cb347a5cb2095e4986d21b6"
+  },
+  "llm_calls": 0,
+  "manual_review_status": "awaiting_two_independent_reviewers",
+  "rate_code_truncated": 0.021961932650073207,
+  "rate_graph_truncated": 0.9275256222547584,
+  "rate_demo_truncated": 0.095900439238653,
+  "rate_demo_empty": 0.006954612005856516,
+  "rate_graph_missing": 0.0010980966325036604,
+  "automatic_audit_pass": true
+}

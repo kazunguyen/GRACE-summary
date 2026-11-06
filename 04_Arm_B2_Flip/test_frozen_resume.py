@@ -173,15 +173,27 @@ class FrozenResumeTests(unittest.TestCase):
         for path in (HERE/'notebooks').glob('*.ipynb'):
             nb = nbformat.read(path, as_version=4)
             nbformat.validate(nb)
+            executed = any(cell.get('outputs') for cell in nb.cells if cell.cell_type == 'code')
+            if executed:
+                # Imported execution notebooks retain outputs as run evidence.
+                execution = nb.metadata.get('papermill', {})
+                self.assertIsNone(execution.get('exception'))
+                self.assertTrue(execution.get('end_time'))
+                helper_root = ROOT/'Runs-management/kaggle_outputs_20261105/b2_flip'
             for cell in nb.cells:
                 if cell.cell_type != 'code':
                     continue
-                self.assertFalse(cell.outputs)
+                if executed:
+                    self.assertIsNotNone(cell.execution_count)
+                    self.assertFalse(any(output.output_type == 'error' for output in cell.outputs))
+                else:
+                    self.assertFalse(cell.outputs)
                 code = cell.source
                 if code.startswith('%%writefile'):
                     header, code = code.split('\n', 1)
                     helper = Path(header.split()[-1]).name
-                    expected = (ROOT/'Runs-management/validation_lock.py') if helper=='validation_lock.py' else HERE/helper
+                    expected = (helper_root/helper) if executed else (
+                        (ROOT/'Runs-management/validation_lock.py') if helper=='validation_lock.py' else HERE/helper)
                     self.assertEqual(code, expected.read_text(encoding='utf-8'))
                 compile(code, str(path), 'exec')
 

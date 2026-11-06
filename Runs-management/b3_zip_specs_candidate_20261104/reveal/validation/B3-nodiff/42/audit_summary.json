@@ -1,0 +1,20 @@
+{
+  "rows": 2273,
+  "tokens_p50": 2105.0,
+  "tokens_p95": 4987.6,
+  "tokens_max": 7582,
+  "raw_regex_flagged_prompts": 1,
+  "unresolved_label_flags": 0,
+  "prompt": {
+    "path": "Runs-management/validation_extensions_remediation_v4_20261104/reveal/validation/B3-nodiff/42/prompts.jsonl",
+    "sha256": "f40e903c875d704af07d6a49972e6eedaa83898c139aa95befa30004a8734513"
+  },
+  "llm_calls": 0,
+  "manual_review_status": "awaiting_two_independent_reviewers",
+  "rate_code_truncated": 0.014958205015398152,
+  "rate_graph_truncated": 0.9296084469863617,
+  "rate_demo_truncated": 0.04399472063352398,
+  "rate_demo_empty": 0.003959524857017158,
+  "rate_graph_missing": 0.011878574571051475,
+  "automatic_audit_pass": true
+}
