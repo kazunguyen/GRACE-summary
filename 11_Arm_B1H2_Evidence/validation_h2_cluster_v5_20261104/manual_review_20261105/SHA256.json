@@ -1,0 +1,49 @@
+{
+  "schema": "b1_h2_v5_manual_review_packet_v1",
+  "files": {
+    "manual_packet.md": "d708bc05479e9d1e716f875cd11981b09ba05da237a4045aaf74dcab69180403",
+    "manual_sample.jsonl": "ef90baf1cfa1ae0e2c5d5df2defa31833105bfd8cc77a986fd8aec47406ea016",
+    "README.md": "468ce51a900775bd22342d278145bab4991152fef60bb5c0830317fe0a98630a",
+    "reviewer_1.csv": "59e8c4d39fb69f46b3a64cbcf694f384a76b4dbf39e11b7cc38729c306d6d66c",
+    "reviewer_2.csv": "59e8c4d39fb69f46b3a64cbcf694f384a76b4dbf39e11b7cc38729c306d6d66c"
+  },
+  "candidate_manifest_sha256": "05d0594799e3285d7575d7df430ae1287d103006632abf6e30bfb7f67587778a",
+  "strata": {
+    "devign": {
+      "missing_cpg": {
+        "available": 3,
+        "sampled": 3
+      },
+      "no_usable_evidence": {
+        "available": 606,
+        "sampled": 10
+      },
+      "cdg_cluster": {
+        "available": 452,
+        "sampled": 10
+      },
+      "closed_prefix": {
+        "available": 1671,
+        "sampled": 7
+      }
+    },
+    "reveal": {
+      "missing_cpg": {
+        "available": 27,
+        "sampled": 6
+      },
+      "no_usable_evidence": {
+        "available": 829,
+        "sampled": 10
+      },
+      "cdg_cluster": {
+        "available": 226,
+        "sampled": 8
+      },
+      "closed_prefix": {
+        "available": 1191,
+        "sampled": 6
+      }
+    }
+  }
+}

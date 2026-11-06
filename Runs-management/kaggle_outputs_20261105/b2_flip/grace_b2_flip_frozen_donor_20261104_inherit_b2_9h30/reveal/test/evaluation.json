@@ -1,0 +1,43 @@
+{
+  "n_total": 2274,
+  "n_score_valid": 2274,
+  "n_response_valid": 2274,
+  "response_coverage": 1.0,
+  "accuracy": 0.5637642919964819,
+  "balanced_accuracy": 0.5007423636518336,
+  "precision": 0.10146443514644352,
+  "recall": 0.4217391304347826,
+  "f1": 0.163575042158516,
+  "mcc": 0.0009069104530738039,
+  "confusion_matrix": [
+    [
+      1185,
+      859
+    ],
+    [
+      133,
+      97
+    ]
+  ],
+  "auroc": 0.52608908363822,
+  "auprc": 0.10509098134368046,
+  "score_threshold_validation_locked": {
+    "tau": 0.12,
+    "n": 2274,
+    "score_coverage": 1.0,
+    "mcc": 0.037185221292549565,
+    "accuracy": 0.4894459102902375,
+    "confusion_matrix": [
+      [
+        979,
+        1065
+      ],
+      [
+        96,
+        134
+      ]
+    ],
+    "threshold_locked_at_utc": "2026-11-04T14:51:46.825285+00:00",
+    "threshold_validation_evidence_sha256": "8b502fae460c5c3d6bd8a4f548aa2b8790ed687f3e16114ea48cb2a20eb44031"
+  }
+}

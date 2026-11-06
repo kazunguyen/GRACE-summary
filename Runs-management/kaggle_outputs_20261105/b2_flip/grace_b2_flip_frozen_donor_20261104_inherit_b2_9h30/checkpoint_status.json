@@ -1,0 +1,42 @@
+{
+  "state": "complete",
+  "timed_out": false,
+  "phase": "complete",
+  "started_at": "2026-11-04T14:51:46.803114+00:00",
+  "stop_new_records_at_epoch": 1793837345.72687,
+  "source_completed": 5235,
+  "initial_reused": 5202,
+  "repair_total": 33,
+  "inferred_this_session": 4809,
+  "runs": {
+    "devign/validation": {
+      "count": 2732,
+      "completed": 2732,
+      "state": "complete",
+      "output": "/kaggle/working/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/devign/validation"
+    },
+    "reveal/validation": {
+      "count": 2273,
+      "completed": 2273,
+      "state": "complete",
+      "output": "/kaggle/working/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/validation"
+    },
+    "devign/test": {
+      "count": 2732,
+      "completed": 2732,
+      "state": "complete",
+      "output": "/kaggle/working/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/devign/test"
+    },
+    "reveal/test": {
+      "count": 2274,
+      "completed": 2274,
+      "state": "complete",
+      "output": "/kaggle/working/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/test"
+    }
+  },
+  "repair_remaining": 0,
+  "repair_completed": 33,
+  "completed_records_total": 10011,
+  "last_checkpoint_at": "2026-11-04T23:07:52.038103+00:00",
+  "completed_at": "2026-11-04T23:07:52.446994+00:00"
+}

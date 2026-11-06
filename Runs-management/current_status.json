@@ -1,6 +1,6 @@
 {
   "schema": "local_progress_v1",
-  "checked_at_utc": "2026-11-02T15:50:38.466903+00:00",
+  "checked_at_utc": "2026-11-05T09:36:32.991667+00:00",
   "scope": "Known imported outputs only; no cloud status inferred",
   "thresholds_fitted": false,
   "historical_snapshots_modified": false,
@@ -25,7 +25,7 @@
           "records_sha256": "d856cf6b2271d4fb6f22dc999c83efe3c0e6ec29b8bc4e1340e28a6093c44ce1",
           "records_path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/validation/records.jsonl",
           "threshold_state": "locked_historical_prompt_version",
-          "tau": 0.98
+          "tau": 0.08
         },
         {
           "dataset": "devign",
@@ -49,7 +49,7 @@
           "records_sha256": "80397c2e90f78cb2d67a94313a5cd02a09901ec64e56176f7d903e85385446d7",
           "records_path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/validation/records.jsonl",
           "threshold_state": "locked_historical_prompt_version",
-          "tau": 0.3
+          "tau": 0.44
         },
         {
           "dataset": "reveal",
@@ -90,8 +90,8 @@
           "invalid_score": 0,
           "records_sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
           "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/devign/validation/records.jsonl",
-          "threshold_state": "validation_complete_unlocked",
-          "tau": null
+          "threshold_state": "locked_historical_prompt_version",
+          "tau": 0.88
         },
         {
           "dataset": "devign",
@@ -114,8 +114,8 @@
           "invalid_score": 0,
           "records_sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
           "records_path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/reveal/validation/records.jsonl",
-          "threshold_state": "validation_complete_unlocked",
-          "tau": null
+          "threshold_state": "locked_historical_prompt_version",
+          "tau": 0.74
         },
         {
           "dataset": "reveal",
@@ -132,6 +132,12 @@
       "notebooks": [
         {
           "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1.ipynb",
+          "sha256": "c01dac2696b9391414d0f9c5ee0f7eb1f26e1ef0f69de13b953da83f75f18746",
+          "source_contains_make_lock_call": true,
+          "source_contains_test_lock_call": true
+        },
+        {
+          "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb",
           "sha256": "6e501ab2f57b964e9c43a807297df4407620bcb9a02f0a3744d742341dce22fb",
           "source_contains_make_lock_call": false,
           "source_contains_test_lock_call": false
@@ -198,9 +204,9 @@
       "notebooks": [
         {
           "path": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
-          "sha256": "2142e2b8354798fa1b972b770038949c600d28f1d0b61469e9178102cbdefde5",
-          "source_contains_make_lock_call": false,
-          "source_contains_test_lock_call": false
+          "sha256": "d83c14d4f069e1987c024b27ac801840f7fa080d6fd3f75a17f2e004fdce9ba3",
+          "source_contains_make_lock_call": true,
+          "source_contains_test_lock_call": true
         }
       ],
       "completed": 10011,
@@ -210,7 +216,7 @@
     },
     {
       "arm": "B2-flip",
-      "source": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30",
       "splits": [
         {
           "dataset": "devign",
@@ -220,21 +226,21 @@
           "missing": 0,
           "invalid_response": 0,
           "invalid_score": 0,
-          "records_sha256": "179c082df802a511dd72121be9bb6d72e5d81cced0b6566dc10b4f8672d3b99d",
-          "records_path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/validation/records.jsonl",
-          "threshold_state": "validation_complete_unlocked",
-          "tau": null
+          "records_sha256": "95ebe9f112e9336b29674badb2c38c47e90ac2cd57669801dc8968ed9088a384",
+          "records_path": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/devign/validation/records.jsonl",
+          "threshold_state": "inherited_base_B2_prereg_v1",
+          "tau": 0.7
         },
         {
           "dataset": "devign",
           "split": "test",
           "expected": 2732,
-          "completed": 230,
-          "missing": 2502,
+          "completed": 2732,
+          "missing": 0,
           "invalid_response": 0,
           "invalid_score": 0,
-          "records_sha256": "62f1fa7510e0c8f8aa22794967db180a7e875974c83443cd3cec6b8d4d8a48eb",
-          "records_path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/devign/test/records.jsonl"
+          "records_sha256": "69a6446652d982a20dca71bc9ff20d34bddc304655cba4fe11ce88f10158a970",
+          "records_path": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/devign/test/records.jsonl"
         },
         {
           "dataset": "reveal",
@@ -245,31 +251,33 @@
           "invalid_response": 0,
           "invalid_score": 0,
           "records_sha256": "fa63f43705f867827238302ae511aae8b05d92e8f5394bb328df03397ee811b8",
-          "records_path": "04_Arm_B2_Flip/output/kaggle_20261102_quangdung1111_run1/grace_b2_flip_four_split_9h35/reveal/validation/records.jsonl",
-          "threshold_state": "validation_complete_unlocked",
-          "tau": null
+          "records_path": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/validation/records.jsonl",
+          "threshold_state": "inherited_base_B2_prereg_v1",
+          "tau": 0.12
         },
         {
           "dataset": "reveal",
           "split": "test",
           "expected": 2274,
-          "completed": 0,
-          "missing": 2274,
+          "completed": 2274,
+          "missing": 0,
           "invalid_response": 0,
-          "invalid_score": 0
+          "invalid_score": 0,
+          "records_sha256": "291d80517863153ab93ce71437382b0f084a746a9b31988dd1d606b6dc6324e6",
+          "records_path": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/test/records.jsonl"
         }
       ],
       "notebooks": [
         {
           "path": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
-          "sha256": "cb6a6fb8fbd04600f122f8c35ad249522d177ca70671b20769364c07bfbb5883",
+          "sha256": "c6e7ce9c1351ab88375cd6e4d9b7d34cd5bb9f7862108fef5d12d81196cf37fb",
           "source_contains_make_lock_call": true,
           "source_contains_test_lock_call": true
         }
       ],
-      "completed": 5235,
+      "completed": 10011,
       "expected": 10011,
-      "missing": 4776,
+      "missing": 0,
       "prompt_bundle_count": 4
     },
     {
@@ -284,8 +292,8 @@
           "missing": 2732,
           "invalid_response": 0,
           "invalid_score": 0,
-          "threshold_state": "waiting_validation_records",
-          "tau": null
+          "threshold_state": "locked_historical_prompt_version",
+          "tau": 0.7
         },
         {
           "dataset": "devign",
@@ -304,8 +312,8 @@
           "missing": 2273,
           "invalid_response": 0,
           "invalid_score": 0,
-          "threshold_state": "waiting_validation_records",
-          "tau": null
+          "threshold_state": "locked_historical_prompt_version",
+          "tau": 0.12
         },
         {
           "dataset": "reveal",
@@ -325,14 +333,14 @@
     },
     {
       "arm": "B2-rand",
-      "source": null,
+      "source": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_three_seed_11h",
       "splits": [
         {
           "dataset": "devign",
           "split": "validation",
           "expected": 8196,
-          "completed": 2732,
-          "missing": 5464,
+          "completed": 5464,
+          "missing": 2732,
           "invalid_response": 0,
           "invalid_score": 0,
           "seeds": [
@@ -343,14 +351,16 @@
               "invalid_response": 0,
               "invalid_score": 0,
               "records_sha256": "6f6bc0d6f0495fc7e69a834799718768d18ec12a41dfb61e7f2229dfaec91a65",
-              "records_path": "06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_three_seed_11h/seed_42/devign/validation/records.jsonl"
+              "records_path": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_three_seed_11h/seed_42/devign/validation/records.jsonl"
             },
             {
               "seed": 43,
-              "completed": 0,
+              "completed": 2732,
               "expected": 2732,
               "invalid_response": 0,
-              "invalid_score": 0
+              "invalid_score": 0,
+              "records_sha256": "109e62753f36d25585be977ecefea2cd8a9c513326a271e7279826d00939f44d",
+              "records_path": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_three_seed_11h/seed_43/devign/validation/records.jsonl"
             },
             {
               "seed": 44,
@@ -399,26 +409,28 @@
           "dataset": "reveal",
           "split": "validation",
           "expected": 6819,
-          "completed": 2066,
-          "missing": 4753,
-          "invalid_response": 1,
+          "completed": 2325,
+          "missing": 4494,
+          "invalid_response": 2,
           "invalid_score": 0,
           "seeds": [
             {
               "seed": 42,
-              "completed": 2066,
+              "completed": 2273,
               "expected": 2273,
-              "invalid_response": 1,
+              "invalid_response": 2,
               "invalid_score": 0,
-              "records_sha256": "74261d5eb005e55513cce0ce1898678e24e83a3cdac843612a7bd9e56b52076e",
-              "records_path": "06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_three_seed_11h/seed_42/reveal/validation/records.jsonl"
+              "records_sha256": "4ecf8514c43d287abce851c717ac458995bd12e1adb7ea15564d484de2fa8315",
+              "records_path": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_three_seed_11h/seed_42/reveal/validation/records.jsonl"
             },
             {
               "seed": 43,
-              "completed": 0,
+              "completed": 52,
               "expected": 2273,
               "invalid_response": 0,
-              "invalid_score": 0
+              "invalid_score": 0,
+              "records_sha256": "5633cd2fc80c8b08580aadcfb7e4847e60ffdb24e9710a36a54cc79602660e3b",
+              "records_path": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_three_seed_11h/seed_43/reveal/validation/records.jsonl"
             },
             {
               "seed": 44,
@@ -466,17 +478,17 @@
       ],
       "notebooks": [
         {
-          "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
-          "sha256": "6970dac4269931b1e85171fc3bdc7d642a0bd495485ef4cac757ab9ef2a12a66",
-          "source_contains_make_lock_call": true,
-          "source_contains_test_lock_call": true
+          "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rand.ipynb",
+          "sha256": "9816767a2b4b9531b8fde22169ac1f37a7384b3a0dc556824801cd374bc49d49",
+          "source_contains_make_lock_call": false,
+          "source_contains_test_lock_call": false
         }
       ],
-      "completed": 4798,
+      "completed": 7789,
       "expected": 30033,
-      "missing": 25235,
+      "missing": 22244,
       "prompt_bundle_count": 12,
-      "note": "Imported seed-specific records from kaggle_run_01. Rerun-66 is part of B2, not another arm."
+      "note": "Latest imported checkpoint is in kaggle_run_02; validation only. B2 donor rerun-66 is part of B2, not another arm."
     }
   ]
 }

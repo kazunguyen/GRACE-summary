@@ -1,7 +1,7 @@
 {
   "scope": "validation_only",
   "source": {
-    "path": "Runs-management/hieu_zip_step34_20261104/audit_manifest.json",
+    "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/audit_manifest.json",
     "sha256": "2a26a3355c3f65df496df2506dc177ece9d2481047925f27fa85ae78403ed2f7"
   },
   "backend": {
@@ -357,7 +357,7 @@
       ],
       "checkpoint": "grace_b2_rand_checkpoint.zip",
       "checkpoint_sha256": "9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92",
-      "notebook_sha256": "500be66d2cf1d2e1b043d059be83ea56cae4fc341ef1ef16483527ffc0e478f3"
+      "notebook_sha256": "222cd5c758a55a9401b31d6fea8cc2071819732541a3ab6ff9cad0ec77cd0820"
     }
   },
   "kaggle_execution": {

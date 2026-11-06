@@ -1,0 +1,65 @@
+{
+  "schema": "grace_original_b3_stage3_reference_v1",
+  "status": "historical_dev_clean_100_only",
+  "full_official_validation_verified": false,
+  "selector_source": {
+    "path": "D:\\JUNIOR\\LabThayTho\\HuuHieu03\\GRACE\\src\\contrastive_selector.py",
+    "sha256": "d1327f4e8ed6a2d3c5538cb72f3c67f4d5bcb6f9bbdf65d6f6ceeea2bca63cfd"
+  },
+  "stage3_runner": {
+    "path": "D:\\JUNIOR\\LabThayTho\\HuuHieu03\\GRACE\\scripts\\run_stage3_b3_vs_b2.py",
+    "sha256": "7265dc89d79e00721461f4cd5b130701d2bb50cdf28d03af642559cfd48c3ef9"
+  },
+  "references": [
+    {
+      "dataset": "devign",
+      "count": 100,
+      "source_report": {
+        "path": "D:\\JUNIOR\\LabThayTho\\HuuHieu03\\GRACE\\output\\stage3\\b3_vs_b2_comparison_report.json",
+        "sha256": "5129435c4b95a284fc51d78aed36896271067160454ebc8cd2650c902d7178f7"
+      },
+      "restored_pairs": {
+        "path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\Runs-management\\b3_original_stage3_reference_20261104\\devign_dev_clean_100_pairs.jsonl",
+        "sha256": "054b580b4a9ba2eee7c5f1812a650500d7016c1817dcdf44b8f704c98ee964af"
+      },
+      "settings": {
+        "dev_split_file": "/kaggle/working/GRACE/data/splits/devign_dev_clean_100_ids.json",
+        "seed": 42,
+        "strategy": "counterexample_pair",
+        "lambda_weight": 0.3,
+        "model_name": "publishers/qwen/models/qwen3-coder-480b-a35b-instruct-maas"
+      },
+      "original_split": {
+        "path": "D:/JUNIOR/LabThayTho/HuuHieu03/GRACE/data/splits/devign_dev_clean_100_ids.json",
+        "sha256": "6e32cea0a68945dbdecd50486e7a75ac0434a2e1933e7b6da3811b4aff4a7b17",
+        "source_split": "hf://datasets/DetectVul/devign@main#validation",
+        "verified_target_order": true
+      }
+    },
+    {
+      "dataset": "reveal",
+      "count": 100,
+      "source_report": {
+        "path": "D:\\JUNIOR\\LabThayTho\\HuuHieu03\\GRACE\\output\\stage3\\reveal_b3_vs_b2_comparison_report.json",
+        "sha256": "0bf1442f4743e966c099e4554de9817772b0349947ae1c1dd5206dccbfc83761"
+      },
+      "restored_pairs": {
+        "path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\Runs-management\\b3_original_stage3_reference_20261104\\reveal_dev_clean_100_pairs.jsonl",
+        "sha256": "7544e3b22eb6ba1cd69f47fb3596b547c20f8ecb2994dee2cd1883004bff4019"
+      },
+      "settings": {
+        "dev_split_file": "/kaggle/working/GRACE/data/splits/reveal_dev_clean_100_ids.json",
+        "seed": 42,
+        "strategy": "counterexample_pair",
+        "lambda_weight": 0.3,
+        "model_name": "publishers/qwen/models/qwen3-coder-480b-a35b-instruct-maas"
+      },
+      "original_split": {
+        "path": "D:/JUNIOR/LabThayTho/HuuHieu03/GRACE/data/splits/reveal_dev_clean_100_ids.json",
+        "sha256": "204fbd03e7ed6367a1fd7a685c1f486e77b1905abd8d02739f5c0658479b14d6",
+        "source_split": "hf://datasets/claudios/ReVeal@main#validation",
+        "verified_target_order": true
+      }
+    }
+  ]
+}

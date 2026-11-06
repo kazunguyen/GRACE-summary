@@ -1,0 +1,167 @@
+{
+  "schema": "b1_h2_derived_cdg_feasibility_v2",
+  "candidate_manifest_sha256": "05d0594799e3285d7575d7df430ae1287d103006632abf6e30bfb7f67587778a",
+  "scope": "All validation rows with no usable H2 evidence; calibration against up to 100 rows per dataset with explicit CDG; no labels, scores, thresholds, or test data used.",
+  "algorithm": "Compute post-dominators from CFG with a virtual exit; derive control-dependence edges using the standard post-dominator-tree path rule; skip graphs not connected to a terminal.",
+  "datasets": {
+    "devign": {
+      "no_usable_evidence_total": 609,
+      "derived_cdg_analysis": {
+        "rows_analyzed": 604,
+        "rows_with_derived_guard_to_operation": 4,
+        "rows_with_explicit_guard_to_operation": 0,
+        "derived_guard_to_operation_edges": 57,
+        "explicit_guard_to_operation_edges": 0
+      },
+      "explicit_cdg_calibration": {
+        "rows_selected": 100,
+        "rows_analyzed": 100,
+        "derived_edges": 16422,
+        "explicit_edges": 20488,
+        "overlap_edges": 16422,
+        "precision_vs_explicit": 1.0,
+        "recall_vs_explicit": 0.8015423662631784
+      },
+      "sample_examples": [
+        {
+          "id": "devign:validation:17224",
+          "derived_guard_to_operation_edges": 3,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 111,
+            "cfg_edges": 90,
+            "terminals": 22
+          }
+        },
+        {
+          "id": "devign:validation:18524",
+          "derived_guard_to_operation_edges": 41,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 589,
+            "cfg_edges": 550,
+            "terminals": 51
+          }
+        },
+        {
+          "id": "devign:validation:25058",
+          "derived_guard_to_operation_edges": 1,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 355,
+            "cfg_edges": 310,
+            "terminals": 48
+          }
+        },
+        {
+          "id": "devign:validation:6158",
+          "derived_guard_to_operation_edges": 12,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 139,
+            "cfg_edges": 121,
+            "terminals": 20
+          }
+        }
+      ]
+    },
+    "reveal": {
+      "no_usable_evidence_total": 856,
+      "derived_cdg_analysis": {
+        "rows_analyzed": 828,
+        "rows_with_derived_guard_to_operation": 6,
+        "rows_with_explicit_guard_to_operation": 0,
+        "derived_guard_to_operation_edges": 52,
+        "explicit_guard_to_operation_edges": 0
+      },
+      "explicit_cdg_calibration": {
+        "rows_selected": 100,
+        "rows_analyzed": 100,
+        "derived_edges": 15234,
+        "explicit_edges": 16590,
+        "overlap_edges": 15234,
+        "precision_vs_explicit": 1.0,
+        "recall_vs_explicit": 0.9182640144665462
+      },
+      "sample_examples": [
+        {
+          "id": "reveal:validation:1330",
+          "derived_guard_to_operation_edges": 34,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 402,
+            "cfg_edges": 340,
+            "terminals": 90
+          }
+        },
+        {
+          "id": "reveal:validation:14",
+          "derived_guard_to_operation_edges": 3,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 47,
+            "cfg_edges": 27,
+            "terminals": 21
+          }
+        },
+        {
+          "id": "reveal:validation:191",
+          "derived_guard_to_operation_edges": 8,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 65,
+            "cfg_edges": 50,
+            "terminals": 17
+          }
+        },
+        {
+          "id": "reveal:validation:1946",
+          "derived_guard_to_operation_edges": 3,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 107,
+            "cfg_edges": 79,
+            "terminals": 33
+          }
+        },
+        {
+          "id": "reveal:validation:2113",
+          "derived_guard_to_operation_edges": 1,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 260,
+            "cfg_edges": 237,
+            "terminals": 24
+          }
+        },
+        {
+          "id": "reveal:validation:369",
+          "derived_guard_to_operation_edges": 3,
+          "explicit_guard_to_operation_edges": 0,
+          "stats": {
+            "status": "ok",
+            "nodes": 47,
+            "cfg_edges": 27,
+            "terminals": 21
+          }
+        }
+      ]
+    }
+  },
+  "skipped_graphs": {
+    "devign/no_cfg_terminal": 3,
+    "devign/nodes_without_path_to_exit": 2,
+    "reveal/no_cfg_terminal": 27,
+    "reveal/nodes_without_path_to_exit": 1
+  },
+  "warning": "Exploratory feasibility only. Derived edges are not present in the frozen CPG and are not a registered-prompt candidate or inference."
+}

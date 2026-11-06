@@ -1,0 +1,32 @@
+{
+  "recorded_date": "2026-11-06",
+  "source_archive": "grace_15arms_prompts_and_clean_specs (1).zip",
+  "source_archive_sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+  "note": "Files remain local and unchanged. This manifest does not claim a remote backup upload.",
+  "files": [
+    {
+      "path": "grace_15arms_prompts_and_clean_specs/specs/devign_test_15arms.jsonl",
+      "bytes": 213021400,
+      "sha256": "d50f9742505cd29af343c5c59d12c648c408c67d874d968e80c606260757703e",
+      "reason": "Exceeds GitHub 100 MiB regular Git file limit; retained locally"
+    },
+    {
+      "path": "grace_15arms_prompts_and_clean_specs/specs/devign_validation_15arms.jsonl",
+      "bytes": 208799309,
+      "sha256": "379afdca1264ad1bc37ab9b4fcb3cd910b81149334cdcd5e0b622e6aa30aece7",
+      "reason": "Exceeds GitHub 100 MiB regular Git file limit; retained locally"
+    },
+    {
+      "path": "grace_15arms_prompts_and_clean_specs/specs/reveal_test_15arms.jsonl",
+      "bytes": 127890639,
+      "sha256": "5387b5f3a1865766982e0e4c8f935834acf3c2726a531ac966f3d65d1d85233c",
+      "reason": "Exceeds GitHub 100 MiB regular Git file limit; retained locally"
+    },
+    {
+      "path": "grace_15arms_prompts_and_clean_specs/specs/reveal_validation_15arms.jsonl",
+      "bytes": 110053158,
+      "sha256": "f929f58b8c3f8bcd07a5d9bf7881be66fa20c5f034be56c81aada24b08b0584b",
+      "reason": "Exceeds GitHub 100 MiB regular Git file limit; retained locally"
+    }
+  ]
+}

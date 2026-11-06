@@ -1,0 +1,33 @@
+{
+  "snapshot": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448",
+  "prompt_sets": {
+    "devign/validation": "11984f9a860967e15e7f836cb3f796b0da746b1cf18b1cb59a865c69e91afa97",
+    "reveal/validation": "5f5382e6ddcc719235624fbbb5e8f6e14355de1f4e03926acf09329e6aecc496",
+    "devign/test": "8c504a7b4b50b52f88f46628baeb077bc9056fbf3fef08201e5b94866749534b",
+    "reveal/test": "c68a016425c32495e20d3c259d83cca9a5fac33df411028b011fc2fef14e49e5"
+  },
+  "identity": {
+    "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+    "quantization": "Q4_K_M",
+    "llama_cpp_python": "0.3.16",
+    "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "gpu_layers": -1,
+    "context_tokens": 8192,
+    "scoring": "unconstrained_first_token_logits_v1",
+    "limit": null
+  },
+  "threshold_policy": "inherit_base_B2_prereg_v1",
+  "base_threshold_sources": {
+    "devign": {
+      "tau": 0.7,
+      "sha256": "c4273120a64489f38217e73e673afbf2969486248774eb2c0e33cddb6447eb52"
+    },
+    "reveal": {
+      "tau": 0.12,
+      "sha256": "96b864a3a91edf6a578ec853028d9c9cfe714addce21a6af399334ecfa1af6e5"
+    }
+  },
+  "source_checkpoint_sha256": "ffb3587f665db8a2fb47ac0f7e75fd954084a26d5e19baebba526da0fa11039b"
+}

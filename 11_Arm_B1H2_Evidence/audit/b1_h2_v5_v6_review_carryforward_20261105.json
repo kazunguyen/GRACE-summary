@@ -1,0 +1,1615 @@
+{
+  "schema": "b1_h2_v5_v6_review_carryforward_v1",
+  "scope": "Hash-based mapping only. Does not modify or sign v6 reviewer forms.",
+  "v5_candidate_manifest_sha256": "05d0594799e3285d7575d7df430ae1287d103006632abf6e30bfb7f67587778a",
+  "v6_candidate_manifest_sha256": "b91d8ca1db855dc6f0b0b2cf5abf3493e2fbe3088921e984350c80279a4bbb2a",
+  "sample_ids_identical": true,
+  "rows_with_exact_same_prompt_hash": 51,
+  "rows_requiring_fresh_review": 9,
+  "unchanged_rows": [
+    {
+      "id": "devign:validation:11075",
+      "dataset": "devign",
+      "prior_prompt_sha256": "80b1e415291a5a3ec15c814314250c42179ebdc08a8925c0333be4f87b607aa0",
+      "current_prompt_sha256": "80b1e415291a5a3ec15c814314250c42179ebdc08a8925c0333be4f87b607aa0",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm kvm_init nguyên vẹn; bằng chứng H2 trực giao gồm 6 nodes, 6 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm kvm_init nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 6 nodes, 6 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:1324",
+      "dataset": "devign",
+      "prior_prompt_sha256": "13fd5a82e6885e15580ac48e80ece1ef4d9339aed517ec0a3c8bc1449b04f1f6",
+      "current_prompt_sha256": "13fd5a82e6885e15580ac48e80ece1ef4d9339aed517ec0a3c8bc1449b04f1f6",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 chuẩn tại hàm ff_videodsp_init_x86: CPG được xử lý và xuất thông báo chuẩn NO_USABLE_GUARDED_EVIDENCE (no_operation_nodes) kèm khuyến cáo an toàn; target code nguyên vẹn; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 hợp lệ tại hàm ff_videodsp_init_x86: không có nút tác vụ nhạy cảm nên thông báo no_operation_nodes xuất hiện đúng thiết kế H2; mã nguồn nguyên vẹn; không rò rỉ nhãn."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:14587",
+      "dataset": "devign",
+      "prior_prompt_sha256": "ad2aed04cfd60b5ac30737c949255ca88aa11033d244f137b7c66db233d52c27",
+      "current_prompt_sha256": "ad2aed04cfd60b5ac30737c949255ca88aa11033d244f137b7c66db233d52c27",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm pxa2xx_cm_read nguyên vẹn; bằng chứng H2 trực giao gồm 14 nodes, 14 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm pxa2xx_cm_read nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 14 nodes, 14 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:15296",
+      "dataset": "devign",
+      "prior_prompt_sha256": "389617a49a6b42b593770df38e3f261528472f5a1e2dd659e43b0e25959ab1b7",
+      "current_prompt_sha256": "389617a49a6b42b593770df38e3f261528472f5a1e2dd659e43b0e25959ab1b7",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm decode_nal_sei_prefix nguyên vẹn; bằng chứng H2 trực giao gồm 11 nodes, 10 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm decode_nal_sei_prefix nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 11 nodes, 10 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:16709",
+      "dataset": "devign",
+      "prior_prompt_sha256": "dc005516b83dfeb3e2f84099315ece34a1b4cdcab7c58e76e157223c1b56505c",
+      "current_prompt_sha256": "dc005516b83dfeb3e2f84099315ece34a1b4cdcab7c58e76e157223c1b56505c",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "unclear",
+          "comments": "Target code hàm encode_mb_internal chạm trần 3000 tokens và bị cắt cụt trước khi kết thúc hàm (dấu ngoặc không cân bằng 29/28); bằng chứng H2 hợp lệ (11 nodes, 9 edges)."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Hàm encode_mb_internal dài ~500 dòng bị cắt ở đuôi do ngân sách token, nhưng phần lớn logic tính toán macroblock và DCT cốt lõi được giữ nguyên; bằng chứng H2 đầy đủ (11 nodes, 9 edges)."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:17336",
+      "dataset": "devign",
+      "prior_prompt_sha256": "af9b61d260e72403d0c411c2a3e29b9f5f5b2d1b916c512913af493e6f82cfc9",
+      "current_prompt_sha256": "af9b61d260e72403d0c411c2a3e29b9f5f5b2d1b916c512913af493e6f82cfc9",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm ff_af_queue_log_state nguyên vẹn; bằng chứng H2 trực giao gồm 10 nodes, 9 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm ff_af_queue_log_state nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 10 nodes, 9 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:17398",
+      "dataset": "devign",
+      "prior_prompt_sha256": "9cf7308cfab33bf29fbd16fefecbdb6debb69050abfb9674b3afb59908f64fb1",
+      "current_prompt_sha256": "9cf7308cfab33bf29fbd16fefecbdb6debb69050abfb9674b3afb59908f64fb1",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 chuẩn tại hàm DECLARE_LOOP_FILTER: CPG được xử lý và xuất thông báo chuẩn NO_USABLE_GUARDED_EVIDENCE (no_operation_nodes) kèm khuyến cáo an toàn; target code nguyên vẹn; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 hợp lệ tại hàm DECLARE_LOOP_FILTER: không có nút tác vụ nhạy cảm nên thông báo no_operation_nodes xuất hiện đúng thiết kế H2; mã nguồn nguyên vẹn; không rò rỉ nhãn."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:18320",
+      "dataset": "devign",
+      "prior_prompt_sha256": "7e3fb1a5ae543b21baae6129f7f16c10eab19d58dfea69da6b1c20563d652efb",
+      "current_prompt_sha256": "7e3fb1a5ae543b21baae6129f7f16c10eab19d58dfea69da6b1c20563d652efb",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm code_gen_alloc nguyên vẹn; bằng chứng H2 trực giao gồm 7 nodes, 4 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm code_gen_alloc nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 7 nodes, 4 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:1836",
+      "dataset": "devign",
+      "prior_prompt_sha256": "a96a90de451a24b273c573a3983cfac409d6edc392b0a058f6b338eb5b343f10",
+      "current_prompt_sha256": "a96a90de451a24b273c573a3983cfac409d6edc392b0a058f6b338eb5b343f10",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "fail",
+          "comments": "Target code bị cắt ở trần token 3000 làm dở dang biểu thức tại hàm swScale; H2 phát thông báo no_operation_nodes hợp lệ nhưng ngữ cảnh hàm bị tổn hại nghiêm trọng."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "unclear",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "unclear",
+          "comments": "Hàm swScale dài bị cắt cụt ở trần token 3000 làm gián đoạn biểu thức; CPG không trích xuất được nút tác vụ (no_operation_nodes); ngữ cảnh phân tích thiếu rõ ràng."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:19012",
+      "dataset": "devign",
+      "prior_prompt_sha256": "c80d4aa9d1337cfc4d840bc48978b39e4c758126060bee8bd953ab609aabce7c",
+      "current_prompt_sha256": "c80d4aa9d1337cfc4d840bc48978b39e4c758126060bee8bd953ab609aabce7c",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm mpeg_decode_frame nguyên vẹn; bằng chứng H2 trực giao gồm 8 nodes, 6 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm mpeg_decode_frame nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 8 nodes, 6 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:19014",
+      "dataset": "devign",
+      "prior_prompt_sha256": "555b1ed42a9f0e3c225af242c70a32a28ff26f9e343e65a44f513ecc02523835",
+      "current_prompt_sha256": "555b1ed42a9f0e3c225af242c70a32a28ff26f9e343e65a44f513ecc02523835",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm pci_msix_write nguyên vẹn; bằng chứng H2 trực giao gồm 6 nodes, 5 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm pci_msix_write nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 6 nodes, 5 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:19357",
+      "dataset": "devign",
+      "prior_prompt_sha256": "16c3d70c7ca02e73ce72708eb8b5297b87742fc7f92405a877473977737da17d",
+      "current_prompt_sha256": "16c3d70c7ca02e73ce72708eb8b5297b87742fc7f92405a877473977737da17d",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm qvirtio_pci_config_readl nguyên vẹn; bằng chứng H2 trực giao gồm 10 nodes, 13 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm qvirtio_pci_config_readl nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 10 nodes, 13 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:19366",
+      "dataset": "devign",
+      "prior_prompt_sha256": "2583e2059ae5a7449747c9ecec5908e2c82255ea7f1af2a8bb9c69007d779feb",
+      "current_prompt_sha256": "2583e2059ae5a7449747c9ecec5908e2c82255ea7f1af2a8bb9c69007d779feb",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm blk_mig_active nguyên vẹn; bằng chứng H2 trực giao gồm 3 nodes, 4 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm blk_mig_active nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 3 nodes, 4 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:19662",
+      "dataset": "devign",
+      "prior_prompt_sha256": "e1a2ac0e93cf340b0526e1c016c36999e25b1d5b8fa35258dbf885a6616f5aaf",
+      "current_prompt_sha256": "e1a2ac0e93cf340b0526e1c016c36999e25b1d5b8fa35258dbf885a6616f5aaf",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm decode_p_block nguyên vẹn; bằng chứng H2 trực giao gồm 6 nodes, 4 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm decode_p_block nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 6 nodes, 4 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:2091",
+      "dataset": "devign",
+      "prior_prompt_sha256": "2f105d19fd6654b0179eef02b96e54b8f85157d002070d933101128f52f5b631",
+      "current_prompt_sha256": "2f105d19fd6654b0179eef02b96e54b8f85157d002070d933101128f52f5b631",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Hàm avcodec_register_all bị cắt ở trần token cuối danh sách đăng ký macro codec; phần logic đã đủ ngữ cảnh; bằng chứng H2 hợp lệ (5 nodes, 4 edges)."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Hàm avcodec_register_all là chuỗi macro đăng ký codec lặp lại; việc cắt ở cuối danh sách không làm mất ngữ cảnh suy luận kiểm tra an ninh; bằng chứng H2 chuẩn (5 nodes)."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:21124",
+      "dataset": "devign",
+      "prior_prompt_sha256": "e7d3f107e6d97087fc8e5e5652b20cdf99451d5c115aaf2660d7821c5366f1c6",
+      "current_prompt_sha256": "e7d3f107e6d97087fc8e5e5652b20cdf99451d5c115aaf2660d7821c5366f1c6",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 chuẩn tại hàm hdev_has_zero_init: CPG được xử lý và xuất thông báo chuẩn NO_USABLE_GUARDED_EVIDENCE (no_operation_nodes) kèm khuyến cáo an toàn; target code nguyên vẹn; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 hợp lệ tại hàm hdev_has_zero_init: không có nút tác vụ nhạy cảm nên thông báo no_operation_nodes xuất hiện đúng thiết kế H2; mã nguồn nguyên vẹn; không rò rỉ nhãn."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:21280",
+      "dataset": "devign",
+      "prior_prompt_sha256": "8ac84723d98e61498e7b47a033dcdcfb7c43f32c5de829492e15f09991d3d5a4",
+      "current_prompt_sha256": "8ac84723d98e61498e7b47a033dcdcfb7c43f32c5de829492e15f09991d3d5a4",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm nvdec_mpeg12_start_frame nguyên vẹn; bằng chứng H2 trực giao gồm 7 nodes, 6 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm nvdec_mpeg12_start_frame nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 7 nodes, 6 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:24935",
+      "dataset": "devign",
+      "prior_prompt_sha256": "047c9ddae934b1455447988a8dd5406921b50384acaad139e98a423c68e3f4c6",
+      "current_prompt_sha256": "047c9ddae934b1455447988a8dd5406921b50384acaad139e98a423c68e3f4c6",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm i6300esb_init nguyên vẹn; bằng chứng H2 trực giao gồm 7 nodes, 3 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm i6300esb_init nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 7 nodes, 3 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:25232",
+      "dataset": "devign",
+      "prior_prompt_sha256": "2dad73ceaded26e83d02159debeaeb463f28691a9cac82dc865bccb471d9862a",
+      "current_prompt_sha256": "2dad73ceaded26e83d02159debeaeb463f28691a9cac82dc865bccb471d9862a",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm kvmppc_update_sdr1 nguyên vẹn; bằng chứng H2 trực giao gồm 10 nodes, 21 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm kvmppc_update_sdr1 nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 10 nodes, 21 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:25726",
+      "dataset": "devign",
+      "prior_prompt_sha256": "2ba8b639dbcb9b4b7e07e82cd15ebef3964f5d46c684a9d12a498d2dfa4db0b7",
+      "current_prompt_sha256": "2ba8b639dbcb9b4b7e07e82cd15ebef3964f5d46c684a9d12a498d2dfa4db0b7",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm spapr_phb_realize nguyên vẹn; bằng chứng H2 trực giao gồm 7 nodes, 5 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm spapr_phb_realize nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 7 nodes, 5 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:27036",
+      "dataset": "devign",
+      "prior_prompt_sha256": "1683633aa2788c0db10a663cdcd09f964ef79f875b2b2ace6a710f875cbb1b2d",
+      "current_prompt_sha256": "1683633aa2788c0db10a663cdcd09f964ef79f875b2b2ace6a710f875cbb1b2d",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 chuẩn tại hàm cris_fidx_i: CPG được xử lý và xuất thông báo chuẩn NO_USABLE_GUARDED_EVIDENCE (no_operation_nodes) kèm khuyến cáo an toàn; target code nguyên vẹn; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 hợp lệ tại hàm cris_fidx_i: không có nút tác vụ nhạy cảm nên thông báo no_operation_nodes xuất hiện đúng thiết kế H2; mã nguồn nguyên vẹn; không rò rỉ nhãn."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:4239",
+      "dataset": "devign",
+      "prior_prompt_sha256": "d1dfb8127bc3f8e83deff5a461fa706e8e1a9120f3e3b5452672bfaf8c992d0e",
+      "current_prompt_sha256": "d1dfb8127bc3f8e83deff5a461fa706e8e1a9120f3e3b5452672bfaf8c992d0e",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm normalize_bits nguyên vẹn; bằng chứng H2 trực giao gồm 9 nodes, 8 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm normalize_bits nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 9 nodes, 8 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:6401",
+      "dataset": "devign",
+      "prior_prompt_sha256": "fbbc02e7a5628c7a8658d59956d407e048cff12611eb271dcdcfa0a0663335a8",
+      "current_prompt_sha256": "fbbc02e7a5628c7a8658d59956d407e048cff12611eb271dcdcfa0a0663335a8",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm a9_scu_write nguyên vẹn; bằng chứng H2 trực giao gồm 12 nodes, 14 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm a9_scu_write nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 12 nodes, 14 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:6440",
+      "dataset": "devign",
+      "prior_prompt_sha256": "3a5c08307858ab3a7828461f7a23ed445239e04df5faa0e21f8deb6b442a1fba",
+      "current_prompt_sha256": "3a5c08307858ab3a7828461f7a23ed445239e04df5faa0e21f8deb6b442a1fba",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm t_gen_lsl nguyên vẹn; bằng chứng H2 trực giao gồm 11 nodes, 7 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm t_gen_lsl nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 11 nodes, 7 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:6612",
+      "dataset": "devign",
+      "prior_prompt_sha256": "2f22cea3f03107303c9bb385ecf8c7b00d522f5c1edeed5947027d6e8e3913a6",
+      "current_prompt_sha256": "2f22cea3f03107303c9bb385ecf8c7b00d522f5c1edeed5947027d6e8e3913a6",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm an5206_init nguyên vẹn; bằng chứng H2 trực giao gồm 7 nodes, 7 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm an5206_init nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 7 nodes, 7 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:7231",
+      "dataset": "devign",
+      "prior_prompt_sha256": "b123ae9d4c0ac10a01cc98f665035af7b8c02f6d321d6cc072fb07336436f530",
+      "current_prompt_sha256": "b123ae9d4c0ac10a01cc98f665035af7b8c02f6d321d6cc072fb07336436f530",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm fp_reg_offset nguyên vẹn; bằng chứng H2 trực giao gồm 11 nodes, 15 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm fp_reg_offset nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 11 nodes, 15 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:8160",
+      "dataset": "devign",
+      "prior_prompt_sha256": "9bc6fee24a164940e80cea12bc18d1178eaa7707c57cf674c1f47574b3149241",
+      "current_prompt_sha256": "9bc6fee24a164940e80cea12bc18d1178eaa7707c57cf674c1f47574b3149241",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm vpx_decode nguyên vẹn; bằng chứng H2 trực giao gồm 8 nodes, 5 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm vpx_decode nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 8 nodes, 5 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1023",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "99dfc1a50862362ffd716cf7f6dc477e179c2c9c2b227db52112650c5662befe",
+      "current_prompt_sha256": "99dfc1a50862362ffd716cf7f6dc477e179c2c9c2b227db52112650c5662befe",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "fail",
+          "comments": "Target code hàm phar_tar_flush bị cắt cụt ở trần token 3000 trong khối xử lý lỗi/đóng luồng (mở ngoặc 68, đóng 65); bằng chứng H2 giữ 12 nodes."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "unclear",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "unclear",
+          "comments": "Hàm phar_tar_flush bị cắt ở trần token tại khối xử lý lỗi và đóng stream; luồng đọc/ghi header tar chính còn lại nhưng việc mất khối dọn tài nguyên gây nghi vấn về khả năng phát hiện rò rỉ/lỗi luồng."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:108",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "8b1db759fdedbdcd90d476f7225a9d68a4486407704ac3e0634d169c1f2183ae",
+      "current_prompt_sha256": "8b1db759fdedbdcd90d476f7225a9d68a4486407704ac3e0634d169c1f2183ae",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm kvm_device_intx_set_mask nguyên vẹn; bằng chứng H2 trực giao gồm 4 nodes, 3 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm kvm_device_intx_set_mask nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 4 nodes, 3 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1088",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "d97f87ba09bedb243c380f11c7119cb102daa39b9670ae308ffb4c4029526764",
+      "current_prompt_sha256": "d97f87ba09bedb243c380f11c7119cb102daa39b9670ae308ffb4c4029526764",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm ps2_set_ledstate nguyên vẹn; bằng chứng H2 trực giao gồm 11 nodes, 19 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm ps2_set_ledstate nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 11 nodes, 19 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1089",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "40d14f25f86a679522b2fc87c4195fc650122998c7fb98cff28c0a7c335c9208",
+      "current_prompt_sha256": "40d14f25f86a679522b2fc87c4195fc650122998c7fb98cff28c0a7c335c9208",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm TSHttpTxnArgGet nguyên vẹn; bằng chứng H2 trực giao gồm 7 nodes, 6 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm TSHttpTxnArgGet nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 7 nodes, 6 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1238",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "a0bd089bc2bcc328e6539c4b4cf667b13dc85423b2139125087fd3f8a83bf8e1",
+      "current_prompt_sha256": "a0bd089bc2bcc328e6539c4b4cf667b13dc85423b2139125087fd3f8a83bf8e1",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm decode_udvm_multitype_operand nguyên vẹn; bằng chứng H2 trực giao gồm 6 nodes, 4 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm decode_udvm_multitype_operand nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 6 nodes, 4 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1240",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "5e9da448ada89cb9a3cf28130cddd642b7b5c98338d5609a151e7e7c76336ceb",
+      "current_prompt_sha256": "5e9da448ada89cb9a3cf28130cddd642b7b5c98338d5609a151e7e7c76336ceb",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Hàm _LMBCSOpen bị cắt ở cuối khối chuyển đổi ký tự do chạm trần token; ngữ cảnh chuyển đổi unicode cơ bản được bảo toàn; bằng chứng H2 hợp lệ (8 nodes)."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "unclear",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "unclear",
+          "comments": "Hàm xử lý LMBCS dài bị cắt ở cuối khối tính toán bytes_written; nghi vấn thiếu các điều kiện kiểm tra biên cuối chuỗi; bằng chứng H2 hợp lệ (8 nodes)."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1324",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "4bc0618f7e439299eae5efae7a5a046565f497cf5800e9e44c89b7dc721b2b4c",
+      "current_prompt_sha256": "4bc0618f7e439299eae5efae7a5a046565f497cf5800e9e44c89b7dc721b2b4c",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm double_from_string_with_check nguyên vẹn; bằng chứng H2 trực giao gồm 9 nodes, 7 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm double_from_string_with_check nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 9 nodes, 7 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1550",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "9b72ccf305cc252eac51b645576f4c01eedd071e0fdad90defb1a056d339544c",
+      "current_prompt_sha256": "9b72ccf305cc252eac51b645576f4c01eedd071e0fdad90defb1a056d339544c",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm iso9660_options nguyên vẹn; bằng chứng H2 trực giao gồm 5 nodes, 2 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm iso9660_options nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 5 nodes, 2 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1551",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "26c5ffdeeaf758d2c45e425c86dae024592bc0bb58222230e955d8589d4b3554",
+      "current_prompt_sha256": "26c5ffdeeaf758d2c45e425c86dae024592bc0bb58222230e955d8589d4b3554",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm dissect_h245_TransparencyParameters nguyên vẹn; bằng chứng H2 trực giao gồm 11 nodes, 31 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm dissect_h245_TransparencyParameters nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 11 nodes, 31 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:175",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "ad6f4e221f8ecda3b46f2971b71084c73ff91a7d1d5327e837aa6519e7a7c2cc",
+      "current_prompt_sha256": "ad6f4e221f8ecda3b46f2971b71084c73ff91a7d1d5327e837aa6519e7a7c2cc",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm get_ber_length nguyên vẹn; bằng chứng H2 trực giao gồm 10 nodes, 30 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm get_ber_length nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 10 nodes, 30 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1810",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "12b6a13d04aa790a8e1ccb05d7825d4e48d19a5141802c6754a7e2feb4ae8825",
+      "current_prompt_sha256": "12b6a13d04aa790a8e1ccb05d7825d4e48d19a5141802c6754a7e2feb4ae8825",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm deep_count_stop nguyên vẹn; bằng chứng H2 trực giao gồm 12 nodes, 11 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm deep_count_stop nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 12 nodes, 11 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1834",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "95bd4b73ae626965610f449ea1d27d954568d68e95a7b456b4dae0cf07cdeec5",
+      "current_prompt_sha256": "95bd4b73ae626965610f449ea1d27d954568d68e95a7b456b4dae0cf07cdeec5",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm imc_get_skip_coeff nguyên vẹn; bằng chứng H2 trực giao gồm 6 nodes, 8 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm imc_get_skip_coeff nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 6 nodes, 8 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1923",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "bbcecba9fe86b0081ee363fb56df8a136c4cd1eeeb0736872c91956ca843bf33",
+      "current_prompt_sha256": "bbcecba9fe86b0081ee363fb56df8a136c4cd1eeeb0736872c91956ca843bf33",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm proto_reg_handoff_opcua nguyên vẹn; bằng chứng H2 trực giao gồm 12 nodes, 21 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm proto_reg_handoff_opcua nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 12 nodes, 21 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1977",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "488e81fdad5a1840c89dbf59e592af0f40d3173d81577a3542bdbc2a2150d124",
+      "current_prompt_sha256": "488e81fdad5a1840c89dbf59e592af0f40d3173d81577a3542bdbc2a2150d124",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm transform_hook_handler nguyên vẹn; bằng chứng H2 trực giao gồm 10 nodes, 6 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm transform_hook_handler nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 10 nodes, 6 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:216",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "80a8fc859dab7cbb12110fb3997cdbdbab99cda2c7bcbbdcb214508172abb00c",
+      "current_prompt_sha256": "80a8fc859dab7cbb12110fb3997cdbdbab99cda2c7bcbbdcb214508172abb00c",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm get_func_retset nguyên vẹn; bằng chứng H2 trực giao gồm 12 nodes, 11 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm get_func_retset nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 12 nodes, 11 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:394",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "b93768b2319d16dfe68c109f7414bec20f2d73fc76bcb21ee41d995143bdf512",
+      "current_prompt_sha256": "b93768b2319d16dfe68c109f7414bec20f2d73fc76bcb21ee41d995143bdf512",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm ac3_upmix_delay nguyên vẹn; bằng chứng H2 trực giao gồm 8 nodes, 13 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm ac3_upmix_delay nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 8 nodes, 13 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:554",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "32c635cf08c8bccb7d30f7dc0be4b51a61d95dbba0d56d69b902f74cbd600aa4",
+      "current_prompt_sha256": "32c635cf08c8bccb7d30f7dc0be4b51a61d95dbba0d56d69b902f74cbd600aa4",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm stop_postmaster_atexit nguyên vẹn; bằng chứng H2 trực giao gồm 3 nodes, 3 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm stop_postmaster_atexit nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 3 nodes, 3 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:591",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "28d31530bf6972cbb809df9d8129739479ef1e39027c26e8e3572638d345e9ab",
+      "current_prompt_sha256": "28d31530bf6972cbb809df9d8129739479ef1e39027c26e8e3572638d345e9ab",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm vp8_de_noise nguyên vẹn; bằng chứng H2 trực giao gồm 6 nodes, 5 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm vp8_de_noise nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 6 nodes, 5 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:593",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "99b18e42e814effa5e59c6ed0646d7f1157f830948d911be967397254d1641e5",
+      "current_prompt_sha256": "99b18e42e814effa5e59c6ed0646d7f1157f830948d911be967397254d1641e5",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "fail",
+          "comments": "Target code hàm iadst16_8col bị cắt ngang giữa dòng lệnh gán vector u[5]; mất hoàn toàn ngữ cảnh nửa sau và kết hàm; bằng chứng H2 có 4 nodes."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "fail",
+          "comments": "Hàm biến đổi toán học vector iadst16_8col bị cắt cụt ngay giữa lệnh gán u[5] = _; cú pháp dở dang gây ảnh hưởng trực tiếp đến phân tích luồng; không đạt target_code_intact."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:599",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "c96b14c02d657c310603d7d979d37e0a298ebd6df81f1247a78cd0597e6c432f",
+      "current_prompt_sha256": "c96b14c02d657c310603d7d979d37e0a298ebd6df81f1247a78cd0597e6c432f",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm ff_cavs_load_intra_pred_luma nguyên vẹn; bằng chứng H2 trực giao gồm 13 nodes, 13 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm ff_cavs_load_intra_pred_luma nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 13 nodes, 13 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:67",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "f3af3098c0921ce32d71067d92f1249920f16a164ca5f6bebdae67fddcbafa8f",
+      "current_prompt_sha256": "f3af3098c0921ce32d71067d92f1249920f16a164ca5f6bebdae67fddcbafa8f",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm nonrd_pick_partition nguyên vẹn; bằng chứng H2 trực giao gồm 5 nodes, 4 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm nonrd_pick_partition nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 5 nodes, 4 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:673",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "9800cb57e1e3189e9ab11ea9f5fab123f25a96a7bd19ff824604cd678c77fc01",
+      "current_prompt_sha256": "9800cb57e1e3189e9ab11ea9f5fab123f25a96a7bd19ff824604cd678c77fc01",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm action_reverse nguyên vẹn; bằng chứng H2 trực giao gồm 12 nodes, 18 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm action_reverse nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 12 nodes, 18 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:688",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "55d8280110829baf120fae4b32ddded149d813b57763bcab925e30334e6619df",
+      "current_prompt_sha256": "55d8280110829baf120fae4b32ddded149d813b57763bcab925e30334e6619df",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Prompt B1-H2 đạt chuẩn: hàm e1000e_set_ims nguyên vẹn; bằng chứng H2 trực giao gồm 12 nodes, 10 edges và 4 OPs với cảnh báo UNKNOWN/BOUNDED; không demo; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Đạt chuẩn yêu cầu B1-H2: hàm e1000e_set_ims nguyên vẹn; bằng chứng H2 hợp lệ hiển thị 12 nodes, 10 edges và quan hệ OP rõ ràng; không demo; không rò rỉ nhãn mục tiêu."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:886",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "2adc891582646a4e56fbeaf6e97eaaca0c0e520ec6c60f74481c4cabcd12ac74",
+      "current_prompt_sha256": "2adc891582646a4e56fbeaf6e97eaaca0c0e520ec6c60f74481c4cabcd12ac74",
+      "review_status": "exact_hash_match_prior_judgments_reusable",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 chuẩn tại hàm name: CPG được xử lý và xuất thông báo chuẩn NO_USABLE_GUARDED_EVIDENCE (no_operation_nodes) kèm khuyến cáo an toàn; target code nguyên vẹn; không rò rỉ nhãn."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "pass",
+          "graph_valid": "pass",
+          "variant_correct": "pass",
+          "truncation_acceptable": "pass",
+          "comments": "Biến thể B1-H2 hợp lệ tại hàm name: không có nút tác vụ nhạy cảm nên thông báo no_operation_nodes xuất hiện đúng thiết kế H2; mã nguồn nguyên vẹn; không rò rỉ nhãn."
+        }
+      }
+    }
+  ],
+  "changed_rows": [
+    {
+      "id": "devign:validation:14819",
+      "dataset": "devign",
+      "prior_prompt_sha256": "fe66c147d54d84e377f54f546373d3c8b32e29f9e5154457a60c8af85434a449",
+      "current_prompt_sha256": "8e7b151e26d78aa5fc4eb57b740d3e1f74e01e656967734a027b35c4986efa56",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu bị thiếu đồ thị CPG (0 node, 0 edge; hiển thị khung node/edge rỗng thay vì H2) và target code bị cắt cụt ở trần token 3000 tại hàm hl_decode_mb. Vi phạm graph_valid, variant_correct và target_code_intact."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm hl_decode_mb (lỗi parser Joern dẫn tới khung node/edge rỗng, không có bằng chứng H2) và mã nguồn mục tiêu bị cắt đứt quãng. Không thỏa mãn graph_valid và variant_correct."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:16307",
+      "dataset": "devign",
+      "prior_prompt_sha256": "ca932becf870cac95fb6bd37dc61a117cc8b1dd6511d753ae9a4fd426d70356d",
+      "current_prompt_sha256": "9afa7a0afae3455f5cc48c3474549fcd658b28eca7be747358f6df953531c990",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu thiếu đồ thị CPG ở hàm sys_utimensat (0 node, 0 edge; trượt về khung rỗng của B1 cũ thay vì cấu trúc guarded evidence H2). Vi phạm graph_valid và variant_correct."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm sys_utimensat (graph rỗng do lỗi Joern); prompt trượt về tiêu đề node/edge rỗng của B1 thay vì bằng chứng H2. Không đạt graph_valid và variant_correct."
+        }
+      }
+    },
+    {
+      "id": "devign:validation:6686",
+      "dataset": "devign",
+      "prior_prompt_sha256": "bfb13a2ab23246bb43e28f021d35d8ff5a594c40d072f831ae85dd9d3130e083",
+      "current_prompt_sha256": "8e01968ce468dd9a78c9256235484d6746fac4922f1c7a1d71963b2fa0ea4930",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu thiếu đồ thị CPG ở hàm host_alarm_handler (0 node, 0 edge; trượt về khung rỗng của B1 cũ thay vì cấu trúc guarded evidence H2). Vi phạm graph_valid và variant_correct."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm host_alarm_handler (graph rỗng do lỗi Joern); prompt trượt về tiêu đề node/edge rỗng của B1 thay vì bằng chứng H2. Không đạt graph_valid và variant_correct."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1024",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "804bdeabdd99ad4f46d806df6a122007b1b5da6ee6d7c9fd1500fe75f8fcc83d",
+      "current_prompt_sha256": "d8fea65b57ac7bb467fc73f527fa961bae1730f69fdf7bcb121765b2f7c31fe3",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu thiếu đồ thị CPG ở hàm _c (0 node, 0 edge; trượt về khung rỗng của B1 cũ thay vì cấu trúc guarded evidence H2). Vi phạm graph_valid và variant_correct."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm _c (graph rỗng do lỗi Joern); prompt trượt về tiêu đề node/edge rỗng của B1 thay vì bằng chứng H2. Không đạt graph_valid và variant_correct."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1044",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "0ae411080524e8e35ba17dc695c868414c8697b5360240e20fa088837766c8c8",
+      "current_prompt_sha256": "01a98f36c78492eeb31ce83c2fc7de77ed8ab0bb8af1bf819c398cc5929bdcfa",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu bị thiếu đồ thị CPG (0 node, 0 edge; hiển thị khung node/edge rỗng thay vì H2) và target code bị cắt cụt ở trần token 3000 tại hàm php_stream_url_wrap_http_ex. Vi phạm graph_valid, variant_correct và target_code_intact."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm php_stream_url_wrap_http_ex (lỗi parser Joern dẫn tới khung node/edge rỗng, không có bằng chứng H2) và mã nguồn mục tiêu bị cắt đứt quãng. Không thỏa mãn graph_valid và variant_correct."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1210",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "56cfd610f9d3731840ca665cc92e4dcc87fd6494b9a2679246570ae47e4e5f25",
+      "current_prompt_sha256": "dcf7331709d33f73f31d7b3bb1a93d3a0f7e573f92fa1851c05779ab1836ccc5",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu thiếu đồ thị CPG ở hàm _set_down_load (0 node, 0 edge; trượt về khung rỗng của B1 cũ thay vì cấu trúc guarded evidence H2). Vi phạm graph_valid và variant_correct."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm _set_down_load (graph rỗng do lỗi Joern); prompt trượt về tiêu đề node/edge rỗng của B1 thay vì bằng chứng H2. Không đạt graph_valid và variant_correct."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1259",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "6d8ffa4cec111660cb881f050bdae2b1cb029143690aafc56b92f75a16c0a274",
+      "current_prompt_sha256": "efc8b003a6337d4673630a7c33419a5f23e66b59558bef2f897eebf6f0bafcf3",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu thiếu đồ thị CPG ở hàm mpi_debug_resize (0 node, 0 edge; trượt về khung rỗng của B1 cũ thay vì cấu trúc guarded evidence H2). Vi phạm graph_valid và variant_correct."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm mpi_debug_resize (graph rỗng do lỗi Joern); prompt trượt về tiêu đề node/edge rỗng của B1 thay vì bằng chứng H2. Không đạt graph_valid và variant_correct."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:168",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "fbe6e821d06e385c2681372ebd122eccb5cc42fa3d29cc6bb620fcbab5a1ae45",
+      "current_prompt_sha256": "e870f461cbcee46e63f948faddacc78bab28e7568c1b1de5ac075ac8202db620",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu thiếu đồ thị CPG ở hàm vp9_denoiser_alloc (0 node, 0 edge; trượt về khung rỗng của B1 cũ thay vì cấu trúc guarded evidence H2). Vi phạm graph_valid và variant_correct."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm vp9_denoiser_alloc (graph rỗng do lỗi Joern); prompt trượt về tiêu đề node/edge rỗng của B1 thay vì bằng chứng H2. Không đạt graph_valid và variant_correct."
+        }
+      }
+    },
+    {
+      "id": "reveal:validation:1792",
+      "dataset": "reveal",
+      "prior_prompt_sha256": "880fabb9282d32cb7603d1ed7bf4cef60b312a22a0db380bf68b9b38c7fe40df",
+      "current_prompt_sha256": "dd61575cb05353a1e015fa91e85cc896654566f98ad4b2eade6928265a7aeaaf",
+      "review_status": "prompt_changed_re_review_required",
+      "prior_reviewers": {
+        "reviewer_1_hieu.csv": {
+          "reviewer_name": "HuuHieu03",
+          "reviewed_at": "2026-11-05T19:30:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Mẫu thiếu đồ thị CPG ở hàm _set_down_load (0 node, 0 edge; trượt về khung rỗng của B1 cũ thay vì cấu trúc guarded evidence H2). Vi phạm graph_valid và variant_correct."
+        },
+        "reviewer_2_dung.csv": {
+          "reviewer_name": "Dung",
+          "reviewed_at": "2026-11-05T20:00:00+07:00",
+          "overall_verdict": "fail",
+          "graph_valid": "fail",
+          "variant_correct": "fail",
+          "comments": "Thiếu đồ thị CPG tại hàm _set_down_load (graph rỗng do lỗi Joern); prompt trượt về tiêu đề node/edge rỗng của B1 thay vì bằng chứng H2. Không đạt graph_valid và variant_correct."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema": "b1_h2_manual_review_packet_audit_v1",
+  "packet_path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\11_Arm_B1H2_Evidence\\validation_h2_cluster_v6_joern_error_20261105\\manual_review_20261105_v6",
+  "candidate_manifest_sha256": "5e7f714b1fd369059a23a60afcf7ed84fb79079f91cc8e5f5568cbb4ece403e0",
+  "packet_file_hashes_pass": true,
+  "sample_rows": 60,
+  "sample_counts_by_dataset": {
+    "devign": 30,
+    "reveal": 30
+  },
+  "candidate_prompt_identity_and_sha256_pass": true,
+  "reviewer_facing_packet_hides_sampling_strata": true,
+  "reviewer_forms": {
+    "reviewer_1.csv": {
+      "rows": 60,
+      "judgments_filled": 0
+    },
+    "reviewer_2.csv": {
+      "rows": 60,
+      "judgments_filled": 0
+    }
+  },
+  "sampling_strata": {
+    "devign": {
+      "missing_cpg": {
+        "available": 3,
+        "sampled": 3
+      },
+      "no_usable_evidence": {
+        "available": 606,
+        "sampled": 10
+      },
+      "cdg_cluster": {
+        "available": 452,
+        "sampled": 10
+      },
+      "closed_prefix": {
+        "available": 1671,
+        "sampled": 7
+      }
+    },
+    "reveal": {
+      "missing_cpg": {
+        "available": 27,
+        "sampled": 6
+      },
+      "no_usable_evidence": {
+        "available": 829,
+        "sampled": 10
+      },
+      "cdg_cluster": {
+        "available": 226,
+        "sampled": 8
+      },
+      "closed_prefix": {
+        "available": 1191,
+        "sampled": 6
+      }
+    }
+  },
+  "sample_detail": {
+    "devign": {
+      "missing_cpg": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 1
+      },
+      "no_usable_evidence": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      },
+      "cdg_cluster": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      },
+      "closed_prefix": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      }
+    },
+    "reveal": {
+      "missing_cpg": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      },
+      "no_usable_evidence": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      },
+      "cdg_cluster": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 3
+      },
+      "closed_prefix": {
+        "sampled_truncated": 1,
+        "sampled_at_least_2000_tokens": 2
+      }
+    }
+  },
+  "overall_pass": true
+}

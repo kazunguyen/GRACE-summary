@@ -1,0 +1,40 @@
+{
+  "dataset": "reveal",
+  "split": "validation",
+  "arm": "B1-H2",
+  "seed": 42,
+  "sources": {
+    "joern_specs": {
+      "path": "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031/reveal/validation/specs.jsonl",
+      "sha256": "c74224056c010c0f84f588e4ef7825556812e15a2b0a59c35bbcbf179856b716"
+    },
+    "b2_reference": {
+      "path": "grace_15arms_prompts_and_clean_specs/prompts/reference_B2/reveal/validation/prompts.jsonl",
+      "sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081"
+    }
+  },
+  "rows": 2273,
+  "tokens_p50": 672.0,
+  "tokens_p95": 1895.4000000000024,
+  "tokens_max": 3684,
+  "raw_regex_flagged_prompts": 1,
+  "unresolved_label_flags": 0,
+  "prompt": {
+    "path": "11_Arm_B1H2_Evidence/validation_h2_cluster_v5_20261104/reveal/validation/B1-H2/42/prompts.jsonl",
+    "sha256": "0fde0c479df9463184beea9b589f85b1076ee414d34a470bd1499ad5ae6ecf5a"
+  },
+  "h2_coverage": {
+    "no_usable_evidence": 856,
+    "cluster_selected": 226,
+    "cluster_with_nodes_outside_prefix": 225,
+    "missing_cpg": 27
+  },
+  "llm_calls": 0,
+  "manual_review_status": "awaiting_two_independent_reviewers",
+  "rate_code_truncated": 0.014958205015398152,
+  "rate_graph_truncated": 0.0,
+  "rate_demo_truncated": 0.0,
+  "rate_demo_empty": 0.0,
+  "rate_graph_missing": 0.011878574571051475,
+  "automatic_audit_pass": true
+}

@@ -81,7 +81,7 @@ Thử fallback lấy cụm có CDG từ cùng CPG Joern khi closed prefix không
 ## Artifact
 
 - Manifest chung tại `grace_15arms_prompts_and_clean_specs/validation_remediated_manifest.json`.
-- Báo cáo H2 tại `Runs-management/validation_h2_cluster_v5_20261104/manifest.json`.
+- Báo cáo H2 tại `11_Arm_B1H2_Evidence/validation_h2_cluster_v5_20261104/manifest.json`.
 - Prompt và audit B3 tại `Runs-management/validation_extensions_remediation_v4_20261104/manifest.json`.
 - Bộ chấm và phiếu Codex tại `Runs-management/validation_remediated_review_20261104/`.
 
@@ -160,10 +160,10 @@ Lượt này đọc trực tiếp ZIP, materialize riêng các prompt dùng đ�
 
 ### Artifact
 
-- [Danh sách validation-only](../Runs-management/hieu_zip_step34_20261104/validation_only_inputs.json)
-- [Manifest audit đủ 38 tập](../Runs-management/hieu_zip_step34_20261104/audit_manifest.json)
-- [Kiểm kê ZIP](../Runs-management/hieu_zip_step34_20261104/zip_inventory.json)
-- [Phiếu Codex](../Runs-management/hieu_zip_step34_20261104/reviewer_codex.csv)
+- [Danh sách validation-only](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/validation_only_inputs.json)
+- [Manifest audit đủ 38 tập](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/audit_manifest.json)
+- [Kiểm kê ZIP](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_inventory.json)
+- [Phiếu Codex](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/reviewer_codex.csv)
 
 ## Khôi phục B3 theo specs trong ZIP
 
@@ -226,8 +226,8 @@ B1-H2 tiếp tục giữ ngoài danh sách. Audit tự động qua nhưng eviden
 
 Có thể chuẩn bị notebook cho 10 arm theo manifest validation-only. Trước lượt inference chính thức dùng để khóa ngưỡng, hoàn thành hồ sơ đọc tay độc lập, đối chiếu bản OSF và smoke test đúng model GGUF, tokenizer, backend nếu cấu hình Kaggle khác cấu hình đã kiểm. Notebook phải lưu score từ logit 0/1, dùng cache tách riêng và gọi mới cho B2-rep. B2-flip và B2-rep kế thừa ngưỡng B2. Chỉ chạy validation và khóa/hash/commit ngưỡng trước test theo protocol. Lượt này không chạy inference hoặc chọn ngưỡng.
 
-- [Manifest đầu vào validation-only](../Runs-management/hieu_zip_step34_20261104/validation_only_inputs.json)
-- [Kết quả audit](../Runs-management/hieu_zip_step34_20261104/audit_manifest.json)
+- [Manifest đầu vào validation-only](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/validation_only_inputs.json)
+- [Kết quả audit](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/audit_manifest.json)
 
 ## Rà lại và chuẩn bị đọc tay Bước 3 cho 10 arm
 
@@ -235,7 +235,7 @@ Có thể chuẩn bị notebook cho 10 arm theo manifest validation-only. Trư�
 
 Đã hoàn thiện bộ đọc mới đúng phạm vi 10 arm. Giữ 45 mẫu Codex đã đọc, bổ sung 8 Devign và 7 ReVeal theo độ dài, cờ cắt và tập arm–seed. Kiểm 60 SHA-256, đủ 30 mẫu mỗi dataset, đủ 28 tập validation. Bộ mới không giao với 31 mẫu lịch sử theo khóa đầy đủ. Đã tạo hai phiếu riêng với các ô chấm trống để hai người đọc độc lập. Chưa có hai lượt chấm trên bộ mới, nên trạng thái nghiệm thu phần đọc tay vẫn mở.
 
-- [Bộ đọc và hướng dẫn](../Runs-management/hieu_zip_step34_20261104/validation_manual_review_10arms/README.md)
+- [Bộ đọc và hướng dẫn](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/validation_manual_review_10arms/README.md)
 - [Biên bản phân xử lịch sử](../Runs-management/prompt_audit_20261102/BIEN_BAN_PHAN_XU.md)
 
 ## Codex đọc bộ validation 60 mẫu của 10 arm
@@ -244,7 +244,7 @@ Có thể chuẩn bị notebook cho 10 arm theo manifest validation-only. Trư�
 
 Đây là một hồ sơ rà Codex. Hai phiếu độc lập để nguyên, chưa đóng điều kiện đọc tay của Bước 3. SHA-256 của phiếu Codex: `bfd87ce8473e13b281fe73de6098ec2e482663d1f8582559489cb15e058bfeb4`.
 
-- [Phiếu Codex theo từng mẫu](../Runs-management/hieu_zip_step34_20261104/validation_manual_review_10arms/reviewer_codex.csv)
+- [Phiếu Codex theo từng mẫu](../11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/validation_manual_review_10arms/reviewer_codex.csv)
 
 ## Bàn giao notebook Kaggle validation cho sáu arm
 
@@ -260,3 +260,93 @@ Người dùng xác nhận đóng gói B2-rand, B1-full, B1-shuf, B2-nolabel, B2
 B2-rep tiếp tục gọi inference mới trên prompt B2, dùng output riêng và ghi repeat=true, tag=repeat trong run manifest và records. Khi resume, notebook đối chiếu hai trường ở cả manifest và từng record. Checkpoint của bản cũ thiếu hai trường sẽ bị từ chối. Bundle và hash prompt giữ nguyên.
 
 Chốt dùng llama-cpp-python 0.3.16, GGUF Q4_K_M đã pin, context 8.192, batch 256, full logits token đầu, theo đoạn mô tả backend Kaggle trong preregistration đóng băng và protocol vận hành. Ghi rõ khác biệt với mục serving trong YAML của ZIP OSF, vốn liệt kê llama-server/vLLM. Làm rõ ở manifest bàn giao và README, không sửa artifact OSF hay khóa ngưỡng.
+
+## Đối chiếu lại kết luận B3 với ZIP gốc `(1)` — 04/11/2026
+
+Theo yêu cầu người dùng, đọc trực tiếp `D:/JUNIOR/LabThayTho/grace_15arms_prompts_and_clean_specs (1).zip`, không suy từ thư mục prompt đã thay đổi. ZIP này có 20 member, 108.447.483 byte, SHA-256 `9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b`. Nó trùng byte với `GRACE-summary/grace_15arms_prompts_and_clean_specs.zip`. Vì vậy kết quả audit ZIP ở mục trước áp dụng cho đúng file gốc người dùng chỉ định. Câu ở mục “Xác minh lại mốc đối chứng” rằng chưa tìm thấy ZIP gốc phản ánh trạng thái tìm kiếm tại thời điểm đó và hiện đã lỗi thời; giữ nguyên câu cũ để bảo toàn lịch sử.
+
+Kiểm lại `specs/*_validation_15arms.jsonl` và tám file prompt B3 trong ZIP theo từng target ID:
+
+- Devign: mỗi arm B3, B3-nodiff, B3-swap, B3-flip có 2.732 prompt. Cặp `(donor ID, nhãn thật)` trong prompt khớp `demonstrations_pair` của specs ở 1.985 target và lệch ở 747 target, cùng một tập target ở cả bốn arm. Ví dụ `devign:validation:71`: prompt B3 dùng `devign:train:7676` (1) và `devign:train:19590` (0), còn specs gốc ghi `devign:train:15113` (1) và `devign:train:8956` (0). Đây là bất nhất thực có giữa hai thành phần của ZIP. Chưa suy ra chỉ từ bất nhất này thành phần nào là selection plan có thẩm quyền trước freeze.
+- ReVeal: prompt dùng ID dạng hash/offset (ví dụ `reveal:train:-1493847185972313035#9729`), specs dùng ID số ngắn (ví dụ `reveal:train:3912`). Do đó phép so ID nguyên văn cho kết quả 0/2.273 không chứng minh cặp donor sai. Kết luận ở mục audit trước rằng code hiển thị/tiền tố và nhãn khớp 4.546/4.546 lượt là kết quả đối chiếu donor theo nội dung, nhưng vẫn cần mapping ID chính thức nếu muốn chứng minh cặp prompt và specs là cùng cặp trên toàn bộ ReVeal.
+- B3 gốc có đúng 3.418/5.005 prompt dùng nguyên câu `Key difference: Differences in bounds validation conditions and control flow constraints` (1.776 Devign, 1.642 ReVeal). B3-swap giữ cùng câu ở cùng các target; B3-nodiff cố ý bỏ toàn bộ Key difference theo thiết kế. Sự chung chung của câu là vấn đề nội dung có thể kiểm trực tiếp trong ZIP. Các nhận định “claim bị code bác bỏ” và “sáu lượt donor ngoài bank” vẫn là kết quả của audit trước; lượt đối chiếu ZIP này chưa kiểm độc lập lại từng trường hợp nên không nâng chúng thành kết luận mới.
+
+ZIP chứa prompt và specs, nhưng không kèm selection plan đủ 5.005 target hoặc bằng chứng thời điểm khóa selector. Việc chưa xác minh được nguồn cặp authoritative trước freeze là khoảng trống provenance, không phải bằng chứng ZIP thiếu prompt B3 hay đã dùng selector vòng 4. ZIP có đủ tám file prompt validation họ B3, mỗi dataset bốn arm; quyết định loại chúng khỏi manifest active là quyết định nghiệm thu sau audit, không mô tả tình trạng thiếu file trong gói gốc. Vòng chọn lại 141 cặp sau freeze thuộc artifact remediation riêng và không được quy ngược thành lỗi của ZIP này.
+
+Đính chính số học của câu trả lời Codex trước đó: bốn arm Devign có tổng cộng **10.928** prompt (4 × 2.732), không phải 4.005. Toàn họ B3 trên hai dataset có **20.020** prompt (4 × 5.005); tỷ lệ 1.985/2.732 và 3.418/5.005 phía trên tính theo target/arm B3, không cộng lặp bốn biến thể.
+
+## Đối chiếu thông điệp Hiếu với hồ sơ local và ZIP OSF — 04/11/2026
+
+Đã rà lại nội dung người dùng chuyển từ Hiếu với ZIP prompt gốc, ZIP OSF lưu local và worklog. Trang OSF công khai `https://osf.io/fqgh2` chưa đọc được qua công cụ trong lượt này, nên những phát biểu về bản nộp dựa trên ZIP OSF local, chưa xác thực trực tiếp byte đã tải lên.
+
+- B3 Devign: ZIP prompt và specs thực sự lệch cặp donor ở 747/2.732 target. Giải thích 747 cặp được tái sinh sau sanitize chưa có selection log/time-stamp trước freeze được đối chiếu trong lượt này. Chưa coi việc specs là cặp authoritative trước freeze đã được chứng thực chỉ từ lời nhắn.
+- B3 ReVeal: khẳng định “chỉ đổi namespace ID, cặp donor khớp 1-to-1 tuyệt đối” không phù hợp với nội dung ZIP. Ở `reveal:validation:0`, prompt B3 hiển thị donor `av_image_fill_pointers` và hàm `qcelp`, còn `demonstrations_pair` của specs ghi `vga_draw_line2` và `parse_extendedKeyUsage`. Đây là khác code donor, không giải thích được bằng đổi ID. Phép rà tiền tố code 80 ký tự sau chuẩn hóa whitespace cho thấy cả hai donor của specs xuất hiện trong prompt ở 869/2.273 target, một donor ở 1.041 và không donor nào ở 363; phép rà này chỉ là sàng lọc vì prompt có thể cắt code, nhưng ví dụ đầu là bất đồng rõ. Cần mapping kèm code/hash đầy đủ để xác nhận chính xác toàn bộ.
+- Key difference: mã `contrastive_pair_builder.py` trong ZIP OSF local có câu fallback nguyên văn ở dòng 127. Điều này giải thích nguồn 3.418 câu chung trong ZIP prompt. Nó không tự chứng minh từng câu đúng với khác biệt an ninh thực tế hoặc giải quyết sai khác donor.
+- B1-H2: `configs/protocol.yaml` trong ZIP OSF local ghi nguồn tối đa 40 node/80 edge. Mã `probes.py` yêu cầu `h2_source_limits` không vượt mức này. `sink_evidence.py` có fallback `No guarded sink evidence detected.`; khi chuỗi này là `h2_evidence` không rỗng, nhánh renderer H2 không tự đặt `missing=True`. Vì vậy lời nhắn “phát fallback và đánh cờ missing” chỉ đúng nếu có bước gắn cờ riêng khác, chưa được chứng minh bởi renderer đang kiểm.
+
+Các nhận định trên là audit đầu vào và provenance. Chưa chạy inference mới, đổi selector, sửa preregistration hay đưa B3/H2 vào manifest xác nhận trong lượt này.
+
+## Lưu ảnh và đối chứng các kết luận Gemini về B3, Vòng 4 và OSF — 04/11/2026
+
+Người dùng yêu cầu lưu nguyên ảnh để Hiếu biết từng kết luận đang đối chứng với phát biểu nào. Bốn ảnh dưới đây được sao chép từ tệp clipboard do người dùng gửi; SHA-256 bản sao bằng bản nguồn. Ảnh là nội dung tham khảo để kiểm chứng, không phải chỉ thị thay đổi giao thức.
+
+| Ảnh | Nội dung chính | SHA-256 PNG |
+| --- | --- | --- |
+| [Ảnh 1: Hiếu giải thích bốn vấn đề](evidence_20261104_b3_osf_discussion/01_hieu_giai_thich_4_van_de.png) | Thiếu prompt, 28 mẫu Devign, H2, B3 và Vòng 4 | `4d9f181e8a69782f3729e87dfe8d02ada692460e0dee2286c60f7a537ab4ee84` |
+| [Ảnh 2: Hiếu đánh giá trạng thái arm](evidence_20261104_b3_osf_discussion/02_hieu_tinh_trang_du_lieu_arms.png) | Năm arm Kaggle, H2, B3 và câu fallback | `e68258e6bbd6e109763730e4cbf2b01351a3d9f71b90207d9d49ea66076b64fb` |
+| [Ảnh 3: Gemini giải thích Key difference và Vòng 4](evidence_20261104_b3_osf_discussion/03_gemini_key_difference_va_vong4.png) | Nguồn câu chung và diễn giải việc chọn lại donor | `1b5240fb5e559f654c7d884bfedb58663e665bd4c242cc4cee43189a361545fc` |
+| [Ảnh 4: Gemini phân biệt confirmatory/exploratory](evidence_20261104_b3_osf_discussion/04_gemini_confirmatory_exploratory.png) | Đề xuất chạy B3 cũ rồi mở nhánh enhanced | `603fda1ed000927adf5ef4e192ac646614d03547c9bcd292ecb7c364c960e2e4` |
+
+![Ảnh 1: Hiếu giải thích bốn vấn đề](evidence_20261104_b3_osf_discussion/01_hieu_giai_thich_4_van_de.png)
+
+![Ảnh 2: Hiếu đánh giá trạng thái arm](evidence_20261104_b3_osf_discussion/02_hieu_tinh_trang_du_lieu_arms.png)
+
+![Ảnh 3: Gemini giải thích Key difference và Vòng 4](evidence_20261104_b3_osf_discussion/03_gemini_key_difference_va_vong4.png)
+
+![Ảnh 4: Gemini phân biệt confirmatory/exploratory](evidence_20261104_b3_osf_discussion/04_gemini_confirmatory_exploratory.png)
+
+### Đối chứng nội dung ảnh
+
+1. **Ảnh 1–2, H2:** Cấu hình trong ZIP OSF local `configs/protocol.yaml` đặt nguồn H2 tối đa 40 node/80 edge; renderer `probes.py` kiểm `h2_source_limits` với mức đó. Việc lấy node ngoài closed prefix ở 672 target của bản thử phải được kiểm lại trước confirmatory. `sink_evidence.py` phát chuỗi `No guarded sink evidence detected.` khi không phát hiện guard; renderer H2 hiện không tự đặt `missing=True` khi chuỗi fallback này không rỗng. Câu trong ảnh rằng cứ phát fallback là “đánh cờ missing” cần thêm chứng cứ về bước gắn cờ riêng.
+2. **Ảnh 1–3, B3:** ZIP gốc có đủ prompt B3. Devign prompt/specs khác cặp ở 747/2.732 target. ReVeal không chỉ khác ID: ở `reveal:validation:0`, hai code demo hiển thị khác hai code trong `demonstrations_pair` của specs. Vì vậy lời giải thích “cùng cặp 1-to-1, chỉ đổi tên ID” trong ảnh 1 chưa đứng vững. Câu fallback Key difference đúng là có ở dòng 127 của `contrastive_pair_builder.py` trong ZIP OSF local; 3.418/5.005 prompt B3 gốc chứa câu ấy. Nguồn gốc của câu không chứng minh nội dung câu đúng với code mỗi cặp.
+3. **Ảnh 3, diễn biến Vòng 4:** Worklog ghi rõ vòng chọn lại donor đã thay cặp cho **141 target** rồi thu hồi vì khác selector gốc sau freeze. Ảnh diễn giải rằng đã thay 3.418 câu bằng một lượt tìm cặp mới trên cả 3.418 target, chỉ tìm được dưới 100, hoặc hơn 4.800 target hoàn toàn không có cặp: các số và chuỗi hành động này không được worklog chứng minh. Những target chưa có giải thích an ninh được xác minh không đồng nghĩa không tồn tại donor đối nhãn trong bank. Lý do thu hồi là không dùng selector mới cho lượt xác nhận đã đăng ký; đây là quyết định bảo toàn provenance, không phải bằng chứng đã có gian lận.
+4. **Ảnh 4, chạy B3 cũ rồi mở rộng:** Có thể nghiên cứu thuật toán chọn cặp hoặc giải thích mới dưới nhãn exploratory với provenance riêng. Không có điều kiện phương pháp nào buộc phải chạy hết B3 cũ trước khi được làm phân tích mở rộng. B3 cũ hiện chưa đạt nghiệm thu nội dung để được gọi là đầu vào confirmatory đã sẵn sàng: bộ rà 40 mẫu họ B3 ở vòng specs có 9 mẫu B3-nodiff đạt và 31 mẫu thuộc B3/B3-swap/B3-flip chưa đủ căn cứ về khác biệt an ninh; hai lượt đọc độc lập cho bộ mới chưa đóng. Audit tự động đạt ở một số candidate chỉ xác nhận các tiêu chí kỹ thuật, không giải quyết nguồn cặp donor và nội dung Key difference.
+
+### Phân loại thay đổi sau đăng ký
+
+- **Sửa lỗi cài đặt**: nếu xác định mã chạy lệch một quy tắc đã đăng ký, có thể sửa để khôi phục đúng quy tắc; lưu lỗi, ảnh hưởng, hash và thời điểm trong `CHANGES_AFTER_PREREG.md`. Không mặc định mọi lỗi đều miễn cập nhật OSF nếu sửa đổi ảnh hưởng đáng kể tới giao thức hoặc kết quả.
+- **Đổi thuật toán B3 vì heuristic quá thô**: đây là thay đổi phương pháp hoặc phân tích mở rộng, không thể tự gọi là bug fix chỉ vì câu fallback xuất hiện nhiều. OSF Support cho phép cập nhật nội dung biểu mẫu registration với lý do và lịch sử, nhưng không cho thay file đính kèm đã khóa. Cập nhật OSF không tự động biến phân tích sửa sau khi đã xem dữ liệu thành prospectively confirmatory; phải công khai phần nào đã xem và thời điểm thay đổi. Nguồn: `https://help.osf.io/article/330-welcome-to-registrations`.
+- **Đổi âm thầm sau khi xem kết quả rồi mô tả như thiết kế gốc**: không chấp nhận. Đây là cảnh báo về cách báo cáo, không phải kết luận rằng Vòng 4 đã thực hiện hành vi ấy. Vòng 4 đã được ghi và thu hồi. Khẳng định trong đoạn văn Gemini rằng “chưa hề chạy hoặc xem test” trái với `preregistration.md` mục 1.1: Tier 1 test metrics và 230 nhãn raw B2-flip Devign test đã từng được xem và được khai báo.
+
+Phân biệt cổng audit: `preregistration.md` mục 6 có ngưỡng dừng tự động cho demo rỗng >1%, graph thiếu >5% và rò nhãn target >0; không có ngưỡng dừng riêng cho tỷ lệ câu fallback 68%. Vì vậy 3.418 câu fallback tự nó không chứng minh toàn họ B3 bị cấm chạy. Song bộ prompt B3 hiện tại vẫn cần giải quyết sai khác cặp prompt/specs, chứng minh selection plan authoritative trước freeze, và hoàn tất rà nội dung, đọc độc lập trước khi gắn nhãn confirmatory. Nếu giữ nguyên bản cũ để nghiên cứu, phải báo cáo nguyên trạng câu fallback và giới hạn của nó; không gọi bản chưa qua nghiệm thu là đã đạt audit.
+
+## Đính chính nguồn xác nhận 28 mẫu Devign validation — 04/11/2026
+
+Người dùng xác nhận chính tay đã chạy và nắm rõ nguyên nhân 28 mẫu Devign validation đổi prompt hash: 5 mẫu liên quan donor cũ bị loại khi làm sạch kho và 23 mẫu đổi thứ hạng do PCA CodeT5. Ghi nhận đây là thông tin do người thực hiện xác nhận; không tiếp tục liệt kê phân rã 5 + 23 trong các điểm cần chất vấn Hiếu. Lượt kiểm local đã xác nhận 28 hash I-05 lệch frozen và records I-09 khớp. Các câu trước đó nói chưa có bảng provenance theo từng ID phản ánh giới hạn của lần kiểm bằng file, không phủ nhận xác nhận trực tiếp này của người thực hiện. Việc đính chính không thay đổi kết luận riêng về họ B3 hoặc B1-H2.
+
+
+## Kiểm chứng phản hồi Hiếu về B3 và B1-H2 — 04/11/2026
+
+Đối chiếu các khẳng định trong phản hồi Hiếu với `Runs-management/sanitize_specs_15arms.py`, `01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/contrastive_pair_builder.py`, `probes.py`, cấu hình protocol và kết quả audit ZIP ghi ở trên. Kết luận: hướng tạm hoãn B3 và B1-H2 khỏi lượt confirmatory phù hợp với bằng chứng hiện có; một số diễn giải cần giới hạn như sau.
+
+### Devign B3
+
+- Mã sanitizer xác nhận điều kiện giữ cặp: hai donor đều có trong clean bank, một donor chính là B2 canonical donor, và nhãn của hai donor đối lập. Cặp không thỏa đủ điều kiện được dựng lại bằng `build_contrastive_pair`. Vì vậy không thể kết luận cả 747 cặp được tái sinh chỉ do donor cũ bị loại khỏi bank.
+- Bộ chọn counterpart trong mã hiện hành dùng Jaccard trên token code của target; nếu không có token/candidate chung, chọn phần tử đầu trong pool. Hàm mô tả khác biệt dùng heuristic; khi không tìm được tín hiệu theo các nhánh heuristic, trả câu mặc định ở dòng 127 của `contrastive_pair_builder.py`. Điều này xác nhận nguy cơ chất lượng giải thích/cặp không đủ căn cứ cho confirmatory, nhưng riêng mã nguồn không chứng minh mức “suy giảm ngữ nghĩa” của toàn bộ 747 trường hợp; cần đánh giá theo từng cặp nếu muốn lượng hóa.
+- Worklog đã xác nhận 747/2.732 cặp trong ZIP prompt Devign khác cặp ghi ở specs. Nguồn selector/selection log có thẩm quyền trước freeze chưa được xác minh trong hồ sơ đã rà. Giữ B3 ngoài confirmatory cho đến khi truy được nguồn và đối chiếu theo target; không mặc định specs hay prompt là nguồn chuẩn chỉ từ phép đối chiếu hiện có.
+
+### ReVeal B3
+
+- Sanitizer tạo canonical ID bằng chỉ số `idx` trong lúc đọc specs, không sắp xếp theo hash target. Do đó, ID dạng `reveal:validation:0` ở hai artifact không đủ để chứng minh cùng target nếu thứ tự đầu vào khác nhau.
+- Worklog ghi nhận tại `reveal:validation:0` code donor trong prompt khác code donor trong specs; vì vậy namespace/index mismatch có thể giải thích sai target mapping, nhưng không chứng minh cặp donor khớp 1-to-1. Kết luận toàn diện cần mapping ổn định theo target (UID nguồn nếu có; nếu không, target-code hash kèm kiểm soát duplicate) và đối chiếu code/hash của từng donor.
+- Với bằng chứng hiện có, chưa xác minh được mapping bit-for-bit cho toàn bộ ZIP; yêu cầu mapping theo target là bước khắc phục trước xét nghiệm thu, không phải bằng chứng rằng tất cả các cặp ReVeal đều sai.
+
+### B1-H2
+
+- probes.py xác nhận renderer trả `missing=True` và không render evidence khi `h2_evidence` rỗng sau `strip()`. Chuỗi fallback `No guarded sink evidence detected.` là không rỗng nên renderer sẽ render nó và không tự gắn `missing=True`. Muốn ghi nhận thiếu evidence, spec cần để trường này rỗng (hoặc có cờ missing được xử lý rõ ràng ở một bước đã kiểm chứng).
+- Cấu hình protocol giới hạn nguồn H2 ở tối đa 40 node/80 edge. Bản Round 3 lấy node ngoài closed prefix ở 672 target không đáp ứng giới hạn đó nếu các node ấy thực sự được dùng làm nguồn evidence; cần giữ artifact đó tách riêng, không nhập vào confirmatory theo cấu hình hiện hành.
+- Caveat: sanitizer ghi `h2_source_limits: {nodes: 40, edges: 80}` vào spec, và renderer kiểm metadata này. Metadata được gán trong spec không tự chứng minh evidence thực tế được trích từ đúng closed prefix. Cần provenance/log của bước trích xuất để xác minh nguồn graph theo từng target trước khi coi metadata là bằng chứng.
+
+### Trạng thái và bước tiếp theo
+
+Theo phản hồi Hiếu, nhóm tạm hoãn toàn bộ B3 và B1-H2 khỏi lượt chạy confirmatory hiện tại, tập trung GPU Kaggle cho B1-full, B1-shuf, B2-nolabel, B2-labelonly và B2-rep, rồi xử lý riêng B3/H2 bằng đối soát hash và chuẩn hóa extractor. Worklog trước đó xác nhận B3 đã bị loại khỏi manifest active và B1-H2 chưa nghiệm thu; kế hoạch năm arm và trạng thái Kaggle ở trên được ghi nhận là thông tin Hiếu báo, chưa được audit độc lập trong lượt đối chiếu này.
