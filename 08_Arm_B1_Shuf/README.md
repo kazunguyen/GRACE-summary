@@ -58,4 +58,12 @@ Nếu thiếu graph >5%, manifest bật stop-rule; cần xử lý trước khi d
 python -m pytest test_prepare_shuf.py -q
 ```
 
+## Inference Kaggle B1-shuf (Validation)
+
+Mở [notebook inference Kaggle](notebooks/02_kaggle_qwen_q4_b1_shuf_validation.ipynb), bật Internet và 2×T4.
+- Bundle đầu vào: `grace_b1_shuf_validation_inputs.zip` (15.015 prompt trên 3 seed 42, 43, 44)
+- Model: `quangdung1111/qwen3coder30b-prepare-notebook`
+- Checkpoint và log được xuất ra `grace_b1_shuf_validation_checkpoint.zip`.
+
+
 Bộ test kiểm chọn donor tương thích code hiện có, số nút trước khi cắt, nới khoảng, parity với formatter B1, thay riêng graph, giữ mẫu thiếu CPG, sai hash, lấy đủ mẫu thủ công, xuất bundle với dữ liệu tổng hợp và từ chối ghi đè. Test không chứng minh kết quả inference hoặc thay thế hai người đọc prompt thật.

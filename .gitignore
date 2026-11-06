@@ -15,6 +15,14 @@ model/
 *.zip
 *.tar.gz
 
+# Kaggle API tokens & local staging/configs
+kaggle*.json
+*kaggle.json
+Runs-management/kaggle_*_config/
+Runs-management/kaggle_staging*/
+Runs-management/output_*/
+Runs-management/err_*
+
 # OSF Preregistration Deliverables whitelist
 !/Runs-management/osf_registration_draft_20261102/*.zip
 !/Runs-management/osf_registration_draft_20261102/output/
@@ -50,3 +58,4 @@ data/*
 !data/specs/
 data/specs/*
 !data/specs/*subset600.jsonl
+Runs-management/append_worklog_*.py

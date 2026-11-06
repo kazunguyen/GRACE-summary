@@ -1,0 +1,20 @@
+{
+  "id": "thanhduy9a4tv/grace-b2-labelonly-validation",
+  "title": "grace-b2-labelonly-validation",
+  "code_file": "02_kaggle_qwen_q4_b2_labelonly_validation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "thanhduy9a4tv/grace-b2-labelonly-validation-inputs"
+  ],
+  "kernel_sources": [
+    "thanhduy9a4tv/qwen3coder30b-prepare-notebook"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}
