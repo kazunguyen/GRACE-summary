@@ -1,0 +1,2 @@
+# Preserve the verifier and captured evidence bytes used in SHA-256 claims.
+* -text

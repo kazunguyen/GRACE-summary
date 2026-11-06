@@ -1,6 +1,12 @@
 # Changes and exposure record for OSF submission
 
-The historical `prereg-v1` Git tag predates the current OSF package. It is not evidence that the current protocol or threshold seal preceded the historical test runs. No OSF registration URL or approval timestamp has been recorded yet.
+The study has a public OSF registration at <https://osf.io/fqgh2/overview>, reported as registered on Nov 3, 2026 at 11:13 PM (Asia/Bangkok) in `AGENTS.md`. The registration documents the protocol as submitted at that time; it does not establish that protocol decisions preceded historical test runs. The `prereg-v1` Git tag is a repository snapshot, not a timestamp for OSF submission. Any amendment discussed in later planning documents is a separate, not-yet-submitted update unless a newer OSF record is added here.
+
+## 2026-11-06 — Prepare OSF amendment and reproducible threshold evidence
+
+- Prepared a separate amendment under `Runs-management/osf_amendment_20261106/`: B0/B1 full-validation threshold correction, the user-selected replacement of B3 by verified vulnerable/patched pairs, and the addition of Colab L4 with a documented compatible runtime. The text discloses prior test exposure, the existing post-hoc reanalysis, and the already executed Colab validation runs. This entry records preparation, not OSF submission/approval or acceptance of new B3 prompts.
+- Added a verifier that calls the original `validation_lock.py` optimizer, byte-identical to commit `282033d`, with an enforced read allowlist. Reproduced B0 thresholds 0.98/0.30 and B1 thresholds 0.98/0.63 from complete validation; no test files were read by this verification. Packaged the exact four validation inputs and verified reproduction in an isolated directory with no test inputs. No model inference was performed in this work.
+- Corrected stale OSF-pending status in the live repository copies of `preregistration.md` and `preregistration_en.md`; these are status notes, not changes to hypotheses, sample sizes or decision rules. Frozen OSF attachments, original optimizer, data banks/specs, active protocols, threshold locks and arm configurations are preserved. Threshold reanalyses remain disclosed retrospectively; new B3 execution is planned under the amended method and has not been performed by this preparation.
 
 ## 2026-11-03 — pre-submission disclosure correction
 
