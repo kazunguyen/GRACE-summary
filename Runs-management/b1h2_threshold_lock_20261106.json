@@ -1,0 +1,94 @@
+{
+  "schema": "b1h2_validation_threshold_lock_v1",
+  "arm": "B1-H2",
+  "seed": 42,
+  "split": "validation",
+  "platform": "Google Colab Runtime Version 2026.10 / single NVIDIA L4",
+  "platform_deviation": "Preregistered Kaggle environment uses 2xT4; see CHANGES_AFTER_PREREG.md",
+  "gpu_offload_verified": false,
+  "prompt_set_sha256": "fcdde8abf140bd0422d9a9e0cd48b0eeee5d08a4df8eb95d3434ce4b5e9083c2",
+  "source_evidence": [
+    {
+      "kind": "prompt_archive",
+      "path": "grace_15arms_prompts_and_clean_specs (1).zip",
+      "sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b"
+    },
+    {
+      "kind": "pilot_input_bundle",
+      "path": "b1h2_l4_100_sample_bundle.zip",
+      "sha256": "500b523dfe05623dc5d866c218f6100048527283f92c078ec486be928cb79b59"
+    },
+    {
+      "kind": "pilot_output",
+      "path": "l4_pilot_output.zip",
+      "sha256": "9da2c0c67d382c769f0db735bb73211592605c329a02f8800a81ba2fe3c301f8"
+    },
+    {
+      "kind": "remaining_bundle",
+      "path": "b1h2_l4_remaining_validation_bundle.zip",
+      "sha256": "b696143190173b118f89b5f7e0dccbf90fc9411d019db4de719be2e30cf98137"
+    },
+    {
+      "kind": "remaining_output",
+      "path": "l4_remaining_validation_output.zip",
+      "sha256": "efd111b3a961687796a6018042db89a2da80deedecb786ccfa17c4e5b636e8d2"
+    },
+    {
+      "kind": "frozen_validation_labels",
+      "paths": [
+        "01_Author_Baseline_Unified/output/local_full/devign/bundles/validation/specs.jsonl",
+        "01_Author_Baseline_Unified/output/local_full/reveal/bundles/validation/specs.jsonl"
+      ],
+      "join": "exact sample ID; both datasets cover every inferred validation ID"
+    }
+  ],
+  "entries_path": "Runs-management/thresholds.json",
+  "locks": {
+    "devign": {
+      "arm": "B1-H2",
+      "dataset": "devign",
+      "tau": 0.09,
+      "validation_mcc": 0.06185797539166471,
+      "n_expected": 2732,
+      "n_valid": 2732,
+      "validation_evidence_sha256": "28f49a9d85b4809a22882aafeb1febb70ff026d82ff336791b5e0b4d0acec24e",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "platform_deviation": "Google Colab Runtime Version 2026.10, single NVIDIA L4; preregistered execution is Kaggle 2xT4. Treat as disclosed platform-deviant validation.",
+      "gpu_offload_verified": false
+    },
+    "reveal": {
+      "arm": "B1-H2",
+      "dataset": "reveal",
+      "tau": 0.67,
+      "validation_mcc": 0.08948293674935981,
+      "n_expected": 2273,
+      "n_valid": 2273,
+      "validation_evidence_sha256": "007da3d8816cef1afe6c7e147f123238160eda687d507ba0fc7c2070a0328694",
+      "identity": {
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "quantization": "Q4_K_M",
+        "backend": "llama-cpp-python",
+        "backend_version": "0.3.16",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed_recorded": 42,
+        "context_tokens": 8192
+      },
+      "platform_deviation": "Google Colab Runtime Version 2026.10, single NVIDIA L4; preregistered execution is Kaggle 2xT4. Treat as disclosed platform-deviant validation.",
+      "gpu_offload_verified": false
+    }
+  },
+  "config_lock_sha256": "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5",
+  "previous_config_lock_sha256": "9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3"
+}

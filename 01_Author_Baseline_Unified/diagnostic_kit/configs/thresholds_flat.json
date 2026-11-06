@@ -1,6 +1,7 @@
 {
   "devign|B0|42": 0.08,
   "devign|B1|42": 0.88,
+  "devign|B1-H2|42": 0.09,
   "devign|B2-flip|42": 0.7,
   "devign|B2-rep|42": 0.7,
   "devign|B2|42": 0.7,
@@ -8,6 +9,7 @@
   "devign|P-PRE|42": 0.54,
   "reveal|B0|42": 0.44,
   "reveal|B1|42": 0.74,
+  "reveal|B1-H2|42": 0.67,
   "reveal|B2-flip|42": 0.12,
   "reveal|B2-rep|42": 0.12,
   "reveal|B2|42": 0.12,
