@@ -2,6 +2,8 @@
 
 Ngày soạn: 06/11/2026 (Asia/Bangkok). Trạng thái: DRAFT, chưa nộp OSF.
 
+Bản tiếng Anh để điền form: [OSF_UPDATE_EN.md](OSF_UPDATE_EN.md). Lý do cập nhật để sao chép: [OSF_JUSTIFICATION_EN.txt](OSF_JUSTIFICATION_EN.txt). Quy trình nộp từng bước: [HUONG_DAN_NOP_OSF.md](HUONG_DAN_NOP_OSF.md). Bản tiếng Anh đã dẫn bằng chứng theo commit cố định `d9127fc7b12a128d8499012454ad134733f810ff`; phần bên dưới được giữ làm bản làm việc và đối chiếu.
+
 Đăng ký gốc: https://osf.io/fqgh2/overview
 
 Tài liệu gốc: `Runs-management/osf_registration_draft_20261102/output/pdf/GRACE_OSF_PREREGISTRATION_20261102.pdf`.

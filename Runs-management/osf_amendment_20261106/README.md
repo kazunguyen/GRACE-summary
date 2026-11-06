@@ -2,7 +2,7 @@
 
 Prepared 6 November 2026. OSF status: not submitted by this preparation.
 
-`OSF_UPDATE_EN.md` contains the English submission text once prepared; `DRAFT_VA_HUONG_DAN_NOP_OSF.md` contains the Vietnamese workflow and detailed working draft. The update concerns B0/B1 threshold correction, replacement of the B3 pairing method, and the addition of Colab L4/compatible runtime. The frozen OSF PDF/ZIP and active protocol/threshold/arm configurations are not changed by these artifacts.
+`OSF_UPDATE_EN.md` contains the English submission text with immutable evidence links; `OSF_JUSTIFICATION_EN.txt` contains the justification to paste into OSF; `HUONG_DAN_NOP_OSF.md` gives the submission steps in Vietnamese. `DRAFT_VA_HUONG_DAN_NOP_OSF.md` is the detailed working draft. The update concerns B0/B1 threshold correction, replacement of the B3 pairing method, and the addition of Colab L4/compatible runtime. The frozen OSF PDF/ZIP and active protocol/threshold/arm configurations are not changed by these artifacts.
 
 ## Evidence files
 
