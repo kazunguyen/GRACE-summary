@@ -143,19 +143,32 @@ def test_thresholds_json_synchronization():
         registered = json.loads(archive.read("configs/thresholds.json"))
     assert len(registered["thresholds"]) == 14
     assert all(thresholds[key] == value for key, value in registered["thresholds"].items())
-    supplement = json.loads((REPO_ROOT / "Runs-management/b1h2_threshold_lock_20261106.json").read_text(encoding="utf-8"))
-    # The archived ZIP predates the disclosure reseal; its numeric values match,
-    # but the immediate predecessor is the later 9252... seal, not a010....
-    assert meta["previous_locked_sha256"] == supplement["previous_config_lock_sha256"] == (
-        "9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3"
+    kaggle_lock = json.loads(
+        (REPO_ROOT / "Runs-management/b1h2_kaggle_validation_threshold_lock_20261106.json").read_text(encoding="utf-8")
     )
-    assert supplement["config_lock_sha256"] == data["locked_sha256"]
-    for dataset, expected_tau, expected_n in [("devign", 0.09, 2732), ("reveal", 0.67, 2273)]:
+    audit = json.loads(
+        (REPO_ROOT / "Runs-management/b1h2_kaggle_validation_audit_20261106.json").read_text(encoding="utf-8")
+    )
+    assert meta["previous_locked_sha256"] == (
+        "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5"
+    )
+    unsigned = {key: value for key, value in data.items() if key != "locked_sha256"}
+    canonical = json.dumps(unsigned, indent=2, ensure_ascii=False, sort_keys=True).encode("utf-8")
+    assert hashlib.sha256(canonical).hexdigest() == data["locked_sha256"]
+    assert kaggle_lock["locked_sha256"] == audit["kaggle_lock_embedded_sha256"]
+    assert audit["all_5005_record_checks_passed"] is True
+    assert audit["test_data_read_for_threshold_selection"] is False
+    for dataset, expected_tau, expected_mcc, expected_n in [
+        ("devign", 0.09, 0.06679281918983469, 2732),
+        ("reveal", 0.21, 0.08363234793079846, 2273),
+    ]:
         key = f"{dataset}|B1-H2|42"
-        entry = supplement["locks"][dataset]
-        assert entry["tau"] == thresholds[key] == expected_tau
-        assert entry["n_valid"] == entry["n_expected"] == expected_n
-        assert data["details"][key]["validation_evidence_sha256"] == entry["validation_evidence_sha256"]
+        entry = kaggle_lock["results"][dataset]
+        assert entry["tau_star"] == thresholds[key] == expected_tau
+        assert entry["n_total"] == entry["n_valid"] == expected_n
+        assert entry["mcc_at_tau"] == pytest.approx(expected_mcc, abs=1e-12)
+        assert data["details"][key]["validation_records_sha256"] == audit["results"][dataset]["records_sha256"]
+        assert data["details"][key]["validation_evidence_sha256"] == audit["results"][dataset]["validation_evidence_sha256"]
 
     # The original 14 keys plus exactly two B1-H2 keys.
     expected_keys = [
