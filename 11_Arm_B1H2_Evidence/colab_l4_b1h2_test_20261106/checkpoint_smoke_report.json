@@ -1,0 +1,8 @@
+{
+  "syntax_all_cells": "pass",
+  "fresh_records": 3,
+  "resume_no_recompute": "pass",
+  "truncated_checkpoint_quarantined_and_recomputed": "pass",
+  "threshold_mismatch_blocked": "pass",
+  "runtime_gpu_test": "not run locally"
+}

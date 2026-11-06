@@ -2,6 +2,20 @@
 
 The study has a public OSF registration at <https://osf.io/fqgh2/overview>, reported as registered on Nov 3, 2026 at 11:13 PM (Asia/Bangkok) in `AGENTS.md`. The registration documents the protocol as submitted at that time; it does not establish that protocol decisions preceded historical test runs. The `prereg-v1` Git tag is a repository snapshot, not a timestamp for OSF submission. Any amendment discussed in later planning documents is a separate, not-yet-submitted update unless a newer OSF record is added here.
 
+## 2026-11-06 — Add retrospective and B3 feasibility evidence to OSF update
+
+- Archived the already disclosed Colab I-14 exploratory test output and integrity audit (5,006 records; prediction archive contains no label fields), plus the post-hoc B0/B1/B2/B2-flip analysis referenced by the amendment. Commit: `90c5b3ff5f5e86927ab2a8b451c99c458fcddcaf`.
+- Archived the implemented amended B3 selector algorithm, its software tests, synthetic prompt smoke output, and CPU feasibility check. The implementation tests passed; six real validation-target attempts paused because there is no two-person-reviewed verified pair pool, so no real B3 prompt set or inference exists. This blocker report is not evidence that no genuine security-fix pairs exist. Commit: `f445a30c8315aeb6c49337acde6cf9df0ac0d6f8`.
+- Added the run-ledger row for Colab I-14 and the completed Kaggle B1-H2 validation lock at commit `91dbb08d771ee01760ee0d9c5e0a666b651ffbee`; other B2-rand notebook edits remain separate and uncommitted.
+- Updated the prepared OSF amendment with E23-E30 and the new run-ledger commit. The update remains a draft and has not been submitted.
+
+## 2026-11-06 — Supersede Colab B1-H2 thresholds; return all arms to Kaggle
+
+- The user has returned all arms to the preregistered Kaggle environment (2×T4); the OSF update no longer requests Colab/L4 as an additional authorized platform.
+- B1-H2 Colab I-12/I-13 validation, the Colab-derived thresholds Devign 0.09/ReVeal 0.67, and Colab I-14 test inference are retained as historical, platform-deviant exploratory work. The old values and test output are superseded and must not be reused or treated as confirmatory.
+- The Kaggle validation inference is complete (5,005 records). Independent verification selected Devign tau=0.09 (MCC 0.0667928192, n=2,732) and ReVeal tau=0.21 (MCC 0.0836323479, n=2,273). Exact IDs, prompt hashes, frozen labels, scores and all 99 MCC grid points were checked; no test data was read. The Devign number coincides with Colab by independent recomputation; ReVeal differs. Current config seal: cecd6c604481da846e37d1899324f1177566bdf0a422d0a632467b2c235a6a47. See Runs-management/b1h2_kaggle_validation_audit_20261106.json and the associated lock/evidence archive.
+- Preserve the old Colab lock at commit `846279676b60ca1185210642e75699b914e36a4d` as historical evidence. The new Kaggle lock and independent verification are recorded separately. The OSF amendment draft has been updated; it remains not submitted.
+
 ## 2026-11-06 — Add B1-H2 supplemental lock to the prepared OSF update
 
 - Added section B1a and fixed-commit references E14-E18 to the prepared English OSF update, synchronized its Justification and Vietnamese submission guide, and disclosed commit `846279676b60ca1185210642e75699b914e36a4d`. B1-H2 was already registered as an arm; its thresholds 0.09/0.67 were absent from the original 14-value lock and were subsequently selected from complete Colab L4 validation before any recorded B1-H2 test inference.
@@ -119,3 +133,8 @@ At the user's request, deleted the local untracked 09_Arm_B3_Contrastive prepara
 ## 2026-11-06 - Commit imported runs and audit workspace
 
 Prepared all non-ignored pending notebooks, I-10/I-11 run records and audit/worklog artifacts for publication on the current feature branch. Four original ZIP specs exceed 100 MiB each; kept their exact local bytes, added exact ignore entries and a SHA-256 manifest at grace_15arms_prompts_and_clean_specs/local_specs_manifest.json. Existing ignored output/checkpoint archives remain local. Updated the notebook-source test to distinguish executed provenance notebooks from unexecuted templates, requiring completed execution metadata, no error outputs and exact embedded-helper agreement with the imported Kaggle runtime for executed notebooks. Frozen OSF artifacts, protocols, data sources and threshold locks are unchanged.
+
+
+## 2026-11-06 - Proposed B3 verified patch-pair implementation and smoke checks
+
+Added a separate amended B3 selector with source/diff/review gates, exact deterministic mean-Jaccard ranking and matched probe rendering. B3-nodiff retains its own validation threshold per proposal sections 6.6/8.5; swap and flip inherit B3. No original selector, frozen data, arm config, threshold lock or registered attachment was altered by this implementation. 58 integrity/probe/statistics/new-selector tests passed. Three synthetic targets produced twelve explicitly test-only prompts; six real validation attempts paused because no authenticated, two-reviewer-approved pair pool was available. No inference or OSF submission was performed. This is proposed amendment software, not evidence of confirmed security-pair quality or completed B3 validation. See worklogs/2026-11-06_amended_b3_selector_and_smoke.md and Runs-management/b3_amended_20261106/README.md.

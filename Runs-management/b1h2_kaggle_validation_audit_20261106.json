@@ -1,0 +1,231 @@
+{
+  "schema": "b1h2_kaggle_validation_lock_audit_v1",
+  "kernel": "duchuynguyen1802/02-kaggle-qwen-q4-b1-h2-validation-20261106-ipynb",
+  "arm": "B1-H2",
+  "seed": 42,
+  "split": "validation",
+  "validation_state": "complete",
+  "counts": {
+    "devign": 2732,
+    "reveal": 2273,
+    "total": 5005
+  },
+  "kaggle_validation_completed_at_utc": "2026-11-06T15:04:24.783897+00:00",
+  "threshold_lock_event_at_utc_from_kernel_log": "2026-11-06T15:04:40.857862+00:00",
+  "threshold_lock_time_basis": "Kaggle kernel UTC anchor plus lock-cell runtime offset; source is downloaded kernel log",
+  "source_colab_lock_sha256": "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5",
+  "colab_thresholds_superseded": {
+    "devign": 0.09,
+    "reveal": 0.67
+  },
+  "kaggle_lock_source": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/b1_h2_validation/kaggle_threshold_lock.json",
+  "kaggle_lock_file_sha256": "5e889ad6f18ad946744df6d25d96c2c5e25546ad9a5bc89a6ccf91e2802bd3f9",
+  "kaggle_lock_embedded_sha256": "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8",
+  "input_bundle_sha256": "b35b44f430c28ec44052867499ae7537950fb1dc2eee63083c3bdbb9c784c2b4",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "runtime": {
+    "gpu": "2x NVIDIA Tesla T4",
+    "gpu_offload_verified": "offloaded 49/49 layers to GPU",
+    "python": "3.13.16",
+    "cuda": "13.0",
+    "driver": "580.178.04",
+    "llama_cpp_python": "0.3.16",
+    "transformers": "4.57.1",
+    "huggingface_hub": "0.36.2",
+    "scikit_learn": "1.5.2",
+    "numpy": "2.1.3"
+  },
+  "threshold_rule": "MCC over tau=0.01..0.99 in 0.01 increments; prediction score >= tau; tie closest to 0.5 then lower tau",
+  "independent_reproduction": "Runs-management/validation_lock.py pick_threshold on downloaded Kaggle records after exact ID/label/prompt-hash comparison against the Kaggle input bundles and frozen validation specs",
+  "all_5005_record_checks_passed": true,
+  "test_data_read_for_threshold_selection": false,
+  "results": {
+    "devign": {
+      "n_expected": 2732,
+      "n_records": 2732,
+      "n_unique_ids": 2732,
+      "n_valid_scores": 2732,
+      "n_response_valid": 2586,
+      "prompt_set_sha256": "ccee63f6079d1036fcd8bc8fa4e272c078a1fc6b5aae882190f2d8dd21dd287e",
+      "records_sha256": "c0167ec182d3da6563fbdbe03651e225d1526d9913ca2486201c33b5baaa6985",
+      "records_sha256_matches_kaggle_lock": true,
+      "validation_evidence_sha256": "09e44049b64e35afb83928565124b96bff12824652cdb1411142e68485b9e420",
+      "tau_star": 0.09,
+      "mcc_at_tau": 0.06679281918983469,
+      "grid_points": 99,
+      "independent_reproduction_matches": true,
+      "manifest": {
+        "bundle_sha256": "f3558ad4827072229eeebf101378cf9c83effdcb4661a95863698ba35805efa4",
+        "prompt_set_sha256": "ccee63f6079d1036fcd8bc8fa4e272c078a1fc6b5aae882190f2d8dd21dd287e",
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quantization": "Q4_K_M",
+        "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+        "llama_cpp_python": "0.3.16",
+        "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "gpu_layers": -1,
+        "context_tokens": 8192,
+        "scoring": "unconstrained_first_token_logits_v1",
+        "limit": null,
+        "python": "3.13.16",
+        "dataset": "devign",
+        "split": "validation",
+        "arm": "B1-H2",
+        "prompt_seed": 42,
+        "inference_seed": 4294967295,
+        "inference_seed_policy": "llama_cpp_default"
+      },
+      "evaluation": {
+        "n_total": 2732,
+        "n_score_valid": 2732,
+        "n_response_valid": 2586,
+        "response_coverage": 0.9465592972181552,
+        "accuracy": 0.5386697602474865,
+        "balanced_accuracy": 0.5283232518044476,
+        "precision": 0.4671600370027752,
+        "recall": 0.4500891265597148,
+        "f1": 0.4584657285519746,
+        "mcc": 0.05691922510016959,
+        "confusion_matrix": [
+          [
+            888,
+            576
+          ],
+          [
+            617,
+            505
+          ]
+        ],
+        "auroc": 0.5348475801768349,
+        "auprc": 0.46084884377333407
+      }
+    },
+    "reveal": {
+      "n_expected": 2273,
+      "n_records": 2273,
+      "n_unique_ids": 2273,
+      "n_valid_scores": 2273,
+      "n_response_valid": 2120,
+      "prompt_set_sha256": "cb66a3a20edf8631b28646ade25286ac097c1848cb77bdb8ab7648d274059ac3",
+      "records_sha256": "04cd1e97c1950c3fd0c7cfb2daac18438d937f8cd698b5981519efd3005af832",
+      "records_sha256_matches_kaggle_lock": true,
+      "validation_evidence_sha256": "4c50d1794de104d09872d9b614e1af9fade630186489b9c1e92c9ecd9e0df643",
+      "tau_star": 0.21,
+      "mcc_at_tau": 0.08363234793079846,
+      "grid_points": 99,
+      "independent_reproduction_matches": true,
+      "manifest": {
+        "bundle_sha256": "5ec5a8f4bf74c77cda56ccf81424d800cd055a6b6f4140c1b773c390b00f09c0",
+        "prompt_set_sha256": "cb66a3a20edf8631b28646ade25286ac097c1848cb77bdb8ab7648d274059ac3",
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quantization": "Q4_K_M",
+        "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+        "llama_cpp_python": "0.3.16",
+        "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "gpu_layers": -1,
+        "context_tokens": 8192,
+        "scoring": "unconstrained_first_token_logits_v1",
+        "limit": null,
+        "python": "3.13.16",
+        "dataset": "reveal",
+        "split": "validation",
+        "arm": "B1-H2",
+        "prompt_seed": 42,
+        "inference_seed": 4294967295,
+        "inference_seed_policy": "llama_cpp_default"
+      },
+      "evaluation": {
+        "n_total": 2273,
+        "n_score_valid": 2273,
+        "n_response_valid": 2120,
+        "response_coverage": 0.9326880774307084,
+        "accuracy": 0.7193396226415094,
+        "balanced_accuracy": 0.5588769893872458,
+        "precision": 0.12915129151291513,
+        "recall": 0.3626943005181347,
+        "f1": 0.19047619047619047,
+        "mcc": 0.07765008929636869,
+        "confusion_matrix": [
+          [
+            1455,
+            472
+          ],
+          [
+            123,
+            70
+          ]
+        ],
+        "auroc": 0.5669390393093737,
+        "auprc": 0.12129693075122587
+      }
+    }
+  },
+  "evidence_archive": {
+    "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/b1h2_kaggle_validation_evidence_20261106.zip",
+    "sha256": "888b850aa76868e0a4238dce3bb879c7c7b6934193d8a1da617db4ab7f1511a2",
+    "size_bytes": 3600133,
+    "members": {
+      "input/grace_b1_h2_validation_inputs.zip": {
+        "sha256": "b35b44f430c28ec44052867499ae7537950fb1dc2eee63083c3bdbb9c784c2b4",
+        "size_bytes": 2542912
+      },
+      "output/kaggle_threshold_lock.json": {
+        "sha256": "5e889ad6f18ad946744df6d25d96c2c5e25546ad9a5bc89a6ccf91e2802bd3f9",
+        "size_bytes": 17195
+      },
+      "output/batch_summary.json": {
+        "sha256": "e6abc7ac2d6a280dd237430d4c9e66da1690abb671ef7acfd043d81788ed5719",
+        "size_bytes": 232
+      },
+      "output/seed_42_status.json": {
+        "sha256": "d5ca28a1ef29cf21b0932f993cacf4922686a2a17189f5aba4c63cbde3440475",
+        "size_bytes": 1525
+      },
+      "output/devign_records.jsonl": {
+        "sha256": "c0167ec182d3da6563fbdbe03651e225d1526d9913ca2486201c33b5baaa6985",
+        "size_bytes": 3450597
+      },
+      "output/devign_run_manifest.json": {
+        "sha256": "0ac0b7960ab7bcfb8ffcdbc21b7c00a5e3dc0afabd5028613743bc60602849b1",
+        "size_bytes": 979
+      },
+      "output/devign_evaluation.json": {
+        "sha256": "5010df4d7b05b5ad33b0017ca3f810926f5cf188f535c98a7fce338a68e0051b",
+        "size_bytes": 478
+      },
+      "output/reveal_records.jsonl": {
+        "sha256": "04cd1e97c1950c3fd0c7cfb2daac18438d937f8cd698b5981519efd3005af832",
+        "size_bytes": 2871522
+      },
+      "output/reveal_run_manifest.json": {
+        "sha256": "d0f4624b851d00a48a0a32980110a5e5e81756fbc5c86754798b23521f64901e",
+        "size_bytes": 979
+      },
+      "output/reveal_evaluation.json": {
+        "sha256": "97430ab1cfd8133352289fbdaa33cd4d62eb1e16aa96fccc76e8dab3a8f09f71",
+        "size_bytes": 480
+      },
+      "runtime/events.log": {
+        "sha256": "a1e24efe5895bfc014b5d046941e581152cc10b2cf3a24091e3c007e2f7dc510",
+        "size_bytes": 4444
+      },
+      "runtime/gpu.log": {
+        "sha256": "0ce4b9d07eeb6293496da769c53c73354eb5e7e6fbbc5d90eee1b572494ae673",
+        "size_bytes": 2057
+      },
+      "runtime/validation_seed_42.log": {
+        "sha256": "f35b56181edd839a6062643873688873cd7dc8d27b609d08e82543bcbba13167",
+        "size_bytes": 391311
+      },
+      "runtime/kaggle_kernel_output.log": {
+        "sha256": "e1b150e21e7c0835982a651b5378e0ec1bba88ca0cd7a8143a5231c20b35c13b",
+        "size_bytes": 1026748
+      }
+    }
+  }
+}

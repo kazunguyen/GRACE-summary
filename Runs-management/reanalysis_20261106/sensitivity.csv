@@ -1,0 +1,5 @@
+﻿dataset,mode,n,changed,fraction,net_label_sensitivity,reason
+devign,validation_tau,2732,554,0.2027818448023426,,B2-rep absent; cannot subtract natural variability
+devign,fixed_0.5,2732,495,0.18118594436310395,,B2-rep absent; cannot subtract natural variability
+reveal,validation_tau,2274,243,0.10686015831134564,,B2-rep absent; cannot subtract natural variability
+reveal,fixed_0.5,2274,316,0.13896218117854,,B2-rep absent; cannot subtract natural variability
