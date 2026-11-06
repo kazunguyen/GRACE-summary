@@ -1,0 +1,31 @@
+{
+  "schema": "b1h2_original_test_v1",
+  "created_utc": "2026-11-06T08:56:56.688606+00:00",
+  "count": 5006,
+  "dataset_counts": {
+    "devign": 2732,
+    "reveal": 2274
+  },
+  "sources": {
+    "devign": {
+      "member": "specs/devign_test_15arms.jsonl",
+      "sha256": "d50f9742505cd29af343c5c59d12c648c408c67d874d968e80c606260757703e",
+      "count": 2732,
+      "validation_renderer_matches": 5
+    },
+    "reveal": {
+      "member": "specs/reveal_test_15arms.jsonl",
+      "sha256": "5387b5f3a1865766982e0e4c8f935834acf3c2726a531ac966f3d65d1d85233c",
+      "count": 2274,
+      "validation_renderer_matches": 5
+    }
+  },
+  "prompts_sha256": "d770d1d28c58c8c0d32d7b9e0cfc1b29820332969b4a0edba78eb33ea1f0f5fb",
+  "source_archive_sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+  "thresholds": {
+    "devign": 0.09,
+    "reveal": 0.67
+  },
+  "threshold_lock_sha256": "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5",
+  "platform_deviation": "Colab L4; preregistered Kaggle 2xT4; offload must be verified before test inference"
+}
