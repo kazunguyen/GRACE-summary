@@ -50,6 +50,39 @@ def changed_lines(before, after):
     return changes
 
 
+def difference_from_source(source):
+    """Quote real changed code; security meaning comes from reviewed rationale."""
+    changes = changed_lines(source["before"], source["after"])
+    removed = [line for c in changes for line in c["before_lines"] if line.strip()]
+    added = [line for c in changes for line in c["after_lines"] if line.strip()]
+    parts = []
+    if removed:
+        parts.append("Before patch: " + " | ".join("`" + line.strip() + "`" for line in removed) + ".")
+    if added:
+        parts.append("After patch: " + " | ".join("`" + line.strip() + "`" for line in added) + ".")
+    if not parts:
+        raise ValueError("No substantive displayed changed lines")
+    return " ".join(parts) + " Security rationale: " + source["security_rationale"].strip()
+
+
+def make_pair_candidate(dataset, pair_id, vulnerable, patched, source):
+    """Create an UNREVIEWED record from archived source functions/actual fix diff.
+
+    This helper never invents reviews or admits a pair to the selector. Source
+    includes repository/path/function, full fix/parent revisions, source URL,
+    before/after source functions, actual fix_diff and a security rationale.
+    """
+    source = deepcopy(source)
+    if source["before"] != vulnerable["func"] or source["after"] != patched["func"]:
+        raise ValueError("Archived source functions must match donor code")
+    source["diff"] = patch_text(source["before"], source["after"])
+    return {"dataset": dataset, "pair_id": pair_id,
+            "vulnerable_id": vulnerable["function_uid"], "patched_id": patched["function_uid"],
+            "before_sha256": digest(source["before"]), "after_sha256": digest(source["after"]),
+            "source": source, "changed_lines": changed_lines(source["before"], source["after"]),
+            "key_difference": difference_from_source(source), "reviews": []}
+
+
 def validate_pair(pair, bank, dataset, *, require_reviews=True):
     """Reject unrelated/unreviewed pairs; no keyword-derived security claims.
 
@@ -61,7 +94,7 @@ def validate_pair(pair, bank, dataset, *, require_reviews=True):
         raise ValueError("Missing pair ID or dataset mismatch")
     source = pair.get("source", {})
     for key in ("repository", "path", "function", "fix_commit", "parent_commit",
-                "source_url", "security_rationale", "before", "after", "diff"):
+                "source_url", "security_rationale", "before", "after", "diff", "fix_diff"):
         if not isinstance(source.get(key), str) or not source[key].strip():
             raise ValueError("Missing source evidence: " + key)
     for key in ("fix_commit", "parent_commit"):
@@ -87,8 +120,17 @@ def validate_pair(pair, bank, dataset, *, require_reviews=True):
     changes = changed_lines(source["before"], source["after"])
     if pair.get("changed_lines") != changes:
         raise ValueError("Changed-line evidence mismatch")
-    if not pair.get("key_difference", "").strip():
-        raise ValueError("Reviewed difference required; no generic fallback")
+    fix_lines = source["fix_diff"].splitlines()
+    if ("--- a/" + source["path"] not in fix_lines or
+            "+++ b/" + source["path"] not in fix_lines):
+        raise ValueError("Actual fix diff must identify the source file")
+    removed = {line[1:] for line in fix_lines if line.startswith("-") and not line.startswith("---")}
+    added = {line[1:] for line in fix_lines if line.startswith("+") and not line.startswith("+++")}
+    if any(line not in removed for c in changes for line in c["before_lines"] if line.strip()) or any(
+            line not in added for c in changes for line in c["after_lines"] if line.strip()):
+        raise ValueError("Displayed changes are not supported by archived actual fix diff")
+    if pair.get("key_difference") != difference_from_source(source):
+        raise ValueError("Difference must be generated from reviewed source changes; no generic fallback")
     if require_reviews:
         reviews = pair.get("reviews", [])
         if len(reviews) != 2 or len({r.get("reviewer") for r in reviews}) != 2:
