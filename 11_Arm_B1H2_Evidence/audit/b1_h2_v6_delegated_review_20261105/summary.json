@@ -1,0 +1,83 @@
+{
+  "schema": "b1_h2_v6_delegated_review_carryforward_v1",
+  "v5_manifest_sha256": "05d0594799e3285d7575d7df430ae1287d103006632abf6e30bfb7f67587778a",
+  "v6_manifest_sha256": "b91d8ca1db855dc6f0b0b2cf5abf3493e2fbe3088921e984350c80279a4bbb2a",
+  "sample_ids_same": true,
+  "unchanged_prompt_hash_rows": 51,
+  "changed_prompt_hash_rows": 9,
+  "changed_ids": [
+    "devign:validation:14819",
+    "devign:validation:16307",
+    "devign:validation:6686",
+    "reveal:validation:1024",
+    "reveal:validation:1044",
+    "reveal:validation:1210",
+    "reveal:validation:1259",
+    "reveal:validation:168",
+    "reveal:validation:1792"
+  ],
+  "forms": {
+    "reviewer_1_codex_proxy.csv": {
+      "reviewer_names": [
+        "HuuHieu03",
+        "HuuHieu03 (Codex proxy; delegated)"
+      ],
+      "counts": {
+        "overall_verdict": {
+          "pass": 54,
+          "fail": 6
+        },
+        "graph_valid": {
+          "pass": 60
+        },
+        "variant_correct": {
+          "pass": 60
+        },
+        "target_code_intact": {
+          "pass": 52,
+          "fail": 6,
+          "unclear": 2
+        },
+        "truncation_acceptable": {
+          "pass": 54,
+          "fail": 5,
+          "unclear": 1
+        }
+      }
+    },
+    "reviewer_2_codex_proxy.csv": {
+      "reviewer_names": [
+        "Dung",
+        "Dung (Codex proxy; delegated)"
+      ],
+      "counts": {
+        "overall_verdict": {
+          "pass": 54,
+          "fail": 3,
+          "unclear": 3
+        },
+        "graph_valid": {
+          "pass": 60
+        },
+        "variant_correct": {
+          "pass": 60
+        },
+        "target_code_intact": {
+          "pass": 54,
+          "fail": 3,
+          "unclear": 3
+        },
+        "truncation_acceptable": {
+          "pass": 54,
+          "fail": 3,
+          "unclear": 3
+        }
+      }
+    }
+  },
+  "limitations": [
+    "51 unchanged-row judgments are carried forward only because their prompt hashes match exactly.",
+    "Nine changed rows receive delegated Codex proxy judgments using the names previously requested by the user; those nine are not independent human reviews.",
+    "The v6 audit therefore does not establish two independent reviewers or full manual acceptance."
+  ]
+}

@@ -8,22 +8,22 @@
 **Hậu kiểm prompt/output ngày 02/11/2026 — hoàn thành bước audit tự động:** đã kiểm 100.110 dòng prompt/40 tập của 6 arm và đối chiếu 30.691 output; hash, payload/variant và token thực tế đạt kiểm tra, 30.691 score tính lại từ logprob đều khớp. Cờ regex đã được phân loại theo code nguồn; không còn cờ rò rỉ nhãn chưa giải quyết trong phạm vi kiểm tra tự động. Vẫn có **403 dòng demo dưới 25% (68 dòng đã inference)** cần xử lý theo contract; B0 có 1.132 raw response không hợp lệ và B1 có 3, nhưng 0 score lỗi. Đã chuẩn bị 60 prompt và hai phiếu chấm trống; **chưa có hai người chấm**, chưa nghiệm thu toàn nghiên cứu. Giữ 9 arm chưa có prompt ở trạng thái chưa chuẩn bị, không inference lại hoặc tính khóa mới. [Kết luận và danh sách cần xử lý](prompt_audit_20261102/KET_QUA.md), [bộ mẫu chấm](prompt_audit_20261102/manual_packet.md). Audit hậu kiểm không đổi thứ tự test trước khóa, tình trạng donor lịch sử hoặc OSF.
 <!-- /prompt-integrity-audit-20261102 -->
 
-**Đối chiếu lại local ngày 02/11/2026:** đã nhập I-08 và I-09; các ghi chú thời điểm trước đó được giữ trong sổ lịch sử. Các checkpoint trùng được coi là cùng lượt/nguồn, không cộng thành expert mới. Chuẩn bị notebook/bundle không được ghi thành GPU run hoàn tất.
+**Đối chiếu output local ngày 05/11/2026:** đã nhập I-10 và I-11; các ghi chú cũ giữ vai trò lịch sử tại ngày lập. Checkpoint mới được tính lũy kế theo ID, không cộng trùng với checkpoint cha. Chuẩn bị notebook/bundle không được ghi thành GPU run hoàn tất.
 
 ## Bảng arm đã chạy và việc tiếp theo
 
 | Arm | Devign val | Devign test | REVEAL val | REVEAL test | Tiếp theo |
 |---|---:|---:|---:|---:|---|
 | B0 — I-03 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên cũ; không rerun do donor; giữ lịch sử khóa sau test |
-| B1 — I-07 | 2.732 | 429 | 2.273 | 0 | Còn 4.577; khóa validation/gate đúng phiên trước test mới |
+| B1 — I-08 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011; còn lưu ý lịch sử chưa chứng minh khóa ngưỡng trước phần test |
 | B2 — I-02/I-04/I-05 + I-09 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên donor mới: 66 Devign thay bằng I-09, các record khác giữ nguyên; output cũ được bảo toàn |
-| B2-flip — I-06 | 2.732 | 230 | 2.273 | 0 | Chưa có inference lại theo donor mới; giữ 5.202, chạy lại 33 đã đổi prompt và chạy 4.776 còn thiếu = 4.809 lượt bổ sung |
+| B2-flip — I-10 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 donor mới; tau kế thừa B2: Devign 0,70; ReVeal 0,12 |
 | B2-rep | 0 | 0 | 0 | 0 | Chốt phiên B2 cuối, dựng prompt đúng phiên và runner gọi mới model |
-| B2-rand | 2.732 | 0 | 2.066 | 0 | Seed 42 validation đang dở; seed 43/44 chưa chạy; xem I-09 |
+| B2-rand — I-11 | 5.464/8.196 | 0/8.196 | 2.325/6.819 | 0/6.822 | Validation 7.789/15.015; seed43 còn 2.221 và seed44 còn 5.005; chốt tau sau validation rồi mới inference test |
 
-Số liệu/nguồn: [HIEN_TRANG.md](HIEN_TRANG.md), [current_status.json](current_status.json). Sổ này lưu từng phiên J/E/P/I; bảng hiện tại không thay bằng chứng/history của các phiên cũ. Tổng record Tầng 1 đã nhập 30.691; không đồng nghĩa mọi điều kiện xác nhận đã hoàn tất. B0 valid score đủ nhưng raw invalid 1.132; B1 raw invalid 3, score invalid 0. Không gộp hai khái niệm invalid.
+Số liệu/nguồn: [HIEN_TRANG.md](HIEN_TRANG.md), [current_status.json](current_status.json). Sổ này lưu từng phiên J/E/P/I; bảng hiện tại không thay bằng chứng/history của các phiên cũ. Tổng record đã nhập ở sáu arm có output là 47.833; không đồng nghĩa mọi điều kiện xác nhận đã hoàn tất. B0 raw invalid 1.132; B1 raw invalid 5 trên output hợp nhất I-07/I-08, score invalid 0; B2-rand có 2 raw invalid ở seed42/ReVeal, score invalid 0. Không gộp hai khái niệm invalid.
 
-**B2-flip sau chốt donor — kiểm tra ngày 03/11/2026:** Chưa tìm thấy output inference GPU phiên donor mới; artifact hiện có vẫn là I-06 theo donor B2 cũ. Donor mới làm đổi demo/prompt của **28 Devign validation** và **38 Devign test**. Trong I-06, 28 validation và 5 test đã chạy nên cần **inference lại 33 mẫu**; 33 test còn lại chưa từng chạy, cần dùng prompt mới ở lần inference đầu. REVEAL validation/test không đổi prompt do donor. Bundle và notebook resume mới chỉ ở trạng thái chuẩn bị, không tính là đã chạy lại. [Kế hoạch và artifact chuẩn bị](B2_FLIP_DONOR_MOI_RESUME.md), [đối chiếu I-06](b2_flip_I06_20261102/KET_QUA_I06_B2_FLIP.md).
+**B2-flip sau chốt donor — ghi nhận trước I-10 ngày 03/11/2026:** khi đó chưa có output GPU donor mới; kế hoạch nêu 33 mẫu I-06 cần sửa và 4.776 lượt còn thiếu. I-10 đã hoàn tất kế hoạch này; xem kết quả mới ở dòng I-10. [Kế hoạch và artifact](B2_FLIP_DONOR_MOI_RESUME.md), [đối chiếu I-06](b2_flip_I06_20261102/KET_QUA_I06_B2_FLIP.md).
 
 - [README chạy/bàn giao](../README.md): chọn notebook, chỉnh cell nào, input/output, mốc thêm cải tiến.
 - [Mục lục quản lý](README.md), [ma trận15 arm](MA_TRAN_RUN.md), [tiến độ/điều kiện](TIEN_DO_PHUONG_AN_2.md), [contract/quy ước](QUY_UOC_FRAMEWORK_20261101.md).
@@ -116,6 +116,9 @@ Sau I-05, Qwen Q4 B2 đã có đủ **10.011/10.011 prediction**, gồm 2.732 De
 
 | I-09 | Kaggle B2-rand seed 42 và B2 donor rerun-66, `duchuynguyen1802/02-kaggle-qwen-q4-b2-rand-ipynb` | **2026-11-02 07:04:23–15:59:13 Asia/Bangkok** (UTC 00:04:23–08:59:13), theo status của donor validation và rand validation. | Phiên dừng theo ngân sách. **B2-rand seed 42: 4.798/10.011** gồm Devign validation 2.732/2.732, REVEAL validation 2.066/2.273, test 0; seed 43/44 chưa chạy; tổng **4.798/30.033**, còn 25.235. 0 invalid score, 1 invalid raw. Riêng **B2 donor rerun-66: 28/28 validation + 38/38 test**, 0 invalid score/raw; không cộng vào B2-rand, đã ghép vào phiên B2 donor mới riêng và giữ nguyên B2 lịch sử. Đã kiểm ZIP, số record, ID duy nhất, label/hash prompt/model với input local; checkpoint SHA-256 `9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92`. | [output gốc](../06_Arm_B2_Rand/output/kaggle_run_01/), [checkpoint](../06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_checkpoint.zip), [seed 42](../06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_three_seed_11h/seed_42/), [B2 donor rerun](../06_Arm_B2_Rand/output/kaggle_run_01/grace_b2_rand_three_seed_11h/b2_donor_rerun_66/) |
 
+| I-10 | Kaggle B2-flip donor mới, `quangdung1111/02-kaggle-qwen-q4-b2-flip-ipynb` | **2026-11-04 21:51:46 → 2026-11-05 06:07:52 Asia/Bangkok** (UTC 14:51:46 → 23:07:52), theo `checkpoint_status.json`. | **Hoàn tất 10.011/10.011**, không timeout; 4.809 lượt mới, gồm sửa lại 28 Devign validation + 5 Devign test và 4.776 mẫu còn thiếu. 0 invalid response/score. Validation locks kế thừa B2 theo prereg-v1, tau Devign **0,70**, ReVeal **0,12**; không fit lại probe. Checkpoint SHA-256 `9ef9672db4c8b0c40a1e8f1034b3f3f1ec993357f1e0b06558ffbc38bab87019`. | [checkpoint status và records](../04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/), [threshold locks](../04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/thresholds.json), [checkpoint ZIP](../04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_checkpoint.zip), [raw Kaggle download](kaggle_outputs_20261105/b2_flip/) |
+| I-11 | Kaggle B2-rand resume I-09, `duchuynguyen1802/02-kaggle-qwen-q4-b2-rand-ipynb` | **2026-11-05 07:55:46 → 13:45:32 Asia/Bangkok** (UTC 00:55:46 → 06:45:32), theo `validation_resume_status.json`; seed 42 hoàn tất trước seed 43. | **Dừng đúng giới hạn 6 giờ, validation-only.** Checkpoint cuối có seed42 Devign/ReVeal **2.732/2.732 + 2.273/2.273**, seed43 **2.732/2.732 + 52/2.273**, seed44 chưa bắt đầu. Lũy kế **7.789/15.015 validation**, test 0/15.018; thêm 2.991 output trong lượt này. Có **2 invalid raw response** trên seed42/ReVeal, nhưng **0 invalid score**; chưa fit tau. Checkpoint SHA-256 `96ad982e681a1c910be5290d4454e67899cae934421b8b648fd6e387e32052a3`. | [checkpoint và records đã nhập](../06_Arm_B2_Rand/output/kaggle_run_02/), [checkpoint ZIP](../06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_checkpoint.zip), [status/logs/raw output](kaggle_outputs_20261105/b2_rand/) |
+
 ## Quy tắc cập nhật
 
 ### Ghi nhận và bàn giao mỗi lượt
@@ -129,7 +132,7 @@ Sau I-05, Qwen Q4 B2 đã có đủ **10.011/10.011 prediction**, gồm 2.732 De
 Chưa có kết quả GPU mới thì chỉ ghi prepared/planned; không tạo một dòng completed I-08 giả để ghi nhận việc sửa README.
 
 
-**Chuẩn bị tiếp tục B2-flip sau I-06 (02/11/2026, chưa phải run GPU B2-flip phiên donor mới):** đã sửa notebook tạo prompt và inference để dùng donor thống nhất, sinh đủ 10.011 prompt và kiểm thử CPU cơ chế giữ 5.202 record/sửa 33 record trước khi chạy 4.776 mẫu thiếu. Checkpoint I-06 được giữ nguyên, ngưỡng phiên mới khóa trên validation đầy đủ. [Artifact và thứ tự thực thi](B2_FLIP_DONOR_MOI_RESUME.md). Chưa có inference GPU B2-flip phiên donor mới; I-07 là bổ sung bằng chứng B1 đã chạy trước đó.
+**Chuẩn bị tiếp tục B2-flip sau I-06 (02/11/2026; trạng thái tại thời điểm chuẩn bị):** đã sửa notebook tạo prompt và inference để dùng donor thống nhất, sinh đủ 10.011 prompt và kiểm thử CPU cơ chế resume. Kế hoạch đó được thực hiện ở I-10 ngày 04–05/11; kết quả GPU và threshold provenance ở dòng I-10. [Artifact và thứ tự thực thi](B2_FLIP_DONOR_MOI_RESUME.md).
 
 Khi thêm run: ghi ID mới, dataset/split, đường dẫn input/output, trạng thái, số hàng, hash bundle hoặc vector nếu có, và **nguồn timestamp** (log, manifest, mtime hay commit). Không thay thời gian commit bằng thời gian thực thi. Với lượt Joern J-04/J-05, `recovered`/`recovered_review` chỉ có nghĩa Joern xuất AST; chưa đồng nghĩa graph đã được duyệt và ghép. Với inference trên Kaggle, nhập về prediction, metric và run manifest rồi bổ sung một dòng I-xx có đường dẫn bằng chứng.
 
@@ -144,8 +147,8 @@ Khi thêm run: ghi ID mới, dataset/split, đường dẫn input/output, trạn
 
 Hai reviewer thật chưa chấm; các quyết định nghiên cứu H2.2, Holm/CI và demo dưới 25% chờ chủ nhiệm. Năm arm H2/B3 thiếu input vẫn blocked; không gọi toàn bộ bước 3 đã nghiệm thu. Hồ sơ bước 4 là draft local, chưa chốt/commit/tag, OSF không thực hiện; không gọi preregistration hồi tố.
 
-## Chuẩn bị tiếp tục B2-rand sau I-09 — chỉ validation
+## Kế hoạch trước lượt resume B2-rand sau I-09 — cập nhật bằng I-11
 
-Theo yêu cầu người dùng, notebook B2-rand bắt buộc khôi phục checkpoint I-09 hoặc hậu duệ cùng record và chỉ chạy validation còn thiếu: seed 42 REVEAL 207; seed 43 và 44 mỗi seed 5.005. Giữ 66 output B2 donor đã hoàn thành, không inference lại; đối chiếu hash prefix 4.798 record I-09, donor/khóa và 12 tập prompt đã audit. Đủ validation thì dừng, không tự chọn tau hoặc chạy test; timeout/validation xong đều đóng gói checkpoint. Giới hạn 9 giờ mỗi phiên với dự phòng 5 phút. [Notebook](../06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb).
+Theo yêu cầu người dùng, notebook B2-rand khôi phục I-09 hoặc hậu duệ cùng record và chỉ chạy validation còn thiếu, không tự chọn tau hoặc chạy test. I-11 đã tiếp tục seed42 REVEAL 207 và seed43; kết quả hiện tại còn seed43 REVEAL 2.221 cùng toàn bộ seed44 validation. Giữ nguyên 66 output B2 donor; không inference lại. Giới hạn I-11 là 6 giờ mỗi phiên với dự phòng 10 phút. [Notebook](../06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb); [kết quả I-11](RUNS.md#i-11).
 
 Kiểm thử CPU/mô phỏng bằng checkpoint và bundle I-09 thật: nhận ZIP/thư mục giải nén/cả hai trùng nội dung; từ chối checkpoint hỏng; kiểm lịch chạy và dừng sau validation. Mô phỏng dùng record giả trong thư mục tạm, không gọi GPU, không fit tau, không thay checkpoint gốc.

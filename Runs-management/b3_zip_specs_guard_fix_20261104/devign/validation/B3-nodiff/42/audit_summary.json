@@ -1,0 +1,24 @@
+{
+  "dataset": "devign",
+  "arm": "B3-nodiff",
+  "rows": 2732,
+  "changed_prompt_texts": 0,
+  "prompt": {
+    "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-nodiff/42/prompts.jsonl",
+    "sha256": "b0e141d8aede034a6519ee41b5e5880eacae5cf52cb347a5cb2095e4986d21b6"
+  },
+  "source_audit": {
+    "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-nodiff/42/audit_summary.json",
+    "sha256": "ad1533f16addb21f60b7091421330ebd5f2ce8b18c381e11958e41d46dad5de3"
+  },
+  "audit_rows": {
+    "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-nodiff/42/audit_rows.csv",
+    "sha256": "5545b87083470b9611d36004e9b9943443ab5534d16aeb007b380ffd56980270"
+  },
+  "tokens_p50": 2432.0,
+  "tokens_p95": 6118.649999999997,
+  "tokens_max": 7582,
+  "rate_demo_empty": 0.006954612005856516,
+  "rate_graph_missing": 0.0010980966325036604,
+  "unresolved_label_flags": 0
+}

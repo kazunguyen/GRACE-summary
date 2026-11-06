@@ -1,0 +1,38 @@
+{
+  "arm": "B2-flip",
+  "dataset": "reveal",
+  "split_used": "validation",
+  "locked_at_utc": "2026-11-04T14:51:46.825285+00:00",
+  "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+  "identity": {
+    "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "quantization": "Q4_K_M",
+    "backend": "llama-cpp-python",
+    "backend_version": "0.3.16",
+    "scoring": "unconstrained_first_token_logits_v1",
+    "seed_recorded": 42,
+    "context_tokens": 8192
+  },
+  "validation_prompt_set_sha256": "5f5382e6ddcc719235624fbbb5e8f6e14355de1f4e03926acf09329e6aecc496",
+  "n_expected": 2273,
+  "validation_evidence_sha256": "8b502fae460c5c3d6bd8a4f548aa2b8790ed687f3e16114ea48cb2a20eb44031",
+  "source_evidence": [
+    {
+      "path": "Runs-management/thresholds.json",
+      "sha256": "96b864a3a91edf6a578ec853028d9c9cfe714addce21a6af399334ecfa1af6e5",
+      "base_arm": "B2",
+      "threshold_key": "B2/reveal",
+      "tau": 0.12,
+      "validation_prompt_set_sha256": "531b274808e0435ce47c6d1831903e4421486a034c6884a2a67ba01e779b3e42",
+      "validation_evidence_sha256": "502717ef4431e1aa99dfc92dc100525d70678f68ee2693301fd07bc88dcf297b"
+    }
+  ],
+  "threshold_policy": "inherit_base_B2_prereg_v1",
+  "inherited_from": "B2/reveal",
+  "tau": 0.12,
+  "n_valid": 2273,
+  "n_invalid": 0,
+  "score_coverage": 1.0
+}

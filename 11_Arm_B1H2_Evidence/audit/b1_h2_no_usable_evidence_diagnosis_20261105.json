@@ -1,0 +1,266 @@
+{
+  "schema": "b1_h2_no_usable_evidence_diagnosis_v1",
+  "candidate_manifest_sha256": "05d0594799e3285d7575d7df430ae1287d103006632abf6e30bfb7f67587778a",
+  "selection_limits": {
+    "nodes": 40,
+    "edges": 80
+  },
+  "max_operations": 4,
+  "datasets": {
+    "devign": {
+      "no_usable_guarded_evidence_rows": 609,
+      "causes": {
+        "no_cdg_in_source": 567,
+        "no_cdg_to_recognized_sink_in_source": 37,
+        "missing_cpg": 3,
+        "no_recognized_sink_operation_in_source": 2
+      },
+      "example_ids": {
+        "no_cdg_in_source": [
+          "devign:validation:10",
+          "devign:validation:10056",
+          "devign:validation:10110",
+          "devign:validation:10187",
+          "devign:validation:1021",
+          "devign:validation:10212",
+          "devign:validation:10239",
+          "devign:validation:10376"
+        ],
+        "no_cdg_to_recognized_sink_in_source": [
+          "devign:validation:10389",
+          "devign:validation:1065",
+          "devign:validation:1090",
+          "devign:validation:11731",
+          "devign:validation:1193",
+          "devign:validation:12194",
+          "devign:validation:12426",
+          "devign:validation:12685"
+        ],
+        "missing_cpg": [
+          "devign:validation:14819",
+          "devign:validation:16307",
+          "devign:validation:6686"
+        ],
+        "no_recognized_sink_operation_in_source": [
+          "devign:validation:15027",
+          "devign:validation:8574"
+        ]
+      },
+      "source_row_fields": [
+        "demonstrations",
+        "demonstrations_pair",
+        "edges",
+        "graph_error",
+        "graph_missing",
+        "group",
+        "id",
+        "label",
+        "nodes",
+        "query_code",
+        "retrieval_metadata",
+        "security_difference"
+      ],
+      "nonempty_joern_or_error_markers": {
+        "graph_error": 3
+      },
+      "rows_with_nonempty_joern_or_error_markers_sample": [
+        {
+          "id": "devign:validation:14819",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "devign:validation:16307",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "devign:validation:6686",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        }
+      ],
+      "edge_types_in_no_cdg_rows": {
+        "AST": 23386,
+        "ARGUMENT": 13884,
+        "CFG": 18060,
+        "DOMINATE": 16186,
+        "POST_DOMINATE": 15450,
+        "REACHING_DEF": 45997,
+        "REF": 6395,
+        "CONTAINS": 18051,
+        "PARAMETER_LINK": 1232,
+        "RECEIVER": 15,
+        "FOR_BODY": 6,
+        "FOR_INIT": 6,
+        "CONDITION": 23,
+        "TRUE_BODY": 19,
+        "FALSE_BODY": 3,
+        "FOR_UPDATE": 4,
+        "JUMP_ARGUMENT": 1,
+        "CALL": 1
+      },
+      "scope_note": "Static same-CPG opportunity classification; does not claim a selected cluster passes GuardedGraph feasibility checks or tokenizer budget."
+    },
+    "reveal": {
+      "no_usable_guarded_evidence_rows": 856,
+      "causes": {
+        "no_cdg_in_source": 776,
+        "no_cdg_to_recognized_sink_in_source": 39,
+        "missing_cpg": 27,
+        "no_recognized_sink_operation_in_source": 14
+      },
+      "example_ids": {
+        "no_cdg_in_source": [
+          "reveal:validation:1",
+          "reveal:validation:1004",
+          "reveal:validation:1005",
+          "reveal:validation:1006",
+          "reveal:validation:1007",
+          "reveal:validation:1013",
+          "reveal:validation:1016",
+          "reveal:validation:1018"
+        ],
+        "no_cdg_to_recognized_sink_in_source": [
+          "reveal:validation:1002",
+          "reveal:validation:1061",
+          "reveal:validation:108",
+          "reveal:validation:1089",
+          "reveal:validation:116",
+          "reveal:validation:122",
+          "reveal:validation:1312",
+          "reveal:validation:1397"
+        ],
+        "missing_cpg": [
+          "reveal:validation:1024",
+          "reveal:validation:1044",
+          "reveal:validation:1058",
+          "reveal:validation:1103",
+          "reveal:validation:1130",
+          "reveal:validation:1210",
+          "reveal:validation:1259",
+          "reveal:validation:140"
+        ],
+        "no_recognized_sink_operation_in_source": [
+          "reveal:validation:1071",
+          "reveal:validation:1316",
+          "reveal:validation:1373",
+          "reveal:validation:157",
+          "reveal:validation:1595",
+          "reveal:validation:1633",
+          "reveal:validation:1693",
+          "reveal:validation:1704"
+        ]
+      },
+      "source_row_fields": [
+        "demonstrations",
+        "demonstrations_pair",
+        "edges",
+        "graph_error",
+        "graph_missing",
+        "group",
+        "id",
+        "label",
+        "nodes",
+        "query_code",
+        "retrieval_metadata",
+        "security_difference"
+      ],
+      "nonempty_joern_or_error_markers": {
+        "graph_error": 27
+      },
+      "rows_with_nonempty_joern_or_error_markers_sample": [
+        {
+          "id": "reveal:validation:1024",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:1044",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:1058",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:1103",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:1130",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:1210",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:1259",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:140",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:1438",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        },
+        {
+          "id": "reveal:validation:145",
+          "markers": {
+            "graph_error": "ValueError: No source-function AST in Joern output"
+          }
+        }
+      ],
+      "edge_types_in_no_cdg_rows": {
+        "AST": 40660,
+        "ARGUMENT": 22949,
+        "CFG": 29178,
+        "DOMINATE": 28607,
+        "POST_DOMINATE": 28436,
+        "REACHING_DEF": 118382,
+        "REF": 10388,
+        "CONTAINS": 29234,
+        "PARAMETER_LINK": 3558,
+        "RECEIVER": 536,
+        "CONDITION": 29,
+        "TRUE_BODY": 29,
+        "CALL": 39,
+        "FALSE_BODY": 1,
+        "JUMP_ARGUMENT": 1,
+        "FOR_BODY": 1,
+        "FOR_INIT": 1
+      },
+      "scope_note": "Static same-CPG opportunity classification; does not claim a selected cluster passes GuardedGraph feasibility checks or tokenizer budget."
+    }
+  },
+  "cause_totals": {
+    "no_cdg_in_source": 1343,
+    "no_cdg_to_recognized_sink_in_source": 76,
+    "missing_cpg": 30,
+    "no_recognized_sink_operation_in_source": 16
+  },
+  "interpretation": "If recognized CDG-to-operation opportunities exist outside the prefix, a broader ranked cluster search may recover evidence. If the source lacks CDG, recognized operations, or CDG-to-operation edges, changing the selector cannot recover guarded evidence without changing the graph source or extractor semantics."
+}

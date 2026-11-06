@@ -18,12 +18,12 @@ Muốn tái sinh input, chạy [01_prepare_b2_flip_prompts.ipynb](../04_Arm_B2_F
 | Bước | Số mẫu / hành động |
 |---|---|
 | Chuyển checkpoint | Giữ 5.202 output còn khớp hash/runtime; tách 33 output cũ đã đổi prompt vào lịch sử. |
-| Ưu tiên 1 | Inference lại 28 Devign validation; ghép với 2.704 score B2-flip validation còn dùng được để khóa ngưỡng phiên mới từ đủ 2.732 mẫu. |
-| Ưu tiên 2 | Inference lại 5 Devign test sau khi kiểm tra khóa ngưỡng mới. |
+| Ưu tiên 1 | Inference lại 28 Devign validation; ghép với 2.704 score tương thích để đủ 2.732 mẫu. B2-flip thừa kế tau B2 theo prereg-v1, không fit riêng. |
+| Ưu tiên 2 | Sau khi ghi bằng chứng tau B2 kế thừa và kiểm tra identity, inference lại 5 Devign test. |
 | Tiếp tục | Inference 4.776 mẫu chưa chạy bằng prompt mới; 33 Devign test đổi demo nhưng chưa inference nằm trong nhóm này. |
 | Tổng LLM bổ sung | **4.809 = 33 lượt sửa + 4.776 lượt còn thiếu**. |
 
-REVEAL validation đã đủ và prompt không đổi: khóa ngưỡng mới từ score B2-flip của đủ 2.273 mẫu; không lấy ngưỡng hoặc response B2 thay cho B2-flip. Mỗi test đều được kiểm tra khóa của đúng dataset, arm, phiên validation và runtime.
+REVEAL validation đã đủ và prompt không đổi. Theo prereg-v1, B2-flip kế thừa tau B2: Devign tau=0.70 từ khóa B2 frozen-donor hiện hành; ReVeal tau=0.12 từ khóa B2 hiện hành. Không fit riêng B2-flip. Mỗi test chỉ chạy sau khi ghi entry kế thừa đúng identity và validation prompt-set của B2-flip.
 
 Nếu hết giờ giữa hàng đợi 33 mẫu, checkpoint giữ `migration_plan.json` và record mới đã fsync. Lượt sau chỉ sửa phần chưa hoàn tất rồi tiếp tục phần thiếu. Model/tokenizer/backend/seed hoặc hash ngoài hai phiên đã biết bị từ chối. Bundle cũ có thể còn gắn trong Input nhưng không được chọn làm input mới.
 
@@ -32,10 +32,10 @@ Nếu hết giờ giữa hàng đợi 33 mẫu, checkpoint giữ `migration_plan
 - Variant: `b2_flip_frozen_donor_v1`.
 - Donor: `research_freeze_20261101`; snapshot SHA-256 `e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448`.
 - Bundle đầy đủ: **10.011** prompt; thay đổi 28 Devign validation và 38 Devign test; REVEAL 0.
-- Output mới: `/kaggle/working/grace_b2_flip_frozen_donor_20261101_9h35/`.
-- Ngưỡng mới: `OUT_ROOT/thresholds.json`, tách khỏi khóa lịch sử local.
+- Output mới: `/kaggle/working/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/`.
+- `OUT_ROOT/thresholds.json` ghi tau kế thừa từ B2 cùng hash nguồn; không tối ưu tau bằng B2-flip.
 - Bản gốc: `history/original_checkpoint.zip`; record cũ bị thay: `history/stale_records.jsonl`.
-- Hết giờ/lỗi backend: notebook đóng gói checkpoint mới thành `grace_b2_flip_checkpoint.zip`. Ngân sách vẫn 9 giờ 35 phút, dự phòng 5 phút; mẫu đang chạy có thể vượt mốc dừng tạo record.
+- Mỗi session đặt deadline 9 giờ 30 phút, dành 10 phút cuối đóng gói checkpoint. Kaggle công bố session GPU tối đa 12 giờ; ngân sách runner để lại 2 giờ 30 phút. Timeout/backend error đóng gói record đã fsync thành `grace_b2_flip_checkpoint.zip` để resume.
 
 ## Kiểm tra đã thực hiện
 

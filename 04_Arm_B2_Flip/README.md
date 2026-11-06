@@ -25,13 +25,13 @@ Notebook [02_kaggle_qwen_q4_b2_flip.ipynb](notebooks/02_kaggle_qwen_q4_b2_flip.i
 Với checkpoint I-06, runtime thực hiện:
 
 1. Xác minh model/tokenizer/backend/seed, ID/nhãn/hash từng record và nguồn prompt. **Giữ 5.202 output còn tương thích**, đưa 33 output cũ đã đổi prompt sang lịch sử.
-2. Inference lại **28 Devign validation**; ghép đủ **2.732 validation** và khóa ngưỡng phiên mới tại output mới. REVEAL validation đã đủ nên được khóa từ dữ liệu đầy đủ tương thích của chính arm B2-flip.
-3. Inference lại **5 Devign test** đã đổi prompt. Toàn bộ **33 lượt sửa** hoàn thành trước khi chạy phần test còn thiếu.
-4. Tiếp tục **4.776 mẫu chưa chạy** bằng prompt mới, trong đó có 33 Devign test đổi demo chưa từng inference. Tổng số lượt LLM bổ sung là **4.809**.
+2. Inference lại **28 Devign validation**; giữ 2.704 score tương thích để đủ **2.732 validation**. ReVeal validation đã đủ và được giữ.
+3. Theo prereg-v1, **B2-flip thừa kế tau B2** thay vì fit ngưỡng riêng: Devign `tau=0.70` từ B2 frozen-donor; ReVeal `tau=0.12` từ khóa B2 hiện hành. Runtime ghi bằng chứng kế thừa sau khi validation đầy đủ/identity khớp, rồi mới cho phép test.
+4. Sau đó inference 5 Devign test đã đổi prompt rồi tiếp tục **4.776 mẫu chưa chạy**. Tổng số lượt LLM bổ sung là **4.809**.
 
-Output mới: `/kaggle/working/grace_b2_flip_frozen_donor_20261101_9h35/`. Có `migration_plan.json`, bản checkpoint I-06 trong `history/original_checkpoint.zip`, record cũ bị thay trong `history/stale_records.jsonl`, `records.jsonl` hiện hành, run manifests và `thresholds.json` riêng. Không ghép response của B2 vào B2-flip.
+Output mới: `/kaggle/working/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/`. Có `migration_plan.json`, checkpoint I-06 trong `history/original_checkpoint.zip`, record cũ bị thay trong `history/stale_records.jsonl`, records hiện hành, run manifests và `thresholds.json` ghi threshold được kế thừa từ B2.
 
-Hết ngân sách **9 giờ 35 phút** (chừa 5 phút đóng gói), hoặc backend báo lỗi, notebook vẫn đóng gói những record đã lưu thành `grace_b2_flip_checkpoint.zip`. Một mẫu đang chạy có thể vượt thời điểm dừng. Phiên Kaggle sau gắn checkpoint mới này: hàng đợi sửa được giữ, mẫu đã hoàn thành đúng prompt mới được bỏ qua, rồi tiếp tục phần còn thiếu.
+Mỗi session có ngân sách **9 giờ 30 phút**, dừng nhận inference mới trước 10 phút cuối để đóng gói checkpoint; Kaggle hiện giới hạn session CPU/GPU ở 12 giờ. Nếu hết ngân sách hoặc backend lỗi, tải `grace_b2_flip_checkpoint.zip` và gắn vào session sau để resume các mẫu còn thiếu.
 
 ## Kiểm tra local
 

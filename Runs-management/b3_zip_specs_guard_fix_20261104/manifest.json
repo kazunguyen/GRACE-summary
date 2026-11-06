@@ -1,0 +1,473 @@
+{
+  "status": "candidate_not_confirmatory_ready",
+  "source": {
+    "path": "Runs-management/b3_zip_specs_candidate_20261104/manifest.json",
+    "sha256": "cebffdd94a9fb6d07aad0fb7721a24ab9963acfa64e469c3923db42c30abeb4c"
+  },
+  "guard_review": {
+    "path": "Runs-management/b3_zip_guard_review_20261104.json",
+    "sha256": "f5464709fea3f178b4e31dfbda67bbc8d265ef072b71bdf823e9956b24ceb4aa"
+  },
+  "only_key_difference_changed": true,
+  "pair_reselection": false,
+  "llm_calls": 0,
+  "datasets": [
+    {
+      "dataset": "devign",
+      "counts": {
+        "security_relevance_not_verified": 1835,
+        "no_supported_difference": 891,
+        "verified_visible_contrast": 6
+      },
+      "corrections": [
+        {
+          "id": "devign:validation:2981",
+          "donor_pair": [
+            "devign:train:3577",
+            "devign:train:11125"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "explicit_api_limit",
+          "snippets": [
+            "strncpy(s->drive_serial_str, serial, sizeof(s->drive_serial_str))",
+            "strcpy(s->drive_model_str, \"QEMU DVD-ROM\")"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (bdrv_get_type_hint(bs) == BDRV_TYPE_CDROM)`. The Non-vulnerable example shows the conditional check `if (kind == IDE_CD)`.",
+          "new_explanation": "The Vulnerable example uses `strncpy(s->drive_serial_str, serial, sizeof(s->drive_serial_str))`, which takes an explicit size/count argument. The Non-vulnerable example uses `strcpy(s->drive_model_str, \"QEMU DVD-ROM\")`, which takes no explicit size/count argument.",
+          "hashes_before_after": {
+            "B3": [
+              "36ebecb719926398a9e99577f6349ffad750d4d90c56e4988693aa88c66e4d01",
+              "47ffc58933c5659136929977c79736a83e306e356bdc661c039e6e71ce29056f"
+            ],
+            "B3-swap": [
+              "45ffd5df84bc651749c887913ba28221715fba07294adad08e9ababf23d4cbfb",
+              "7f6ed7830071325d4e053a9aeea239ce4ead421fc21f2aa7d6b837327b8ab9d6"
+            ],
+            "B3-flip": [
+              "8a2e79ca83e07419a7b1640b50b8ffd1d6a240b5139b36627a4f92db0a1a51fd",
+              "fb8e0536ffbc399aa132d4b4102a2647d174e419abd1fb80da6f384120dfca25"
+            ]
+          }
+        },
+        {
+          "id": "devign:validation:4971",
+          "donor_pair": [
+            "devign:train:13670",
+            "devign:train:26973"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "bound_equality",
+          "snippets": [
+            "if (offset > 0x200)",
+            "if (offset >= 0x200)"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (offset > 0x200)`. The Non-vulnerable example shows the conditional check `if (offset >= 0x200)`.",
+          "new_explanation": "The Vulnerable example uses `if (offset > 0x200)` and the Non-vulnerable example uses `if (offset >= 0x200)`. The two comparisons differ in whether equality satisfies the condition.",
+          "hashes_before_after": {
+            "B3": [
+              "feb0fbe3887bc4da83ea9e754a07ac9ccaa61b4b3416063f68ad52b479ed6640",
+              "b32c4337b00dad4c4d62988dc9b77fe0105022f9ab2ccc5a2b00120197d4b3e7"
+            ],
+            "B3-swap": [
+              "ca5334fa2785cf1638eab5d027d5a28ccfd1c5eb3cf4cf77b48d54b0f9649846",
+              "7e5ceae278d70da11454ebf89afc8f06d12b88aec2f40c247cf467b72ca62af5"
+            ],
+            "B3-flip": [
+              "cb118234935bc837b2481fc0de256a5d441d519ef15f63322976dba4958c335d",
+              "1fb337fc789411e464e6b36c9ce349b4b7501ddfb5003cbd82bf391cb2e99f31"
+            ]
+          }
+        },
+        {
+          "id": "devign:validation:7690",
+          "donor_pair": [
+            "devign:train:22584",
+            "devign:train:11952"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "bound_equality",
+          "snippets": [
+            "if (num_sg > VIRTQUEUE_MAX_SIZE)",
+            "if (num_sg >= VIRTQUEUE_MAX_SIZE)"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (num_sg > VIRTQUEUE_MAX_SIZE)`. The Non-vulnerable example shows the conditional check `if (num_sg >= VIRTQUEUE_MAX_SIZE)`.",
+          "new_explanation": "The Vulnerable example uses `if (num_sg > VIRTQUEUE_MAX_SIZE)` and the Non-vulnerable example uses `if (num_sg >= VIRTQUEUE_MAX_SIZE)`. The two comparisons differ in whether equality satisfies the condition.",
+          "hashes_before_after": {
+            "B3": [
+              "cb2c6575d3cf375a760d9dc2d30dbcc6b495adc5a2db449284479d06f74f48dd",
+              "6e48359c03a5cd36de75883a4077e45c53d3238e3fe57ec3c434ca2d0d257640"
+            ],
+            "B3-swap": [
+              "f176bb40ea6dddd9d83510995125b08430109777611ae2ad5156e118fde5d5cb",
+              "2fee961b9832cb606cc4f47e9a9d0ae16ace851d245c71ee2c60513d97d81e27"
+            ],
+            "B3-flip": [
+              "5e43a8cc1eb874adc6526ee48174985906aedbb5fb00726d99683fbf2757d9ea",
+              "608963c74ad3d8f920633807067e824e5da5752e2292a126d5ebafe47596d2ad"
+            ]
+          }
+        },
+        {
+          "id": "devign:validation:7819",
+          "donor_pair": [
+            "devign:train:22623",
+            "devign:train:13411"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "bound_equality",
+          "snippets": [
+            "if (offset > 0x200)",
+            "if (offset >= 0x200)"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (offset > 0x200)`. The Non-vulnerable example shows the conditional check `if (offset >= 0x200)`.",
+          "new_explanation": "The Vulnerable example uses `if (offset > 0x200)` and the Non-vulnerable example uses `if (offset >= 0x200)`. The two comparisons differ in whether equality satisfies the condition.",
+          "hashes_before_after": {
+            "B3": [
+              "b3a1d22b8bedb6e47d41775408fb2f518b68c3df73316601a16a673d7acaf490",
+              "1240f75855d290e218426a82ed54f62104f5a302d7a563d7e7878de73ddcb331"
+            ],
+            "B3-swap": [
+              "ae6a5d966c07bfa61abbcd9c3630b081e0722e5bbccd2e663ce6c3ce05cf908c",
+              "f41a1f251d6bb168df761e7062d88385a9453b6151ac1a23af05403f50b3ae14"
+            ],
+            "B3-flip": [
+              "29253c6e60a40dd6c61c804c0c4a8644ef227cbc721d168a8266ec9154b0a469",
+              "8e59b9da2ab165d1b29055ff2ccb32641adc2871083800f7f4f65483b2e023ba"
+            ]
+          }
+        },
+        {
+          "id": "devign:validation:12093",
+          "donor_pair": [
+            "devign:train:5349",
+            "devign:train:6939"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "null_guard",
+          "snippets": [
+            "&dev->qdev",
+            "if (!dev) {"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (strstr(devname, \"auto:\"))`. The Non-vulnerable example shows the conditional check `if (p1++)`.",
+          "new_explanation": "The Vulnerable example takes the address of dev->qdev after usb_create without a visible null check for dev. The Non-vulnerable example returns NULL when dev is null before taking the address of dev->qdev. That branch prevents the member access on a null result.",
+          "hashes_before_after": {
+            "B3": [
+              "07e36063f9f4f3e17c5d45ed0fe067feec6221cb2f4af2dd5d38fe80c67991e2",
+              "104030f8c45d193a49cc38e0b5f326acdf27fe0685d33df15f7a59dcc60b96f6"
+            ],
+            "B3-swap": [
+              "abcb06ce33c7bd4972c2388a1137944788eae2e379ce3ad7c14e2c65a2ce0d7e",
+              "2a9bf682ca15909f78e1f3bb5589a68b7ae3e6515523e2be74d2b66f85396123"
+            ],
+            "B3-flip": [
+              "835b8a8e27490395986308fc99d05c7d9ef7b4b6e7f51bf81bda04e913675f89",
+              "b56656966b8c514e993cffc9ce1312340075a9d67bdfd836b826d9a9c35f5725"
+            ]
+          }
+        },
+        {
+          "id": "devign:validation:15931",
+          "donor_pair": [
+            "devign:train:6773",
+            "devign:train:997"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "null_guard",
+          "snippets": [
+            "if (s->write_flag)",
+            "if(!s)"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if ((buffer_start = s->pos - buffer_size) > buf_size)`. The Non-vulnerable example shows the conditional check `if(!s)`.",
+          "new_explanation": "The Vulnerable example reads s->write_flag before a visible null check for s. The Non-vulnerable example returns AVERROR(EINVAL) when s is null before reading its members. The early return prevents a null pointer dereference on that path.",
+          "hashes_before_after": {
+            "B3": [
+              "f97d4b244aa86465d79d6adae3e832ec940eba6b570ac97f26971f78580f5b63",
+              "75532b4c177816735f63a542c7765c3f6207c7bc5f9be84bf41b49d2a13ecee8"
+            ],
+            "B3-swap": [
+              "c45265c101b100558f42e07f357ba34ba1cc9893d43d3f43aa7d65dafc71b9a0",
+              "46bf35dc921ef681cdd346c77d8d148cef4f7c3a0300f9bbb621a31f95eda8f6"
+            ],
+            "B3-flip": [
+              "166c6a152e59d8e2f3d22e0afebb08ab5891fce86e736afdf12a3691356e2cf1",
+              "8e452d0551ee47d13c55935befefa368d71d4ef617eb64bf5de32b148818fd4e"
+            ]
+          }
+        }
+      ],
+      "sets": [
+        {
+          "dataset": "devign",
+          "arm": "B3",
+          "rows": 2732,
+          "changed_prompt_texts": 6,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3/42/prompts.jsonl",
+            "sha256": "a3ee9d240581e73909a22a2566d0042b86abe7d4646f4cf47062640e07f5d620"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3/42/audit_summary.json",
+            "sha256": "cfbe461e9725acc1f57bffba42604111c0417a2dab8fedd46680f62881a61809"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3/42/audit_rows.csv",
+            "sha256": "a24f1273bfe7a945bd68507f486ae46bd37e08b39a8bb53ec06ed4ccb787c06b"
+          },
+          "tokens_p50": 2467.0,
+          "tokens_p95": 6161.049999999998,
+          "tokens_max": 7624,
+          "rate_demo_empty": 0.006954612005856516,
+          "rate_graph_missing": 0.0010980966325036604,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-nodiff",
+          "rows": 2732,
+          "changed_prompt_texts": 0,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-nodiff/42/prompts.jsonl",
+            "sha256": "b0e141d8aede034a6519ee41b5e5880eacae5cf52cb347a5cb2095e4986d21b6"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-nodiff/42/audit_summary.json",
+            "sha256": "ad1533f16addb21f60b7091421330ebd5f2ce8b18c381e11958e41d46dad5de3"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-nodiff/42/audit_rows.csv",
+            "sha256": "5545b87083470b9611d36004e9b9943443ab5534d16aeb007b380ffd56980270"
+          },
+          "tokens_p50": 2432.0,
+          "tokens_p95": 6118.649999999997,
+          "tokens_max": 7582,
+          "rate_demo_empty": 0.006954612005856516,
+          "rate_graph_missing": 0.0010980966325036604,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-swap",
+          "rows": 2732,
+          "changed_prompt_texts": 6,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-swap/42/prompts.jsonl",
+            "sha256": "a2710fad1dcc8ac2c6a142eecdcc7049089a5e812dc39b3d50fdf325c4158034"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-swap/42/audit_summary.json",
+            "sha256": "0298094858b7e63ae0328fba5ea52a38955d6f441108265fd92d9df560c08a4b"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-swap/42/audit_rows.csv",
+            "sha256": "267678604d77d951e687400968fcfab4ee33658892163461b04f59042ca27a56"
+          },
+          "tokens_p50": 2467.0,
+          "tokens_p95": 6161.049999999998,
+          "tokens_max": 7624,
+          "rate_demo_empty": 0.006954612005856516,
+          "rate_graph_missing": 0.0010980966325036604,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-flip",
+          "rows": 2732,
+          "changed_prompt_texts": 6,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-flip/42/prompts.jsonl",
+            "sha256": "7d2de994e5fa57f6ae17bb71011c7e00f03f80d081becfe773958132e09b9a70"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-flip/42/audit_summary.json",
+            "sha256": "b1ea3b38ce0d21522b664a81e0a52e2a268c4b3ebe4cdaaaa0fd8986083685de"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/devign/validation/B3-flip/42/audit_rows.csv",
+            "sha256": "e61c1c778235992a27d1fb5bdd48574b3363ac85aed19a877f4e6c421f3d4b72"
+          },
+          "tokens_p50": 2467.0,
+          "tokens_p95": 6161.049999999998,
+          "tokens_max": 7624,
+          "rate_demo_empty": 0.006954612005856516,
+          "rate_graph_missing": 0.0010980966325036604,
+          "unresolved_label_flags": 0
+        }
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "counts": {
+        "no_supported_difference": 935,
+        "security_relevance_not_verified": 1336,
+        "verified_visible_contrast": 2
+      },
+      "corrections": [
+        {
+          "id": "reveal:validation:1238",
+          "donor_pair": [
+            "reveal:train:16916",
+            "reveal:train:7635"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "index_guard",
+          "snippets": [
+            "bytecode = buff [ operand_address ] ;",
+            "if ( operand_address >= UDVM_MEMORY_SIZE ) return - 1 ;"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if ( test_bits == 2 )`. The Non-vulnerable example shows the conditional check `if ( operand_address >= UDVM_MEMORY_SIZE )`.",
+          "new_explanation": "The Vulnerable example reads buff[operand_address] without a preceding visible check against UDVM_MEMORY_SIZE. The Non-vulnerable example returns -1 at or above that limit before the same read, so that access is skipped for those indices.",
+          "hashes_before_after": {
+            "B3": [
+              "70272ad1cdd6979d6d4953e093002012bef14c899a0c7e233e16ebb41fc56b98",
+              "4e8aa9fefbb47f0c835531a39bcb23d8006dadc53088d2e69dc17800a9c2e975"
+            ],
+            "B3-swap": [
+              "01500c3413bec854baef23cf0b5bf406eb0dabae19b9c9e45156e36e3fb3c45a",
+              "f14e9fd99d5766a58efe409f60c909e3ecbff80b1d9ca14026c48482aef7ca4d"
+            ],
+            "B3-flip": [
+              "bb9dc35ef87ebc1ab76390b1598f0df519ac32281cbd0adc64c260877df39b99",
+              "cc94542b1bd2b948dec7851bd64abae5b46054afe53128790ef554d91e94e4ec"
+            ]
+          }
+        },
+        {
+          "id": "reveal:validation:1656",
+          "donor_pair": [
+            "reveal:train:16916",
+            "reveal:train:15002"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "index_guard",
+          "snippets": [
+            "bytecode = buff [ operand_address ] ;",
+            "if ( operand_address >= UDVM_MEMORY_SIZE ) return - 1 ;"
+          ],
+          "old_explanation": "No supported security-relevant difference was identified in the displayed excerpts.",
+          "new_explanation": "The Vulnerable example reads buff[operand_address] without a preceding visible check against UDVM_MEMORY_SIZE. The Non-vulnerable example returns -1 at or above that limit before the same read, so that access is skipped for those indices.",
+          "hashes_before_after": {
+            "B3": [
+              "691888ecb5497ee6cfcf57a32132280112f1e90429dd6dd16a671274a1ec01e2",
+              "bff17008c04b504e69770aca64d22b81e413cbad77996111034a7cc84f8daa54"
+            ],
+            "B3-swap": [
+              "f41698085728ca0170fb3d6cfead30c72f9ba77eeea12e92ffcba3b16a13360c",
+              "e5f02c42050a27184e3a0a90d5197912ea02e58b7fce74eba128597a5626dac5"
+            ],
+            "B3-flip": [
+              "af9d308ef6790555634277a1e5a0bca07a79e6a74b1ea2d341cffaba5faf5291",
+              "71fae328699ea109fb5ea0c6afc45e03510ea7cb062b1606e491c1edb07b4683"
+            ]
+          }
+        }
+      ],
+      "sets": [
+        {
+          "dataset": "reveal",
+          "arm": "B3",
+          "rows": 2273,
+          "changed_prompt_texts": 2,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3/42/prompts.jsonl",
+            "sha256": "1c854b60d60fd14ab8ec6b9e5c8352365288710716c15f73e756dfb4e47f4ded"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3/42/audit_summary.json",
+            "sha256": "852b4a7fd2acc2d6d769a0e8ce75be9868c89925dbe8dfc239277913fd9e105d"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3/42/audit_rows.csv",
+            "sha256": "64b6317942b8cd359744ab0cf3d570937c14d465eb43029f76ae921e2aa77dd7"
+          },
+          "tokens_p50": 2144.0,
+          "tokens_p95": 5025.000000000001,
+          "tokens_max": 7610,
+          "rate_demo_empty": 0.003959524857017158,
+          "rate_graph_missing": 0.011878574571051475,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-nodiff",
+          "rows": 2273,
+          "changed_prompt_texts": 0,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3-nodiff/42/prompts.jsonl",
+            "sha256": "f40e903c875d704af07d6a49972e6eedaa83898c139aa95befa30004a8734513"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-nodiff/42/audit_summary.json",
+            "sha256": "a567e4ae1fd50b534394987a6ef1ebcc493777426346ef315359f6ba08120ad9"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3-nodiff/42/audit_rows.csv",
+            "sha256": "5fc72166eafb2eb0af1e1699dc17acddbe12918f7f49ad5d933eb8a0050cb6e8"
+          },
+          "tokens_p50": 2105.0,
+          "tokens_p95": 4987.6,
+          "tokens_max": 7582,
+          "rate_demo_empty": 0.003959524857017158,
+          "rate_graph_missing": 0.011878574571051475,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-swap",
+          "rows": 2273,
+          "changed_prompt_texts": 2,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3-swap/42/prompts.jsonl",
+            "sha256": "0a12677d78cde94f10034eb433d061288288bdc554ce1e807dc44fbe06b03f2f"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-swap/42/audit_summary.json",
+            "sha256": "48da131ca4d705ce59fadc8016f3ecd08d6698374662eccfd5a341a110f5b629"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3-swap/42/audit_rows.csv",
+            "sha256": "50eb7f4b9f5ad9c2096ac7e68e23b182d5c27569023cbd27ffa7e10c0b29e823"
+          },
+          "tokens_p50": 2144.0,
+          "tokens_p95": 5025.000000000001,
+          "tokens_max": 7610,
+          "rate_demo_empty": 0.003959524857017158,
+          "rate_graph_missing": 0.011878574571051475,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-flip",
+          "rows": 2273,
+          "changed_prompt_texts": 2,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3-flip/42/prompts.jsonl",
+            "sha256": "cc8a969760373172a238122fa731581549edd53c117cabcb7e9f68f116446845"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-flip/42/audit_summary.json",
+            "sha256": "9b65ab24b5e7f880ae6c4ca6acb861f71285bad07233e5824f435ef6e276104e"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_guard_fix_20261104/reveal/validation/B3-flip/42/audit_rows.csv",
+            "sha256": "4983f9e57c3346b66d9eef9650aa5f7c3297ad01dad2d100edb7aa5c8d6e7f48"
+          },
+          "tokens_p50": 2144.0,
+          "tokens_p95": 5025.000000000001,
+          "tokens_max": 7610,
+          "rate_demo_empty": 0.003959524857017158,
+          "rate_graph_missing": 0.011878574571051475,
+          "unresolved_label_flags": 0
+        }
+      ]
+    }
+  ],
+  "contrast_rule": {
+    "path": "D:\\JUNIOR\\LabThayTho\\tmp\\grace_b3_withdrawn_20261104\\Runs-management\\b3_security_pairing.py",
+    "sha256": "5c671c21013af99cadab755e14ed1204f111add1614773c3419663cc35c8af3c"
+  },
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "tokenizer_file_sha256": {
+    "tokenizer.json": "19564a48c4f71a2a1b937cce34c737a1e662b171c5f5d7edf641a15cd896f07d",
+    "tokenizer_config.json": "60f6e8cb15c98dd07300a3cc465ea662de245d2095e4245616af21b2324db3fc"
+  }
+}

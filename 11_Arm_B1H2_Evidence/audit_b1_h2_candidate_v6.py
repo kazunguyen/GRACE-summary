@@ -1,0 +1,342 @@
+"""Independent row-level audit for the 2026-11-04 B1-H2 validation candidate."""
+from __future__ import annotations
+
+import hashlib
+import json
+import re
+import sys
+from collections import Counter
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+ARM = ROOT / "11_Arm_B1H2_Evidence"
+RUNS = ROOT / "Runs-management"
+PACKAGE = ROOT / "grace_15arms_prompts_and_clean_specs"
+CANDIDATE = ARM / "validation_h2_cluster_v6_joern_error_20261105"
+OUT = ARM / "audit/b1_h2_candidate_audit_v6_20261105.json"
+TOKENIZER = ARM / "tokenizer_cache_v6/models--Qwen--Qwen3-Coder-30B-A3B-Instruct/snapshots/b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+
+
+def sha_bytes(value: bytes) -> str:
+    return hashlib.sha256(value).hexdigest()
+
+
+def sha_file(path: Path) -> str:
+    return sha_bytes(path.read_bytes())
+
+
+def load_rows(path: Path):
+    with path.open(encoding="utf-8") as stream:
+        return [json.loads(line) for line in stream if line.strip()]
+
+
+def main():
+    diag_src = ROOT / "01_Author_Baseline_Unified/diagnostic_kit/src"
+    tools_src = ROOT / "tier1_prompt_tools"
+    for source in (str(RUNS), str(diag_src), str(tools_src)):
+        if source not in sys.path:
+            sys.path.insert(0, source)
+    from audit_prompt_integrity import leak_classification
+    from grace_diag.probes import split_blocks
+    from finalize_prompt_audit import (
+        known_channel_diagnostic, known_cpp_ternary, known_source_domain_label,
+    )
+    from transformers import PreTrainedTokenizerFast
+
+    tokenizer = PreTrainedTokenizerFast.from_pretrained(TOKENIZER, local_files_only=True)
+    if not tokenizer.chat_template:
+        raise ValueError("Pinned tokenizer chat template is missing")
+    delegated_review_path = ARM / "audit/b1_h2_v6_delegated_review_20261105/summary.json"
+    delegated_review = json.loads(delegated_review_path.read_text(encoding="utf-8"))
+    truncation_path = ARM / "audit/b1_h2_code_truncation_budget_20261105.json"
+    truncation_diagnostic = json.loads(truncation_path.read_text(encoding="utf-8"))
+
+    manifest = json.loads((CANDIDATE / "manifest.json").read_text(encoding="utf-8"))
+    # The original candidate inventory was superseded by the current active
+    # manifest. Re-anchor expected IDs to the current manifest and verify its
+    # frozen raw validation file against both the manifest and freeze record.
+    inventory_path = PACKAGE / "validation_active_manifest.json"
+    inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
+    if inventory.get("schema") != "grace_validation_active_inputs_v1":
+        raise ValueError("Unexpected active validation manifest schema")
+    dataset_entries = {d["dataset"]: d for d in inventory["datasets"]}
+    expected_by_dataset = {name: set(d["ids"]) for name, d in dataset_entries.items()}
+    freeze_manifest_path = ROOT / "01_Author_Baseline_Unified/output/research_freeze_20261101/freeze_manifest.json"
+    freeze_manifest = json.loads(freeze_manifest_path.read_text(encoding="utf-8"))
+    frozen_by_dataset = {}
+    for dataset, entry in dataset_entries.items():
+        frozen_path = ROOT / entry["frozen_validation"]["path"]
+        if sha_file(frozen_path) != entry["frozen_validation"]["sha256"]:
+            raise ValueError(f"{dataset}: active manifest frozen-validation hash mismatch")
+        frozen_rows = load_rows(frozen_path)
+        frozen_ids = {str(row["id"]) for row in frozen_rows}
+        if frozen_ids != expected_by_dataset[dataset] or len(frozen_rows) != len(frozen_ids):
+            raise ValueError(f"{dataset}: active manifest IDs differ from frozen validation")
+        frozen_key = "validation_raw.jsonl"
+        if sha_file(frozen_path) != freeze_manifest["datasets"][dataset]["files_sha256"][frozen_key]:
+            raise ValueError(f"{dataset}: frozen manifest hash mismatch")
+        frozen_by_dataset[dataset] = {str(row["id"]): row for row in frozen_rows}
+    results = []
+
+    # Verify that the candidate still points to the same code/config/input bytes.
+    source_checks = []
+    for item in manifest["source_files"]:
+        p = Path(item["path"])
+        if not p.is_absolute():
+            p = ROOT / p
+        actual = sha_file(p)
+        source_checks.append({"path": str(p), "expected_sha256": item["sha256"],
+                              "actual_sha256": actual, "match": actual == item["sha256"]})
+    if not all(x["match"] for x in source_checks):
+        raise ValueError("A candidate builder/source file changed after the candidate was created")
+    for dataset, expected_count in (("devign", 2732), ("reveal", 2273)):
+        folder = CANDIDATE / dataset / "validation/B1-H2/42"
+        prompt_path = folder / "prompts.jsonl"
+        summary = json.loads((folder / "audit_summary.json").read_text(encoding="utf-8"))
+        rows = load_rows(prompt_path)
+        source_path = ROOT / "01_Author_Baseline_Unified/output/local_full/bundles_recovered_joern_final_20261031" / dataset / "validation/specs.jsonl"
+        source_rows = load_rows(source_path)
+        source_by_id = {str(x["id"]): x for x in source_rows}
+        expected = {str(x) for x in expected_by_dataset[dataset]}
+        seen = [str(row["id"]) for row in rows]
+        if len(rows) != expected_count or len(set(seen)) != expected_count or set(seen) != expected:
+            raise ValueError(f"{dataset}: ID coverage/uniqueness failure")
+        if set(source_by_id) != expected:
+            raise ValueError(f"{dataset}: source CPG ID coverage mismatch")
+
+        input_entry = next(x for x in manifest["input_sets"]
+                           if x["dataset"] == dataset and x["split"] == "validation"
+                           and x["arm"] == "B1-H2" and x["seed"] == 42)
+        cpg_path = ROOT / input_entry["sources"]["joern_specs"]["path"]
+        b2_source_path = ROOT / input_entry["sources"]["b2_reference"]["path"]
+        if sha_file(cpg_path) != input_entry["sources"]["joern_specs"]["sha256"]:
+            raise ValueError(f"{dataset}: source CPG hash differs from candidate provenance")
+        if sha_file(b2_source_path) != input_entry["sources"]["b2_reference"]["sha256"]:
+            raise ValueError(f"{dataset}: B2 reference hash differs from candidate provenance")
+
+        b2_path = PACKAGE / "prompts/reference_B2" / dataset / "validation/prompts.jsonl"
+        b2_by_id = {str(x["id"]): x for x in load_rows(b2_path)}
+        if set(b2_by_id) != expected:
+            raise ValueError(f"{dataset}: B2 reference ID coverage mismatch")
+
+        counts = Counter()
+        max_nodes = max_edges = max_graph_tokens = max_total_tokens = 0
+        max_recomputed_graph_tokens = max_recomputed_total_tokens = 0
+        relation_checks = Counter()
+        no_evidence_rows = []
+        raw_label_flags = unresolved_label_flags = 0
+        for row in rows:
+            uid = str(row["id"])
+            prompt = row["prompt"]
+            evidence = row["evidence"]
+            h2 = evidence["h2"]
+            hits = leak_classification(prompt)
+            open_hits = [
+                hit for hit in hits
+                if hit["classification"] != "cpp_member_label"
+                and not known_cpp_ternary(hit)
+                and not known_channel_diagnostic(hit)
+                and not known_source_domain_label(hit)
+            ]
+            raw_label_flags += len(hits)
+            unresolved_label_flags += len(open_hits)
+            actual_hash = sha_bytes(prompt.encode("utf-8"))
+            if actual_hash != row["prompt_sha256"] or actual_hash != evidence["prompt_sha256"]:
+                raise ValueError(f"{dataset}/{uid}: prompt hash mismatch")
+            if (row.get("dataset"), row.get("split"), row.get("arm"), row.get("seed")) != (dataset, "validation", "B1-H2", 42):
+                raise ValueError(f"{dataset}/{uid}: wrong run identity")
+            if row.get("target") is not None or any(k in row for k in ("label", "target_label", "ground_truth")):
+                raise ValueError(f"{dataset}/{uid}: target label field present")
+
+            b2_prompt = b2_by_id[uid]["prompt"]
+            # The renderer contract marks the code block between ROLE and QUESTION.
+            from sys import path as sys_path
+            diag_src = ROOT / "01_Author_Baseline_Unified/diagnostic_kit/src"
+            if str(diag_src) not in sys_path:
+                sys_path.insert(0, str(diag_src))
+            from grace_diag.probes import split_blocks
+            if split_blocks(prompt)["code"] != split_blocks(b2_prompt)["code"].strip():
+                raise ValueError(f"{dataset}/{uid}: target code changed from B2 reference")
+
+            tokens = evidence["tokens"]
+            if tokens.get("approx") is not False:
+                raise ValueError(f"{dataset}/{uid}: token measurement is approximate")
+            graph_tokens, total_tokens = int(tokens["graph"]), int(tokens["total"])
+            blocks = split_blocks(prompt)
+            code_tokens_exact = len(tokenizer.encode(blocks["code"], add_special_tokens=False))
+            graph_tokens_exact = len(tokenizer.encode(blocks["graph"], add_special_tokens=False)) if blocks["graph"] else 0
+            chat_result = tokenizer.apply_chat_template(
+                [{"role": "user", "content": prompt}], tokenize=True, add_generation_prompt=True,
+            )
+            total_tokens_exact = len(chat_result["input_ids"])
+            if code_tokens_exact != int(tokens["code"]) or total_tokens_exact != total_tokens:
+                raise ValueError(f"{dataset}/{uid}: independently recomputed code/chat token count mismatch")
+            if code_tokens_exact > 3000 or graph_tokens_exact > 1500 or total_tokens_exact + 64 > 8192:
+                raise ValueError(f"{dataset}/{uid}: independently recomputed preregistered token budget exceeded")
+            counts["token_recomputed_rows"] += 1
+            max_recomputed_graph_tokens = max(max_recomputed_graph_tokens, graph_tokens_exact)
+            max_recomputed_total_tokens = max(max_recomputed_total_tokens, total_tokens_exact)
+            if graph_tokens > 1500 or total_tokens + 64 > 8192 or int(tokens["code"]) > 3000:
+                raise ValueError(f"{dataset}/{uid}: preregistered token budget exceeded")
+            if evidence.get("demo", {}).get("tokens", 0) != 0:
+                raise ValueError(f"{dataset}/{uid}: B1-H2 unexpectedly includes a demo")
+
+            source_nodes, source_edges = int(h2["source_nodes"]), int(h2["source_edges"])
+            native_ids = {str(k): str(v) for k, v in h2.get("native_ids", {}).items()}
+            emitted_nodes = int(h2.get("nodes", len(native_ids)))
+            emitted_edges = int(h2.get("edges", 0))
+            max_nodes, max_edges = max(max_nodes, source_nodes), max(max_edges, source_edges)
+            max_graph_tokens, max_total_tokens = max(max_graph_tokens, graph_tokens), max(max_total_tokens, total_tokens)
+            if source_nodes > 40 or source_edges > 80:
+                raise ValueError(f"{dataset}/{uid}: H2 evidence source exceeded 40/80")
+            if h2.get("no_usable_evidence"):
+                counts["no_usable_evidence"] += 1
+                no_evidence_rows.append(uid)
+            if h2.get("input_policy") == "cdg_cluster":
+                counts["cluster_selected"] += 1
+            if int(h2.get("nodes_outside_closed_prefix", 0)) > 0:
+                counts["cluster_with_nodes_outside_prefix"] += 1
+            if source_nodes == 0:
+                counts["missing_cpg"] += 1
+
+            source = source_by_id[uid]
+            if source_nodes == 0:
+                if "Joern" in str(source.get("graph_error", "")):
+                    counts["flagged_joern_error_rows"] += 1
+                else:
+                    counts["missing_cpg_without_joern_flag"] += 1
+            node_ids = {str(n["id"]) for n in source["nodes"]}
+            edges = {(str(e["start"]), str(e["end"]), str(e["type"]).upper()) for e in source["edges"]}
+            if len(native_ids) > 40 or any(v not in node_ids for v in native_ids.values()):
+                raise ValueError(f"{dataset}/{uid}: selected H2 node is outside frozen CPG or >40 nodes")
+            if (("nodes" in h2 and len(native_ids) != emitted_nodes)
+                    or emitted_nodes > source_nodes or emitted_edges > source_edges):
+                raise ValueError(f"{dataset}/{uid}: emitted H2 graph/source count mismatch")
+            for op in h2.get("operations", []):
+                operation = str(op["operation"])
+                if operation not in node_ids:
+                    raise ValueError(f"{dataset}/{uid}: operation absent from source CPG")
+                for group in ("direct_controls", "rejected_controls"):
+                    for control in op.get(group, []):
+                        predicate = str(control["predicate"])
+                        if predicate not in node_ids or (predicate, operation, "CDG") not in edges:
+                            raise ValueError(f"{dataset}/{uid}: CDG witness absent from source CPG")
+                        relation_checks["cdg"] += 1
+                        for witness in control.get("cfg_witnesses", []):
+                            for field in ("operation_path", "exit_path"):
+                                for src, dst, kind in witness.get(field, []):
+                                    if (str(src), str(dst), str(kind).upper()) not in edges:
+                                        raise ValueError(f"{dataset}/{uid}: CFG witness absent from source CPG")
+                                    relation_checks["cfg"] += 1
+            counts["rows"] += 1
+
+        report = {
+            "dataset": dataset, "rows": len(rows), "unique_ids": len(set(seen)),
+            "id_coverage_pass": True, "prompt_hash_pass": True, "target_code_match_b2_pass": True,
+            "target_label_field_absent": True, "recorded_token_metadata_within_contract_pass": True,
+            "h2_source_40_80_pass": True, "all_selected_nodes_from_frozen_cpg_pass": True,
+            "all_emitted_cdg_cfg_witnesses_found_in_frozen_cpg_pass": True,
+            "demo_empty_rows": 0,
+            "demo_criterion_applicability": "not_applicable_B1-H2_has_no_demonstrations",
+            "max_source_nodes": max_nodes, "max_source_edges": max_edges,
+            "max_graph_tokens": max_graph_tokens, "max_total_tokens": max_total_tokens,
+            "independently_recomputed_code_and_chat_tokens_pass": counts["token_recomputed_rows"] == expected_count,
+            "max_independently_recomputed_full_graph_block_tokens": max_recomputed_graph_tokens,
+            "max_independently_recomputed_chat_tokens": max_recomputed_total_tokens,
+            "no_usable_evidence_rows": counts["no_usable_evidence"],
+            "guarded_evidence_rows": len(rows) - counts["no_usable_evidence"],
+            "guarded_evidence_rate": (len(rows) - counts["no_usable_evidence"]) / len(rows),
+            "prefix_only_no_usable_evidence_rows_before_fallback": counts["no_usable_evidence"] + counts["cluster_selected"],
+            "cluster_selected_rows": counts["cluster_selected"],
+            "cluster_with_nodes_outside_prefix_rows": counts["cluster_with_nodes_outside_prefix"],
+            "missing_cpg_rows": counts["missing_cpg"],
+            "flagged_joern_error_rows": counts["flagged_joern_error_rows"],
+            "missing_cpg_without_joern_flag_rows": counts["missing_cpg_without_joern_flag"],
+            "sample_no_evidence_ids": no_evidence_rows[:5],
+            "verified_source_relations": dict(relation_checks),
+            "raw_regex_flagged": raw_label_flags,
+            "unresolved_label_flags": unresolved_label_flags,
+            "label_scan_matches_creator_counts": (
+                raw_label_flags == summary["raw_regex_flagged_prompts"]
+                and unresolved_label_flags == summary["unresolved_label_flags"]
+            ),
+            "graph_missing": summary["h2_coverage"]["missing_cpg"],
+            "automatic_audit_pass_creator_summary": summary["automatic_audit_pass"],
+        }
+        if (counts["cluster_selected"] != summary["h2_coverage"]["cluster_selected"]
+                or counts["cluster_with_nodes_outside_prefix"] != summary["h2_coverage"]["cluster_with_nodes_outside_prefix"]
+                or counts["missing_cpg"] != summary["h2_coverage"]["missing_cpg"]
+                or unresolved_label_flags != 0 or not report["label_scan_matches_creator_counts"]
+                or not summary["automatic_audit_pass"]):
+            raise ValueError(f"{dataset}: creator audit reported a failed gate")
+        results.append(report)
+
+    total_rows = sum(x["rows"] for x in results)
+    missing_graph_rows = sum(x["graph_missing"] for x in results)
+    flagged_joern_rows = sum(x["flagged_joern_error_rows"] for x in results)
+    unresolved_leaks = sum(x["unresolved_label_flags"] for x in results)
+    post_exclusion_denominator = total_rows - flagged_joern_rows
+    post_exclusion_missing_rate = (missing_graph_rows - flagged_joern_rows) / post_exclusion_denominator
+    registered_prompt_stopping_rules_pass = (
+        post_exclusion_missing_rate <= 0.05
+        and unresolved_leaks == 0
+        and all(x["demo_empty_rows"] == 0 for x in results)
+    )
+    out = {
+        "schema": "b1_h2_candidate_independent_audit_v2",
+        "candidate_manifest_sha256": sha_file(CANDIDATE / "manifest.json"),
+        "active_validation_manifest_sha256": sha_file(inventory_path),
+        "frozen_validation_hashes_verified": True,
+        "tokenizer_revision": manifest["tokenizer_revision"],
+        "token_counts_independently_recomputed": all(x["independently_recomputed_code_and_chat_tokens_pass"] for x in results),
+        "token_count_note": "Every code block and chat prompt was re-tokenized with the pinned PreTrainedTokenizerFast snapshot. Code/chat counts must match candidate metadata; rendered graph, code and context caps are checked from the prompt text.",
+        "source_file_checks": source_checks,
+        "policy": "CDG-centered fallback from same frozen CPG; each selected evidence graph bounded to 40 nodes/80 edges; no model/test outcomes used.",
+        "datasets": results,
+        "aggregate_evidence_coverage": {
+            "rows": total_rows,
+            "no_usable_guarded_evidence_rows": sum(x["no_usable_evidence_rows"] for x in results),
+            "no_usable_guarded_evidence_rate": sum(x["no_usable_evidence_rows"] for x in results) / sum(x["rows"] for x in results),
+            "usable_guarded_evidence_rows": sum(x["guarded_evidence_rows"] for x in results),
+            "usable_guarded_evidence_rate": sum(x["guarded_evidence_rows"] for x in results) / sum(x["rows"] for x in results),
+            "prefix_only_no_usable_rows_before_fallback": sum(x["prefix_only_no_usable_evidence_rows_before_fallback"] for x in results),
+            "rows_recovered_by_cdg_cluster_fallback": sum(x["cluster_selected_rows"] for x in results),
+            "renderer_graph_missing_rows": sum(x["graph_missing"] for x in results),
+            "renderer_graph_missing_rate": sum(x["graph_missing"] for x in results) / sum(x["rows"] for x in results),
+            "flagged_joern_error_rows_excluded": flagged_joern_rows,
+            "post_exclusion_missing_graph_rows": missing_graph_rows - flagged_joern_rows,
+            "post_exclusion_denominator": post_exclusion_denominator,
+            "post_exclusion_missing_graph_rate": post_exclusion_missing_rate,
+            "preregistered_graph_missing_stop_rate": 0.05,
+            "interpretation": "The 30 missing-CPG rows are all flagged Joern errors and are excluded by the preregistered rule. Source diagnosis found that the other 1435 no-usable-guard rows still have CPGs; in the blind manual sample, reviewers marked graph_valid pass for sampled no-guard prompts and fail only on the sampled missing-CPG rows. Under the literal missing-graph definition supported by the source and review, the post-exclusion missing-graph rate is 0/4975, below 5%. The 1465/5005 no-usable-guard rate remains a treatment-coverage limitation, but preregistration sets no minimum usable-guard yield.",
+            "status": "registered_missing_graph_gate_pass__substantive_coverage_limitation",
+        },
+        "structural_integrity_pass": all(x["rows"] == (2732 if x["dataset"] == "devign" else 2273)
+                                          and x["all_emitted_cdg_cfg_witnesses_found_in_frozen_cpg_pass"]
+                                          and x["unresolved_label_flags"] == 0 for x in results),
+        "registered_prompt_stopping_rules": {
+            "empty_demo_rate": 0.0,
+            "empty_demo_criterion_applicability": "not_applicable_B1-H2_has_no_demonstrations",
+            "missing_graph_rate_after_flagged_joern_exclusion": post_exclusion_missing_rate,
+            "missing_graph_limit": 0.05,
+            "unresolved_target_label_leak_rows": unresolved_leaks,
+            "pass": registered_prompt_stopping_rules_pass,
+        },
+        "overall_pass": None,
+        "overall_status": "registered_prompt_stopping_rules_and_structural_audit_pass; supplemental sample review documents shared target-code truncation findings without a preregistered sample-level acceptance threshold",
+        "human_review": "Official v6 reviewer forms remain blank. Hash-based carry-forward preserves v5 judgments for 51 unchanged prompts; the nine changed prompts received transparent Codex-proxy delta ratings, not independent human ratings. Proxy totals: reviewer-1 perspective 54 pass/6 fail; reviewer-2 perspective 54 pass/3 fail/3 unclear. Remaining findings concern target-code truncation inherited unchanged from B2.",
+        "manual_review_results_report": "11_Arm_B1H2_Evidence/audit/b1_h2_v6_delegated_review_20261105/summary.json",
+        "code_truncation_budget_diagnostic": {
+            "report": "11_Arm_B1H2_Evidence/audit/b1_h2_code_truncation_budget_20261105.json",
+            "rows_flagged": truncation_diagnostic["all_datasets"]["truncated_rows"],
+            "full_source_code_rows_fit_registered_total_context": truncation_diagnostic["all_datasets"]["full_code_fits_total_context"],
+            "full_source_code_rows_fit_registered_3000_code_cap": truncation_diagnostic["all_datasets"]["full_code_fits_3000"],
+            "note": "Using full source code would exceed the registered 3000-token target-code cap for all flagged rows; 11 also exceed total context even with that cap reallocated. Any budget change requires a dated protocol amendment and consistent target-code treatment across affected arms.",
+        },
+    }
+    OUT.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(out, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()

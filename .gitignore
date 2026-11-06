@@ -59,3 +59,9 @@ data/*
 data/specs/*
 !data/specs/*subset600.jsonl
 Runs-management/append_worklog_*.py
+
+# Oversized original ZIP specs retained locally; see local_specs_manifest.json
+/grace_15arms_prompts_and_clean_specs/specs/devign_test_15arms.jsonl
+/grace_15arms_prompts_and_clean_specs/specs/devign_validation_15arms.jsonl
+/grace_15arms_prompts_and_clean_specs/specs/reveal_test_15arms.jsonl
+/grace_15arms_prompts_and_clean_specs/specs/reveal_validation_15arms.jsonl

@@ -1,0 +1,34 @@
+{
+  "devign:validation:12093": {
+    "snippets": [
+      "&dev->qdev",
+      "if (!dev) {"
+    ],
+    "text": "The Vulnerable example takes the address of dev->qdev after usb_create without a visible null check for dev. The Non-vulnerable example returns NULL when dev is null before taking the address of dev->qdev. That branch prevents the member access on a null result.",
+    "rule": "null_guard"
+  },
+  "devign:validation:15931": {
+    "snippets": [
+      "if (s->write_flag)",
+      "if(!s)"
+    ],
+    "text": "The Vulnerable example reads s->write_flag before a visible null check for s. The Non-vulnerable example returns AVERROR(EINVAL) when s is null before reading its members. The early return prevents a null pointer dereference on that path.",
+    "rule": "null_guard"
+  },
+  "reveal:validation:1238": {
+    "snippets": [
+      "bytecode = buff [ operand_address ] ;",
+      "if ( operand_address >= UDVM_MEMORY_SIZE ) return - 1 ;"
+    ],
+    "text": "The Vulnerable example reads buff[operand_address] without a preceding visible check against UDVM_MEMORY_SIZE. The Non-vulnerable example returns -1 at or above that limit before the same read, so that access is skipped for those indices.",
+    "rule": "index_guard"
+  },
+  "reveal:validation:1656": {
+    "snippets": [
+      "bytecode = buff [ operand_address ] ;",
+      "if ( operand_address >= UDVM_MEMORY_SIZE ) return - 1 ;"
+    ],
+    "text": "The Vulnerable example reads buff[operand_address] without a preceding visible check against UDVM_MEMORY_SIZE. The Non-vulnerable example returns -1 at or above that limit before the same read, so that access is skipped for those indices.",
+    "rule": "index_guard"
+  }
+}

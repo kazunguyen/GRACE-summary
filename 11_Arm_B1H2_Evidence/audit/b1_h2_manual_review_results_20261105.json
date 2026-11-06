@@ -1,0 +1,191 @@
+{
+  "schema": "b1_h2_completed_manual_review_audit_v1",
+  "packet_path": "D:\\JUNIOR\\LabThayTho\\GRACE-summary\\11_Arm_B1H2_Evidence\\validation_h2_cluster_v5_20261104\\manual_review_20261105_v2",
+  "candidate_manifest_sha256": "e585c10ec95d12d3644ec598e8c4df2e6667942166a5c137c8b6f057ee3bd696",
+  "scope": "Checks completed forms against the blind sample IDs and prompt hashes; summarizes reviewer-entered judgments. Names and times are self-reported and are not independently authenticated by this script.",
+  "forms": {
+    "HuuHieu03": {
+      "file": "reviewer_1_hieu.csv",
+      "sha256": "3e571f7516639d386a9595338ac3c72d56a99bf268ceb7318e98d0e9cf95283f",
+      "rows": 60,
+      "self_reported_reviewed_at": [
+        "2026-11-05T19:30:00+07:00"
+      ],
+      "counts": {
+        "target_code_intact": {
+          "pass": 52,
+          "fail": 6,
+          "unclear": 2
+        },
+        "graph_valid": {
+          "pass": 51,
+          "fail": 9
+        },
+        "demo_valid": {
+          "not_applicable": 60
+        },
+        "no_target_label_leak": {
+          "pass": 60
+        },
+        "variant_correct": {
+          "pass": 51,
+          "fail": 9
+        },
+        "truncation_acceptable": {
+          "pass": 54,
+          "fail": 5,
+          "unclear": 1
+        },
+        "overall_verdict": {
+          "pass": 47,
+          "fail": 13
+        }
+      }
+    },
+    "Dung": {
+      "file": "reviewer_2_dung.csv",
+      "sha256": "684b08e6565ebd445bbd43d3cd12362686ec40a731fdfbcb6ba4097948c6f313",
+      "rows": 60,
+      "self_reported_reviewed_at": [
+        "2026-11-05T20:00:00+07:00"
+      ],
+      "counts": {
+        "target_code_intact": {
+          "pass": 54,
+          "fail": 3,
+          "unclear": 3
+        },
+        "graph_valid": {
+          "pass": 51,
+          "fail": 9
+        },
+        "demo_valid": {
+          "not_applicable": 60
+        },
+        "no_target_label_leak": {
+          "pass": 60
+        },
+        "variant_correct": {
+          "pass": 51,
+          "fail": 9
+        },
+        "truncation_acceptable": {
+          "pass": 54,
+          "fail": 3,
+          "unclear": 3
+        },
+        "overall_verdict": {
+          "pass": 47,
+          "fail": 10,
+          "unclear": 3
+        }
+      }
+    }
+  },
+  "duplicate_alias_files": {
+    "reviewer_1_filled.csv": "reviewer_1_hieu.csv",
+    "reviewer_2_filled.csv": "reviewer_2_dung.csv"
+  },
+  "reviewer_agreement_count_out_of_60": {
+    "target_code_intact": 56,
+    "graph_valid": 60,
+    "demo_valid": 60,
+    "no_target_label_leak": 60,
+    "variant_correct": 60,
+    "truncation_acceptable": 56,
+    "overall_verdict": 56
+  },
+  "disagreements": [
+    {
+      "id": "devign:validation:16709",
+      "fields": {
+        "target_code_intact": [
+          "fail",
+          "pass"
+        ],
+        "truncation_acceptable": [
+          "unclear",
+          "pass"
+        ],
+        "overall_verdict": [
+          "fail",
+          "pass"
+        ]
+      }
+    },
+    {
+      "id": "devign:validation:1836",
+      "fields": {
+        "target_code_intact": [
+          "fail",
+          "unclear"
+        ],
+        "truncation_acceptable": [
+          "fail",
+          "unclear"
+        ],
+        "overall_verdict": [
+          "fail",
+          "unclear"
+        ]
+      }
+    },
+    {
+      "id": "devign:validation:2091",
+      "fields": {
+        "target_code_intact": [
+          "unclear",
+          "pass"
+        ]
+      }
+    },
+    {
+      "id": "reveal:validation:1023",
+      "fields": {
+        "target_code_intact": [
+          "fail",
+          "unclear"
+        ],
+        "truncation_acceptable": [
+          "fail",
+          "unclear"
+        ],
+        "overall_verdict": [
+          "fail",
+          "unclear"
+        ]
+      }
+    },
+    {
+      "id": "reveal:validation:1240",
+      "fields": {
+        "truncation_acceptable": [
+          "pass",
+          "unclear"
+        ],
+        "overall_verdict": [
+          "pass",
+          "unclear"
+        ]
+      }
+    }
+  ],
+  "graph_and_variant_failures": {
+    "count": 9,
+    "all_are_sampled_missing_cpg_rows": true,
+    "ids": [
+      "devign:validation:14819",
+      "devign:validation:16307",
+      "devign:validation:6686",
+      "reveal:validation:1024",
+      "reveal:validation:1044",
+      "reveal:validation:1210",
+      "reveal:validation:1259",
+      "reveal:validation:168",
+      "reveal:validation:1792"
+    ]
+  },
+  "full_prompt_audit_verdict": "fail_or_unclear_rows_present_in_both_forms",
+  "automatic_structural_checks": "pass",
+  "note": "This report validates form completeness and packet identity; it does not adjudicate the four differing overall verdicts or replace reviewer sign-off."
+}

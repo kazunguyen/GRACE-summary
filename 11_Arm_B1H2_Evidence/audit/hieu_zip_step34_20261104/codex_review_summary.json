@@ -1,0 +1,13 @@
+{
+  "overall": {
+    "pass": 48,
+    "fail": 5,
+    "unclear": 7
+  },
+  "technical_subset": {
+    "pass": 45,
+    "fail": 0,
+    "unclear": 0
+  },
+  "historical_exact_validation_prompts": 31
+}

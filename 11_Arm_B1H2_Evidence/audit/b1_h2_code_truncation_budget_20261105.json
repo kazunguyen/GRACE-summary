@@ -1,0 +1,882 @@
+{
+  "schema": "b1_h2_code_truncation_budget_diagnostic_v1",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "scope": "Validation B1-H2 rows flagged code_truncated; replaces capped target snippet with full frozen source query_code, holding graph/question/template constant. No prompts changed and no inference performed.",
+  "registered_budget": {
+    "target_code": 3000,
+    "graph": 1500,
+    "total": 8192,
+    "reserve": 64
+  },
+  "all_datasets": {
+    "truncated_rows": 94,
+    "full_code_fits_3000": 0,
+    "full_code_fits_total_context": 83
+  },
+  "datasets": {
+    "devign": {
+      "truncated_rows": 60,
+      "full_code_token_min": 3076,
+      "full_code_token_median": 4179,
+      "full_code_token_max": 38339,
+      "full_code_fits_registered_total_context": 54,
+      "examples": [
+        {
+          "id": "devign:validation:534",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3267,
+          "current_total_tokens": 3493,
+          "source_complete_chat_tokens": 3759,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:1836",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 5961,
+          "current_total_tokens": 3111,
+          "source_complete_chat_tokens": 6071,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:1882",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 38339,
+          "current_total_tokens": 3474,
+          "source_complete_chat_tokens": 38812,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "devign:validation:2091",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 7162,
+          "current_total_tokens": 3415,
+          "source_complete_chat_tokens": 7577,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:3678",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4703,
+          "current_total_tokens": 3490,
+          "source_complete_chat_tokens": 5193,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:4026",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3076,
+          "current_total_tokens": 3592,
+          "source_complete_chat_tokens": 3667,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:4202",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3805,
+          "current_total_tokens": 3518,
+          "source_complete_chat_tokens": 4322,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:4599",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4206,
+          "current_total_tokens": 3373,
+          "source_complete_chat_tokens": 4578,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:4729",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3236,
+          "current_total_tokens": 3438,
+          "source_complete_chat_tokens": 3674,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:4816",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3558,
+          "current_total_tokens": 3328,
+          "source_complete_chat_tokens": 3886,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:5195",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3117,
+          "current_total_tokens": 3369,
+          "source_complete_chat_tokens": 3485,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:5761",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3436,
+          "current_total_tokens": 3470,
+          "source_complete_chat_tokens": 3906,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:5997",
+          "current_code_tokens": 2998,
+          "source_complete_code_tokens": 4479,
+          "current_total_tokens": 3109,
+          "source_complete_chat_tokens": 4589,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:6377",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 16769,
+          "current_total_tokens": 3351,
+          "source_complete_chat_tokens": 17119,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "devign:validation:6917",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 6873,
+          "current_total_tokens": 3360,
+          "source_complete_chat_tokens": 7232,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:7139",
+          "current_code_tokens": 2997,
+          "source_complete_code_tokens": 3166,
+          "current_total_tokens": 3447,
+          "source_complete_chat_tokens": 3615,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:7288",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 6403,
+          "current_total_tokens": 3472,
+          "source_complete_chat_tokens": 6874,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:7469",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4320,
+          "current_total_tokens": 3459,
+          "source_complete_chat_tokens": 4778,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:7543",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4811,
+          "current_total_tokens": 3441,
+          "source_complete_chat_tokens": 5251,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:8562",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4179,
+          "current_total_tokens": 3374,
+          "source_complete_chat_tokens": 4553,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:9248",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3340,
+          "current_total_tokens": 3385,
+          "source_complete_chat_tokens": 3724,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:9427",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4012,
+          "current_total_tokens": 3429,
+          "source_complete_chat_tokens": 4440,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:9458",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 6562,
+          "current_total_tokens": 3414,
+          "source_complete_chat_tokens": 6975,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:9749",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 16820,
+          "current_total_tokens": 3350,
+          "source_complete_chat_tokens": 17170,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "devign:validation:10662",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 8294,
+          "current_total_tokens": 3466,
+          "source_complete_chat_tokens": 8760,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "devign:validation:10867",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3833,
+          "current_total_tokens": 3574,
+          "source_complete_chat_tokens": 4406,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:11354",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4121,
+          "current_total_tokens": 3355,
+          "source_complete_chat_tokens": 4475,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:12664",
+          "current_code_tokens": 2998,
+          "source_complete_code_tokens": 3671,
+          "current_total_tokens": 3367,
+          "source_complete_chat_tokens": 4039,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:12823",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3541,
+          "current_total_tokens": 3458,
+          "source_complete_chat_tokens": 3998,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:14535",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4805,
+          "current_total_tokens": 3366,
+          "source_complete_chat_tokens": 5170,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:14819",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3240,
+          "current_total_tokens": 3120,
+          "source_complete_chat_tokens": 3359,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:15661",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3933,
+          "current_total_tokens": 3349,
+          "source_complete_chat_tokens": 4282,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:16138",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 5602,
+          "current_total_tokens": 3569,
+          "source_complete_chat_tokens": 6170,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:16254",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3891,
+          "current_total_tokens": 3464,
+          "source_complete_chat_tokens": 4354,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:16411",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3715,
+          "current_total_tokens": 3312,
+          "source_complete_chat_tokens": 4026,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:16508",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4129,
+          "current_total_tokens": 3296,
+          "source_complete_chat_tokens": 4424,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:16709",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4401,
+          "current_total_tokens": 3507,
+          "source_complete_chat_tokens": 4908,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:16744",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3078,
+          "current_total_tokens": 3598,
+          "source_complete_chat_tokens": 3676,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:16921",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4107,
+          "current_total_tokens": 3519,
+          "source_complete_chat_tokens": 4626,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:17402",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3700,
+          "current_total_tokens": 3468,
+          "source_complete_chat_tokens": 4167,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:17454",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3614,
+          "current_total_tokens": 3389,
+          "source_complete_chat_tokens": 4003,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:18356",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 6284,
+          "current_total_tokens": 3423,
+          "source_complete_chat_tokens": 6706,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:19177",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4250,
+          "current_total_tokens": 3448,
+          "source_complete_chat_tokens": 4698,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:19250",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 7702,
+          "current_total_tokens": 3551,
+          "source_complete_chat_tokens": 8252,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "devign:validation:19539",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3577,
+          "current_total_tokens": 3473,
+          "source_complete_chat_tokens": 4050,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:19603",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4238,
+          "current_total_tokens": 3465,
+          "source_complete_chat_tokens": 4702,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:19864",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4195,
+          "current_total_tokens": 3111,
+          "source_complete_chat_tokens": 4305,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:20077",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 7069,
+          "current_total_tokens": 3426,
+          "source_complete_chat_tokens": 7494,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:20179",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 5563,
+          "current_total_tokens": 3665,
+          "source_complete_chat_tokens": 6228,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:21141",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3381,
+          "current_total_tokens": 3353,
+          "source_complete_chat_tokens": 3733,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:21222",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3953,
+          "current_total_tokens": 3520,
+          "source_complete_chat_tokens": 4472,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:21345",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4154,
+          "current_total_tokens": 3405,
+          "source_complete_chat_tokens": 4559,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:22028",
+          "current_code_tokens": 2998,
+          "source_complete_code_tokens": 7529,
+          "current_total_tokens": 3522,
+          "source_complete_chat_tokens": 8052,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:23260",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 7007,
+          "current_total_tokens": 3704,
+          "source_complete_chat_tokens": 7710,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:23432",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4285,
+          "current_total_tokens": 3365,
+          "source_complete_chat_tokens": 4649,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:23774",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3353,
+          "current_total_tokens": 3664,
+          "source_complete_chat_tokens": 4016,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:23871",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 7609,
+          "current_total_tokens": 3523,
+          "source_complete_chat_tokens": 8132,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "devign:validation:25049",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3633,
+          "current_total_tokens": 3451,
+          "source_complete_chat_tokens": 4084,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:25644",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3217,
+          "current_total_tokens": 3662,
+          "source_complete_chat_tokens": 3878,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "devign:validation:25743",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4496,
+          "current_total_tokens": 3111,
+          "source_complete_chat_tokens": 4606,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        }
+      ]
+    },
+    "reveal": {
+      "truncated_rows": 34,
+      "full_code_token_min": 3013,
+      "full_code_token_median": 4474,
+      "full_code_token_max": 13032,
+      "full_code_fits_registered_total_context": 29,
+      "examples": [
+        {
+          "id": "reveal:validation:86",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 12714,
+          "current_total_tokens": 3290,
+          "source_complete_chat_tokens": 13003,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "reveal:validation:102",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4955,
+          "current_total_tokens": 3376,
+          "source_complete_chat_tokens": 5330,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:122",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 7968,
+          "current_total_tokens": 3111,
+          "source_complete_chat_tokens": 8078,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:142",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3542,
+          "current_total_tokens": 3461,
+          "source_complete_chat_tokens": 4002,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:152",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3704,
+          "current_total_tokens": 3487,
+          "source_complete_chat_tokens": 4190,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:167",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3650,
+          "current_total_tokens": 3524,
+          "source_complete_chat_tokens": 4174,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:292",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 5173,
+          "current_total_tokens": 3204,
+          "source_complete_chat_tokens": 5376,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:413",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 5315,
+          "current_total_tokens": 3396,
+          "source_complete_chat_tokens": 5710,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:417",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 7196,
+          "current_total_tokens": 3111,
+          "source_complete_chat_tokens": 7306,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:489",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 6193,
+          "current_total_tokens": 3111,
+          "source_complete_chat_tokens": 6303,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:593",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 13032,
+          "current_total_tokens": 3267,
+          "source_complete_chat_tokens": 13299,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "reveal:validation:632",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3797,
+          "current_total_tokens": 3608,
+          "source_complete_chat_tokens": 4405,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:697",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3610,
+          "current_total_tokens": 3438,
+          "source_complete_chat_tokens": 4048,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:711",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4415,
+          "current_total_tokens": 3502,
+          "source_complete_chat_tokens": 4917,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:806",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4474,
+          "current_total_tokens": 3527,
+          "source_complete_chat_tokens": 5001,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:837",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 8642,
+          "current_total_tokens": 3173,
+          "source_complete_chat_tokens": 8815,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "reveal:validation:909",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4984,
+          "current_total_tokens": 3442,
+          "source_complete_chat_tokens": 5426,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1017",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3013,
+          "current_total_tokens": 3393,
+          "source_complete_chat_tokens": 3405,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1023",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3746,
+          "current_total_tokens": 3684,
+          "source_complete_chat_tokens": 4430,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1044",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 8070,
+          "current_total_tokens": 3120,
+          "source_complete_chat_tokens": 8189,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "reveal:validation:1201",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 9874,
+          "current_total_tokens": 3423,
+          "source_complete_chat_tokens": 10296,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": false
+        },
+        {
+          "id": "reveal:validation:1232",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3994,
+          "current_total_tokens": 3479,
+          "source_complete_chat_tokens": 4473,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1240",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4930,
+          "current_total_tokens": 3442,
+          "source_complete_chat_tokens": 5372,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1296",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 4815,
+          "current_total_tokens": 3363,
+          "source_complete_chat_tokens": 5177,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1381",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3292,
+          "current_total_tokens": 3381,
+          "source_complete_chat_tokens": 3673,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1389",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3381,
+          "current_total_tokens": 3573,
+          "source_complete_chat_tokens": 3953,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1441",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3732,
+          "current_total_tokens": 3452,
+          "source_complete_chat_tokens": 4183,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1489",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3523,
+          "current_total_tokens": 3355,
+          "source_complete_chat_tokens": 3877,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1698",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 3409,
+          "current_total_tokens": 3402,
+          "source_complete_chat_tokens": 3810,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1705",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3087,
+          "current_total_tokens": 3553,
+          "source_complete_chat_tokens": 3640,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:1906",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 5496,
+          "current_total_tokens": 3298,
+          "source_complete_chat_tokens": 5794,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:2108",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 4097,
+          "current_total_tokens": 3437,
+          "source_complete_chat_tokens": 4534,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:2144",
+          "current_code_tokens": 2999,
+          "source_complete_code_tokens": 3855,
+          "current_total_tokens": 3611,
+          "source_complete_chat_tokens": 4466,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        },
+        {
+          "id": "reveal:validation:2239",
+          "current_code_tokens": 3000,
+          "source_complete_code_tokens": 5549,
+          "current_total_tokens": 3355,
+          "source_complete_chat_tokens": 5903,
+          "full_target_fits_3000_code_cap": false,
+          "full_target_fits_8192_context_plus_reserve": true
+        }
+      ]
+    }
+  }
+}

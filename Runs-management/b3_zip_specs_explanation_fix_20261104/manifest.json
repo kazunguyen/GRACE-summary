@@ -1,0 +1,351 @@
+{
+  "status": "candidate_not_confirmatory_ready",
+  "source": {
+    "path": "Runs-management/b3_zip_specs_candidate_20261104/manifest.json",
+    "sha256": "cebffdd94a9fb6d07aad0fb7721a24ab9963acfa64e469c3923db42c30abeb4c"
+  },
+  "only_key_difference_changed": true,
+  "pair_reselection": false,
+  "llm_calls": 0,
+  "datasets": [
+    {
+      "dataset": "devign",
+      "counts": {
+        "security_relevance_not_verified": 1837,
+        "no_supported_difference": 891,
+        "verified_visible_contrast": 4
+      },
+      "corrections": [
+        {
+          "id": "devign:validation:2981",
+          "donor_pair": [
+            "devign:train:3577",
+            "devign:train:11125"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "explicit_api_limit",
+          "snippets": [
+            "strncpy(s->drive_serial_str, serial, sizeof(s->drive_serial_str))",
+            "strcpy(s->drive_model_str, \"QEMU DVD-ROM\")"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (bdrv_get_type_hint(bs) == BDRV_TYPE_CDROM)`. The Non-vulnerable example shows the conditional check `if (kind == IDE_CD)`.",
+          "new_explanation": "The Vulnerable example uses `strncpy(s->drive_serial_str, serial, sizeof(s->drive_serial_str))`, which takes an explicit size/count argument. The Non-vulnerable example uses `strcpy(s->drive_model_str, \"QEMU DVD-ROM\")`, which takes no explicit size/count argument.",
+          "hashes_before_after": {
+            "B3": [
+              "36ebecb719926398a9e99577f6349ffad750d4d90c56e4988693aa88c66e4d01",
+              "47ffc58933c5659136929977c79736a83e306e356bdc661c039e6e71ce29056f"
+            ],
+            "B3-swap": [
+              "45ffd5df84bc651749c887913ba28221715fba07294adad08e9ababf23d4cbfb",
+              "7f6ed7830071325d4e053a9aeea239ce4ead421fc21f2aa7d6b837327b8ab9d6"
+            ],
+            "B3-flip": [
+              "8a2e79ca83e07419a7b1640b50b8ffd1d6a240b5139b36627a4f92db0a1a51fd",
+              "fb8e0536ffbc399aa132d4b4102a2647d174e419abd1fb80da6f384120dfca25"
+            ]
+          }
+        },
+        {
+          "id": "devign:validation:4971",
+          "donor_pair": [
+            "devign:train:13670",
+            "devign:train:26973"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "bound_equality",
+          "snippets": [
+            "if (offset > 0x200)",
+            "if (offset >= 0x200)"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (offset > 0x200)`. The Non-vulnerable example shows the conditional check `if (offset >= 0x200)`.",
+          "new_explanation": "The Vulnerable example uses `if (offset > 0x200)` and the Non-vulnerable example uses `if (offset >= 0x200)`. The two comparisons differ in whether equality satisfies the condition.",
+          "hashes_before_after": {
+            "B3": [
+              "feb0fbe3887bc4da83ea9e754a07ac9ccaa61b4b3416063f68ad52b479ed6640",
+              "b32c4337b00dad4c4d62988dc9b77fe0105022f9ab2ccc5a2b00120197d4b3e7"
+            ],
+            "B3-swap": [
+              "ca5334fa2785cf1638eab5d027d5a28ccfd1c5eb3cf4cf77b48d54b0f9649846",
+              "7e5ceae278d70da11454ebf89afc8f06d12b88aec2f40c247cf467b72ca62af5"
+            ],
+            "B3-flip": [
+              "cb118234935bc837b2481fc0de256a5d441d519ef15f63322976dba4958c335d",
+              "1fb337fc789411e464e6b36c9ce349b4b7501ddfb5003cbd82bf391cb2e99f31"
+            ]
+          }
+        },
+        {
+          "id": "devign:validation:7690",
+          "donor_pair": [
+            "devign:train:22584",
+            "devign:train:11952"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "bound_equality",
+          "snippets": [
+            "if (num_sg > VIRTQUEUE_MAX_SIZE)",
+            "if (num_sg >= VIRTQUEUE_MAX_SIZE)"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (num_sg > VIRTQUEUE_MAX_SIZE)`. The Non-vulnerable example shows the conditional check `if (num_sg >= VIRTQUEUE_MAX_SIZE)`.",
+          "new_explanation": "The Vulnerable example uses `if (num_sg > VIRTQUEUE_MAX_SIZE)` and the Non-vulnerable example uses `if (num_sg >= VIRTQUEUE_MAX_SIZE)`. The two comparisons differ in whether equality satisfies the condition.",
+          "hashes_before_after": {
+            "B3": [
+              "cb2c6575d3cf375a760d9dc2d30dbcc6b495adc5a2db449284479d06f74f48dd",
+              "6e48359c03a5cd36de75883a4077e45c53d3238e3fe57ec3c434ca2d0d257640"
+            ],
+            "B3-swap": [
+              "f176bb40ea6dddd9d83510995125b08430109777611ae2ad5156e118fde5d5cb",
+              "2fee961b9832cb606cc4f47e9a9d0ae16ace851d245c71ee2c60513d97d81e27"
+            ],
+            "B3-flip": [
+              "5e43a8cc1eb874adc6526ee48174985906aedbb5fb00726d99683fbf2757d9ea",
+              "608963c74ad3d8f920633807067e824e5da5752e2292a126d5ebafe47596d2ad"
+            ]
+          }
+        },
+        {
+          "id": "devign:validation:7819",
+          "donor_pair": [
+            "devign:train:22623",
+            "devign:train:13411"
+          ],
+          "status": "verified_visible_contrast",
+          "rule": "bound_equality",
+          "snippets": [
+            "if (offset > 0x200)",
+            "if (offset >= 0x200)"
+          ],
+          "old_explanation": "The Vulnerable example shows the conditional check `if (offset > 0x200)`. The Non-vulnerable example shows the conditional check `if (offset >= 0x200)`.",
+          "new_explanation": "The Vulnerable example uses `if (offset > 0x200)` and the Non-vulnerable example uses `if (offset >= 0x200)`. The two comparisons differ in whether equality satisfies the condition.",
+          "hashes_before_after": {
+            "B3": [
+              "b3a1d22b8bedb6e47d41775408fb2f518b68c3df73316601a16a673d7acaf490",
+              "1240f75855d290e218426a82ed54f62104f5a302d7a563d7e7878de73ddcb331"
+            ],
+            "B3-swap": [
+              "ae6a5d966c07bfa61abbcd9c3630b081e0722e5bbccd2e663ce6c3ce05cf908c",
+              "f41a1f251d6bb168df761e7062d88385a9453b6151ac1a23af05403f50b3ae14"
+            ],
+            "B3-flip": [
+              "29253c6e60a40dd6c61c804c0c4a8644ef227cbc721d168a8266ec9154b0a469",
+              "8e59b9da2ab165d1b29055ff2ccb32641adc2871083800f7f4f65483b2e023ba"
+            ]
+          }
+        }
+      ],
+      "sets": [
+        {
+          "dataset": "devign",
+          "arm": "B3",
+          "rows": 2732,
+          "changed_prompt_texts": 4,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/devign/validation/B3/42/prompts.jsonl",
+            "sha256": "fc583345133cc0cff368c8cc7ed335ceacfad5994153a6e3ffe6d899a9b45e43"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3/42/audit_summary.json",
+            "sha256": "cfbe461e9725acc1f57bffba42604111c0417a2dab8fedd46680f62881a61809"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/devign/validation/B3/42/audit_rows.csv",
+            "sha256": "7cca267d91deb3e1e4c63d75d7a0db9c00f8bc8e10a2bcc9b670a4adee5cad89"
+          },
+          "tokens_p50": 2467.0,
+          "tokens_p95": 6161.049999999998,
+          "tokens_max": 7624,
+          "rate_demo_empty": 0.006954612005856516,
+          "rate_graph_missing": 0.0010980966325036604,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-nodiff",
+          "rows": 2732,
+          "changed_prompt_texts": 0,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/devign/validation/B3-nodiff/42/prompts.jsonl",
+            "sha256": "b0e141d8aede034a6519ee41b5e5880eacae5cf52cb347a5cb2095e4986d21b6"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-nodiff/42/audit_summary.json",
+            "sha256": "ad1533f16addb21f60b7091421330ebd5f2ce8b18c381e11958e41d46dad5de3"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/devign/validation/B3-nodiff/42/audit_rows.csv",
+            "sha256": "5545b87083470b9611d36004e9b9943443ab5534d16aeb007b380ffd56980270"
+          },
+          "tokens_p50": 2432.0,
+          "tokens_p95": 6118.649999999997,
+          "tokens_max": 7582,
+          "rate_demo_empty": 0.006954612005856516,
+          "rate_graph_missing": 0.0010980966325036604,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-swap",
+          "rows": 2732,
+          "changed_prompt_texts": 4,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/devign/validation/B3-swap/42/prompts.jsonl",
+            "sha256": "6aa98df355762bb4a5d3b46a6a970d6e0e18c5a56436bf6b9fc75f2f8d0d5f7d"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-swap/42/audit_summary.json",
+            "sha256": "0298094858b7e63ae0328fba5ea52a38955d6f441108265fd92d9df560c08a4b"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/devign/validation/B3-swap/42/audit_rows.csv",
+            "sha256": "2fc12c17c269f65c3482e5e3801d221a7e5de525443dcab6329130006fd57dca"
+          },
+          "tokens_p50": 2467.0,
+          "tokens_p95": 6161.049999999998,
+          "tokens_max": 7624,
+          "rate_demo_empty": 0.006954612005856516,
+          "rate_graph_missing": 0.0010980966325036604,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "devign",
+          "arm": "B3-flip",
+          "rows": 2732,
+          "changed_prompt_texts": 4,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/devign/validation/B3-flip/42/prompts.jsonl",
+            "sha256": "3319ab0f5a49106f53cf3342f114055977bea45e45572d01b4b81a7ae0f1af11"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/devign/validation/B3-flip/42/audit_summary.json",
+            "sha256": "b1ea3b38ce0d21522b664a81e0a52e2a268c4b3ebe4cdaaaa0fd8986083685de"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/devign/validation/B3-flip/42/audit_rows.csv",
+            "sha256": "5b799db6247114635467ab1db53294479d0965fd027a7de45354e3a899564ea2"
+          },
+          "tokens_p50": 2467.0,
+          "tokens_p95": 6161.049999999998,
+          "tokens_max": 7624,
+          "rate_demo_empty": 0.006954612005856516,
+          "rate_graph_missing": 0.0010980966325036604,
+          "unresolved_label_flags": 0
+        }
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "counts": {
+        "no_supported_difference": 936,
+        "security_relevance_not_verified": 1337
+      },
+      "corrections": [],
+      "sets": [
+        {
+          "dataset": "reveal",
+          "arm": "B3",
+          "rows": 2273,
+          "changed_prompt_texts": 0,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/reveal/validation/B3/42/prompts.jsonl",
+            "sha256": "fb8a57530c2653b57bff4a701a6213e248d9c8537fda074d7d16cc7d7d5e14d7"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3/42/audit_summary.json",
+            "sha256": "852b4a7fd2acc2d6d769a0e8ce75be9868c89925dbe8dfc239277913fd9e105d"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/reveal/validation/B3/42/audit_rows.csv",
+            "sha256": "6f7b989eef7a3120488b79a97720aa5da6810cf791fcc3cb422a06cdb0594b22"
+          },
+          "tokens_p50": 2144.0,
+          "tokens_p95": 5025.000000000001,
+          "tokens_max": 7610,
+          "rate_demo_empty": 0.003959524857017158,
+          "rate_graph_missing": 0.011878574571051475,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-nodiff",
+          "rows": 2273,
+          "changed_prompt_texts": 0,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/reveal/validation/B3-nodiff/42/prompts.jsonl",
+            "sha256": "f40e903c875d704af07d6a49972e6eedaa83898c139aa95befa30004a8734513"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-nodiff/42/audit_summary.json",
+            "sha256": "a567e4ae1fd50b534394987a6ef1ebcc493777426346ef315359f6ba08120ad9"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/reveal/validation/B3-nodiff/42/audit_rows.csv",
+            "sha256": "5fc72166eafb2eb0af1e1699dc17acddbe12918f7f49ad5d933eb8a0050cb6e8"
+          },
+          "tokens_p50": 2105.0,
+          "tokens_p95": 4987.6,
+          "tokens_max": 7582,
+          "rate_demo_empty": 0.003959524857017158,
+          "rate_graph_missing": 0.011878574571051475,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-swap",
+          "rows": 2273,
+          "changed_prompt_texts": 0,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/reveal/validation/B3-swap/42/prompts.jsonl",
+            "sha256": "01978bee049cc72c357686242d192f4231006faeedec51ad461cc6c012ee262e"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-swap/42/audit_summary.json",
+            "sha256": "48da131ca4d705ce59fadc8016f3ecd08d6698374662eccfd5a341a110f5b629"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/reveal/validation/B3-swap/42/audit_rows.csv",
+            "sha256": "28942e757321f7716c8ea0d109c140a71d1c3305f4a73eb86638a5cdf1fecdf7"
+          },
+          "tokens_p50": 2144.0,
+          "tokens_p95": 5025.000000000001,
+          "tokens_max": 7610,
+          "rate_demo_empty": 0.003959524857017158,
+          "rate_graph_missing": 0.011878574571051475,
+          "unresolved_label_flags": 0
+        },
+        {
+          "dataset": "reveal",
+          "arm": "B3-flip",
+          "rows": 2273,
+          "changed_prompt_texts": 0,
+          "prompt": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/reveal/validation/B3-flip/42/prompts.jsonl",
+            "sha256": "ff3ff8b81511bc8d833ef6f4850e6fec1bd76d4d04e628f1771c47f0f6c5eb17"
+          },
+          "source_audit": {
+            "path": "Runs-management/b3_zip_specs_candidate_20261104/reveal/validation/B3-flip/42/audit_summary.json",
+            "sha256": "9b65ab24b5e7f880ae6c4ca6acb861f71285bad07233e5824f435ef6e276104e"
+          },
+          "audit_rows": {
+            "path": "Runs-management/b3_zip_specs_explanation_fix_20261104/reveal/validation/B3-flip/42/audit_rows.csv",
+            "sha256": "7aa7b8e7780d4b9b0485c7a656318e4431033d3b8b955171534708bdb4322564"
+          },
+          "tokens_p50": 2144.0,
+          "tokens_p95": 5025.000000000001,
+          "tokens_max": 7610,
+          "rate_demo_empty": 0.003959524857017158,
+          "rate_graph_missing": 0.011878574571051475,
+          "unresolved_label_flags": 0
+        }
+      ]
+    }
+  ],
+  "contrast_rule": {
+    "path": "D:\\JUNIOR\\LabThayTho\\tmp\\grace_b3_withdrawn_20261104\\Runs-management\\b3_security_pairing.py",
+    "sha256": "5c671c21013af99cadab755e14ed1204f111add1614773c3419663cc35c8af3c"
+  },
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "tokenizer_file_sha256": {
+    "tokenizer.json": "19564a48c4f71a2a1b937cce34c737a1e662b171c5f5d7edf641a15cd896f07d",
+    "tokenizer_config.json": "60f6e8cb15c98dd07300a3cc465ea662de245d2095e4245616af21b2324db3fc"
+  }
+}

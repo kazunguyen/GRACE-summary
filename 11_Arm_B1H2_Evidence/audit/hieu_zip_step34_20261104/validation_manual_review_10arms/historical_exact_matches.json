@@ -1,0 +1,281 @@
+[
+  {
+    "dataset": "devign",
+    "arm": "B0",
+    "id": "devign:validation:12030",
+    "seed": "42",
+    "prompt_sha256": "aaf552ddf3beb16d7aaa613dea0fbac29275eb0ba6b271b808a44dfa994abdc8",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B1",
+    "id": "devign:validation:22666",
+    "seed": "42",
+    "prompt_sha256": "29e662211dc92c4cf3156b67b9b4bedbb7b9d0159f0e0ffdfb3aec051f6cb14a",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-rand",
+    "id": "devign:validation:7180",
+    "seed": "43",
+    "prompt_sha256": "b72342b3671167ec90efba27bfb8ae98f8e6284c6d7dca50dfe133197207fc10",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-rand",
+    "id": "devign:validation:25051",
+    "seed": "44",
+    "prompt_sha256": "42251c777279dc8cb71de957b1971165582f93e1caa6110e66f31b126145cc4a",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-rep",
+    "id": "devign:validation:4832",
+    "seed": "42",
+    "prompt_sha256": "bc78d61451dbd714c77a60170ecf9aa56569c4fd8d034558b25d97c3c47ca048",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B0",
+    "id": "devign:validation:6107",
+    "seed": "42",
+    "prompt_sha256": "8449ff2100321ae64cce6b64cf84f0396ff678cf182dd3bc4fbf986694cac5e1",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-flip",
+    "id": "devign:validation:15526",
+    "seed": "42",
+    "prompt_sha256": "0c7bba3efa7ba9967142c94023b89d2d14d1359e780d7d6dca5d75f040620f38",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B1",
+    "id": "devign:validation:23015",
+    "seed": "42",
+    "prompt_sha256": "bb61df59a36ae654f83f14a1b15bc13dfed86c3c88591884d0fc0cef2c3eadc3",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-rand",
+    "id": "devign:validation:23292",
+    "seed": "44",
+    "prompt_sha256": "4891138fe7d6271f4ff448766307b12e923b6f42e82ce0b9b06889133d5745f2",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-rand",
+    "id": "devign:validation:19725",
+    "seed": "43",
+    "prompt_sha256": "85c7ceef918114b04a098aff007f5c04f266992900b7ed1be1f28c26a13c8ba3",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-flip",
+    "id": "devign:validation:19725",
+    "seed": "42",
+    "prompt_sha256": "40a78300b81fc6f1095d56243ff328e168a14e500ffd1637072321c5e1d9377a",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B0",
+    "id": "devign:validation:24806",
+    "seed": "42",
+    "prompt_sha256": "2c9099cb730d2f593042da083466b1ae2f7cd32af57ee450a1d0148ec95b1c93",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2",
+    "id": "devign:validation:9211",
+    "seed": "42",
+    "prompt_sha256": "b1389a4c8a8d66314d86da6b2ddd936b1be985e1edcc7e347c100057bcf470d2",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-rand",
+    "id": "devign:validation:5158",
+    "seed": "44",
+    "prompt_sha256": "ac3089a35d1842b04912804bf1d4d203f1b69a381eb7f6751bbb863e633eeffa",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "devign",
+    "arm": "B2-rand",
+    "id": "devign:validation:2183",
+    "seed": "44",
+    "prompt_sha256": "ae7e1e1c9c8e67f09f28887a6dbb2f9b92437f1b9ffb006ddd4f2e175e568338",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B1",
+    "id": "reveal:validation:496",
+    "seed": "42",
+    "prompt_sha256": "a296e1c286c7de12a337489adebd199a301ab63b7054267ec9e2ad9bae53469a",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-flip",
+    "id": "reveal:validation:303",
+    "seed": "42",
+    "prompt_sha256": "07cb3dc552142648e33f9c6ea255201331fd153386b081d3473a43b07c98c92b",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rand",
+    "id": "reveal:validation:1995",
+    "seed": "42",
+    "prompt_sha256": "879300ec01d065b4a69d6db53f399a1c95689455ea152ceccecaf1ba12d3bc5d",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rand",
+    "id": "reveal:validation:399",
+    "seed": "44",
+    "prompt_sha256": "e09082e2afd39ccd71785960b9a679278e4a6a5d616a4c6f62e769309c7962dd",
+    "reviewer_1": "unclear",
+    "reviewer_2": "unclear"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rep",
+    "id": "reveal:validation:2011",
+    "seed": "42",
+    "prompt_sha256": "5f800597bccc072ab03d14be0221c00c1aaa6971b15e1dc707d6b9b6a204aa4e",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rep",
+    "id": "reveal:validation:976",
+    "seed": "42",
+    "prompt_sha256": "a6b02797177d4ab81daf7c7b489ea76a18dd8abba7418ae9c4ec450866d1466c",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B0",
+    "id": "reveal:validation:526",
+    "seed": "42",
+    "prompt_sha256": "fc5f323f013355037c267b77fa81c561f3edc68679c8a03de1b9dff709e1dde3",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rep",
+    "id": "reveal:validation:145",
+    "seed": "42",
+    "prompt_sha256": "b4b60bf6fc445e275618b5cd558dd9cf05a57c5d13b4bf0d81dff15cf356e0b5",
+    "reviewer_1": "fail",
+    "reviewer_2": "fail"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B1",
+    "id": "reveal:validation:1799",
+    "seed": "42",
+    "prompt_sha256": "44374d1a036e335a01b2bb0b9611c50671a5f9dc665c2ff916a46a43e71d8313",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rand",
+    "id": "reveal:validation:2053",
+    "seed": "43",
+    "prompt_sha256": "4d6623bdd951ec6a0f0df8c7745d856343f2baf5186e12ed92c59190f9469ca7",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rand",
+    "id": "reveal:validation:286",
+    "seed": "43",
+    "prompt_sha256": "8c022dba8e4a88c1397fa081caac86d4de2fa5e4bb799ddb13e1f7de26185648",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rand",
+    "id": "reveal:validation:547",
+    "seed": "42",
+    "prompt_sha256": "0f8301b6e379deb40beced30ccc469ac147661e045b372b5a61f8575aedaac05",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2",
+    "id": "reveal:validation:1933",
+    "seed": "42",
+    "prompt_sha256": "29cf40e46da4495fc3b2bf659ba2e24afb4acf7b14937d4422ed844e1b6cacef",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2",
+    "id": "reveal:validation:1081",
+    "seed": "42",
+    "prompt_sha256": "8f8d25eedaf8d3656342e7feecad66a4d7a56ce78d2daf28e3712a416d0b702a",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rand",
+    "id": "reveal:validation:730",
+    "seed": "44",
+    "prompt_sha256": "d4d38a59bf179ec838791f974b3cf39363266b635e706c355ab0486d7549dcb2",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  },
+  {
+    "dataset": "reveal",
+    "arm": "B2-rand",
+    "id": "reveal:validation:466",
+    "seed": "44",
+    "prompt_sha256": "3cbab39ecf25c0aa91a89918c96776439e11a072cc71412f98db406fcfba72a0",
+    "reviewer_1": "pass",
+    "reviewer_2": "pass"
+  }
+]

@@ -1,0 +1,1058 @@
+{
+  "schema": "grace_hieu_zip_step34_audit_v1",
+  "split": "validation",
+  "allow_test": false,
+  "original_zip": {
+    "path": "grace_15arms_prompts_and_clean_specs.zip",
+    "sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b"
+  },
+  "zip_inventory": {
+    "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_inventory.json",
+    "sha256": "c1cef4469957a4dd383d18ee58e85883bf78e07d432193d31df90b7547bddfa5"
+  },
+  "protocol": {
+    "path": "configs/protocol.yaml",
+    "sha256": "273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116"
+  },
+  "preregistration": {
+    "path": "preregistration.md",
+    "sha256": "d32afc87f2a87de3b19df8465e4cc57e204bc45ecf238cb1bae3bde8e53b7e5b"
+  },
+  "backend_smoke_manifest": {
+    "path": "Runs-management/step1_backend_smoke/backend_manifest.json",
+    "sha256": "2eb1072eb348ff380d357ad60c46ef06b2cb029162070aae350d2798207d1e8a"
+  },
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "budget": {
+    "total": 8192,
+    "target_code": 3000,
+    "graph": 1500,
+    "demo": 1500,
+    "reserve": 64
+  },
+  "manual_sample": {
+    "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/manual_sample.jsonl",
+    "sha256": "40c07238d8ee5d7c9185dbfa6a3345cd7b29de43acf5910b1c38041162b35e9d"
+  },
+  "formal_two_reviewer_status": "Historical reviewed sample has exact matches in scope; new 60-prompt packet awaits independent review.",
+  "osf_submission": "Submitted according to user; submitted artifact identity not verified locally.",
+  "total_sets": 38,
+  "total_rows": 95095,
+  "technical_validation_sets": 28,
+  "inputs": [
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B0",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B0/42/prompts.jsonl",
+        "sha256": "778574447e7f3541bbdffada1f5ee7877f4143ae44b4db4b6e4cb9989587f476"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 3,
+        "demo_empty": 0,
+        "graph_missing": 0,
+        "code_truncated": 60,
+        "graph_truncated": 0,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B1",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1/42/prompts.jsonl",
+        "sha256": "ec762ca8515d370f4b309e3abe280e65eb884d939fdb5de975dc81cd9c96f7f5"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 2,
+        "demo_empty": 0,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B1-full",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1-full/42/prompts.jsonl",
+        "sha256": "b764764daf72c890e1e2916ae332621d9a9813d6758e59ab4a51e7690d558388"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B1-shuf",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1-shuf/42/prompts.jsonl",
+        "sha256": "916cae9c0683e4c1ad8513c5c13102f8c994a2fa0108db332ed83eccb649b051"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2533,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B1-shuf",
+      "seed": 43,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1-shuf/43/prompts.jsonl",
+        "sha256": "bf1b4a115c0b181d05f46a6a2e03776ca69e74c6d895cb8d46defcbfb0ae8dd5"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2558,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B1-shuf",
+      "seed": 44,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B1-shuf/44/prompts.jsonl",
+        "sha256": "f52412b7914e2132dfbdc9e388dd1dec9567997c5344de1ebd006d45487dae64"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2543,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B2",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2/42/prompts.jsonl",
+        "sha256": "05aa7aa9f0ec0ce478c7b0fe0a6d6a0b4063e299a4d5132531ef8fb862dad800"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 1,
+        "demo_empty": 15,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 200
+      },
+      "empty_demo_rate": 0.005490483162518302,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass",
+      "zip_reference": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/reference_B2/devign/validation/prompts.jsonl",
+        "sha256": "5e98719dc82fea3a2115c41922cfce14e1e7265801623adb98839ccbdb214f9c"
+      },
+      "prompt_identity_to_zip": "exact_text_by_validation_id"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B2-rand",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-rand/42/prompts.jsonl",
+        "sha256": "82291854dd21f3429e62a340630b6bfaec1e5ae20530a1df462eb22c8acabb7b"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 15,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 228
+      },
+      "empty_demo_rate": 0.005490483162518302,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B2-rand",
+      "seed": 43,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-rand/43/prompts.jsonl",
+        "sha256": "cdd77107a5d74a8e2742475bcd048d290c1d84bfad361c0e2e3a97a1e91889f5"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 2,
+        "demo_empty": 19,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 225
+      },
+      "empty_demo_rate": 0.006954612005856516,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B2-rand",
+      "seed": 44,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-rand/44/prompts.jsonl",
+        "sha256": "3655aa134e4cefca7570d958bb5edbee73a68f7df24e2a158df8df1688f51215"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 4,
+        "demo_empty": 24,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 217
+      },
+      "empty_demo_rate": 0.008784773060029283,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B2-nolabel",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-nolabel/42/prompts.jsonl",
+        "sha256": "a14a92e1d8d7c3ba1c4554355c9c0da9d6ae0ab44c7ee107f8ccd0d554729e84"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 15,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 200
+      },
+      "empty_demo_rate": 0.005490483162518302,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B2-labelonly",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-labelonly/42/prompts.jsonl",
+        "sha256": "a148604f826d711993283f28209fa1f44fb51f3e965d302efa56f1e49205227f"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B2-flip",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-flip/42/prompts.jsonl",
+        "sha256": "c8a8400384301780290c7f58d6df40ef29b026519d938ec22b8275e44cb0f202"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 2,
+        "demo_empty": 15,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 200
+      },
+      "empty_demo_rate": 0.005490483162518302,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B2-rep",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/devign/validation/B2-rep/42/prompts.jsonl",
+        "sha256": "21ff95372719300158bbf5b58fce3bad6e476ca10d8122dd9cddbeef93168d98"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 1,
+        "demo_empty": 15,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 200
+      },
+      "empty_demo_rate": 0.005490483162518302,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B3",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/dry_run_validation_20261102/devign/validation/B3/42/prompts.jsonl",
+        "sha256": "c397b395ed9d4d96e2f55b6fc6b1f0c8b188248f0d8c88c8537c30859193e8a7"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 6,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 20,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 266
+      },
+      "empty_demo_rate": 0.007320644216691069,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "same_pair_ids_as_zip_specs": 1985,
+      "generic_difference_rows": 1776,
+      "blockers": [
+        "ZIP rendered donor identity disagrees with ZIP specs; frozen original full-selection provenance is unresolved."
+      ]
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B3-nodiff",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/dry_run_validation_20261102/devign/validation/B3-nodiff/42/prompts.jsonl",
+        "sha256": "d912ad63bb1dfb59144a4dd9fac3bae98479516d8a1baa59d9794305efb4441e"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 6,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 20,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 266
+      },
+      "empty_demo_rate": 0.007320644216691069,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "same_pair_ids_as_zip_specs": 1985,
+      "generic_difference_rows": 0,
+      "blockers": [
+        "ZIP rendered donor identity disagrees with ZIP specs; frozen original full-selection provenance is unresolved."
+      ]
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B3-swap",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/dry_run_validation_20261102/devign/validation/B3-swap/42/prompts.jsonl",
+        "sha256": "079dbf7c1e7d883c7df6c0aff66bd528bb66bce7f939670ebb1fbb0a9fe21f1b"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 6,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 20,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 266
+      },
+      "empty_demo_rate": 0.007320644216691069,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "same_pair_ids_as_zip_specs": 1985,
+      "generic_difference_rows": 1776,
+      "blockers": [
+        "ZIP rendered donor identity disagrees with ZIP specs; frozen original full-selection provenance is unresolved."
+      ]
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B3-flip",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/dry_run_validation_20261102/devign/validation/B3-flip/42/prompts.jsonl",
+        "sha256": "aed1af08e517ecc10722b73340821f9ce4aec952780e77001b308617d7845db0"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 6,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 20,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 2534,
+        "demo_truncated": 266
+      },
+      "empty_demo_rate": 0.007320644216691069,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "same_pair_ids_as_zip_specs": 1985,
+      "generic_difference_rows": 1776,
+      "blockers": [
+        "ZIP rendered donor identity disagrees with ZIP specs; frozen original full-selection provenance is unresolved."
+      ]
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "arm": "B1-H2",
+      "seed": 42,
+      "rows": 2732,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/validation_h2_cluster_v5_20261104/devign/validation/B1-H2/42/prompts.jsonl",
+        "sha256": "5a2d39c883dcddfe7b8e7a7d65c049b47c7416bb9f3e04c18f9e690a0f243dd8"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 3,
+        "code_truncated": 60,
+        "graph_truncated": 0,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0010980966325036604,
+      "passes_prereg_automatic_thresholds": true,
+      "h2_no_usable_guard": 609,
+      "h2_nodes_outside_closed_prefix": 447,
+      "blockers": [
+        "Current evidence review is incomplete; prefix-selection scope must match the submitted protocol."
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B0",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B0/42/prompts.jsonl",
+        "sha256": "422d451c4d54c8880387f623821c5bc82901c00f873f7b187241386585d8625b"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 1,
+        "demo_empty": 0,
+        "graph_missing": 0,
+        "code_truncated": 34,
+        "graph_truncated": 0,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.0,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B1",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1/42/prompts.jsonl",
+        "sha256": "77e8d9275dfab9833a44fa806c40920299cd0ca01332950113cf46df9d3dbfc8"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 2,
+        "demo_empty": 0,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B1-full",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1-full/42/prompts.jsonl",
+        "sha256": "376ca7a5bae3e71424108af4bf2ed6cfee6ca227f6f3769e3fd9d77130e96718"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B1-shuf",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1-shuf/42/prompts.jsonl",
+        "sha256": "165ffb04fc04e230cfe9af37f762dc627171a0d4977d7ccf503c3b10f25b1be3"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2128,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B1-shuf",
+      "seed": 43,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1-shuf/43/prompts.jsonl",
+        "sha256": "cd67b4ef1aca7b4e3e537fb218641e222b00fa2965fe9a87f016d841a9959547"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2127,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B1-shuf",
+      "seed": 44,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B1-shuf/44/prompts.jsonl",
+        "sha256": "1fa862bd5901e2e150c699563f2a228beea4c3963e4e1ae9a7019215adc94c13"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2135,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B2",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2/42/prompts.jsonl",
+        "sha256": "b28305ac62c0f8412775ed5e7ac2663b5c9a9f2cb195f272fbd7e56393c5e1ed"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 2,
+        "demo_empty": 6,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 74
+      },
+      "empty_demo_rate": 0.0026396832380114386,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass",
+      "zip_reference": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/reference_B2/reveal/validation/prompts.jsonl",
+        "sha256": "3daffab6573e53170ad73014c7884d9a54182c693884c0585c8b0ab60236b081"
+      },
+      "prompt_identity_to_zip": "exact_text_by_validation_id"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B2-rand",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-rand/42/prompts.jsonl",
+        "sha256": "d0db93ea534a9d55b4b90be15ee74a4efe29ad8e05efaf3ff9cd6608ae1fbb82"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 2,
+        "demo_empty": 14,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 100
+      },
+      "empty_demo_rate": 0.0061592608886933565,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B2-rand",
+      "seed": 43,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-rand/43/prompts.jsonl",
+        "sha256": "8a17a74943b6ff5cf79022d035150a251eebffffeb6baad7a01dc0cb3061cdab"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 2,
+        "demo_empty": 13,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 101
+      },
+      "empty_demo_rate": 0.005719313682358117,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B2-rand",
+      "seed": 44,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-rand/44/prompts.jsonl",
+        "sha256": "b917cc7cad12ff25026f915b52aab25e60e37a9d459e06e6c91dced40c824fcb"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 3,
+        "demo_empty": 7,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 97
+      },
+      "empty_demo_rate": 0.0030796304443466782,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B2-nolabel",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-nolabel/42/prompts.jsonl",
+        "sha256": "4dabeedaaf0264b33fef4742b293bfc1a0040bc1471be053c72f0c6dcc211b83"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 6,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 74
+      },
+      "empty_demo_rate": 0.0026396832380114386,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B2-labelonly",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-labelonly/42/prompts.jsonl",
+        "sha256": "7094a13ec56cb11c5a130d8869b84eff79289f196af8853a05d7aa82b93918ab"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B2-flip",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-flip/42/prompts.jsonl",
+        "sha256": "783e929fc257812ad5a0fd922b30f851fea0b081fb46606656d058037a4d5095"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 1,
+        "demo_empty": 6,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 74
+      },
+      "empty_demo_rate": 0.0026396832380114386,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B2-rep",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "Runs-management/dry_run_validation_20261102/reveal/validation/B2-rep/42/prompts.jsonl",
+        "sha256": "09e305d76c6a366b4e8d2f76764fa394416f65abe3a1eeda29493940be9027e5"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 0,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 3,
+        "demo_empty": 6,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 74
+      },
+      "empty_demo_rate": 0.0026396832380114386,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "blockers": [],
+      "historical_dry_run_status": "pass"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B3",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/dry_run_validation_20261102/reveal/validation/B3/42/prompts.jsonl",
+        "sha256": "2d2464301137656cd6b1b4a53995d8d1dd122a971f1523b4a39acaa7f2a1df69"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 4546,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 7,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 104
+      },
+      "empty_demo_rate": 0.0030796304443466782,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "same_pair_ids_as_zip_specs": 0,
+      "generic_difference_rows": 1642,
+      "blockers": [
+        "ZIP rendered donor identity disagrees with ZIP specs; frozen original full-selection provenance is unresolved."
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B3-nodiff",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/dry_run_validation_20261102/reveal/validation/B3-nodiff/42/prompts.jsonl",
+        "sha256": "d96424fdb1943f55a65e94adf26223cd08d3164ce9a3c5fe4cfbb5fca83a7603"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 4546,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 7,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 104
+      },
+      "empty_demo_rate": 0.0030796304443466782,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "same_pair_ids_as_zip_specs": 0,
+      "generic_difference_rows": 0,
+      "blockers": [
+        "ZIP rendered donor identity disagrees with ZIP specs; frozen original full-selection provenance is unresolved."
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B3-swap",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/dry_run_validation_20261102/reveal/validation/B3-swap/42/prompts.jsonl",
+        "sha256": "90adbde689a2aa050fc1e2616f7fe26a630110ea5dbace9cf64ce3a453ec984e"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 4546,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 7,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 104
+      },
+      "empty_demo_rate": 0.0030796304443466782,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "same_pair_ids_as_zip_specs": 0,
+      "generic_difference_rows": 1642,
+      "blockers": [
+        "ZIP rendered donor identity disagrees with ZIP specs; frozen original full-selection provenance is unresolved."
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B3-flip",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/audit/hieu_zip_step34_20261104/zip_validation/prompts/dry_run_validation_20261102/reveal/validation/B3-flip/42/prompts.jsonl",
+        "sha256": "d07c3cd3231e4456a171051a94725eeb27ddecb7515d5504302040561be18764"
+      },
+      "checks": {
+        "donor_id_not_in_frozen_bank": 4546,
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 7,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 2113,
+        "demo_truncated": 104
+      },
+      "empty_demo_rate": 0.0030796304443466782,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "same_pair_ids_as_zip_specs": 0,
+      "generic_difference_rows": 1642,
+      "blockers": [
+        "ZIP rendered donor identity disagrees with ZIP specs; frozen original full-selection provenance is unresolved."
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "arm": "B1-H2",
+      "seed": 42,
+      "rows": 2273,
+      "prompt": {
+        "path": "11_Arm_B1H2_Evidence/validation_h2_cluster_v5_20261104/reveal/validation/B1-H2/42/prompts.jsonl",
+        "sha256": "0fde0c479df9463184beea9b589f85b1076ee414d34a470bd1499ad5ae6ecf5a"
+      },
+      "checks": {
+        "unresolved_label_prompts": 0,
+        "historically_reviewed_exact_prompts": 0,
+        "demo_empty": 0,
+        "graph_missing": 27,
+        "code_truncated": 34,
+        "graph_truncated": 0,
+        "demo_truncated": 0
+      },
+      "empty_demo_rate": 0.0,
+      "missing_graph_rate": 0.011878574571051475,
+      "passes_prereg_automatic_thresholds": true,
+      "h2_no_usable_guard": 856,
+      "h2_nodes_outside_closed_prefix": 225,
+      "blockers": [
+        "Current evidence review is incomplete; prefix-selection scope must match the submitted protocol."
+      ]
+    }
+  ]
+}
