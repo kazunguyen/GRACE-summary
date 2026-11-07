@@ -14,5 +14,9 @@
   "reveal|B2-rep|42": 0.12,
   "reveal|B2|42": 0.12,
   "reveal|P-POST|42": 0.1,
-  "reveal|P-PRE|42": 0.38
+  "reveal|P-PRE|42": 0.38,
+  "devign|B2-rand|42": 0.99,
+  "reveal|B2-rand|42": 0.89,
+  "devign|B2-rand|43": 0.99,
+  "reveal|B2-rand|43": 0.62
 }
