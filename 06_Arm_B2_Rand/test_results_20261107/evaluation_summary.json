@@ -1,0 +1,134 @@
+{
+  "seed_42/devign": {
+    "n_total": 2732,
+    "n_score_valid": 2732,
+    "n_response_valid": 2732,
+    "tau": 0.99,
+    "accuracy": 0.5366032210834554,
+    "balanced_accuracy": 0.5143607020799672,
+    "precision": 0.49105691056910566,
+    "recall": 0.24063745019920318,
+    "f1": 0.3229946524064171,
+    "mcc": 0.034270448804192596,
+    "confusion_matrix": [
+      [
+        1164,
+        313
+      ],
+      [
+        953,
+        302
+      ]
+    ],
+    "auroc": 0.5317519360607671,
+    "average_precision": 0.4960760812986125,
+    "threshold_policy": "inherit_completed_Kaggle_validation_no_test_fit",
+    "threshold_lock_sha256_by_run": {
+      "I-18": "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70"
+    },
+    "runtime_contract_sha256_by_run": {
+      "I-18": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+    },
+    "records_sha256": "561daeae403209600b13ec7e1085adb969e28b645e540bd84dd2ef9bae727a0d"
+  },
+  "seed_42/reveal": {
+    "n_total": 2274,
+    "n_score_valid": 2274,
+    "n_response_valid": 2274,
+    "tau": 0.89,
+    "accuracy": 0.7515391380826737,
+    "balanced_accuracy": 0.5299519271675317,
+    "precision": 0.1286031042128603,
+    "recall": 0.25217391304347825,
+    "f1": 0.17033773861967694,
+    "mcc": 0.04529784330730294,
+    "confusion_matrix": [
+      [
+        1651,
+        393
+      ],
+      [
+        172,
+        58
+      ]
+    ],
+    "auroc": 0.5804837062877564,
+    "average_precision": 0.12271064044476508,
+    "threshold_policy": "inherit_completed_Kaggle_validation_no_test_fit",
+    "threshold_lock_sha256_by_run": {
+      "I-18": "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70",
+      "I-20": "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735"
+    },
+    "runtime_contract_sha256_by_run": {
+      "I-18": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+      "I-20": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
+    },
+    "records_sha256": "784e74a7ed3f053c5fb709e2a86ed6c3514739c9d76f41bb71ff3b6f6029c168"
+  },
+  "seed_43/devign": {
+    "n_total": 2732,
+    "n_score_valid": 2732,
+    "n_response_valid": 2732,
+    "tau": 0.99,
+    "accuracy": 0.5501464128843339,
+    "balanced_accuracy": 0.5276046794541536,
+    "precision": 0.521594684385382,
+    "recall": 0.250199203187251,
+    "f1": 0.33817985998922995,
+    "mcc": 0.06637992652420792,
+    "confusion_matrix": [
+      [
+        1189,
+        288
+      ],
+      [
+        941,
+        314
+      ]
+    ],
+    "auroc": 0.5336347231251029,
+    "average_precision": 0.4980402884219274,
+    "threshold_policy": "inherit_completed_Kaggle_validation_no_test_fit",
+    "threshold_lock_sha256_by_run": {
+      "I-19": "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70"
+    },
+    "runtime_contract_sha256_by_run": {
+      "I-19": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+    },
+    "records_sha256": "f8b356e8c41ba7dc232f660361c13c0100af0cfef1eeca85660f5f97becfb3f6"
+  },
+  "seed_43/reveal": {
+    "n_total": 2274,
+    "n_score_valid": 2274,
+    "n_response_valid": 2274,
+    "tau": 0.62,
+    "accuracy": 0.6908531222515392,
+    "balanced_accuracy": 0.544426954820046,
+    "precision": 0.1298904538341158,
+    "recall": 0.36086956521739133,
+    "f1": 0.19102416570771003,
+    "mcc": 0.059603477375973206,
+    "confusion_matrix": [
+      [
+        1488,
+        556
+      ],
+      [
+        147,
+        83
+      ]
+    ],
+    "auroc": 0.5747107121585978,
+    "average_precision": 0.12348506860618594,
+    "threshold_policy": "inherit_completed_Kaggle_validation_no_test_fit",
+    "threshold_lock_sha256_by_run": {
+      "I-19": "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70",
+      "I-20": "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735"
+    },
+    "runtime_contract_sha256_by_run": {
+      "I-19": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+      "I-20": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
+    },
+    "records_sha256": "cbefdc01464e39ac09e48ab081550c4db3b019f47bc2344166ffc895880f76c7"
+  }
+}
