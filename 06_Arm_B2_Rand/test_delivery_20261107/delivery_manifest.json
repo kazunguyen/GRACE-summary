@@ -38,8 +38,8 @@
   "bundle": "06_Arm_B2_Rand/test_delivery_20261107/grace_b2_rand_test_seeds_42_43_bundle.zip",
   "bundle_sha256": "703f7de196be9844ee8f69a675504afc311c6f23c8c50e82e21e984b36acd465",
   "notebooks": {
-    "02_kaggle_qwen_q4_b2_rand_seed42_test.ipynb": "707f43847bb94487ef8953fcacbfeb1879e5cf202639db4260e42979b43085eb",
-    "02_kaggle_qwen_q4_b2_rand_seed43_test.ipynb": "f71ed39a9aaa1072332a763c5700561397f937130db1f7d48bfe3d1aaeb6de44"
+    "02_kaggle_qwen_q4_b2_rand_seed42_test.ipynb": "e63574a592660b041f7695eaa48269c2797a63a16ecbcc2214eccf8e9ec61e15",
+    "02_kaggle_qwen_q4_b2_rand_seed43_test.ipynb": "59aa49b67cf2e346740914dddec6f49dd43fc7c5ac6caacc8d60f780df8c8684"
   },
   "resume_notebooks": {
     "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
@@ -50,5 +50,6 @@
     "42/reveal": 2274,
     "43/devign": 2732,
     "43/reveal": 2274
-  }
+  },
+  "runtime_lock_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
 }

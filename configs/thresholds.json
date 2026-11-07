@@ -249,22 +249,77 @@
       "inference_seed": 4294967295,
       "inference_seed_policy": "llama_cpp_default",
       "gpu_offload_verified": true
+    },
+    "devign|B2-rand|44": {
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "seed": 44,
+      "split": "validation",
+      "tau_star": 0.99,
+      "mcc_at_tau": 0.05585097088706295,
+      "n_total": 2732,
+      "n_valid": 2732,
+      "prompt_set_sha256": "fe0c739a29a591cf75b957ef2e86c53fb7ed6b83ba9c4fd29509d76490d10c7e",
+      "validation_records_sha256": "9a9dfe5bad737108e140edb15261f943ecd1fe8a250b93186b645882d776414f",
+      "validation_evidence_sha256": "547b33b98f4dab89328c5728cece664d197cbeccd178c8098dbb5b57461c64c9",
+      "validation_bundle_sha256": "acd7fed94f01de8f69b07287e7441d72928e7ef22aff62ecda8d8e30e417e883",
+      "threshold_lock_sha256": "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735",
+      "platform": "Kaggle",
+      "runtime_python": "3.13.15",
+      "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+      "backend": "llama-cpp-python==0.3.16",
+      "inference_seed": 4294967295,
+      "inference_seed_policy": "llama_cpp_default",
+      "runtime_lock_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+      "gpu_offload_verified": true,
+      "runtime_adoption": {
+        "status": "reviewed_legacy_resume",
+        "legacy_run_manifest_sha256": "1f7fa83e76b56e6a20179ebf4701dd0e83f26fe4dc00f9e9375007e5fc40c574",
+        "legacy_records_sha256": "2f5a5297d4060c7235f950c21355d4675dbc41b17b50e86bc72d300dc15dffd7",
+        "evidence": "I-15 Kaggle install/runtime logs; worklogs/2026-11-07_inference_runtime_log_evidence.json",
+        "note": "Historical records retain their original provenance and are not retroactively stamped with the runtime lock."
+      }
+    },
+    "reveal|B2-rand|44": {
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "seed": 44,
+      "split": "validation",
+      "tau_star": 0.64,
+      "mcc_at_tau": 0.08916560536249224,
+      "n_total": 2273,
+      "n_valid": 2273,
+      "prompt_set_sha256": "8401afc0a212b45d5eaed4bf1a74919414b0e9683699b9f0d268432341ae81d1",
+      "validation_records_sha256": "d119c9769b190dfde5dafa4ee8e467a08d0cc0b302c1bbcb139c280c2371690b",
+      "validation_evidence_sha256": "01532ad4a6dddfa5806d9977b9a0683363ee2bed9acf560496f92be51aa974c2",
+      "validation_bundle_sha256": "568e15b70696a665e1234e4104fbc96063972ec875f09b1a9813a1b054f3e69e",
+      "threshold_lock_sha256": "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735",
+      "platform": "Kaggle",
+      "runtime_python": "3.13.15",
+      "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+      "backend": "llama-cpp-python==0.3.16",
+      "inference_seed": 4294967295,
+      "inference_seed_policy": "llama_cpp_default",
+      "runtime_lock_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+      "gpu_offload_verified": true,
+      "runtime_adoption": {
+        "status": "fresh_locked_run"
+      }
     }
   },
-  "locked_sha256": "269ebf781c026d2002b4577769c112d4d5ad7d04795782fed2b435b9f3902e4f",
   "metadata": {
     "grid_points": 99,
     "grid_range": [
       0.01,
       0.99
     ],
-    "locked_utc": "2026-11-07T02:04:27Z",
+    "locked_utc": "2026-11-07T09:13:57.492702+00:00",
     "optimized_on_split": "validation",
     "phase": "Step 4: Full Validation Threshold Locking (Option B)",
-    "previous_locked_sha256": "cecd6c604481da846e37d1899324f1177566bdf0a422d0a632467b2c235a6a47",
+    "previous_locked_sha256": "1ab876a837b3b8607de8013a3425270fee2711a59e9539932f9a0bba411eba9f",
     "previous_protocol_sha256": "acbea32853ff7741065b774d671aff06d569b3e403c9bd696606a840501c02ce",
     "protocol_sha256": "273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116",
-    "reseal_reason": "Added four B2-rand validation-only thresholds for prompt seeds 42 and 43 (Devign and REVEAL), with complete validation coverage and linked evidence hashes. Existing 16 threshold values unchanged; no test data or metrics used to choose these thresholds. Original preregistration hash retained.",
+    "reseal_reason": "Added B2-rand prompt seed 44 Devign and REVEAL thresholds fit on complete validation only; the prior B2-rand seed 42/43 and all other threshold values remain unchanged. Test records/metrics were not used.",
     "sample_counts": {
       "devign_val": 2732,
       "reveal_val": 2273,
@@ -272,7 +327,7 @@
     },
     "study_id": "grace_diag_replication_v1",
     "test_exposure": "Threshold values computed on validation only; earlier test inference/metrics existed and are disclosed in exposure_ledger",
-    "total_thresholds_locked": 20,
+    "total_thresholds_locked": 22,
     "version": "prereg-v1",
     "previous_b1h2_colab_lock_sha256": "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5",
     "previous_locked_sha256_before_b2_rand_2026_11_07": "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5"
@@ -297,6 +352,9 @@
     "devign|B2-rand|42": 0.99,
     "reveal|B2-rand|42": 0.89,
     "devign|B2-rand|43": 0.99,
-    "reveal|B2-rand|43": 0.62
-  }
+    "reveal|B2-rand|43": 0.62,
+    "devign|B2-rand|44": 0.99,
+    "reveal|B2-rand|44": 0.64
+  },
+  "locked_sha256": "a86846df65b2f91c9acf9c27c74e9aa2895fd6604bf7e20116021bc8c230fe92"
 }

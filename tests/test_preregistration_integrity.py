@@ -118,7 +118,7 @@ def test_protocol_yaml_consistency_and_provenance():
 
 
 def test_thresholds_json_synchronization():
-    """Preserve the registered 14 values and verify the two B1-H2 supplements."""
+    """Preserve the registered 14 values and verify the validation supplements."""
     assert THRESHOLDS_JSON.exists(), "configs/thresholds.json không tồn tại!"
     assert THRESHOLDS_FLAT.exists(), "configs/thresholds_flat.json không tồn tại!"
 
@@ -130,12 +130,10 @@ def test_thresholds_json_synchronization():
     assert meta["version"] == "prereg-v1"
     assert meta["optimized_on_split"] == "validation"
     assert "earlier test inference/metrics existed" in meta["test_exposure"]
-    assert any(term in meta["reseal_reason"] for term in ["B1-H2", "B2-rand"])
-    assert meta["total_thresholds_locked"] in (16, 20)
+    assert "B2-rand" in meta["reseal_reason"]
+    assert meta["total_thresholds_locked"] == 22
 
     thresholds = data["thresholds"]
-    assert len(thresholds) in (16, 20), f"Expected 16 or 20 thresholds, got {len(thresholds)}"
-    assert len(flat) in (16, 20), f"Expected 16 or 20 flat thresholds, got {len(flat)}"
 
     # Compare against the immutable submitted archive, not a mutable config mirror.
     bundle = REPO_ROOT / "Runs-management/osf_registration_draft_20261102/GRACE_OSF_PREREGISTRATION_20261102.zip"
@@ -150,8 +148,11 @@ def test_thresholds_json_synchronization():
         (REPO_ROOT / "Runs-management/b1h2_kaggle_validation_audit_20261106.json").read_text(encoding="utf-8")
     )
     assert meta["previous_locked_sha256"] in (
-        "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5",
         "cecd6c604481da846e37d1899324f1177566bdf0a422d0a632467b2c235a6a47",
+        "1ab876a837b3b8607de8013a3425270fee2711a59e9539932f9a0bba411eba9f",
+    )
+    assert meta["previous_b1h2_colab_lock_sha256"] == (
+        "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5"
     )
     unsigned = {key: value for key, value in data.items() if key != "locked_sha256"}
     canonical = json.dumps(unsigned, indent=2, ensure_ascii=False, sort_keys=True).encode("utf-8")
@@ -171,30 +172,21 @@ def test_thresholds_json_synchronization():
         assert data["details"][key]["validation_records_sha256"] == audit["results"][dataset]["records_sha256"]
         assert data["details"][key]["validation_evidence_sha256"] == audit["results"][dataset]["validation_evidence_sha256"]
 
-    # The original 14 keys plus exactly two B1-H2 keys.
-    expected_keys = [
-        "devign|B0|42",
-        "devign|B1|42",
-        "devign|B2|42",
-        "devign|B2-flip|42",
-        "devign|B2-rep|42",
-        "reveal|B0|42",
-        "reveal|B1|42",
-        "reveal|B2|42",
-        "reveal|B2-flip|42",
-        "reveal|B2-rep|42",
-        "devign|P-PRE|42",
-        "devign|P-POST|42",
-        "reveal|P-PRE|42",
-        "reveal|P-POST|42",
-        "devign|B1-H2|42",
-        "reveal|B1-H2|42",
-        "devign|B2-rand|42",
-        "reveal|B2-rand|42",
-        "devign|B2-rand|43",
-        "reveal|B2-rand|43",
-    ]
-    assert set(thresholds) == set(flat) == set(expected_keys)
+    b2_rand_thresholds = {
+        "devign|B2-rand|42": 0.99,
+        "reveal|B2-rand|42": 0.89,
+        "devign|B2-rand|43": 0.99,
+        "reveal|B2-rand|43": 0.62,
+        "devign|B2-rand|44": 0.99,
+        "reveal|B2-rand|44": 0.64,
+    }
+    for key, tau in b2_rand_thresholds.items():
+        entry = data["details"][key]
+        assert entry["split"] == "validation"
+        assert thresholds[key] == entry["tau_star"] == tau
+
+    expected_keys = set(registered["thresholds"]) | {"devign|B1-H2|42", "reveal|B1-H2|42"} | set(b2_rand_thresholds)
+    assert set(thresholds) == set(flat) == expected_keys
     for k in expected_keys:
         assert k in thresholds, f"Thiếu key {k} trong thresholds.json!"
         assert k in flat, f"Thiếu key {k} trong thresholds_flat.json!"
@@ -211,9 +203,7 @@ def test_thresholds_json_synchronization():
     # Xác nhận thresholds.json hợp lệ qua hàm load_locked tamper-proof của grace_diag.thresholds
     from grace_diag.thresholds import load_locked
     locked_thresholds = load_locked(THRESHOLDS_JSON)
-    assert len(locked_thresholds) in (16, 20)
-    for k in expected_keys:
-        assert k in locked_thresholds
+    assert set(locked_thresholds) == expected_keys
 
 
 def test_step0_offline_diagnostic_artifacts_integrity():
