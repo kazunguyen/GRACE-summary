@@ -139,6 +139,17 @@ Prepared all non-ignored pending notebooks, I-10/I-11 run records and audit/work
 
 Added a separate amended B3 selector with source/diff/review gates, exact deterministic mean-Jaccard ranking and matched probe rendering. B3-nodiff retains its own validation threshold per proposal sections 6.6/8.5; swap and flip inherit B3. No original selector, frozen data, arm config, threshold lock or registered attachment was altered by this implementation. 58 integrity/probe/statistics/new-selector tests passed. Three synthetic targets produced twelve explicitly test-only prompts; six real validation attempts paused because no authenticated, two-reviewer-approved pair pool was available. No inference or OSF submission was performed. This is proposed amendment software, not evidence of confirmed security-pair quality or completed B3 validation. See worklogs/2026-11-06_amended_b3_selector_and_smoke.md and Runs-management/b3_amended_20261106/README.md.
 
+
+## 2026-11-06 - B1-H2 Kaggle test delivery after completed validation lock
+
+Prepared a separate 5,006-prompt test bundle and Kaggle 2xT4 notebook under `11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/`. Uses the completed Kaggle validation thresholds Devign 0.09 and ReVeal 0.21 (seal `b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8`), without fitting on test. Preserves original prompt text, pinned model/tokenizer/backend and the observed validation inference seed policy (`LLAMA_DEFAULT_SEED=4294967295`; prompt-set seed 42). Session budget is nine hours including setup, with checkpoints and resumable output. CPU checks passed for input layouts, fixed-threshold scoring and checkpoint identity/rejection. This is operational preparation; no GPU inference or remote upload was executed, and no frozen data, thresholds/configs or OSF attachments were changed. See `worklogs/2026-11-06_b1h2_kaggle_test_preparation.md`.
+
+
+## 2026-11-07 - B1-H2 Kaggle test startup heartbeat
+
+At the user's request, the existing Kaggle test notebook now prints PING in its first executable statement and starts a daemon heartbeat every 30 seconds, with immediate stage markers. The startup nvidia-smi probe times out after 30 seconds. The heartbeat is cleaned up on rerun, cell error and session completion; it indicates Python kernel liveness, not model progress or successful GPU work. The notebook generator and delivery hashes were refreshed. CPU checks exercised real heartbeat output while the foreground waited, rerun/error cleanup and the actual startup GPU-timeout path; all existing delivery/checkpoint checks also passed. Input bundle SHA-256 and inference helper SHA-256 remain identical, as do the fixed Kaggle thresholds and nine-hour budget. No GPU or real test-score analysis was executed for this change. See `11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/README.md` and `verification_report.json`.
+
+
 ### OSF E1/E2 public evidence-link repair (2026-11-07)
 
 Replaced the two HTTP-404 public GitHub URLs at commit 282033d in Runs-management/osf_amendment_20261106/OSF_UPDATE_EN.md with accessible copies at d9127fc. Compared Git blobs and confirmed byte-identical SHA-256 values for both the original optimizer and historical threshold artifact. Added an access/provenance note distinguishing the later public snapshot from the locally retained historical commit. This is a documentation-link correction; no experiment, threshold, or analysis result was changed.
@@ -146,3 +157,22 @@ Replaced the two HTTP-404 public GitHub URLs at commit 282033d in Runs-managemen
 ## 2026-11-07 — Runtime lock delivery for five Kaggle validation arms
 
 Packaged new validation notebooks for B1-full, B1-shuf, B2-rep, B2-nolabel and B2-labelonly. The notebooks enforce the shared Kaggle runtime lock, check package/source/model/prompt identity, and segregate new checkpoints from historical runs. The original scoring and B2-rep isolation are retained. The package was verified locally and has no new GPU run or confirmatory results. This is an operational update for future validation sessions. See the [delivery worklog](worklogs/2026-11-07_hieu_5arms_runtime_locked_delivery.md).
+
+
+## 2026-11-07 — B2-rand test uses the approved shared runtime lock
+
+Integrated configs/inference_runtime_lock.json into both seed42/seed43 Kaggle test notebooks as a byte- and integrity-verified embedded contract. Enforce approved packages, verified backend source archive, constructor/seed/auto GPU split, model/tokenizer identity, full offload evidence, provenance and strict runtime-aware checkpoint resume. Preserve original prompt bundle and validation threshold lock. Also corrected single-dataset resume and inherited B1-H2 checkpoint filename. See worklogs/2026-11-07_b2_rand_test_runtime_lock_integration.md for affected files, checks and limits. These operational changes are not a new exploratory arm or changes to frozen prompts/thresholds. Local checks used stubs; Kaggle CUDA execution remains unverified.
+
+## 2026-11-06 — OSF page updated to v1.1 (user-reported)
+
+The user reports updating the public OSF registration page to v1.1 on 2026-11-06. This log records the user's report and the version/date only; it does not independently verify the live OSF page, its uploaded files, approval status, or the exact differences from v1.0. The local amendment materials and prior registration history remain documented separately. Do not treat this entry as verification that any new protocol text was accepted or that historical analyses became prospective.
+
+## 2026-11-07 — Correct two OSF evidence links and synchronize runtime records
+
+- After Hiếu identified that two OSF E1/E2 links pointed to HTTP 404 pages, replaced them with accessible public GitHub copies. Compared Git blobs and verified both replacement files are byte-identical to the historical optimizer and threshold artifact. Added a note distinguishing the accessible snapshot from the historical commit. This repairs evidence access and does not change experiment results or thresholds.
+- Added four completed B2-rand validation threshold entries for prompt seeds 42 and 43 to the global threshold config and mirrors. Verified record hashes, complete validation coverage and the self-seal. The four thresholds were selected on validation records only. This extends the threshold ledger with arm-specific validation results and is disclosed as a post-registration update.
+- Created the Kaggle Qwen runtime lock from the user's decisions on package versions, inference seed policy, GPU layer splitting, CPU thread formulas and platform-build provenance. Audited notebooks and available Kaggle logs across arms. The lock is an operational contract for new runs. Historical runs are not retroactively certified by it.
+- Built and delivered five validation notebooks for Hiếu's B1-full, B1-shuf, B2-rep, B2-nolabel and B2-labelonly arms with the runtime lock embedded and enforced. Kept scoring and B2-rep isolation. The new notebooks have not yet been executed on Kaggle.
+- Audited the lock differences across the 15 arms and corrected the initial severity assessment of inference seed 42. Since the current scoring path uses direct logits without sampling, the seed difference is low significance for current scores. B1-H2's fixed GPU split and the Colab L4 execution remain material runtime/profile differences. Missing B3 run logs remain unverified rather than presumed non-compliant.
+
+See worklogs/2026-11-07_15arms_runtime_lock_severity.md, worklogs/2026-11-07_hieu_5arms_runtime_locked_delivery.md and worklogs/2026-11-07_inference_runtime_lock_and_notebook_differences.md for per-arm evidence and implementation details. Runtime-lock adoption has not been verified through new Kaggle GPU executions.
