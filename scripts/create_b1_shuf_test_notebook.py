@@ -72,8 +72,7 @@ def run_logged(cmd, name, env=None):
                                 text=True, encoding='utf-8', errors='replace', bufsize=1, env=env)
         for line in proc.stdout:
             f.write(line); f.flush()
-            if 'Inference ' in line or 'Completed' in line:
-                print(line.strip(), flush=True)
+            print(line, end='', flush=True)
         code = proc.wait()
     note(f'{name} kết thúc với mã {code}')
     if code:
@@ -317,8 +316,7 @@ def run_inference(arm, seed, dataset, model_path, bundle_zip, out_dir, tau_star)
             done_ids.add(uid)
             
             now = time.time()
-            if len(done_ids) % 100 == 0 or len(done_ids) == total_count:
-                print(f'Inference {arm} s{seed} {ds} test: {len(done_ids)}/{total_count} (s={s_val:.4f}, raw={raw!r})', flush=True)
+            print(f'{arm}/s{seed}/{ds} {uid}: s={s_val:.4f}, raw={raw!r} ({len(done_ids)}/{total_count})', flush=True)
             
             if len(done_ids) % 100 == 0 or (now - last_snapshot_time) >= 120:
                 save_snapshot()
