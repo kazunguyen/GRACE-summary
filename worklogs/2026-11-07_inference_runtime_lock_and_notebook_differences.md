@@ -47,10 +47,10 @@ Chỉ stage/commit file JSON và worklog mới này; các thay đổi có sẵn 
 - Chưa có runner Kaggle Qwen hiện hành riêng cho họ B3 trong GRACE-summary. Hai host server lịch sử bên HuuHieu03 dùng backend không pin và batch=2048; không chứng nhận chúng theo contract này.
 - AGENTS.md mô tả llama-server b3920/seed42, trong khi source notebook dùng llama-cpp-python 0.3.16 và một số dùng sentinel mặc định. Đây là chênh lệch tài liệu cần đối chiếu protocol frozen, không tự sửa prereg.
 
-## Câu hỏi còn mở
+## Quyết định bổ sung và bằng chứng còn thiếu
 
-1. Mọi notebook chưa pin exact CUDA/compiler/CMake/Python patch: chọn container/build artifact chung hay cho phép platform build với provenance?
-2. Mọi notebook bỏ trống CPU threads: giữ công thức CPU-count hay chọn số tuyệt đối?
+1. Người dùng chốt chỉ chạy Kaggle: giữ build theo Kaggle và bắt buộc lưu đầy đủ provenance. Không yêu cầu container chung; exact CUDA/compiler/CMake/Python patch được ghi theo từng phiên, không tuyên bố binary giống nhau.
+2. Người dùng chọn cách đa số notebook dùng: cả 16 bản đều dùng default CPU-count formulas, nên chốt giữ công thức hiện tại và lưu số thread thực tế. Đây không còn là câu hỏi mở.
 3. Cần log thực chạy từ người đang chạy năm arm còn thiếu.
 
 ## Kiểm tra và nguồn
@@ -59,3 +59,5 @@ Parse JSON, kiểm tra checksum canonical, sáu package, seed/tensor_split đã 
 - https://pypi.org/pypi/llama-cpp-python/0.3.16/json
 - https://raw.githubusercontent.com/abetlen/llama-cpp-python/v0.3.16/llama_cpp/llama.py
 - https://raw.githubusercontent.com/ggml-org/llama.cpp/4227c9be4268ac844921b90f31595f81236bd317/src/llama-model.cpp
+
+Phạm vi contract sau trả lời cuối: Kaggle T4×2. Các cấu hình seed/package/GPU distribution/CPU threads/build policy đã được người dùng chốt; câu hỏi còn lại chỉ là thu thập bằng chứng từ các arm thiếu log và runner họ B3. Notebook chưa tự đọc JSON nên chưa được coi đã đồng bộ theo contract.
