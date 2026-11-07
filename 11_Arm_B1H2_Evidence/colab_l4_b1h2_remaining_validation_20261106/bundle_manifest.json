@@ -1,0 +1,50 @@
+{
+  "schema": "grace_colab_b1h2_remaining_validation_v1",
+  "purpose": "Resume B1-H2 validation inference on all original frozen prompts except the exact 100 already completed in the Colab L4 pilot; validation only, threshold frozen after full validation.",
+  "created_at_utc": "2026-11-06T03:35:17.924745+00:00",
+  "source_archive": "grace_15arms_prompts_and_clean_specs (1).zip",
+  "source_archive_sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+  "source_prompt_members": {
+    "devign": {
+      "zip_member": "prompts/dry_run_validation_20261102/devign/validation/B1-H2/42/prompts.jsonl",
+      "source_jsonl_sha256": "c9407277cdb15570368ede0e3e455fa9fd3f5ea657052aadcd47e087a4a6a7a2",
+      "source_count": 2732,
+      "already_run_excluded": 50,
+      "remaining_count": 2682
+    },
+    "reveal": {
+      "zip_member": "prompts/dry_run_validation_20261102/reveal/validation/B1-H2/42/prompts.jsonl",
+      "source_jsonl_sha256": "b85025697fa66d74ad6fd68fdc544a8430855f1315fbef06b63aa6df373e0aa4",
+      "source_count": 2273,
+      "already_run_excluded": 50,
+      "remaining_count": 2223
+    }
+  },
+  "excluded_completed_pilot": {
+    "output_archive": "l4_pilot_output.zip",
+    "output_archive_sha256": "9da2c0c67d382c769f0db735bb73211592605c329a02f8800a81ba2fe3c301f8",
+    "count": 100,
+    "id_prompt_sha256_tsv_sha256": "b413f1d313a2f50379ba0a458f79d24c636a1f71e2742b9d764941bab2e8c927"
+  },
+  "dataset": "validation",
+  "arm": "B1-H2",
+  "prompt_variant": "Hiếu original ZIP, dry_run_validation_20261102, seed 42",
+  "dataset_counts": {
+    "devign": 2682,
+    "reveal": 2223
+  },
+  "count": 4905,
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "quantization": "Q4_K_M",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "backend": "llama-cpp-python 0.3.16",
+  "context_tokens": 8192,
+  "n_batch": 256,
+  "seed": 42,
+  "scoring": "unconstrained_first_token_logits_v1",
+  "prompts_sha256": "e4f2765732c1c02c344ca9839cd2230e696f24079c7a54ccf4e7c42fbab09fb7"
+}

@@ -1,0 +1,43 @@
+{
+  "archive": "validation_records.zip",
+  "archive_sha256": "4737fc0ac8685dc0c70cdc5493e10dbc468ad5097753d19a4532a0237af17596",
+  "scope": "Four original, byte-preserved validation records files only; no test inputs",
+  "entries": [
+    {
+      "path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/validation/records.jsonl",
+      "sha256": "d856cf6b2271d4fb6f22dc999c83efe3c0e6ec29b8bc4e1340e28a6093c44ce1",
+      "bytes": 4416971,
+      "rows": 2732,
+      "arm": "B0",
+      "dataset": "devign",
+      "split": "validation"
+    },
+    {
+      "path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/validation/records.jsonl",
+      "sha256": "80397c2e90f78cb2d67a94313a5cd02a09901ec64e56176f7d903e85385446d7",
+      "bytes": 3674816,
+      "rows": 2273,
+      "arm": "B0",
+      "dataset": "reveal",
+      "split": "validation"
+    },
+    {
+      "path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/devign/validation/records.jsonl",
+      "sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
+      "bytes": 3614727,
+      "rows": 2732,
+      "arm": "B1",
+      "dataset": "devign",
+      "split": "validation"
+    },
+    {
+      "path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/reveal/validation/records.jsonl",
+      "sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
+      "bytes": 3008858,
+      "rows": 2273,
+      "arm": "B1",
+      "dataset": "reveal",
+      "split": "validation"
+    }
+  ]
+}

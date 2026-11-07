@@ -1,0 +1,46 @@
+{
+  "schema": "b1h2_kaggle_test_delivery_v1",
+  "arm": "B1-H2",
+  "split": "test",
+  "seed": 42,
+  "inference_seed": 4294967295,
+  "inference_seed_policy": "llama_cpp_default_matching_Kaggle_validation",
+  "counts": {
+    "devign": 2732,
+    "reveal": 2274
+  },
+  "thresholds": {
+    "devign": 0.09,
+    "reveal": 0.21
+  },
+  "threshold_lock_sha256": "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8",
+  "input_bundle_sha256": "991f75e55646ff68db0436c409e2866a06f32f7c045e0cd4d9865199588f8fdc",
+  "input_bundle_bytes": 2579757,
+  "notebook_sha256": "6b3b60f067c84806b079de395bb6a29249707373c96b1d4876857aef386d8474",
+  "runtime_sha256": "afb85a7543364f0961b6d4001ddc481833dd17293f5f6c739d9cd1f0a3bb8e18",
+  "source_validation_runtime_sha256": "d96ffd511837ccfbaf72e778b28a560a3135a5f9bfe628b72b052ba36e29555a",
+  "source_validation_bundle_sha256": "b35b44f430c28ec44052867499ae7537950fb1dc2eee63083c3bdbb9c784c2b4",
+  "checks": {
+    "devign": {
+      "test_count": 2732,
+      "validation_prompt_method_matches": 2732,
+      "original_test_prompt_text_preserved": true,
+      "test_specs_sha256": "d50f9742505cd29af343c5c59d12c648c408c67d874d968e80c606260757703e",
+      "max_prompt_tokens": 4280
+    },
+    "reveal": {
+      "test_count": 2274,
+      "validation_prompt_method_matches": 2273,
+      "original_test_prompt_text_preserved": true,
+      "test_specs_sha256": "5387b5f3a1865766982e0e4c8f935834acf3c2726a531ac966f3d65d1d85233c",
+      "max_prompt_tokens": 3802
+    }
+  },
+  "session_budget_hours": 9,
+  "checkpoint_reserve_seconds": 300,
+  "preparation_only": true,
+  "gpu_inference_executed": false,
+  "heartbeat_interval_seconds": 30,
+  "gpu_probe_timeout_seconds": 30,
+  "heartbeat_bootstrap_sha256": "f0ed3b24ec40369ddd721e6fac2d7ba3f61f0479aee9a0e3365238febcc35da6"
+}

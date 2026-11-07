@@ -8,6 +8,26 @@
       "split": "validation",
       "tau_star": 0.08
     },
+    "devign|B1-H2|42": {
+      "arm": "B1-H2",
+      "dataset": "devign",
+      "mcc_at_tau": 0.06679281918983469,
+      "n_total": 2732,
+      "n_valid": 2732,
+      "prompt_set_sha256": "ccee63f6079d1036fcd8bc8fa4e272c078a1fc6b5aae882190f2d8dd21dd287e",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.09,
+      "validation_evidence_sha256": "09e44049b64e35afb83928565124b96bff12824652cdb1411142e68485b9e420",
+      "validation_records_sha256": "c0167ec182d3da6563fbdbe03651e225d1526d9913ca2486201c33b5baaa6985",
+      "validation_bundle_sha256": "f3558ad4827072229eeebf101378cf9c83effdcb4661a95863698ba35805efa4",
+      "threshold_lock_sha256": "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8",
+      "platform": "Kaggle",
+      "gpu": "2x NVIDIA Tesla T4",
+      "gpu_offload_verified": true,
+      "runtime_python": "3.13.16",
+      "supersedes": "Colab exploratory lock; see historical commit 846279676b60ca1185210642e75699b914e36a4d"
+    },
     "devign|B1|42": {
       "arm": "B1",
       "dataset": "devign",
@@ -69,6 +89,26 @@
       "split": "validation",
       "tau_star": 0.44
     },
+    "reveal|B1-H2|42": {
+      "arm": "B1-H2",
+      "dataset": "reveal",
+      "mcc_at_tau": 0.08363234793079846,
+      "n_total": 2273,
+      "n_valid": 2273,
+      "prompt_set_sha256": "cb66a3a20edf8631b28646ade25286ac097c1848cb77bdb8ab7648d274059ac3",
+      "seed": 42,
+      "split": "validation",
+      "tau_star": 0.21,
+      "validation_evidence_sha256": "4c50d1794de104d09872d9b614e1af9fade630186489b9c1e92c9ecd9e0df643",
+      "validation_records_sha256": "04cd1e97c1950c3fd0c7cfb2daac18438d937f8cd698b5981519efd3005af832",
+      "validation_bundle_sha256": "5ec5a8f4bf74c77cda56ccf81424d800cd055a6b6f4140c1b773c390b00f09c0",
+      "threshold_lock_sha256": "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8",
+      "platform": "Kaggle",
+      "gpu": "2x NVIDIA Tesla T4",
+      "gpu_offload_verified": true,
+      "runtime_python": "3.13.16",
+      "supersedes": "Colab exploratory lock; see historical commit 846279676b60ca1185210642e75699b914e36a4d"
+    },
     "reveal|B1|42": {
       "arm": "B1",
       "dataset": "reveal",
@@ -123,20 +163,20 @@
       "tau_star": 0.38
     }
   },
-  "locked_sha256": "9252aadebf19b0f86bd9da8e59992e2adebd87d386ab6600302b9ac10a2914a3",
+  "locked_sha256": "cecd6c604481da846e37d1899324f1177566bdf0a422d0a632467b2c235a6a47",
   "metadata": {
     "grid_points": 99,
     "grid_range": [
       0.01,
       0.99
     ],
-    "locked_utc": "2026-11-03T08:57:36Z",
+    "locked_utc": "2026-11-06T15:04:40.857862+00:00",
     "optimized_on_split": "validation",
     "phase": "Step 4: Full Validation Threshold Locking (Option B)",
-    "previous_locked_sha256": "a0108431ad859aacc3dab29ca7e88a7eb404428b4d60fc251e3bbae7d350c831",
+    "previous_locked_sha256": "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5",
     "previous_protocol_sha256": "acbea32853ff7741065b774d671aff06d569b3e403c9bd696606a840501c02ce",
     "protocol_sha256": "273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116",
-    "reseal_reason": "Protocol disclosure corrected after historical test exposure; threshold values unchanged; no refit",
+    "reseal_reason": "Replaced B1-H2 entries using complete Kaggle 2xT4 validation inference and exact-ID frozen-label join; Colab values are retained as exploratory history and not reused. Existing other 14 values unchanged.",
     "sample_counts": {
       "devign_val": 2732,
       "reveal_val": 2273,
@@ -144,11 +184,13 @@
     },
     "study_id": "grace_diag_replication_v1",
     "test_exposure": "Threshold values computed on validation only; earlier test inference/metrics existed and are disclosed in exposure_ledger",
-    "total_thresholds_locked": 14,
-    "version": "prereg-v1"
+    "total_thresholds_locked": 16,
+    "version": "prereg-v1",
+    "previous_b1h2_colab_lock_sha256": "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5"
   },
   "thresholds": {
     "devign|B0|42": 0.08,
+    "devign|B1-H2|42": 0.09,
     "devign|B1|42": 0.88,
     "devign|B2-flip|42": 0.7,
     "devign|B2-rep|42": 0.7,
@@ -156,6 +198,7 @@
     "devign|P-POST|42": 0.6,
     "devign|P-PRE|42": 0.54,
     "reveal|B0|42": 0.44,
+    "reveal|B1-H2|42": 0.21,
     "reveal|B1|42": 0.74,
     "reveal|B2-flip|42": 0.12,
     "reveal|B2-rep|42": 0.12,

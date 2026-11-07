@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "checks": [
+    "all_code_cells_compile_and_embed_exact_helper",
+    "immediate_ping_periodic_heartbeat_rerun_and_error_cleanup",
+    "actual_startup_cell_gpu_timeout_reports_and_stops",
+    "actual_notebook_input_loader_outer_zip",
+    "actual_notebook_input_loader_inner_zips",
+    "actual_notebook_input_loader_fully_extracted",
+    "fixed_validation_thresholds_applied_to_all_score_valid_rows",
+    "resume_skips_all_completed_ids",
+    "wrong_Colab_threshold_checkpoint_rejected",
+    "wrong_inference_seed_checkpoint_rejected",
+    "tampered_threshold_lock_rejected",
+    "expired_budget_prevents_inference",
+    "periodic_checkpoint_zip_has_resumable_layout"
+  ],
+  "real_gpu_inference": false,
+  "real_test_scores_read": false
+}
