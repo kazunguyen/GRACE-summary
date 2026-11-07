@@ -68,7 +68,7 @@ Bảng so sánh từng arm, trạng thái notebook, dấu * cho phiên bản ch�
 
 Đính chính cách hiểu seed: source B0, B1 và B2-flip có inference seed 42, khác sentinel 4294967295 trong lock. Đây là khác biệt cấu hình source, nhưng scoring hiện hành gọi `llm.reset()` rồi `llm.eval(prompt_ids)` để đọc logits, không sampling hoặc generation. Vì vậy chưa có căn cứ gọi seed này là nghiêm trọng hoặc nói nó làm đổi score trên đường chạy hiện tại. Xếp mức thấp đối với scoring hiện hành. Nếu bật sampling/generation trong tương lai, seed sẽ có ý nghĩa khác.
 
-Khác biệt B1-H2 `tensor_split=[1,1]` so với `None` ảnh hưởng chính sách chia GPU và provenance runtime. Các khác biệt build Kaggle như Python patch, CUDA/compiler/CMake và wheel hash được ghi theo phiên theo contract, vốn không yêu cầu binary identical. Colab L4 ngoài profile Kaggle của lock. Thiếu log của arm B3 là trạng thái chưa xác định, không phải bằng chứng đã sai lock.
+Đính chính cách hiểu GPU split: B1-H2 đặt `tensor_split=[1,1]`, còn lock dùng `None` với `split_mode=layer`. `None` không chọn GPU ngẫu nhiên; llama.cpp lấy lượng VRAM tự do ở thời điểm nạp model làm tỷ lệ chia. Nếu hai GPU T4 có free VRAM bằng nhau thì tỷ lệ tự chia cân bằng, dù ranh giới số layer nguyên có thể lệch một layer. Đây là khác biệt layer placement/provenance; chưa có phép so logits trực tiếp chứng minh nó gây lệch score đáng kể trên 2×T4. Không xếp là khác biệt nghiêm trọng với logits và không yêu cầu chạy lại chỉ dựa trên giả định đó. Colab L4 ngoài profile Kaggle của lock. Khác Python patch, CUDA/compiler/CMake và wheel hash được ghi theo phiên; contract không yêu cầu binary identical. Thiếu log B3 là trạng thái chưa xác định, không phải bằng chứng đã sai lock.
 
 ## Cập nhật đối chiếu log thực chạy — 2026-11-07
 

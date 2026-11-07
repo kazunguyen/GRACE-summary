@@ -1,139 +1,305 @@
 {
-  "schema_version": 1,
-  "contract_id": "grace_qwen_q4_runtime_v1",
-  "created_on": "2026-11-07",
-  "timezone": "Asia/Bangkok",
-  "status": "core_policy_locked_notebook_adoption_pending",
-  "scope": "New GRACE diagnostic Qwen Q4 inference on Kaggle only; excludes Colab/Vast and preparation/CodeT5/legacy API prototypes",
-  "user_decisions": {
-    "inference_seed": 4294967295,
-    "packages": "exact versions approved",
-    "gpu_policy": "layer + auto free VRAM, approved",
-    "cpu_threads": "approved: preserve default CPU-count formulas used by all 16 notebooks",
-    "build": "approved: Kaggle platform build with mandatory complete provenance; no shared container required"
-  },
-  "model": {
-    "repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
-    "filename": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
-    "sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
-    "quantization": "Q4_K_M",
-    "verify_sha256_before_load": true,
-    "adapters_allowed": false
-  },
-  "tokenizer": {
-    "repo": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
-    "revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
-    "chat_template": {
-      "role": "user",
-      "add_generation_prompt": true
-    },
-    "gguf_tokenize": {
-      "add_bos": false,
-      "special": true
-    },
-    "require_hf_gguf_token_id_equality": true,
-    "require_single_token_binary_labels": true
-  },
-  "packages": {
-    "numpy": "2.1.3",
-    "huggingface-hub": "0.36.2",
-    "tokenizers": "0.22.2",
-    "transformers": "4.57.1",
-    "llama-cpp-python": "0.3.16",
-    "scikit-learn": "1.5.2"
-  },
   "backend_source": {
+    "allow_other_backend": false,
     "name": "llama-cpp-python",
-    "version": "0.3.16",
+    "record_runner_source_sha256": true,
     "sdist_filename": "llama_cpp_python-0.3.16.tar.gz",
     "sdist_sha256": "34ed0f9bd9431af045bb63d9324ae620ad0536653740e9bb163a2e1fcb973be6",
     "verify_sdist_before_build": true,
-    "allow_other_backend": false,
-    "record_runner_source_sha256": true
+    "version": "0.3.16"
+  },
+  "build": {
+    "CMAKE_BUILD_PARALLEL_LEVEL": "2",
+    "CMAKE_CUDA_ARCHITECTURES": "75",
+    "CMAKE_LIBRARY_PATH": "/usr/local/nvidia/lib64",
+    "FORCE_CMAKE": "1",
+    "GGML_CUDA": true,
+    "binary_environment_fully_locked": false,
+    "compiled_wheel_sha256": null,
+    "exact_cmake": null,
+    "exact_cuda_toolkit": null,
+    "exact_host_compiler": null,
+    "exact_python_patch": null,
+    "policy": "Kaggle platform build is approved. Record exact Python patch, CUDA/nvcc/driver, compiler, CMake, flags, dependencies and compiled backend hash. A shared container or bit-identical binary is not required or claimed.",
+    "python_family": "3.13"
   },
   "constructor": {
-    "n_ctx": 8192,
-    "n_batch": 256,
-    "n_ubatch": 256,
-    "n_gpu_layers": -1,
-    "split_mode": "LLAMA_SPLIT_MODE_LAYER",
-    "main_gpu": 0,
-    "tensor_split": null,
-    "seed": 4294967295,
-    "logits_all": true,
+    "embedding": false,
     "flash_attn": false,
+    "logits_all": true,
+    "main_gpu": 0,
+    "n_batch": 256,
+    "n_ctx": 8192,
+    "n_gpu_layers": -1,
+    "n_ubatch": 256,
     "offload_kqv": true,
-    "use_mmap": true,
+    "seed": 4294967295,
+    "split_mode": "LLAMA_SPLIT_MODE_LAYER",
+    "tensor_split": null,
     "use_mlock": false,
-    "embedding": false
+    "use_mmap": true
+  },
+  "contract_id": "grace_qwen_q4_runtime_v1",
+  "created_on": "2026-11-07",
+  "decoding": {
+    "generation_api": null,
+    "mode": "direct_logits_and_greedy_argmax",
+    "note": "Sampling parameters are not used by eval; the default-seed sentinel does not promise fixed RNG output for future sampling paths.",
+    "sampling": false,
+    "temperature": null,
+    "top_k": null,
+    "top_p": null
   },
   "gpu": {
-    "profile": "kaggle_t4_x2",
+    "allow_auxiliary_host_buffers": true,
+    "allow_silent_cpu_layer_fallback": false,
     "device_count": 2,
     "device_model": "NVIDIA Tesla T4",
     "distribution": "layer_by_free_vram_at_load",
-    "random_distribution": false,
     "fixed_ratio_guaranteed": false,
-    "record_free_and_total_vram": true,
+    "other_hardware_requires_explicit_profile_review": true,
+    "profile": "kaggle_t4_x2",
+    "random_distribution": false,
     "record_device_order_and_uuid": true,
+    "record_free_and_total_vram": true,
     "record_layer_and_buffer_offload_report": true,
-    "required_offloaded_layers": 49,
-    "allow_silent_cpu_layer_fallback": false,
-    "allow_auxiliary_host_buffers": true,
-    "other_hardware_requires_explicit_profile_review": true
+    "required_offloaded_layers": 49
   },
-  "threads": {
-    "policy": "preserve_backend_default_formulas",
-    "n_threads": "max(multiprocessing.cpu_count() // 2, 1)",
-    "n_threads_batch": "multiprocessing.cpu_count()",
-    "fixed_thread_count": null,
-    "record_effective_counts": true,
-    "approval_status": "user_approved"
+  "integration": {
+    "existing_notebooks_auto_enforce_json": false,
+    "historical_outputs_retroactively_certified": false,
+    "historical_runs_are_not_retroactively_certified": true,
+    "package_contract_applies_to_all_registered_kaggle_arms": true,
+    "required_before_claiming_compliance": "load, validate and apply this JSON; abort on incompatible values"
   },
-  "build": {
-    "GGML_CUDA": true,
-    "CMAKE_CUDA_ARCHITECTURES": "75",
-    "CMAKE_LIBRARY_PATH": "/usr/local/nvidia/lib64",
-    "CMAKE_BUILD_PARALLEL_LEVEL": "2",
-    "FORCE_CMAKE": "1",
-    "python_family": "3.13",
-    "exact_python_patch": null,
-    "exact_cuda_toolkit": null,
-    "exact_host_compiler": null,
-    "exact_cmake": null,
-    "compiled_wheel_sha256": null,
-    "binary_environment_fully_locked": false,
-    "policy": "Kaggle platform build is approved. Record exact Python patch, CUDA/nvcc/driver, compiler, CMake, flags, dependencies and compiled backend hash. A shared container or bit-identical binary is not required or claimed."
+  "integrity": {
+    "algorithm": "sha256",
+    "canonicalization": "UTF-8 json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=False); exclude integrity",
+    "sha256": "d79396de5d37ca6c3123ac05ea122d665f5f9b252aa0b32ac2b5c464b68e338f"
   },
-  "scoring": {
-    "name": "unconstrained_first_token_logits_v1",
-    "reset_before_each_prompt": true,
-    "evaluate": "llm.eval(gguf_ids)",
-    "logits": "llm.scores[llm.n_tokens - 1]",
-    "normalization_dtype": "float64",
-    "logprob": "stable full-vocabulary log_softmax of last-position logits",
-    "s": "exp(logprob_1 - logaddexp(logprob_0, logprob_1))",
-    "pred_argmax": "int(s >= 0.5)",
-    "raw_token": "argmax of full-vocabulary logits",
-    "reject_non_finite": true,
-    "retain_valid_score_if_raw_not_binary": true
+  "model": {
+    "adapters_allowed": false,
+    "filename": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+    "quantization": "Q4_K_M",
+    "repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+    "sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "verify_sha256_before_load": true
   },
-  "decoding": {
-    "mode": "direct_logits_and_greedy_argmax",
-    "sampling": false,
-    "generation_api": null,
-    "temperature": null,
-    "top_p": null,
-    "top_k": null,
-    "note": "Sampling parameters are not used by eval; the default-seed sentinel does not promise fixed RNG output for future sampling paths."
+  "notebook_audit": [
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "d83c14d4f069e1987c024b27ac801840f7fa080d6fd3f75a17f2e004fdce9ba3",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 42,
+      "file_sha256_at_audit": "fdc0ee82e6df6903463023471e2babef6fd6a136bfc4ce14e7dd8806376ee7d6",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 42,
+      "file_sha256_at_audit": "c01dac2696b9391414d0f9c5ee0f7eb1f26e1ef0f69de13b953da83f75f18746",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 42,
+      "file_sha256_at_audit": "6e501ab2f57b964e9c43a807297df4407620bcb9a02f0a3744d742341dce22fb",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 42,
+      "file_sha256_at_audit": "c6e7ce9c1351ab88375cd6e4d9b7d34cd5bb9f7862108fef5d12d81196cf37fb",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
+      "missing_explicit_package_pins": [],
+      "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "a35b30da7d32ca935f0d5bba894ccb4fa02ba52e1212c70d6afded2ba08e3c7e",
+      "missing_explicit_package_pins": [],
+      "path": "06_Arm_B2_Rand/test_delivery_20261107/02_kaggle_qwen_q4_b2_rand_seed42_test.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "42ebe992c4e716ced593efdd089a720d3d0019663b69f5faf303c201975264d1",
+      "missing_explicit_package_pins": [],
+      "path": "06_Arm_B2_Rand/test_delivery_20261107/02_kaggle_qwen_q4_b2_rand_seed43_test.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "3cb1f4d4fc2d4e9ca839d22db2b1660f671aebbd046bdd2a0e2e94f4a8541dc7",
+      "missing_explicit_package_pins": [],
+      "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "57cdf5249395aec0f0c5bc47421a9d6fb3789fd5809de7d42bc80f632d91c88f",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "dcfff73568daddd1e97934c0f2175d4b36b36339032049fffb16160a541b34bf",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b1_full_validation.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "d9ed03125e8f309e28b5f06d14be3038e3fe77277fe9ae0ac33857d777aa9759",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b1_shuf_validation.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "6a54f85e4537e66ab1a1c57615232e3b8a99850a70308c3d1bcadb0fcdb3d8db",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_labelonly_validation.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "099325d9a24e2df72e43a33f77250ea1590302409d7d5cb1b5a7a035f605364a",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_nolabel_validation.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "ccef18aeb640a0ded8d5050e54e58a6e504cd0986460288425fba7a5c7dfed28",
+      "missing_explicit_package_pins": [],
+      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rand.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    },
+    {
+      "configured_inference_seed": 4294967295,
+      "file_sha256_at_audit": "2e6bfb53c9fc4525a014a9d79ad862b5c3fbc40fd3bcf8e24729ab91257e7a8e",
+      "missing_explicit_package_pins": [
+        "numpy",
+        "huggingface-hub",
+        "tokenizers"
+      ],
+      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rep_validation.ipynb",
+      "shared_json_integrated": false,
+      "tensor_split": null
+    }
+  ],
+  "open_questions": [
+    {
+      "arms": [
+        "B1-full",
+        "B1-shuf",
+        "B2-rep",
+        "B2-nolabel",
+        "B2-labelonly"
+      ],
+      "id": "missing_run_logs",
+      "status": "awaiting executed notebooks/install logs"
+    },
+    {
+      "arms": [
+        "B3",
+        "B3-nodiff",
+        "B3-swap",
+        "B3-flip"
+      ],
+      "id": "b3_runners",
+      "status": "no dedicated current Kaggle Qwen notebook found in GRACE-summary"
+    }
+  ],
+  "package_contract_scope": "All registered Kaggle Qwen Q4 inference arms (B0, B1, B1-full, B1-H2, B1-shuf, B2, B2-rand, B2-nolabel, B2-labelonly, B2-flip, B2-rep, B3, B3-nodiff, B3-swap, B3-flip). Apply to future runs; historical outputs retain their recorded environment.",
+  "packages": {
+    "huggingface-hub": "0.36.2",
+    "llama-cpp-python": "0.3.16",
+    "numpy": "2.1.3",
+    "scikit-learn": "1.5.2",
+    "scipy": "1.16.3",
+    "tokenizers": "0.22.2",
+    "transformers": "4.57.1"
   },
   "prompt_contract": {
-    "prompt_selection_seeds": [
-      42,
-      43,
-      44
-    ],
-    "selection_seed_distinct_from_inference_seed": true,
+    "different_arms_use_their_own_frozen_prompts": true,
     "identity": [
       "arm",
       "prompt seed",
@@ -143,33 +309,14 @@
       "bundle SHA256",
       "prompt SHA256"
     ],
-    "verify_frozen_input_and_each_prompt_hash": true,
-    "silent_reformatting_or_truncation": false,
-    "different_arms_use_their_own_frozen_prompts": true
-  },
-  "thresholds": {
-    "source": "existing frozen arm-specific threshold contracts",
-    "test_refit_allowed": false,
-    "preserve_existing_probe_inheritance": true
-  },
-  "resume": {
-    "require_match": [
-      "arm",
-      "prompt seed",
-      "dataset",
-      "split",
-      "ID",
-      "label",
-      "prompt SHA256",
-      "model SHA256",
-      "tokenizer revision",
-      "backend source",
-      "scoring",
-      "constructor",
-      "threshold lock when applicable"
+    "prompt_selection_seeds": [
+      42,
+      43,
+      44
     ],
-    "changed_contract": "do not silently append to historical results; use separate run identity or reviewed migration",
-    "rewrite_historical_outputs": false
+    "selection_seed_distinct_from_inference_seed": true,
+    "silent_reformatting_or_truncation": false,
+    "verify_frozen_input_and_each_prompt_hash": true
   },
   "provenance_required": [
     "contract SHA256",
@@ -186,237 +333,94 @@
     "offload log",
     "model/tokenizer/prompt/threshold identities"
   ],
-  "integration": {
-    "existing_notebooks_auto_enforce_json": false,
-    "required_before_claiming_compliance": "load, validate and apply this JSON; abort on incompatible values",
-    "historical_runs_are_not_retroactively_certified": true
-  },
-  "open_questions": [
-    {
-      "id": "missing_run_logs",
-      "arms": [
-        "B1-full",
-        "B1-shuf",
-        "B2-rep",
-        "B2-nolabel",
-        "B2-labelonly"
-      ],
-      "status": "awaiting executed notebooks/install logs"
-    },
-    {
-      "id": "b3_runners",
-      "arms": [
-        "B3",
-        "B3-nodiff",
-        "B3-swap",
-        "B3-flip"
-      ],
-      "status": "no dedicated current Kaggle Qwen notebook found in GRACE-summary"
-    }
-  ],
   "references": {
-    "package_hash": "https://pypi.org/pypi/llama-cpp-python/0.3.16/json",
+    "auto_split": "https://raw.githubusercontent.com/ggml-org/llama.cpp/4227c9be4268ac844921b90f31595f81236bd317/src/llama-model.cpp",
     "constructor_defaults": "https://raw.githubusercontent.com/abetlen/llama-cpp-python/v0.3.16/llama_cpp/llama.py",
-    "auto_split": "https://raw.githubusercontent.com/ggml-org/llama.cpp/4227c9be4268ac844921b90f31595f81236bd317/src/llama-model.cpp"
+    "package_hash": "https://pypi.org/pypi/llama-cpp-python/0.3.16/json"
   },
-  "notebook_audit": [
-    {
-      "path": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
-      "file_sha256_at_audit": "d83c14d4f069e1987c024b27ac801840f7fa080d6fd3f75a17f2e004fdce9ba3",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb",
-      "file_sha256_at_audit": "fdc0ee82e6df6903463023471e2babef6fd6a136bfc4ce14e7dd8806376ee7d6",
-      "configured_inference_seed": 42,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1.ipynb",
-      "file_sha256_at_audit": "c01dac2696b9391414d0f9c5ee0f7eb1f26e1ef0f69de13b953da83f75f18746",
-      "configured_inference_seed": 42,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb",
-      "file_sha256_at_audit": "6e501ab2f57b964e9c43a807297df4407620bcb9a02f0a3744d742341dce22fb",
-      "configured_inference_seed": 42,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
-      "file_sha256_at_audit": "c6e7ce9c1351ab88375cd6e4d9b7d34cd5bb9f7862108fef5d12d81196cf37fb",
-      "configured_inference_seed": 42,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
-      "file_sha256_at_audit": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "06_Arm_B2_Rand/test_delivery_20261107/02_kaggle_qwen_q4_b2_rand_seed42_test.ipynb",
-      "file_sha256_at_audit": "a35b30da7d32ca935f0d5bba894ccb4fa02ba52e1212c70d6afded2ba08e3c7e",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "06_Arm_B2_Rand/test_delivery_20261107/02_kaggle_qwen_q4_b2_rand_seed43_test.ipynb",
-      "file_sha256_at_audit": "42ebe992c4e716ced593efdd089a720d3d0019663b69f5faf303c201975264d1",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb",
-      "file_sha256_at_audit": "3cb1f4d4fc2d4e9ca839d22db2b1660f671aebbd046bdd2a0e2e94f4a8541dc7",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": [
-        1.0,
-        1.0
-      ],
-      "missing_explicit_package_pins": [],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb",
-      "file_sha256_at_audit": "57cdf5249395aec0f0c5bc47421a9d6fb3789fd5809de7d42bc80f632d91c88f",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": [
-        1.0,
-        1.0
-      ],
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b1_full_validation.ipynb",
-      "file_sha256_at_audit": "dcfff73568daddd1e97934c0f2175d4b36b36339032049fffb16160a541b34bf",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b1_shuf_validation.ipynb",
-      "file_sha256_at_audit": "d9ed03125e8f309e28b5f06d14be3038e3fe77277fe9ae0ac33857d777aa9759",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_labelonly_validation.ipynb",
-      "file_sha256_at_audit": "6a54f85e4537e66ab1a1c57615232e3b8a99850a70308c3d1bcadb0fcdb3d8db",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_nolabel_validation.ipynb",
-      "file_sha256_at_audit": "099325d9a24e2df72e43a33f77250ea1590302409d7d5cb1b5a7a035f605364a",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rand.ipynb",
-      "file_sha256_at_audit": "ccef18aeb640a0ded8d5050e54e58a6e504cd0986460288425fba7a5c7dfed28",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [],
-      "shared_json_integrated": false
-    },
-    {
-      "path": "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rep_validation.ipynb",
-      "file_sha256_at_audit": "2e6bfb53c9fc4525a014a9d79ad862b5c3fbc40fd3bcf8e24729ab91257e7a8e",
-      "configured_inference_seed": 4294967295,
-      "tensor_split": null,
-      "missing_explicit_package_pins": [
-        "numpy",
-        "huggingface-hub",
-        "tokenizers"
-      ],
-      "shared_json_integrated": false
-    }
-  ],
   "resolved_decisions": [
     {
+      "decision": "Kaggle platform build with mandatory full provenance",
       "id": "build_artifact",
       "question": "Pin a shared container/build artifact or allow platform builds with provenance? All notebook builders leave exact CUDA/compiler/CMake/Python patch unpinned.",
-      "status": "resolved",
-      "decision": "Kaggle platform build with mandatory full provenance"
+      "status": "resolved"
     },
     {
+      "decision": "preserve default CPU-count formulas and record effective counts",
       "id": "cpu_threads",
-      "question": "Keep CPU-count default formulas or lock absolute thread counts? All 16 constructors omit n_threads and n_threads_batch.",
-      "status": "resolved",
       "interim_policy": "preserve existing formulas and record effective values",
-      "decision": "preserve default CPU-count formulas and record effective counts"
+      "question": "Keep CPU-count default formulas or lock absolute thread counts? All 16 constructors omit n_threads and n_threads_batch.",
+      "status": "resolved"
     }
   ],
-  "integrity": {
-    "algorithm": "sha256",
-    "canonicalization": "UTF-8 json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=False); exclude integrity",
-    "sha256": "c0f17d3562541fa97e92b46413fa4eb56d2823c59cc9c1bf920a4c404ad3a171"
+  "resume": {
+    "changed_contract": "do not silently append to historical results; use separate run identity or reviewed migration",
+    "require_match": [
+      "arm",
+      "prompt seed",
+      "dataset",
+      "split",
+      "ID",
+      "label",
+      "prompt SHA256",
+      "model SHA256",
+      "tokenizer revision",
+      "backend source",
+      "scoring",
+      "constructor",
+      "threshold lock when applicable"
+    ],
+    "rewrite_historical_outputs": false
+  },
+  "schema_version": 1,
+  "scope": "New GRACE diagnostic Qwen Q4 inference on Kaggle only; excludes Colab/Vast and preparation/CodeT5/legacy API prototypes",
+  "scoring": {
+    "evaluate": "llm.eval(gguf_ids)",
+    "logits": "llm.scores[llm.n_tokens - 1]",
+    "logprob": "stable full-vocabulary log_softmax of last-position logits",
+    "name": "unconstrained_first_token_logits_v1",
+    "normalization_dtype": "float64",
+    "pred_argmax": "int(s >= 0.5)",
+    "raw_token": "argmax of full-vocabulary logits",
+    "reject_non_finite": true,
+    "reset_before_each_prompt": true,
+    "retain_valid_score_if_raw_not_binary": true,
+    "s": "exp(logprob_1 - logaddexp(logprob_0, logprob_1))"
+  },
+  "status": "shared_package_contract_locked_notebook_adoption_in_progress",
+  "threads": {
+    "approval_status": "user_approved",
+    "fixed_thread_count": null,
+    "n_threads": "max(multiprocessing.cpu_count() // 2, 1)",
+    "n_threads_batch": "multiprocessing.cpu_count()",
+    "policy": "preserve_backend_default_formulas",
+    "record_effective_counts": true
+  },
+  "thresholds": {
+    "preserve_existing_probe_inheritance": true,
+    "source": "existing frozen arm-specific threshold contracts",
+    "test_refit_allowed": false
+  },
+  "timezone": "Asia/Bangkok",
+  "tokenizer": {
+    "chat_template": {
+      "add_generation_prompt": true,
+      "role": "user"
+    },
+    "gguf_tokenize": {
+      "add_bos": false,
+      "special": true
+    },
+    "repo": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "require_hf_gguf_token_id_equality": true,
+    "require_single_token_binary_labels": true,
+    "revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+  },
+  "user_decisions": {
+    "build": "approved: Kaggle platform build with mandatory complete provenance; no shared container required",
+    "cpu_threads": "approved: preserve default CPU-count formulas used by all 16 notebooks",
+    "gpu_policy": "layer + auto free VRAM, approved",
+    "inference_seed": 4294967295,
+    "packages": "exact locked versions approved, including scipy==1.16.3 on 2026-11-07"
   }
 }

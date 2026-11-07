@@ -1,8 +1,10 @@
 # B2-rand test bundles and notebooks
 
+> **Cập nhật 07/11/2026:** seed44 validation đã hoàn tất và ngưỡng đã khóa. Phần “Resume B2-rand validation for seed 44” phía dưới là ghi chú chuẩn bị lịch sử, không còn là bước cần làm. Để chạy test seed44 ngay, dùng thư mục mới [test_delivery_seed44_20261107](../test_delivery_seed44_20261107/) với bundle và notebook riêng. Seed42/43 test notebooks ở thư mục này vẫn giữ nguyên.
+
 ## Fixed validation thresholds
 
-The per-arm lock lives at `../config/threshold.json`. It covers only seeds 42 and 43, whose complete validation outputs were checked against every frozen ID, prompt hash, label, and model hash. Seed 44 is still incomplete and has no threshold entry.
+The per-arm lock lives at `../config/threshold.json`. It covers seeds 42, 43, and 44. Seed44 thresholds and delivery are documented in the separate folder linked above; the bundle here remains the earlier seed42/43 bundle with its original threshold-lock hash.
 
 | Prompt seed | Dataset | Validation rows | Locked tau | Validation MCC |
 |---:|---|---:|---:|---:|
@@ -26,13 +28,13 @@ Each notebook accepts one seed and its complete two-dataset test census only. It
 
 The nine-hour budget includes installs, CUDA build, and model loading; five minutes are held for export. If Kaggle disconnects the session, download that notebook's `grace_b2_rand_seed{42|43}_test_checkpoint.zip` output, upload it as a Kaggle Dataset, attach it, and run all cells again. The notebook verifies each saved record and skips completed IDs. Keep seed 42 and seed 43 outputs/checkpoints separate.
 
-## Resume B2-rand validation for seed 44
+## Historical resume instructions for B2-rand validation seed 44 (completed by I-17)
 
-Open `../notebooks/02_kaggle_qwen_q4_b2_rand.ipynb`. Add the original `grace_b2_rand_inputs.zip`, the pinned model, and the latest checkpoint output from `Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_checkpoint.zip` (or upload that checkpoint as a Kaggle Dataset and attach it). The notebook selects the checkpoint with the largest verified history and checks the immutable I-11 prefix.
+At the time this note was written, the validation notebook was the planned continuation. I-17 later completed the remaining seed44 prompts. Do not use this resume note now; see `../test_delivery_seed44_20261107/README.md` for test execution.
 
-The latest checkpoint already contains 12,436/15,015 validation records: seeds 42 and 43 are complete; seed 44 has 2,426/2,732 Devign and 0/2,273 REVEAL. It should skip the first two seeds and resume the remaining 306 Devign rows, then run the 2,273 REVEAL rows. The nine-hour cap remains active. It stops after validation; it does not fit seed 44's threshold or start test.
+I-17 completed all 15,015 validation rows. Seed44 tau was selected on validation and stored in the canonical lock; no test record was used to fit it.
 
-After the run, download the new `grace_b2_rand_checkpoint.zip` and attach that checkpoint to the validation notebook for any further resume. Do not use a seed 42/43 test notebook as the validation notebook's checkpoint.
+Validation continuation is complete; no further seed44 validation resume is pending.
 
 See `../config/threshold.json`, `delivery_manifest.json`, and `../../worklogs/2026-11-07_b1h2_b2rand_kaggle_progress_and_delivery.md` for hashes and run evidence.
 

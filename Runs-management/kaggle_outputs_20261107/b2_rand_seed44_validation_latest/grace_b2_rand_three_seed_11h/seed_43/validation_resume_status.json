@@ -1,0 +1,24 @@
+{
+  "state": "complete",
+  "timed_out": false,
+  "started_at": "2026-11-06T15:42:47.526299+00:00",
+  "deadline_at": "2026-11-07T00:22:04.668395+00:00",
+  "stop_new_records_at": "2026-11-07T00:12:04.668395+00:00",
+  "max_runtime_hours": 8.654761693345176,
+  "checkpoint_reserve_seconds": 600,
+  "runs": {
+    "reveal/validation": {
+      "state": "complete",
+      "bundle": "/kaggle/working/grace_b2_rand_bundles/43_reveal_validation.zip",
+      "output": "/kaggle/working/grace_b2_rand_three_seed_11h/seed_43/reveal/validation",
+      "count": 2273,
+      "completed": 2273,
+      "records_path": "/kaggle/working/grace_b2_rand_three_seed_11h/seed_43/reveal/validation/records.jsonl",
+      "bundle_sha256": "b0a0a97a1fa0e85acea124c66ba6013754f95231bd05a5530dfdc4020bc1b3ea",
+      "evaluation": "/kaggle/working/grace_b2_rand_three_seed_11h/seed_43/reveal/validation/evaluation.json"
+    }
+  },
+  "completed_records_total": 2273,
+  "last_checkpoint_at": "2026-11-06T19:29:46.332384+00:00",
+  "completed_at": "2026-11-06T19:29:46.645494+00:00"
+}
