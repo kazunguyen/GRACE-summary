@@ -12,7 +12,8 @@ configs = [
         "tomandjerry223/grace-b2-nolabel-test"
     ]),
     ("lznt123", "KGAT_107f196b3b616d0d60398c64eb11f2bd", [
-        "lznt123/grace-b3-validation"
+        "lznt123/grace-b3-validation",
+        "lznt123/grace-b1-shuf-test"
     ])
 ]
 
