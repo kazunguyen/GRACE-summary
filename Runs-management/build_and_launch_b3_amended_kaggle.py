@@ -356,9 +356,8 @@ def create_notebook():
                     "import numpy as np\n",
                     "tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen3-Coder-30B-A3B-Instruct', revision='b2cff646eb4bb1d68355c01b18ae02e7cf42d120')\n",
                     "note('Nạp thành công AutoTokenizer (pinned revision)!')\n",
-                    "\n",
-                    "EXPECTED_MODEL_SHA256 = 'f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335'
-model_path = str(gguf_files[0])\n",
+                    "EXPECTED_MODEL_SHA256 = 'f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335'\n",
+                    "model_path = str(gguf_files[0])\n",
                     "note(f'Nạp mô hình GGUF: {model_path} vào 2x Tesla T4...')\n",
                     "\n",
                     "llm = llama_cpp.Llama(\n",
