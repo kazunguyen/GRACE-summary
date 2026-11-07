@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-11-06T15:13:45.350674+00:00",
+  "scope": "validation-only continuation after I-11",
+  "notebooks": [
+    "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rand.ipynb",
+    "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb"
+  ],
+  "notebook_sha256": "fbf86b9c858cf1f0f656c0d5f963052c381b577defdff5ea4694d6da515d6a55",
+  "checkpoint": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_checkpoint.zip",
+  "checkpoint_sha256": "96ad982e681a1c910be5290d4454e67899cae934421b8b648fd6e387e32052a3",
+  "existing_validation": 7789,
+  "expected_validation": 15015,
+  "remaining_validation": 7226,
+  "remaining_by_seed_dataset": {
+    "43/reveal": 2221,
+    "44/devign": 2732,
+    "44/reveal": 2273
+  },
+  "budget_hours": 9,
+  "budget_includes_setup": true,
+  "reserve_seconds": 600,
+  "inference_seed": "backend default (unchanged)",
+  "prompt_seeds": [
+    42,
+    43,
+    44
+  ],
+  "auto_fit_threshold": false,
+  "auto_test": false
+}

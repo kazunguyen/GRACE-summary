@@ -1,0 +1,29 @@
+{
+  "state": "timed_out",
+  "timed_out": true,
+  "started_at": "2026-11-06T19:29:58.019795+00:00",
+  "deadline_at": "2026-11-07T00:22:04.668395+00:00",
+  "stop_new_records_at": "2026-11-07T00:12:04.668395+00:00",
+  "max_runtime_hours": 4.868513499961959,
+  "checkpoint_reserve_seconds": 600,
+  "runs": {
+    "devign/validation": {
+      "state": "checkpointed",
+      "bundle": "/kaggle/working/grace_b2_rand_bundles/44_devign_validation.zip",
+      "output": "/kaggle/working/grace_b2_rand_three_seed_11h/seed_44/devign/validation",
+      "count": 2732,
+      "completed": 2426,
+      "records_path": "/kaggle/working/grace_b2_rand_three_seed_11h/seed_44/devign/validation/records.jsonl",
+      "bundle_sha256": "6d12517276fa79655648054f7c40e8bc09739383efbb03355bb9540c4937643c"
+    },
+    "reveal/validation": {
+      "state": "pending",
+      "bundle": "/kaggle/working/grace_b2_rand_bundles/44_reveal_validation.zip",
+      "output": "/kaggle/working/grace_b2_rand_three_seed_11h/seed_44/reveal/validation"
+    }
+  },
+  "completed_records_total": 2426,
+  "last_checkpoint_at": "2026-11-07T00:12:08.098480+00:00",
+  "timed_out_at": "2026-11-07T00:12:08.098855+00:00",
+  "stopped_after_run": "devign/validation"
+}

@@ -1,0 +1,25 @@
+{
+  "bundle_sha256": "b35b44f430c28ec44052867499ae7537950fb1dc2eee63083c3bdbb9c784c2b4",
+  "source_archive_sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+  "count": 5005,
+  "dataset_counts": {
+    "devign": 2732,
+    "reveal": 2273
+  },
+  "threshold_selection": "fit on complete Kaggle validation inference in final notebook cell",
+  "supersedes_colab_thresholds": true,
+  "sets": [
+    {
+      "name": "seed_42/devign_validation.zip",
+      "sha256": "a4b573bbcfc9467915912c5fb40925d90f240de408d5491e4ad8ba002ec22a07",
+      "seed": 42,
+      "dataset": "devign"
+    },
+    {
+      "name": "seed_42/reveal_validation.zip",
+      "sha256": "f0aa3e64b730f9f32f331cd9bd85b27b5f7ee7db8be20f59ade4b4ed909bfd13",
+      "seed": 42,
+      "dataset": "reveal"
+    }
+  ]
+}
