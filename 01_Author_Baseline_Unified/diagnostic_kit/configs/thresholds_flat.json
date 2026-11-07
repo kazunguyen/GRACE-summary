@@ -18,5 +18,7 @@
   "devign|B2-rand|42": 0.99,
   "reveal|B2-rand|42": 0.89,
   "devign|B2-rand|43": 0.99,
-  "reveal|B2-rand|43": 0.62
+  "reveal|B2-rand|43": 0.62,
+  "devign|B2-rand|44": 0.99,
+  "reveal|B2-rand|44": 0.64
 }
