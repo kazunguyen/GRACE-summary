@@ -1,0 +1,2663 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-11-07",
+  "lock_file": "configs/inference_runtime_lock.json",
+  "lock_file_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "purpose": "Close individual evidence findings when historical logs match; do not certify an entire run merely from matching package versions",
+  "status_legend": {
+    "confirmed_match": "logged value matches the lock: đã chốt cho mục và phiên có bằng chứng",
+    "configured_match": "matching source configuration; historical runtime not independently logged",
+    "configured_mismatch": "known source configuration differs; remains unresolved for contract adoption",
+    "not_recorded": "no adequate local execution evidence",
+    "recorded_platform_build_provenance_not_an_exact_common_pin": "observed platform version recorded under approved Kaggle build policy, not identical binaries"
+  },
+  "runs": [
+    {
+      "run": "B0",
+      "notebook": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb",
+      "artifacts": [
+        {
+          "path": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb",
+          "sha256": "fdc0ee82e6df6903463023471e2babef6fd6a136bfc4ce14e7dd8806376ee7d6",
+          "note": "Saved outputs are historical evidence; current source may include later edits."
+        },
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\tmp\\b0_kaggle_20261101\\grace_b0_checkpoint.zip",
+          "sha256": "bf3dacfaa18725aa2d473ae8fd0c8e3a602e9ab69c0cddfd32f874735553135b"
+        }
+      ],
+      "packages": {
+        "numpy": {
+          "observed": "2.1.3",
+          "expected": "2.1.3",
+          "status": "confirmed_match",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=7,output=0,line=1"
+        },
+        "huggingface-hub": {
+          "observed": "0.36.2",
+          "expected": "0.36.2",
+          "status": "confirmed_match",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=7,output=0,line=1"
+        },
+        "tokenizers": {
+          "observed": "0.22.2",
+          "expected": "0.22.2",
+          "status": "confirmed_match",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=6,output=0,line=65"
+        },
+        "transformers": {
+          "observed": "4.57.1",
+          "expected": "4.57.1",
+          "status": "confirmed_match",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=7,output=0,line=1"
+        },
+        "llama-cpp-python": {
+          "observed": "0.3.16",
+          "expected": "0.3.16",
+          "status": "confirmed_match",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=7,output=0,line=1"
+        },
+        "scikit-learn": {
+          "observed": "1.5.2",
+          "expected": "1.5.2",
+          "status": "confirmed_match",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=7,output=0,line=1"
+        }
+      },
+      "runtime_observations": {
+        "python": {
+          "value": "3.13.15",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=2,output=0,line=2",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cuda": {
+          "value": "12.8.93",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=6,output=0,line=315",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cmake": {
+          "value": "3.31.10",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=2,output=0,line=42",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "compiler": {
+          "value": "13.3.0",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=6,output=0,line=286",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "driver": {
+          "value": "580.178.04",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=2,output=0,line=11",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "n_ctx": {
+          "value": "8192",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=12,output=0,line=196",
+          "expected": 8192,
+          "status": "confirmed_match"
+        },
+        "n_batch": {
+          "value": "256",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=12,output=0,line=198",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "n_ubatch": {
+          "value": "256",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=12,output=0,line=199",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "offload": {
+          "value": "49/49",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=12,output=0,line=189",
+          "status": "confirmed_match"
+        },
+        "wheel_sha256": {
+          "value": "fcdcba0ab5521b36650cf137615bf851be5dc98a22e828ebb392150937892102",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=6,output=0,line=602",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        }
+      },
+      "run_manifests": [
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\tmp\\b0_kaggle_20261101\\grace_b0_checkpoint.zip!devign/test/run_manifest.json",
+          "sha256": "7fcf3a864b8c347accb98c1a3822c992dd47607776201c841368a56bf6c041f7",
+          "fields": {
+            "bundle_sha256": "5d4d68e303079cd1d60fe7794bc219d8e04bad3feb56783a0484aac1de1d11c5",
+            "prompt_set_sha256": "e42dfb74ac03f4a243295637442c023809aeea52fd189267b38c558585e7f651",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+            "quantization": "Q4_K_M",
+            "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+            "llama_cpp_python": "0.3.16",
+            "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "gpu_layers": -1,
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "limit": null,
+            "arm": "B0",
+            "prompt_variant": "b0_b2_empty_blocks_v1",
+            "python": "3.13.15",
+            "dataset": "devign",
+            "split": "test"
+          }
+        },
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\tmp\\b0_kaggle_20261101\\grace_b0_checkpoint.zip!devign/validation/run_manifest.json",
+          "sha256": "80dbdd5c88fa832e0a29a3bf53751e54ca17b09204cb97995fb438ed46ad6774",
+          "fields": {
+            "bundle_sha256": "b10856cc6fe1f4377bbeaa207c05c0627c2ce65be4d2cd5c4b0e1c8738693171",
+            "prompt_set_sha256": "e22f50ed315672cfc85697c2ba86d16137f1d5899e77bb5fb50ffe060caab4fc",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+            "quantization": "Q4_K_M",
+            "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+            "llama_cpp_python": "0.3.16",
+            "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "gpu_layers": -1,
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "limit": null,
+            "arm": "B0",
+            "prompt_variant": "b0_b2_empty_blocks_v1",
+            "python": "3.13.15",
+            "dataset": "devign",
+            "split": "validation"
+          }
+        },
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\tmp\\b0_kaggle_20261101\\grace_b0_checkpoint.zip!reveal/test/run_manifest.json",
+          "sha256": "9c6fc5fa24e0bc53df85aceeec2fca476d65f3608793fdd5119e1733c0aa87b8",
+          "fields": {
+            "bundle_sha256": "1fb5cce35163bce049e9f7b55a08d833213ce60dacb749a9ec415e462c0eee42",
+            "prompt_set_sha256": "c20079cd2542e73db09c9cbc0fb7d6c6eea87cc53560b636816c82d9f2b8d8af",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+            "quantization": "Q4_K_M",
+            "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+            "llama_cpp_python": "0.3.16",
+            "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "gpu_layers": -1,
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "limit": null,
+            "arm": "B0",
+            "prompt_variant": "b0_b2_empty_blocks_v1",
+            "python": "3.13.15",
+            "dataset": "reveal",
+            "split": "test"
+          }
+        },
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\tmp\\b0_kaggle_20261101\\grace_b0_checkpoint.zip!reveal/validation/run_manifest.json",
+          "sha256": "bdb0286403d9f0a7de825047cc905665cdd26351d4413f6a8173f541549afaf5",
+          "fields": {
+            "bundle_sha256": "eb023179ac354897b837d42fe0944b00b95ee269f5def8d739873378c3765acd",
+            "prompt_set_sha256": "81800b52fb1e32fbfe0114a92f64a5674c5a67729d51ae7d363987503b7f8d34",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+            "quantization": "Q4_K_M",
+            "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+            "llama_cpp_python": "0.3.16",
+            "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "gpu_layers": -1,
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "limit": null,
+            "arm": "B0",
+            "prompt_variant": "b0_b2_empty_blocks_v1",
+            "python": "3.13.15",
+            "dataset": "reveal",
+            "split": "validation"
+          }
+        }
+      ],
+      "identity_checks": {
+        "model_sha256": {
+          "expected": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+          "observed": [
+            "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+          ],
+          "status": "confirmed_match"
+        },
+        "quantization": {
+          "expected": "Q4_K_M",
+          "observed": [
+            "Q4_K_M"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer": {
+          "expected": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "observed": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer_revision": {
+          "expected": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "observed": [
+            "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+          ],
+          "status": "confirmed_match"
+        },
+        "scoring": {
+          "expected": "unconstrained_first_token_logits_v1",
+          "observed": [
+            "unconstrained_first_token_logits_v1"
+          ],
+          "status": "confirmed_match"
+        }
+      },
+      "source_method": {
+        "configured_inference_seed": {
+          "value": 42,
+          "status": "configured_mismatch",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb",
+          "basis": "source configuration, not proof of actual RNG state during historical execution"
+        },
+        "tensor_split": {
+          "value": null,
+          "status": "configured_match",
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb"
+        },
+        "scoring": {
+          "last_position_logits": true,
+          "float64": true,
+          "logaddexp": true,
+          "reset": true,
+          "basis": "runner source; manifests record scoring identity where present"
+        }
+      },
+      "remaining_gaps": [
+        "No verified historical source-sdist hash unless explicitly logged; package version alone is insufficient",
+        "No complete pip freeze and compiled installed-library hashes for full historical environments",
+        "Effective CPU n_threads/n_threads_batch absent from available logs; default formulas inferred from pinned backend source",
+        "Current notebook source may postdate saved execution outputs; no retroactive full-contract certification"
+      ],
+      "gpu_and_build_console_evidence": [
+        {
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=6,output=0:1",
+          "text": "Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=7,output=1:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=7,output=1:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=12,output=0:5",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=12,output=0:6",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=12,output=0:190",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb#cell=12,output=0:191",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        }
+      ]
+    },
+    {
+      "run": "B1 I08",
+      "notebook": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb",
+      "artifacts": [
+        {
+          "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb",
+          "sha256": "6e501ab2f57b964e9c43a807297df4407620bcb9a02f0a3744d742341dce22fb",
+          "note": "Saved outputs are historical evidence; current source may include later edits."
+        },
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\kaggle_stage_b1\\grace_b1_checkpoint.zip",
+          "sha256": "613cbe9e92da5291177239d3c7eac799ec5f46fce4623dd551ca53c4efbbce99"
+        }
+      ],
+      "packages": {
+        "numpy": {
+          "observed": "2.1.3",
+          "expected": "2.1.3",
+          "status": "confirmed_match",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=6,output=0,line=1"
+        },
+        "huggingface-hub": {
+          "observed": "0.36.2",
+          "expected": "0.36.2",
+          "status": "confirmed_match",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=6,output=0,line=1"
+        },
+        "tokenizers": {
+          "observed": "0.22.2",
+          "expected": "0.22.2",
+          "status": "confirmed_match",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=5,output=0,line=65"
+        },
+        "transformers": {
+          "observed": "4.57.1",
+          "expected": "4.57.1",
+          "status": "confirmed_match",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=6,output=0,line=1"
+        },
+        "llama-cpp-python": {
+          "observed": "0.3.16",
+          "expected": "0.3.16",
+          "status": "confirmed_match",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=6,output=0,line=1"
+        },
+        "scikit-learn": {
+          "observed": "1.5.2",
+          "expected": "1.5.2",
+          "status": "confirmed_match",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=6,output=0,line=1"
+        }
+      },
+      "runtime_observations": {
+        "python": {
+          "value": "3.13.15",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=1,output=0,line=2",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cuda": {
+          "value": "12.8.93",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=5,output=0,line=315",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cmake": {
+          "value": "3.31.10",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=1,output=0,line=42",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "compiler": {
+          "value": "13.3.0",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=5,output=0,line=286",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "driver": {
+          "value": "580.178.04",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=1,output=0,line=11",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "n_ctx": {
+          "value": "8192",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=10,output=0,line=196",
+          "expected": 8192,
+          "status": "confirmed_match"
+        },
+        "n_batch": {
+          "value": "256",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=10,output=0,line=198",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "n_ubatch": {
+          "value": "256",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=10,output=0,line=199",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "offload": {
+          "value": "49/49",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=10,output=0,line=189",
+          "status": "confirmed_match"
+        },
+        "wheel_sha256": {
+          "value": "4203f2ae0623f1766aaf81c70465c1842ad28bbe3503201a548084fd155bfe8b",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=5,output=0,line=602",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        }
+      },
+      "run_manifests": [
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\kaggle_stage_b1\\grace_b1_checkpoint.zip!devign/test/run_manifest.json",
+          "sha256": "b514cff623ae05c0d173a6b60167949497d62565b412733fc5eff8133bc20b94",
+          "fields": {
+            "bundle_sha256": "c6666b1e989e4cfa6c173d142dd062df49b02e3495c55473d0a035a11c7937b5",
+            "prompt_set_sha256": "35489f064b1ceb35ac8bfd6c7c0c43968f04391c48e557aebb2333e25f123d8b",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+            "quantization": "Q4_K_M",
+            "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+            "llama_cpp_python": "0.3.16",
+            "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "gpu_layers": -1,
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "limit": null,
+            "arm": "B1",
+            "prompt_variant": "b1_b2_empty_demo_v1",
+            "python": "3.13.15",
+            "dataset": "devign",
+            "split": "test"
+          }
+        },
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\kaggle_stage_b1\\grace_b1_checkpoint.zip!devign/validation/run_manifest.json",
+          "sha256": "be2f906cd5312c6f8f2d451221199bf868f757746d0850bda3b61e01cd9c94a0",
+          "fields": {
+            "bundle_sha256": "96bc0703a662b301825a248ef3726680d666cd9fda8a1b19ba2fdeda6fb17d75",
+            "prompt_set_sha256": "ee0f4d7890f977aa726333ae9a9e28bdbef47ddc2c2a16b22a4acf72c738b486",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+            "quantization": "Q4_K_M",
+            "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+            "llama_cpp_python": "0.3.16",
+            "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "gpu_layers": -1,
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "limit": null,
+            "arm": "B1",
+            "prompt_variant": "b1_b2_empty_demo_v1",
+            "python": "3.13.15",
+            "dataset": "devign",
+            "split": "validation"
+          }
+        },
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\kaggle_stage_b1\\grace_b1_checkpoint.zip!reveal/test/run_manifest.json",
+          "sha256": "56cf9c5bf7ffdb26c20c0c573ef58fa130485ba838bbb8751a3a5061a27efc9a",
+          "fields": {
+            "bundle_sha256": "9d36700f6dbe1b18b47b3ae72a589d35a133195fbafb5cf668d9b7d9f4a91a5f",
+            "prompt_set_sha256": "b11d94f9bb8ac88dfc4bb14354387438180906da9f6bc535b2da0ee17edea04f",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+            "quantization": "Q4_K_M",
+            "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+            "llama_cpp_python": "0.3.16",
+            "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "gpu_layers": -1,
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "limit": null,
+            "arm": "B1",
+            "prompt_variant": "b1_b2_empty_demo_v1",
+            "python": "3.13.15",
+            "dataset": "reveal",
+            "split": "test"
+          }
+        },
+        {
+          "path": "C:\\MY-FILES\\LAB-THAY-THO\\kaggle_stage_b1\\grace_b1_checkpoint.zip!reveal/validation/run_manifest.json",
+          "sha256": "7cf8aafac49ee886d8d125f6641d8927272a22eb369ebdcdd89c2fdd3bc0ef4f",
+          "fields": {
+            "bundle_sha256": "d1681555a40f460bb4e4bcb0c42bc9648e77096a51835455380c9f2cd33e0f1f",
+            "prompt_set_sha256": "14290046152cca4ce54e70fc4486650cdd3a7524569a72d2b86575fd84d19c52",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+            "quantization": "Q4_K_M",
+            "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+            "llama_cpp_python": "0.3.16",
+            "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "gpu_layers": -1,
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "limit": null,
+            "arm": "B1",
+            "prompt_variant": "b1_b2_empty_demo_v1",
+            "python": "3.13.15",
+            "dataset": "reveal",
+            "split": "validation"
+          }
+        }
+      ],
+      "identity_checks": {
+        "model_sha256": {
+          "expected": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+          "observed": [
+            "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+          ],
+          "status": "confirmed_match"
+        },
+        "quantization": {
+          "expected": "Q4_K_M",
+          "observed": [
+            "Q4_K_M"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer": {
+          "expected": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "observed": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer_revision": {
+          "expected": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "observed": [
+            "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+          ],
+          "status": "confirmed_match"
+        },
+        "scoring": {
+          "expected": "unconstrained_first_token_logits_v1",
+          "observed": [
+            "unconstrained_first_token_logits_v1"
+          ],
+          "status": "confirmed_match"
+        }
+      },
+      "source_method": {
+        "configured_inference_seed": {
+          "value": 42,
+          "status": "configured_mismatch",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb",
+          "basis": "source configuration, not proof of actual RNG state during historical execution"
+        },
+        "tensor_split": {
+          "value": null,
+          "status": "configured_match",
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb"
+        },
+        "scoring": {
+          "last_position_logits": true,
+          "float64": true,
+          "logaddexp": true,
+          "reset": true,
+          "basis": "runner source; manifests record scoring identity where present"
+        }
+      },
+      "remaining_gaps": [
+        "No verified historical source-sdist hash unless explicitly logged; package version alone is insufficient",
+        "No complete pip freeze and compiled installed-library hashes for full historical environments",
+        "Effective CPU n_threads/n_threads_batch absent from available logs; default formulas inferred from pinned backend source",
+        "Current notebook source may postdate saved execution outputs; no retroactive full-contract certification"
+      ],
+      "gpu_and_build_console_evidence": [
+        {
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=5,output=0:1",
+          "text": "Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=6,output=1:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=6,output=1:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=10,output=0:5",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=10,output=0:6",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=10,output=0:190",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb#cell=10,output=0:191",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        }
+      ]
+    },
+    {
+      "run": "B2",
+      "notebook": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
+      "artifacts": [
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/cmake.log",
+          "sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8"
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/cuda_compiler.log",
+          "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/events.log",
+          "sha256": "56a96682034439a2eb125552f13dc5fbdd0ce3f273c10bae05f6a2a0d29946f5"
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/gpu.log",
+          "sha256": "51d28d5d957e39707e5380f84c631da14a29d2b333fd28e2aee87e8a00674e38"
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log",
+          "sha256": "0283525346e439d50ff671a33cb0201ee417a47dd88b242d13d4fd6fe1f20858"
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_dependencies.log",
+          "sha256": "71cead94afc33f74c67ec372b5d4a31798f0bbffbce25a58ff601cf6fe1a0134"
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_llama_cuda.log",
+          "sha256": "7e612efe80e423e1ea29b4fea7cc2bb8dcb854e56297ef5a8fae846d9bdda732"
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/pip.log",
+          "sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b"
+        },
+        {
+          "path": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
+          "sha256": "d83c14d4f069e1987c024b27ac801840f7fa080d6fd3f75a17f2e004fdce9ba3",
+          "note": "Saved outputs are historical evidence; current source may include later edits."
+        }
+      ],
+      "packages": {
+        "numpy": {
+          "observed": "2.1.3",
+          "expected": "2.1.3",
+          "status": "confirmed_match",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_llama_cuda.log:2527"
+        },
+        "huggingface-hub": {
+          "observed": "0.36.2",
+          "expected": "0.36.2",
+          "status": "confirmed_match",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_dependencies.log:63"
+        },
+        "tokenizers": {
+          "observed": "0.22.2",
+          "expected": "0.22.2",
+          "status": "confirmed_match",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_dependencies.log:63"
+        },
+        "transformers": {
+          "observed": "4.57.1",
+          "expected": "4.57.1",
+          "status": "confirmed_match",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_dependencies.log:63"
+        },
+        "llama-cpp-python": {
+          "observed": "0.3.16",
+          "expected": "0.3.16",
+          "status": "confirmed_match",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_llama_cuda.log:2861"
+        },
+        "scikit-learn": {
+          "observed": "1.5.2",
+          "expected": "1.5.2",
+          "status": "confirmed_match",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_dependencies.log:63"
+        }
+      },
+      "runtime_observations": {
+        "python": {
+          "value": "3.13.15",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/reveal/validation/run_manifest.json",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cuda": {
+          "value": "12.8.93",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_llama_cuda.log:2569",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cmake": {
+          "value": "3.31.10",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/cmake.log:1",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "compiler": {
+          "value": "13.3.0",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_llama_cuda.log:2540",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "driver": {
+          "value": "580.178.04",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/gpu.log:3",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "n_ctx": {
+          "value": "8192",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log:195",
+          "expected": 8192,
+          "status": "confirmed_match"
+        },
+        "n_batch": {
+          "value": "256",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log:197",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "n_ubatch": {
+          "value": "256",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log:198",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "offload": {
+          "value": "49/49",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log:188",
+          "status": "confirmed_match"
+        },
+        "wheel_sha256": {
+          "value": "0b7f1615c51b05a091b501963f083e68e9159a5fe10d1d7679228a3aaa639eab",
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_llama_cuda.log:2856",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        }
+      },
+      "run_manifests": [
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/devign/test/run_manifest.json",
+          "sha256": "5378cdd86bf44f9206150646b7d1fbb9ba63ab0b2e6f219278f901faee2477ce",
+          "fields": {
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/devign/validation/run_manifest.json",
+          "sha256": "4919e19298f1f2412ce19a01a535ad20079e2c1accb43dfe7ba930faf8d6b917",
+          "fields": {
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/reveal/test/run_manifest.json",
+          "sha256": "d4d26e259497aac2914832be56945b759776f1a5c124b50ef8de6b4a72345603",
+          "fields": {
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/reveal/validation/run_manifest.json",
+          "sha256": "c4fbd655f2e163fc25655293c800a48a0139f5bdd6fc2cda71f8c6f1057878c8",
+          "fields": {
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        }
+      ],
+      "identity_checks": {
+        "model_sha256": {
+          "expected": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+          "observed": [
+            "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+          ],
+          "status": "confirmed_match"
+        },
+        "quantization": {
+          "expected": "Q4_K_M",
+          "observed": [
+            "Q4_K_M"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer": {
+          "expected": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "observed": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer_revision": {
+          "expected": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "observed": [
+            "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+          ],
+          "status": "confirmed_match"
+        },
+        "scoring": {
+          "expected": "unconstrained_first_token_logits_v1",
+          "observed": [
+            "unconstrained_first_token_logits_v1"
+          ],
+          "status": "confirmed_match"
+        }
+      },
+      "source_method": {
+        "configured_inference_seed": {
+          "value": 4294967295,
+          "status": "configured_match",
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
+          "basis": "source configuration, not proof of actual RNG state during historical execution"
+        },
+        "tensor_split": {
+          "value": null,
+          "status": "configured_match",
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb"
+        },
+        "scoring": {
+          "last_position_logits": true,
+          "float64": true,
+          "logaddexp": true,
+          "reset": true,
+          "basis": "runner source; manifests record scoring identity where present"
+        }
+      },
+      "remaining_gaps": [
+        "No verified historical source-sdist hash unless explicitly logged; package version alone is insufficient",
+        "No complete pip freeze and compiled installed-library hashes for full historical environments",
+        "Effective CPU n_threads/n_threads_batch absent from available logs; default formulas inferred from pinned backend source",
+        "Current notebook source may postdate saved execution outputs; no retroactive full-contract certification"
+      ],
+      "gpu_and_build_console_evidence": [
+        {
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/events.log:24",
+          "text": "[2026-11-01T10:49:04.960492+00:00] Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log:189",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log:190",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb#cell=6,output=0:1",
+          "text": "Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb#cell=7,output=1:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb#cell=7,output=1:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb#cell=12,output=0:6",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb#cell=12,output=0:7",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb#cell=12,output=0:191",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb#cell=12,output=0:192",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        }
+      ]
+    },
+    {
+      "run": "B2-flip",
+      "notebook": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
+      "artifacts": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/cmake.log",
+          "sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/cuda_compiler.log",
+          "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/events.log",
+          "sha256": "5f7ede2ce5fd3d0773077b164dc092af4bcd472862e176a427fc028ae751d3a9"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/gpu.log",
+          "sha256": "082acf50948755184c8a68b334a8d49a0376f177f5eb413819b498e8d82f233e"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log",
+          "sha256": "72180bf9b0867123d78b0235ce3f2baec6cdd89978900a5b3e16324e787166ed"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_dependencies.log",
+          "sha256": "3fe287d61762f3c5734d95857343c7d5bf08c70c4b25f94b3bfe90624f2a5998"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_llama_cuda.log",
+          "sha256": "994172a080c608e99165adf58d4107e22c5f09b7494a9276a33565610361a36c"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/pip.log",
+          "sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b"
+        },
+        {
+          "path": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
+          "sha256": "c6e7ce9c1351ab88375cd6e4d9b7d34cd5bb9f7862108fef5d12d81196cf37fb",
+          "note": "Saved outputs are historical evidence; current source may include later edits."
+        }
+      ],
+      "packages": {
+        "numpy": {
+          "observed": "2.1.3",
+          "expected": "2.1.3",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_llama_cuda.log:2529"
+        },
+        "huggingface-hub": {
+          "observed": "0.36.2",
+          "expected": "0.36.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_dependencies.log:63"
+        },
+        "tokenizers": {
+          "observed": "0.22.2",
+          "expected": "0.22.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_dependencies.log:63"
+        },
+        "transformers": {
+          "observed": "4.57.1",
+          "expected": "4.57.1",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_dependencies.log:63"
+        },
+        "llama-cpp-python": {
+          "observed": "0.3.16",
+          "expected": "0.3.16",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_llama_cuda.log:2863"
+        },
+        "scikit-learn": {
+          "observed": "1.5.2",
+          "expected": "1.5.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_dependencies.log:63"
+        }
+      },
+      "runtime_observations": {
+        "python": {
+          "value": "3.13.15",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/validation/run_manifest.json",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cuda": {
+          "value": "12.8.93",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_llama_cuda.log:2571",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cmake": {
+          "value": "3.31.10",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/cmake.log:1",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "compiler": {
+          "value": "13.3.0",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_llama_cuda.log:2542",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "driver": {
+          "value": "580.178.04",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/gpu.log:3",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "n_ctx": {
+          "value": "8192",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log:196",
+          "expected": 8192,
+          "status": "confirmed_match"
+        },
+        "n_batch": {
+          "value": "256",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log:198",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "n_ubatch": {
+          "value": "256",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log:199",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "offload": {
+          "value": "49/49",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log:189",
+          "status": "confirmed_match"
+        },
+        "wheel_sha256": {
+          "value": "f5d1134aaafdbb7e9f88669021fc50e7a151ecf746d735b2a8e61108f4a490f3",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_llama_cuda.log:2858",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        }
+      },
+      "run_manifests": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/devign/test/run_manifest.json",
+          "sha256": "0502d0d12d0f049d2e6ae628e292daefd204e196bed0836783aa4bf3ffd34d5f",
+          "fields": {
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/devign/validation/run_manifest.json",
+          "sha256": "52c2ec8e69a40326e72bdebe20d2afd0e50d664d759af96078f2a5109db5d037",
+          "fields": {
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/test/run_manifest.json",
+          "sha256": "5ef61b3af865d0e3d4f79bbd4f84ef885c12814672fbe71001c89b401c09d8f5",
+          "fields": {
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/validation/run_manifest.json",
+          "sha256": "8f4cc81f34ccbe5f3f64501bb8406d4a4e6f6d19b52779e5fab8a44c3ac41ac0",
+          "fields": {
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        }
+      ],
+      "identity_checks": {
+        "model_sha256": {
+          "expected": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+          "observed": [
+            "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+          ],
+          "status": "confirmed_match"
+        },
+        "quantization": {
+          "expected": "Q4_K_M",
+          "observed": [
+            "Q4_K_M"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer": {
+          "expected": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "observed": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer_revision": {
+          "expected": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "observed": [
+            "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+          ],
+          "status": "confirmed_match"
+        },
+        "scoring": {
+          "expected": "unconstrained_first_token_logits_v1",
+          "observed": [
+            "unconstrained_first_token_logits_v1"
+          ],
+          "status": "confirmed_match"
+        }
+      },
+      "source_method": {
+        "configured_inference_seed": {
+          "value": 42,
+          "status": "configured_mismatch",
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
+          "basis": "source configuration, not proof of actual RNG state during historical execution"
+        },
+        "tensor_split": {
+          "value": null,
+          "status": "configured_match",
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb"
+        },
+        "scoring": {
+          "last_position_logits": true,
+          "float64": true,
+          "logaddexp": true,
+          "reset": true,
+          "basis": "runner source; manifests record scoring identity where present"
+        }
+      },
+      "remaining_gaps": [
+        "No verified historical source-sdist hash unless explicitly logged; package version alone is insufficient",
+        "No complete pip freeze and compiled installed-library hashes for full historical environments",
+        "Effective CPU n_threads/n_threads_batch absent from available logs; default formulas inferred from pinned backend source",
+        "Current notebook source may postdate saved execution outputs; no retroactive full-contract certification"
+      ],
+      "gpu_and_build_console_evidence": [
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/events.log:23",
+          "text": "[2026-11-04T14:30:28.995635+00:00] Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log:5",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log:6",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log:190",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log:191",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb#cell=6,output=0:1",
+          "text": "Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb#cell=7,output=1:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb#cell=7,output=1:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb#cell=12,output=0:6",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb#cell=12,output=0:7",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb#cell=12,output=0:191",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb#cell=12,output=0:192",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        }
+      ]
+    },
+    {
+      "run": "B2-rand validation 20261105",
+      "notebook": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+      "artifacts": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/cmake.log",
+          "sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/cuda_compiler.log",
+          "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/events.log",
+          "sha256": "812ec77ee9075a4c9ab3fd377193df4e6a95aa8d809b202bd2dac13cd98c126b"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/gpu.log",
+          "sha256": "afdcae3fa4b87d13e29d4f32d110f2bbde84ce6fa060f9640b08ad69a97ade86"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_dependencies.log",
+          "sha256": "b18e9628e90c578ebb7789f4a6b4a454e58c104de3d1da90e2ed8757a2bb3669"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_llama_cuda.log",
+          "sha256": "fc6be431306cc99201369fc21585c67f28a32ba005cf0a0194b8934cb747522f"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/pip.log",
+          "sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_42_validation.log",
+          "sha256": "0f2092b4fd483e554c2ea8ed88a45c4da0354d01605af097b15c0cb8d55796e7"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log",
+          "sha256": "5c19234ae45841a25045b712c89a8547a88e4a71aa2639e35e928c25ccecddc6"
+        },
+        {
+          "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+          "sha256": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
+          "note": "Saved outputs are historical evidence; current source may include later edits."
+        }
+      ],
+      "packages": {
+        "numpy": {
+          "observed": "2.1.3",
+          "expected": "2.1.3",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_llama_cuda.log:2529"
+        },
+        "huggingface-hub": {
+          "observed": "0.36.2",
+          "expected": "0.36.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_dependencies.log:63"
+        },
+        "tokenizers": {
+          "observed": "0.22.2",
+          "expected": "0.22.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_dependencies.log:63"
+        },
+        "transformers": {
+          "observed": "4.57.1",
+          "expected": "4.57.1",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_dependencies.log:63"
+        },
+        "llama-cpp-python": {
+          "observed": "0.3.16",
+          "expected": "0.3.16",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_llama_cuda.log:2863"
+        },
+        "scikit-learn": {
+          "observed": "1.5.2",
+          "expected": "1.5.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_dependencies.log:63"
+        }
+      },
+      "runtime_observations": {
+        "python": {
+          "value": "3.13.15",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_b2_rand_three_seed_11h/seed_43/reveal/validation/run_manifest.json",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cuda": {
+          "value": "12.8.93",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_llama_cuda.log:2571",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cmake": {
+          "value": "3.31.10",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/cmake.log:1",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "compiler": {
+          "value": "13.3.0",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_llama_cuda.log:2542",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "driver": {
+          "value": "580.178.04",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/gpu.log:3",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "n_ctx": {
+          "value": "8192",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log:195",
+          "expected": 8192,
+          "status": "confirmed_match"
+        },
+        "n_batch": {
+          "value": "256",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log:197",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "n_ubatch": {
+          "value": "256",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log:198",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "offload": {
+          "value": "49/49",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log:188",
+          "status": "confirmed_match"
+        },
+        "wheel_sha256": {
+          "value": "08fca48ab6fea62e040e712f255d33152ee8535199c8fb4eda6188b51325f1bd",
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_llama_cuda.log:2858",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        }
+      },
+      "run_manifests": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/checkpoint_contents/b2_donor_rerun_66/devign/test/run_manifest.json",
+          "sha256": "fda8e3e7fb854d87d935b4ddcb2d82bf75156215e3ffdcafc965966fbfa7d110",
+          "fields": {
+            "arm": "B2",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/checkpoint_contents/b2_donor_rerun_66/devign/validation/run_manifest.json",
+          "sha256": "9846945a2f9cf3686607f4664b9baa8c6957ddfad101a207ca2ec62cf9094c00",
+          "fields": {
+            "arm": "B2",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/checkpoint_contents/seed_42/devign/validation/run_manifest.json",
+          "sha256": "e01d17fba441c1be596f1772a4f69df68ba29dcbeef74ff07f5896da45112ca2",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/checkpoint_contents/seed_42/reveal/validation/run_manifest.json",
+          "sha256": "728578934cef9e8feb83132b7bfdbadc9c9e15aa833c6d1abe6f90a607d97a2c",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/checkpoint_contents/seed_43/devign/validation/run_manifest.json",
+          "sha256": "b2100374365d64f711a389773927721dd0d386625bbb4e573fc7fa1b242eaef7",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/checkpoint_contents/seed_43/reveal/validation/run_manifest.json",
+          "sha256": "c68aa0125a5ad8f27d4c9c51550313f0cfeaca2f48161cf2bf59c31260b761d0",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_b2_rand_three_seed_11h/b2_donor_rerun_66/devign/test/run_manifest.json",
+          "sha256": "fda8e3e7fb854d87d935b4ddcb2d82bf75156215e3ffdcafc965966fbfa7d110",
+          "fields": {
+            "arm": "B2",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_b2_rand_three_seed_11h/b2_donor_rerun_66/devign/validation/run_manifest.json",
+          "sha256": "9846945a2f9cf3686607f4664b9baa8c6957ddfad101a207ca2ec62cf9094c00",
+          "fields": {
+            "arm": "B2",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_b2_rand_three_seed_11h/seed_42/devign/validation/run_manifest.json",
+          "sha256": "e01d17fba441c1be596f1772a4f69df68ba29dcbeef74ff07f5896da45112ca2",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_b2_rand_three_seed_11h/seed_42/reveal/validation/run_manifest.json",
+          "sha256": "728578934cef9e8feb83132b7bfdbadc9c9e15aa833c6d1abe6f90a607d97a2c",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_b2_rand_three_seed_11h/seed_43/devign/validation/run_manifest.json",
+          "sha256": "b2100374365d64f711a389773927721dd0d386625bbb4e573fc7fa1b242eaef7",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_b2_rand_three_seed_11h/seed_43/reveal/validation/run_manifest.json",
+          "sha256": "c68aa0125a5ad8f27d4c9c51550313f0cfeaca2f48161cf2bf59c31260b761d0",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        }
+      ],
+      "identity_checks": {
+        "model_sha256": {
+          "expected": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+          "observed": [
+            "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+          ],
+          "status": "confirmed_match"
+        },
+        "quantization": {
+          "expected": "Q4_K_M",
+          "observed": [
+            "Q4_K_M"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer": {
+          "expected": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "observed": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer_revision": {
+          "expected": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "observed": [
+            "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+          ],
+          "status": "confirmed_match"
+        },
+        "scoring": {
+          "expected": "unconstrained_first_token_logits_v1",
+          "observed": [
+            "unconstrained_first_token_logits_v1"
+          ],
+          "status": "confirmed_match"
+        }
+      },
+      "source_method": {
+        "configured_inference_seed": {
+          "value": 4294967295,
+          "status": "configured_match",
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+          "basis": "source configuration, not proof of actual RNG state during historical execution"
+        },
+        "tensor_split": {
+          "value": null,
+          "status": "configured_match",
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb"
+        },
+        "scoring": {
+          "last_position_logits": true,
+          "float64": true,
+          "logaddexp": true,
+          "reset": true,
+          "basis": "runner source; manifests record scoring identity where present"
+        }
+      },
+      "remaining_gaps": [
+        "No verified historical source-sdist hash unless explicitly logged; package version alone is insufficient",
+        "No complete pip freeze and compiled installed-library hashes for full historical environments",
+        "Effective CPU n_threads/n_threads_batch absent from available logs; default formulas inferred from pinned backend source",
+        "Current notebook source may postdate saved execution outputs; no retroactive full-contract certification"
+      ],
+      "gpu_and_build_console_evidence": [
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/events.log:29",
+          "text": "[2026-11-05T00:36:26.356743+00:00] Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_42_validation.log:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_42_validation.log:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_42_validation.log:189",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_42_validation.log:190",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log:189",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log:190",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=6,output=0:1",
+          "text": "Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=7,output=1:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=7,output=1:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:14",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:15",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:199",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:200",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:436",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:437",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:621",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:622",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        }
+      ]
+    },
+    {
+      "run": "B2-rand validation 20261107",
+      "notebook": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+      "artifacts": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/cmake.log",
+          "sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/cuda_compiler.log",
+          "sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/events.log",
+          "sha256": "d0b19ab4ce2b695a87db154e7b2fe2cc1904451a6f4d65f832341e1bbd4a05d9"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/gpu.log",
+          "sha256": "0a52e3dd1b700e15db55bd370089e3df481693575370a39f1aee887339cd1097"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_dependencies.log",
+          "sha256": "4eddd6948b7e372625611ec89332b24825619a3bb1ddd4aa3992aec6080e53dd"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_llama_cuda.log",
+          "sha256": "fc321e10b9d1b71f36c98577120f4741931d418484b9107c6a518a328b66b9c4"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/pip.log",
+          "sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_43_validation.log",
+          "sha256": "4d0308310ca2ef96a182c21ee8eaa8bed6bdeaf8eca5986074cc7df83c5a1b99"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log",
+          "sha256": "3d55097f1a5bcb78387a85971e9392eb0d2d84f6cc86ab842b1bddc152507adb"
+        },
+        {
+          "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+          "sha256": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
+          "note": "Saved outputs are historical evidence; current source may include later edits."
+        }
+      ],
+      "packages": {
+        "numpy": {
+          "observed": "2.1.3",
+          "expected": "2.1.3",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_llama_cuda.log:2529"
+        },
+        "huggingface-hub": {
+          "observed": "0.36.2",
+          "expected": "0.36.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_dependencies.log:62"
+        },
+        "tokenizers": {
+          "observed": "0.22.2",
+          "expected": "0.22.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_dependencies.log:62"
+        },
+        "transformers": {
+          "observed": "4.57.1",
+          "expected": "4.57.1",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_dependencies.log:62"
+        },
+        "llama-cpp-python": {
+          "observed": "0.3.16",
+          "expected": "0.3.16",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_llama_cuda.log:2863"
+        },
+        "scikit-learn": {
+          "observed": "1.5.2",
+          "expected": "1.5.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_dependencies.log:62"
+        }
+      },
+      "runtime_observations": {
+        "python": {
+          "value": "3.13.15",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_44/devign/validation/run_manifest.json",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cuda": {
+          "value": "12.8.93",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_llama_cuda.log:2571",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cmake": {
+          "value": "3.31.10",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/cmake.log:1",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "compiler": {
+          "value": "13.3.0",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_llama_cuda.log:2542",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "driver": {
+          "value": "580.178.04",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/gpu.log:3",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "n_ctx": {
+          "value": "8192",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log:195",
+          "expected": 8192,
+          "status": "confirmed_match"
+        },
+        "n_batch": {
+          "value": "256",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log:197",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "n_ubatch": {
+          "value": "256",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log:198",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "offload": {
+          "value": "49/49",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log:188",
+          "status": "confirmed_match"
+        },
+        "wheel_sha256": {
+          "value": "17f9b504c2ad7340f2a1687191796f779ceda97aa008d053f24e1cae5641f9e6",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_llama_cuda.log:2858",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        }
+      },
+      "run_manifests": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/b2_donor_rerun_66/devign/test/run_manifest.json",
+          "sha256": "fda8e3e7fb854d87d935b4ddcb2d82bf75156215e3ffdcafc965966fbfa7d110",
+          "fields": {
+            "arm": "B2",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/b2_donor_rerun_66/devign/validation/run_manifest.json",
+          "sha256": "9846945a2f9cf3686607f4664b9baa8c6957ddfad101a207ca2ec62cf9094c00",
+          "fields": {
+            "arm": "B2",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_42/devign/validation/run_manifest.json",
+          "sha256": "e01d17fba441c1be596f1772a4f69df68ba29dcbeef74ff07f5896da45112ca2",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_42/reveal/validation/run_manifest.json",
+          "sha256": "728578934cef9e8feb83132b7bfdbadc9c9e15aa833c6d1abe6f90a607d97a2c",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_43/devign/validation/run_manifest.json",
+          "sha256": "b2100374365d64f711a389773927721dd0d386625bbb4e573fc7fa1b242eaef7",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_43/reveal/validation/run_manifest.json",
+          "sha256": "e66cc4753380d52e787058693a55ceebd028cdd6924e2f9343fb06872a52f134",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_44/devign/validation/run_manifest.json",
+          "sha256": "1f7fa83e76b56e6a20179ebf4701dd0e83f26fe4dc00f9e9375007e5fc40c574",
+          "fields": {
+            "arm": "B2-rand",
+            "python": "3.13.15",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        }
+      ],
+      "identity_checks": {
+        "model_sha256": {
+          "expected": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+          "observed": [
+            "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+          ],
+          "status": "confirmed_match"
+        },
+        "quantization": {
+          "expected": "Q4_K_M",
+          "observed": [
+            "Q4_K_M"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer": {
+          "expected": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "observed": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer_revision": {
+          "expected": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "observed": [
+            "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+          ],
+          "status": "confirmed_match"
+        },
+        "scoring": {
+          "expected": "unconstrained_first_token_logits_v1",
+          "observed": [
+            "unconstrained_first_token_logits_v1"
+          ],
+          "status": "confirmed_match"
+        }
+      },
+      "source_method": {
+        "configured_inference_seed": {
+          "value": 4294967295,
+          "status": "configured_match",
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+          "basis": "source configuration, not proof of actual RNG state during historical execution"
+        },
+        "tensor_split": {
+          "value": null,
+          "status": "configured_match",
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb"
+        },
+        "scoring": {
+          "last_position_logits": true,
+          "float64": true,
+          "logaddexp": true,
+          "reset": true,
+          "basis": "runner source; manifests record scoring identity where present"
+        }
+      },
+      "remaining_gaps": [
+        "No verified historical source-sdist hash unless explicitly logged; package version alone is insufficient",
+        "No complete pip freeze and compiled installed-library hashes for full historical environments",
+        "Effective CPU n_threads/n_threads_batch absent from available logs; default formulas inferred from pinned backend source",
+        "Current notebook source may postdate saved execution outputs; no retroactive full-contract certification"
+      ],
+      "gpu_and_build_console_evidence": [
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/events.log:23",
+          "text": "[2026-11-06T15:22:20.798496+00:00] Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_43_validation.log:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_43_validation.log:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_43_validation.log:189",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_43_validation.log:190",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log:189",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log:190",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=6,output=0:1",
+          "text": "Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=7,output=1:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=7,output=1:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:14",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:15",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:199",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:200",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:436",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:437",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:621",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb#cell=11,output=0:622",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        }
+      ]
+    },
+    {
+      "run": "B1-H2 validation",
+      "notebook": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb",
+      "artifacts": [
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/cmake.log",
+          "sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/cuda_compiler.log",
+          "sha256": "fc7ce0c80d28ed925fd490dc4e3915ce620fcf115f965189688c6f049243aad5"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/events.log",
+          "sha256": "a1e24efe5895bfc014b5d046941e581152cc10b2cf3a24091e3c007e2f7dc510"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/gpu.log",
+          "sha256": "0ce4b9d07eeb6293496da769c53c73354eb5e7e6fbbc5d90eee1b572494ae673"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_dependencies.log",
+          "sha256": "67c9227e49e8dbdcaedf1728f49ec42c9e9eba2db5402f29f73fb2fd4d8f7922"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_llama_cuda.log",
+          "sha256": "9a9d8995c8ccc6018e73c9c65589162163a29e8da5353863a327a6d438c1fcf8"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/pip.log",
+          "sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log",
+          "sha256": "f35b56181edd839a6062643873688873cd7dc8d27b609d08e82543bcbba13167"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb",
+          "sha256": "57cdf5249395aec0f0c5bc47421a9d6fb3789fd5809de7d42bc80f632d91c88f",
+          "note": "Saved outputs are historical evidence; current source may include later edits."
+        }
+      ],
+      "packages": {
+        "numpy": {
+          "observed": "2.1.3",
+          "expected": "2.1.3",
+          "status": "confirmed_match",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_llama_cuda.log:2530"
+        },
+        "huggingface-hub": {
+          "observed": "0.36.2",
+          "expected": "0.36.2",
+          "status": "confirmed_match",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_dependencies.log:64"
+        },
+        "tokenizers": {
+          "observed": "0.22.2",
+          "expected": "0.22.2",
+          "status": "confirmed_match",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_dependencies.log:64"
+        },
+        "transformers": {
+          "observed": "4.57.1",
+          "expected": "4.57.1",
+          "status": "confirmed_match",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_dependencies.log:64"
+        },
+        "llama-cpp-python": {
+          "observed": "0.3.16",
+          "expected": "0.3.16",
+          "status": "confirmed_match",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_llama_cuda.log:2864"
+        },
+        "scikit-learn": {
+          "observed": "1.5.2",
+          "expected": "1.5.2",
+          "status": "confirmed_match",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_dependencies.log:64"
+        }
+      },
+      "runtime_observations": {
+        "python": {
+          "value": "3.13.16",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/b1_h2_validation/seed_42/reveal/validation/run_manifest.json",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cuda": {
+          "value": "13.0.88",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_llama_cuda.log:2572",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cmake": {
+          "value": "3.31.10",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/cmake.log:1",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "compiler": {
+          "value": "13.3.0",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_llama_cuda.log:2543",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "driver": {
+          "value": "580.178.04",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/gpu.log:3",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "n_ctx": {
+          "value": "8192",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log:195",
+          "expected": 8192,
+          "status": "confirmed_match"
+        },
+        "n_batch": {
+          "value": "256",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log:197",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "n_ubatch": {
+          "value": "256",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log:198",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "offload": {
+          "value": "49/49",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log:188",
+          "status": "confirmed_match"
+        },
+        "wheel_sha256": {
+          "value": "80c56816b8443b5b36bebdaf10255d59c722c96074784fc844ada3afbcbf7575",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_llama_cuda.log:2859",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        }
+      },
+      "run_manifests": [
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/b1_h2_validation/seed_42/devign/validation/run_manifest.json",
+          "sha256": "0ac0b7960ab7bcfb8ffcdbc21b7c00a5e3dc0afabd5028613743bc60602849b1",
+          "fields": {
+            "arm": "B1-H2",
+            "python": "3.13.16",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "inference_seed": 4294967295,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/b1_h2_validation/seed_42/reveal/validation/run_manifest.json",
+          "sha256": "d0f4624b851d00a48a0a32980110a5e5e81756fbc5c86754798b23521f64901e",
+          "fields": {
+            "arm": "B1-H2",
+            "python": "3.13.16",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "inference_seed": 4294967295,
+            "scoring": "unconstrained_first_token_logits_v1"
+          }
+        }
+      ],
+      "identity_checks": {
+        "model_sha256": {
+          "expected": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+          "observed": [
+            "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+          ],
+          "status": "confirmed_match"
+        },
+        "quantization": {
+          "expected": "Q4_K_M",
+          "observed": [
+            "Q4_K_M"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer": {
+          "expected": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "observed": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer_revision": {
+          "expected": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "observed": [
+            "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+          ],
+          "status": "confirmed_match"
+        },
+        "scoring": {
+          "expected": "unconstrained_first_token_logits_v1",
+          "observed": [
+            "unconstrained_first_token_logits_v1"
+          ],
+          "status": "confirmed_match"
+        }
+      },
+      "source_method": {
+        "configured_inference_seed": {
+          "value": 4294967295,
+          "status": "configured_match",
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb",
+          "basis": "source configuration, not proof of actual RNG state during historical execution"
+        },
+        "tensor_split": {
+          "value": [
+            1,
+            1
+          ],
+          "status": "configured_mismatch",
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb"
+        },
+        "scoring": {
+          "last_position_logits": true,
+          "float64": true,
+          "logaddexp": true,
+          "reset": true,
+          "basis": "runner source; manifests record scoring identity where present"
+        }
+      },
+      "remaining_gaps": [
+        "No verified historical source-sdist hash unless explicitly logged; package version alone is insufficient",
+        "No complete pip freeze and compiled installed-library hashes for full historical environments",
+        "Effective CPU n_threads/n_threads_batch absent from available logs; default formulas inferred from pinned backend source",
+        "Current notebook source may postdate saved execution outputs; no retroactive full-contract certification"
+      ],
+      "gpu_and_build_console_evidence": [
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/events.log:18",
+          "text": "[2026-11-06T12:29:51.653186+00:00] Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log:189",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log:190",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb#cell=4,output=0:1",
+          "text": "Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb#cell=5,output=1:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb#cell=5,output=1:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb#cell=8,output=0:5",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb#cell=8,output=0:6",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb#cell=8,output=0:190",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb#cell=8,output=0:191",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        }
+      ]
+    },
+    {
+      "run": "B1-H2 test",
+      "notebook": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb",
+      "artifacts": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/cmake.log",
+          "sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/cuda_compiler.log",
+          "sha256": "fc7ce0c80d28ed925fd490dc4e3915ce620fcf115f965189688c6f049243aad5"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/events.log",
+          "sha256": "de1a7137115c2f7e3f003718ba681d83c7e8fa0f37c443f7198923aafae5aac2"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/gpu.log",
+          "sha256": "d1b0d8253bb13f87686e98216de007ff2e673b772ed307ada970d2913a34402c"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_dependencies.log",
+          "sha256": "497e52ad722689b02b2fadc6fd53188fade258e0a67675ac457420dbe530122f"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_llama_cuda.log",
+          "sha256": "8c8050ce6c88c492f10c67d4bbe737e54c856da67f057b2e0ae467344ef61514"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/pip.log",
+          "sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b"
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log",
+          "sha256": "83d17df23c8fd9b87962d2b6453ef94950704737cc376441548edfab746e262c"
+        },
+        {
+          "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb",
+          "sha256": "3cb1f4d4fc2d4e9ca839d22db2b1660f671aebbd046bdd2a0e2e94f4a8541dc7",
+          "note": "Saved outputs are historical evidence; current source may include later edits."
+        }
+      ],
+      "packages": {
+        "numpy": {
+          "observed": "2.1.3",
+          "expected": "2.1.3",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_llama_cuda.log:2530"
+        },
+        "huggingface-hub": {
+          "observed": "0.36.2",
+          "expected": "0.36.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_dependencies.log:63"
+        },
+        "tokenizers": {
+          "observed": "0.22.2",
+          "expected": "0.22.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_dependencies.log:63"
+        },
+        "transformers": {
+          "observed": "4.57.1",
+          "expected": "4.57.1",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_dependencies.log:63"
+        },
+        "llama-cpp-python": {
+          "observed": "0.3.16",
+          "expected": "0.3.16",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_llama_cuda.log:2864"
+        },
+        "scikit-learn": {
+          "observed": "1.5.2",
+          "expected": "1.5.2",
+          "status": "confirmed_match",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_dependencies.log:63"
+        }
+      },
+      "runtime_observations": {
+        "python": {
+          "value": "3.13.16",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/b1_h2_test/seed_42/reveal/test/run_manifest.json",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cuda": {
+          "value": "13.0.88",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_llama_cuda.log:2572",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "cmake": {
+          "value": "3.31.10",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/cmake.log:1",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "compiler": {
+          "value": "13.3.0",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_llama_cuda.log:2543",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "driver": {
+          "value": "580.178.04",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/gpu.log:3",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        },
+        "n_ctx": {
+          "value": "8192",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log:195",
+          "expected": 8192,
+          "status": "confirmed_match"
+        },
+        "n_batch": {
+          "value": "256",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log:197",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "n_ubatch": {
+          "value": "256",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log:198",
+          "expected": 256,
+          "status": "confirmed_match"
+        },
+        "offload": {
+          "value": "49/49",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log:188",
+          "status": "confirmed_match"
+        },
+        "wheel_sha256": {
+          "value": "f6f9936b9692497de1df6222f802aaf62d62f8f7abd2099097302f56ff39c244",
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_llama_cuda.log:2859",
+          "status": "recorded_platform_build_provenance_not_an_exact_common_pin"
+        }
+      },
+      "run_manifests": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/b1_h2_test/seed_42/devign/test/run_manifest.json",
+          "sha256": "9995d80336aa19942a2ec61048e2d51575fac3826ce460dc4919971d9b56ee66",
+          "fields": {
+            "arm": "B1-H2",
+            "python": "3.13.16",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "n_batch": 256,
+            "inference_seed": 4294967295,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "tensor_split": [
+              1.0,
+              1.0
+            ],
+            "split_mode": "layer"
+          }
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/b1_h2_test/seed_42/reveal/test/run_manifest.json",
+          "sha256": "f217a44423a629ee482e1670bba98a575ac212a289797226a211444f24f01858",
+          "fields": {
+            "arm": "B1-H2",
+            "python": "3.13.16",
+            "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+            "quantization": "Q4_K_M",
+            "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+            "context_tokens": 8192,
+            "n_batch": 256,
+            "inference_seed": 4294967295,
+            "scoring": "unconstrained_first_token_logits_v1",
+            "tensor_split": [
+              1.0,
+              1.0
+            ],
+            "split_mode": "layer"
+          }
+        }
+      ],
+      "identity_checks": {
+        "model_sha256": {
+          "expected": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+          "observed": [
+            "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+          ],
+          "status": "confirmed_match"
+        },
+        "quantization": {
+          "expected": "Q4_K_M",
+          "observed": [
+            "Q4_K_M"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer": {
+          "expected": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "observed": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          ],
+          "status": "confirmed_match"
+        },
+        "tokenizer_revision": {
+          "expected": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+          "observed": [
+            "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+          ],
+          "status": "confirmed_match"
+        },
+        "scoring": {
+          "expected": "unconstrained_first_token_logits_v1",
+          "observed": [
+            "unconstrained_first_token_logits_v1"
+          ],
+          "status": "confirmed_match"
+        }
+      },
+      "source_method": {
+        "configured_inference_seed": {
+          "value": 4294967295,
+          "status": "configured_match",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb",
+          "basis": "source configuration, not proof of actual RNG state during historical execution"
+        },
+        "tensor_split": {
+          "value": [
+            1,
+            1
+          ],
+          "status": "configured_mismatch",
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb"
+        },
+        "scoring": {
+          "last_position_logits": true,
+          "float64": true,
+          "logaddexp": true,
+          "reset": true,
+          "basis": "runner source; manifests record scoring identity where present"
+        }
+      },
+      "remaining_gaps": [
+        "No verified historical source-sdist hash unless explicitly logged; package version alone is insufficient",
+        "No complete pip freeze and compiled installed-library hashes for full historical environments",
+        "Effective CPU n_threads/n_threads_batch absent from available logs; default formulas inferred from pinned backend source",
+        "Current notebook source may postdate saved execution outputs; no retroactive full-contract certification"
+      ],
+      "gpu_and_build_console_evidence": [
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/events.log:18",
+          "text": "[2026-11-06T17:04:41.338960+00:00] Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log:189",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log:190",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb#cell=4,output=0:1",
+          "text": "Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb#cell=5,output=1:4",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb#cell=5,output=1:5",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb#cell=8,output=0:5",
+          "text": "  Device 0: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb#cell=8,output=0:6",
+          "text": "  Device 1: Tesla T4, compute capability 7.5, VMM: yes"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb#cell=8,output=0:190",
+          "text": "load_tensors:        CUDA0 model buffer size =  8603.55 MiB"
+        },
+        {
+          "evidence": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb#cell=8,output=0:191",
+          "text": "load_tensors:        CUDA1 model buffer size =  8230.57 MiB"
+        }
+      ]
+    }
+  ],
+  "missing_execution_logs": [
+    "B1-full",
+    "B1-shuf",
+    "B2-rep",
+    "B2-nolabel",
+    "B2-labelonly"
+  ],
+  "new_b2_rand_test_notebooks": {
+    "seeds": [
+      42,
+      43
+    ],
+    "state": "runtime lock integrated and statically tested; no new Kaggle execution logs yet"
+  },
+  "lock_policy_modified": false
+}

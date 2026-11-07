@@ -61,3 +61,43 @@ Parse JSON, kiểm tra checksum canonical, sáu package, seed/tensor_split đã 
 - https://raw.githubusercontent.com/ggml-org/llama.cpp/4227c9be4268ac844921b90f31595f81236bd317/src/llama-model.cpp
 
 Phạm vi contract sau trả lời cuối: Kaggle T4×2. Các cấu hình seed/package/GPU distribution/CPU threads/build policy đã được người dùng chốt; câu hỏi còn lại chỉ là thu thập bằng chứng từ các arm thiếu log và runner họ B3. Notebook chưa tự đọc JSON nên chưa được coi đã đồng bộ theo contract.
+
+## Cập nhật đối chiếu log thực chạy — 2026-11-07
+
+Bằng chứng chi tiết, hash file và vị trí dòng/cell: worklogs/2026-11-07_inference_runtime_log_evidence.json. Bảng bên dưới cập nhật tình trạng bằng chứng, không sửa chính sách hoặc checksum của configs/inference_runtime_lock.json (hai notebook B2-rand test đang nhúng contract này).
+
+ĐÃ CHỐT là kết luận cho từng mục của từng phiên có log; không đồng nghĩa toàn bộ notebook hoặc binary runtime lịch sử đã được chứng nhận giống hệt.
+
+| Phiên có output | Sáu package | Context/batch/microbatch | Offload | Python | CUDA nvcc | GCC | CMake |
+|---|---|---|---|---|---|---|---|
+| B0 | ĐÃ CHỐT: khớp lock | ĐÃ CHỐT: 8192/256/256 | 49/49 | 3.13.15 | 12.8.93 | 13.3.0 | 3.31.10 |
+| B1 I08 | ĐÃ CHỐT: khớp lock | ĐÃ CHỐT: 8192/256/256 | 49/49 | 3.13.15 | 12.8.93 | 13.3.0 | 3.31.10 |
+| B2 | ĐÃ CHỐT: khớp lock | ĐÃ CHỐT: 8192/256/256 | 49/49 | 3.13.15 | 12.8.93 | 13.3.0 | 3.31.10 |
+| B2-flip | ĐÃ CHỐT: khớp lock | ĐÃ CHỐT: 8192/256/256 | 49/49 | 3.13.15 | 12.8.93 | 13.3.0 | 3.31.10 |
+| B2-rand validation 20261105 | ĐÃ CHỐT: khớp lock | ĐÃ CHỐT: 8192/256/256 | 49/49 | 3.13.15 | 12.8.93 | 13.3.0 | 3.31.10 |
+| B2-rand validation 20261107 | ĐÃ CHỐT: khớp lock | ĐÃ CHỐT: 8192/256/256 | 49/49 | 3.13.15 | 12.8.93 | 13.3.0 | 3.31.10 |
+| B1-H2 validation | ĐÃ CHỐT: khớp lock | ĐÃ CHỐT: 8192/256/256 | 49/49 | 3.13.16 | 13.0.88 | 13.3.0 | 3.31.10 |
+| B1-H2 test | ĐÃ CHỐT: khớp lock | ĐÃ CHỐT: 8192/256/256 | 49/49 | 3.13.16 | 13.0.88 | 13.3.0 | 3.31.10 |
+
+### Những mục đã đóng bằng bằng chứng
+
+- Sáu package của các phiên trong bảng đều có log sau cài đặt khớp đúng bộ đã chốt; không tiếp tục đánh dấu chưa xác định chỉ vì source notebook không có pin trực tiếp.
+- Context 8192, n_batch 256, n_ubatch 256 và offload 49/49 được log xác nhận trực tiếp ở các phiên trong bảng; không chỉ suy ra từ default.
+- Các run manifest hiện có trong output B2/B2-flip/B2-rand/B1-H2 được đối chiếu riêng cho model SHA, Q4_K_M, tokenizer revision và scoring identity. Mục thiếu trong manifest vẫn ghi not_recorded, không tự lấp bằng giá trị mong đợi.
+- Phương pháp reset/eval/logits cuối/float64/logaddexp được đối chiếu source runner. Manifest ghi unconstrained_first_token_logits_v1 là bằng chứng định danh; không phải kiểm chứng số học độc lập trên GPU.
+
+### Phát hiện mới và những mục vẫn chưa được đóng
+
+- Python/CUDA thực sự có hai nhóm: 3.13.15 + CUDA 12.8.93 và 3.13.16 + CUDA 13.0.88; GCC 13.3.0, CMake 3.31.10 khớp. Đây là provenance nền tảng được phép theo quyết định giữ build Kaggle; không được gọi là cùng binary/toolchain.
+- Log build còn ghi SHA-256 wheel đã tạo và các wheel khác hash. Việc này không tự chứng minh sai logits, nhưng không được tuyên bố binary identical. Hash từng wheel nằm trong JSON.
+- Seed 42 của B0/B1/B2-flip vẫn khác lock 4294967295 theo cấu hình source; B1-H2 vẫn dùng tensor_split=[1,1] thay vì auto. Không đóng hai khác biệt này chỉ vì package/context đã khớp. Seed record cũ đôi khi là prompt seed, không dùng nó để suy đoán inference seed.
+- Chưa thấy log CPU thread count thực tế đầy đủ; giữ kết luận về công thức default ở mức source-derived, chưa xác nhận mọi phiên dùng cùng số thread.
+- Chưa có source-sdist SHA đã kiểm chứng, full dependency freeze hoặc hash installed backend binaries cho mọi phiên lịch sử; package source version và wheel-build SHA không thay thế đầy đủ các bằng chứng này.
+- B1-full/B1-shuf/B2-rep/B2-nolabel/B2-labelonly vẫn thiếu output thực chạy ở local. Đây là thiếu bằng chứng, không kết luận chúng sai lock.
+- Hai notebook B2-rand test mới đã tích hợp JSON ở lượt trước; chúng được kiểm tra local nhưng chưa có log Kaggle mới để đóng bằng chứng thực thi.
+
+Kiểm tra báo cáo: các mục đánh dấu confirmed_match phải có observed==expected và một vị trí bằng chứng. Giữ nguyên byte runtime lock, prompt, threshold và record inference lịch sử.
+
+### Bổ sung checkpoint local ngoài GRACE-summary
+
+Checkpoint B0 tại C:/MY-FILES/LAB-THAY-THO/tmp/b0_kaggle_20261101/grace_b0_checkpoint.zip và B1 tại C:/MY-FILES/LAB-THAY-THO/kaggle_stage_b1/grace_b1_checkpoint.zip có bốn run manifest mỗi arm. Chúng xác nhận model SHA, Q4_K_M, tokenizer repo/revision và scoring identity khớp lock: ĐÃ CHỐT các mục này cho output checkpoint có bằng chứng. JSON lưu hash archive/member và các dòng console phân bổ GPU/build flags khi có.

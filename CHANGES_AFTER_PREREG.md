@@ -139,6 +139,21 @@ Prepared all non-ignored pending notebooks, I-10/I-11 run records and audit/work
 
 Added a separate amended B3 selector with source/diff/review gates, exact deterministic mean-Jaccard ranking and matched probe rendering. B3-nodiff retains its own validation threshold per proposal sections 6.6/8.5; swap and flip inherit B3. No original selector, frozen data, arm config, threshold lock or registered attachment was altered by this implementation. 58 integrity/probe/statistics/new-selector tests passed. Three synthetic targets produced twelve explicitly test-only prompts; six real validation attempts paused because no authenticated, two-reviewer-approved pair pool was available. No inference or OSF submission was performed. This is proposed amendment software, not evidence of confirmed security-pair quality or completed B3 validation. See worklogs/2026-11-06_amended_b3_selector_and_smoke.md and Runs-management/b3_amended_20261106/README.md.
 
+
+## 2026-11-06 - B1-H2 Kaggle test delivery after completed validation lock
+
+Prepared a separate 5,006-prompt test bundle and Kaggle 2xT4 notebook under `11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/`. Uses the completed Kaggle validation thresholds Devign 0.09 and ReVeal 0.21 (seal `b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8`), without fitting on test. Preserves original prompt text, pinned model/tokenizer/backend and the observed validation inference seed policy (`LLAMA_DEFAULT_SEED=4294967295`; prompt-set seed 42). Session budget is nine hours including setup, with checkpoints and resumable output. CPU checks passed for input layouts, fixed-threshold scoring and checkpoint identity/rejection. This is operational preparation; no GPU inference or remote upload was executed, and no frozen data, thresholds/configs or OSF attachments were changed. See `worklogs/2026-11-06_b1h2_kaggle_test_preparation.md`.
+
+
+## 2026-11-07 - B1-H2 Kaggle test startup heartbeat
+
+At the user's request, the existing Kaggle test notebook now prints PING in its first executable statement and starts a daemon heartbeat every 30 seconds, with immediate stage markers. The startup nvidia-smi probe times out after 30 seconds. The heartbeat is cleaned up on rerun, cell error and session completion; it indicates Python kernel liveness, not model progress or successful GPU work. The notebook generator and delivery hashes were refreshed. CPU checks exercised real heartbeat output while the foreground waited, rerun/error cleanup and the actual startup GPU-timeout path; all existing delivery/checkpoint checks also passed. Input bundle SHA-256 and inference helper SHA-256 remain identical, as do the fixed Kaggle thresholds and nine-hour budget. No GPU or real test-score analysis was executed for this change. See `11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/README.md` and `verification_report.json`.
+
+
 ### OSF E1/E2 public evidence-link repair (2026-11-07)
 
 Replaced the two HTTP-404 public GitHub URLs at commit 282033d in Runs-management/osf_amendment_20261106/OSF_UPDATE_EN.md with accessible copies at d9127fc. Compared Git blobs and confirmed byte-identical SHA-256 values for both the original optimizer and historical threshold artifact. Added an access/provenance note distinguishing the later public snapshot from the locally retained historical commit. This is a documentation-link correction; no experiment, threshold, or analysis result was changed.
+
+## 2026-11-07 — B2-rand test uses the approved shared runtime lock
+
+Integrated configs/inference_runtime_lock.json into both seed42/seed43 Kaggle test notebooks as a byte- and integrity-verified embedded contract. Enforce approved packages, verified backend source archive, constructor/seed/auto GPU split, model/tokenizer identity, full offload evidence, provenance and strict runtime-aware checkpoint resume. Preserve original prompt bundle and validation threshold lock. Also corrected single-dataset resume and inherited B1-H2 checkpoint filename. See worklogs/2026-11-07_b2_rand_test_runtime_lock_integration.md for affected files, checks and limits. These operational changes are not a new exploratory arm or changes to frozen prompts/thresholds. Local checks used stubs; Kaggle CUDA execution remains unverified.
