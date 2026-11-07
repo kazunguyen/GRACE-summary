@@ -4,11 +4,13 @@
   "created_on": "2026-11-07",
   "timezone": "Asia/Bangkok",
   "status": "core_policy_locked_notebook_adoption_pending",
-  "scope": "New GRACE diagnostic Qwen Q4 Kaggle inference; excludes preparation, CodeT5 supervised and legacy API/server prototypes",
+  "scope": "New GRACE diagnostic Qwen Q4 inference on Kaggle only; excludes Colab/Vast and preparation/CodeT5/legacy API prototypes",
   "user_decisions": {
     "inference_seed": 4294967295,
     "packages": "exact versions approved",
-    "gpu_policy": "layer + auto free VRAM, approved"
+    "gpu_policy": "layer + auto free VRAM, approved",
+    "cpu_threads": "approved: preserve default CPU-count formulas used by all 16 notebooks",
+    "build": "approved: Kaggle platform build with mandatory complete provenance; no shared container required"
   },
   "model": {
     "repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
@@ -85,7 +87,8 @@
     "n_threads": "max(multiprocessing.cpu_count() // 2, 1)",
     "n_threads_batch": "multiprocessing.cpu_count()",
     "fixed_thread_count": null,
-    "record_effective_counts": true
+    "record_effective_counts": true,
+    "approval_status": "user_approved"
   },
   "build": {
     "GGML_CUDA": true,
@@ -100,7 +103,7 @@
     "exact_cmake": null,
     "compiled_wheel_sha256": null,
     "binary_environment_fully_locked": false,
-    "policy": "record exact provenance; a shared container or compiled artifact is not selected"
+    "policy": "Kaggle platform build is approved. Record exact Python patch, CUDA/nvcc/driver, compiler, CMake, flags, dependencies and compiled backend hash. A shared container or bit-identical binary is not required or claimed."
   },
   "scoring": {
     "name": "unconstrained_first_token_logits_v1",
@@ -189,17 +192,6 @@
     "historical_runs_are_not_retroactively_certified": true
   },
   "open_questions": [
-    {
-      "id": "build_artifact",
-      "question": "Pin a shared container/build artifact or allow platform builds with provenance? All notebook builders leave exact CUDA/compiler/CMake/Python patch unpinned.",
-      "status": "open"
-    },
-    {
-      "id": "cpu_threads",
-      "question": "Keep CPU-count default formulas or lock absolute thread counts? All 16 constructors omit n_threads and n_threads_batch.",
-      "status": "open",
-      "interim_policy": "preserve existing formulas and record effective values"
-    },
     {
       "id": "missing_run_logs",
       "arms": [
@@ -407,9 +399,24 @@
       "shared_json_integrated": false
     }
   ],
+  "resolved_decisions": [
+    {
+      "id": "build_artifact",
+      "question": "Pin a shared container/build artifact or allow platform builds with provenance? All notebook builders leave exact CUDA/compiler/CMake/Python patch unpinned.",
+      "status": "resolved",
+      "decision": "Kaggle platform build with mandatory full provenance"
+    },
+    {
+      "id": "cpu_threads",
+      "question": "Keep CPU-count default formulas or lock absolute thread counts? All 16 constructors omit n_threads and n_threads_batch.",
+      "status": "resolved",
+      "interim_policy": "preserve existing formulas and record effective values",
+      "decision": "preserve default CPU-count formulas and record effective counts"
+    }
+  ],
   "integrity": {
     "algorithm": "sha256",
     "canonicalization": "UTF-8 json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=False); exclude integrity",
-    "sha256": "a953448a5405731772caa35ec86f0801eb27a12c98a13563fb5b55faa0a6ed59"
+    "sha256": "c0f17d3562541fa97e92b46413fa4eb56d2823c59cc9c1bf920a4c404ad3a171"
   }
 }
