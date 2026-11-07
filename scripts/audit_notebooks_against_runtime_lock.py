@@ -32,6 +32,8 @@ notebooks_to_check = [
     ("Test: B1-full", Path("09_Arm_B1_Full/notebooks/02_kaggle_qwen_q4_b1_full_test.ipynb")),
     ("Test: B2-nolabel", Path("10_Arm_B2_NoLabel/notebooks/02_kaggle_qwen_q4_b2_nolabel_test.ipynb")),
     ("Test: B2-labelonly", Path("12_Arm_B2_LabelOnly/notebooks/02_kaggle_qwen_q4_b2_labelonly_test.ipynb")),
+    # B1-shuf test notebook
+    ("Test: B1-shuf", Path("08_Arm_B1_Shuf/notebooks/02_kaggle_qwen_q4_b1_shuf_test.ipynb")),
     # B3 validation notebook
     ("Val: B3 Amended", Path("13_Arm_B3_Contrastive/notebooks/02_kaggle_qwen_q4_b3_amended_validation.ipynb")),
     # Also check B2-rand test notebooks if present
