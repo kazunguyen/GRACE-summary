@@ -25,6 +25,8 @@ Runs-management/err_*
 Runs-management/kernel_logs/
 Runs-management/pulled_live_audit*/
 Runs-management/audit_*.json
+08_Arm_B1_Shuf/kaggle_dataset_upload/
+08_Arm_B1_Shuf/staging_test_inputs/
 
 # OSF Preregistration Deliverables whitelist
 !/Runs-management/osf_registration_draft_20261102/*.zip
