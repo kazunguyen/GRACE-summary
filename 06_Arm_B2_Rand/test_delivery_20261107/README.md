@@ -17,6 +17,8 @@ Rule: maximize MCC on the 0.01–0.99 grid using finite valid validation scores;
 
 Upload `grace_b2_rand_test_seeds_42_43_bundle.zip` as a Kaggle Dataset. In both notebooks add that dataset and the same pinned GGUF Q4_K_M model dataset used for validation. Choose **GPU T4 ×2**, Internet on, then run all cells. The two notebooks are:
 
+Kaggle may recursively extract the seed/dataset ZIPs inside the uploaded bundle. The notebooks accept either those extracted directories or intact nested ZIPs, check each frozen member hash, and rebuild a temporary local ZIP when the inference runner requires one. After replacing a notebook with the corrected local copy, upload/replace the Kaggle notebook version and rerun from the top; no new bundle upload is needed.
+
 - `02_kaggle_qwen_q4_b2_rand_seed42_test.ipynb`
 - `02_kaggle_qwen_q4_b2_rand_seed43_test.ipynb`
 
@@ -33,3 +35,8 @@ The latest checkpoint already contains 12,436/15,015 validation records: seeds 4
 After the run, download the new `grace_b2_rand_checkpoint.zip` and attach that checkpoint to the validation notebook for any further resume. Do not use a seed 42/43 test notebook as the validation notebook's checkpoint.
 
 See `../config/threshold.json`, `delivery_manifest.json`, and `../../worklogs/2026-11-07_b1h2_b2rand_kaggle_progress_and_delivery.md` for hashes and run evidence.
+
+
+## Shared runtime lock (2026-11-07)
+
+Both test notebooks now embed and enforce configs/inference_runtime_lock.json. Upload the updated notebook only; the prompt ZIP/model Inputs stay the same. Setup checks packages and source archive SHA before CUDA build; inference verifies the model/tokenizer, applies the approved constructor and requires a 49/49 GPU offload report. Runtime provenance and contract hashes are exported. Previous checkpoints without this exact runtime contract identity are rejected. See worklogs/2026-11-07_b2_rand_test_runtime_lock_integration.md.

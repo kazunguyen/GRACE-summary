@@ -401,6 +401,10 @@ else:
     cell8 = cell8.replace("'B1-H2'", "'B2-rand'").replace("for seed in sorted({seed for seed, ds in bundles})", "for seed in (PROMPT_SEED,)")
     cell8 = cell8.replace("CHECKPOINT_NAME.removesuffix('.zip')", "CHECKPOINT_NAME.removesuffix('.zip')")
     nb["cells"][8]["source"] = cell8.splitlines(keepends=True)
+    from fix_test_input_discovery import patch_notebook
+    nb = patch_notebook(nb)
+    from integrate_test_runtime_lock import integrate
+    nb = integrate(nb)
     # Kaggle code settings and clean execution outputs for a new kernel version.
     nb["metadata"].setdefault("kaggle", {})
     nb["metadata"]["kaggle"].update({"accelerator":"nvidiaTeslaT4", "isGpuEnabled":True, "isInternetEnabled":True, "dataSources":[], "sourceType":"notebook", "language":"python"})
