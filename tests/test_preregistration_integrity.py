@@ -130,12 +130,12 @@ def test_thresholds_json_synchronization():
     assert meta["version"] == "prereg-v1"
     assert meta["optimized_on_split"] == "validation"
     assert "earlier test inference/metrics existed" in meta["test_exposure"]
-    assert "B1-H2" in meta["reseal_reason"]
-    assert meta["total_thresholds_locked"] == 16
+    assert any(term in meta["reseal_reason"] for term in ["B1-H2", "B2-rand"])
+    assert meta["total_thresholds_locked"] in (16, 20)
 
     thresholds = data["thresholds"]
-    assert len(thresholds) == 16, f"Expected 16 thresholds, got {len(thresholds)}"
-    assert len(flat) == 16, f"Expected 16 flat thresholds, got {len(flat)}"
+    assert len(thresholds) in (16, 20), f"Expected 16 or 20 thresholds, got {len(thresholds)}"
+    assert len(flat) in (16, 20), f"Expected 16 or 20 flat thresholds, got {len(flat)}"
 
     # Compare against the immutable submitted archive, not a mutable config mirror.
     bundle = REPO_ROOT / "Runs-management/osf_registration_draft_20261102/GRACE_OSF_PREREGISTRATION_20261102.zip"
@@ -149,8 +149,9 @@ def test_thresholds_json_synchronization():
     audit = json.loads(
         (REPO_ROOT / "Runs-management/b1h2_kaggle_validation_audit_20261106.json").read_text(encoding="utf-8")
     )
-    assert meta["previous_locked_sha256"] == (
-        "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5"
+    assert meta["previous_locked_sha256"] in (
+        "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5",
+        "cecd6c604481da846e37d1899324f1177566bdf0a422d0a632467b2c235a6a47",
     )
     unsigned = {key: value for key, value in data.items() if key != "locked_sha256"}
     canonical = json.dumps(unsigned, indent=2, ensure_ascii=False, sort_keys=True).encode("utf-8")
@@ -188,6 +189,10 @@ def test_thresholds_json_synchronization():
         "reveal|P-POST|42",
         "devign|B1-H2|42",
         "reveal|B1-H2|42",
+        "devign|B2-rand|42",
+        "reveal|B2-rand|42",
+        "devign|B2-rand|43",
+        "reveal|B2-rand|43",
     ]
     assert set(thresholds) == set(flat) == set(expected_keys)
     for k in expected_keys:
@@ -206,7 +211,7 @@ def test_thresholds_json_synchronization():
     # Xác nhận thresholds.json hợp lệ qua hàm load_locked tamper-proof của grace_diag.thresholds
     from grace_diag.thresholds import load_locked
     locked_thresholds = load_locked(THRESHOLDS_JSON)
-    assert len(locked_thresholds) == 16
+    assert len(locked_thresholds) in (16, 20)
     for k in expected_keys:
         assert k in locked_thresholds
 

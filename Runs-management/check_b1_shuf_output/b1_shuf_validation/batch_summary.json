@@ -1,0 +1,14 @@
+{
+  "arm": "B1-shuf",
+  "state": "timed_out",
+  "split": "validation",
+  "bundle_sha256": "298596a11807dd5877e554352fe78f83c5b9582b5aaa7152dc8e56d14fcaf995",
+  "progress": {
+    "42/devign": 2732,
+    "43/devign": 2732,
+    "44/devign": 2113,
+    "42/reveal": 2273,
+    "43/reveal": 2273,
+    "44/reveal": 0
+  }
+}
