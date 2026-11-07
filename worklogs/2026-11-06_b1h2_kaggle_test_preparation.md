@@ -1,0 +1,15 @@
+# B1-H2 Kaggle test preparation - 2026-11-06
+
+User requested packaging the remaining B1-H2 test census after the completed Kaggle validation lock (Devign tau 0.09, MCC 0.06679281918983469, n=2,732; ReVeal tau 0.21, MCC 0.08363234793079846, n=2,273), with a nine-hour runtime budget.
+
+Created a separate delivery at `11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/` and builder `11_Arm_B1H2_Evidence/prepare_kaggle_b1h2_test.py`. Read the dedicated Kaggle validation lock/audit and executed validation helper; preserved earlier Colab artifacts and their different threshold history. Original OSF attachments, thresholds/configs, source specs and input prompts were not edited.
+
+The bundle contains 5,006 original test prompts (2,732 Devign, 2,274 ReVeal), frozen labels as evaluation metadata and the exact Kaggle validation lock. All 5,005 validation prompt texts matched the original archive against the Kaggle input bundles. All test prompt strings/hashes were preserved; original token metadata is exact and within caps (maximum total 4,280 Devign and 3,802 ReVeal). Target labels are never interpolated into model input. Input bundle SHA-256 is `991f75e55646ff68db0436c409e2866a06f32f7c045e0cd4d9865199588f8fdc`.
+
+Notebook requires Kaggle 2xT4, the same model SHA and tokenizer revision, llama-cpp-python 0.3.16, context 8,192, batch 256 and tensor split [1,1]. Preserve an observed validation detail: prompt-set seed 42 is distinct from inference RNG `LLAMA_DEFAULT_SEED=4294967295`. The runtime explicitly records the latter rather than silently replacing it with 42. Package pins follow the observed validation environment.
+
+Only test inference is enabled; no threshold search is included. Records contain fixed tau and pred_tau with the validation lock seal. Evaluation uses all score-valid rows, regardless of raw greedy token compliance. The nine-hour budget begins in the first code cell, including setup, with five minutes reserved for checkpointing and an additional subprocess watchdog. Record writes fsync; periodic ZIP refreshes and final exports support subsequent sessions. Resume rejects changed prompts, model settings, thresholds, seeds, duplicate IDs or corrupt records.
+
+Verification passed: compile all notebook code cells; exact embedded helper identity; real 5,006-row input loading from outer ZIP, inner ZIPs and fully extracted Kaggle inputs; synthetic inference applying fixed thresholds; retention of non-digit raw responses with finite scores; zero recomputation on resume; wrong-Colab-threshold and wrong-seed checkpoint rejection; modified-lock rejection; expiry stopping inference; resumable periodic ZIP layout. Details in the delivery's `verification_report.json`.
+
+Scope is local operational preparation under the user-authorized test execution plan. No model download, GPU inference, real test-score analysis, remote upload, OSF update, Git commit or push occurred in this preparation. Prepared files do not themselves establish completion or prospective confirmatory status.

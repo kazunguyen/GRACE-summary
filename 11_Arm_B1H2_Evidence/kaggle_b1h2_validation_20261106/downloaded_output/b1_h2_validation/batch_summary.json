@@ -1,0 +1,10 @@
+{
+  "arm": "B1-H2",
+  "state": "validation_complete",
+  "split": "validation",
+  "bundle_sha256": "b35b44f430c28ec44052867499ae7537950fb1dc2eee63083c3bdbb9c784c2b4",
+  "progress": {
+    "42/devign": 2732,
+    "42/reveal": 2273
+  }
+}

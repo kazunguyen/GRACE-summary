@@ -1,0 +1,31 @@
+{
+  "bundle_sha256": "621bf28b994be7d4e7992eeb6d61360fb97efdcf3b7e09feb49c7a7b0cf52fe7",
+  "prompt_set_sha256": "4ba66c890db901d924090c0b0cb3af94c750acf9f2be8b570352fd4d55dd511c",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "quantization": "Q4_K_M",
+  "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "llama_cpp_python": "0.3.16",
+  "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "gpu_layers": -1,
+  "context_tokens": 8192,
+  "scoring": "unconstrained_first_token_logits_v1",
+  "limit": null,
+  "python": "3.13.16",
+  "dataset": "reveal",
+  "split": "test",
+  "arm": "B1-H2",
+  "prompt_seed": 42,
+  "inference_seed": 4294967295,
+  "inference_seed_policy": "llama_cpp_default",
+  "threshold_lock_sha256": "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8",
+  "tau_star": 0.21,
+  "n_batch": 256,
+  "tensor_split": [
+    1.0,
+    1.0
+  ],
+  "split_mode": "layer"
+}

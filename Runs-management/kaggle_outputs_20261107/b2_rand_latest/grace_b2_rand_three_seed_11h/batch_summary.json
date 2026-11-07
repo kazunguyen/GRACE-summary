@@ -1,0 +1,24 @@
+{
+  "state": "timed_out",
+  "timed_out": true,
+  "deadline_epoch": 1794010924.6683948,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "budget_hours": 9,
+  "session_started_epoch": 1793978524.6683948,
+  "validation_only": true,
+  "awaiting_threshold_lock": false,
+  "thresholds_fitted": false,
+  "test_started": false,
+  "progress": {
+    "42/devign/validation": 2732,
+    "42/reveal/validation": 2273,
+    "43/devign/validation": 2732,
+    "43/reveal/validation": 2273,
+    "44/devign/validation": 2426,
+    "44/reveal/validation": 0
+  }
+}

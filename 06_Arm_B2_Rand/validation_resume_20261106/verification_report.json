@@ -1,0 +1,16 @@
+{
+  "i11_plus_old_checkpoint_auto_select": "pass",
+  "exact_missing_validation_schedule": {
+    "43/reveal": 2221,
+    "44/devign": 2732,
+    "44/reveal": 2273
+  },
+  "existing_7789_rows_preserved": "pass",
+  "completion_stops_for_threshold_lock": "pass",
+  "threshold_files_unchanged": "pass",
+  "setup_time_counts_against_budget": "pass",
+  "older_checkpoint_rejected": "pass",
+  "direct_cli_test_blocked_before_model_import": "pass",
+  "all_notebook_code_cells_compile": "pass",
+  "actual_gpu_inference": "not performed; subprocess was simulated for orchestration checks"
+}

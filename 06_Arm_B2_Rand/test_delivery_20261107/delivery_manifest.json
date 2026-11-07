@@ -1,0 +1,54 @@
+{
+  "schema": "b2_rand_test_delivery_v1",
+  "created_at_utc": "2026-11-07T01:24:40.734960+00:00",
+  "source_inputs_sha256": "684167868f69b55c62409eb1c97802a9bda10a8bac613404b527096933ef0014",
+  "source_checkpoint_sha256": "5a1e049fe807fff413129bfb25e3977b55bdf8b4abd35b078aa373a10dbff197",
+  "threshold_config": "06_Arm_B2_Rand/config/threshold.json",
+  "threshold_lock_sha256": "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70",
+  "validation_sources": {
+    "42/devign": {
+      "count": 2732,
+      "records_sha256": "6f6bc0d6f0495fc7e69a834799718768d18ec12a41dfb61e7f2229dfaec91a65",
+      "bundle_sha256": "9089511da929899d3a69a2ddc262bace4a7759fe53742baaeeed0451051d53ce",
+      "tau_star": 0.99,
+      "validation_mcc": 0.06620373237126373
+    },
+    "42/reveal": {
+      "count": 2273,
+      "records_sha256": "4ecf8514c43d287abce851c717ac458995bd12e1adb7ea15564d484de2fa8315",
+      "bundle_sha256": "3da1695428230ea0a726cca9770479deca252ccbc5a1cde83d0f840d8e68700d",
+      "tau_star": 0.89,
+      "validation_mcc": 0.08081883313753434
+    },
+    "43/devign": {
+      "count": 2732,
+      "records_sha256": "109e62753f36d25585be977ecefea2cd8a9c513326a271e7279826d00939f44d",
+      "bundle_sha256": "49c90254c6cfd9560037f013101bd9b05e2fac83390e784a1e884ce48e6645e3",
+      "tau_star": 0.99,
+      "validation_mcc": 0.061035892718704646
+    },
+    "43/reveal": {
+      "count": 2273,
+      "records_sha256": "deecbf6a796917e7c7d3c48d250cd0b5158ef52a1560acec4721f0bc2f311f3a",
+      "bundle_sha256": "35598d75882899a1df6c99ba1fad6ae03178787d9c9c086310580b62062773d7",
+      "tau_star": 0.62,
+      "validation_mcc": 0.07706375271838951
+    }
+  },
+  "bundle": "06_Arm_B2_Rand/test_delivery_20261107/grace_b2_rand_test_seeds_42_43_bundle.zip",
+  "bundle_sha256": "703f7de196be9844ee8f69a675504afc311c6f23c8c50e82e21e984b36acd465",
+  "notebooks": {
+    "02_kaggle_qwen_q4_b2_rand_seed42_test.ipynb": "d6a2c23e713507ba657fdb04c01a07cf198fe2b6cb647e6244ec4e015a9b6469",
+    "02_kaggle_qwen_q4_b2_rand_seed43_test.ipynb": "123afb1c0b775e70160b2f14abf0a17858835ad1ec3756660b6904b338eb011a"
+  },
+  "resume_notebooks": {
+    "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
+    "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rand.ipynb": "ccef18aeb640a0ded8d5050e54e58a6e504cd0986460288425fba7a5c7dfed28"
+  },
+  "expected_test_rows": {
+    "42/devign": 2732,
+    "42/reveal": 2274,
+    "43/devign": 2732,
+    "43/reveal": 2274
+  }
+}

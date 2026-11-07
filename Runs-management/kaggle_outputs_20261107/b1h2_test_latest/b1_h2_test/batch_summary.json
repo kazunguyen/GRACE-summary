@@ -1,0 +1,15 @@
+{
+  "threshold_lock_sha256": "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8",
+  "thresholds": {
+    "devign": 0.09,
+    "reveal": 0.21
+  },
+  "arm": "B1-H2",
+  "state": "test_complete",
+  "split": "test",
+  "bundle_sha256": "991f75e55646ff68db0436c409e2866a06f32f7c045e0cd4d9865199588f8fdc",
+  "progress": {
+    "42/devign": 2732,
+    "42/reveal": 2274
+  }
+}
