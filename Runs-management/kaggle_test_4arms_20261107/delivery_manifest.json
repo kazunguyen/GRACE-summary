@@ -1,0 +1,147 @@
+{
+  "created_at_utc": "2026-11-07T08:02:08.452568+00:00",
+  "scope": "Kaggle GPU Test census execution bundles and notebooks for Group 2 (4 arms)",
+  "census_counts": {
+    "devign": 2732,
+    "reveal": 2274
+  },
+  "total_test_samples": 5006,
+  "arms": {
+    "B2-rep": {
+      "bundle": "grace_b2_rep_test_inputs.zip",
+      "bundle_sha256": "6bef9c79d2a3802b43d9d79d56112253ef23faa9b48c4080a085328e3b01ee0e",
+      "bundle_bytes": 5011949,
+      "notebook": "02_kaggle_qwen_q4_b2_rep_test.ipynb",
+      "notebook_sha256": "9e65ae3ef99eaeaed463cc73e77cf92bbf8569b71aa94d61508ff1adfebb9afc",
+      "threshold_lock_sha256": "b32050f667a1dc3afc230807441a2db999d43711e5c6459cd8a121cb768c84d8",
+      "thresholds": {
+        "devign": 0.7,
+        "reveal": 0.12
+      },
+      "repeat": true,
+      "tag": "repeat",
+      "sets": [
+        {
+          "name": "seed_42/devign_test.zip",
+          "sha256": "cc337acd5b4b68c5e042c63caf409980862e7305b3974d83ce097081c0c69e4d",
+          "seed": 42,
+          "dataset": "devign",
+          "prompts_sha256": "73342b676150d02865cf913fa1a66680e5f573e2bcf65259174075589a22fee1",
+          "count": 2732,
+          "tau_star": 0.7
+        },
+        {
+          "name": "seed_42/reveal_test.zip",
+          "sha256": "e04eb47811e37fc666e2c1f10a8eba2390ef0a0b43393e58e1a9c1d08cad8b2a",
+          "seed": 42,
+          "dataset": "reveal",
+          "prompts_sha256": "d251af30455600579b6e65a7ec09c45938d8cb38f175a8ccb6cc8aa56a26004c",
+          "count": 2274,
+          "tau_star": 0.12
+        }
+      ]
+    },
+    "B1-full": {
+      "bundle": "grace_b1_full_test_inputs.zip",
+      "bundle_sha256": "0c6653730e068473926391a00ddf5ad721105a583ad840fabd35546f47093814",
+      "bundle_bytes": 5393152,
+      "notebook": "02_kaggle_qwen_q4_b1_full_test.ipynb",
+      "notebook_sha256": "29f658ff9ad4178580c1ff0363245b322e9b122235b69d8acadf0b91d0ba410c",
+      "threshold_lock_sha256": "57e8f0178b9119ce5e74c4e63f7bfeaece486ac83d6dc07014a03a3f8347aa45",
+      "thresholds": {
+        "devign": 0.99,
+        "reveal": 0.01
+      },
+      "repeat": false,
+      "tag": null,
+      "sets": [
+        {
+          "name": "seed_42/devign_test.zip",
+          "sha256": "cec29c14f49399978301c219c356d6b9dbbb3f7ea7db20775e1cd4903d825c3b",
+          "seed": 42,
+          "dataset": "devign",
+          "prompts_sha256": "75f3446b5fb03fc8f7cee9e1f7d638ca70429feaa05488d7b79f7691c7cb93f9",
+          "count": 2732,
+          "tau_star": 0.99
+        },
+        {
+          "name": "seed_42/reveal_test.zip",
+          "sha256": "4dd758a7beca81c99fd0ca1b0edb3f9fb8b1b732535263e4906e6ccf6bd16167",
+          "seed": 42,
+          "dataset": "reveal",
+          "prompts_sha256": "20923818b55762572e1f87c8bb3a3078a59992dbdad5cd4ec8c1c35012f1ef88",
+          "count": 2274,
+          "tau_star": 0.01
+        }
+      ]
+    },
+    "B2-nolabel": {
+      "bundle": "grace_b2_nolabel_test_inputs.zip",
+      "bundle_sha256": "a1cdd31345de7fe4f95a592adc583e021427a288327850cf837fcef65ebcae1c",
+      "bundle_bytes": 5004549,
+      "notebook": "02_kaggle_qwen_q4_b2_nolabel_test.ipynb",
+      "notebook_sha256": "b504e2dd3418e98b17c7d548d3384796ec3ace84f69f87b9599a95416dbc29e4",
+      "threshold_lock_sha256": "e58ffce298c7a2947f84c49640ae31076a8575735588319fc686c6e8007a7c0e",
+      "thresholds": {
+        "devign": 0.98,
+        "reveal": 0.21
+      },
+      "repeat": false,
+      "tag": null,
+      "sets": [
+        {
+          "name": "seed_42/devign_test.zip",
+          "sha256": "494503cc4f13d0b71e1150188ac96c4091fadf9968c45369a9855ec7a364593e",
+          "seed": 42,
+          "dataset": "devign",
+          "prompts_sha256": "ee1afb588c429eb86921d5240f789967410ff0b05efc799564cc3b0a1eaa1fa6",
+          "count": 2732,
+          "tau_star": 0.98
+        },
+        {
+          "name": "seed_42/reveal_test.zip",
+          "sha256": "c895b3b0b187191b327a20a0628d6504ae1ed008ab66a7318b09e2cf05e46968",
+          "seed": 42,
+          "dataset": "reveal",
+          "prompts_sha256": "f95aade82f8c7119fd32dac1017a968c79d14b8db3d655d37c87fe423f7a4ead",
+          "count": 2274,
+          "tau_star": 0.21
+        }
+      ]
+    },
+    "B2-labelonly": {
+      "bundle": "grace_b2_labelonly_test_inputs.zip",
+      "bundle_sha256": "84093323c3dbbe3fec7052e5f76e1332f8fcc3a27e886806c5895974f4d88004",
+      "bundle_bytes": 4173331,
+      "notebook": "02_kaggle_qwen_q4_b2_labelonly_test.ipynb",
+      "notebook_sha256": "6900d8705e5bd2f893e5b1a00a30e8e7a1cff65df695b01e0cdf148766923ba3",
+      "threshold_lock_sha256": "cebe1fb5ad6f564c77d8628368cd0bcabc65b9b6618386258c0366be948ec68f",
+      "thresholds": {
+        "devign": 0.99,
+        "reveal": 0.02
+      },
+      "repeat": false,
+      "tag": null,
+      "sets": [
+        {
+          "name": "seed_42/devign_test.zip",
+          "sha256": "4b9dec965b15fa78edf76c6104484cbf1576c963ef4c02cc03fef9954a00bf6b",
+          "seed": 42,
+          "dataset": "devign",
+          "prompts_sha256": "c6677d59bfcbd37befa757d38ede430e32bc946a798ef3dad36d98d16ba2c206",
+          "count": 2732,
+          "tau_star": 0.99
+        },
+        {
+          "name": "seed_42/reveal_test.zip",
+          "sha256": "dc5a76369499a23452e83f63752222568b0edef00f1f9714d50bdb1d488f5aa3",
+          "seed": 42,
+          "dataset": "reveal",
+          "prompts_sha256": "e384ea206aa4f449a81130e6400831f910c5c03c3c64288d18f039e885e9e12d",
+          "count": 2274,
+          "tau_star": 0.02
+        }
+      ]
+    }
+  }
+}

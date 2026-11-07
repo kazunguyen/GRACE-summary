@@ -19,8 +19,13 @@
 | B1-H2 — I-12/I-13/I-14 Colab exploratory; Kaggle validation and test complete | 2.732 | 2.732 | 2.273 | 2.274 | Kaggle validation lock Devign 0,09 / ReVeal 0,21 was applied to I-16 test; no test refit. The prior Colab run remains exploratory. See `kaggle_outputs_20261107/b1h2_test_latest/` |
 | B2 — I-02/I-04/I-05 + I-09 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 phiên donor mới: 66 Devign thay bằng I-09, các record khác giữ nguyên; output cũ được bảo toàn |
 | B2-flip — I-10 | 2.732 | 2.732 | 2.273 | 2.274 | Đủ 10.011 donor mới; tau kế thừa B2: Devign 0,70; ReVeal 0,12 |
-| B2-rep | 0 | 0 | 0 | 0 | Chốt phiên B2 cuối, dựng prompt đúng phiên và runner gọi mới model |
+| B2-rep | 2.732 | 0/2.732 | 2.273 | 0/2.274 | Đã hoàn tất validation; khóa tau kế thừa B2 (Devign 0,70; ReVeal 0,12). Đã đóng gói test bundle `grace_b2_rep_test_inputs.zip` và notebook với cache cách ly (`repeat: true`, `tag="repeat"`) |
+| B1-full | 2.732 | 0/2.732 | 2.273 | 0/2.274 | Đã hoàn tất validation; khóa ngưỡng Devign 0,99 / ReVeal 0,01. Đã đóng gói test bundle `grace_b1_full_test_inputs.zip` và notebook |
+| B2-nolabel | 2.732 | 0/2.732 | 2.273 | 0/2.274 | Đã hoàn tất validation; khóa ngưỡng Devign 0,98 / ReVeal 0,21. Đã đóng gói test bundle `grace_b2_nolabel_test_inputs.zip` và notebook |
+| B2-labelonly | 2.732 | 0/2.732 | 2.273 | 0/2.274 | Đã hoàn tất validation; khóa ngưỡng Devign 0,99 / ReVeal 0,02. Đã đóng gói test bundle `grace_b2_labelonly_test_inputs.zip` và notebook |
+| B1-shuf | 8.196/8.196 | 0/8.196 | 6.819/6.819 | 0/6.822 | Hoàn tất 100% census validation cả 3 seeds (42/43/44); đã khóa ngưỡng độc lập |
 | B2-rand — I-09/I-11/I-15 | 7.890/8.196 | 0/8.196 | 4.546/6.819 | 0/6.822 | I-15 lũy kế 12.436/15.015 validation: seeds42/43 complete and thresholds locked independently; seed44 has 2.426/2.732 Devign and 0/2.273 REVEAL. Resume 306 Devign + 2.273 REVEAL only; no test started |
+| B3 / B3-nodiff / B3-swap / B3-flip | 0/2.732 | 0/2.732 | 0/2.273 | 0/2.274 | Đã kiểm thử thuật toán Amended B3 (`VerifiedPairSelector`) và scoring `llm.eval` full-vocab; đã dựng notebook `lznt123/grace-b3-validation` sẵn sàng chạy GPU trial |
 
 Số liệu/nguồn: [HIEN_TRANG.md](HIEN_TRANG.md), [current_status.json](current_status.json). Sổ này lưu từng phiên J/E/P/I; bảng hiện tại không thay bằng chứng/history của các phiên cũ. Tổng record đã nhập ở sáu arm Kaggle có output là 47.833; không đồng nghĩa mọi điều kiện xác nhận đã hoàn tất và không bao gồm B1-H2 Colab exploratory. B0 raw invalid 1.132; B1 raw invalid 5 trên output hợp nhất I-07/I-08, score invalid 0; B2-rand có 2 raw invalid ở seed42/ReVeal, score invalid 0. Không gộp hai khái niệm invalid.
 

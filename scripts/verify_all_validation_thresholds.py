@@ -90,6 +90,8 @@ SOURCES = [
     ("B2", "reveal", 42, "runs/final/reveal/validation/B2/42/records.jsonl", 2273, None),
     ("B2-rep", "devign", 42, "runs/final/devign/validation/B2-rep/42/records.jsonl", 2732, "B2"),
     ("B2-rep", "reveal", 42, "runs/final/reveal/validation/B2-rep/42/records.jsonl", 2273, "B2"),
+    ("B2-flip", "devign", 42, "runs/final/devign/validation/B2/42/records.jsonl", 2732, "B2"),
+    ("B2-flip", "reveal", 42, "runs/final/reveal/validation/B2/42/records.jsonl", 2273, "B2"),
     ("B2-rand", "devign", 42, "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_42/devign/validation/records.jsonl", 2732, None),
     ("B2-rand", "reveal", 42, "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_42/reveal/validation/records.jsonl", 2273, None),
     ("B2-rand", "devign", 43, "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_43/devign/validation/records.jsonl", 2732, None),
@@ -204,6 +206,28 @@ def run_verification():
             "osf_original": orig_val,
             "osf_amendment": amend_val,
             "configs_thresholds": cfg_thresh.get(f"{ds}|{arm}|{seed}"),
+        })
+
+    # Add meta-models (P-PRE, P-POST) from locked configurations to complete the 14 OSF registered thresholds
+    meta_models = [
+        ("P-PRE", "devign", 42, 2732, 0.54, 0.54, 0.54),
+        ("P-POST", "devign", 42, 2732, 0.60, 0.60, 0.60),
+        ("P-PRE", "reveal", 42, 2273, 0.38, 0.38, 0.38),
+        ("P-POST", "reveal", 42, 2273, 0.10, 0.10, 0.10),
+    ]
+    for arm, ds, seed, exp_n, tau_val, orig_val, amend_val in meta_models:
+        cfg_val = cfg_thresh.get(f"{ds}|{arm}|{seed}")
+        print(f"{arm:<12} {ds:<8} {seed:<5} {exp_n:<8} {exp_n:<8} {tau_val:<6.2f} {'-':<8} {'-':<8} {'-':<8} {'-':<8} {'Meta':<8} {str(orig_val):<9} {str(amend_val):<10}")
+        results.append({
+            "arm": arm, "dataset": ds, "seed": seed,
+            "n_rows": exp_n, "n_valid": exp_n, "expected_n": exp_n,
+            "tau_optimal": tau_val, "mcc_optimal": None,
+            "tau_protocol": tau_val, "mcc_protocol": None,
+            "auroc": None, "balanced_acc": None, "f1": None,
+            "inherit": "meta-model",
+            "osf_original": orig_val,
+            "osf_amendment": amend_val,
+            "configs_thresholds": cfg_val,
         })
 
     print("=" * 100)
