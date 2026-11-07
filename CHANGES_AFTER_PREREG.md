@@ -176,3 +176,7 @@ The user reports updating the public OSF registration page to v1.1 on 2026-11-06
 - Audited the lock differences across the 15 arms and corrected the initial severity assessment of inference seed 42. Since the current scoring path uses direct logits without sampling, the seed difference is low significance for current scores. B1-H2's fixed GPU split and the Colab L4 execution remain material runtime/profile differences. Missing B3 run logs remain unverified rather than presumed non-compliant.
 
 See worklogs/2026-11-07_15arms_runtime_lock_severity.md, worklogs/2026-11-07_hieu_5arms_runtime_locked_delivery.md and worklogs/2026-11-07_inference_runtime_lock_and_notebook_differences.md for per-arm evidence and implementation details. Runtime-lock adoption has not been verified through new Kaggle GPU executions.
+
+## 2026-11-07 — Pin SciPy in the shared Kaggle package lock
+
+Pinned `scipy==1.16.3` for future Kaggle Qwen inference after reviewing post-install run logs. Updated the package setup of the available Kaggle notebooks and issued a revised five-notebook delivery for Hiếu. This is an operational package update. Historical outputs retain the environment recorded by their original run. See [the worklog](worklogs/2026-11-07_kaggle_package_lock_standardization.md).

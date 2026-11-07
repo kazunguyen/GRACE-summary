@@ -53,7 +53,7 @@
         }
       ],
       "notebook": "02_kaggle_qwen_q4_b1_full_validation.ipynb",
-      "notebook_sha256": "dcfff73568daddd1e97934c0f2175d4b36b36339032049fffb16160a541b34bf"
+      "notebook_sha256": "9530be8d59259440bfea104bd20f53c5eecbb5781ab1363ecbbfd215dd8edd2d"
     },
     "B1-shuf": {
       "bundle": "grace_b1_shuf_validation_inputs.zip",
@@ -175,7 +175,7 @@
         }
       ],
       "notebook": "02_kaggle_qwen_q4_b1_shuf_validation.ipynb",
-      "notebook_sha256": "d9ed03125e8f309e28b5f06d14be3038e3fe77277fe9ae0ac33857d777aa9759"
+      "notebook_sha256": "5bf765d1e500e2ea8e2e9b1c648e7aa140f8f7206f42747db7d81bb09570fdce"
     },
     "B2-nolabel": {
       "bundle": "grace_b2_nolabel_validation_inputs.zip",
@@ -221,7 +221,7 @@
         }
       ],
       "notebook": "02_kaggle_qwen_q4_b2_nolabel_validation.ipynb",
-      "notebook_sha256": "099325d9a24e2df72e43a33f77250ea1590302409d7d5cb1b5a7a035f605364a"
+      "notebook_sha256": "b1b0fff9f58255a83ac37647264ae90f0137279c2c5337a06de48d40c30783ee"
     },
     "B2-labelonly": {
       "bundle": "grace_b2_labelonly_validation_inputs.zip",
@@ -267,7 +267,7 @@
         }
       ],
       "notebook": "02_kaggle_qwen_q4_b2_labelonly_validation.ipynb",
-      "notebook_sha256": "6a54f85e4537e66ab1a1c57615232e3b8a99850a70308c3d1bcadb0fcdb3d8db"
+      "notebook_sha256": "f047b482ebba0511cbdfc88f2af33a8aa89d450b532f0c510cfced8c0185331d"
     },
     "B2-rep": {
       "bundle": "grace_b2_rep_validation_inputs.zip",
@@ -313,7 +313,7 @@
         }
       ],
       "notebook": "02_kaggle_qwen_q4_b2_rep_validation.ipynb",
-      "notebook_sha256": "2e6bfb53c9fc4525a014a9d79ad862b5c3fbc40fd3bcf8e24729ab91257e7a8e",
+      "notebook_sha256": "27124d8222c51f5cc686d8f6c3402e12b3487eb0caeecc66c8d1ab7431319b33",
       "run_identity": {
         "repeat": true,
         "tag": "repeat"
@@ -357,7 +357,7 @@
       ],
       "checkpoint": "grace_b2_rand_checkpoint.zip",
       "checkpoint_sha256": "9b8f1e3c365085a684490928a200b6a4cd065f12dcf0dcf90d5a9f59738d6e92",
-      "notebook_sha256": "222cd5c758a55a9401b31d6fea8cc2071819732541a3ab6ff9cad0ec77cd0820"
+      "notebook_sha256": "212fe1b1203b2ff83b8ba983437f7027370337963e70cc9ad3a9b420b6c9dea0"
     }
   },
   "kaggle_execution": {
@@ -366,5 +366,6 @@
     "context_tokens": 8192,
     "scoring": "unconstrained_first_token_logits_v1",
     "source": "Frozen OSF preregistration.md inference backend paragraph and configs/protocol.yaml in working repository"
-  }
+  },
+  "package_lock_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
 }

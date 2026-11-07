@@ -38,12 +38,12 @@
   "bundle": "06_Arm_B2_Rand/test_delivery_20261107/grace_b2_rand_test_seeds_42_43_bundle.zip",
   "bundle_sha256": "703f7de196be9844ee8f69a675504afc311c6f23c8c50e82e21e984b36acd465",
   "notebooks": {
-    "02_kaggle_qwen_q4_b2_rand_seed42_test.ipynb": "e63574a592660b041f7695eaa48269c2797a63a16ecbcc2214eccf8e9ec61e15",
-    "02_kaggle_qwen_q4_b2_rand_seed43_test.ipynb": "59aa49b67cf2e346740914dddec6f49dd43fc7c5ac6caacc8d60f780df8c8684"
+    "02_kaggle_qwen_q4_b2_rand_seed42_test.ipynb": "b8f96a0bb7583e9b2b307349f8c2a3b4fd2f0a8946381b093813d8f1d4a0b10a",
+    "02_kaggle_qwen_q4_b2_rand_seed43_test.ipynb": "1ab1c94dfeef37e19d4cc0cf823b6a57f87b4b21cb2b239b17f57aefaf720aeb"
   },
   "resume_notebooks": {
-    "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
-    "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rand.ipynb": "ccef18aeb640a0ded8d5050e54e58a6e504cd0986460288425fba7a5c7dfed28"
+    "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb": "b02f778085b1daaf50a7d6dc7e4a06d4fd7d554c95885c531d3bcef4c04720e5",
+    "Runs-management/kaggle_validation_6arms_20261104/02_kaggle_qwen_q4_b2_rand.ipynb": "212fe1b1203b2ff83b8ba983437f7027370337963e70cc9ad3a9b420b6c9dea0"
   },
   "expected_test_rows": {
     "42/devign": 2732,
@@ -51,5 +51,5 @@
     "43/devign": 2732,
     "43/reveal": 2274
   },
-  "runtime_lock_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+  "runtime_lock_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
 }

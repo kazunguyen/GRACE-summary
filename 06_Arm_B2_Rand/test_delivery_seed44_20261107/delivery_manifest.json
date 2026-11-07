@@ -1,0 +1,42 @@
+{
+  "schema": "b2_rand_test_delivery_v1",
+  "created_at_utc": "2026-11-07T09:13:57.492702+00:00",
+  "source_inputs_sha256": "684167868f69b55c62409eb1c97802a9bda10a8bac613404b527096933ef0014",
+  "source_checkpoint_sha256": "a9e8245b47e859dfb6267d439f5225394396edf51b2eecb43187637e87325904",
+  "validation_sources": {
+    "devign": {
+      "n": 2732,
+      "records_sha": "9a9dfe5bad737108e140edb15261f943ecd1fe8a250b93186b645882d776414f",
+      "bundle_sha": "acd7fed94f01de8f69b07287e7441d72928e7ef22aff62ecda8d8e30e417e883",
+      "prompt_sha": "fe0c739a29a591cf75b957ef2e86c53fb7ed6b83ba9c4fd29509d76490d10c7e",
+      "tau": 0.99,
+      "mcc": 0.05585097088706295
+    },
+    "reveal": {
+      "n": 2273,
+      "records_sha": "d119c9769b190dfde5dafa4ee8e467a08d0cc0b302c1bbcb139c280c2371690b",
+      "bundle_sha": "568e15b70696a665e1234e4104fbc96063972ec875f09b1a9813a1b054f3e69e",
+      "prompt_sha": "8401afc0a212b45d5eaed4bf1a74919414b0e9683699b9f0d268432341ae81d1",
+      "tau": 0.64,
+      "mcc": 0.08916560536249224
+    }
+  },
+  "threshold_config": "06_Arm_B2_Rand/config/threshold.json",
+  "threshold_lock_sha256": "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735",
+  "runtime_lock_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+  "bundle": "test_delivery_seed44_20261107/grace_b2_rand_test_seed44_bundle.zip",
+  "bundle_sha256": "e8bf81b3d5355a19221f7e61bbe19af81a31c953fd929c8e642918f67659590d",
+  "notebooks": {
+    "02_kaggle_qwen_q4_b2_rand_seed44_test.ipynb": "2b905e9aa316c2377669f48d146d5e034b089b890ad9e41f3335709b537956bb"
+  },
+  "expected_test_rows": {
+    "44/devign": 2732,
+    "44/reveal": 2274
+  },
+  "input_layouts_supported": [
+    "outer ZIP intact",
+    "outer ZIP recursively extracted with nested bundles intact",
+    "outer and nested ZIPs recursively extracted"
+  ],
+  "validation_provenance_note": "Seed44 Devign threshold includes 2426 verified legacy I-15 records; manifest preserves their original provenance and does not retroactively certify them under runtime lock."
+}
