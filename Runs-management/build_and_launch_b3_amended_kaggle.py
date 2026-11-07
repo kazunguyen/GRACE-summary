@@ -76,14 +76,14 @@ def create_notebook():
                 "source": [
                     "# Cài đặt dependencies và llama-cpp-python CUDA\n",
                     "note('Cài đặt thư viện phụ trợ...')\n",
-                    "subprocess.run([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'transformers==4.57.1', 'huggingface_hub', 'scikit-learn==1.5.2'], check=True)\n",
+                    "subprocess.run([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', 'transformers==4.57.1', 'huggingface_hub==0.36.2', 'tokenizers==0.22.2', 'scikit-learn==1.5.2', 'numpy==2.1.3'], check=True)\n",
                     "\n",
                     "note('Biên dịch llama-cpp-python với hỗ trợ CUDA SM75...')\n",
                     "env = os.environ.copy()\n",
                     "env['CMAKE_ARGS'] = '-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64'\n",
                     "env['CMAKE_BUILD_PARALLEL_LEVEL'] = '2'\n",
                     "env['FORCE_CMAKE'] = '1'\n",
-                    "subprocess.run([sys.executable, '-m', 'pip', 'install', '-v', '--no-cache-dir', '--no-binary', 'llama-cpp-python', 'llama-cpp-python==0.3.16'], env=env, check=True)\n",
+                    "subprocess.run([sys.executable, '-m', 'pip', 'install', '-v', '--no-cache-dir', '--no-binary', 'llama-cpp-python', 'llama-cpp-python==0.3.16', 'llama-cpp-python==0.3.16'], env=env, check=True)\n",
                     "\n",
                     "import llama_cpp\n",
                     "note(f'Cài đặt thành công llama_cpp version: {llama_cpp.__version__}')\n"
@@ -357,7 +357,8 @@ def create_notebook():
                     "tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen3-Coder-30B-A3B-Instruct', revision='b2cff646eb4bb1d68355c01b18ae02e7cf42d120')\n",
                     "note('Nạp thành công AutoTokenizer (pinned revision)!')\n",
                     "\n",
-                    "model_path = str(gguf_files[0])\n",
+                    "EXPECTED_MODEL_SHA256 = 'f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335'
+model_path = str(gguf_files[0])\n",
                     "note(f'Nạp mô hình GGUF: {model_path} vào 2x Tesla T4...')\n",
                     "\n",
                     "llm = llama_cpp.Llama(\n",
