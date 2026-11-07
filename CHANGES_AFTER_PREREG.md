@@ -142,3 +142,7 @@ Added a separate amended B3 selector with source/diff/review gates, exact determ
 ### OSF E1/E2 public evidence-link repair (2026-11-07)
 
 Replaced the two HTTP-404 public GitHub URLs at commit 282033d in Runs-management/osf_amendment_20261106/OSF_UPDATE_EN.md with accessible copies at d9127fc. Compared Git blobs and confirmed byte-identical SHA-256 values for both the original optimizer and historical threshold artifact. Added an access/provenance note distinguishing the later public snapshot from the locally retained historical commit. This is a documentation-link correction; no experiment, threshold, or analysis result was changed.
+
+## 2026-11-07 — Runtime lock delivery for five Kaggle validation arms
+
+Packaged new validation notebooks for B1-full, B1-shuf, B2-rep, B2-nolabel and B2-labelonly. The notebooks enforce the shared Kaggle runtime lock, check package/source/model/prompt identity, and segregate new checkpoints from historical runs. The original scoring and B2-rep isolation are retained. The package was verified locally and has no new GPU run or confirmatory results. This is an operational update for future validation sessions. See the [delivery worklog](worklogs/2026-11-07_hieu_5arms_runtime_locked_delivery.md).
