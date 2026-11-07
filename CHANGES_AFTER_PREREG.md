@@ -154,6 +154,11 @@ At the user's request, the existing Kaggle test notebook now prints PING in its 
 
 Replaced the two HTTP-404 public GitHub URLs at commit 282033d in Runs-management/osf_amendment_20261106/OSF_UPDATE_EN.md with accessible copies at d9127fc. Compared Git blobs and confirmed byte-identical SHA-256 values for both the original optimizer and historical threshold artifact. Added an access/provenance note distinguishing the later public snapshot from the locally retained historical commit. This is a documentation-link correction; no experiment, threshold, or analysis result was changed.
 
+## 2026-11-07 — Runtime lock delivery for five Kaggle validation arms
+
+Packaged new validation notebooks for B1-full, B1-shuf, B2-rep, B2-nolabel and B2-labelonly. The notebooks enforce the shared Kaggle runtime lock, check package/source/model/prompt identity, and segregate new checkpoints from historical runs. The original scoring and B2-rep isolation are retained. The package was verified locally and has no new GPU run or confirmatory results. This is an operational update for future validation sessions. See the [delivery worklog](worklogs/2026-11-07_hieu_5arms_runtime_locked_delivery.md).
+
+
 ## 2026-11-07 — B2-rand test uses the approved shared runtime lock
 
 Integrated configs/inference_runtime_lock.json into both seed42/seed43 Kaggle test notebooks as a byte- and integrity-verified embedded contract. Enforce approved packages, verified backend source archive, constructor/seed/auto GPU split, model/tokenizer identity, full offload evidence, provenance and strict runtime-aware checkpoint resume. Preserve original prompt bundle and validation threshold lock. Also corrected single-dataset resume and inherited B1-H2 checkpoint filename. See worklogs/2026-11-07_b2_rand_test_runtime_lock_integration.md for affected files, checks and limits. These operational changes are not a new exploratory arm or changes to frozen prompts/thresholds. Local checks used stubs; Kaggle CUDA execution remains unverified.

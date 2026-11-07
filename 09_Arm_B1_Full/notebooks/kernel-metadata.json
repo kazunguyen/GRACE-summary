@@ -1,0 +1,20 @@
+{
+  "id": "tomandjerry223/grace-b1-full-validation",
+  "title": "grace-b1-full-validation",
+  "code_file": "02_kaggle_qwen_q4_b1_full_validation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "tomandjerry223/grace-b1-full-validation-inputs"
+  ],
+  "kernel_sources": [
+    "quangdung1111/qwen3coder30b-prepare-notebook"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}
