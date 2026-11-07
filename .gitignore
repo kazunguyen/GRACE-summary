@@ -23,6 +23,7 @@ Runs-management/kaggle_staging*/
 Runs-management/output_*/
 Runs-management/err_*
 Runs-management/kernel_logs/
+Runs-management/pulled_live_audit*/
 Runs-management/audit_*.json
 
 # OSF Preregistration Deliverables whitelist
