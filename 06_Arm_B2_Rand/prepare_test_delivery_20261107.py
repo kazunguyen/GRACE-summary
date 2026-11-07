@@ -386,6 +386,7 @@ else:
     runner = runner[:a] + loader + runner[b:]
     runner = runner.replace("if arm != 'B1-H2' or prompt_seed != 42 or limit is not None or not runs or any(r[1] != 'test' for r in runs):\n        raise ValueError('Only the complete B1-H2 test census is allowed')", f"if arm != 'B2-rand' or prompt_seed != {seed} or limit is not None or len(runs) != 2 or any(r[1] != 'test' for r in runs):\n        raise ValueError('Only complete B2-rand test census for prompt seed {seed} is allowed')")
     runner = runner.replace("n_gpu_layers=gpu_layers, split_mode=llama_cpp.LLAMA_SPLIT_MODE_LAYER, tensor_split=[1.0, 1.0],\n                logits_all=True, seed=inference_seed, verbose=True)", "n_gpu_layers=gpu_layers, logits_all=True, verbose=True)")
+    runner = runner.replace("'n_batch': 256, 'tensor_split': [1.0,1.0], 'split_mode': 'layer'", "'n_batch': 256")
     runner = runner.replace("('B1-H2', 42, dataset, split)", f"('B2-rand', {seed}, dataset, split)")
     runner = runner.replace("('B1-H2', 42, prompt_seed", f"('B2-rand', {seed}, prompt_seed")
     runner = runner.replace("('B1-H2', 42, ds, 'test')", f"('B2-rand', {seed}, ds, 'test')")
