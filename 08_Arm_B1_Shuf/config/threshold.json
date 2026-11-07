@@ -1,0 +1,2739 @@
+{
+  "schema": "b1_shuf_seed_validation_threshold_lock_v1",
+  "arm": "B1-shuf",
+  "split": "validation",
+  "locked_at_utc": "2026-11-07T06:05:57.042329+00:00",
+  "rules": {
+    "version": "validation_mcc_grid_v1",
+    "grid": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15,
+      0.16,
+      0.17,
+      0.18,
+      0.19,
+      0.2,
+      0.21,
+      0.22,
+      0.23,
+      0.24,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29,
+      0.3,
+      0.31,
+      0.32,
+      0.33,
+      0.34,
+      0.35,
+      0.36,
+      0.37,
+      0.38,
+      0.39,
+      0.4,
+      0.41,
+      0.42,
+      0.43,
+      0.44,
+      0.45,
+      0.46,
+      0.47,
+      0.48,
+      0.49,
+      0.5,
+      0.51,
+      0.52,
+      0.53,
+      0.54,
+      0.55,
+      0.56,
+      0.57,
+      0.58,
+      0.59,
+      0.6,
+      0.61,
+      0.62,
+      0.63,
+      0.64,
+      0.65,
+      0.66,
+      0.67,
+      0.68,
+      0.69,
+      0.7,
+      0.71,
+      0.72,
+      0.73,
+      0.74,
+      0.75,
+      0.76,
+      0.77,
+      0.78,
+      0.79,
+      0.8,
+      0.81,
+      0.82,
+      0.83,
+      0.84,
+      0.85,
+      0.86,
+      0.87,
+      0.88,
+      0.89,
+      0.9,
+      0.91,
+      0.92,
+      0.93,
+      0.94,
+      0.95,
+      0.96,
+      0.97,
+      0.98,
+      0.99
+    ],
+    "objective": "MCC on finite valid validation scores only",
+    "comparison": "score >= threshold",
+    "tie_break": "within 1e-9: closest to 0.5, then lower threshold",
+    "degenerate": "if every MCC is undefined, lock 0.5 with MCC=null; report explicitly",
+    "coverage": "require every validation ID; invalid rows retained in coverage but excluded from fitting",
+    "test_usage": "never read test records or metrics to choose threshold"
+  },
+  "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "context_tokens": 8192,
+  "seed_policy": "independent threshold selection for 3 seeds: 42, 43, 44",
+  "entries": {
+    "B1-shuf/42/devign": {
+      "arm": "B1-shuf",
+      "seed": 42,
+      "dataset": "devign",
+      "split_used": "validation",
+      "tau_star": 0.98,
+      "validation_mcc": 0.09238491064059146,
+      "n_total": 2732,
+      "n_valid": 2732,
+      "tie_rule": "within 1e-9: closest to 0.5, then lower tau",
+      "validation_prompt_set_sha256": "8f20f7700fd12fd24f546e618a3b1d9c28870bdb9627c206d3eee1fe897a3921",
+      "validation_bundle_sha256": "d449c387a47fbf438528ff2ac1928fedb8f47cf5565e032111a0d9a8d1c126bd",
+      "validation_records_sha256": "5e3d4979aad9922bd056b17e9dabb3fdcdec0f1568513c8741a276ab07e6a8ec",
+      "validation_evidence_sha256": "a2b052c01507b88ef13c6e7fff6b13ae221e5b30ae75e8c68e46f9a44abc903f",
+      "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+      "backend": "llama-cpp-python==0.3.16",
+      "source_run_manifest": {
+        "bundle_sha256": "d449c387a47fbf438528ff2ac1928fedb8f47cf5565e032111a0d9a8d1c126bd",
+        "prompt_set_sha256": "8f20f7700fd12fd24f546e618a3b1d9c28870bdb9627c206d3eee1fe897a3921",
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quantization": "Q4_K_M",
+        "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+        "llama_cpp_python": "0.3.16",
+        "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "gpu_layers": -1,
+        "context_tokens": 8192,
+        "scoring": "unconstrained_first_token_logits_v1",
+        "limit": null,
+        "python": "3.13.16",
+        "dataset": "devign",
+        "split": "validation",
+        "arm": "B1-shuf",
+        "prompt_seed": 42
+      },
+      "grid": [
+        {
+          "threshold": 0.01,
+          "mcc": 0.043000551944718815
+        },
+        {
+          "threshold": 0.02,
+          "mcc": 0.04736655096670201
+        },
+        {
+          "threshold": 0.03,
+          "mcc": 0.049897103560600974
+        },
+        {
+          "threshold": 0.04,
+          "mcc": 0.048912814982407016
+        },
+        {
+          "threshold": 0.05,
+          "mcc": 0.04598291568060267
+        },
+        {
+          "threshold": 0.06,
+          "mcc": 0.04883088980150884
+        },
+        {
+          "threshold": 0.07,
+          "mcc": 0.046595757199838266
+        },
+        {
+          "threshold": 0.08,
+          "mcc": 0.050372294392480484
+        },
+        {
+          "threshold": 0.09,
+          "mcc": 0.04859955195050404
+        },
+        {
+          "threshold": 0.1,
+          "mcc": 0.04723137779790205
+        },
+        {
+          "threshold": 0.11,
+          "mcc": 0.05264878894988907
+        },
+        {
+          "threshold": 0.12,
+          "mcc": 0.05235344366984648
+        },
+        {
+          "threshold": 0.13,
+          "mcc": 0.04909925402319347
+        },
+        {
+          "threshold": 0.14,
+          "mcc": 0.049944487041187514
+        },
+        {
+          "threshold": 0.15,
+          "mcc": 0.04707106959296675
+        },
+        {
+          "threshold": 0.16,
+          "mcc": 0.04269652427258399
+        },
+        {
+          "threshold": 0.17,
+          "mcc": 0.042057835406654996
+        },
+        {
+          "threshold": 0.18,
+          "mcc": 0.040866813424522905
+        },
+        {
+          "threshold": 0.19,
+          "mcc": 0.04163557160785221
+        },
+        {
+          "threshold": 0.2,
+          "mcc": 0.04259207370453712
+        },
+        {
+          "threshold": 0.21,
+          "mcc": 0.04074855015072021
+        },
+        {
+          "threshold": 0.22,
+          "mcc": 0.04286232979920024
+        },
+        {
+          "threshold": 0.23,
+          "mcc": 0.039385558725682404
+        },
+        {
+          "threshold": 0.24,
+          "mcc": 0.041998783989656
+        },
+        {
+          "threshold": 0.25,
+          "mcc": 0.04481188395114264
+        },
+        {
+          "threshold": 0.26,
+          "mcc": 0.045069427283896145
+        },
+        {
+          "threshold": 0.27,
+          "mcc": 0.043795794371948554
+        },
+        {
+          "threshold": 0.28,
+          "mcc": 0.04719023356553164
+        },
+        {
+          "threshold": 0.29,
+          "mcc": 0.04783059109318763
+        },
+        {
+          "threshold": 0.3,
+          "mcc": 0.046427197435322816
+        },
+        {
+          "threshold": 0.31,
+          "mcc": 0.04656922375839842
+        },
+        {
+          "threshold": 0.32,
+          "mcc": 0.04757874769201593
+        },
+        {
+          "threshold": 0.33,
+          "mcc": 0.04772599115697803
+        },
+        {
+          "threshold": 0.34,
+          "mcc": 0.05288096526386454
+        },
+        {
+          "threshold": 0.35,
+          "mcc": 0.05338331138913339
+        },
+        {
+          "threshold": 0.36,
+          "mcc": 0.05720484211583033
+        },
+        {
+          "threshold": 0.37,
+          "mcc": 0.05615967742204525
+        },
+        {
+          "threshold": 0.38,
+          "mcc": 0.054065112091674195
+        },
+        {
+          "threshold": 0.39,
+          "mcc": 0.055113256874730905
+        },
+        {
+          "threshold": 0.4,
+          "mcc": 0.049858414506817654
+        },
+        {
+          "threshold": 0.41,
+          "mcc": 0.050204201286468964
+        },
+        {
+          "threshold": 0.42,
+          "mcc": 0.050724924862716944
+        },
+        {
+          "threshold": 0.43,
+          "mcc": 0.04507087890400687
+        },
+        {
+          "threshold": 0.44,
+          "mcc": 0.04293739119977551
+        },
+        {
+          "threshold": 0.45,
+          "mcc": 0.042211196237305404
+        },
+        {
+          "threshold": 0.46,
+          "mcc": 0.039540392729882856
+        },
+        {
+          "threshold": 0.47,
+          "mcc": 0.03988186624243545
+        },
+        {
+          "threshold": 0.48,
+          "mcc": 0.037911541941717045
+        },
+        {
+          "threshold": 0.49,
+          "mcc": 0.03862121096214079
+        },
+        {
+          "threshold": 0.5,
+          "mcc": 0.04110024197156718
+        },
+        {
+          "threshold": 0.51,
+          "mcc": 0.03983801952347409
+        },
+        {
+          "threshold": 0.52,
+          "mcc": 0.03928726895111434
+        },
+        {
+          "threshold": 0.53,
+          "mcc": 0.03963607031349672
+        },
+        {
+          "threshold": 0.54,
+          "mcc": 0.041781093659741746
+        },
+        {
+          "threshold": 0.55,
+          "mcc": 0.04376945271674323
+        },
+        {
+          "threshold": 0.56,
+          "mcc": 0.04249953395476418
+        },
+        {
+          "threshold": 0.57,
+          "mcc": 0.04268362356704288
+        },
+        {
+          "threshold": 0.58,
+          "mcc": 0.039579942530646506
+        },
+        {
+          "threshold": 0.59,
+          "mcc": 0.037925084294215455
+        },
+        {
+          "threshold": 0.6,
+          "mcc": 0.03847353424920211
+        },
+        {
+          "threshold": 0.61,
+          "mcc": 0.038654295169742434
+        },
+        {
+          "threshold": 0.62,
+          "mcc": 0.04031732743206526
+        },
+        {
+          "threshold": 0.63,
+          "mcc": 0.036983194953897965
+        },
+        {
+          "threshold": 0.64,
+          "mcc": 0.03567890572958904
+        },
+        {
+          "threshold": 0.65,
+          "mcc": 0.03604800187582684
+        },
+        {
+          "threshold": 0.66,
+          "mcc": 0.035484406344181575
+        },
+        {
+          "threshold": 0.67,
+          "mcc": 0.03529184657179814
+        },
+        {
+          "threshold": 0.68,
+          "mcc": 0.03793148710714331
+        },
+        {
+          "threshold": 0.69,
+          "mcc": 0.03548014012621687
+        },
+        {
+          "threshold": 0.7,
+          "mcc": 0.03586172297088914
+        },
+        {
+          "threshold": 0.71,
+          "mcc": 0.03663318849923277
+        },
+        {
+          "threshold": 0.72,
+          "mcc": 0.039912727747953826
+        },
+        {
+          "threshold": 0.73,
+          "mcc": 0.03898546899555789
+        },
+        {
+          "threshold": 0.74,
+          "mcc": 0.04346990673034247
+        },
+        {
+          "threshold": 0.75,
+          "mcc": 0.04781985665297346
+        },
+        {
+          "threshold": 0.76,
+          "mcc": 0.050014836437758184
+        },
+        {
+          "threshold": 0.77,
+          "mcc": 0.0502869549161542
+        },
+        {
+          "threshold": 0.78,
+          "mcc": 0.04861635329908973
+        },
+        {
+          "threshold": 0.79,
+          "mcc": 0.052454604288692114
+        },
+        {
+          "threshold": 0.8,
+          "mcc": 0.052408490874374034
+        },
+        {
+          "threshold": 0.81,
+          "mcc": 0.05532851597524515
+        },
+        {
+          "threshold": 0.82,
+          "mcc": 0.055148167763202305
+        },
+        {
+          "threshold": 0.83,
+          "mcc": 0.05365023833413881
+        },
+        {
+          "threshold": 0.84,
+          "mcc": 0.057807158441949356
+        },
+        {
+          "threshold": 0.85,
+          "mcc": 0.06099557493987121
+        },
+        {
+          "threshold": 0.86,
+          "mcc": 0.0644491651498099
+        },
+        {
+          "threshold": 0.87,
+          "mcc": 0.06641647142388452
+        },
+        {
+          "threshold": 0.88,
+          "mcc": 0.06639033695292886
+        },
+        {
+          "threshold": 0.89,
+          "mcc": 0.06652720141671241
+        },
+        {
+          "threshold": 0.9,
+          "mcc": 0.07038508690197313
+        },
+        {
+          "threshold": 0.91,
+          "mcc": 0.0730356693639498
+        },
+        {
+          "threshold": 0.92,
+          "mcc": 0.07250076042053753
+        },
+        {
+          "threshold": 0.93,
+          "mcc": 0.06834812428809008
+        },
+        {
+          "threshold": 0.94,
+          "mcc": 0.0711135361508077
+        },
+        {
+          "threshold": 0.95,
+          "mcc": 0.07504781260113244
+        },
+        {
+          "threshold": 0.96,
+          "mcc": 0.08046845880257981
+        },
+        {
+          "threshold": 0.97,
+          "mcc": 0.0875824022878617
+        },
+        {
+          "threshold": 0.98,
+          "mcc": 0.09238491064059146
+        },
+        {
+          "threshold": 0.99,
+          "mcc": 0.08796548164805629
+        }
+      ]
+    },
+    "B1-shuf/42/reveal": {
+      "arm": "B1-shuf",
+      "seed": 42,
+      "dataset": "reveal",
+      "split_used": "validation",
+      "tau_star": 0.66,
+      "validation_mcc": 0.06332759027068521,
+      "n_total": 2273,
+      "n_valid": 2273,
+      "tie_rule": "within 1e-9: closest to 0.5, then lower tau",
+      "validation_prompt_set_sha256": "4826bc3ebdf98d495d92b1082da0cdba1021ce28a9c3a31868499ef1e900440e",
+      "validation_bundle_sha256": "5034d531b3063f1e83bb8806fa2a689b39a391674eaeb93bde23b4841f2271e3",
+      "validation_records_sha256": "aa0b9e9f84201245af0674ca5d97c6d8697dee46c9b764088cad1f4964274f94",
+      "validation_evidence_sha256": "4ce17340ccda31c9b945d3e4737c96e52548d1ed5497508950060de8b5024cd6",
+      "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+      "backend": "llama-cpp-python==0.3.16",
+      "source_run_manifest": {
+        "bundle_sha256": "5034d531b3063f1e83bb8806fa2a689b39a391674eaeb93bde23b4841f2271e3",
+        "prompt_set_sha256": "4826bc3ebdf98d495d92b1082da0cdba1021ce28a9c3a31868499ef1e900440e",
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quantization": "Q4_K_M",
+        "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+        "llama_cpp_python": "0.3.16",
+        "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "gpu_layers": -1,
+        "context_tokens": 8192,
+        "scoring": "unconstrained_first_token_logits_v1",
+        "limit": null,
+        "python": "3.13.16",
+        "dataset": "reveal",
+        "split": "validation",
+        "arm": "B1-shuf",
+        "prompt_seed": 42
+      },
+      "grid": [
+        {
+          "threshold": 0.01,
+          "mcc": 0.057133701216558065
+        },
+        {
+          "threshold": 0.02,
+          "mcc": 0.05159664384622592
+        },
+        {
+          "threshold": 0.03,
+          "mcc": 0.051587637743871276
+        },
+        {
+          "threshold": 0.04,
+          "mcc": 0.05265519660704651
+        },
+        {
+          "threshold": 0.05,
+          "mcc": 0.04882714630492425
+        },
+        {
+          "threshold": 0.06,
+          "mcc": 0.05130558657949075
+        },
+        {
+          "threshold": 0.07,
+          "mcc": 0.05697998797328677
+        },
+        {
+          "threshold": 0.08,
+          "mcc": 0.05361302657192822
+        },
+        {
+          "threshold": 0.09,
+          "mcc": 0.05775663935729115
+        },
+        {
+          "threshold": 0.1,
+          "mcc": 0.0592039063267984
+        },
+        {
+          "threshold": 0.11,
+          "mcc": 0.05266352396283009
+        },
+        {
+          "threshold": 0.12,
+          "mcc": 0.05202852076646233
+        },
+        {
+          "threshold": 0.13,
+          "mcc": 0.053871910754812784
+        },
+        {
+          "threshold": 0.14,
+          "mcc": 0.050732030240901504
+        },
+        {
+          "threshold": 0.15,
+          "mcc": 0.050058512151217094
+        },
+        {
+          "threshold": 0.16,
+          "mcc": 0.04938276438022146
+        },
+        {
+          "threshold": 0.17,
+          "mcc": 0.05122290898757755
+        },
+        {
+          "threshold": 0.18,
+          "mcc": 0.053077624550147334
+        },
+        {
+          "threshold": 0.19,
+          "mcc": 0.05317244582907621
+        },
+        {
+          "threshold": 0.2,
+          "mcc": 0.04846291233197569
+        },
+        {
+          "threshold": 0.21,
+          "mcc": 0.04891878718899901
+        },
+        {
+          "threshold": 0.22,
+          "mcc": 0.04672190282698496
+        },
+        {
+          "threshold": 0.23,
+          "mcc": 0.04939251502609552
+        },
+        {
+          "threshold": 0.24,
+          "mcc": 0.04910932250850345
+        },
+        {
+          "threshold": 0.25,
+          "mcc": 0.04922033285396904
+        },
+        {
+          "threshold": 0.26,
+          "mcc": 0.04961205200991549
+        },
+        {
+          "threshold": 0.27,
+          "mcc": 0.051186392403118
+        },
+        {
+          "threshold": 0.28,
+          "mcc": 0.0517307122769246
+        },
+        {
+          "threshold": 0.29,
+          "mcc": 0.05148785012864328
+        },
+        {
+          "threshold": 0.3,
+          "mcc": 0.05311170609754639
+        },
+        {
+          "threshold": 0.31,
+          "mcc": 0.05640041192772312
+        },
+        {
+          "threshold": 0.32,
+          "mcc": 0.058065941740299214
+        },
+        {
+          "threshold": 0.33,
+          "mcc": 0.059324643580543714
+        },
+        {
+          "threshold": 0.34,
+          "mcc": 0.04912795686997823
+        },
+        {
+          "threshold": 0.35,
+          "mcc": 0.05246374650686985
+        },
+        {
+          "threshold": 0.36,
+          "mcc": 0.050565785400017216
+        },
+        {
+          "threshold": 0.37,
+          "mcc": 0.051410766713017655
+        },
+        {
+          "threshold": 0.38,
+          "mcc": 0.049923048205104334
+        },
+        {
+          "threshold": 0.39,
+          "mcc": 0.04884883296271845
+        },
+        {
+          "threshold": 0.4,
+          "mcc": 0.052307243370704144
+        },
+        {
+          "threshold": 0.41,
+          "mcc": 0.05362181638811933
+        },
+        {
+          "threshold": 0.42,
+          "mcc": 0.05168763441056422
+        },
+        {
+          "threshold": 0.43,
+          "mcc": 0.05346003010038663
+        },
+        {
+          "threshold": 0.44,
+          "mcc": 0.05346003010038663
+        },
+        {
+          "threshold": 0.45,
+          "mcc": 0.055250894283308566
+        },
+        {
+          "threshold": 0.46,
+          "mcc": 0.05375868098605552
+        },
+        {
+          "threshold": 0.47,
+          "mcc": 0.05408001065671004
+        },
+        {
+          "threshold": 0.48,
+          "mcc": 0.05686230543891506
+        },
+        {
+          "threshold": 0.49,
+          "mcc": 0.05733065152237197
+        },
+        {
+          "threshold": 0.5,
+          "mcc": 0.058743826864541486
+        },
+        {
+          "threshold": 0.51,
+          "mcc": 0.05583483055818037
+        },
+        {
+          "threshold": 0.52,
+          "mcc": 0.05432240417113085
+        },
+        {
+          "threshold": 0.53,
+          "mcc": 0.05479767114066207
+        },
+        {
+          "threshold": 0.54,
+          "mcc": 0.05527436879619181
+        },
+        {
+          "threshold": 0.55,
+          "mcc": 0.055752508289523786
+        },
+        {
+          "threshold": 0.56,
+          "mcc": 0.0532707131808206
+        },
+        {
+          "threshold": 0.57,
+          "mcc": 0.0532707131808206
+        },
+        {
+          "threshold": 0.58,
+          "mcc": 0.05076506251292876
+        },
+        {
+          "threshold": 0.59,
+          "mcc": 0.05269215229168852
+        },
+        {
+          "threshold": 0.6,
+          "mcc": 0.05612403703513897
+        },
+        {
+          "threshold": 0.61,
+          "mcc": 0.05862379370814956
+        },
+        {
+          "threshold": 0.62,
+          "mcc": 0.060143828571996565
+        },
+        {
+          "threshold": 0.63,
+          "mcc": 0.06219489088874315
+        },
+        {
+          "threshold": 0.64,
+          "mcc": 0.05966594778589932
+        },
+        {
+          "threshold": 0.65,
+          "mcc": 0.06227199805428136
+        },
+        {
+          "threshold": 0.66,
+          "mcc": 0.06332759027068521
+        },
+        {
+          "threshold": 0.67,
+          "mcc": 0.06077371186522537
+        },
+        {
+          "threshold": 0.68,
+          "mcc": 0.0618378622900516
+        },
+        {
+          "threshold": 0.69,
+          "mcc": 0.0539963913809789
+        },
+        {
+          "threshold": 0.7,
+          "mcc": 0.054522079389501404
+        },
+        {
+          "threshold": 0.71,
+          "mcc": 0.05187928176550784
+        },
+        {
+          "threshold": 0.72,
+          "mcc": 0.05026253715440195
+        },
+        {
+          "threshold": 0.73,
+          "mcc": 0.05132841969378315
+        },
+        {
+          "threshold": 0.74,
+          "mcc": 0.04270783086313223
+        },
+        {
+          "threshold": 0.75,
+          "mcc": 0.0437566603141398
+        },
+        {
+          "threshold": 0.76,
+          "mcc": 0.04428418020631817
+        },
+        {
+          "threshold": 0.77,
+          "mcc": 0.0474940697499741
+        },
+        {
+          "threshold": 0.78,
+          "mcc": 0.04525860217967641
+        },
+        {
+          "threshold": 0.79,
+          "mcc": 0.048005910343536434
+        },
+        {
+          "threshold": 0.8,
+          "mcc": 0.05081319298775483
+        },
+        {
+          "threshold": 0.81,
+          "mcc": 0.05028881893369497
+        },
+        {
+          "threshold": 0.82,
+          "mcc": 0.04167426316059062
+        },
+        {
+          "threshold": 0.83,
+          "mcc": 0.039865660272834294
+        },
+        {
+          "threshold": 0.84,
+          "mcc": 0.037446346928543206
+        },
+        {
+          "threshold": 0.85,
+          "mcc": 0.03383672074040274
+        },
+        {
+          "threshold": 0.86,
+          "mcc": 0.03967067707898241
+        },
+        {
+          "threshold": 0.87,
+          "mcc": 0.03479453469623314
+        },
+        {
+          "threshold": 0.88,
+          "mcc": 0.03717431534471696
+        },
+        {
+          "threshold": 0.89,
+          "mcc": 0.041465464643919515
+        },
+        {
+          "threshold": 0.9,
+          "mcc": 0.04528160724650448
+        },
+        {
+          "threshold": 0.91,
+          "mcc": 0.04408683828400317
+        },
+        {
+          "threshold": 0.92,
+          "mcc": 0.04541414487259492
+        },
+        {
+          "threshold": 0.93,
+          "mcc": 0.03423246351378564
+        },
+        {
+          "threshold": 0.94,
+          "mcc": 0.039651145016680885
+        },
+        {
+          "threshold": 0.95,
+          "mcc": 0.04319580682647835
+        },
+        {
+          "threshold": 0.96,
+          "mcc": 0.036975711389815286
+        },
+        {
+          "threshold": 0.97,
+          "mcc": 0.036330799123673305
+        },
+        {
+          "threshold": 0.98,
+          "mcc": 0.023106081485415535
+        },
+        {
+          "threshold": 0.99,
+          "mcc": 0.007619120050314625
+        }
+      ]
+    },
+    "B1-shuf/43/devign": {
+      "arm": "B1-shuf",
+      "seed": 43,
+      "dataset": "devign",
+      "split_used": "validation",
+      "tau_star": 0.96,
+      "validation_mcc": 0.08716191457625332,
+      "n_total": 2732,
+      "n_valid": 2732,
+      "tie_rule": "within 1e-9: closest to 0.5, then lower tau",
+      "validation_prompt_set_sha256": "0d760caaa956dac7ae0e6b0e9d021b5723e012d671dafd7bfe5dbfac807d026b",
+      "validation_bundle_sha256": "989846571985a0f5c8dc01f37919154a16ba57b5bf7a65616d72fba4c0ac4262",
+      "validation_records_sha256": "94bc25796387135f1f6ecac36d1270ff44d4cc42941aec4389c8a54f783059d6",
+      "validation_evidence_sha256": "5ab7be42bed4c11e9bc4f6052e94e8f8b5ea4758e5070141cb8e313fb03c05e9",
+      "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+      "backend": "llama-cpp-python==0.3.16",
+      "source_run_manifest": {
+        "bundle_sha256": "989846571985a0f5c8dc01f37919154a16ba57b5bf7a65616d72fba4c0ac4262",
+        "prompt_set_sha256": "0d760caaa956dac7ae0e6b0e9d021b5723e012d671dafd7bfe5dbfac807d026b",
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quantization": "Q4_K_M",
+        "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+        "llama_cpp_python": "0.3.16",
+        "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "gpu_layers": -1,
+        "context_tokens": 8192,
+        "scoring": "unconstrained_first_token_logits_v1",
+        "limit": null,
+        "python": "3.13.16",
+        "dataset": "devign",
+        "split": "validation",
+        "arm": "B1-shuf",
+        "prompt_seed": 43
+      },
+      "grid": [
+        {
+          "threshold": 0.01,
+          "mcc": 0.03169742130789978
+        },
+        {
+          "threshold": 0.02,
+          "mcc": 0.02471490011778102
+        },
+        {
+          "threshold": 0.03,
+          "mcc": 0.03595958015701635
+        },
+        {
+          "threshold": 0.04,
+          "mcc": 0.04108525267535044
+        },
+        {
+          "threshold": 0.05,
+          "mcc": 0.053870129509147956
+        },
+        {
+          "threshold": 0.06,
+          "mcc": 0.04405799376128857
+        },
+        {
+          "threshold": 0.07,
+          "mcc": 0.04646072875273602
+        },
+        {
+          "threshold": 0.08,
+          "mcc": 0.04504045453601554
+        },
+        {
+          "threshold": 0.09,
+          "mcc": 0.04120736782628338
+        },
+        {
+          "threshold": 0.1,
+          "mcc": 0.03770454976145059
+        },
+        {
+          "threshold": 0.11,
+          "mcc": 0.03607083097213562
+        },
+        {
+          "threshold": 0.12,
+          "mcc": 0.042977928002988906
+        },
+        {
+          "threshold": 0.13,
+          "mcc": 0.0385873335793608
+        },
+        {
+          "threshold": 0.14,
+          "mcc": 0.039129496794458644
+        },
+        {
+          "threshold": 0.15,
+          "mcc": 0.04333817132492248
+        },
+        {
+          "threshold": 0.16,
+          "mcc": 0.04166843619932591
+        },
+        {
+          "threshold": 0.17,
+          "mcc": 0.04282154430572292
+        },
+        {
+          "threshold": 0.18,
+          "mcc": 0.0460505393220981
+        },
+        {
+          "threshold": 0.19,
+          "mcc": 0.040233715567499564
+        },
+        {
+          "threshold": 0.2,
+          "mcc": 0.04111746302175148
+        },
+        {
+          "threshold": 0.21,
+          "mcc": 0.0413440168655028
+        },
+        {
+          "threshold": 0.22,
+          "mcc": 0.039939289728252336
+        },
+        {
+          "threshold": 0.23,
+          "mcc": 0.03950102644065077
+        },
+        {
+          "threshold": 0.24,
+          "mcc": 0.04059250013349027
+        },
+        {
+          "threshold": 0.25,
+          "mcc": 0.04286046223591267
+        },
+        {
+          "threshold": 0.26,
+          "mcc": 0.042988325759939286
+        },
+        {
+          "threshold": 0.27,
+          "mcc": 0.04257036048650421
+        },
+        {
+          "threshold": 0.28,
+          "mcc": 0.04460790852086299
+        },
+        {
+          "threshold": 0.29,
+          "mcc": 0.042835650956891895
+        },
+        {
+          "threshold": 0.3,
+          "mcc": 0.042970966752299694
+        },
+        {
+          "threshold": 0.31,
+          "mcc": 0.04274395877105353
+        },
+        {
+          "threshold": 0.32,
+          "mcc": 0.03959085623930966
+        },
+        {
+          "threshold": 0.33,
+          "mcc": 0.044727452055691175
+        },
+        {
+          "threshold": 0.34,
+          "mcc": 0.04436553438345588
+        },
+        {
+          "threshold": 0.35,
+          "mcc": 0.047822103197321976
+        },
+        {
+          "threshold": 0.36,
+          "mcc": 0.049188687371737434
+        },
+        {
+          "threshold": 0.37,
+          "mcc": 0.04917244461185458
+        },
+        {
+          "threshold": 0.38,
+          "mcc": 0.04863804109091692
+        },
+        {
+          "threshold": 0.39,
+          "mcc": 0.04634563991112922
+        },
+        {
+          "threshold": 0.4,
+          "mcc": 0.04474560416533417
+        },
+        {
+          "threshold": 0.41,
+          "mcc": 0.04438474438805411
+        },
+        {
+          "threshold": 0.42,
+          "mcc": 0.04648178557448987
+        },
+        {
+          "threshold": 0.43,
+          "mcc": 0.046123380845278825
+        },
+        {
+          "threshold": 0.44,
+          "mcc": 0.0482442458899654
+        },
+        {
+          "threshold": 0.45,
+          "mcc": 0.05002580717675585
+        },
+        {
+          "threshold": 0.46,
+          "mcc": 0.05414089346726999
+        },
+        {
+          "threshold": 0.47,
+          "mcc": 0.05684104987489996
+        },
+        {
+          "threshold": 0.48,
+          "mcc": 0.05921494324642802
+        },
+        {
+          "threshold": 0.49,
+          "mcc": 0.05926185355939421
+        },
+        {
+          "threshold": 0.5,
+          "mcc": 0.05515951106194118
+        },
+        {
+          "threshold": 0.51,
+          "mcc": 0.05903047178550493
+        },
+        {
+          "threshold": 0.52,
+          "mcc": 0.05835468386911194
+        },
+        {
+          "threshold": 0.53,
+          "mcc": 0.05801634367295256
+        },
+        {
+          "threshold": 0.54,
+          "mcc": 0.05512411362605149
+        },
+        {
+          "threshold": 0.55,
+          "mcc": 0.05864998478199557
+        },
+        {
+          "threshold": 0.56,
+          "mcc": 0.05466369653902146
+        },
+        {
+          "threshold": 0.57,
+          "mcc": 0.05614958563537885
+        },
+        {
+          "threshold": 0.58,
+          "mcc": 0.05397696312326823
+        },
+        {
+          "threshold": 0.59,
+          "mcc": 0.05328852415629793
+        },
+        {
+          "threshold": 0.6,
+          "mcc": 0.05092510824365028
+        },
+        {
+          "threshold": 0.61,
+          "mcc": 0.05225244431029788
+        },
+        {
+          "threshold": 0.62,
+          "mcc": 0.05677476663551795
+        },
+        {
+          "threshold": 0.63,
+          "mcc": 0.055170083752093764
+        },
+        {
+          "threshold": 0.64,
+          "mcc": 0.054829646307214465
+        },
+        {
+          "threshold": 0.65,
+          "mcc": 0.055080915851460986
+        },
+        {
+          "threshold": 0.66,
+          "mcc": 0.052697327559512286
+        },
+        {
+          "threshold": 0.67,
+          "mcc": 0.05696888886903869
+        },
+        {
+          "threshold": 0.68,
+          "mcc": 0.05723994630638857
+        },
+        {
+          "threshold": 0.69,
+          "mcc": 0.05596076205014354
+        },
+        {
+          "threshold": 0.7,
+          "mcc": 0.056402440903866945
+        },
+        {
+          "threshold": 0.71,
+          "mcc": 0.06014526267305521
+        },
+        {
+          "threshold": 0.72,
+          "mcc": 0.057915906448691934
+        },
+        {
+          "threshold": 0.73,
+          "mcc": 0.05393086613964093
+        },
+        {
+          "threshold": 0.74,
+          "mcc": 0.058804835353676824
+        },
+        {
+          "threshold": 0.75,
+          "mcc": 0.0607153190833835
+        },
+        {
+          "threshold": 0.76,
+          "mcc": 0.06377616355301398
+        },
+        {
+          "threshold": 0.77,
+          "mcc": 0.06848874002367261
+        },
+        {
+          "threshold": 0.78,
+          "mcc": 0.0704918064461612
+        },
+        {
+          "threshold": 0.79,
+          "mcc": 0.07169637984444772
+        },
+        {
+          "threshold": 0.8,
+          "mcc": 0.0747276243119243
+        },
+        {
+          "threshold": 0.81,
+          "mcc": 0.07332113405382888
+        },
+        {
+          "threshold": 0.82,
+          "mcc": 0.07008069482348085
+        },
+        {
+          "threshold": 0.83,
+          "mcc": 0.06835177106116765
+        },
+        {
+          "threshold": 0.84,
+          "mcc": 0.06575685223743775
+        },
+        {
+          "threshold": 0.85,
+          "mcc": 0.06742682210772641
+        },
+        {
+          "threshold": 0.86,
+          "mcc": 0.0674091784654867
+        },
+        {
+          "threshold": 0.87,
+          "mcc": 0.06682141492736138
+        },
+        {
+          "threshold": 0.88,
+          "mcc": 0.07080463187137166
+        },
+        {
+          "threshold": 0.89,
+          "mcc": 0.07253101646012954
+        },
+        {
+          "threshold": 0.9,
+          "mcc": 0.07067069165161032
+        },
+        {
+          "threshold": 0.91,
+          "mcc": 0.07555525620493043
+        },
+        {
+          "threshold": 0.92,
+          "mcc": 0.07752388700577202
+        },
+        {
+          "threshold": 0.93,
+          "mcc": 0.08459025030592454
+        },
+        {
+          "threshold": 0.94,
+          "mcc": 0.08661204277732443
+        },
+        {
+          "threshold": 0.95,
+          "mcc": 0.08684268112162712
+        },
+        {
+          "threshold": 0.96,
+          "mcc": 0.08716191457625332
+        },
+        {
+          "threshold": 0.97,
+          "mcc": 0.08251250454617397
+        },
+        {
+          "threshold": 0.98,
+          "mcc": 0.07742569486958743
+        },
+        {
+          "threshold": 0.99,
+          "mcc": 0.07454315535194364
+        }
+      ]
+    },
+    "B1-shuf/43/reveal": {
+      "arm": "B1-shuf",
+      "seed": 43,
+      "dataset": "reveal",
+      "split_used": "validation",
+      "tau_star": 0.01,
+      "validation_mcc": 0.06949283504716405,
+      "n_total": 2273,
+      "n_valid": 2273,
+      "tie_rule": "within 1e-9: closest to 0.5, then lower tau",
+      "validation_prompt_set_sha256": "85d7508dbaf5fa3d36552f7ea6c4eadba096c36a1f21c887579a2dc52568a7fd",
+      "validation_bundle_sha256": "61988fc410f462e1211cb593d43a50c1b12035c72718f27c74bac49f18370056",
+      "validation_records_sha256": "c87a5f610b6b70f312d9b4c4ec751231a028c53f70bf73b1fc007ef4c56c0085",
+      "validation_evidence_sha256": "84aa0d05fac8e4d952c59ffa98025cc1fae3767ee6851d3d866b90dab99acacf",
+      "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+      "backend": "llama-cpp-python==0.3.16",
+      "source_run_manifest": {
+        "bundle_sha256": "61988fc410f462e1211cb593d43a50c1b12035c72718f27c74bac49f18370056",
+        "prompt_set_sha256": "85d7508dbaf5fa3d36552f7ea6c4eadba096c36a1f21c887579a2dc52568a7fd",
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quantization": "Q4_K_M",
+        "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+        "llama_cpp_python": "0.3.16",
+        "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "gpu_layers": -1,
+        "context_tokens": 8192,
+        "scoring": "unconstrained_first_token_logits_v1",
+        "limit": null,
+        "python": "3.13.16",
+        "dataset": "reveal",
+        "split": "validation",
+        "arm": "B1-shuf",
+        "prompt_seed": 43
+      },
+      "grid": [
+        {
+          "threshold": 0.01,
+          "mcc": 0.06949283504716405
+        },
+        {
+          "threshold": 0.02,
+          "mcc": 0.05617850249826341
+        },
+        {
+          "threshold": 0.03,
+          "mcc": 0.06589737532614862
+        },
+        {
+          "threshold": 0.04,
+          "mcc": 0.057273505267184714
+        },
+        {
+          "threshold": 0.05,
+          "mcc": 0.05873448802447555
+        },
+        {
+          "threshold": 0.06,
+          "mcc": 0.05534004365641589
+        },
+        {
+          "threshold": 0.07,
+          "mcc": 0.0573113347047822
+        },
+        {
+          "threshold": 0.08,
+          "mcc": 0.052256860957248595
+        },
+        {
+          "threshold": 0.09,
+          "mcc": 0.05123232084823688
+        },
+        {
+          "threshold": 0.1,
+          "mcc": 0.05227019900862321
+        },
+        {
+          "threshold": 0.11,
+          "mcc": 0.05196242563427156
+        },
+        {
+          "threshold": 0.12,
+          "mcc": 0.050286830268360456
+        },
+        {
+          "threshold": 0.13,
+          "mcc": 0.04608181442563496
+        },
+        {
+          "threshold": 0.14,
+          "mcc": 0.04901645035017312
+        },
+        {
+          "threshold": 0.15,
+          "mcc": 0.05204732054948564
+        },
+        {
+          "threshold": 0.16,
+          "mcc": 0.05214128411314177
+        },
+        {
+          "threshold": 0.17,
+          "mcc": 0.055183776186753346
+        },
+        {
+          "threshold": 0.18,
+          "mcc": 0.05595096830155848
+        },
+        {
+          "threshold": 0.19,
+          "mcc": 0.05749343979836262
+        },
+        {
+          "threshold": 0.2,
+          "mcc": 0.05132054759054972
+        },
+        {
+          "threshold": 0.21,
+          "mcc": 0.05602058626112914
+        },
+        {
+          "threshold": 0.22,
+          "mcc": 0.05921379885141616
+        },
+        {
+          "threshold": 0.23,
+          "mcc": 0.05437181884426782
+        },
+        {
+          "threshold": 0.24,
+          "mcc": 0.052131499482992574
+        },
+        {
+          "threshold": 0.25,
+          "mcc": 0.053338689649484745
+        },
+        {
+          "threshold": 0.26,
+          "mcc": 0.05618425935800092
+        },
+        {
+          "threshold": 0.27,
+          "mcc": 0.05907154140228903
+        },
+        {
+          "threshold": 0.28,
+          "mcc": 0.062424702627745056
+        },
+        {
+          "threshold": 0.29,
+          "mcc": 0.057053283056313256
+        },
+        {
+          "threshold": 0.3,
+          "mcc": 0.05561000801635023
+        },
+        {
+          "threshold": 0.31,
+          "mcc": 0.05543240255769154
+        },
+        {
+          "threshold": 0.32,
+          "mcc": 0.05715052963021142
+        },
+        {
+          "threshold": 0.33,
+          "mcc": 0.0552623061505317
+        },
+        {
+          "threshold": 0.34,
+          "mcc": 0.05422680686612571
+        },
+        {
+          "threshold": 0.35,
+          "mcc": 0.048196238765690125
+        },
+        {
+          "threshold": 0.36,
+          "mcc": 0.045372864498153156
+        },
+        {
+          "threshold": 0.37,
+          "mcc": 0.0484149137498086
+        },
+        {
+          "threshold": 0.38,
+          "mcc": 0.049294004030097996
+        },
+        {
+          "threshold": 0.39,
+          "mcc": 0.05017762287033967
+        },
+        {
+          "threshold": 0.4,
+          "mcc": 0.04400775852133829
+        },
+        {
+          "threshold": 0.41,
+          "mcc": 0.04067879256309242
+        },
+        {
+          "threshold": 0.42,
+          "mcc": 0.041553943904889395
+        },
+        {
+          "threshold": 0.43,
+          "mcc": 0.042433704909817786
+        },
+        {
+          "threshold": 0.44,
+          "mcc": 0.03951775424243873
+        },
+        {
+          "threshold": 0.45,
+          "mcc": 0.04039911011300765
+        },
+        {
+          "threshold": 0.46,
+          "mcc": 0.043521720041439727
+        },
+        {
+          "threshold": 0.47,
+          "mcc": 0.045789485121144925
+        },
+        {
+          "threshold": 0.48,
+          "mcc": 0.03505254382779469
+        },
+        {
+          "threshold": 0.49,
+          "mcc": 0.03549977417796614
+        },
+        {
+          "threshold": 0.5,
+          "mcc": 0.038666572776706584
+        },
+        {
+          "threshold": 0.51,
+          "mcc": 0.04004371710682957
+        },
+        {
+          "threshold": 0.52,
+          "mcc": 0.04050550154216966
+        },
+        {
+          "threshold": 0.53,
+          "mcc": 0.0379276287502242
+        },
+        {
+          "threshold": 0.54,
+          "mcc": 0.04072541228930311
+        },
+        {
+          "threshold": 0.55,
+          "mcc": 0.04072541228930311
+        },
+        {
+          "threshold": 0.56,
+          "mcc": 0.04214396565906728
+        },
+        {
+          "threshold": 0.57,
+          "mcc": 0.035954198080619115
+        },
+        {
+          "threshold": 0.58,
+          "mcc": 0.025547065356633446
+        },
+        {
+          "threshold": 0.59,
+          "mcc": 0.01818749963093475
+        },
+        {
+          "threshold": 0.6,
+          "mcc": 0.02093499198180986
+        },
+        {
+          "threshold": 0.61,
+          "mcc": 0.019506944445466353
+        },
+        {
+          "threshold": 0.62,
+          "mcc": 0.019506944445466353
+        },
+        {
+          "threshold": 0.63,
+          "mcc": 0.020911957336664542
+        },
+        {
+          "threshold": 0.64,
+          "mcc": 0.023286449083430815
+        },
+        {
+          "threshold": 0.65,
+          "mcc": 0.02424808337553987
+        },
+        {
+          "threshold": 0.66,
+          "mcc": 0.020419024778197268
+        },
+        {
+          "threshold": 0.67,
+          "mcc": 0.021378309878498793
+        },
+        {
+          "threshold": 0.68,
+          "mcc": 0.02234460933506277
+        },
+        {
+          "threshold": 0.69,
+          "mcc": 0.01895157777758473
+        },
+        {
+          "threshold": 0.7,
+          "mcc": 0.016484341398953817
+        },
+        {
+          "threshold": 0.71,
+          "mcc": 0.01793921835144577
+        },
+        {
+          "threshold": 0.72,
+          "mcc": 0.02040169338095112
+        },
+        {
+          "threshold": 0.73,
+          "mcc": 0.02040169338095112
+        },
+        {
+          "threshold": 0.74,
+          "mcc": 0.02140031855938239
+        },
+        {
+          "threshold": 0.75,
+          "mcc": 0.022406975121791628
+        },
+        {
+          "threshold": 0.76,
+          "mcc": 0.025476820491557153
+        },
+        {
+          "threshold": 0.77,
+          "mcc": 0.018881018127810758
+        },
+        {
+          "threshold": 0.78,
+          "mcc": 0.019911556100769414
+        },
+        {
+          "threshold": 0.79,
+          "mcc": 0.020951095327726373
+        },
+        {
+          "threshold": 0.8,
+          "mcc": 0.021999835870954238
+        },
+        {
+          "threshold": 0.81,
+          "mcc": 0.02359065242973052
+        },
+        {
+          "threshold": 0.82,
+          "mcc": 0.020998838675294628
+        },
+        {
+          "threshold": 0.83,
+          "mcc": 0.017287351201643052
+        },
+        {
+          "threshold": 0.84,
+          "mcc": 0.0199719535713195
+        },
+        {
+          "threshold": 0.85,
+          "mcc": 0.02328083478867153
+        },
+        {
+          "threshold": 0.86,
+          "mcc": 0.02843809946278349
+        },
+        {
+          "threshold": 0.87,
+          "mcc": 0.02961809134548989
+        },
+        {
+          "threshold": 0.88,
+          "mcc": 0.031412645183302605
+        },
+        {
+          "threshold": 0.89,
+          "mcc": 0.0324406783189222
+        },
+        {
+          "threshold": 0.9,
+          "mcc": 0.030353359738856524
+        },
+        {
+          "threshold": 0.91,
+          "mcc": 0.03227419183774502
+        },
+        {
+          "threshold": 0.92,
+          "mcc": 0.03146466817633656
+        },
+        {
+          "threshold": 0.93,
+          "mcc": 0.030640299292388155
+        },
+        {
+          "threshold": 0.94,
+          "mcc": 0.02471502876975647
+        },
+        {
+          "threshold": 0.95,
+          "mcc": 0.028223196477095605
+        },
+        {
+          "threshold": 0.96,
+          "mcc": 0.02413784100816101
+        },
+        {
+          "threshold": 0.97,
+          "mcc": 0.02951373148836862
+        },
+        {
+          "threshold": 0.98,
+          "mcc": 0.027842103587634132
+        },
+        {
+          "threshold": 0.99,
+          "mcc": 0.01974986914597398
+        }
+      ]
+    },
+    "B1-shuf/44/devign": {
+      "arm": "B1-shuf",
+      "seed": 44,
+      "dataset": "devign",
+      "split_used": "validation",
+      "tau_star": 0.67,
+      "validation_mcc": 0.07191263023290964,
+      "n_total": 2732,
+      "n_valid": 2732,
+      "tie_rule": "within 1e-9: closest to 0.5, then lower tau",
+      "validation_prompt_set_sha256": "3399a5d9ddf5d2fb4beb62989f65aca3b226eac05295bf5cab7bbc165fe0ed7c",
+      "validation_bundle_sha256": "92fed99991b5cd186385d653d0629967e9a1ddab11361df2d5da8bc049bf675c",
+      "validation_records_sha256": "af63e6dbd0125da2a0023030078f8a5c537db68e03d296cb607c1bd0b1c39626",
+      "validation_evidence_sha256": "886767627d58eef5df2a6271ff7b62b9b70911c2b9daa6c4fac129f75eec89bf",
+      "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+      "backend": "llama-cpp-python==0.3.16",
+      "source_run_manifest": {
+        "bundle_sha256": "92fed99991b5cd186385d653d0629967e9a1ddab11361df2d5da8bc049bf675c",
+        "prompt_set_sha256": "3399a5d9ddf5d2fb4beb62989f65aca3b226eac05295bf5cab7bbc165fe0ed7c",
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quantization": "Q4_K_M",
+        "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+        "llama_cpp_python": "0.3.16",
+        "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "gpu_layers": -1,
+        "context_tokens": 8192,
+        "scoring": "unconstrained_first_token_logits_v1",
+        "limit": null,
+        "python": "3.13.16",
+        "dataset": "devign",
+        "split": "validation",
+        "arm": "B1-shuf",
+        "prompt_seed": 44
+      },
+      "grid": [
+        {
+          "threshold": 0.01,
+          "mcc": 0.04980635617151421
+        },
+        {
+          "threshold": 0.02,
+          "mcc": 0.04221202815666794
+        },
+        {
+          "threshold": 0.03,
+          "mcc": 0.03764849483968363
+        },
+        {
+          "threshold": 0.04,
+          "mcc": 0.036673642356329604
+        },
+        {
+          "threshold": 0.05,
+          "mcc": 0.03773901193384318
+        },
+        {
+          "threshold": 0.06,
+          "mcc": 0.03658763269497359
+        },
+        {
+          "threshold": 0.07,
+          "mcc": 0.043242909524916794
+        },
+        {
+          "threshold": 0.08,
+          "mcc": 0.04357164714235045
+        },
+        {
+          "threshold": 0.09,
+          "mcc": 0.04154187984962944
+        },
+        {
+          "threshold": 0.1,
+          "mcc": 0.050729158849963506
+        },
+        {
+          "threshold": 0.11,
+          "mcc": 0.04995564748810817
+        },
+        {
+          "threshold": 0.12,
+          "mcc": 0.05829635813269623
+        },
+        {
+          "threshold": 0.13,
+          "mcc": 0.0519820134326682
+        },
+        {
+          "threshold": 0.14,
+          "mcc": 0.04845297125577903
+        },
+        {
+          "threshold": 0.15,
+          "mcc": 0.05079864724990264
+        },
+        {
+          "threshold": 0.16,
+          "mcc": 0.05129509693307552
+        },
+        {
+          "threshold": 0.17,
+          "mcc": 0.05396486700056043
+        },
+        {
+          "threshold": 0.18,
+          "mcc": 0.054131549960101465
+        },
+        {
+          "threshold": 0.19,
+          "mcc": 0.04881668937466182
+        },
+        {
+          "threshold": 0.2,
+          "mcc": 0.05074898104019282
+        },
+        {
+          "threshold": 0.21,
+          "mcc": 0.04681109737331854
+        },
+        {
+          "threshold": 0.22,
+          "mcc": 0.051431293926434266
+        },
+        {
+          "threshold": 0.23,
+          "mcc": 0.0521854611881164
+        },
+        {
+          "threshold": 0.24,
+          "mcc": 0.05074862567048818
+        },
+        {
+          "threshold": 0.25,
+          "mcc": 0.04917353488923211
+        },
+        {
+          "threshold": 0.26,
+          "mcc": 0.05066601690947083
+        },
+        {
+          "threshold": 0.27,
+          "mcc": 0.048909990141887516
+        },
+        {
+          "threshold": 0.28,
+          "mcc": 0.045106433926070284
+        },
+        {
+          "threshold": 0.29,
+          "mcc": 0.04747044475275304
+        },
+        {
+          "threshold": 0.3,
+          "mcc": 0.04844388637778226
+        },
+        {
+          "threshold": 0.31,
+          "mcc": 0.054629153044344944
+        },
+        {
+          "threshold": 0.32,
+          "mcc": 0.05824835005678369
+        },
+        {
+          "threshold": 0.33,
+          "mcc": 0.05720462023056596
+        },
+        {
+          "threshold": 0.34,
+          "mcc": 0.055116009699996714
+        },
+        {
+          "threshold": 0.35,
+          "mcc": 0.05459076923110083
+        },
+        {
+          "threshold": 0.36,
+          "mcc": 0.05773436329050556
+        },
+        {
+          "threshold": 0.37,
+          "mcc": 0.0575705361507706
+        },
+        {
+          "threshold": 0.38,
+          "mcc": 0.05792830912984887
+        },
+        {
+          "threshold": 0.39,
+          "mcc": 0.054426149893436956
+        },
+        {
+          "threshold": 0.4,
+          "mcc": 0.0526705527676183
+        },
+        {
+          "threshold": 0.41,
+          "mcc": 0.05321645282721928
+        },
+        {
+          "threshold": 0.42,
+          "mcc": 0.05500784152518638
+        },
+        {
+          "threshold": 0.43,
+          "mcc": 0.05431442701774917
+        },
+        {
+          "threshold": 0.44,
+          "mcc": 0.05146705119633115
+        },
+        {
+          "threshold": 0.45,
+          "mcc": 0.054165193275004
+        },
+        {
+          "threshold": 0.46,
+          "mcc": 0.05687617966485467
+        },
+        {
+          "threshold": 0.47,
+          "mcc": 0.05798114532138704
+        },
+        {
+          "threshold": 0.48,
+          "mcc": 0.05764032256241621
+        },
+        {
+          "threshold": 0.49,
+          "mcc": 0.05875367492198589
+        },
+        {
+          "threshold": 0.5,
+          "mcc": 0.05751567285254579
+        },
+        {
+          "threshold": 0.51,
+          "mcc": 0.05790537036405338
+        },
+        {
+          "threshold": 0.52,
+          "mcc": 0.05886163293230368
+        },
+        {
+          "threshold": 0.53,
+          "mcc": 0.06130160360982829
+        },
+        {
+          "threshold": 0.54,
+          "mcc": 0.060801386578505756
+        },
+        {
+          "threshold": 0.55,
+          "mcc": 0.06583405624495729
+        },
+        {
+          "threshold": 0.56,
+          "mcc": 0.06924981957948792
+        },
+        {
+          "threshold": 0.57,
+          "mcc": 0.07027750776631395
+        },
+        {
+          "threshold": 0.58,
+          "mcc": 0.07071686110741952
+        },
+        {
+          "threshold": 0.59,
+          "mcc": 0.07100314303126609
+        },
+        {
+          "threshold": 0.6,
+          "mcc": 0.07053339972645105
+        },
+        {
+          "threshold": 0.61,
+          "mcc": 0.06853942843135331
+        },
+        {
+          "threshold": 0.62,
+          "mcc": 0.06990666448001112
+        },
+        {
+          "threshold": 0.63,
+          "mcc": 0.06666483436075092
+        },
+        {
+          "threshold": 0.64,
+          "mcc": 0.06788228149663425
+        },
+        {
+          "threshold": 0.65,
+          "mcc": 0.0703450779949726
+        },
+        {
+          "threshold": 0.66,
+          "mcc": 0.06925891223378604
+        },
+        {
+          "threshold": 0.67,
+          "mcc": 0.07191263023290964
+        },
+        {
+          "threshold": 0.68,
+          "mcc": 0.06973354723288235
+        },
+        {
+          "threshold": 0.69,
+          "mcc": 0.06959636111629791
+        },
+        {
+          "threshold": 0.7,
+          "mcc": 0.0643918255489394
+        },
+        {
+          "threshold": 0.71,
+          "mcc": 0.06407440311945971
+        },
+        {
+          "threshold": 0.72,
+          "mcc": 0.06519364836149476
+        },
+        {
+          "threshold": 0.73,
+          "mcc": 0.06663818353997569
+        },
+        {
+          "threshold": 0.74,
+          "mcc": 0.06456443745388143
+        },
+        {
+          "threshold": 0.75,
+          "mcc": 0.06393398212691827
+        },
+        {
+          "threshold": 0.76,
+          "mcc": 0.06152273980516101
+        },
+        {
+          "threshold": 0.77,
+          "mcc": 0.058117019788957544
+        },
+        {
+          "threshold": 0.78,
+          "mcc": 0.055828895411068544
+        },
+        {
+          "threshold": 0.79,
+          "mcc": 0.05778642295251458
+        },
+        {
+          "threshold": 0.8,
+          "mcc": 0.052507408024727864
+        },
+        {
+          "threshold": 0.81,
+          "mcc": 0.05182463205754525
+        },
+        {
+          "threshold": 0.82,
+          "mcc": 0.05363937881857478
+        },
+        {
+          "threshold": 0.83,
+          "mcc": 0.05431278589392047
+        },
+        {
+          "threshold": 0.84,
+          "mcc": 0.05892520127422192
+        },
+        {
+          "threshold": 0.85,
+          "mcc": 0.0582836884391137
+        },
+        {
+          "threshold": 0.86,
+          "mcc": 0.05471440445796151
+        },
+        {
+          "threshold": 0.87,
+          "mcc": 0.053883866050069625
+        },
+        {
+          "threshold": 0.88,
+          "mcc": 0.050951388355931104
+        },
+        {
+          "threshold": 0.89,
+          "mcc": 0.056499445891026935
+        },
+        {
+          "threshold": 0.9,
+          "mcc": 0.04836024610388666
+        },
+        {
+          "threshold": 0.91,
+          "mcc": 0.05056277608611011
+        },
+        {
+          "threshold": 0.92,
+          "mcc": 0.056033803450367896
+        },
+        {
+          "threshold": 0.93,
+          "mcc": 0.06314091364152527
+        },
+        {
+          "threshold": 0.94,
+          "mcc": 0.059072288712603054
+        },
+        {
+          "threshold": 0.95,
+          "mcc": 0.056408152091475816
+        },
+        {
+          "threshold": 0.96,
+          "mcc": 0.061389030125119703
+        },
+        {
+          "threshold": 0.97,
+          "mcc": 0.056701455369453084
+        },
+        {
+          "threshold": 0.98,
+          "mcc": 0.06208199516821565
+        },
+        {
+          "threshold": 0.99,
+          "mcc": 0.06675560413457594
+        }
+      ]
+    },
+    "B1-shuf/44/reveal": {
+      "arm": "B1-shuf",
+      "seed": 44,
+      "dataset": "reveal",
+      "split_used": "validation",
+      "tau_star": 0.04,
+      "validation_mcc": 0.09558988581293579,
+      "n_total": 2273,
+      "n_valid": 2273,
+      "tie_rule": "within 1e-9: closest to 0.5, then lower tau",
+      "validation_prompt_set_sha256": "61f864cba245384127c601eff10c3050370f7f6c9b86333f28399b25272a4d57",
+      "validation_bundle_sha256": "5ce2085d94a7c450796964511f7dcf80231b82aaca343a074f84c0f8fd1057b2",
+      "validation_records_sha256": "669ee4292aec5de6c64a2b480ec814cd669ca2dd52e89417899f83ac0d536ed4",
+      "validation_evidence_sha256": "7b72c87eb5e8275adbc307e2cb21ea24d259df749f6bc4a4d2ee72c07d0d8087",
+      "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+      "backend": "llama-cpp-python==0.3.16",
+      "source_run_manifest": {
+        "bundle_sha256": "5ce2085d94a7c450796964511f7dcf80231b82aaca343a074f84c0f8fd1057b2",
+        "prompt_set_sha256": "61f864cba245384127c601eff10c3050370f7f6c9b86333f28399b25272a4d57",
+        "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "quantization": "Q4_K_M",
+        "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+        "llama_cpp_python": "0.3.16",
+        "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+        "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+        "gpu_layers": -1,
+        "context_tokens": 8192,
+        "scoring": "unconstrained_first_token_logits_v1",
+        "limit": null,
+        "python": "3.13.16",
+        "dataset": "reveal",
+        "split": "validation",
+        "arm": "B1-shuf",
+        "prompt_seed": 44
+      },
+      "grid": [
+        {
+          "threshold": 0.01,
+          "mcc": 0.07681798794863222
+        },
+        {
+          "threshold": 0.02,
+          "mcc": 0.09127956782794994
+        },
+        {
+          "threshold": 0.03,
+          "mcc": 0.0950542658502584
+        },
+        {
+          "threshold": 0.04,
+          "mcc": 0.09558988581293579
+        },
+        {
+          "threshold": 0.05,
+          "mcc": 0.0935858457924852
+        },
+        {
+          "threshold": 0.06,
+          "mcc": 0.08993543479595283
+        },
+        {
+          "threshold": 0.07,
+          "mcc": 0.08398165444349191
+        },
+        {
+          "threshold": 0.08,
+          "mcc": 0.08366228364936446
+        },
+        {
+          "threshold": 0.09,
+          "mcc": 0.08126611955656358
+        },
+        {
+          "threshold": 0.1,
+          "mcc": 0.06779713831558434
+        },
+        {
+          "threshold": 0.11,
+          "mcc": 0.0599768144236294
+        },
+        {
+          "threshold": 0.12,
+          "mcc": 0.06500060833861349
+        },
+        {
+          "threshold": 0.13,
+          "mcc": 0.06621925442254825
+        },
+        {
+          "threshold": 0.14,
+          "mcc": 0.06427831568310574
+        },
+        {
+          "threshold": 0.15,
+          "mcc": 0.060960748902926326
+        },
+        {
+          "threshold": 0.16,
+          "mcc": 0.058594304597610516
+        },
+        {
+          "threshold": 0.17,
+          "mcc": 0.06279098117977387
+        },
+        {
+          "threshold": 0.18,
+          "mcc": 0.06180842412482839
+        },
+        {
+          "threshold": 0.19,
+          "mcc": 0.05339281713501856
+        },
+        {
+          "threshold": 0.2,
+          "mcc": 0.051974959527644804
+        },
+        {
+          "threshold": 0.21,
+          "mcc": 0.050161648200888566
+        },
+        {
+          "threshold": 0.22,
+          "mcc": 0.052485781263420926
+        },
+        {
+          "threshold": 0.23,
+          "mcc": 0.05144534966072176
+        },
+        {
+          "threshold": 0.24,
+          "mcc": 0.05262320262407205
+        },
+        {
+          "threshold": 0.25,
+          "mcc": 0.051581865263524186
+        },
+        {
+          "threshold": 0.26,
+          "mcc": 0.05357077879780431
+        },
+        {
+          "threshold": 0.27,
+          "mcc": 0.055983488896062014
+        },
+        {
+          "threshold": 0.28,
+          "mcc": 0.05801645351339346
+        },
+        {
+          "threshold": 0.29,
+          "mcc": 0.04182973531531906
+        },
+        {
+          "threshold": 0.3,
+          "mcc": 0.04222804429871074
+        },
+        {
+          "threshold": 0.31,
+          "mcc": 0.03991495137602316
+        },
+        {
+          "threshold": 0.32,
+          "mcc": 0.04475624716360733
+        },
+        {
+          "threshold": 0.33,
+          "mcc": 0.04805379709495874
+        },
+        {
+          "threshold": 0.34,
+          "mcc": 0.048470106325687164
+        },
+        {
+          "threshold": 0.35,
+          "mcc": 0.051410766713017655
+        },
+        {
+          "threshold": 0.36,
+          "mcc": 0.0486516862318836
+        },
+        {
+          "threshold": 0.37,
+          "mcc": 0.04587672497838196
+        },
+        {
+          "threshold": 0.38,
+          "mcc": 0.04111691552741422
+        },
+        {
+          "threshold": 0.39,
+          "mcc": 0.04280698387636303
+        },
+        {
+          "threshold": 0.4,
+          "mcc": 0.03997422955566208
+        },
+        {
+          "threshold": 0.41,
+          "mcc": 0.04339294413838034
+        },
+        {
+          "threshold": 0.42,
+          "mcc": 0.04382506436478618
+        },
+        {
+          "threshold": 0.43,
+          "mcc": 0.04096195188952074
+        },
+        {
+          "threshold": 0.44,
+          "mcc": 0.041826626217637344
+        },
+        {
+          "threshold": 0.45,
+          "mcc": 0.03937456549243173
+        },
+        {
+          "threshold": 0.46,
+          "mcc": 0.03776901658780604
+        },
+        {
+          "threshold": 0.47,
+          "mcc": 0.03145887903374453
+        },
+        {
+          "threshold": 0.48,
+          "mcc": 0.03318980592188059
+        },
+        {
+          "threshold": 0.49,
+          "mcc": 0.030648141376512058
+        },
+        {
+          "threshold": 0.5,
+          "mcc": 0.03151936717461979
+        },
+        {
+          "threshold": 0.51,
+          "mcc": 0.03327615481454063
+        },
+        {
+          "threshold": 0.52,
+          "mcc": 0.03549977417796614
+        },
+        {
+          "threshold": 0.53,
+          "mcc": 0.032927481067842
+        },
+        {
+          "threshold": 0.54,
+          "mcc": 0.034275190748053935
+        },
+        {
+          "threshold": 0.55,
+          "mcc": 0.03518021222646914
+        },
+        {
+          "threshold": 0.56,
+          "mcc": 0.037006345559680194
+        },
+        {
+          "threshold": 0.57,
+          "mcc": 0.03394528647634319
+        },
+        {
+          "threshold": 0.58,
+          "mcc": 0.027749800293875335
+        },
+        {
+          "threshold": 0.59,
+          "mcc": 0.025518836981781666
+        },
+        {
+          "threshold": 0.6,
+          "mcc": 0.027345054837749065
+        },
+        {
+          "threshold": 0.61,
+          "mcc": 0.02325801989600666
+        },
+        {
+          "threshold": 0.62,
+          "mcc": 0.02325801989600666
+        },
+        {
+          "threshold": 0.63,
+          "mcc": 0.025547065356633446
+        },
+        {
+          "threshold": 0.64,
+          "mcc": 0.02647298072666401
+        },
+        {
+          "threshold": 0.65,
+          "mcc": 0.029761916319147628
+        },
+        {
+          "threshold": 0.66,
+          "mcc": 0.027954999895105873
+        },
+        {
+          "threshold": 0.67,
+          "mcc": 0.02939573042786358
+        },
+        {
+          "threshold": 0.68,
+          "mcc": 0.025160673577887555
+        },
+        {
+          "threshold": 0.69,
+          "mcc": 0.026598613056460857
+        },
+        {
+          "threshold": 0.7,
+          "mcc": 0.01805064834401254
+        },
+        {
+          "threshold": 0.71,
+          "mcc": 0.018520976969751312
+        },
+        {
+          "threshold": 0.72,
+          "mcc": 0.017038264141989463
+        },
+        {
+          "threshold": 0.73,
+          "mcc": 0.01751397427527604
+        },
+        {
+          "threshold": 0.74,
+          "mcc": 0.019918876757208662
+        },
+        {
+          "threshold": 0.75,
+          "mcc": 0.022369285940472813
+        },
+        {
+          "threshold": 0.76,
+          "mcc": 0.015430311621206064
+        },
+        {
+          "threshold": 0.77,
+          "mcc": 0.017894858268608874
+        },
+        {
+          "threshold": 0.78,
+          "mcc": 0.018369063760426338
+        },
+        {
+          "threshold": 0.79,
+          "mcc": 0.019911556100769414
+        },
+        {
+          "threshold": 0.8,
+          "mcc": 0.020951095327726373
+        },
+        {
+          "threshold": 0.81,
+          "mcc": 0.021474302686733084
+        },
+        {
+          "threshold": 0.82,
+          "mcc": 0.01940541538457831
+        },
+        {
+          "threshold": 0.83,
+          "mcc": 0.01144249220807621
+        },
+        {
+          "threshold": 0.84,
+          "mcc": 0.013002380697469276
+        },
+        {
+          "threshold": 0.85,
+          "mcc": 0.013527203750581335
+        },
+        {
+          "threshold": 0.86,
+          "mcc": 0.017272047808349164
+        },
+        {
+          "threshold": 0.87,
+          "mcc": 0.01781755402523457
+        },
+        {
+          "threshold": 0.88,
+          "mcc": 0.015057519433568775
+        },
+        {
+          "threshold": 0.89,
+          "mcc": 0.018394029720231717
+        },
+        {
+          "threshold": 0.9,
+          "mcc": 0.01952992685979909
+        },
+        {
+          "threshold": 0.91,
+          "mcc": 0.015572704948592293
+        },
+        {
+          "threshold": 0.92,
+          "mcc": 0.012680711693793704
+        },
+        {
+          "threshold": 0.93,
+          "mcc": 0.010852585256642228
+        },
+        {
+          "threshold": 0.94,
+          "mcc": 0.001847475985860779
+        },
+        {
+          "threshold": 0.95,
+          "mcc": 0.006401296720469256
+        },
+        {
+          "threshold": 0.96,
+          "mcc": -0.005905216240689287
+        },
+        {
+          "threshold": 0.97,
+          "mcc": -0.004851316614489418
+        },
+        {
+          "threshold": 0.98,
+          "mcc": 0.0006718633650480352
+        },
+        {
+          "threshold": 0.99,
+          "mcc": -0.00656693696915663
+        }
+      ]
+    }
+  },
+  "locked_sha256": "fd5c2d6fa4a7ffdbe11cd2a44b021638cdc0f2b3ef126d6e4fcfd6e4c8e70e50"
+}
