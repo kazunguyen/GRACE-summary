@@ -62,6 +62,14 @@ Parse JSON, kiểm tra checksum canonical, sáu package, seed/tensor_split đã 
 
 Phạm vi contract sau trả lời cuối: Kaggle T4×2. Các cấu hình seed/package/GPU distribution/CPU threads/build policy đã được người dùng chốt; câu hỏi còn lại chỉ là thu thập bằng chứng từ các arm thiếu log và runner họ B3. Notebook chưa tự đọc JSON nên chưa được coi đã đồng bộ theo contract.
 
+## Đánh giá mức độ sai khác trên 15 arm — đính chính
+
+Bảng so sánh từng arm, trạng thái notebook, dấu * cho phiên bản chỉ có từ log, và phân loại severity được cập nhật tại [worklog đánh giá 15 arm](2026-11-07_15arms_runtime_lock_severity.md).
+
+Đính chính cách hiểu seed: source B0, B1 và B2-flip có inference seed 42, khác sentinel 4294967295 trong lock. Đây là khác biệt cấu hình source, nhưng scoring hiện hành gọi `llm.reset()` rồi `llm.eval(prompt_ids)` để đọc logits, không sampling hoặc generation. Vì vậy chưa có căn cứ gọi seed này là nghiêm trọng hoặc nói nó làm đổi score trên đường chạy hiện tại. Xếp mức thấp đối với scoring hiện hành. Nếu bật sampling/generation trong tương lai, seed sẽ có ý nghĩa khác.
+
+Khác biệt B1-H2 `tensor_split=[1,1]` so với `None` ảnh hưởng chính sách chia GPU và provenance runtime. Các khác biệt build Kaggle như Python patch, CUDA/compiler/CMake và wheel hash được ghi theo phiên theo contract, vốn không yêu cầu binary identical. Colab L4 ngoài profile Kaggle của lock. Thiếu log của arm B3 là trạng thái chưa xác định, không phải bằng chứng đã sai lock.
+
 ## Cập nhật đối chiếu log thực chạy — 2026-11-07
 
 Bằng chứng chi tiết, hash file và vị trí dòng/cell: worklogs/2026-11-07_inference_runtime_log_evidence.json. Bảng bên dưới cập nhật tình trạng bằng chứng, không sửa chính sách hoặc checksum của configs/inference_runtime_lock.json (hai notebook B2-rand test đang nhúng contract này).
