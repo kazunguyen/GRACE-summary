@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-11-07T08:02:08.452568+00:00",
+  "created_at_utc": "2026-11-07T08:24:32.441020+00:00",
   "scope": "Kaggle GPU Test census execution bundles and notebooks for Group 2 (4 arms)",
   "census_counts": {
     "devign": 2732,
@@ -9,10 +9,10 @@
   "arms": {
     "B2-rep": {
       "bundle": "grace_b2_rep_test_inputs.zip",
-      "bundle_sha256": "6bef9c79d2a3802b43d9d79d56112253ef23faa9b48c4080a085328e3b01ee0e",
-      "bundle_bytes": 5011949,
+      "bundle_sha256": "5987c12123c64053b10501cc24f81c44dafa2ee54c15e29d8e1b7c8f25781e50",
+      "bundle_bytes": 5012079,
       "notebook": "02_kaggle_qwen_q4_b2_rep_test.ipynb",
-      "notebook_sha256": "9e65ae3ef99eaeaed463cc73e77cf92bbf8569b71aa94d61508ff1adfebb9afc",
+      "notebook_sha256": "d6a09b281d4d02e5eeb6226e70427e13451c4572c1a25440703136923dfa6ab4",
       "threshold_lock_sha256": "b32050f667a1dc3afc230807441a2db999d43711e5c6459cd8a121cb768c84d8",
       "thresholds": {
         "devign": 0.7,
@@ -23,7 +23,7 @@
       "sets": [
         {
           "name": "seed_42/devign_test.zip",
-          "sha256": "cc337acd5b4b68c5e042c63caf409980862e7305b3974d83ce097081c0c69e4d",
+          "sha256": "7c6663bf2b59687aaba558fde8acf6322cdd3435ce92ba9eb95f49362b63878a",
           "seed": 42,
           "dataset": "devign",
           "prompts_sha256": "73342b676150d02865cf913fa1a66680e5f573e2bcf65259174075589a22fee1",
@@ -32,7 +32,7 @@
         },
         {
           "name": "seed_42/reveal_test.zip",
-          "sha256": "e04eb47811e37fc666e2c1f10a8eba2390ef0a0b43393e58e1a9c1d08cad8b2a",
+          "sha256": "87275457b4c893f47484049831e9b09bacfaeb1d3bc1e0a125af250983ff5882",
           "seed": 42,
           "dataset": "reveal",
           "prompts_sha256": "d251af30455600579b6e65a7ec09c45938d8cb38f175a8ccb6cc8aa56a26004c",
@@ -43,10 +43,10 @@
     },
     "B1-full": {
       "bundle": "grace_b1_full_test_inputs.zip",
-      "bundle_sha256": "0c6653730e068473926391a00ddf5ad721105a583ad840fabd35546f47093814",
-      "bundle_bytes": 5393152,
+      "bundle_sha256": "3f40561b04abb6994d1775fb2d11ba985eade722721eeb23e735abed5785e7e2",
+      "bundle_bytes": 5393280,
       "notebook": "02_kaggle_qwen_q4_b1_full_test.ipynb",
-      "notebook_sha256": "29f658ff9ad4178580c1ff0363245b322e9b122235b69d8acadf0b91d0ba410c",
+      "notebook_sha256": "5c42de2195aaaa401a516babc1fb889c3ebe6dfceab719d941884b9fb31c9046",
       "threshold_lock_sha256": "57e8f0178b9119ce5e74c4e63f7bfeaece486ac83d6dc07014a03a3f8347aa45",
       "thresholds": {
         "devign": 0.99,
@@ -57,7 +57,7 @@
       "sets": [
         {
           "name": "seed_42/devign_test.zip",
-          "sha256": "cec29c14f49399978301c219c356d6b9dbbb3f7ea7db20775e1cd4903d825c3b",
+          "sha256": "65669a6026a9f03a0591d9b0a9ebd217043fa2781b9eda341dc3a34182c4c954",
           "seed": 42,
           "dataset": "devign",
           "prompts_sha256": "75f3446b5fb03fc8f7cee9e1f7d638ca70429feaa05488d7b79f7691c7cb93f9",
@@ -66,7 +66,7 @@
         },
         {
           "name": "seed_42/reveal_test.zip",
-          "sha256": "4dd758a7beca81c99fd0ca1b0edb3f9fb8b1b732535263e4906e6ccf6bd16167",
+          "sha256": "61a06e6dcfb11dea9af09ec0f491909ef7079d8ceb71e65ff1359f213d37509c",
           "seed": 42,
           "dataset": "reveal",
           "prompts_sha256": "20923818b55762572e1f87c8bb3a3078a59992dbdad5cd4ec8c1c35012f1ef88",
@@ -77,10 +77,10 @@
     },
     "B2-nolabel": {
       "bundle": "grace_b2_nolabel_test_inputs.zip",
-      "bundle_sha256": "a1cdd31345de7fe4f95a592adc583e021427a288327850cf837fcef65ebcae1c",
-      "bundle_bytes": 5004549,
+      "bundle_sha256": "458c4552e995c67212297ef07a19d6504ed3dff5b15136f7a2c7ab535a89c6f7",
+      "bundle_bytes": 5004698,
       "notebook": "02_kaggle_qwen_q4_b2_nolabel_test.ipynb",
-      "notebook_sha256": "b504e2dd3418e98b17c7d548d3384796ec3ace84f69f87b9599a95416dbc29e4",
+      "notebook_sha256": "ed3e42f0bdd8836e027059ea3acdd6efbcb21662de65c946edc88452a92854c3",
       "threshold_lock_sha256": "e58ffce298c7a2947f84c49640ae31076a8575735588319fc686c6e8007a7c0e",
       "thresholds": {
         "devign": 0.98,
@@ -91,7 +91,7 @@
       "sets": [
         {
           "name": "seed_42/devign_test.zip",
-          "sha256": "494503cc4f13d0b71e1150188ac96c4091fadf9968c45369a9855ec7a364593e",
+          "sha256": "226016adfcca21f561a9007f7c94ecc736b80d57f5e16b5dfda87106559a9e10",
           "seed": 42,
           "dataset": "devign",
           "prompts_sha256": "ee1afb588c429eb86921d5240f789967410ff0b05efc799564cc3b0a1eaa1fa6",
@@ -100,7 +100,7 @@
         },
         {
           "name": "seed_42/reveal_test.zip",
-          "sha256": "c895b3b0b187191b327a20a0628d6504ae1ed008ab66a7318b09e2cf05e46968",
+          "sha256": "ec948b5364b3865ea186f17f22c68b573b78a476416adba58fcb27ebeae2daa1",
           "seed": 42,
           "dataset": "reveal",
           "prompts_sha256": "f95aade82f8c7119fd32dac1017a968c79d14b8db3d655d37c87fe423f7a4ead",
@@ -111,10 +111,10 @@
     },
     "B2-labelonly": {
       "bundle": "grace_b2_labelonly_test_inputs.zip",
-      "bundle_sha256": "84093323c3dbbe3fec7052e5f76e1332f8fcc3a27e886806c5895974f4d88004",
-      "bundle_bytes": 4173331,
+      "bundle_sha256": "ea935f7614c7d79400a55d8e8787b52219a80b18e90671de60f9d8332213f9e6",
+      "bundle_bytes": 4173427,
       "notebook": "02_kaggle_qwen_q4_b2_labelonly_test.ipynb",
-      "notebook_sha256": "6900d8705e5bd2f893e5b1a00a30e8e7a1cff65df695b01e0cdf148766923ba3",
+      "notebook_sha256": "fde1de5475bcdc7c596d5931e995cbe82fc3c2feedf6a591dc204195f1955326",
       "threshold_lock_sha256": "cebe1fb5ad6f564c77d8628368cd0bcabc65b9b6618386258c0366be948ec68f",
       "thresholds": {
         "devign": 0.99,
@@ -125,7 +125,7 @@
       "sets": [
         {
           "name": "seed_42/devign_test.zip",
-          "sha256": "4b9dec965b15fa78edf76c6104484cbf1576c963ef4c02cc03fef9954a00bf6b",
+          "sha256": "55b38d302f66b5d85a1442fba720e8e350bb9d26af6156c14c5b99d4721983c0",
           "seed": 42,
           "dataset": "devign",
           "prompts_sha256": "c6677d59bfcbd37befa757d38ede430e32bc946a798ef3dad36d98d16ba2c206",
@@ -134,7 +134,7 @@
         },
         {
           "name": "seed_42/reveal_test.zip",
-          "sha256": "dc5a76369499a23452e83f63752222568b0edef00f1f9714d50bdb1d488f5aa3",
+          "sha256": "38181140e158a90c62efce371efa363a97afe34c891497c3214c1fb56d86a3c2",
           "seed": 42,
           "dataset": "reveal",
           "prompts_sha256": "e384ea206aa4f449a81130e6400831f910c5c03c3c64288d18f039e885e9e12d",

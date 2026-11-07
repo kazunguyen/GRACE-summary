@@ -140,7 +140,9 @@ def transform_prompt(arm: str, ds: str, b2_row: dict, spec_row: dict | None, cou
     elif arm == "B2-labelonly":
         # Label only, no demo code
         label_match = re.search(r"and it is (Vulnerable|Non-vulnerable)\.", blocks["demo"])
-        label_word = label_match.group(1) if label_match else ("Vulnerable" if b2_row["label"] == 1 else "Non-vulnerable")
+        if not label_match:
+            raise ValueError(f"Could not extract demonstration label from B2 demo block: {blocks['demo'][:100]}")
+        label_word = label_match.group(1)
         demo_labelonly = f"A function similar to the one above was labelled {label_word}."
         prompt_text = "\n\n".join([blocks["role"], blocks["code"], blocks["question"], blocks["graph"], demo_labelonly, blocks["answer"]])
         demo_ids = b2_row.get("demo_ids", [])
@@ -320,7 +322,23 @@ def create_kaggle_test_notebook(arm: str, info: dict, bundle_zip_name: str, bund
                     "    if hash_bytes(inner_path.read_bytes()) != s['sha256']:\n",
                     "        raise ValueError(f\"Inner bundle SHA-256 mismatch: {s['name']}\")\n",
                     "    bundles[ds] = inner_path\n",
-                    "    note(f'Set {ds} inner bundle verified: {inner_path}')\n"
+                    "    note(f'Set {ds} inner bundle verified: {inner_path}')\n",
+                    "\n",
+                    "# Restore checkpoint from prior session if attached\n",
+                    "if CHECKPOINT_INPUT_PATH is not None:\n",
+                    "    checkpoint = Path(CHECKPOINT_INPUT_PATH)\n",
+                    "else:\n",
+                    "    candidates = sorted(KAGGLE_INPUT_ROOT.rglob(CHECKPOINT_NAME))\n",
+                    "    checkpoint = candidates[0] if candidates else None\n",
+                    "if checkpoint and checkpoint.is_file():\n",
+                    "    note(f'Khôi phục checkpoint từ: {checkpoint}')\n",
+                    "    with zipfile.ZipFile(checkpoint) as z:\n",
+                    "        for name in z.namelist():\n",
+                    "            if name.endswith('records.jsonl') or name.endswith('run_manifest.json'):\n",
+                    "                target = OUT_ROOT / name\n",
+                    "                target.parent.mkdir(parents=True, exist_ok=True)\n",
+                    "                target.write_bytes(z.read(name))\n",
+                    "    note('Khôi phục checkpoint thành công.')\n"
                 ]
             },
             {
@@ -394,8 +412,10 @@ def create_kaggle_test_notebook(arm: str, info: dict, bundle_zip_name: str, bund
                     "    lp1 = float(values[label_ids[1]] - normalizer)\n",
                     "    score = float(np.exp(lp1 - np.logaddexp(lp0, lp1)))\n",
                     "    best = int(np.argmax(values))\n",
+                    "    top = np.argsort(values)[-5:][::-1]\n",
                     "    return {'logprob_0': lp0, 'logprob_1': lp1, 'p0': math.exp(lp0), 'p1': math.exp(lp1),\n",
-                    "            's': score, 'pred_argmax': int(score >= 0.5), 'raw': str(best)}\n",
+                    "            's': score, 'pred_argmax': int(score >= 0.5), 'greedy_token_id': best,\n",
+                    "            'top5': [{'token_id': int(i), 'logprob': float(values[i] - normalizer)} for i in top]}\n",
                     "\n",
                     "def run_inference(arm, model_path, bundle_zip, out_dir, tau_star, is_repeat=False, cache_tag=None):\n",
                     "    out_dir = Path(out_dir)\n",
@@ -421,10 +441,6 @@ def create_kaggle_test_notebook(arm: str, info: dict, bundle_zip_name: str, bund
                     "        print(f'Resuming: already completed {len(done_ids)}/{total_count}')\n",
                     "    \n",
                     "    tok = AutoTokenizer.from_pretrained('Qwen/Qwen3-Coder-30B-A3B-Instruct', revision='b2cff646eb4bb1d68355c01b18ae02e7cf42d120')\n",
-                    "    id_0 = tok.convert_tokens_to_ids('0')\n",
-                    "    id_1 = tok.convert_tokens_to_ids('1')\n",
-                    "    label_ids = (id_0, id_1)\n",
-                    "    \n",
                     "    llm = llama_cpp.Llama(\n",
                     "        model_path=str(model_path),\n",
                     "        n_ctx=8192,\n",
@@ -437,6 +453,30 @@ def create_kaggle_test_notebook(arm: str, info: dict, bundle_zip_name: str, bund
                     "        verbose=False\n",
                     "    )\n",
                     "    \n",
+                    "    label_ids = []\n",
+                    "    for label in ('0', '1'):\n",
+                    "        hf_ids = tok.encode(label, add_special_tokens=False)\n",
+                    "        gguf_ids = llm.tokenize(label.encode(), add_bos=False, special=False)\n",
+                    "        if len(hf_ids) != 1 or hf_ids != gguf_ids:\n",
+                    "            raise ValueError(f'Label token mismatch for {label}: HF={hf_ids}, GGUF={gguf_ids}')\n",
+                    "        label_ids.append(hf_ids[0])\n",
+                    "    if label_ids[0] == label_ids[1]:\n",
+                    "        raise ValueError('Label token IDs must differ')\n",
+                    "    \n",
+                    "    arm_slug = arm.lower().replace('-', '_')\n",
+                    "    checkpoint_file = Path('/kaggle/working') / f'grace_{arm_slug}_test_checkpoint.zip'\n",
+                    "    out_root = out_dir.parent.parent.parent\n",
+                    "    \n",
+                    "    def save_snapshot():\n",
+                    "        tmp_zip = checkpoint_file.with_suffix('.zip.tmp')\n",
+                    "        with zipfile.ZipFile(tmp_zip, 'w', compression=zipfile.ZIP_DEFLATED) as z:\n",
+                    "            for p in out_root.rglob('*'):\n",
+                    "                if p.is_file() and not p.name.endswith('.tmp'):\n",
+                    "                    z.write(p, p.relative_to(out_root).as_posix())\n",
+                    "        os.replace(tmp_zip, checkpoint_file)\n",
+                    "    \n",
+                    "    last_snapshot_time = time.time()\n",
+                    "    \n",
                     "    with open(rec_path, 'a', encoding='utf-8') as out_f:\n",
                     "        for idx, item in enumerate(prompts):\n",
                     "            uid = str(item['id'])\n",
@@ -444,18 +484,26 @@ def create_kaggle_test_notebook(arm: str, info: dict, bundle_zip_name: str, bund
                     "                continue\n",
                     "            \n",
                     "            p_text = item['prompt']\n",
-                    "            prompt_tokens = tok.encode(p_text, add_special_tokens=False)\n",
-                    "            if len(prompt_tokens) > 8192:\n",
-                    "                raise ValueError(f'Prompt exceeded context budget: {len(prompt_tokens)} > 8192')\n",
+                    "            messages = [{'role': 'user', 'content': p_text}]\n",
+                    "            chat = tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)\n",
+                    "            hf_ids = tok.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_dict=False)\n",
+                    "            gguf_ids = llm.tokenize(chat.encode('utf-8'), add_bos=False, special=True)\n",
+                    "            if list(hf_ids) != gguf_ids:\n",
+                    "                raise ValueError(f'Tokenizer mismatch at {ds}/{uid}; abort rather than alter prompt')\n",
+                    "            if len(gguf_ids) > 8192:\n",
+                    "                raise ValueError(f'Prompt exceeded context budget: {len(gguf_ids)} > 8192')\n",
                     "            \n",
+                    "            start = time.monotonic()\n",
                     "            llm.reset()\n",
-                    "            llm.eval(prompt_tokens)\n",
+                    "            llm.eval(gguf_ids)\n",
                     "            last_logits = llm.scores[llm.n_tokens - 1]\n",
                     "            res = binary_scores(last_logits, label_ids)\n",
+                    "            elapsed_s = time.monotonic() - start\n",
                     "            \n",
+                    "            raw = llm.detokenize([res['greedy_token_id']]).decode('utf-8', errors='replace').strip()\n",
+                    "            raw_valid = raw in ('0', '1')\n",
                     "            s_val = res['s']\n",
                     "            pred_tau = int(s_val >= tau_star)\n",
-                    "            raw_valid = res['raw'] in ('0', '1')\n",
                     "            \n",
                     "            rec = {\n",
                     "                'id': uid,\n",
@@ -469,13 +517,20 @@ def create_kaggle_test_notebook(arm: str, info: dict, bundle_zip_name: str, bund
                     "                'pred_argmax': res['pred_argmax'],\n",
                     "                'tau': tau_star,\n",
                     "                'pred_tau': pred_tau,\n",
-                    "                'raw': res['raw'],\n",
+                    "                'raw': raw,\n",
                     "                'response_valid': raw_valid,\n",
                     "                'logprob_0': res['logprob_0'],\n",
                     "                'logprob_1': res['logprob_1'],\n",
+                    "                'p0': res['p0'],\n",
+                    "                'p1': res['p1'],\n",
+                    "                'greedy_token_id': res['greedy_token_id'],\n",
+                    "                'top5': res['top5'],\n",
+                    "                'token_ids': {'0': label_ids[0], '1': label_ids[1]},\n",
                     "                'prompt_sha256': item['prompt_sha256'],\n",
                     "                'model_sha256': 'f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335',\n",
                     "                'inference_seed': 4294967295,\n",
+                    "                'elapsed_s': elapsed_s,\n",
+                    "                'timestamp': datetime.now(timezone.utc).isoformat(),\n",
                     "            }\n",
                     "            if is_repeat:\n",
                     "                rec['repeat'] = True\n",
@@ -486,8 +541,15 @@ def create_kaggle_test_notebook(arm: str, info: dict, bundle_zip_name: str, bund
                     "            os.fsync(out_f.fileno())\n",
                     "            done_ids.add(uid)\n",
                     "            \n",
+                    "            now = time.time()\n",
                     "            if len(done_ids) % 100 == 0 or len(done_ids) == total_count:\n",
-                    "                print(f'Inference {arm} {ds} test: {len(done_ids)}/{total_count}', flush=True)\n",
+                    "                print(f'Inference {arm} {ds} test: {len(done_ids)}/{total_count} (s={s_val:.4f}, raw={raw!r})', flush=True)\n",
+                    "            \n",
+                    "            if len(done_ids) % 100 == 0 or (now - last_snapshot_time) >= 120:\n",
+                    "                save_snapshot()\n",
+                    "                last_snapshot_time = now\n",
+                    "    \n",
+                    "    save_snapshot()\n",
                     "    \n",
                     "    # Compute final test metrics at fixed tau*\n",
                     "    from sklearn.metrics import matthews_corrcoef, roc_auc_score, balanced_accuracy_score, f1_score\n",
@@ -524,6 +586,11 @@ def create_kaggle_test_notebook(arm: str, info: dict, bundle_zip_name: str, bund
                     "        'records_sha256': hashlib.sha256(rec_path.read_bytes()).hexdigest(),\n",
                     "        'model_sha256': 'f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335',\n",
                     "        'backend': f'llama-cpp-python=={llama_cpp.__version__}',\n",
+                    "        'quantization': 'Q4_K_M',\n",
+                    "        'model_repo': 'ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF',\n",
+                    "        'tokenizer': 'Qwen/Qwen3-Coder-30B-A3B-Instruct',\n",
+                    "        'tokenizer_revision': 'b2cff646eb4bb1d68355c01b18ae02e7cf42d120',\n",
+                    "        'inference_seed': 4294967295,\n",
                     "        'tau_star': tau_star,\n",
                     "        'evaluation': eval_summary\n",
                     "    }\n",
@@ -760,6 +827,15 @@ def main():
         assert nb_path.is_file(), f"Missing notebook: {nb_path}"
         actual_nb_sha = sha256_file(nb_path)
         assert actual_nb_sha == arm_data["notebook_sha256"], f"Notebook SHA mismatch for {arm}"
+        
+        # Verify notebook code cells compile cleanly
+        nb_obj = json.loads(nb_path.read_text(encoding="utf-8"))
+        for c_idx, cell in enumerate(nb_obj["cells"]):
+            if cell["cell_type"] == "code":
+                src = "".join(cell["source"])
+                if src.startswith("%%writefile"):
+                    src = src.split("\\n", 1)[1]
+                compile(src, f"{arm}_cell_{c_idx}", "exec")
         
         # Verify bundle contents
         with zipfile.ZipFile(bundle_path) as z:

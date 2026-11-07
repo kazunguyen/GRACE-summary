@@ -32,6 +32,15 @@ def main():
         actual_nb_sha = sha256_file(nb_path)
         assert actual_nb_sha == arm_data["notebook_sha256"], f"Notebook SHA mismatch for {arm}"
         
+        # Verify notebook code cells compile cleanly
+        nb_obj = json.loads(nb_path.read_text(encoding="utf-8"))
+        for c_idx, cell in enumerate(nb_obj["cells"]):
+            if cell["cell_type"] == "code":
+                src = "".join(cell["source"])
+                if src.startswith("%%writefile"):
+                    src = src.split("\n", 1)[1]
+                compile(src, f"{arm}_cell_{c_idx}", "exec")
+        
         # Verify bundle contents
         with zipfile.ZipFile(bundle_path) as z:
             namelist = z.namelist()
