@@ -3,10 +3,22 @@ import sys
 import json
 import shutil
 from pathlib import Path
-from kaggle.api.kaggle_api_extended import KaggleApi
+import builtins
+
+# Monkeypatch builtins.open to force UTF-8 on Windows for Kaggle CLI/SDK
+_orig_open = builtins.open
+def _utf8_open(file, *args, **kwargs):
+    mode = args[0] if args else kwargs.get('mode', 'r')
+    if 'b' not in mode and 'encoding' not in kwargs:
+        kwargs['encoding'] = 'utf-8'
+    return _orig_open(file, *args, **kwargs)
+builtins.open = _utf8_open
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
+
+from kaggle.api.kaggle_api_extended import KaggleApi
+from kagglesdk.kernels.types.kernels_api_service import ApiListKernelSessionOutputRequest
 
 ACCOUNTS = {
     'huuhieu3333': {
@@ -26,7 +38,8 @@ ACCOUNTS = {
     'lznt123': {
         'token': 'KGAT_107f196b3b616d0d60398c64eb11f2bd',
         'kernels': [
-            {'slug': 'lznt123/grace-b3-validation', 'arm': 'B3', 'expected': 10010, 'split': 'validation'}
+            {'slug': 'lznt123/grace-b3-validation', 'arm': 'B3', 'expected': 10010, 'split': 'validation'},
+            {'slug': 'lznt123/grace-b1-shuf-test', 'arm': 'B1-shuf', 'expected': 5006, 'split': 'test'}
         ]
     }
 }
@@ -58,12 +71,30 @@ def inspect_and_handle_all():
             fail_msg = str(getattr(st, 'failure_message', getattr(st, 'failureMessage', '')))
             print(f"[{slug}] Status: {status_val} | Error: {fail_msg}")
             
+            owner, kernel_slug = slug.split('/')
+            file_list = []
+            log_sample = ""
+            try:
+                with api.build_kaggle_client() as client:
+                    req = ApiListKernelSessionOutputRequest()
+                    req.user_name = owner
+                    req.kernel_slug = kernel_slug
+                    res = client.kernels.kernels_api_client.list_kernel_session_output(req)
+                    file_list = [f.file_name for f in res.files]
+                    log_data = res.log or ""
+                    if log_data:
+                        lines = [l for l in log_data.splitlines() if l.strip()]
+                        log_sample = "\n".join(lines[-10:])
+            except Exception as e:
+                pass
+                
             summary[slug] = {
                 'status': status_val,
                 'error': fail_msg,
                 'arm': arm,
                 'user': user,
-                'split': split
+                'split': split,
+                'files': file_list
             }
             
             out_dir = Path(f"Runs-management/kernel_outputs_harvest/{slug.replace('/', '_')}")
@@ -78,7 +109,6 @@ def inspect_and_handle_all():
                     for f in files:
                         print(f"     - {f.name} ({f.stat().st_size:,} bytes)")
                         
-                    # Check records count
                     records_files = list(out_dir.rglob('records.jsonl'))
                     total_records = 0
                     for rf in records_files:
@@ -97,10 +127,26 @@ def inspect_and_handle_all():
                 except Exception as e:
                     print(f"   Error downloading output for {slug}: {e}")
             elif 'RUNNING' in status_val.upper():
-                print(f"   >>> {slug} is actively RUNNING. Continuing execution.")
+                print(f"   >>> {slug} is actively RUNNING.")
+                if log_sample:
+                    print(f"   Latest log snippet:\n{log_sample}")
+            elif 'QUEUED' in status_val.upper():
+                print(f"   >>> {slug} is QUEUED in Kaggle scheduler.")
             else:
                 print(f"   >>> {slug} status is {status_val}.")
+                if log_sample:
+                    print(f"   Latest log snippet:\n{log_sample}")
+                # If error occurred, check if checkpoint was saved
+                if file_list:
+                    print(f"   Files in output: {file_list}")
+                try:
+                    api.kernels_output(slug, path=str(out_dir))
+                except Exception:
+                    pass
                 
+    summary_path = Path("Runs-management/live_kernels_harvest_summary.json")
+    summary_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding='utf-8')
+    print(f"\nInspection summary written to {summary_path}")
     return summary
 
 if __name__ == '__main__':
