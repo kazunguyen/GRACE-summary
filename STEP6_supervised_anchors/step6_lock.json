@@ -1,0 +1,153 @@
+{
+  "schema": "grace_step6_execution_lock_v1",
+  "study_id": "grace_diag_replication_v1",
+  "step": 6,
+  "title": "Supervised baselines and meta-model complementarity",
+  "created_local_date": "2026-11-08",
+  "timezone": "Asia/Bangkok",
+  "lock_status": "preparation_locked_execution_not_started",
+  "scope": {
+    "current_phase": "supervised_anchors",
+    "arms": ["SUP-LR", "SUP-MLP", "SUP-METRIC"],
+    "datasets": ["devign", "reveal"],
+    "splits": ["train", "validation", "test"],
+    "downstream_step6_phases": [
+      "P_pre_vs_P_post paired meta-models after compatible B2 scores are available",
+      "repair_harm, reference experts, and routing budgets after anchor and B2 scores are available"
+    ]
+  },
+  "protocol": {
+    "protocol_file": "configs/protocol.yaml",
+    "protocol_sha256": "273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116",
+    "registration": "OSF prereg-v1; do not modify preregistration files",
+    "seeds": [42, 43, 44],
+    "headline_seed": 42,
+    "threshold_selection": "Select each anchor's threshold on the complete validation split using MCC; never select or tune a threshold with test labels.",
+    "test_use": "Generate test scores only after fitting on train and selecting thresholds on validation; report test results without using test labels for fitting or selection.",
+    "anchor_features": {
+      "SUP-LR": "Frozen CodeT5-base 768-dimensional masked-mean embeddings",
+      "SUP-MLP": "Frozen CodeT5-base 768-dimensional masked-mean embeddings",
+      "SUP-METRIC": "26 static code metrics computed from the frozen source code"
+    },
+    "anchor_implementation": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/supervised_anchor.py",
+    "anchor_implementation_sha256": "c14f88919701675bf1a6f6a703d7a5e3c6a5c4d0e5f6205cdf0baa063543eff9",
+    "codet5": {
+      "model": "Salesforce/codet5-base",
+      "revision": "02cd2d31bb7c6d0e4d91156167b2de044989c733",
+      "pooling": "masked_mean",
+      "max_length": 512,
+      "dimension": 768
+    }
+  },
+  "frozen_data": {
+    "freeze_manifest": {
+      "path": "01_Author_Baseline_Unified/output/research_freeze_20261101/freeze_manifest.json",
+      "sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448"
+    },
+    "datasets": {
+      "devign": {
+        "raw": {
+          "train": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/train_raw.jsonl", "sha256": "3a87fbf479877717402531e51922955f88282043fc972641317f13ca3b4838d0"},
+          "validation": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/validation_raw.jsonl", "sha256": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5"},
+          "test": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/test_raw.jsonl", "sha256": "9fdb601ac2ba3e21a96e7312d6218518ac350182be9fcb2125b4175633d4640b"}
+        },
+        "manifests": {
+          "train": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/train_manifest.jsonl", "sha256": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4"},
+          "validation": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/validation_manifest.jsonl", "sha256": "7a2eeec9a9aa2b472b2f4df0e6af91f6b90efab38d5ac44f9491adcf699b8eee"},
+          "test": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/test_manifest.jsonl", "sha256": "f0f8672a88cddbe5c348847c285b843981b310c12117b5c8fdc3ccd785b759da"}
+        },
+        "frozen_donor_bank": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/donors.jsonl", "sha256": "7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62", "count": 21691, "use_in_anchor_fit": false, "use_for_llm_pairing": true}
+      },
+      "reveal": {
+        "raw": {
+          "train": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/train_raw.jsonl", "sha256": "9be77b0037191fd995390486a057ffa4e3394f1ae3059ac54514e95016090a76"},
+          "validation": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/validation_raw.jsonl", "sha256": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1"},
+          "test": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/test_raw.jsonl", "sha256": "466015aa06b08fd86d73a8feabe86b4dfb3e708b054a63ec2eccfb362fd977ab"}
+        },
+        "manifests": {
+          "train": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/train_manifest.jsonl", "sha256": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b"},
+          "validation": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/validation_manifest.jsonl", "sha256": "b6632ec3a62f93f917e8f64365917b5546fcd1b426a67fbfa30b56d71d9d7267"},
+          "test": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/test_manifest.jsonl", "sha256": "19cc3f580f0441387ab3d194b0a06bb87ba3e3cf82ce5a818b70bf8c545c1f66"}
+        },
+        "frozen_donor_bank": {"path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/donors.jsonl", "sha256": "6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce", "count": 17636, "use_in_anchor_fit": false, "use_for_llm_pairing": true}
+      }
+    }
+  },
+  "embedding_cache_audit": {
+    "audit_report": {"path": "01_Author_Baseline_Unified/output/reusable_codet5_20261031/codet5_cache_audit_20261031.json", "sha256": "67c763dbda12952328d79f458a8a870b276e0c0c4046eb3ef9e3ff4659e29e88"},
+    "reveal": {
+      "status": "verified_reusable_for_frozen_rows",
+      "cache_root": "01_Author_Baseline_Unified/output/reusable_codet5_20261031/reveal",
+      "splits": ["train", "validation", "test"],
+      "row_counts": {"train": 18187, "validation": 2273, "test": 2274},
+      "manifest_sha256": {
+        "train": "ed6094691de1f44e69bb22d60d9097463e6807689938757a4085884805edd1cb",
+        "validation": "44de7ed99740250bf2c9391092c49d83db33086b8dfe96bf698162a9de35c933",
+        "test": "e45128310844bc4b0ae4a6ec189dfedfcba33c73d129b9cbeb43b09586fec908"
+      }
+    },
+    "cache_used_for_final_prompt_retrieval": {
+      "status": "verified_same_cache_and_exact_frozen_row_identity",
+      "cache_root": "01_Author_Baseline_Unified/output/local_full/{devign,reveal}/embedding_cache",
+      "datasets": {
+        "devign": {
+          "status": "verified",
+          "splits": {
+            "train": {"rows": 21854, "manifest_sha256": "233e9c16bfb70de6c8cd9fc4a191ab653fbe4d3fc506f82d0385e27a3c794bdd", "vectors_sha256": "a29c3d0fc7e6bad3a7c7763389fcb6dd065b1a6a76c443f8776d75d0598dd059", "ids_and_stripped_code_hashes_match_frozen_raw": true},
+            "validation": {"rows": 2732, "manifest_sha256": "9373f6317af11470beb12bfd1d05db04ceab02ccfe8a50dde8562e8c99f42d5b", "vectors_sha256": "8af87a32f1a6d939911f8a8225af4e10537eb818483161deb3acda8248f714c8", "ids_and_stripped_code_hashes_match_frozen_raw": true},
+            "test": {"rows": 2732, "manifest_sha256": "4bdb968f3f4aeb35a64a12dfd9d20e296fb1dc8db0f368fa0a7334b22d2a2496", "vectors_sha256": "91ee340fb76588957c4239328b34f72817ac71b0b76b146d619934f56e4f1d07", "ids_and_stripped_code_hashes_match_frozen_raw": true}
+          }
+        },
+        "reveal": {
+          "status": "verified",
+          "splits": {
+            "train": {"rows": 18187, "manifest_sha256": "ed6094691de1f44e69bb22d60d9097463e6807689938757a4085884805edd1cb", "vectors_sha256": "225d6c798a8b12357f5d2cf48fa42186d6e14ed997613b0da099fb7a8a127c18", "ids_and_stripped_code_hashes_match_frozen_raw": true},
+            "validation": {"rows": 2273, "manifest_sha256": "44de7ed99740250bf2c9391092c49d83db33086b8dfe96bf698162a9de35c933", "vectors_sha256": "bfc8479762b5f31cb3bad91891c4c63eef21b0d79cb9c1c270e47487904af5f7", "ids_and_stripped_code_hashes_match_frozen_raw": true},
+            "test": {"rows": 2274, "manifest_sha256": "e45128310844bc4b0ae4a6ec189dfedfcba33c73d129b9cbeb43b09586fec908", "vectors_sha256": "3415da26e5c81a52383d1f22b0d9b765bf7601e9e19c891a68edbd945c8542f3", "ids_and_stripped_code_hashes_match_frozen_raw": true}
+          }
+        }
+      },
+      "binding_to_active_prompts": {
+        "active_manifest": {"path": "grace_15arms_prompts_and_clean_specs/validation_active_manifest.json", "sha256": "fe82d8db7d3618f029200497e73bddc0fe160b334bead0c770a30f830b20a3b4"},
+        "devign_retrieval_provenance": {"path": "Runs-management/donor_reconciliation_20261101/devign_retrieval_provenance.json", "sha256": "aaf04623e32d388595b6c2172965c7e2881c286b0ce8a190a6c617cbbb80118c", "active_manifest_reference_sha256": "aaf04623e32d388595b6c2172965c7e2881c286b0ce8a190a6c617cbbb80118c"},
+        "reveal_retrieval_provenance": {"path": "Runs-management/donor_reconciliation_20261101/reveal_retrieval_provenance.json", "sha256": "89b9419a310ce18ddf606f0e2ca2fca67c93c177d50fb36ecbd3a85e1ef265f8", "active_manifest_reference_sha256": "89b9419a310ce18ddf606f0e2ca2fca67c93c177d50fb36ecbd3a85e1ef265f8"},
+        "clean_donor_banks": {
+          "devign": {"path": "Runs-management/donor_reconciliation_20261101/cache/devign_new_bank.jsonl", "sha256": "61b28762917e68e84adf9dec07b4171707fc9a7af1dc2c4fc9a375f5e1f0a8be", "active_manifest_sha256": "61b28762917e68e84adf9dec07b4171707fc9a7af1dc2c4fc9a375f5e1f0a8be"},
+          "reveal": {"path": "Runs-management/donor_reconciliation_20261101/cache/reveal_new_bank.jsonl", "sha256": "40ea95cca711b69ea42069a026c9f43c9b357623b01cec39635b30ad9a8df9f9", "active_manifest_sha256": "40ea95cca711b69ea42069a026c9f43c9b357623b01cec39635b30ad9a8df9f9"}
+        },
+        "retrieval_implementation": "Runs-management/reconcile_donor_prompts.py::CachedEncoder; reads these train/validation/test manifests and vectors and has no encoder fallback.",
+        "derived_arm_behavior": "B2 selected demos using this cache and the frozen clean donor banks; derivative arms reuse B2 specs/demo IDs as specified and do not independently re-encode CodeT5."
+      },
+      "direct_row_check": "All six cache manifests have exact ordered ID plus SHA256(stripped frozen raw func) identity against their locked train/validation/test source files; model revision and completed row counts match.",
+      "audit_note": "The 2026-10-31 reusable-cache README reported partial Devign exact-code coverage. Direct verification against the currently locked 2026-11-01 frozen raw files finds exact identity for all Devign rows. Keep this discrepancy documented; the active prompt retrieval provenance and current frozen-row check identify the cache actually used.",
+      "rebuild_required": false
+    },
+    "input_adapter": {
+      "status": "not_yet_prepared",
+      "reason": "The current anchor CLI expects NPZ files containing ids and X; reusable caches are vectors.npy plus manifest.json. Prepare an ID-checked adapter/export before fitting, without changing cached vectors."
+    }
+  },
+  "execution_order": [
+    "Verify frozen raw/manifests and donor identities against the locked hashes.",
+    "Use the verified active-prompt CodeT5 cache as-is; prepare only an ID-aligned NPZ adapter for the anchor runner if needed, without re-encoding.",
+    "Prepare an ID-aligned embedding input for the anchor runner; compute 26 metrics from frozen code.",
+    "Fit SUP-LR, SUP-MLP, and SUP-METRIC on train for seeds 42, 43, and 44.",
+    "Select each anchor/seed threshold on validation by MCC only.",
+    "Export validation/test scores and summaries; record input and output hashes.",
+    "After compatible B2 scores are available, run the paired meta-model, repair/harm, expert, and routing analyses specified by the registered Step 6 protocol."
+  ],
+  "outputs": {
+    "directory": "step6_supervised_anchors/runs/anchor",
+    "files": ["anchor_scores.csv", "anchor_summary.json"],
+    "status": "not_created"
+  },
+  "guardrails": [
+    "Use only the frozen and cleaned train/validation/test inputs named above.",
+    "Do not use test labels for training, threshold selection, or model selection.",
+    "Do not substitute the legacy Devign cache or silently rewrite its hashes.",
+    "Do not modify preregistration, frozen protocol, threshold, or arm configuration files.",
+    "Keep LLM B2 score joins on matching dataset, split, target ID, and frozen protocol."
+  ],
+  "execution_started": false,
+  "user_clarification": "The active prompt pipeline already uses CodeT5 cache for demo selection. Exact prompt-cache identity was traced and verified; do not rebuild."
+}
