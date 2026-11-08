@@ -1,0 +1,16 @@
+{
+  "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "threshold_lock_sha256": "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70",
+  "thresholds": {
+    "devign": 0.99,
+    "reveal": 0.62
+  },
+  "arm": "B2-rand",
+  "state": "timed_out",
+  "split": "test",
+  "bundle_sha256": "703f7de196be9844ee8f69a675504afc311c6f23c8c50e82e21e984b36acd465",
+  "progress": {
+    "43/devign": 2732,
+    "43/reveal": 2028
+  }
+}

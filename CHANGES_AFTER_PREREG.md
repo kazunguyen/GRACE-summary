@@ -230,3 +230,12 @@ See worklogs/2026-11-07_15arms_runtime_lock_severity.md, worklogs/2026-11-07_hie
 ## 2026-11-07 — Pin SciPy in the shared Kaggle package lock
 
 Pinned `scipy==1.16.3` for future Kaggle Qwen inference after reviewing post-install run logs. Updated the package setup of the available Kaggle notebooks and issued a revised five-notebook delivery for Hiếu. This is an operational package update. Historical outputs retain the environment recorded by their original run. See [the worklog](worklogs/2026-11-07_kaggle_package_lock_standardization.md).
+
+## 2026-11-08 - B1-full completion, runtime acceptance and historical B3 validation handoff
+
+- Published byte-preserved B1-full seed42 test records (Devign2732 + REVEAL2274), selected runtime/build logs, identity and frozen threshold manifests. Complete output and checkpoint downloaded locally. Worker completed at 15:35:51 GMT+7.
+- Independently checked full record identity/score/prediction provenance, source/input/contract hashes, backend sdist/build evidence, T4x2/49-of-49 offload, ctx8192, batch/ubatch256 and checkpoint CRC/content. Verdict PASS_LAUNCH_CONTRACT for the six-package contract actually pinned at launch; no retroactive seven-package contract claim. SciPy1.16.3 is observed in the original pip freeze. Model/backend binary hashes are remote verified-runner provenance, not local rehashes of model or loaded memory.
+- Published historical B3-only full validation output (5005 rows; 947 fresh plus4058 imports), retaining mixed provenance and historical method classification. B1-shuf remains RUNNING at the16:08 snapshot, live progress unavailable. No new-method B3 inference or human review was fabricated.
+- Recomputed descriptive B1-full metrics using existing validation thresholds; no threshold tuning, significance analysis, frozen data/config edits or public history rewrites. Updated RUNS, handoff and worklog. B3 development changes are outside this run-publication commit.
+- Verification:37 required integrity/probe/stats tests passed after placing temporary test files inside the workspace (initial Windows TEMP permission error documented). Runtime verifier handles notebook source list/string serialization by exact resulting cell text without stripping.
+- Evidence:Runs-management/run_handoff_20261108/B1_FULL_RUNTIME_ACCEPTANCE.md, b1_full_runtime_acceptance.json, completion_update_20261108.json; worklogs/2026-11-08_b1_full_completion_runtime_acceptance.md.

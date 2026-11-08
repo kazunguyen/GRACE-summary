@@ -21,3 +21,5 @@
 
 # Preserve the newly accepted inference artifacts and their source SHA256s.
 /Runs-management/run_handoff_20261108/completed_results/** -text whitespace=cr-at-eol
+/Runs-management/run_handoff_20261108/b1_full_runtime_acceptance_evidence/** -text whitespace=cr-at-eol
+/Runs-management/run_handoff_20261108/status_snapshot_1608/** -text whitespace=cr-at-eol

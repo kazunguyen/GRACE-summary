@@ -1,0 +1,11 @@
+{
+  "arm": "B1-full",
+  "seed": 42,
+  "dataset": "reveal",
+  "split": "test",
+  "member": "B1-full_42_reveal_test.jsonl",
+  "sha256": "a84a6e1ae1a54f874f3fb3546f9993ec6cd66a77c2fdef6f30eeeaf21760d48b",
+  "count": 2274,
+  "tau": 0.01,
+  "runtime_lock_scope": "newly inferred records only; imported historical records are byte/value preserved"
+}
