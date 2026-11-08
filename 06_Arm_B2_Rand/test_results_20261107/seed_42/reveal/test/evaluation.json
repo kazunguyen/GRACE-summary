@@ -1,0 +1,34 @@
+{
+  "n_total": 2274,
+  "n_score_valid": 2274,
+  "n_response_valid": 2274,
+  "tau": 0.89,
+  "accuracy": 0.7515391380826737,
+  "balanced_accuracy": 0.5299519271675317,
+  "precision": 0.1286031042128603,
+  "recall": 0.25217391304347825,
+  "f1": 0.17033773861967694,
+  "mcc": 0.04529784330730294,
+  "confusion_matrix": [
+    [
+      1651,
+      393
+    ],
+    [
+      172,
+      58
+    ]
+  ],
+  "auroc": 0.5804837062877564,
+  "average_precision": 0.12271064044476508,
+  "threshold_policy": "inherit_completed_Kaggle_validation_no_test_fit",
+  "threshold_lock_sha256_by_run": {
+    "I-18": "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70",
+    "I-20": "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735"
+  },
+  "runtime_contract_sha256_by_run": {
+    "I-18": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+    "I-20": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
+  },
+  "records_sha256": "784e74a7ed3f053c5fb709e2a86ed6c3514739c9d76f41bb71ff3b6f6029c168"
+}

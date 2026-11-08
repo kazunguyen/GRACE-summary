@@ -1,0 +1,37 @@
+{
+  "bundle_sha256": "63a7140fff25dc78bfa4464a3fd0b5edb5d58a8d218a4f81f5f1ae3dedb13f5c",
+  "prompt_set_sha256": "fe0c739a29a591cf75b957ef2e86c53fb7ed6b83ba9c4fd29509d76490d10c7e",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "quantization": "Q4_K_M",
+  "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "llama_cpp_python": "0.3.16",
+  "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "gpu_layers": -1,
+  "context_tokens": 8192,
+  "scoring": "unconstrained_first_token_logits_v1",
+  "limit": null,
+  "python": "3.13.15",
+  "dataset": "devign",
+  "split": "validation",
+  "arm": "B2-rand",
+  "prompt_seed": 44,
+  "runtime_lock_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "runtime_packages": {
+    "numpy": "2.1.3",
+    "huggingface-hub": "0.36.2",
+    "tokenizers": "0.22.2",
+    "transformers": "4.57.1",
+    "llama-cpp-python": "0.3.16",
+    "scikit-learn": "1.5.2"
+  },
+  "runtime_adoption": {
+    "status": "reviewed_legacy_resume",
+    "legacy_run_manifest_sha256": "1f7fa83e76b56e6a20179ebf4701dd0e83f26fe4dc00f9e9375007e5fc40c574",
+    "legacy_records_sha256": "2f5a5297d4060c7235f950c21355d4675dbc41b17b50e86bc72d300dc15dffd7",
+    "evidence": "I-15 Kaggle install/runtime logs; worklogs/2026-11-07_inference_runtime_log_evidence.json",
+    "note": "Historical records retain their original provenance and are not retroactively stamped with the runtime lock."
+  }
+}
