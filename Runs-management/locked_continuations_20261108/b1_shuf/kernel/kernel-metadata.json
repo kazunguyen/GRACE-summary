@@ -1,0 +1,18 @@
+{
+  "id": "tomandjerry223/grace-b1-shuf-locked-20261108",
+  "title": "grace-b1-shuf-locked-20261108",
+  "code_file": "notebook.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [
+    "tomandjerry223/grace-b1-shuf-locked-20261108-inputs"
+  ],
+  "kernel_sources": [
+    "quangdung1111/qwen3coder30b-prepare-notebook"
+  ],
+  "competition_sources": []
+}

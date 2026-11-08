@@ -1,0 +1,26 @@
+{
+  "task": "admission",
+  "backend": "agy",
+  "model": "gemini-3.8-flash-medium",
+  "started_at": "2026-11-08T02:01:26.397354+00:00",
+  "state": "blocked_or_empty",
+  "prompt_sha256": "678b824147e1b9b67455f563916646c2d45d1dd9a28d5c672b19cd2ad2eb30bb",
+  "input_manifest_sha256": "471dcccff661a8747e702b06f128d29699786d423e1da5c26dec47c2d7a253ba",
+  "review_status": "rejected",
+  "pid": 11892,
+  "returncode": 0,
+  "agy_status": "SUCCESS",
+  "conversation_id": "7c939819-d49f-4d5e-b30b-abee5a58ee16",
+  "usage": {
+    "input_tokens": 15762,
+    "output_tokens": 740,
+    "thinking_tokens": 689,
+    "cache_read_tokens": 0,
+    "total_tokens": 16502
+  },
+  "finished_at": "2026-11-08T02:01:41.400642+00:00",
+  "elapsed_seconds": 15.0,
+  "changed_inputs": [],
+  "outputs": [],
+  "review_reason": "AGY returned SUCCESS but denied RunCommand and produced no deliverables"
+}

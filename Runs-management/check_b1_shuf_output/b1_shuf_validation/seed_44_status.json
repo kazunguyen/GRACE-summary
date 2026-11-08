@@ -1,0 +1,29 @@
+{
+  "state": "timed_out",
+  "timed_out": true,
+  "started_at": "2026-11-05T10:14:25.384664+00:00",
+  "deadline_at": "2026-11-05T13:33:58.784546+00:00",
+  "stop_new_records_at": "2026-11-05T13:28:58.784546+00:00",
+  "max_runtime_hours": 3.3259444118208354,
+  "checkpoint_reserve_seconds": 300,
+  "runs": {
+    "devign/validation": {
+      "state": "checkpointed",
+      "bundle": "/kaggle/working/b1_shuf_bundles/44_devign.zip",
+      "output": "/kaggle/working/b1_shuf_validation/seed_44/devign/validation",
+      "count": 2732,
+      "completed": 2113,
+      "records_path": "/kaggle/working/b1_shuf_validation/seed_44/devign/validation/records.jsonl",
+      "bundle_sha256": "2d3c6e7af74510fa496c7cbf1b17a812b0537cd440b00f14ebef5d31da3c1920"
+    },
+    "reveal/validation": {
+      "state": "pending",
+      "bundle": "/kaggle/working/b1_shuf_bundles/44_reveal.zip",
+      "output": "/kaggle/working/b1_shuf_validation/seed_44/reveal/validation"
+    }
+  },
+  "completed_records_total": 2113,
+  "last_checkpoint_at": "2026-11-05T13:28:59.502881+00:00",
+  "timed_out_at": "2026-11-05T13:28:59.503267+00:00",
+  "stopped_after_run": "devign/validation"
+}

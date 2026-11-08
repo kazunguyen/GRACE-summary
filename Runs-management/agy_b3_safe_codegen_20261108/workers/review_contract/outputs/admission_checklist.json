@@ -1,0 +1,147 @@
+[
+  {
+    "stage": "candidate_discovery",
+    "machine_checks": [
+      "Candidate vulnerable record exists in frozen clean TRAIN bank with label == 1",
+      "Candidate patched record exists in frozen clean TRAIN bank with label == 0",
+      "Both records originate from the same dataset split (no cross-dataset or cross-split pairs)",
+      "Records are free from duplicate or conflicting-label quarantine flags"
+    ],
+    "human_checks": [],
+    "artifacts": [
+      "discovery_manifest.json (candidate IDs, split tags, initial labels, dataset hashes)"
+    ],
+    "failure_behavior": "Drop candidate pair immediately. Never search outside frozen clean TRAIN bank."
+  },
+  {
+    "stage": "source_authentication",
+    "machine_checks": [
+      "Repository URL resolves to valid upstream source repository",
+      "File path matches exactly between vulnerable parent and fix child revisions",
+      "Parent revision is a valid, distinct 40-character hexadecimal git commit SHA",
+      "Fix revision is a valid, distinct 40-character hexadecimal git commit SHA",
+      "SHA-256 of extracted vulnerable function bytes matches archived raw bytes file",
+      "SHA-256 of extracted patched function bytes matches archived raw bytes file",
+      "Unified diff between parent and fix revisions strictly accounts for changed function lines",
+      "Canonical payload generated and canonical_payload_sha256 computed deterministically"
+    ],
+    "human_checks": [
+      "Verify security rationale source reference (commit message, CVE advisory, PR notes) is authentic and not guessed"
+    ],
+    "artifacts": [
+      "vuln_function_bytes.raw",
+      "fixed_function_bytes.raw",
+      "source_commit.diff",
+      "security_rationale_source.txt",
+      "canonical_verification_payload.json"
+    ],
+    "failure_behavior": "Reject candidate. If formatting mismatches exist, halt and document disclosed protocol decision. Never forge or guess missing history."
+  },
+  {
+    "stage": "independent_human_reviews",
+    "machine_checks": [
+      "Two distinct reviewer records exist (reviewer_1_id != reviewer_2_id)",
+      "Both reviews bind to the exact identical canonical_payload_sha256",
+      "Timestamps are valid ISO-8601 UTC timestamps falling within active review window"
+    ],
+    "human_checks": [
+      "Reviewer 1 affirms same_function_verified == true",
+      "Reviewer 1 affirms security_fix_verified == true",
+      "Reviewer 1 affirms source_revisions_verified == true",
+      "Reviewer 1 affirms explanation_supported == true",
+      "Reviewer 2 affirms same_function_verified == true",
+      "Reviewer 2 affirms security_fix_verified == true",
+      "Reviewer 2 affirms source_revisions_verified == true",
+      "Reviewer 2 affirms explanation_supported == true"
+    ],
+    "artifacts": [
+      "review_signoff_reviewer1.json (reviewer_id, payload_sha256, timestamp, assertions, notes)",
+      "review_signoff_reviewer2.json (reviewer_id, payload_sha256, timestamp, assertions, notes)"
+    ],
+    "failure_behavior": "Reject candidate if any assertion is false, if reviewers match, or if any approval is missing or unverified. Model output cannot substitute for human review."
+  },
+  {
+    "stage": "machine_admission",
+    "machine_checks": [
+      "Verify cryptographic signature / payload binding for both reviewer sign-offs",
+      "Verify all 8 boolean criteria across both reviewers evaluate to true",
+      "Verify zero duplicate admission of identical pair hash into B3 bank",
+      "Append verified pair to admitted_b3_exemplars.jsonl with immutable entry timestamp"
+    ],
+    "human_checks": [],
+    "artifacts": [
+      "admitted_b3_exemplars.jsonl",
+      "admission_audit_log.jsonl"
+    ],
+    "failure_behavior": "Halt admission pipeline. Emit verification failure error log with failed check identifiers."
+  },
+  {
+    "stage": "label_blind_selection",
+    "machine_checks": [
+      "Exemplar selected from admitted_b3_exemplars.jsonl using pre-registered deterministic indexing",
+      "Selection process has zero access to test split feature matrices or test labels"
+    ],
+    "human_checks": [
+      "Audit selection logic to ensure strict blinding against test split distributions"
+    ],
+    "artifacts": [
+      "selected_demonstration_manifest.json (admitted_pair_id, selection_seed, deterministic_rank)"
+    ],
+    "failure_behavior": "Abort selection. Revert to pre-registered fallback demonstration if selection violates blinding criteria."
+  },
+  {
+    "stage": "prompt_audit_and_freeze",
+    "machine_checks": [
+      "Prompt conforms strictly to section order: role_domain -> target_code -> question -> node_info -> edge_info -> demonstration -> answer",
+      "Demonstration token count <= 1500 tokens",
+      "Total assembled prompt length <= 8192 token context budget",
+      "Target code label (0 or 1) does not appear anywhere in prompt text",
+      "Cryptographic SHA-256 computed and recorded for frozen prompt template"
+    ],
+    "human_checks": [
+      "Inspect rendered prompt instances to confirm demonstration format and explanation integrity"
+    ],
+    "artifacts": [
+      "frozen_b3_prompt_template.json",
+      "prompt_audit_manifest.json (template_sha256, sample_token_counts)"
+    ],
+    "failure_behavior": "Halt pipeline. Refactor prompt formatting or trim demonstration commentary within sourced bounds. Do not truncate target code."
+  },
+  {
+    "stage": "full_validation_and_threshold_recalibration",
+    "machine_checks": [
+      "Run inference across 100% of validation split (N=2,732 Devign; N=2,273 REVEAL)",
+      "Re-estimate optimal decision threshold tau* exclusively on validation predictions",
+      "Verify tau* optimizes pre-registered validation objective metric",
+      "Update configs/thresholds.json and re-sign with SHA-256 self-checksum"
+    ],
+    "human_checks": [
+      "Confirm validation threshold optimization script executed without data leakage from test split"
+    ],
+    "artifacts": [
+      "validation_predictions_b3.jsonl",
+      "threshold_recalibration_report.json",
+      "configs/thresholds.json (updated and signed)"
+    ],
+    "failure_behavior": "Abort before test run. If validation fails or yields non-monotonic metrics, investigate and record audit log."
+  },
+  {
+    "stage": "confirmatory_test_evaluation",
+    "machine_checks": [
+      "Verify configs/thresholds.json self-signing checksum matches registered value",
+      "Run inference across full fixed test census (Devign Test N=2,732; REVEAL Test N=2,274)",
+      "Inherit tau* directly from Stage 7 without test-split tuning",
+      "Execute paired cluster bootstrap (B=5000, seed=20261117)",
+      "Apply Holm-Bonferroni family correction across contrast family"
+    ],
+    "human_checks": [
+      "Audit test execution log to confirm strict adherence to frozen registration parameters"
+    ],
+    "artifacts": [
+      "test_predictions_b3.jsonl",
+      "b3_confirmatory_metrics.json",
+      "table_b_contrast_results.json"
+    ],
+    "failure_behavior": "Halt execution. Never apply post-hoc tuning or early stopping on test split."
+  }
+]

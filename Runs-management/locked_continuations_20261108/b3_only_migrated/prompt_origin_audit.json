@@ -1,0 +1,41 @@
+{
+  "conclusion": "historical B3 prompts, not amended b3-verified-patch-v1",
+  "datasets": [
+    {
+      "dataset": "devign",
+      "count": 2732,
+      "prompts_sha256": "17e7a38942e2d82d5e8f4695da235da4022c719fa88057bf7538bf14972b9f34",
+      "matches_historical_bundle_bytes": true,
+      "original_dry_run_source": "Runs-management\\dry_run_validation_20261102\\devign\\validation\\B3\\42\\prompts.jsonl",
+      "original_source_sha256": "c397b395ed9d4d96e2f55b6fc6b1f0c8b188248f0d8c88c8537c30859193e8a7",
+      "original_prompt_mismatches": []
+    },
+    {
+      "dataset": "reveal",
+      "count": 2273,
+      "prompts_sha256": "0b747c74ef58fe8b6edbdd0c8c8659905def1a39503811a1602193134b399753",
+      "matches_historical_bundle_bytes": true,
+      "original_dry_run_source": "Runs-management\\dry_run_validation_20261102\\reveal\\validation\\B3\\42\\prompts.jsonl",
+      "original_source_sha256": "2d2464301137656cd6b1b4a53995d8d1dd122a971f1523b4a39acaa7f2a1df69",
+      "original_prompt_mismatches": []
+    }
+  ],
+  "manifest_method": "Historical B3 pairing unchanged; B3 ONLY; runtime migration for new records",
+  "remote_readback": {
+    "at_utc": "2026-11-08T01:34:57.081350+00:00",
+    "ref": "huuhieu3333/grace-b3-only-resume-20261108",
+    "all_cell_sources_match": true,
+    "machine_shape": "NvidiaTeslaT4",
+    "version": 1,
+    "is_private": true,
+    "enable_gpu": true,
+    "dataset_sources": [
+      "huuhieu3333/grace-b3-only-resume-20261108-inputs-v2"
+    ],
+    "kernel_sources": [
+      "huuhieu3333/qwen3coder30b-prepare-notebook"
+    ]
+  },
+  "new_selector_source": "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/amended_b3.py",
+  "new_selector_used_by_current_prompt_inputs": false
+}

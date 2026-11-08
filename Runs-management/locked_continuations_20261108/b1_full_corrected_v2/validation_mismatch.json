@@ -1,0 +1,16 @@
+{
+  "classification": "Post-registration operational correction of a test renderer; no frozen spec, threshold, arm, model or selection rule changes.",
+  "validation": [
+    {
+      "dataset": "devign",
+      "n": 2732,
+      "graph_mismatches": [
+        "devign:validation:6686",
+        "devign:validation:14819",
+        "devign:validation:16307"
+      ],
+      "max_graph_tokens": 1500
+    }
+  ],
+  "test": []
+}

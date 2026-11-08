@@ -1,0 +1,4 @@
+# Never publish the private train-bank snapshots supplied to the initial tasks.
+/workers/*/inputs/
+/workers/*/agy.cli.log
+/workers/*/stderr.log

@@ -1,0 +1,14 @@
+{
+  "arm": "B2-labelonly",
+  "dataset": "devign",
+  "split": "test",
+  "seed": 42,
+  "tau_locked": 0.99,
+  "n_total": 2732,
+  "n_valid": 2732,
+  "mcc_at_tau": 0.08485121351034793,
+  "auroc": 0.5462326725595924,
+  "ba_at_tau": 0.5321570859419464,
+  "f1_at_tau": 0.30127462340672073,
+  "completed_at_utc": "2026-11-07T14:45:05.660582+00:00"
+}

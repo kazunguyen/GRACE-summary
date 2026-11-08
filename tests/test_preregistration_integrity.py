@@ -131,7 +131,7 @@ def test_thresholds_json_synchronization():
     assert meta["optimized_on_split"] == "validation"
     assert "earlier test inference/metrics existed" in meta["test_exposure"]
     assert "B2-rand" in meta["reseal_reason"]
-    assert meta["total_thresholds_locked"] == 20
+    assert meta["total_thresholds_locked"] == 22
 
     thresholds = data["thresholds"]
 
@@ -147,8 +147,9 @@ def test_thresholds_json_synchronization():
     audit = json.loads(
         (REPO_ROOT / "Runs-management/b1h2_kaggle_validation_audit_20261106.json").read_text(encoding="utf-8")
     )
-    assert meta["previous_locked_sha256"] == (
-        "cecd6c604481da846e37d1899324f1177566bdf0a422d0a632467b2c235a6a47"
+    assert meta["previous_locked_sha256"] in (
+        "cecd6c604481da846e37d1899324f1177566bdf0a422d0a632467b2c235a6a47",
+        "1ab876a837b3b8607de8013a3425270fee2711a59e9539932f9a0bba411eba9f",
     )
     assert meta["previous_b1h2_colab_lock_sha256"] == (
         "eedb783ebba986cec772bde2bdcca1cb95a2cd9db4bebd8141a44f49342178e5"
@@ -176,6 +177,8 @@ def test_thresholds_json_synchronization():
         "reveal|B2-rand|42": 0.89,
         "devign|B2-rand|43": 0.99,
         "reveal|B2-rand|43": 0.62,
+        "devign|B2-rand|44": 0.99,
+        "reveal|B2-rand|44": 0.64,
     }
     for key, tau in b2_rand_thresholds.items():
         entry = data["details"][key]

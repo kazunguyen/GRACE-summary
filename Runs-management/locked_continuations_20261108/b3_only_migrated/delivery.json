@@ -1,0 +1,17 @@
+{
+  "kind": "b3_only_migrated",
+  "owner": "huuhieu3333",
+  "ref": "huuhieu3333/grace-b3-only-resume-20261108",
+  "dataset": "huuhieu3333/grace-b3-only-resume-20261108-inputs-v2",
+  "stage": "Runs-management\\locked_continuations_20261108\\b3_only_migrated",
+  "input_manifest_sha256": "40bfff9d68ae5212b1dc921fdedd06aed7daeed1000e6f832f08c915fd8b9780",
+  "bundle_sha256": "cd1c27629bf26642826ed257200ba271855c7ef0d3597b3fe47e89b2aab9f37e",
+  "notebook_sha256": "b074c5333fe56821030013f7659feb821ef3f6c836df1fe3bb8278370abbafb4",
+  "worker_sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+  "total": 5005,
+  "legacy_count": 4058,
+  "new_target": 947,
+  "launch_precondition": "Old lznt123/grace-b3-locked-resume-20261108 must be confirmed stopped; harvest any available B3 checkpoint first.",
+  "historical_uncertified_count": 4029,
+  "verified_source_runtime_count": 29
+}

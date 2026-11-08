@@ -1,0 +1,26 @@
+{
+  "dataset": "devign",
+  "raw_count": 21854,
+  "bank_count": 21691,
+  "candidate_count": 26700,
+  "donors_missing_commit_id": 0,
+  "same_commit_candidate_count": 0,
+  "verified_pairs": 0,
+  "reviewed_pairs": 0,
+  "input_sha256": {
+    "train_raw.jsonl": "3a87fbf479877717402531e51922955f88282043fc972641317f13ca3b4838d0",
+    "train_manifest.jsonl": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4"
+  },
+  "output_sha256": {
+    "candidate_pairs.jsonl": "db81020efb23da1816267b29930db2a4c160695a431cce14bda96af53330b834",
+    "donor_index.jsonl": "2d2be230cc10a1e13ff6cafc694b2ab17c2ba235563569cfa919d4b61dd742a9",
+    "prioritized_candidates.json": "97b5e2202b25ef270000361e43d80669f5aa64b12a8da4b08ff9f9c737281100"
+  },
+  "limitations": [
+    "Candidate similarity is an unverified heuristic name match, NOT verified source patch identity.",
+    "Candidate pairs are generated via combinatorial Cartesian product of same-name label 1 and label 0 functions within the same project; they are not confirmed before-after patch pairs.",
+    "Function-name hint is derived from a simple regex on the pre-brace header, which may fail or select macro names on complex C/C++ declarations.",
+    "No human review or verification has been performed; candidate pairs must not be treated as ground-truth patches.",
+    "Candidate pairs carry status UNVERIFIED_NAME_MATCH_NOT_AN_ELIGIBLE_PAIR and must not be used in confirmatory benchmark tables without verified patch provenance."
+  ]
+}

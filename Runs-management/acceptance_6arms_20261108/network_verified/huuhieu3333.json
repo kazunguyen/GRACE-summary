@@ -1,0 +1,139 @@
+[
+  {
+    "ref": "huuhieu3333/grace-b1-full-test",
+    "checked_at_utc": "2026-11-08T00:07:10.782590+00:00",
+    "files": [
+      {
+        "name": "b1_full_test/seed_42/devign/test/evaluation.json",
+        "bytes": 335,
+        "sha256": "41f04b47aa72c8e40471dd63300e346aa56a40c1d23c850b881630aaaa706cec",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b1_full_test/seed_42/devign/test/records.jsonl",
+        "bytes": 2594484,
+        "sha256": "61fccf1ab2670afeddab2df6f830425ce7443caae18b3d50eb7fe021040ee577",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b1_full_test/seed_42/devign/test/run_manifest.json",
+        "bytes": 1064,
+        "sha256": "6269d9a4853995fa1424ecaa4ef60a7ca794e4a4ce2859e30c986e29b480832e",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b1_full_test/seed_42/reveal/test/records.jsonl",
+        "bytes": 111828,
+        "sha256": "bbee17aba234cc1a11c1933412de7f2d6f40350c642f9eeac16e308ae2cedfa4",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b1_full_test_checkpoint.zip",
+        "bytes": 503018,
+        "sha256": "2b151c08ba212ac7af18ff29e79a41fcff83ec9fce32477380d27e2fd690c319",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_diagnostics/events.log",
+        "bytes": 2845,
+        "sha256": "1ddd6dbabcf4430057b23a0bce93111baa2cc52fb00e7a45792a9b87b8c991f2",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "kaggle_test_inference.py",
+        "bytes": 9433,
+        "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+        "already_local": true,
+        "same_local_bytes": true
+      }
+    ],
+    "status": "KernelWorkerStatus.ERROR",
+    "pull_exit": 0,
+    "remote_file_count": 11
+  },
+  {
+    "ref": "huuhieu3333/grace-b2-rep-test",
+    "checked_at_utc": "2026-11-08T00:07:21.629496+00:00",
+    "files": [
+      {
+        "name": "b2_rep_test/seed_42/devign/test/evaluation.json",
+        "bytes": 331,
+        "sha256": "e149dda427d296bb82639b353d6153e49c30284b0bb752662eb204f2f6f3e543",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_rep_test/seed_42/devign/test/records.jsonl",
+        "bytes": 2681994,
+        "sha256": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_rep_test/seed_42/devign/test/run_manifest.json",
+        "bytes": 1095,
+        "sha256": "582f7876b8860745585b26ed2427814beb7457f850a2ac77c78aac0f73b186e3",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_rep_test/seed_42/reveal/test/evaluation.json",
+        "bytes": 332,
+        "sha256": "a45c872ace6305d21abcd6720275d3ac4dc0de4f072f08a4d1f590a285992df1",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_rep_test/seed_42/reveal/test/records.jsonl",
+        "bytes": 2235889,
+        "sha256": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_rep_test/seed_42/reveal/test/run_manifest.json",
+        "bytes": 1097,
+        "sha256": "8fd9baddec96fbeb9547a7f039fd27a71b71ac6fde9f4bddf55d8dbecfecab6d",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b2_rep_test_checkpoint.zip",
+        "bytes": 884488,
+        "sha256": "217995c89824fc4509f3b76fed0e7bb0e9cb5a593e1c0d00e750e00465a54d6e",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b2_rep_test_final_output.zip",
+        "bytes": 884488,
+        "sha256": "217995c89824fc4509f3b76fed0e7bb0e9cb5a593e1c0d00e750e00465a54d6e",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_diagnostics/events.log",
+        "bytes": 3084,
+        "sha256": "3b857ad9e738b7d24fd341287e4d4edd30e6b59ccd772974769903011e54247b",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "kaggle_test_inference.py",
+        "bytes": 9433,
+        "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+        "already_local": true,
+        "same_local_bytes": true
+      }
+    ],
+    "status": "KernelWorkerStatus.COMPLETE",
+    "pull_exit": 0,
+    "remote_file_count": 15
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "backend": "agy",
+  "model": "gemini-3.8-flash-medium",
+  "delivery_mode": "response_files",
+  "tasks": [
+    "indexer",
+    "tests",
+    "review_contract",
+    "review_contract_fix1",
+    "source_fetcher"
+  ],
+  "gpt_subagents_allowed": false,
+  "private_data_export": false,
+  "frozen_sources": [],
+  "local_execution": "coordinator reviews worker code then runs it locally; never send records or indexes to workers"
+}

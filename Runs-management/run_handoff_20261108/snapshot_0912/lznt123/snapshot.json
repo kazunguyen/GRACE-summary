@@ -1,0 +1,205 @@
+{
+  "owner": "lznt123",
+  "checked_at_utc": "2026-11-08T02:11:06.025977+00:00",
+  "read_only": true,
+  "kernels": [
+    {
+      "ref": "lznt123/grace-b1-shuf-test",
+      "checked_at_utc": "2026-11-08T02:11:06.592781+00:00",
+      "artifacts": [
+        {
+          "path": "b1_shuf_test_runtime_locked/batch_summary.json",
+          "bytes": 385,
+          "sha256": "0a7bae247cd3b940de423c6a8932d597105b88d83190b66b0a7748b11c96f04c",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_shuf_test_runtime_locked/inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_shuf_test_runtime_locked/runtime_provenance/seed_42_tt2427_c/model_load_offload.log",
+          "bytes": 30445,
+          "sha256": "46739d6476102fb9fb64190cc4386deb95d7ab7b35c740fa4269ee54c0342ef2",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_shuf_test_runtime_locked/runtime_provenance/seed_42_tt2427_c/runtime_provenance.json",
+          "bytes": 22960,
+          "sha256": "de4c492d95f42fc43f424f1fb01b14a4e9060eb771f1ff367af2d44adadbe328",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "grace_diagnostics/inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        }
+      ],
+      "status": "ERROR",
+      "failure_message": "",
+      "remote_file_count": 28
+    },
+    {
+      "ref": "lznt123/grace-b3-locked-resume-20261108",
+      "checked_at_utc": "2026-11-08T02:11:12.578951+00:00",
+      "artifacts": [
+        {
+          "path": "b3_locked_20261108/B3/seed_42/devign/validation/group_identity.json",
+          "bytes": 331,
+          "sha256": "3120a529143d76f8f38e9b1ae16db0146673f30654036560a400a80acc28f61c",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_locked_20261108/B3/seed_42/devign/validation/records.jsonl",
+          "bytes": 3571382,
+          "sha256": "4d1ed656fabb329ad92b08888fb2a7950a8bfb867622465f295aa05b39e86700",
+          "count": 2732,
+          "unique_ids": 2732,
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_locked_20261108/B3/seed_42/reveal/validation/group_identity.json",
+          "bytes": 331,
+          "sha256": "f2ddd5afa01223680f8f621ad26391118013a0cdcf339ff00f407f3a1ff7bf16",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_locked_20261108/B3/seed_42/reveal/validation/records.jsonl",
+          "bytes": 1789238,
+          "sha256": "ba5e14fbea31c26e04a39bf7da25bd8757b28ac4d5af6f55bf7afea40a442473",
+          "count": 1326,
+          "unique_ids": 1326,
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_locked_20261108/inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_locked_20261108/locked_vti6l7nv/model_load_offload.log",
+          "bytes": 30445,
+          "sha256": "46739d6476102fb9fb64190cc4386deb95d7ab7b35c740fa4269ee54c0342ef2",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_locked_20261108/locked_vti6l7nv/runtime_provenance.json",
+          "bytes": 23627,
+          "sha256": "aa66d58414478612003f7410725bd096a85f7bc45029a8c72cefff75a514b331",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_locked_20261108/run_identity.json",
+          "bytes": 954,
+          "sha256": "96175e0af198fa3014e1bc5d2ad69296549f4a4c11ec1b30d5fec7138a8ab376",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_locked_20261108/status.json",
+          "bytes": 277,
+          "sha256": "d9123a4ffa568778784bc2c9b42f66e30d12b4bf2e76add0fbfdc182679d3887",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "grace_diagnostics/inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        }
+      ],
+      "status": "CANCEL_ACKNOWLEDGED",
+      "failure_message": "",
+      "remote_file_count": 27
+    },
+    {
+      "ref": "lznt123/grace-b3-validation",
+      "checked_at_utc": "2026-11-08T02:11:25.513698+00:00",
+      "artifacts": [
+        {
+          "path": "b3_validation/B3/seed_42/devign/validation/evaluation.json",
+          "bytes": 464,
+          "sha256": "c2fca95db17cc9d8e4acbb290e6ebfbb9c0f2705c78491a004012a1c0501657f",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b3_validation/B3/seed_42/devign/validation/records.jsonl",
+          "bytes": 3571382,
+          "sha256": "4d1ed656fabb329ad92b08888fb2a7950a8bfb867622465f295aa05b39e86700",
+          "count": 2732,
+          "unique_ids": 2732,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b3_validation/B3/seed_42/devign/validation/run_manifest.json",
+          "bytes": 859,
+          "sha256": "f40ebcbaf0038c0b441bec0c4a1f7923dcbf7fd3f9d81855a0d5e619f72e0b46",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b3_validation/B3/seed_42/reveal/validation/records.jsonl",
+          "bytes": 1745873,
+          "sha256": "feeb2298143202ca85382853a2b36abc5bda2e89f93f704d222714209c5a40b1",
+          "count": 1297,
+          "unique_ids": 1297,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b3_validation/B3/seed_42/reveal/validation/run_manifest.json",
+          "bytes": 859,
+          "sha256": "d05e274cf580602f550f22cc7f5f39eb28f4287753ea86fddf4ffb328a4f0d18",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b3_validation/batch_summary.json",
+          "bytes": 313,
+          "sha256": "f4187e92e86f9d946dbc32c178492d60dce885945ba2c4047fa1d360dc9f7e87",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        }
+      ],
+      "status": "COMPLETE",
+      "failure_message": "",
+      "remote_file_count": 22
+    }
+  ],
+  "listed_kernel_count": 38,
+  "finished_at_utc": "2026-11-08T02:11:33.445737+00:00"
+}

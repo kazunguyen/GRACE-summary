@@ -1,0 +1,32 @@
+{
+  "arm": "B2-labelonly",
+  "dataset": "devign",
+  "split": "test",
+  "seed": 42,
+  "count": 2732,
+  "bundle_sha256": null,
+  "prompts_sha256": "c6677d59bfcbd37befa757d38ede430e32bc946a798ef3dad36d98d16ba2c206",
+  "records_sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "backend": "llama-cpp-python==0.3.16",
+  "quantization": "Q4_K_M",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "inference_seed": 4294967295,
+  "tau_star": 0.99,
+  "evaluation": {
+    "arm": "B2-labelonly",
+    "dataset": "devign",
+    "split": "test",
+    "seed": 42,
+    "tau_locked": 0.99,
+    "n_total": 2732,
+    "n_valid": 2732,
+    "mcc_at_tau": 0.08485121351034793,
+    "auroc": 0.5462326725595924,
+    "ba_at_tau": 0.5321570859419464,
+    "f1_at_tau": 0.30127462340672073,
+    "completed_at_utc": "2026-11-07T14:45:05.660582+00:00"
+  }
+}

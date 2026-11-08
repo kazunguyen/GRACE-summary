@@ -1,6 +1,6 @@
 # Báo cáo kết quả các arm GRACE đã hoàn tất
 
-**Ngày:** 07/11/2026  
+**Ngày:** 07/11/2026<br>
 **Phạm vi:** B0, B1, B2, B2-flip và B1-H2 có đủ validation/test trên cả hai dataset. B2-rand seed 42 và 43 cũng đã đủ validation/test trên cả hai dataset sau khi I-20 ghép các record REVEAL còn thiếu: mỗi seed có 5.006/5.006 test record. Các arm còn lại chưa có đủ output được xác minh để đưa vào bảng.
 
 ## 1. Ngưỡng và metric của các arm đã hoàn tất

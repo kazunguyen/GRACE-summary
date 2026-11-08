@@ -1,0 +1,32 @@
+{
+  "arm": "B2-labelonly",
+  "dataset": "reveal",
+  "split": "test",
+  "seed": 42,
+  "count": 2274,
+  "bundle_sha256": null,
+  "prompts_sha256": "e384ea206aa4f449a81130e6400831f910c5c03c3c64288d18f039e885e9e12d",
+  "records_sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "backend": "llama-cpp-python==0.3.16",
+  "quantization": "Q4_K_M",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "inference_seed": 4294967295,
+  "tau_star": 0.02,
+  "evaluation": {
+    "arm": "B2-labelonly",
+    "dataset": "reveal",
+    "split": "test",
+    "seed": 42,
+    "tau_locked": 0.02,
+    "n_total": 2274,
+    "n_valid": 2274,
+    "mcc_at_tau": 0.11990683904183293,
+    "auroc": 0.6005402875861482,
+    "ba_at_tau": 0.598596103122607,
+    "f1_at_tau": 0.23095823095823095,
+    "completed_at_utc": "2026-11-07T17:58:17.264807+00:00"
+  }
+}

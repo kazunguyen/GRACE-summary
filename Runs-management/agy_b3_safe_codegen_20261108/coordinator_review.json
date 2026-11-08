@@ -1,0 +1,13 @@
+{
+  "gpt_subagents_used": false,
+  "backend": "agy",
+  "worker_model": "gemini-3.8-flash-medium",
+  "synthetic_scanner_tests": 12,
+  "unchanged_original_sources": 9,
+  "changed_original_sources": [],
+  "freeze_manifest_seal_verified": true,
+  "local_execution_only": true,
+  "admitted_pairs": 0,
+  "reviewed_pairs": 0,
+  "source_network_outcome": "16 requests failed TLS issuer verification; 0 usable responses"
+}

@@ -1,0 +1,71 @@
+{
+  "arm": "B2-labelonly",
+  "source_kernel": "tomandjerry223/grace-b2-labelonly-test",
+  "remote_status": "COMPLETE",
+  "runtime_lock_fully_certified": false,
+  "runtime_limitations": "Six package/core model/constructor checks passed; missing verified source/build/native full-offload provenance. No retrospective full-lock certification.",
+  "threshold_source": "12_Arm_B2_LabelOnly\\config\\threshold.json",
+  "threshold_source_sha256": "e7cae249ae9ba74233b503c8a4ee8327bee5a78360e3618bf6141c7d540d53f9",
+  "datasets": [
+    {
+      "dataset": "devign",
+      "metrics": {
+        "tau": 0.99,
+        "n": 2732,
+        "auroc": 0.5462326725595924,
+        "mcc_at_tau": 0.08485121351034793,
+        "ba_at_tau": 0.5321570859419464,
+        "f1_at_tau": 0.30127462340672073
+      },
+      "records_sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+      "raw_invalid": 0,
+      "files": [
+        {
+          "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\records.jsonl",
+          "sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+          "bytes": 2610746
+        },
+        {
+          "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\evaluation.json",
+          "sha256": "e6fbef43d20a92c329ba0275da2d5b189035d72a645afcc71b58858ea2b45c05",
+          "bytes": 340
+        },
+        {
+          "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\run_manifest.json",
+          "sha256": "832ef7cdcf2e278e338be363a46f716d7c3286c9213db1052c187e6c47ca6b48",
+          "bytes": 1074
+        }
+      ]
+    },
+    {
+      "dataset": "reveal",
+      "metrics": {
+        "tau": 0.02,
+        "n": 2274,
+        "auroc": 0.6005402875861482,
+        "mcc_at_tau": 0.11990683904183293,
+        "ba_at_tau": 0.598596103122607,
+        "f1_at_tau": 0.23095823095823098
+      },
+      "records_sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+      "raw_invalid": 0,
+      "files": [
+        {
+          "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\reveal\\test\\records.jsonl",
+          "sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+          "bytes": 2175394
+        },
+        {
+          "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\reveal\\test\\evaluation.json",
+          "sha256": "21d93486a69f079cbccdc9b13dc4bd68e1817dfdce744b85eb6d3629421a4376",
+          "bytes": 339
+        },
+        {
+          "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\reveal\\test\\run_manifest.json",
+          "sha256": "a8c43ecec41dc8c5736b7e0860272216424704e04bb86d4340ff42588a831d11",
+          "bytes": 1073
+        }
+      ]
+    }
+  ]
+}

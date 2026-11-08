@@ -1,0 +1,14 @@
+{
+  "arm": "B2-labelonly",
+  "dataset": "reveal",
+  "split": "test",
+  "seed": 42,
+  "tau_locked": 0.02,
+  "n_total": 2274,
+  "n_valid": 2274,
+  "mcc_at_tau": 0.11990683904183293,
+  "auroc": 0.6005402875861482,
+  "ba_at_tau": 0.598596103122607,
+  "f1_at_tau": 0.23095823095823095,
+  "completed_at_utc": "2026-11-07T17:58:17.264807+00:00"
+}

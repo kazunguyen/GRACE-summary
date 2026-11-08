@@ -1,0 +1,39 @@
+{
+  "task": "review_contract_fix1",
+  "backend": "agy",
+  "model": "gemini-3.8-flash-medium",
+  "started_at": "2026-11-08T02:06:04.949997+00:00",
+  "state": "completed",
+  "prompt_sha256": "2e26cf423403cd3ece2ec306d673d648594a2ee4584f49d590a55dc8acc189bd",
+  "input_manifest_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+  "review_status": "accepted",
+  "pid": 25132,
+  "returncode": 0,
+  "agy_status": "SUCCESS",
+  "conversation_id": "984278f1-1560-44c1-b9b2-5186a4ead9ec",
+  "usage": {
+    "input_tokens": 15666,
+    "output_tokens": 7856,
+    "thinking_tokens": 4328,
+    "cache_read_tokens": 0,
+    "total_tokens": 23522
+  },
+  "denied_actions": [],
+  "worker_summary": "Regenerated REVIEW_GUIDE.md and admission_checklist.json strictly adhering to the B3 diagnostic arm scope, frozen clean TRAIN bank constraints, two-person genuine human review protocol, canonical payload SHA256 computation, exact exhaustive Fraction Jaccard selection, Figure 6 prompt ordering and token limits, hard-stop policies for oversized pairs or empty pools, and immutable pre-registration threshold governance without fabricated reviews or unsupported requirements.",
+  "finished_at": "2026-11-08T02:07:03.135473+00:00",
+  "elapsed_seconds": 58.188,
+  "changed_inputs": [],
+  "outputs": [
+    {
+      "path": "outputs\\admission_checklist.json",
+      "sha256": "71f40b213952e8a732969edce7570195b8ea0d60f3ffd290030bf063aaed1bdc",
+      "bytes": 4837
+    },
+    {
+      "path": "outputs\\REVIEW_GUIDE.md",
+      "sha256": "a6354536ec4fe8f39755fcebc88f49b1fa767914b98f145047d618af0d666b15",
+      "bytes": 7738
+    }
+  ],
+  "review_scope": "Workflow checklist only; checked against amended_b3.py; not pair admission or human approval"
+}

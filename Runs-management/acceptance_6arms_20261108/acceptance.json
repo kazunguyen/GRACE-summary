@@ -1,0 +1,1759 @@
+{
+  "checked_at_utc": "2026-11-08T00:12:47.561772+00:00",
+  "results": [
+    {
+      "arm": "B2-labelonly",
+      "source": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test",
+      "runtime": {
+        "packages": {
+          "numpy": {
+            "expected": "2.1.3",
+            "installation_log_match": true
+          },
+          "huggingface-hub": {
+            "expected": "0.36.2",
+            "installation_log_match": true
+          },
+          "tokenizers": {
+            "expected": "0.22.2",
+            "installation_log_match": true
+          },
+          "transformers": {
+            "expected": "4.57.1",
+            "installation_log_match": true
+          },
+          "llama-cpp-python": {
+            "expected": "0.3.16",
+            "installation_log_match": true
+          },
+          "scikit-learn": {
+            "expected": "1.5.2",
+            "installation_log_match": true
+          }
+        },
+        "native_offload_49_49": false,
+        "detected_two_t4": true,
+        "model_sha_guard_success": true,
+        "log_path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\grace-b2-labelonly-test.log",
+        "log_sha256": "3db24a540e27f674a24d2435571b1a9ead67f77b56a10ec8b0c1118766966f98",
+        "runtime_provenance_files": []
+      },
+      "datasets": [
+        {
+          "dataset": "devign",
+          "split": "test",
+          "seed": 42,
+          "n": 2732,
+          "expected": 2732,
+          "missing": 0,
+          "problems": {},
+          "score_logprob_max_error": 1.1102230246251565e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\b2_labelonly_test\\seed_42\\devign\\test\\records.jsonl",
+          "records_sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+          "total_elapsed_s": 14871.43201585097,
+          "start_utc": "2026-11-07T10:36:33.364489+00:00",
+          "end_utc": "2026-11-07T14:45:05.493043+00:00",
+          "computed_metrics": {
+            "tau": 0.99,
+            "n": 2732,
+            "auroc": 0.5462326725595924,
+            "mcc_at_tau": 0.08485121351034793,
+            "ba_at_tau": 0.5321570859419464,
+            "f1_at_tau": 0.30127462340672073
+          },
+          "evaluation_matches": true,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": true,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 42,
+          "n": 2274,
+          "expected": 2274,
+          "missing": 0,
+          "problems": {},
+          "score_logprob_max_error": 1.1102230246251565e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\b2_labelonly_test\\seed_42\\reveal\\test\\records.jsonl",
+          "records_sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+          "total_elapsed_s": 11525.871623021987,
+          "start_utc": "2026-11-07T14:45:31.424200+00:00",
+          "end_utc": "2026-11-07T17:58:17.093560+00:00",
+          "computed_metrics": {
+            "tau": 0.02,
+            "n": 2274,
+            "auroc": 0.6005402875861482,
+            "mcc_at_tau": 0.11990683904183293,
+            "ba_at_tau": 0.598596103122607,
+            "f1_at_tau": 0.23095823095823098
+          },
+          "evaluation_matches": true,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": true,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        }
+      ],
+      "checkpoints": [
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\grace_b2_labelonly_test_checkpoint.zip",
+          "sha256": "ed7167c8929d210e909602554ccd66ff43ad77f7d7a922c55d93c97779095aad",
+          "crc_ok": true,
+          "members": [
+            {
+              "name": "seed_42/reveal/test/records.jsonl",
+              "n": 2274,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            },
+            {
+              "name": "seed_42/devign/test/records.jsonl",
+              "n": 2732,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            }
+          ]
+        },
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\grace_b2_labelonly_test_final_output.zip",
+          "sha256": "ed7167c8929d210e909602554ccd66ff43ad77f7d7a922c55d93c97779095aad",
+          "crc_ok": true,
+          "members": [
+            {
+              "name": "seed_42/reveal/test/records.jsonl",
+              "n": 2274,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            },
+            {
+              "name": "seed_42/devign/test/records.jsonl",
+              "n": 2732,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "B2-nolabel",
+      "source": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test",
+      "runtime": {
+        "packages": {
+          "numpy": {
+            "expected": "2.1.3",
+            "installation_log_match": true
+          },
+          "huggingface-hub": {
+            "expected": "0.36.2",
+            "installation_log_match": true
+          },
+          "tokenizers": {
+            "expected": "0.22.2",
+            "installation_log_match": true
+          },
+          "transformers": {
+            "expected": "4.57.1",
+            "installation_log_match": true
+          },
+          "llama-cpp-python": {
+            "expected": "0.3.16",
+            "installation_log_match": true
+          },
+          "scikit-learn": {
+            "expected": "1.5.2",
+            "installation_log_match": true
+          }
+        },
+        "native_offload_49_49": false,
+        "detected_two_t4": true,
+        "model_sha_guard_success": true,
+        "log_path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\grace-b2-nolabel-test.log",
+        "log_sha256": "c9a8baf7606ca7e238b930198697574bca97418192ede2a0744276d1744161fa",
+        "runtime_provenance_files": []
+      },
+      "datasets": [
+        {
+          "dataset": "devign",
+          "split": "test",
+          "seed": 42,
+          "n": 2732,
+          "expected": 2732,
+          "missing": 0,
+          "problems": {},
+          "score_logprob_max_error": 2.220446049250313e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\b2_nolabel_test\\seed_42\\devign\\test\\records.jsonl",
+          "records_sha256": "cd71dfe2902da36a0748d315fd8b1cf5c45c4710c33a6f829c93877833d12bf2",
+          "total_elapsed_s": 17840.266765567067,
+          "start_utc": "2026-11-07T10:35:18.047528+00:00",
+          "end_utc": "2026-11-07T15:33:22.984011+00:00",
+          "computed_metrics": {
+            "tau": 0.98,
+            "n": 2732,
+            "auroc": 0.5268982296946271,
+            "mcc_at_tau": 0.051783960819490445,
+            "ba_at_tau": 0.5250014161364023,
+            "f1_at_tau": 0.43644444444444447
+          },
+          "evaluation_matches": true,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": true,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 42,
+          "n": 2274,
+          "expected": 2274,
+          "missing": 0,
+          "problems": {},
+          "score_logprob_max_error": 2.220446049250313e-16,
+          "raw_invalid": 1,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\b2_nolabel_test\\seed_42\\reveal\\test\\records.jsonl",
+          "records_sha256": "8259d08187fe0085c0a571ad1393d631a427ee2b571792de2b85b4ba0b766bc1",
+          "total_elapsed_s": 13081.7529612441,
+          "start_utc": "2026-11-07T15:33:45.886789+00:00",
+          "end_utc": "2026-11-07T19:12:29.074764+00:00",
+          "computed_metrics": {
+            "tau": 0.21,
+            "n": 2274,
+            "auroc": 0.5720837233046882,
+            "mcc_at_tau": 0.08353268129365758,
+            "ba_at_tau": 0.5692418956862078,
+            "f1_at_tau": 0.21029082774049218
+          },
+          "evaluation_matches": true,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": true,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        }
+      ],
+      "checkpoints": [
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\grace_b2_nolabel_test_checkpoint.zip",
+          "sha256": "833d2f8ded600dd35733887885aefbab198658def36748984538bc80428e6599",
+          "crc_ok": true,
+          "members": [
+            {
+              "name": "seed_42/reveal/test/records.jsonl",
+              "n": 2274,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            },
+            {
+              "name": "seed_42/devign/test/records.jsonl",
+              "n": 2732,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            }
+          ]
+        },
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\grace_b2_nolabel_test_final_output.zip",
+          "sha256": "833d2f8ded600dd35733887885aefbab198658def36748984538bc80428e6599",
+          "crc_ok": true,
+          "members": [
+            {
+              "name": "seed_42/reveal/test/records.jsonl",
+              "n": 2274,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            },
+            {
+              "name": "seed_42/devign/test/records.jsonl",
+              "n": 2732,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "B2-rep",
+      "source": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test",
+      "runtime": {
+        "packages": {
+          "numpy": {
+            "expected": "2.1.3",
+            "installation_log_match": true
+          },
+          "huggingface-hub": {
+            "expected": "0.36.2",
+            "installation_log_match": true
+          },
+          "tokenizers": {
+            "expected": "0.22.2",
+            "installation_log_match": true
+          },
+          "transformers": {
+            "expected": "4.57.1",
+            "installation_log_match": true
+          },
+          "llama-cpp-python": {
+            "expected": "0.3.16",
+            "installation_log_match": true
+          },
+          "scikit-learn": {
+            "expected": "1.5.2",
+            "installation_log_match": true
+          }
+        },
+        "native_offload_49_49": false,
+        "detected_two_t4": true,
+        "model_sha_guard_success": true,
+        "log_path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\grace-b2-rep-test.log",
+        "log_sha256": "0f638135d98a3983dcc738ed74d7f2da2bf2f07df269b9c719febf9ddda7d765",
+        "runtime_provenance_files": []
+      },
+      "datasets": [
+        {
+          "dataset": "devign",
+          "split": "test",
+          "seed": 42,
+          "n": 2732,
+          "expected": 2732,
+          "missing": 0,
+          "problems": {},
+          "score_logprob_max_error": 2.220446049250313e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\b2_rep_test\\seed_42\\devign\\test\\records.jsonl",
+          "records_sha256": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+          "total_elapsed_s": 18918.787528425004,
+          "start_utc": "2026-11-07T11:31:39.442827+00:00",
+          "end_utc": "2026-11-07T16:47:43.993485+00:00",
+          "computed_metrics": {
+            "tau": 0.7,
+            "n": 2732,
+            "auroc": 0.530472827714194,
+            "mcc_at_tau": 0.05970792503495321,
+            "ba_at_tau": 0.5293261618387655,
+            "f1_at_tau": 0.5484649879268714
+          },
+          "evaluation_matches": true,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": true,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 42,
+          "n": 2274,
+          "expected": 2274,
+          "missing": 0,
+          "problems": {},
+          "score_logprob_max_error": 2.220446049250313e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\b2_rep_test\\seed_42\\reveal\\test\\records.jsonl",
+          "records_sha256": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+          "total_elapsed_s": 13897.248811491987,
+          "start_utc": "2026-11-07T16:48:08.666414+00:00",
+          "end_utc": "2026-11-07T20:40:29.259667+00:00",
+          "computed_metrics": {
+            "tau": 0.12,
+            "n": 2274,
+            "auroc": 0.566157576788905,
+            "mcc_at_tau": 0.0644842051733298,
+            "ba_at_tau": 0.5530651748489748,
+            "f1_at_tau": 0.200531208499336
+          },
+          "evaluation_matches": true,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": true,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        }
+      ],
+      "checkpoints": [
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\grace_b2_rep_test_checkpoint.zip",
+          "sha256": "217995c89824fc4509f3b76fed0e7bb0e9cb5a593e1c0d00e750e00465a54d6e",
+          "crc_ok": true,
+          "members": [
+            {
+              "name": "seed_42/devign/test/records.jsonl",
+              "n": 2732,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            },
+            {
+              "name": "seed_42/reveal/test/records.jsonl",
+              "n": 2274,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            }
+          ]
+        },
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\grace_b2_rep_test_final_output.zip",
+          "sha256": "217995c89824fc4509f3b76fed0e7bb0e9cb5a593e1c0d00e750e00465a54d6e",
+          "crc_ok": true,
+          "members": [
+            {
+              "name": "seed_42/devign/test/records.jsonl",
+              "n": 2732,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            },
+            {
+              "name": "seed_42/reveal/test/records.jsonl",
+              "n": 2274,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "B1-full",
+      "source": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test",
+      "runtime": {
+        "packages": {
+          "numpy": {
+            "expected": "2.1.3",
+            "installation_log_match": true
+          },
+          "huggingface-hub": {
+            "expected": "0.36.2",
+            "installation_log_match": true
+          },
+          "tokenizers": {
+            "expected": "0.22.2",
+            "installation_log_match": true
+          },
+          "transformers": {
+            "expected": "4.57.1",
+            "installation_log_match": true
+          },
+          "llama-cpp-python": {
+            "expected": "0.3.16",
+            "installation_log_match": true
+          },
+          "scikit-learn": {
+            "expected": "1.5.2",
+            "installation_log_match": true
+          }
+        },
+        "native_offload_49_49": false,
+        "detected_two_t4": true,
+        "model_sha_guard_success": true,
+        "log_path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\grace-b1-full-test.log",
+        "log_sha256": "d41102809779c4906cbda4b540f544f335966e3693d564b8197a9acaf9dc7615",
+        "runtime_provenance_files": []
+      },
+      "datasets": [
+        {
+          "dataset": "devign",
+          "split": "test",
+          "seed": 42,
+          "n": 2732,
+          "expected": 2732,
+          "missing": 0,
+          "problems": {},
+          "score_logprob_max_error": 2.220446049250313e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\b1_full_test\\seed_42\\devign\\test\\records.jsonl",
+          "records_sha256": "61fccf1ab2670afeddab2df6f830425ce7443caae18b3d50eb7fe021040ee577",
+          "total_elapsed_s": 27530.837656670035,
+          "start_utc": "2026-11-07T11:16:45.045445+00:00",
+          "end_utc": "2026-11-07T18:56:28.317076+00:00",
+          "computed_metrics": {
+            "tau": 0.99,
+            "n": 2732,
+            "auroc": 0.5308542404518689,
+            "mcc_at_tau": 0.06398429386683292,
+            "ba_at_tau": 0.5228116646481104,
+            "f1_at_tau": 0.26144578313253014
+          },
+          "evaluation_matches": true,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 37,
+          "complete_record_integrity": true,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 42,
+          "n": 118,
+          "expected": 2274,
+          "missing": 2156,
+          "problems": {},
+          "score_logprob_max_error": 1.1102230246251565e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\b1_full_test\\seed_42\\reveal\\test\\records.jsonl",
+          "records_sha256": "bbee17aba234cc1a11c1933412de7f2d6f40350c642f9eeac16e308ae2cedfa4",
+          "total_elapsed_s": 1164.1544497549767,
+          "start_utc": "2026-11-07T18:57:00.163684+00:00",
+          "end_utc": "2026-11-07T19:16:16.451802+00:00",
+          "computed_metrics": {
+            "tau": 0.01,
+            "n": 118,
+            "auroc": 0.5267629566694988,
+            "mcc_at_tau": 0.11659737319751597,
+            "ba_at_tau": 0.5960067969413764,
+            "f1_at_tau": 0.20689655172413793
+          },
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 5,
+          "complete_record_integrity": false
+        }
+      ],
+      "checkpoints": [
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\grace_b1_full_test_checkpoint.zip",
+          "sha256": "2b151c08ba212ac7af18ff29e79a41fcff83ec9fce32477380d27e2fd690c319",
+          "crc_ok": true,
+          "members": [
+            {
+              "name": "seed_42/reveal/test/records.jsonl",
+              "n": 114,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 4
+            },
+            {
+              "name": "seed_42/devign/test/records.jsonl",
+              "n": 2732,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "B3",
+      "source": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation",
+      "runtime": {
+        "packages": {
+          "numpy": {
+            "expected": "2.1.3",
+            "installation_log_match": true
+          },
+          "huggingface-hub": {
+            "expected": "0.36.2",
+            "installation_log_match": true
+          },
+          "tokenizers": {
+            "expected": "0.22.2",
+            "installation_log_match": true
+          },
+          "transformers": {
+            "expected": "4.57.1",
+            "installation_log_match": true
+          },
+          "llama-cpp-python": {
+            "expected": "0.3.16",
+            "installation_log_match": true
+          },
+          "scikit-learn": {
+            "expected": "1.5.2",
+            "installation_log_match": true
+          }
+        },
+        "native_offload_49_49": true,
+        "detected_two_t4": true,
+        "model_sha_guard_success": false,
+        "log_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\grace-b3-validation.log",
+        "log_sha256": "be37d82aa2bbd05217f0143799f9220aaca880b27094305dc7f7126c34b094f5",
+        "runtime_provenance_files": []
+      },
+      "datasets": [
+        {
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "expected": 2732,
+          "missing": 0,
+          "problems": {},
+          "score_logprob_max_error": 2.220446049250313e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\b3_validation\\B3\\seed_42\\devign\\validation\\records.jsonl",
+          "records_sha256": "4d1ed656fabb329ad92b08888fb2a7950a8bfb867622465f295aa05b39e86700",
+          "total_elapsed_s": 22726.18472924804,
+          "start_utc": "2026-11-07T12:03:33.099585+00:00",
+          "end_utc": "2026-11-07T18:23:11.084166+00:00",
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": true,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        },
+        {
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 1297,
+          "expected": 2273,
+          "missing": 976,
+          "problems": {},
+          "score_logprob_max_error": 1.1102230246251565e-16,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\b3_validation\\B3\\seed_42\\reveal\\validation\\records.jsonl",
+          "records_sha256": "feeb2298143202ca85382853a2b36abc5bda2e89f93f704d222714209c5a40b1",
+          "total_elapsed_s": 9195.441331931983,
+          "start_utc": "2026-11-07T18:23:20.490158+00:00",
+          "end_utc": "2026-11-07T20:56:52.029434+00:00",
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": false,
+          "manifest_record_hash_matches": true,
+          "manifest_has_runtime_contract": false
+        }
+      ],
+      "checkpoints": [
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\grace_b3_validation_checkpoint.zip",
+          "sha256": "8177cef57cc11bb4da39a726168d09c6b7a4ae2cb8abd50f55cb3fff43e6a86b",
+          "crc_ok": true,
+          "members": [
+            {
+              "name": "B3/seed_42/reveal/validation/records.jsonl",
+              "n": 1297,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            },
+            {
+              "name": "B3/seed_42/devign/validation/records.jsonl",
+              "n": 2732,
+              "matches_loose_records": true,
+              "loose_rows_not_in_archive": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "B1-shuf",
+      "source": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test",
+      "runtime": {
+        "packages": {
+          "numpy": {
+            "expected": "2.1.3",
+            "installation_log_match": true
+          },
+          "huggingface-hub": {
+            "expected": "0.36.2",
+            "installation_log_match": true
+          },
+          "tokenizers": {
+            "expected": "0.22.2",
+            "installation_log_match": true
+          },
+          "transformers": {
+            "expected": "4.57.1",
+            "installation_log_match": true
+          },
+          "llama-cpp-python": {
+            "expected": "0.3.16",
+            "installation_log_match": true
+          },
+          "scikit-learn": {
+            "expected": "1.5.2",
+            "installation_log_match": true
+          }
+        },
+        "native_offload_49_49": true,
+        "detected_two_t4": true,
+        "model_sha_guard_success": false,
+        "log_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\grace-b1-shuf-test.log",
+        "log_sha256": "0ce8f8c12b5d138747f36738eece526a4285cc4574f1fe818dae4a08de27c1a0",
+        "runtime_provenance_files": [
+          "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_runtime_locked\\runtime_provenance\\seed_42_tt2427_c\\runtime_provenance.json"
+        ]
+      },
+      "datasets": [
+        {
+          "dataset": "devign",
+          "split": "test",
+          "seed": 42,
+          "n": 0,
+          "expected": 2732,
+          "missing": 2732,
+          "problems": {},
+          "score_logprob_max_error": 0.0,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_runtime_locked\\seed_42\\devign\\test\\records.jsonl",
+          "records_sha256": null,
+          "total_elapsed_s": 0,
+          "start_utc": null,
+          "end_utc": null,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": false
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 42,
+          "n": 0,
+          "expected": 2274,
+          "missing": 2274,
+          "problems": {},
+          "score_logprob_max_error": 0.0,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_runtime_locked\\seed_42\\reveal\\test\\records.jsonl",
+          "records_sha256": null,
+          "total_elapsed_s": 0,
+          "start_utc": null,
+          "end_utc": null,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": false
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "seed": 43,
+          "n": 0,
+          "expected": 2732,
+          "missing": 2732,
+          "problems": {},
+          "score_logprob_max_error": 0.0,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_runtime_locked\\seed_43\\devign\\test\\records.jsonl",
+          "records_sha256": null,
+          "total_elapsed_s": 0,
+          "start_utc": null,
+          "end_utc": null,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": false
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 43,
+          "n": 0,
+          "expected": 2274,
+          "missing": 2274,
+          "problems": {},
+          "score_logprob_max_error": 0.0,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_runtime_locked\\seed_43\\reveal\\test\\records.jsonl",
+          "records_sha256": null,
+          "total_elapsed_s": 0,
+          "start_utc": null,
+          "end_utc": null,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": false
+        },
+        {
+          "dataset": "devign",
+          "split": "test",
+          "seed": 44,
+          "n": 0,
+          "expected": 2732,
+          "missing": 2732,
+          "problems": {},
+          "score_logprob_max_error": 0.0,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_runtime_locked\\seed_44\\devign\\test\\records.jsonl",
+          "records_sha256": null,
+          "total_elapsed_s": 0,
+          "start_utc": null,
+          "end_utc": null,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": false
+        },
+        {
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 44,
+          "n": 0,
+          "expected": 2274,
+          "missing": 2274,
+          "problems": {},
+          "score_logprob_max_error": 0.0,
+          "raw_invalid": 0,
+          "records_path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_runtime_locked\\seed_44\\reveal\\test\\records.jsonl",
+          "records_sha256": null,
+          "total_elapsed_s": 0,
+          "start_utc": null,
+          "end_utc": null,
+          "completed_records_over_8192": 0,
+          "completed_records_target_over_3000": 0,
+          "complete_record_integrity": false
+        }
+      ],
+      "checkpoints": [
+        {
+          "path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\grace_b1_shuf_test_runtime_locked_checkpoint.zip",
+          "sha256": "df5b729cf2eed457d9b300ba0245bea6c566b04772fba6ed2747af1180d8b4d7",
+          "crc_ok": true,
+          "members": []
+        }
+      ]
+    }
+  ],
+  "token_preflight": [
+    {
+      "arm": "B2-labelonly",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\b2_labelonly_test_bundles\\42_devign_test.zip",
+      "bundle_sha256": "81e746c87d59dc33ce87bfcb9975a8aa8a5585a7394fa4348f573f367b82a840",
+      "n": 2732,
+      "max_chat_tokens": 4577,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B2-labelonly",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\b2_labelonly_test_bundles\\42_reveal_test.zip",
+      "bundle_sha256": "31cda83c4de0508ef0b935a1c7c4a88e2a2e1d5eab1644aec9f25e6ac269c5b6",
+      "n": 2274,
+      "max_chat_tokens": 4577,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B2-nolabel",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\b2_nolabel_test_bundles\\42_devign_test.zip",
+      "bundle_sha256": "fb833f12874a2e896d02decb588c7eb33b795ddba7b794fd9635737525656b20",
+      "n": 2732,
+      "max_chat_tokens": 6072,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B2-nolabel",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\b2_nolabel_test_bundles\\42_reveal_test.zip",
+      "bundle_sha256": "35159907d3050ec361eadd9394571a5a440cf09a00adc38e32b02830183f8964",
+      "n": 2274,
+      "max_chat_tokens": 6071,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B2-rep",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\b2_rep_test_bundles\\42_devign_test.zip",
+      "bundle_sha256": "88971bb6eb176b7ca729c14dad8f3b7b1c918493e2af13bef7c86ca907ff9126",
+      "n": 2732,
+      "max_chat_tokens": 6077,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B2-rep",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\b2_rep_test_bundles\\42_reveal_test.zip",
+      "bundle_sha256": "46ffb537d657527b7b6c76f54741a2557c8d3b7bb0ddcf92b2d07af71a28179f",
+      "n": 2274,
+      "max_chat_tokens": 6077,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B1-full",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\b1_full_test_bundles\\42_devign_test.zip",
+      "bundle_sha256": "410b59ca65326739b1ac5db22811a2bcb504abf4979205aab56774899db93393",
+      "n": 2732,
+      "max_chat_tokens": 7763,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 37,
+      "violations": [
+        {
+          "id": "devign:test:569",
+          "chat_tokens": 4820,
+          "target_tokens": 3506,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:2053",
+          "chat_tokens": 5152,
+          "target_tokens": 3781,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:2190",
+          "chat_tokens": 5395,
+          "target_tokens": 3141,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:3517",
+          "chat_tokens": 7422,
+          "target_tokens": 3860,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:5356",
+          "chat_tokens": 5877,
+          "target_tokens": 3008,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:5567",
+          "chat_tokens": 4174,
+          "target_tokens": 3029,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:5670",
+          "chat_tokens": 7763,
+          "target_tokens": 4232,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:6829",
+          "chat_tokens": 4905,
+          "target_tokens": 3396,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:7109",
+          "chat_tokens": 4862,
+          "target_tokens": 3507,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:7622",
+          "chat_tokens": 3586,
+          "target_tokens": 3486,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:7716",
+          "chat_tokens": 4215,
+          "target_tokens": 3008,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:7852",
+          "chat_tokens": 4721,
+          "target_tokens": 3602,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:8241",
+          "chat_tokens": 4299,
+          "target_tokens": 3093,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:9366",
+          "chat_tokens": 6840,
+          "target_tokens": 3241,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:9727",
+          "chat_tokens": 4260,
+          "target_tokens": 3021,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:10295",
+          "chat_tokens": 4650,
+          "target_tokens": 3270,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:12828",
+          "chat_tokens": 4539,
+          "target_tokens": 3336,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:13204",
+          "chat_tokens": 4946,
+          "target_tokens": 4251,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:14289",
+          "chat_tokens": 4704,
+          "target_tokens": 3028,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:15388",
+          "chat_tokens": 6574,
+          "target_tokens": 3083,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:15980",
+          "chat_tokens": 4578,
+          "target_tokens": 3233,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:16360",
+          "chat_tokens": 5739,
+          "target_tokens": 3492,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:16664",
+          "chat_tokens": 4746,
+          "target_tokens": 3539,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:17682",
+          "chat_tokens": 6445,
+          "target_tokens": 3501,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:17932",
+          "chat_tokens": 4418,
+          "target_tokens": 3263,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:18545",
+          "chat_tokens": 5241,
+          "target_tokens": 4540,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:20022",
+          "chat_tokens": 4789,
+          "target_tokens": 4094,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:20035",
+          "chat_tokens": 4458,
+          "target_tokens": 3334,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:20352",
+          "chat_tokens": 4492,
+          "target_tokens": 3241,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:20467",
+          "chat_tokens": 7082,
+          "target_tokens": 4789,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:21106",
+          "chat_tokens": 5704,
+          "target_tokens": 3469,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:21538",
+          "chat_tokens": 6880,
+          "target_tokens": 3363,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:23256",
+          "chat_tokens": 6443,
+          "target_tokens": 3126,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:23299",
+          "chat_tokens": 4514,
+          "target_tokens": 3335,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:25245",
+          "chat_tokens": 7422,
+          "target_tokens": 3860,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:25854",
+          "chat_tokens": 4214,
+          "target_tokens": 3142,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "devign:test:25936",
+          "chat_tokens": 4662,
+          "target_tokens": 3560,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        }
+      ],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B1-full",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\b1_full_test_bundles\\42_reveal_test.zip",
+      "bundle_sha256": "89d6f8946ba4ce7a1a1c3007915d61c7a85b0d4a23395899c30c37f0d5cca63b",
+      "n": 2274,
+      "max_chat_tokens": 10200,
+      "over_8192": 1,
+      "over_8128": 1,
+      "target_over_3000": 47,
+      "violations": [
+        {
+          "id": "reveal:test:6",
+          "chat_tokens": 6891,
+          "target_tokens": 3222,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:57",
+          "chat_tokens": 7010,
+          "target_tokens": 3744,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:66",
+          "chat_tokens": 7426,
+          "target_tokens": 3871,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:67",
+          "chat_tokens": 4621,
+          "target_tokens": 3282,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:90",
+          "chat_tokens": 3925,
+          "target_tokens": 3825,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:118",
+          "chat_tokens": 10200,
+          "target_tokens": 6571,
+          "over_context": true,
+          "over_with_reserve": true,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:329",
+          "chat_tokens": 4813,
+          "target_tokens": 3558,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:481",
+          "chat_tokens": 6525,
+          "target_tokens": 3208,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:489",
+          "chat_tokens": 5172,
+          "target_tokens": 3829,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:520",
+          "chat_tokens": 7795,
+          "target_tokens": 4301,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:553",
+          "chat_tokens": 7207,
+          "target_tokens": 3710,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:584",
+          "chat_tokens": 7892,
+          "target_tokens": 4427,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:639",
+          "chat_tokens": 5082,
+          "target_tokens": 3666,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:689",
+          "chat_tokens": 4519,
+          "target_tokens": 4419,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:740",
+          "chat_tokens": 5082,
+          "target_tokens": 3974,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:771",
+          "chat_tokens": 4589,
+          "target_tokens": 3354,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:883",
+          "chat_tokens": 6950,
+          "target_tokens": 3708,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:886",
+          "chat_tokens": 6942,
+          "target_tokens": 3847,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1029",
+          "chat_tokens": 7724,
+          "target_tokens": 4175,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1055",
+          "chat_tokens": 5366,
+          "target_tokens": 4012,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1072",
+          "chat_tokens": 6406,
+          "target_tokens": 3524,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1112",
+          "chat_tokens": 4950,
+          "target_tokens": 3731,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1121",
+          "chat_tokens": 4180,
+          "target_tokens": 3040,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1243",
+          "chat_tokens": 4676,
+          "target_tokens": 3337,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1245",
+          "chat_tokens": 7010,
+          "target_tokens": 3744,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1260",
+          "chat_tokens": 4292,
+          "target_tokens": 3072,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1290",
+          "chat_tokens": 4613,
+          "target_tokens": 3387,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1352",
+          "chat_tokens": 4967,
+          "target_tokens": 3673,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1406",
+          "chat_tokens": 4949,
+          "target_tokens": 3415,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1440",
+          "chat_tokens": 5193,
+          "target_tokens": 3509,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1451",
+          "chat_tokens": 7493,
+          "target_tokens": 5056,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1452",
+          "chat_tokens": 3717,
+          "target_tokens": 3617,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1474",
+          "chat_tokens": 5064,
+          "target_tokens": 3644,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1660",
+          "chat_tokens": 4762,
+          "target_tokens": 3377,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1715",
+          "chat_tokens": 7578,
+          "target_tokens": 4062,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1793",
+          "chat_tokens": 7201,
+          "target_tokens": 3666,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1806",
+          "chat_tokens": 6953,
+          "target_tokens": 3572,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1828",
+          "chat_tokens": 6742,
+          "target_tokens": 3807,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1952",
+          "chat_tokens": 7054,
+          "target_tokens": 3621,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:1968",
+          "chat_tokens": 4742,
+          "target_tokens": 3530,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:2012",
+          "chat_tokens": 5245,
+          "target_tokens": 3887,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:2035",
+          "chat_tokens": 4720,
+          "target_tokens": 3436,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:2058",
+          "chat_tokens": 4514,
+          "target_tokens": 3283,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:2118",
+          "chat_tokens": 7010,
+          "target_tokens": 3744,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:2129",
+          "chat_tokens": 5425,
+          "target_tokens": 4191,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:2151",
+          "chat_tokens": 5381,
+          "target_tokens": 4008,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        },
+        {
+          "id": "reveal:test:2164",
+          "chat_tokens": 7137,
+          "target_tokens": 3577,
+          "over_context": false,
+          "over_with_reserve": false,
+          "target_over_3000": true
+        }
+      ],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B3-nodiff",
+      "dataset": "devign",
+      "split": "validation",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\b3_bundles\\B3-nodiff_42_devign.zip",
+      "bundle_sha256": "eedae5d7bfe3f804467314cb28c5c9c86a07805c6b3d678172fa51c4c279e6cf",
+      "n": 2732,
+      "max_chat_tokens": 7582,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B3-nodiff",
+      "dataset": "reveal",
+      "split": "validation",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\b3_bundles\\B3-nodiff_42_reveal.zip",
+      "bundle_sha256": "62120512d8b73e22393a720193ac717ccc78f36625054693b4d9c0c14aae3638",
+      "n": 2273,
+      "max_chat_tokens": 7582,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B3",
+      "dataset": "devign",
+      "split": "validation",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\b3_bundles\\B3_42_devign.zip",
+      "bundle_sha256": "84b1c33a426d3b7619c95913aebc8af4c2009cc502c0155ba82cd93b56d352b5",
+      "n": 2732,
+      "max_chat_tokens": 7614,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B3",
+      "dataset": "reveal",
+      "split": "validation",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\b3_bundles\\B3_42_reveal.zip",
+      "bundle_sha256": "6b975de076755aceed6483e0a363bbea11b29f50565248025542b540b823e991",
+      "n": 2273,
+      "max_chat_tokens": 7595,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_bundles\\42_devign.zip",
+      "bundle_sha256": "1c957c5f4ac32c359d9b532ab3dfb154a44251b7c4de5622373d9c2ea633f9e8",
+      "n": 2732,
+      "max_chat_tokens": 4575,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 42,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_bundles\\42_reveal.zip",
+      "bundle_sha256": "3f4a1d1409f8c3b8f51f6220f1ee5792fa151cffe5b95aa9c346b76f6d71550b",
+      "n": 2274,
+      "max_chat_tokens": 4579,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 43,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_bundles\\43_devign.zip",
+      "bundle_sha256": "c61b1fb8165ce644e3435a6692b5ce9186d3e05bf9e41bdb1cd3cf5ad37fee7f",
+      "n": 2732,
+      "max_chat_tokens": 4578,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 43,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_bundles\\43_reveal.zip",
+      "bundle_sha256": "3afe116461b36f11da19da18110889f14a6c240ecf38c4dcdd5ecb29f5ccd3e5",
+      "n": 2274,
+      "max_chat_tokens": 4575,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 44,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_bundles\\44_devign.zip",
+      "bundle_sha256": "bdfacdb30673207e47bbd231dbfb8a5c281e923a121ede0872543c345070e010",
+      "n": 2732,
+      "max_chat_tokens": 4577,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    },
+    {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 44,
+      "bundle": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b1-shuf-test\\b1_shuf_test_bundles\\44_reveal.zip",
+      "bundle_sha256": "b0bfbb818776e0345fc08686538c6d7d6db002abfe52e276734cecd8be768fb0",
+      "n": 2274,
+      "max_chat_tokens": 4578,
+      "over_8192": 0,
+      "over_8128": 0,
+      "target_over_3000": 0,
+      "violations": [],
+      "bundle_identity_issues": []
+    }
+  ],
+  "tokenizer_path": "11_Arm_B1H2_Evidence\\tokenizer_cache_v6\\models--Qwen--Qwen3-Coder-30B-A3B-Instruct\\snapshots\\b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "tokenizer_json_sha256": "2060f1d2a86446343bfee1c84d48b5b177a163f8737067b977fd49d622a0670f",
+  "scope": "Record-level and operational acceptance only; no new inference or test threshold fitting, no source data or remote state changes."
+}

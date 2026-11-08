@@ -31,3 +31,16 @@ Số arm: 6 arm Dũng đã/đang chạy; 5 arm đã giao Hiếu nhưng chưa ph�
 - B1-H2 Kaggle test: `worklogs/2026-11-06_b1h2_kaggle_test_preparation.md` xác nhận chuẩn bị, không phải thực thi GPU.
 - B2-rand live status: `duchuynguyen1802/02-kaggle-qwen-q4-b2-rand-ipynb` báo RUNNING. Số 7.789 là mốc I-11 đã kiểm, không phải số đếm trực tiếp của phiên đang chạy.
 - Họ B3: `Runs-management/b3_amended_20261106/README.md` ghi rõ implementation/software smoke, không inference bundle được duyệt và không inference GPU.
+
+---
+
+## Cập nhật Xác minh Thực địa nhóm Hiếu (23:45 07/11/2026)
+
+Đã xác minh đầy đủ danh tính và trạng thái thực thi của 6 arm do Hiếu phụ trách (qua 3 tài khoản Kaggle `huuhieu3333`, `tomandjerry223`, `lznt123`):
+1. **`B1-full`**: Đã hoàn tất validation census $5.005/5.005$ và khóa $\tau^*$ (Devign $0.99$, ReVeal $0.01$). Hiện kernel test `huuhieu3333/grace-b1-full-test` đang **RUNNING** (~5.5h).
+2. **`B2-rep`**: Đã hoàn tất validation census $5.005/5.005$ và kế thừa $\tau^*$ từ B2 (Devign $0.70$, ReVeal $0.12$). Hiện kernel test `huuhieu3333/grace-b2-rep-test` đang **RUNNING** (~5.5h) với cache isolation (`repeat: true`, `tag="repeat"`).
+3. **`B2-labelonly`**: Đã hoàn tất validation census $5.005/5.005$ và khóa $\tau^*$ (Devign $0.99$, ReVeal $0.02$). **ĐÃ HOÀN TẤT TEST CENSUS** $5.006/5.006$ mẫu trên kernel `tomandjerry223/grace-b2-labelonly-test` (**COMPLETE**, output đã tải về và kiểm toán nghiệm thu 100%).
+4. **`B2-nolabel`**: Đã hoàn tất validation census $5.005/5.005$ và khóa $\tau^*$ (Devign $0.98$, ReVeal $0.21$). Hiện kernel test `tomandjerry223/grace-b2-nolabel-test` đang **RUNNING** (~7.8h, chặng cuối).
+5. **`B1-shuf`**: Đã hoàn tất validation census 3 seeds ($15.015$ mẫu). Đã tải bù sạch 100% donors ReVeal ($17.636$ donors), sinh trọn bộ $15.018$ prompts Test trên 3 seeds, đóng gói `grace_b1_shuf_test_inputs.zip` ($15.4$ MB) và upload lên Kaggle Dataset `lznt123/grace-b1-shuf-test-inputs`. Notebook test 9-cell chuẩn `grace_qwen_q4_runtime_v1` đã đẩy lên Kaggle và đang **QUEUED** tại `lznt123/grace-b1-shuf-test`.
+6. **`B3`**: Kernel `lznt123/grace-b3-validation` đang **RUNNING** (~6.2h) trên tập validation $10.010$ mẫu (`grace_b3_validation_inputs.zip`). Notebook 9-cell B3 Amended chuẩn `grace_qwen_q4_runtime_v1` đã hoàn thiện tại local.
+Chi tiết xem tại: `worklogs/2026-11-07_cap_nhat_tien_do_thuc_thi_test_va_kiem_toan_runtime_nhom_hieu.md` và `worklogs/2026-11-08_giam_sat_va_nghiem_thu_test_cac_arm_nhom_hieu.md`.

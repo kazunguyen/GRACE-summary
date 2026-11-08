@@ -1,0 +1,14 @@
+[
+  {
+    "dataset": "devign",
+    "n_per_arm": 2732,
+    "shared_code_graph_and_nolabel_demo_differences": [],
+    "graph_or_demo_over_1500": []
+  },
+  {
+    "dataset": "reveal",
+    "n_per_arm": 2274,
+    "shared_code_graph_and_nolabel_demo_differences": [],
+    "graph_or_demo_over_1500": []
+  }
+]

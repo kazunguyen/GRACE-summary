@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-11-08T01:31:18.725988+00:00",
+  "ref": "/code/huuhieu3333/grace-b3-only-resume-20261108",
+  "url": "https://www.kaggle.com/code/huuhieu3333/grace-b3-only-resume-20261108",
+  "version": 1,
+  "error": "",
+  "invalid_dataset_sources": [],
+  "invalid_kernel_sources": [],
+  "requested_machine_shape": "NvidiaTeslaT4",
+  "notebook_sha256": "b074c5333fe56821030013f7659feb821ef3f6c836df1fe3bb8278370abbafb4"
+}

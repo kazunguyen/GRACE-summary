@@ -1,0 +1,20 @@
+{
+  "passed": [
+    "b1_shuf: wrong input hash",
+    "b1_shuf: corrupted prompts",
+    "b1_shuf: unproven new record",
+    "b1_shuf: census, locks, exact worker source, notebook syntax and legacy equality",
+    "b3: wrong input hash",
+    "b3: corrupted prompts",
+    "B3: modified historical score",
+    "b3: unproven new record",
+    "b3: census, locks, exact worker source, notebook syntax and legacy equality",
+    "b1_full: wrong input hash",
+    "b1_full: corrupted prompts",
+    "b1_full: unproven new record",
+    "b1_full: census, locks, exact worker source, notebook syntax and legacy equality",
+    "Stable score calculation on extreme logits",
+    "B1-full exact validation prompt parity and full test component budgets"
+  ],
+  "count": 15
+}

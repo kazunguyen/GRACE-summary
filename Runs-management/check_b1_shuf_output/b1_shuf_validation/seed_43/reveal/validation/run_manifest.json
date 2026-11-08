@@ -1,0 +1,21 @@
+{
+  "bundle_sha256": "61988fc410f462e1211cb593d43a50c1b12035c72718f27c74bac49f18370056",
+  "prompt_set_sha256": "85d7508dbaf5fa3d36552f7ea6c4eadba096c36a1f21c887579a2dc52568a7fd",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "quantization": "Q4_K_M",
+  "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "llama_cpp_python": "0.3.16",
+  "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "gpu_layers": -1,
+  "context_tokens": 8192,
+  "scoring": "unconstrained_first_token_logits_v1",
+  "limit": null,
+  "python": "3.13.16",
+  "dataset": "reveal",
+  "split": "validation",
+  "arm": "B1-shuf",
+  "prompt_seed": 43
+}

@@ -1,0 +1,7 @@
+# Generated scripts/checklists and execution ledgers are reviewable deliverables.
+# Local full donor indexes and candidate inventories are not Git handoff payloads.
+/local_test_tmp/
+/local_discovery/*/candidate_pairs.jsonl
+/local_discovery/*/donor_index.jsonl
+/local_discovery/*/prioritized_candidates.json
+/local_source_recon/

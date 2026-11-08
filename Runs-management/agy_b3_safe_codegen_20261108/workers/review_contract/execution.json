@@ -1,0 +1,39 @@
+{
+  "task": "review_contract",
+  "backend": "agy",
+  "model": "gemini-3.8-flash-medium",
+  "started_at": "2026-11-08T02:04:03.213229+00:00",
+  "state": "completed",
+  "prompt_sha256": "94d231d5ffcb192990b4f5a5ca27df9cf7726be5b97cce5db532a1c933b1b197",
+  "input_manifest_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+  "review_status": "rejected",
+  "pid": 25224,
+  "returncode": 0,
+  "agy_status": "SUCCESS",
+  "conversation_id": "23d73d7e-43ff-40bc-be12-17b613d8ef2d",
+  "usage": {
+    "input_tokens": 15432,
+    "output_tokens": 4836,
+    "thinking_tokens": 1017,
+    "cache_read_tokens": 0,
+    "total_tokens": 20268
+  },
+  "denied_actions": [],
+  "worker_summary": "B3 paired-donor human review guide and admission checklist enforcing verified source provenance, dual human review, cryptographic payload binding, and staged admission protocol.",
+  "finished_at": "2026-11-08T02:04:44.880101+00:00",
+  "elapsed_seconds": 41.672,
+  "changed_inputs": [],
+  "outputs": [
+    {
+      "path": "outputs\\admission_checklist.json",
+      "sha256": "d2b781f432dfe0c8bccc020df4aa00e0e13402e04d248b4fc3d59b0c6fb6f0c3",
+      "bytes": 7249
+    },
+    {
+      "path": "outputs\\REVIEW_GUIDE.md",
+      "sha256": "d194ea9acdf9aadb1b373e78409199cb1b4742844691d08e4b2c3071fb360b2a",
+      "bytes": 8529
+    }
+  ],
+  "review_reason": "Invented ranking alternatives/fallback and instructed frozen threshold-config edits; requested corrected draft with exact existing rules."
+}

@@ -18,3 +18,6 @@
 /Runs-management/donor_reconciliation_20261101/new_reference/B2/** -text
 
 /Runs-management/osf_registration_draft_20261102/** -text
+
+# Preserve the newly accepted inference artifacts and their source SHA256s.
+/Runs-management/run_handoff_20261108/completed_results/** -text whitespace=cr-at-eol

@@ -68,7 +68,7 @@ The B3 hypotheses and outcome definitions remain unchanged. The amended selector
 ### Randomization
 
 ```text
-The study employs a fully paired, within-subject experimental design where all test instances are evaluated across all active experimental arms (no random assignment of samples to arms). 
+The study employs a fully paired, within-subject experimental design where all test instances are evaluated across all active experimental arms (no random assignment of samples to arms).
 
 For components requiring pseudo-randomization:
 1. Stochastic Ablation Arms: Arm B2-rand (random demonstration donor sampling from clean train bank) and Arm B1-shuf (CPG graph node/edge permuting) use fixed pre-registered pseudo-random seeds (primary seed 42, evaluated across seeds 42, 43, 44).

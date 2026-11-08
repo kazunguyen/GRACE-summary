@@ -1,0 +1,2 @@
+# Keep fresh raw download snapshots local; publish checked result copies below.
+/snapshot_0912/*/*/artifacts/

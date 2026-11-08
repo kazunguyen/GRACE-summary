@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B3DonorPairAdmissionChecklist",
+  "description": "Admission criteria and schema verification checklist for candidate pairs in the B3 diagnostic arm.",
+  "scope": "B3",
+  "bank": {
+    "donor_pool": "frozen clean TRAIN bank",
+    "dataset": "matches target dataset (Devign or REVEAL)",
+    "labels": {
+      "source.before": 1,
+      "source.after": 0
+    },
+    "byte_identity": {
+      "rule": "Exact byte match with frozen clean TRAIN bank record required.",
+      "format_mismatch_policy": "Mismatches must be reported as unresolved. Normalizing bank bytes or asserting pre-approved formatting transforms is strictly forbidden."
+    }
+  },
+  "required_pair_fields": {
+    "pair_id": "string",
+    "repository": "string (repository identifier or URL)",
+    "path": "string (source file path within repository)",
+    "source_url": "string (direct URL to source commit or file)",
+    "fix_commit": "string (distinct full 40-character hexadecimal SHA)",
+    "parent_commit": "string (distinct full 40-character hexadecimal SHA)",
+    "source.before": "string (archived exact vulnerable function code, label 1)",
+    "source.after": "string (archived exact fixed function code, label 0)",
+    "before_sha256": "string (SHA256 hex digest of source.before UTF-8 bytes)",
+    "after_sha256": "string (SHA256 hex digest of source.after UTF-8 bytes)",
+    "source.fix_diff": "string (actual unified diff between before and after confirming changed lines)",
+    "security_rationale": "string (factual rationale describing the vulnerability fix)",
+    "key_difference": "string (generated explanation of key differences between before and after)",
+    "reviews": "array of review objects (exactly 2 distinct human reviews)"
+  },
+  "review_schema": {
+    "min_reviews": 2,
+    "max_reviews": 2,
+    "distinct_reviewers_required": true,
+    "human_verification_rule": "Real source authentication and security semantics require human inspection. Local declarations and hash consistency checks do not prove source authenticity.",
+    "permitted_review_keys": [
+      "reviewer",
+      "reviewed_at",
+      "decision",
+      "payload_sha256",
+      "same_function_verified",
+      "security_fix_verified",
+      "source_revisions_verified",
+      "explanation_supported"
+    ],
+    "field_specifications": {
+      "reviewer": "string (identifier of the genuine human reviewer)",
+      "reviewed_at": "string (ISO 8601 timestamp)",
+      "decision": "string (must equal \"approve\")",
+      "payload_sha256": "string (SHA256 hex digest of UTF-8 JSON of full pair object excluding 'reviews', sort_keys=True, ensure_ascii=False, separators=(',', ':'))",
+      "same_function_verified": "boolean (must be true)",
+      "security_fix_verified": "boolean (must be true)",
+      "source_revisions_verified": "boolean (must be true)",
+      "explanation_supported": "boolean (must be true)"
+    }
+  },
+  "selection_protocol": {
+    "algorithm": "Exact exhaustive mean token-set Jaccard similarity of target code with both verified donor functions (source.before, source.after)",
+    "arithmetic": "Exact rational numbers via fractions.Fraction",
+    "tie_breaker": "Lexicographic order of pair_id",
+    "prohibitions": [
+      "No B2 anchor ranking",
+      "No top-200 candidate shortcut",
+      "No alternate fixed-index ranking"
+    ]
+  },
+  "prompt_and_budget_constraints": {
+    "section_order": [
+      "role_domain",
+      "target_code",
+      "question",
+      "node_info",
+      "edge_info",
+      "demonstration",
+      "answer"
+    ],
+    "token_budgets": {
+      "target_code": 3000,
+      "graph": 1500,
+      "each_demonstration": 1500,
+      "reserve": 64,
+      "overall_max": 8192
+    },
+    "oversized_pair_rule": "Must halt execution immediately. Silent reselection, truncation of causal evidence, or token clipping is strictly prohibited.",
+    "empty_pool_rule": "Pause execution immediately. There is no authorized fallback arm."
+  },
+  "governance_freeze": {
+    "immutable_files": [
+      "configs/thresholds.json",
+      "configs/thresholds_flat.json",
+      "data/specs/devign_validation_15arms.jsonl",
+      "data/specs/devign_test_15arms.jsonl",
+      "data/specs/reveal_validation_15arms.jsonl",
+      "data/specs/reveal_test_15arms.jsonl",
+      "configs/arms.yaml",
+      "preregistration.md"
+    ],
+    "threshold_policy": "Full new validation run required. Candidate thresholds must be recorded in a separate candidate threshold artifact. Modifying locked configs is strictly forbidden.",
+    "protocol_authority": "Any protocol change requires an explicit documented governance decision. This guide does not authorize any protocol changes."
+  }
+}

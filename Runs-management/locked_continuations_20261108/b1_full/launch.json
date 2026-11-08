@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-11-08T01:04:45.529945+00:00",
+  "ref": "/code/huuhieu3333/grace-b1-full-budgetfix-20261108",
+  "url": "https://www.kaggle.com/code/huuhieu3333/grace-b1-full-budgetfix-20261108",
+  "version": 1,
+  "error": "",
+  "invalid_dataset_sources": [],
+  "invalid_kernel_sources": [],
+  "requested_machine_shape": "NvidiaTeslaT4",
+  "notebook_sha256": "52e02e5c02b9d4f8871bf949782e0f886634d65f6ba5f8496e65952cde84fe81"
+}

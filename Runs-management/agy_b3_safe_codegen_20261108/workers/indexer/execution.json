@@ -1,0 +1,34 @@
+{
+  "task": "indexer",
+  "backend": "agy",
+  "model": "gemini-3.8-flash-medium",
+  "started_at": "2026-11-08T02:04:00.846520+00:00",
+  "state": "completed",
+  "prompt_sha256": "eeb986d8747c16f70da9cb933e20ee5b6d6e7eefe6b819b63992fb87dbc90816",
+  "input_manifest_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+  "review_status": "accepted_for_heuristic_discovery_only",
+  "pid": 20704,
+  "returncode": 0,
+  "agy_status": "SUCCESS",
+  "conversation_id": "7fecccaa-cd53-4ddb-a17d-7e7291cc40d9",
+  "usage": {
+    "input_tokens": 15845,
+    "output_tokens": 39984,
+    "thinking_tokens": 34281,
+    "cache_read_tokens": 0,
+    "total_tokens": 55829
+  },
+  "denied_actions": [],
+  "worker_summary": "Implement discover_local.py for local heuristic patch-candidate discovery and donor indexing strictly abiding by frozen dataset integrity specifications and Python 3.10 standard library constraints.",
+  "finished_at": "2026-11-08T02:08:13.574996+00:00",
+  "elapsed_seconds": 252.718,
+  "changed_inputs": [],
+  "outputs": [
+    {
+      "path": "outputs\\discover_local.py",
+      "sha256": "f4f77b7730a0b5c1ecca707fc78c0370454a6f346afc5a155901bb484d6e8a5c",
+      "bytes": 18094
+    }
+  ],
+  "review_scope": "Static code review, 12 independent synthetic tests, actual frozen file/row/count gates and exact previous candidate-count reconciliation; no source authentication"
+}
