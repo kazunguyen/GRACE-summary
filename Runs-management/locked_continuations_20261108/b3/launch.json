@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-11-08T01:04:45.640376+00:00",
+  "ref": "/code/lznt123/grace-b3-locked-resume-20261108",
+  "url": "https://www.kaggle.com/code/lznt123/grace-b3-locked-resume-20261108",
+  "version": 1,
+  "error": "",
+  "invalid_dataset_sources": [],
+  "invalid_kernel_sources": [],
+  "requested_machine_shape": "NvidiaTeslaT4",
+  "notebook_sha256": "5b10d561f350e4b5a4bb3b9767b53c4871fa71a165c9daa7425f965c8382c975"
+}

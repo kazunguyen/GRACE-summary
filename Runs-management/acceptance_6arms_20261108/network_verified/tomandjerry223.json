@@ -1,0 +1,160 @@
+[
+  {
+    "ref": "tomandjerry223/grace-b2-labelonly-test",
+    "checked_at_utc": "2026-11-08T00:07:10.771646+00:00",
+    "files": [
+      {
+        "name": "b2_labelonly_test/seed_42/devign/test/evaluation.json",
+        "bytes": 340,
+        "sha256": "e6fbef43d20a92c329ba0275da2d5b189035d72a645afcc71b58858ea2b45c05",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_labelonly_test/seed_42/devign/test/records.jsonl",
+        "bytes": 2610746,
+        "sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_labelonly_test/seed_42/devign/test/run_manifest.json",
+        "bytes": 1074,
+        "sha256": "832ef7cdcf2e278e338be363a46f716d7c3286c9213db1052c187e6c47ca6b48",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_labelonly_test/seed_42/reveal/test/evaluation.json",
+        "bytes": 339,
+        "sha256": "21d93486a69f079cbccdc9b13dc4bd68e1817dfdce744b85eb6d3629421a4376",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_labelonly_test/seed_42/reveal/test/records.jsonl",
+        "bytes": 2175394,
+        "sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_labelonly_test/seed_42/reveal/test/run_manifest.json",
+        "bytes": 1073,
+        "sha256": "a8c43ecec41dc8c5736b7e0860272216424704e04bb86d4340ff42588a831d11",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b2_labelonly_test_checkpoint.zip",
+        "bytes": 881820,
+        "sha256": "ed7167c8929d210e909602554ccd66ff43ad77f7d7a922c55d93c97779095aad",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b2_labelonly_test_final_output.zip",
+        "bytes": 881820,
+        "sha256": "ed7167c8929d210e909602554ccd66ff43ad77f7d7a922c55d93c97779095aad",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_diagnostics/events.log",
+        "bytes": 3150,
+        "sha256": "5c220430a4c345436497387c0c4a80f5a76deb3d5209f632f3b8619e47ab1c91",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "kaggle_test_inference.py",
+        "bytes": 9433,
+        "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+        "already_local": true,
+        "same_local_bytes": true
+      }
+    ],
+    "status": "KernelWorkerStatus.COMPLETE",
+    "pull_exit": 0,
+    "remote_file_count": 15
+  },
+  {
+    "ref": "tomandjerry223/grace-b2-nolabel-test",
+    "checked_at_utc": "2026-11-08T00:07:25.053918+00:00",
+    "files": [
+      {
+        "name": "b2_nolabel_test/seed_42/devign/test/evaluation.json",
+        "bytes": 339,
+        "sha256": "67bd38a4cfdd319bd96707131af86669f35e9bed6e3b85c0ab602766d4bbb6e5",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_nolabel_test/seed_42/devign/test/records.jsonl",
+        "bytes": 2603903,
+        "sha256": "cd71dfe2902da36a0748d315fd8b1cf5c45c4710c33a6f829c93877833d12bf2",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_nolabel_test/seed_42/devign/test/run_manifest.json",
+        "bytes": 1071,
+        "sha256": "4af4b57c63aba958e8fd378bd96ed7a3630b3325784845415d4dfd7c78ee4a60",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_nolabel_test/seed_42/reveal/test/evaluation.json",
+        "bytes": 338,
+        "sha256": "08d8b0f3f5460e67c8ccd3163f372839fbf850402e9a787472b7914f5daa7139",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_nolabel_test/seed_42/reveal/test/records.jsonl",
+        "bytes": 2168215,
+        "sha256": "8259d08187fe0085c0a571ad1393d631a427ee2b571792de2b85b4ba0b766bc1",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b2_nolabel_test/seed_42/reveal/test/run_manifest.json",
+        "bytes": 1070,
+        "sha256": "cc3504f81230a3d2166fab20bf4e45816aa86f3262624fb84af99376632bdb8f",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b2_nolabel_test_checkpoint.zip",
+        "bytes": 883132,
+        "sha256": "833d2f8ded600dd35733887885aefbab198658def36748984538bc80428e6599",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b2_nolabel_test_final_output.zip",
+        "bytes": 883132,
+        "sha256": "833d2f8ded600dd35733887885aefbab198658def36748984538bc80428e6599",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_diagnostics/events.log",
+        "bytes": 3110,
+        "sha256": "0103d28bd227e5ebc75f61f24777e3475e722c2a877e341f6bfb985f0ed59f4f",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "kaggle_test_inference.py",
+        "bytes": 9433,
+        "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+        "already_local": true,
+        "same_local_bytes": true
+      }
+    ],
+    "status": "KernelWorkerStatus.COMPLETE",
+    "pull_exit": 0,
+    "remote_file_count": 15
+  }
+]

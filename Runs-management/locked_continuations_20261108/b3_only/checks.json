@@ -1,0 +1,9 @@
+{
+  "b3_only": true,
+  "census": 5005,
+  "unchanged_legacy": 4029,
+  "remaining_reveal": 976,
+  "exact_B3_prompt_bytes": true,
+  "worker_unchanged": true,
+  "notebook_syntax": true
+}

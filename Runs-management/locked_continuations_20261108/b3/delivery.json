@@ -1,0 +1,14 @@
+{
+  "kind": "b3",
+  "owner": "lznt123",
+  "ref": "lznt123/grace-b3-locked-resume-20261108",
+  "dataset": "lznt123/grace-b3-locked-resume-20261108-inputs",
+  "stage": "Runs-management\\locked_continuations_20261108\\b3",
+  "input_manifest_sha256": "c04aac622ec4de8f95c8322b69d43eadcd391923d1e8ffcb6b32919ae76ff824",
+  "bundle_sha256": "c66abb8637004444b96d39acd1b48446bb6359e119e011036882c659229877cd",
+  "notebook_sha256": "5b10d561f350e4b5a4bb3b9767b53c4871fa71a165c9daa7425f965c8382c975",
+  "worker_sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+  "total": 10010,
+  "legacy_count": 4029,
+  "new_target": 5981
+}

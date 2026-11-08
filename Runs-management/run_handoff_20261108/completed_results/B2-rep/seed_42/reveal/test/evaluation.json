@@ -1,0 +1,14 @@
+{
+  "arm": "B2-rep",
+  "dataset": "reveal",
+  "split": "test",
+  "seed": 42,
+  "tau_locked": 0.12,
+  "n_total": 2274,
+  "n_valid": 2274,
+  "mcc_at_tau": 0.0644842051733298,
+  "auroc": 0.566157576788905,
+  "ba_at_tau": 0.5530651748489748,
+  "f1_at_tau": 0.20053120849933598,
+  "completed_at_utc": "2026-11-07T20:40:29.423943+00:00"
+}

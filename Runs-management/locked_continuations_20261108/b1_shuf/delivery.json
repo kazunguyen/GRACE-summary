@@ -1,0 +1,14 @@
+{
+  "kind": "b1_shuf",
+  "owner": "tomandjerry223",
+  "ref": "tomandjerry223/grace-b1-shuf-locked-20261108",
+  "dataset": "tomandjerry223/grace-b1-shuf-locked-20261108-inputs",
+  "stage": "Runs-management\\locked_continuations_20261108\\b1_shuf",
+  "input_manifest_sha256": "1f008abc6f0d9928fca6c5684d9b49f508182a733acb12f0d8bbb03d11d3a70c",
+  "bundle_sha256": "f803e8c5d73985cb4857c203311e71333eb57f9a3a04230182371b4563c867f8",
+  "notebook_sha256": "83570325c2f1e9f1a6e589fc93fd380b7f4255c6c2cbc5268d6659bc0be6e275",
+  "worker_sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+  "total": 15018,
+  "legacy_count": 0,
+  "new_target": 15018
+}

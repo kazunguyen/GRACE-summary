@@ -1,0 +1,121 @@
+{
+  "owner": "huuhieu3333",
+  "checked_at_utc": "2026-11-08T02:11:06.778417+00:00",
+  "read_only": true,
+  "kernels": [
+    {
+      "ref": "huuhieu3333/grace-b1-full-budgetfix-20261108",
+      "checked_at_utc": "2026-11-08T02:11:07.900977+00:00",
+      "artifacts": [],
+      "status": "RUNNING",
+      "failure_message": "",
+      "remote_file_count": 0
+    },
+    {
+      "ref": "huuhieu3333/grace-b1-full-test",
+      "checked_at_utc": "2026-11-08T02:11:08.676457+00:00",
+      "artifacts": [
+        {
+          "path": "b1_full_test/seed_42/devign/test/evaluation.json",
+          "bytes": 335,
+          "sha256": "41f04b47aa72c8e40471dd63300e346aa56a40c1d23c850b881630aaaa706cec",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_full_test/seed_42/devign/test/records.jsonl",
+          "bytes": 2594484,
+          "sha256": "61fccf1ab2670afeddab2df6f830425ce7443caae18b3d50eb7fe021040ee577",
+          "count": 2732,
+          "unique_ids": 2732,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_full_test/seed_42/devign/test/run_manifest.json",
+          "bytes": 1064,
+          "sha256": "6269d9a4853995fa1424ecaa4ef60a7ca794e4a4ce2859e30c986e29b480832e",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_full_test/seed_42/reveal/test/records.jsonl",
+          "bytes": 111828,
+          "sha256": "bbee17aba234cc1a11c1933412de7f2d6f40350c642f9eeac16e308ae2cedfa4",
+          "count": 118,
+          "unique_ids": 118,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        }
+      ],
+      "status": "ERROR",
+      "failure_message": "",
+      "remote_file_count": 11
+    },
+    {
+      "ref": "huuhieu3333/grace-b2-rep-test",
+      "checked_at_utc": "2026-11-08T02:11:15.825416+00:00",
+      "artifacts": [
+        {
+          "path": "b2_rep_test/seed_42/devign/test/evaluation.json",
+          "bytes": 331,
+          "sha256": "e149dda427d296bb82639b353d6153e49c30284b0bb752662eb204f2f6f3e543",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/devign/test/records.jsonl",
+          "bytes": 2681994,
+          "sha256": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+          "count": 2732,
+          "unique_ids": 2732,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/devign/test/run_manifest.json",
+          "bytes": 1095,
+          "sha256": "582f7876b8860745585b26ed2427814beb7457f850a2ac77c78aac0f73b186e3",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/reveal/test/evaluation.json",
+          "bytes": 332,
+          "sha256": "a45c872ace6305d21abcd6720275d3ac4dc0de4f072f08a4d1f590a285992df1",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/reveal/test/records.jsonl",
+          "bytes": 2235889,
+          "sha256": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+          "count": 2274,
+          "unique_ids": 2274,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/reveal/test/run_manifest.json",
+          "bytes": 1097,
+          "sha256": "8fd9baddec96fbeb9547a7f039fd27a71b71ac6fde9f4bddf55d8dbecfecab6d",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        }
+      ],
+      "status": "COMPLETE",
+      "failure_message": "",
+      "remote_file_count": 15
+    },
+    {
+      "ref": "huuhieu3333/grace-b3-only-resume-20261108",
+      "checked_at_utc": "2026-11-08T02:11:24.967330+00:00",
+      "artifacts": [],
+      "status": "RUNNING",
+      "failure_message": "",
+      "remote_file_count": 0
+    }
+  ],
+  "listed_kernel_count": 32,
+  "finished_at_utc": "2026-11-08T02:11:25.786857+00:00"
+}

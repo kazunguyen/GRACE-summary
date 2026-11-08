@@ -1,0 +1,42 @@
+{
+  "collected_at_utc": "2026-11-08T00:06:56.495093+00:00",
+  "read_only": true,
+  "kernels": [
+    {
+      "ref": "huuhieu3333/grace-b1-full-test",
+      "checked_at_utc": "2026-11-08T00:06:56.343939+00:00",
+      "files": [],
+      "error": "HTTPSConnectionPool(host='www.kaggle.com', port=443): Max retries exceeded with url: /api/v1/kernels/status?username=huuhieu3333&kernelslug=grace-b1-full-test (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002E005CF5510>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'))"
+    },
+    {
+      "ref": "huuhieu3333/grace-b2-rep-test",
+      "checked_at_utc": "2026-11-08T00:06:56.373172+00:00",
+      "files": [],
+      "error": "HTTPSConnectionPool(host='www.kaggle.com', port=443): Max retries exceeded with url: /api/v1/kernels/status?username=huuhieu3333&kernelslug=grace-b2-rep-test (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002E005CF5420>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'))"
+    },
+    {
+      "ref": "tomandjerry223/grace-b2-labelonly-test",
+      "checked_at_utc": "2026-11-08T00:06:56.343939+00:00",
+      "files": [],
+      "error": "HTTPSConnectionPool(host='www.kaggle.com', port=443): Max retries exceeded with url: /api/v1/kernels/status?username=tomandjerry223&kernelslug=grace-b2-labelonly-test (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002998D9A54B0>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'))"
+    },
+    {
+      "ref": "tomandjerry223/grace-b2-nolabel-test",
+      "checked_at_utc": "2026-11-08T00:06:56.372669+00:00",
+      "files": [],
+      "error": "HTTPSConnectionPool(host='www.kaggle.com', port=443): Max retries exceeded with url: /api/v1/kernels/status?username=tomandjerry223&kernelslug=grace-b2-nolabel-test (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000002998D9A52D0>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'))"
+    },
+    {
+      "ref": "lznt123/grace-b3-validation",
+      "checked_at_utc": "2026-11-08T00:06:56.331237+00:00",
+      "files": [],
+      "error": "HTTPSConnectionPool(host='www.kaggle.com', port=443): Max retries exceeded with url: /api/v1/kernels/status?username=lznt123&kernelslug=grace-b3-validation (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000171A5C65510>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'))"
+    },
+    {
+      "ref": "lznt123/grace-b1-shuf-test",
+      "checked_at_utc": "2026-11-08T00:06:56.372669+00:00",
+      "files": [],
+      "error": "HTTPSConnectionPool(host='www.kaggle.com', port=443): Max retries exceeded with url: /api/v1/kernels/status?username=lznt123&kernelslug=grace-b1-shuf-test (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000171A5C65420>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions'))"
+    }
+  ]
+}

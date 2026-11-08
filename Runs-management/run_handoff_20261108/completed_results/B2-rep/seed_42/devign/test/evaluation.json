@@ -1,0 +1,14 @@
+{
+  "arm": "B2-rep",
+  "dataset": "devign",
+  "split": "test",
+  "seed": 42,
+  "tau_locked": 0.7,
+  "n_total": 2732,
+  "n_valid": 2732,
+  "mcc_at_tau": 0.05970792503495321,
+  "auroc": 0.530472827714194,
+  "ba_at_tau": 0.5293261618387655,
+  "f1_at_tau": 0.5484649879268714,
+  "completed_at_utc": "2026-11-07T16:47:44.208640+00:00"
+}

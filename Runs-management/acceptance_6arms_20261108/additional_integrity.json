@@ -1,0 +1,188 @@
+{
+  "datasets": [
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\b2_labelonly_test\\seed_42\\devign\\test\\records.jsonl",
+      "n": 2732,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\b2_labelonly_test\\seed_42\\reveal\\test\\records.jsonl",
+      "n": 2274,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\b2_nolabel_test\\seed_42\\devign\\test\\records.jsonl",
+      "n": 2732,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\b2_nolabel_test\\seed_42\\reveal\\test\\records.jsonl",
+      "n": 2274,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\b2_rep_test\\seed_42\\devign\\test\\records.jsonl",
+      "n": 2732,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\b2_rep_test\\seed_42\\reveal\\test\\records.jsonl",
+      "n": 2274,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\b1_full_test\\seed_42\\devign\\test\\records.jsonl",
+      "n": 2732,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\b1_full_test\\seed_42\\reveal\\test\\records.jsonl",
+      "n": 118,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\b3_validation\\B3\\seed_42\\devign\\validation\\records.jsonl",
+      "n": 2732,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    },
+    {
+      "path": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\b3_validation\\B3\\seed_42\\reveal\\validation\\records.jsonl",
+      "n": 1297,
+      "binary_token_ids_pred_argmax_probabilities_elapsed_and_recorded_inference_seed": "pass"
+    }
+  ],
+  "archives": [
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\grace_b2_labelonly_test_checkpoint.zip",
+      "member": "seed_42/reveal/test/records.jsonl",
+      "n": 2274,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\grace_b2_labelonly_test_checkpoint.zip",
+      "member": "seed_42/devign/test/records.jsonl",
+      "n": 2732,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\grace_b2_labelonly_test_final_output.zip",
+      "member": "seed_42/reveal/test/records.jsonl",
+      "n": 2274,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-labelonly-test\\grace_b2_labelonly_test_final_output.zip",
+      "member": "seed_42/devign/test/records.jsonl",
+      "n": 2732,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\grace_b2_nolabel_test_checkpoint.zip",
+      "member": "seed_42/reveal/test/records.jsonl",
+      "n": 2274,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\grace_b2_nolabel_test_checkpoint.zip",
+      "member": "seed_42/devign/test/records.jsonl",
+      "n": 2732,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\grace_b2_nolabel_test_final_output.zip",
+      "member": "seed_42/reveal/test/records.jsonl",
+      "n": 2274,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\tomandjerry223_grace-b2-nolabel-test\\grace_b2_nolabel_test_final_output.zip",
+      "member": "seed_42/devign/test/records.jsonl",
+      "n": 2732,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\grace_b2_rep_test_checkpoint.zip",
+      "member": "seed_42/devign/test/records.jsonl",
+      "n": 2732,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\grace_b2_rep_test_checkpoint.zip",
+      "member": "seed_42/reveal/test/records.jsonl",
+      "n": 2274,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\grace_b2_rep_test_final_output.zip",
+      "member": "seed_42/devign/test/records.jsonl",
+      "n": 2732,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b2-rep-test\\grace_b2_rep_test_final_output.zip",
+      "member": "seed_42/reveal/test/records.jsonl",
+      "n": 2274,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\grace_b1_full_test_checkpoint.zip",
+      "member": "seed_42/reveal/test/records.jsonl",
+      "n": 114,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 4
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\huuhieu3333_grace-b1-full-test\\grace_b1_full_test_checkpoint.zip",
+      "member": "seed_42/devign/test/records.jsonl",
+      "n": 2732,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\grace_b3_validation_checkpoint.zip",
+      "member": "B3/seed_42/reveal/validation/records.jsonl",
+      "n": 1297,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    },
+    {
+      "archive": "Runs-management\\kernel_outputs_harvest\\lznt123_grace-b3-validation\\grace_b3_validation_checkpoint.zip",
+      "member": "B3/seed_42/devign/validation/records.jsonl",
+      "n": 2732,
+      "every_record_field_matches": true,
+      "loose_rows_missing_in_archive": 0
+    }
+  ],
+  "repeat_vs_B2": [
+    {
+      "dataset": "devign",
+      "n": 2732,
+      "all_prompt_hashes_match_frozen_donor_B2": true,
+      "same_numeric_s": 2732,
+      "different_timestamp": 2732,
+      "all_positive_elapsed": true,
+      "interpretation": "Identical deterministic scores alone do not prove cache reuse. Actual exported runner calls reset/eval; independent timestamps/elapsed and process logs support fresh execution. No absolute external cache guarantee is inferred from repeat tags alone."
+    },
+    {
+      "dataset": "reveal",
+      "n": 2274,
+      "all_prompt_hashes_match_frozen_donor_B2": true,
+      "same_numeric_s": 2274,
+      "different_timestamp": 2274,
+      "all_positive_elapsed": true,
+      "interpretation": "Identical deterministic scores alone do not prove cache reuse. Actual exported runner calls reset/eval; independent timestamps/elapsed and process logs support fresh execution. No absolute external cache guarantee is inferred from repeat tags alone."
+    }
+  ]
+}

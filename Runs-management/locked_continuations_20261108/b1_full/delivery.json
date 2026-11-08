@@ -1,0 +1,14 @@
+{
+  "kind": "b1_full",
+  "owner": "huuhieu3333",
+  "ref": "huuhieu3333/grace-b1-full-budgetfix-20261108",
+  "dataset": "huuhieu3333/grace-b1-full-budgetfix-20261108-inputs",
+  "stage": "Runs-management\\locked_continuations_20261108\\b1_full",
+  "input_manifest_sha256": "55a9b4639429ee53e04b1d0beb2cf4a3f403c92c19447a2fcd0d17b2f0479d01",
+  "bundle_sha256": "2f7144b8983b39d189c1efcace0d1e5a6086c77ca4cc72219dd744a830ffb763",
+  "notebook_sha256": "52e02e5c02b9d4f8871bf949782e0f886634d65f6ba5f8496e65952cde84fe81",
+  "worker_sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+  "total": 5006,
+  "legacy_count": 0,
+  "new_target": 5006
+}

@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-11-08T01:04:10.081530+00:00",
+  "ref": "/code/tomandjerry223/grace-b1-shuf-locked-20261108",
+  "url": "https://www.kaggle.com/code/tomandjerry223/grace-b1-shuf-locked-20261108",
+  "version": 1,
+  "error": "",
+  "invalid_dataset_sources": [],
+  "invalid_kernel_sources": [],
+  "requested_machine_shape": "NvidiaTeslaT4",
+  "notebook_sha256": "83570325c2f1e9f1a6e589fc93fd380b7f4255c6c2cbc5268d6659bc0be6e275"
+}

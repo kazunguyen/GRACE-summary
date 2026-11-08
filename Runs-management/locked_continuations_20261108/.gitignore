@@ -1,0 +1,7 @@
+# Installed tooling, temporary tests and input/output payload copies stay local.
+/tooling/
+/pytest*/
+/*/dataset/
+/*/remote_output/
+/*/remote_notebook.json
+/b1_full_corrected*/*.jsonl

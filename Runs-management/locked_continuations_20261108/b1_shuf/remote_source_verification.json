@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-11-08T01:05:53.538571+00:00",
+  "ref": "tomandjerry223/grace-b1-shuf-locked-20261108",
+  "all_cell_sources_match": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "version": 1,
+  "is_private": true,
+  "enable_gpu": true,
+  "dataset_sources": [
+    "tomandjerry223/grace-b1-shuf-locked-20261108-inputs"
+  ],
+  "kernel_sources": [
+    "quangdung1111/qwen3coder30b-prepare-notebook"
+  ]
+}

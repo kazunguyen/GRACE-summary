@@ -1,0 +1,18 @@
+{
+  "at_utc": "2026-11-08T01:22:33.716554+00:00",
+  "owner": "tomandjerry223",
+  "quotaRefreshTime": "2026-11-14T00:00:00Z",
+  "gpuQuota": {
+    "timeUsed": "77133.314244s",
+    "timeReserved": "0s",
+    "totalTimeAllowed": "108000s",
+    "minimumTimeAllowed": "108000s",
+    "hasEverRun": true
+  },
+  "tpuQuota": {
+    "timeUsed": "0s",
+    "timeReserved": "0s",
+    "totalTimeAllowed": "72000s",
+    "minimumTimeAllowed": "72000s"
+  }
+}

@@ -1,0 +1,174 @@
+[
+  {
+    "ref": "lznt123/grace-b3-validation",
+    "checked_at_utc": "2026-11-08T00:07:10.724898+00:00",
+    "files": [
+      {
+        "name": "b3_validation/B3/seed_42/devign/validation/evaluation.json",
+        "bytes": 464,
+        "sha256": "c2fca95db17cc9d8e4acbb290e6ebfbb9c0f2705c78491a004012a1c0501657f",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b3_validation/B3/seed_42/devign/validation/records.jsonl",
+        "bytes": 3571382,
+        "sha256": "4d1ed656fabb329ad92b08888fb2a7950a8bfb867622465f295aa05b39e86700",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b3_validation/B3/seed_42/devign/validation/run_manifest.json",
+        "bytes": 859,
+        "sha256": "f40ebcbaf0038c0b441bec0c4a1f7923dcbf7fd3f9d81855a0d5e619f72e0b46",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b3_validation/B3/seed_42/reveal/validation/records.jsonl",
+        "bytes": 1745873,
+        "sha256": "feeb2298143202ca85382853a2b36abc5bda2e89f93f704d222714209c5a40b1",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b3_validation/B3/seed_42/reveal/validation/run_manifest.json",
+        "bytes": 859,
+        "sha256": "d05e274cf580602f550f22cc7f5f39eb28f4287753ea86fddf4ffb328a4f0d18",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b3_validation/B3/seed_42_status.json",
+        "bytes": 1475,
+        "sha256": "51ac12cedf4269bb1c1ffe7829b03c99721e7b64132dfab23d4fefbefcf191a9",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b3_validation/batch_summary.json",
+        "bytes": 313,
+        "sha256": "f4187e92e86f9d946dbc32c178492d60dce885945ba2c4047fa1d360dc9f7e87",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b3_validation_checkpoint.zip",
+        "bytes": 851502,
+        "sha256": "8177cef57cc11bb4da39a726168d09c6b7a4ae2cb8abd50f55cb3fff43e6a86b",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_diagnostics/events.log",
+        "bytes": 5244,
+        "sha256": "7729b69b4fb3214985e62beff9d6902fd5ed4d799dd5b29e2edb22d554d8b12a",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "kaggle_inference.py",
+        "bytes": 16712,
+        "sha256": "d791b66aec99f6b6174e97b05f9ae3c599732f36c012f8c4818eb1bedaec8903",
+        "already_local": true,
+        "same_local_bytes": true
+      }
+    ],
+    "status": "KernelWorkerStatus.COMPLETE",
+    "pull_exit": 0,
+    "remote_file_count": 22
+  },
+  {
+    "ref": "lznt123/grace-b1-shuf-test",
+    "checked_at_utc": "2026-11-08T00:07:23.015202+00:00",
+    "files": [
+      {
+        "name": "b1_shuf_test_runtime_locked/batch_summary.json",
+        "bytes": 385,
+        "sha256": "0a7bae247cd3b940de423c6a8932d597105b88d83190b66b0a7748b11c96f04c",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b1_shuf_test_runtime_locked/inference_runtime_lock.json",
+        "bytes": 14930,
+        "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b1_shuf_test_runtime_locked/runtime_provenance/seed_42_tt2427_c/model_load_offload.log",
+        "bytes": 30445,
+        "sha256": "46739d6476102fb9fb64190cc4386deb95d7ab7b35c740fa4269ee54c0342ef2",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b1_shuf_test_runtime_locked/runtime_provenance/seed_42_tt2427_c/runtime_provenance.json",
+        "bytes": 22960,
+        "sha256": "de4c492d95f42fc43f424f1fb01b14a4e9060eb771f1ff367af2d44adadbe328",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "b1_shuf_test_runtime_locked/seed_42_status.json",
+        "bytes": 752,
+        "sha256": "94634450f0afb30132772bc4de1e89dbf0f11773063c1563c61ed0080dcbda09",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_b1_shuf_test_runtime_locked_checkpoint.zip",
+        "bytes": 21415,
+        "sha256": "df5b729cf2eed457d9b300ba0245bea6c566b04772fba6ed2747af1180d8b4d7",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_diagnostics/events.log",
+        "bytes": 6373,
+        "sha256": "6b89c87afba170321ad08bbaf4002d3d200ce63e26491359fc4229203cd9c0dc",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_diagnostics/exceptions.log",
+        "bytes": 1472,
+        "sha256": "5d8944f0a614d25a6941331fc80e781b5dfbf718eb8b3f06c76e368436880038",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_diagnostics/inference_runtime_lock.json",
+        "bytes": 14930,
+        "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "grace_runtime_contract.py",
+        "bytes": 6143,
+        "sha256": "a8496543e4d370063c7ecc4d59701c69cb00a967ceac8c62eff23165f39133f2",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "inference_runtime_lock.json",
+        "bytes": 14930,
+        "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+        "already_local": true,
+        "same_local_bytes": true
+      },
+      {
+        "name": "kaggle_inference.py",
+        "bytes": 20954,
+        "sha256": "f0d8ec5f56b91d7fe89219ed895c4158a14fdcb3be080eae42fdc93c4d03087a",
+        "already_local": true,
+        "same_local_bytes": true
+      }
+    ],
+    "status": "KernelWorkerStatus.ERROR",
+    "pull_exit": 0,
+    "remote_file_count": 28
+  }
+]

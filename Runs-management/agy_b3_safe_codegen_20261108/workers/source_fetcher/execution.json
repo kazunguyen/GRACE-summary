@@ -1,0 +1,34 @@
+{
+  "task": "source_fetcher",
+  "backend": "agy",
+  "model": "gemini-3.8-flash-medium",
+  "started_at": "2026-11-08T02:06:06.952624+00:00",
+  "state": "completed",
+  "prompt_sha256": "30f644292fc7a978c436419e1f1fa8b2e90c6d7b2d219b80f6620b8a5827ef16",
+  "input_manifest_sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+  "review_status": "accepted_for_bounded_reconnaissance",
+  "pid": 23648,
+  "returncode": 0,
+  "agy_status": "SUCCESS",
+  "conversation_id": "1836d55e-05ff-4f56-b687-d77453b7f6dd",
+  "usage": {
+    "input_tokens": 15754,
+    "output_tokens": 9670,
+    "thinking_tokens": 4129,
+    "cache_read_tokens": 0,
+    "total_tokens": 25424
+  },
+  "denied_actions": [],
+  "worker_summary": "Generated the complete, standalone Python 3.10 standard-library script fetch_public_source.py. It strictly adheres to all constraints: CLI interface with safety checks against overwriting existing directories, project and URL allowlisting restricted to api.github.com for FFmpeg/FFmpeg and qemu/qemu, full 40-hex SHA validation, no credential or environment token leakage, no redirects, max request limit, 20-second timeout, 5 MiB response cap, >=1.0s delay between requests, immediate stop on 403/429 without retries, response SHA validation, structured cache archival and request logging, generation of source_checks.jsonl with explicit UNVERIFIED_SOURCE_RECONNAISSANCE_ONLY status and limitation warnings, and summary.json accounting for counts and SHA-256 hashes without invoking subprocesses or writing BOM.",
+  "finished_at": "2026-11-08T02:07:12.291749+00:00",
+  "elapsed_seconds": 65.328,
+  "changed_inputs": [],
+  "outputs": [
+    {
+      "path": "outputs\\fetch_public_source.py",
+      "sha256": "c38fa95ad0d780b34aebcedfa7351d24b0b44255379da8f1b507d1ae0bde053f",
+      "bytes": 17993
+    }
+  ],
+  "review_scope": "Static inspection of allowlisted GET-only URLs, no credentials/redirects, request/time/size caps, unverified-only outputs; source authentication remains incomplete"
+}

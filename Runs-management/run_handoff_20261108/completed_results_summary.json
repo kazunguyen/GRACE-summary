@@ -1,0 +1,220 @@
+{
+  "created_at_utc": "2026-11-08T02:12:41.827273+00:00",
+  "metric_scope": "descriptive full official test census; no new hypothesis test or threshold tuning",
+  "runtime_classification": "historical runs; computational integrity accepted; full new runtime lock NOT certified",
+  "arms": [
+    {
+      "arm": "B2-labelonly",
+      "source_kernel": "tomandjerry223/grace-b2-labelonly-test",
+      "remote_status": "COMPLETE",
+      "runtime_lock_fully_certified": false,
+      "runtime_limitations": "Six package/core model/constructor checks passed; missing verified source/build/native full-offload provenance. No retrospective full-lock certification.",
+      "threshold_source": "12_Arm_B2_LabelOnly\\config\\threshold.json",
+      "threshold_source_sha256": "e7cae249ae9ba74233b503c8a4ee8327bee5a78360e3618bf6141c7d540d53f9",
+      "datasets": [
+        {
+          "dataset": "devign",
+          "metrics": {
+            "tau": 0.99,
+            "n": 2732,
+            "auroc": 0.5462326725595924,
+            "mcc_at_tau": 0.08485121351034793,
+            "ba_at_tau": 0.5321570859419464,
+            "f1_at_tau": 0.30127462340672073
+          },
+          "records_sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+          "raw_invalid": 0,
+          "files": [
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\records.jsonl",
+              "sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+              "bytes": 2610746
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\evaluation.json",
+              "sha256": "e6fbef43d20a92c329ba0275da2d5b189035d72a645afcc71b58858ea2b45c05",
+              "bytes": 340
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\run_manifest.json",
+              "sha256": "832ef7cdcf2e278e338be363a46f716d7c3286c9213db1052c187e6c47ca6b48",
+              "bytes": 1074
+            }
+          ]
+        },
+        {
+          "dataset": "reveal",
+          "metrics": {
+            "tau": 0.02,
+            "n": 2274,
+            "auroc": 0.6005402875861482,
+            "mcc_at_tau": 0.11990683904183293,
+            "ba_at_tau": 0.598596103122607,
+            "f1_at_tau": 0.23095823095823098
+          },
+          "records_sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+          "raw_invalid": 0,
+          "files": [
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\reveal\\test\\records.jsonl",
+              "sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+              "bytes": 2175394
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\reveal\\test\\evaluation.json",
+              "sha256": "21d93486a69f079cbccdc9b13dc4bd68e1817dfdce744b85eb6d3629421a4376",
+              "bytes": 339
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\reveal\\test\\run_manifest.json",
+              "sha256": "a8c43ecec41dc8c5736b7e0860272216424704e04bb86d4340ff42588a831d11",
+              "bytes": 1073
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "B2-nolabel",
+      "source_kernel": "tomandjerry223/grace-b2-nolabel-test",
+      "remote_status": "COMPLETE",
+      "runtime_lock_fully_certified": false,
+      "runtime_limitations": "Six package/core model/constructor checks passed; missing verified source/build/native full-offload provenance. No retrospective full-lock certification.",
+      "threshold_source": "10_Arm_B2_NoLabel\\config\\threshold.json",
+      "threshold_source_sha256": "ec04cc7c84e5001ec4d64c0f7a440d935d9d00b3549cdc520a807e814032cc73",
+      "datasets": [
+        {
+          "dataset": "devign",
+          "metrics": {
+            "tau": 0.98,
+            "n": 2732,
+            "auroc": 0.5268982296946271,
+            "mcc_at_tau": 0.051783960819490445,
+            "ba_at_tau": 0.5250014161364023,
+            "f1_at_tau": 0.43644444444444447
+          },
+          "records_sha256": "cd71dfe2902da36a0748d315fd8b1cf5c45c4710c33a6f829c93877833d12bf2",
+          "raw_invalid": 0,
+          "files": [
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-nolabel\\seed_42\\devign\\test\\records.jsonl",
+              "sha256": "cd71dfe2902da36a0748d315fd8b1cf5c45c4710c33a6f829c93877833d12bf2",
+              "bytes": 2603903
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-nolabel\\seed_42\\devign\\test\\evaluation.json",
+              "sha256": "67bd38a4cfdd319bd96707131af86669f35e9bed6e3b85c0ab602766d4bbb6e5",
+              "bytes": 339
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-nolabel\\seed_42\\devign\\test\\run_manifest.json",
+              "sha256": "4af4b57c63aba958e8fd378bd96ed7a3630b3325784845415d4dfd7c78ee4a60",
+              "bytes": 1071
+            }
+          ]
+        },
+        {
+          "dataset": "reveal",
+          "metrics": {
+            "tau": 0.21,
+            "n": 2274,
+            "auroc": 0.5720837233046882,
+            "mcc_at_tau": 0.08353268129365758,
+            "ba_at_tau": 0.5692418956862078,
+            "f1_at_tau": 0.21029082774049218
+          },
+          "records_sha256": "8259d08187fe0085c0a571ad1393d631a427ee2b571792de2b85b4ba0b766bc1",
+          "raw_invalid": 1,
+          "files": [
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-nolabel\\seed_42\\reveal\\test\\records.jsonl",
+              "sha256": "8259d08187fe0085c0a571ad1393d631a427ee2b571792de2b85b4ba0b766bc1",
+              "bytes": 2168215
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-nolabel\\seed_42\\reveal\\test\\evaluation.json",
+              "sha256": "08d8b0f3f5460e67c8ccd3163f372839fbf850402e9a787472b7914f5daa7139",
+              "bytes": 338
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-nolabel\\seed_42\\reveal\\test\\run_manifest.json",
+              "sha256": "cc3504f81230a3d2166fab20bf4e45816aa86f3262624fb84af99376632bdb8f",
+              "bytes": 1070
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "B2-rep",
+      "source_kernel": "huuhieu3333/grace-b2-rep-test",
+      "remote_status": "COMPLETE",
+      "runtime_lock_fully_certified": false,
+      "runtime_limitations": "Six package/core model/constructor checks passed; missing verified source/build/native full-offload provenance. No retrospective full-lock certification.",
+      "threshold_source": "05_Arm_B2_Rep\\config\\threshold.json",
+      "threshold_source_sha256": "b6ecf5d9bafe3146b3a28c2f141de7cb50670c2eb453337b72c3a6550f5c2692",
+      "datasets": [
+        {
+          "dataset": "devign",
+          "metrics": {
+            "tau": 0.7,
+            "n": 2732,
+            "auroc": 0.530472827714194,
+            "mcc_at_tau": 0.05970792503495321,
+            "ba_at_tau": 0.5293261618387655,
+            "f1_at_tau": 0.5484649879268714
+          },
+          "records_sha256": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+          "raw_invalid": 0,
+          "files": [
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\devign\\test\\records.jsonl",
+              "sha256": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+              "bytes": 2681994
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\devign\\test\\evaluation.json",
+              "sha256": "e149dda427d296bb82639b353d6153e49c30284b0bb752662eb204f2f6f3e543",
+              "bytes": 331
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\devign\\test\\run_manifest.json",
+              "sha256": "582f7876b8860745585b26ed2427814beb7457f850a2ac77c78aac0f73b186e3",
+              "bytes": 1095
+            }
+          ]
+        },
+        {
+          "dataset": "reveal",
+          "metrics": {
+            "tau": 0.12,
+            "n": 2274,
+            "auroc": 0.566157576788905,
+            "mcc_at_tau": 0.0644842051733298,
+            "ba_at_tau": 0.5530651748489748,
+            "f1_at_tau": 0.200531208499336
+          },
+          "records_sha256": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+          "raw_invalid": 0,
+          "files": [
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\reveal\\test\\records.jsonl",
+              "sha256": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+              "bytes": 2235889
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\reveal\\test\\evaluation.json",
+              "sha256": "a45c872ace6305d21abcd6720275d3ac4dc0de4f072f08a4d1f590a285992df1",
+              "bytes": 332
+            },
+            {
+              "path": "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\reveal\\test\\run_manifest.json",
+              "sha256": "8fd9baddec96fbeb9547a7f039fd27a71b71ac6fde9f4bddf55d8dbecfecab6d",
+              "bytes": 1097
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

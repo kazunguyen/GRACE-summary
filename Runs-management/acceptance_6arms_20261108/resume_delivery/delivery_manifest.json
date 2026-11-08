@@ -1,0 +1,63 @@
+{
+  "scope": "Local recovery/preparation only. No kernel launch. No prompt, threshold, runtime contract or model changes.",
+  "artifacts": [
+    {
+      "path": "02_kaggle_b1_shuf_test_gpu_log_guard_fixed.ipynb",
+      "sha256": "772502cff276450e0c7ca00f7e2ee4fd973413e514c32516a554d24246c65c4b",
+      "source": "08_Arm_B1_Shuf\\notebooks\\02_kaggle_qwen_q4_b1_shuf_test.ipynb",
+      "source_sha256": "56875e037b7a7506a0aa12eb1c7599ab55b5d507f73d43cdc0b865b1e5f71b1a",
+      "change": "Only device-log parsing; prompts, tau, package versions, constructor and contract unchanged."
+    },
+    {
+      "path": "grace_b1_full_test_recovered_2850.zip",
+      "sha256": "94ab10c8065eebd8e5ae4587d330b2034ee628c808813ac02ec7231b78251781",
+      "members": [
+        {
+          "name": "seed_42/devign/test/evaluation.json",
+          "sha256": "41f04b47aa72c8e40471dd63300e346aa56a40c1d23c850b881630aaaa706cec",
+          "records": null
+        },
+        {
+          "name": "seed_42/devign/test/records.jsonl",
+          "sha256": "61fccf1ab2670afeddab2df6f830425ce7443caae18b3d50eb7fe021040ee577",
+          "records": 2732
+        },
+        {
+          "name": "seed_42/devign/test/run_manifest.json",
+          "sha256": "6269d9a4853995fa1424ecaa4ef60a7ca794e4a4ce2859e30c986e29b480832e",
+          "records": null
+        },
+        {
+          "name": "seed_42/reveal/test/records.jsonl",
+          "sha256": "bbee17aba234cc1a11c1933412de7f2d6f40350c642f9eeac16e308ae2cedfa4",
+          "records": 118
+        }
+      ],
+      "ready_for_gpu_resume": false
+    },
+    {
+      "path": "02_kaggle_b3_historical_validation_resume.ipynb",
+      "sha256": "348c4574e356f2e8496ca4a4bd581f0a2b41a4b99f9dbaa49dbcb3369e8e8bde",
+      "source": "Runs-management\\acceptance_6arms_20261108\\network_verified\\lznt123\\grace-b3-validation\\source\\grace-b3-validation.ipynb",
+      "change": "Outputs cleared; same historical runner and checkpoint auto-discovery. Not upgraded silently to runtime-locked/amended B3."
+    },
+    {
+      "path": "grace_b3_validation_checkpoint.zip",
+      "sha256": "8177cef57cc11bb4da39a726168d09c6b7a4ae2cb8abd50f55cb3fff43e6a86b",
+      "records": 4029,
+      "remaining_B3_REVEAL": 976,
+      "remaining_B3_nodiff": 5005
+    }
+  ],
+  "b1_shuf_guard_tests": {
+    "scope": "Saved native log replay with fake model; no GPU inference",
+    "passed": [
+      "real_saved_two_T4_49of49_log_accepts",
+      "one_device_rejects",
+      "duplicate_CUDA0_rejects",
+      "48of49_rejects",
+      "wrong_context_rejects",
+      "non_T4_rejects"
+    ]
+  }
+}

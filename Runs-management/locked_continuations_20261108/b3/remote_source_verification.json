@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-11-08T01:05:53.483026+00:00",
+  "ref": "lznt123/grace-b3-locked-resume-20261108",
+  "all_cell_sources_match": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "version": 1,
+  "is_private": true,
+  "enable_gpu": true,
+  "dataset_sources": [
+    "lznt123/grace-b3-locked-resume-20261108-inputs"
+  ],
+  "kernel_sources": [
+    "lznt123/qwen3coder30b-prepare-notebook"
+  ]
+}

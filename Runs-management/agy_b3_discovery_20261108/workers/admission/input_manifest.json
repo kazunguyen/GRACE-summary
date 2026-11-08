@@ -1,0 +1,26 @@
+[
+  {
+    "path": "inputs/amended_b3.py",
+    "sha256": "584d41053b7a3b7810b5476efb1c7d3bd6e7620940ebefa763a0ba5ba230562c",
+    "source": "01_Author_Baseline_Unified\\diagnostic_kit\\src\\grace_diag\\amended_b3.py",
+    "bytes": 11136
+  },
+  {
+    "path": "inputs/contrastive_pair_builder.py",
+    "sha256": "52158adac2a71409cf6faef8bceda8909e4359a37ee3b270358580f21e9d2079",
+    "source": "01_Author_Baseline_Unified\\diagnostic_kit\\src\\grace_diag\\contrastive_pair_builder.py",
+    "bytes": 6117
+  },
+  {
+    "path": "inputs/README.md",
+    "sha256": "49e79af86468fc1f292872cf7d1ac679201b0adf99ec64e4a7a3cfbe677679e3",
+    "source": "Runs-management\\b3_amended_20261106\\README.md",
+    "bytes": 5904
+  },
+  {
+    "path": "inputs/prior_real_data_report.json",
+    "sha256": "0191a5d8d25795832f274442ed7bf20edc25784943f9f1a359479c7a6f294318",
+    "source": "Runs-management\\b3_amended_20261106\\real_data_check_final\\report.json",
+    "bytes": 3943
+  }
+]

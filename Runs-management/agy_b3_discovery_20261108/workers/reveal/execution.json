@@ -1,0 +1,26 @@
+{
+  "task": "reveal",
+  "backend": "agy",
+  "model": "gemini-3.8-flash-medium",
+  "started_at": "2026-11-08T02:01:24.781615+00:00",
+  "state": "blocked_or_empty",
+  "prompt_sha256": "e1b427f6796801a055553a16c16f91f1afbd38f2cb7652e7ffd98acdef1de7ff",
+  "input_manifest_sha256": "54920aed3f14a122361a583138f21a0c21db0365f1e18b9428fa25b3064f9888",
+  "review_status": "rejected",
+  "pid": 22924,
+  "returncode": 0,
+  "agy_status": "SUCCESS",
+  "conversation_id": "9fcd2b49-4319-41ae-83e2-685b70c59b8f",
+  "usage": {
+    "input_tokens": 15827,
+    "output_tokens": 739,
+    "thinking_tokens": 698,
+    "cache_read_tokens": 0,
+    "total_tokens": 16566
+  },
+  "finished_at": "2026-11-08T02:01:37.185794+00:00",
+  "elapsed_seconds": 12.391,
+  "changed_inputs": [],
+  "outputs": [],
+  "review_reason": "AGY returned SUCCESS but denied RunCommand and produced no deliverables"
+}
