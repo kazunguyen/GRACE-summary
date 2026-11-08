@@ -55,3 +55,6 @@
 /scripts/b3_step6_packet_tool.py whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 /scripts/b3_step8_validation_census_builder.py whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 /scripts/build_release_v5.py whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+
+# Imported baseline seed44 results retain their original CRLF and hashed bytes.
+/06_Arm_B2_Rand/test_results_20261107/** -text whitespace=cr-at-eol

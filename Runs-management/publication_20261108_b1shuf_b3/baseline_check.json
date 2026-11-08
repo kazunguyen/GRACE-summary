@@ -1,0 +1,17 @@
+{
+  "baseline_ref": "origin/baseline-unified",
+  "baseline_commit": "90a8f11f71cf2b684e525e348eae392d7bda86f7",
+  "publication_commit": "23c24e9",
+  "conflicted_paths": [
+    "Runs-management/RUNS.md"
+  ],
+  "resolved_hunks": 2,
+  "resolution": "Preserve latest B2-rand census and B1-full/B1-shuf/B3 evidence; unique Hieu aliases for reused I-21/I-22",
+  "unresolved_paths": [],
+  "baseline_seed44_devign_unique_ids_verified": 2732,
+  "tested_code_or_config_changed_by_merge": false,
+  "test_evidence": "verification.json:104 passed",
+  "frozen_branch_and_tag_preserved": true,
+  "unrelated_working_changes_preserved": true,
+  "combined_zip_tracked": false
+}

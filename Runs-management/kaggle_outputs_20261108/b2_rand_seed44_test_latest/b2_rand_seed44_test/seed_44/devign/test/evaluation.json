@@ -1,0 +1,26 @@
+{
+  "n_total": 2732,
+  "n_score_valid": 2732,
+  "n_response_valid": 2732,
+  "tau": 0.99,
+  "threshold_lock_sha256": "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735",
+  "accuracy": 0.5472181551976574,
+  "balanced_accuracy": 0.5242976637795467,
+  "precision": 0.5152542372881356,
+  "recall": 0.24223107569721117,
+  "f1": 0.32953929539295396,
+  "mcc": 0.058853308929201306,
+  "confusion_matrix": [
+    [
+      1191,
+      286
+    ],
+    [
+      951,
+      304
+    ]
+  ],
+  "auroc": 0.532715718035104,
+  "average_precision": 0.5005706597597024,
+  "threshold_policy": "inherit_completed_Kaggle_validation_no_test_fit"
+}

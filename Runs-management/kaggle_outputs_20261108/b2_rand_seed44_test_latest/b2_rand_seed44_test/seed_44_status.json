@@ -1,0 +1,34 @@
+{
+  "state": "timed_out",
+  "timed_out": true,
+  "started_at": "2026-11-07T11:32:46.469170+00:00",
+  "deadline_at": "2026-11-07T20:14:50.296927+00:00",
+  "stop_new_records_at": "2026-11-07T20:09:50.296927+00:00",
+  "max_runtime_hours": 8.701063265734248,
+  "checkpoint_reserve_seconds": 300,
+  "runs": {
+    "devign/test": {
+      "state": "complete",
+      "bundle": "/kaggle/working/b2_rand_test_bundles/devign_test.zip",
+      "output": "/kaggle/working/b2_rand_seed44_test/seed_44/devign/test",
+      "count": 2732,
+      "completed": 2732,
+      "records_path": "/kaggle/working/b2_rand_seed44_test/seed_44/devign/test/records.jsonl",
+      "bundle_sha256": "2f705095098b4785637eb7da3505e18351cf375024ee29a0d8985870f2e0b697",
+      "evaluation": "/kaggle/working/b2_rand_seed44_test/seed_44/devign/test/evaluation.json"
+    },
+    "reveal/test": {
+      "state": "checkpointed",
+      "bundle": "/kaggle/working/b2_rand_test_bundles/reveal_test.zip",
+      "output": "/kaggle/working/b2_rand_seed44_test/seed_44/reveal/test",
+      "count": 2274,
+      "completed": 1929,
+      "records_path": "/kaggle/working/b2_rand_seed44_test/seed_44/reveal/test/records.jsonl",
+      "bundle_sha256": "65d642ba7a5ec56f178ed60899a628995333e4aebf7ac1a80f5d3f27af052c46"
+    }
+  },
+  "completed_records_total": 4661,
+  "last_checkpoint_at": "2026-11-07T20:09:24.385515+00:00",
+  "timed_out_at": "2026-11-07T20:09:24.385888+00:00",
+  "stopped_after_run": "reveal/test"
+}

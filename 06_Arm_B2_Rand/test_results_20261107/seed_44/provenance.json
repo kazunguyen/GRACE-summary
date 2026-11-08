@@ -1,0 +1,54 @@
+{
+  "arm": "B2-rand",
+  "prompt_seed": 44,
+  "split": "test",
+  "status": "complete_after_head_tail_merge",
+  "threshold_policy": "inherit_completed_validation_no_test_fit",
+  "thresholds": {
+    "devign": 0.99,
+    "reveal": 0.64
+  },
+  "runtime_lock_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+  "threshold_lock_sha256": "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735",
+  "head": {
+    "kernel": "duchuynguyen1802/02-kaggle-qwen-q4-b2-rand-seed44-test-ipynb",
+    "papermill_start_utc": "2026-11-07T11:14:47.974588+00:00",
+    "papermill_end_utc": "2026-11-07T20:09:30.268931+00:00",
+    "checkpoint_sha256": "0d34c9cdf28e611f9b28b086a93f2cd15730680dfcd7641ce1cbc63138d1a427",
+    "checkpointed_records": 4661,
+    "checkpointed_by_dataset": {
+      "devign": 2732,
+      "reveal": 1929
+    },
+    "status": "timed_out_at_safety_cap"
+  },
+  "tail": {
+    "kernel": "quangdung1111/03-kaggle-qwen-q4-b2-rand-three-seed-test-tail-ipy",
+    "checkpointed_records_for_seed44_reveal": 374,
+    "records_used_after_overlap_resolution": 345,
+    "source": "Runs-management/kaggle_outputs_20261107/b2_rand_three_seed_test_tail_latest/"
+  },
+  "merge": {
+    "devign": {
+      "expected": 2732,
+      "head": 2732,
+      "tail": 0,
+      "overlap": 0,
+      "final": 2732
+    },
+    "reveal": {
+      "expected": 2274,
+      "head": 1929,
+      "tail": 374,
+      "overlap": 29,
+      "tail_only": 345,
+      "overlap_precedence": "head",
+      "final": 2274
+    }
+  },
+  "final_records_sha256": {
+    "devign": "d0ee0cd44d5dda471481c2d8dacfae02ef6834eafcc61a1ef0d8a7de95f5b344",
+    "reveal": "ba1ce1a45574432676c1a57da5e5b54a1a2e89b38fe9a5bcfc10b7621eb0092e"
+  },
+  "gpu": "2x Tesla T4; 49/49 layers offloaded"
+}
