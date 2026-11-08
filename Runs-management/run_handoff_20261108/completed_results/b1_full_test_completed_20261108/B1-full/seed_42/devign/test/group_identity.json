@@ -1,0 +1,11 @@
+{
+  "arm": "B1-full",
+  "seed": 42,
+  "dataset": "devign",
+  "split": "test",
+  "member": "B1-full_42_devign_test.jsonl",
+  "sha256": "a93b77786ff7a88333e265f9985f98f71e7043f11b82c38698fe6fd99c20bfa1",
+  "count": 2732,
+  "tau": 0.99,
+  "runtime_lock_scope": "newly inferred records only; imported historical records are byte/value preserved"
+}

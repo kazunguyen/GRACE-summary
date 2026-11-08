@@ -1,0 +1,7 @@
+{
+  "required_suites_passed": 37,
+  "initial_attempt": "36 passed,1 setup error (Windows TEMP permission)",
+  "successful_attempt": "same three suites with --basetemp inside workspace;37 passed",
+  "frozen_thresholds_changed": false,
+  "scope": "run completion publication and B1-full runtime acceptance"
+}

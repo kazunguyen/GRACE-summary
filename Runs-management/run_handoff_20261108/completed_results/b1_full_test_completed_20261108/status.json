@@ -1,0 +1,10 @@
+{
+  "state": "complete",
+  "groups": {
+    "B1-full/seed_42/devign/test": 2732,
+    "B1-full/seed_42/reveal/test": 2274
+  },
+  "new_records_this_session": 5006,
+  "legacy_count": 0,
+  "updated_at_utc": "2026-11-08T08:35:51.553851+00:00"
+}
