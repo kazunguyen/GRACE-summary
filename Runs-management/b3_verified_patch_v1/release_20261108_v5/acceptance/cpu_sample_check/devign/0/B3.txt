@@ -1,0 +1,114 @@
+You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.
+
+static void filter_mirror_setup(NetFilterState *nf, Error **errp)
+{
+    MirrorState *s = FILTER_MIRROR(nf);
+    Chardev *chr;
+    chr = qemu_chr_find(s->outdev);
+    if (chr == NULL) {
+        error_set(errp, ERROR_CLASS_DEVICE_NOT_FOUND,
+                  "Device '%s' not found", s->outdev);
+    qemu_chr_fe_init(&s->chr_out, chr, errp);
+
+In the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.
+
+The node information of the code snippet is as follows:
+Node 6091: (Function) 'filter_mirror_setup'
+Node 6092: (FunctionDef) 'filter_mirror_setup (NetFilterState * nf...'
+Node 6093: (CompoundStatement)
+Node 6094: (IdentifierDeclStatement) 'MirrorState * s = FILTER_MIRROR ( nf ) ;'
+Node 6095: (IdentifierDecl) '* s = FILTER_MIRROR ( nf )'
+Node 6096: (IdentifierDeclType) 'MirrorState *'
+Node 6097: (Identifier) 's'
+Node 6098: (AssignmentExpression) '* s = FILTER_MIRROR ( nf )'
+Node 6099: (Identifier) 's'
+Node 6100: (CallExpression) 'FILTER_MIRROR ( nf )'
+Node 6101: (Callee) 'FILTER_MIRROR'
+Node 6102: (Identifier) 'FILTER_MIRROR'
+Node 6103: (ArgumentList) 'nf'
+Node 6104: (Argument) 'nf'
+Node 6105: (Identifier) 'nf'
+Node 6106: (IdentifierDeclStatement) 'Chardev * chr ;'
+Node 6107: (IdentifierDecl) '* chr'
+Node 6108: (IdentifierDeclType) 'Chardev *'
+Node 6109: (Identifier) 'chr'
+Node 6110: (ExpressionStatement) 'chr = qemu_chr_find ( s -> outdev )'
+Node 6111: (AssignmentExpression) 'chr = qemu_chr_find ( s -> outdev )'
+Node 6112: (Identifier) 'chr'
+Node 6113: (CallExpression) 'qemu_chr_find ( s -> outdev )'
+Node 6114: (Callee) 'qemu_chr_find'
+Node 6115: (Identifier) 'qemu_chr_find'
+Node 6116: (ArgumentList) 's -> outdev'
+Node 6117: (Argument) 's -> outdev'
+Node 6118: (PtrMemberAccess) 's -> outdev'
+Node 6119: (Identifier) 's'
+Node 6120: (Identifier) 'outdev'
+Node 6121: (ReturnType) 'static void'
+Node 6122: (Identifier) 'filter_mirror_setup'
+Node 6123: (ParameterList) 'NetFilterState * nf , Error * * errp'
+Node 6124: (Parameter) 'NetFilterState * nf'
+Node 6125: (ParameterType) 'NetFilterState *'
+Node 6126: (Identifier) 'nf'
+Node 6127: (Parameter) 'Error * * errp'
+Node 6128: (ParameterType) 'Error * *'
+Node 6129: (Identifier) 'errp'
+Node 6130: (CFGEntryNode) 'ENTRY'
+The edge information of the code snippet is as follows:
+Edge: Node 6095 -> IS_AST_PARENT -> Node 6096
+Edge: Node 6095 -> IS_AST_PARENT -> Node 6097
+Edge: Node 6098 -> IS_AST_PARENT -> Node 6099
+Edge: Node 6101 -> IS_AST_PARENT -> Node 6102
+Edge: Node 6100 -> IS_AST_PARENT -> Node 6101
+Edge: Node 6104 -> IS_AST_PARENT -> Node 6105
+Edge: Node 6103 -> IS_AST_PARENT -> Node 6104
+Edge: Node 6100 -> IS_AST_PARENT -> Node 6103
+Edge: Node 6098 -> IS_AST_PARENT -> Node 6100
+Edge: Node 6095 -> IS_AST_PARENT -> Node 6098
+Edge: Node 6094 -> IS_AST_PARENT -> Node 6095
+Edge: Node 6093 -> IS_AST_PARENT -> Node 6094
+Edge: Node 6107 -> IS_AST_PARENT -> Node 6108
+Edge: Node 6107 -> IS_AST_PARENT -> Node 6109
+Edge: Node 6106 -> IS_AST_PARENT -> Node 6107
+Edge: Node 6093 -> IS_AST_PARENT -> Node 6106
+Edge: Node 6111 -> IS_AST_PARENT -> Node 6112
+Edge: Node 6114 -> IS_AST_PARENT -> Node 6115
+Edge: Node 6113 -> IS_AST_PARENT -> Node 6114
+Edge: Node 6118 -> IS_AST_PARENT -> Node 6119
+Edge: Node 6118 -> IS_AST_PARENT -> Node 6120
+Edge: Node 6117 -> IS_AST_PARENT -> Node 6118
+Edge: Node 6116 -> IS_AST_PARENT -> Node 6117
+Edge: Node 6113 -> IS_AST_PARENT -> Node 6116
+Edge: Node 6111 -> IS_AST_PARENT -> Node 6113
+Edge: Node 6110 -> IS_AST_PARENT -> Node 6111
+Edge: Node 6093 -> IS_AST_PARENT -> Node 6110
+Edge: Node 6092 -> IS_AST_PARENT -> Node 6093
+Edge: Node 6092 -> IS_AST_PARENT -> Node 6121
+Edge: Node 6092 -> IS_AST_PARENT -> Node 6122
+Edge: Node 6124 -> IS_AST_PARENT -> Node 6125
+Edge: Node 6124 -> IS_AST_PARENT -> Node 6126
+Edge: Node 6123 -> IS_AST_PARENT -> Node 6124
+Edge: Node 6127 -> IS_AST_PARENT -> Node 6128
+Edge: Node 6127 -> IS_AST_PARENT -> Node 6129
+Edge: Node 6123 -> IS_AST_PARENT -> Node 6127
+Edge: Node 6092 -> IS_AST_PARENT -> Node 6123
+Edge: Node 6130 -> FLOWS_TO -> Node 6124
+Edge: Node 6124 -> FLOWS_TO -> Node 6127
+Edge: Node 6127 -> FLOWS_TO -> Node 6094
+
+The following example is Vulnerable.
+static int can_safely_read(GetBitContext* gb, int bits) {
+
+    return get_bits_left(gb) >= bits;
+
+}
+
+The following example is Non-vulnerable.
+static int can_safely_read(GetBitContext* gb, uint64_t bits) {
+
+    return get_bits_left(gb) >= bits;
+
+}
+
+Key difference: Before patch: `static int can_safely_read(GetBitContext* gb, int bits) {`. After patch: `static int can_safely_read(GetBitContext* gb, uint64_t bits) {`. Security rationale: In FFmpeg libavcodec/escape124.c (commit 3d7817048cb387de87600f2152075f78b37b60a6, Ticket 1629), the upstream security fix addresses an integer overflow leading to excessive memory allocation. In the vulnerable code, can_safely_read(gb, bits) declared parameter 'bits' as int (32-bit signed), while caller unpack_codebook computed 'size * 34' where 'size' was unsigned. The complete upstream fix consists of two changes: (1) in can_safely_read, widening the parameter type from 'int' to 'uint64_t' so that large bit counts do not evaluate improperly against get_bits_left(gb); and (2) in unpack_codebook, promoting the multiplication to 'size * 34L'. This contrastive demonstration pair captures exclusively change (1) — widening parameter 'bits' from 'int' to 'uint64_t' in can_safely_read — while change (2) ('size * 34L') resides in caller unpack_codebook outside this function pair. Reviewers must evaluate this demonstration in the context of the full upstream commit diff, acknowledging that the demonstrated snippet reflects the parameter type widening component of the integer overflow defense.
+
+Answer (0 or 1):

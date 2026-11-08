@@ -1,0 +1,43 @@
+{
+  "case_id": "case_01_qemu_qemu_bh_delete_10182_17569",
+  "project": "qemu",
+  "function_hint": "qemu_bh_delete",
+  "vulnerable_donor": {
+    "id": "devign:train:10182",
+    "commit_id": "1b435b10324fe9937f254bb00718f78d5e50837a",
+    "code_len": 82,
+    "code_sha256": "ecd34275acfb68a9fbbc30fb20f67e2b245cb96bc6e74e9c80786e184035445f"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:17569",
+    "commit_id": "4e59b545868a5ee5f59b346337f0c44209929334",
+    "code_len": 57,
+    "code_sha256": "52c00a95d87b12a3a2069c880f9d91d270323e259f59c30edea36d612f3c217d"
+  },
+  "source_investigation": {
+    "is_direct_parent_edge": false,
+    "vulnerable_parent_shas": [
+      "474ad834d2c2637a7e5df527f8a89e2792b572ef"
+    ],
+    "patched_parent_shas": [
+      "e11480db7ff15a9e878f6b3cc1199b439bf7c825"
+    ],
+    "vulnerable_changed_files": [
+      "vl.c",
+      "qemu-common.h"
+    ],
+    "patched_changed_files": [
+      "Makefile.objs",
+      "qemu-tool.c"
+    ],
+    "shared_files": [],
+    "vulnerable_commit_msg": "Make bottom halves more robust\n\nBottom halves are supposed to not complete until the next iteration of the main\nloop.  This is very important to ensure that guests can not cause stack\noverflows in the",
+    "patched_commit_msg": "tools: Use real async.c instead of stubs\n\nIt's wrong to call BHs directly, even in tools. The only operations that\nschedule BHs are called in a loop that (indirectly) contains a call to\nqemu_bh_poll a"
+  },
+  "decision": {
+    "status": "REJECTED_UNRELATED_SOURCE_COMMITS",
+    "reason": "Commits do not form a parent-child relationship in git history; Commits modify completely different files (vuln: ['vl.c', 'qemu-common.h'], patch: ['Makefile.objs', 'qemu-tool.c'])",
+    "admissible_for_candidate": false
+  },
+  "timestamp_utc": "2026-11-08T05:00:25.874513+00:00"
+}

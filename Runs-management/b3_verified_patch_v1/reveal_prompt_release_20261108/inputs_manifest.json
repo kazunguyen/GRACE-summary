@@ -1,0 +1,11 @@
+{
+  "method_id": "b3-verified-patch-v1",
+  "source_files_sha256": {
+    "01_Author_Baseline_Unified\\diagnostic_kit\\src\\grace_diag\\amended_b3.py": "d87167da90979b19f94628490672c2b14c98b9a6ab9709750aa0abc4fde4b5d0",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\reveal\\train_manifest.jsonl": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\reveal\\train_raw.jsonl": "9be77b0037191fd995390486a057ffa4e3394f1ae3059ac54514e95016090a76",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\reveal\\validation_raw.jsonl": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1",
+    "Runs-management\\grace_15arms_prompts_and_clean_specs.zip": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+    "scripts\\build_reviewed_reveal_census.py": "924047b90a856e9dd825cf2c4ea913f61ea0bd57b8e83cc6830f5a37e6bccc06"
+  }
+}

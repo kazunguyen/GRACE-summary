@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "-m",
+    "pytest",
+    "tests/test_b3_reveal_delivery_v7.py",
+    "-q",
+    "--basetemp=Runs-management\\b3_verified_patch_v1\\v7_reveal_acceptance_20261108\\tmp"
+  ],
+  "returncode": 0,
+  "cpu_verdict": "PASS",
+  "native_gpu": "NOT_EVALUATED",
+  "review_status": "ADMITTED",
+  "shared_runtime_evidence": "../v6_acceptance_verified_20261108/acceptance.json"
+}

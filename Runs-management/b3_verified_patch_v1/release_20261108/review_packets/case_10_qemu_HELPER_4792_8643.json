@@ -1,0 +1,62 @@
+{
+  "case_id": "case_10_qemu_HELPER_4792_8643",
+  "dataset": "devign",
+  "project": "qemu",
+  "function_hint": "HELPER",
+  "vulnerable_donor": {
+    "id": "devign:train:4792",
+    "commit_id": "8d04fb55dec381bc5105cb47f29d918e579e8cbd",
+    "code_len": 134,
+    "code_sha256": "b0d9ec6c514ce37a2445423dded46d60b6730ef9062b6ac877dfa16f52ffdabc"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:8643",
+    "commit_id": "e8ede0a8bb5298a6979bcf7ed84ef64a64a4e3fe",
+    "code_len": 71,
+    "code_sha256": "8da432140f78a4c2106fe46df6d099df1c87a463435556bc40bf9b4b82da163b"
+  },
+  "source_revisions": {
+    "vulnerable_commit": "8d04fb55dec381bc5105cb47f29d918e579e8cbd",
+    "patched_candidate_commit": "e8ede0a8bb5298a6979bcf7ed84ef64a64a4e3fe",
+    "vulnerable_parents": [
+      "791158d93b27f22a17c2ada06621831d54f09a2c"
+    ],
+    "patched_parents": [
+      "220c21474535d5a859bb10eff2e2be0a48a15694"
+    ],
+    "is_direct_parent_edge": false
+  },
+  "changed_files": {
+    "vulnerable_files": [
+      "hw/core/irq.c",
+      "cpu-exec.c",
+      "include/qom/cpu.h",
+      "qom/cpu.c",
+      "target/i386/smm_helper.c",
+      "translate-all.c",
+      "hw/ppc/spapr.c",
+      "hw/i386/kvmvapic.c",
+      "memory.c",
+      "hw/ppc/ppc.c",
+      "target/arm/op_helper.c",
+      "target/arm/helper.c",
+      "exec.c",
+      "translate-common.c",
+      "cputlb.c",
+      "hw/intc/arm_gicv3_cpuif.c",
+      "cpus.c",
+      "target/s390x/misc_helper.c"
+    ],
+    "patched_files": [
+      "target-unicore32/ucf64_helper.c",
+      "target-unicore32/helper.c",
+      "target-unicore32/Makefile.objs"
+    ],
+    "shared_files": []
+  },
+  "commit_messages": {
+    "vulnerable_commit_msg": "tcg: drop global lock during TCG code execution\n\nThis finally allows TCG to benefit from the iothread introduction: Drop\nthe global mutex while running pure TCG CPU code. Reacquire the lock\nwhen enter",
+    "patched_commit_msg": "unicore32: Split UniCore-F64 instruction helpers from helper.c\n\nThis patch just splits ucf64 instruction simulation helpers from\nhelper.c.\nAlso, two checkpatch warnings are solved.\n\nv1->v2: adjust cop"
+  },
+  "payload_sha256": "f6be334943bee322b629d62e0502e1ee82edf1be2c15d5486032bc5bb9b59816"
+}

@@ -1,0 +1,16 @@
+{
+  "dataset": "reveal",
+  "downstream_state": "FULL_REVEAL_VALIDATION_PROMPT_AUDIT_REQUIRED",
+  "method_id": "b3-verified-patch-v1",
+  "pairs_count": 1,
+  "payload_sha256": "537b1732aa7cc6dbc3821044275e1364568c6a0893999262b9e5f1264a1c71a7",
+  "pool_sha256": "37bb24c5be0e36c9f6c03a046e17687265461abeb1873fe399c9232c7e761203",
+  "pool_status": "ACTIVE_VERIFIED_POOL",
+  "review_forms_sha256": {
+    "review_dung.json": "4a6f3f7f0db073673d8022067575ed96cc2588fd90566c491aa689e1cd1906d7",
+    "review_hieu.json": "80a2c27d1d78e393070b2156a6a9ddfcd270031e60e0f6bed1ca662f32230d37"
+  },
+  "scope_limitation": "Single verified pair; no adaptive retrieval claim",
+  "seal_sha256": "6cba2362c2c32f2fea778b6787e785a2e0b28aee1a08989580787856490d610e",
+  "split": "train"
+}

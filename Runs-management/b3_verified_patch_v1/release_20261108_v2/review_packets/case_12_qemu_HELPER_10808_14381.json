@@ -1,0 +1,45 @@
+{
+  "case_id": "case_12_qemu_HELPER_10808_14381",
+  "dataset": "devign",
+  "project": "qemu",
+  "function_hint": "HELPER",
+  "vulnerable_donor": {
+    "id": "devign:train:10808",
+    "commit_id": "4d9ad7f793605abd9806fc932b3e04e028894565",
+    "code_len": 138,
+    "code_sha256": "65828a023199b330f002dd7c232c54979c3b34bc6a5f2bc524b01e35def28d98"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:14381",
+    "commit_id": "e8ede0a8bb5298a6979bcf7ed84ef64a64a4e3fe",
+    "code_len": 71,
+    "code_sha256": "3e07f0c498a6164fee72bf31c558ff5bd0b263335b766760f2be29a1a78c72e9"
+  },
+  "source_revisions": {
+    "vulnerable_commit": "4d9ad7f793605abd9806fc932b3e04e028894565",
+    "patched_candidate_commit": "e8ede0a8bb5298a6979bcf7ed84ef64a64a4e3fe",
+    "vulnerable_parents": [
+      "cc9453f457888bdd3ab7b37988adbfc4712fa125"
+    ],
+    "patched_parents": [
+      "220c21474535d5a859bb10eff2e2be0a48a15694"
+    ],
+    "is_direct_parent_edge": false
+  },
+  "changed_files": {
+    "vulnerable_files": [
+      "target-arm/neon_helper.c"
+    ],
+    "patched_files": [
+      "target-unicore32/Makefile.objs",
+      "target-unicore32/helper.c",
+      "target-unicore32/ucf64_helper.c"
+    ],
+    "shared_files": []
+  },
+  "commit_messages": {
+    "vulnerable_commit_msg": "target-arm: Don't overflow when calculating value for signed VABAL\n\nIn the VABAL instruction we take the absolute difference of two\nvalues of size x and store it in a result of size 2x. This means\nwe ",
+    "patched_commit_msg": "unicore32: Split UniCore-F64 instruction helpers from helper.c\n\nThis patch just splits ucf64 instruction simulation helpers from\nhelper.c.\nAlso, two checkpatch warnings are solved.\n\nv1->v2: adjust cop"
+  },
+  "payload_sha256": "374c2bcfe8c54516b52147edeac5f4fef268fcebafd467bf57067733b68931c8"
+}

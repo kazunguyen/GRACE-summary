@@ -1,0 +1,82 @@
+{
+  "id": "devign:validation:10",
+  "arm": "B3-flip",
+  "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nstatic inline int64_t sub64(const int64_t a, const int64_t b)\n\n{\n\n\treturn a - b;\n\n}\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 3586: (Function) 'sub64'\nNode 3587: (FunctionDef) 'sub64 (const int64_t a , const int64_t b...'\nNode 3588: (CompoundStatement)\nNode 3589: (ReturnStatement) 'return a - b ;'\nNode 3590: (AdditiveExpression) 'a - b'\nNode 3591: (Identifier) 'a'\nNode 3592: (Identifier) 'b'\nNode 3593: (ReturnType) 'static inline int64_t'\nNode 3594: (Identifier) 'sub64'\nNode 3595: (ParameterList) 'const int64_t a , const int64_t b'\nNode 3596: (Parameter) 'const int64_t a'\nNode 3597: (ParameterType) 'const int64_t'\nNode 3598: (Identifier) 'a'\nNode 3599: (Parameter) 'const int64_t b'\nNode 3600: (ParameterType) 'const int64_t'\nNode 3601: (Identifier) 'b'\nNode 3602: (CFGEntryNode) 'ENTRY'\nNode 3603: (CFGExitNode) 'EXIT'\nNode 3604: (Symbol) 'a'\nNode 3605: (Symbol) 'b'\nThe edge information of the code snippet is as follows:\nEdge: Node 3590 -> IS_AST_PARENT -> Node 3591\nEdge: Node 3590 -> IS_AST_PARENT -> Node 3592\nEdge: Node 3589 -> IS_AST_PARENT -> Node 3590\nEdge: Node 3588 -> IS_AST_PARENT -> Node 3589\nEdge: Node 3587 -> IS_AST_PARENT -> Node 3588\nEdge: Node 3587 -> IS_AST_PARENT -> Node 3593\nEdge: Node 3587 -> IS_AST_PARENT -> Node 3594\nEdge: Node 3596 -> IS_AST_PARENT -> Node 3597\nEdge: Node 3596 -> IS_AST_PARENT -> Node 3598\nEdge: Node 3595 -> IS_AST_PARENT -> Node 3596\nEdge: Node 3599 -> IS_AST_PARENT -> Node 3600\nEdge: Node 3599 -> IS_AST_PARENT -> Node 3601\nEdge: Node 3595 -> IS_AST_PARENT -> Node 3599\nEdge: Node 3587 -> IS_AST_PARENT -> Node 3595\nEdge: Node 3602 -> FLOWS_TO -> Node 3596\nEdge: Node 3596 -> FLOWS_TO -> Node 3599\nEdge: Node 3599 -> FLOWS_TO -> Node 3589\nEdge: Node 3589 -> FLOWS_TO -> Node 3603\nEdge: Node 3596 -> DEF -> Node 3604\nEdge: Node 3589 -> USE -> Node 3604\nEdge: Node 3599 -> DEF -> Node 3605\nEdge: Node 3589 -> USE -> Node 3605\nEdge: Node 3596 -> REACHES -> Node 3589\nEdge: Node 3599 -> REACHES -> Node 3589\nEdge: Node 3602 -> CONTROLS -> Node 3596\nEdge: Node 3602 -> CONTROLS -> Node 3599\nEdge: Node 3602 -> CONTROLS -> Node 3589\nEdge: Node 3599 -> DOM -> Node 3589\nEdge: Node 3602 -> DOM -> Node 3602\nEdge: Node 3596 -> DOM -> Node 3599\nEdge: Node 3589 -> DOM -> Node 3603\nEdge: Node 3602 -> DOM -> Node 3596\nEdge: Node 3603 -> POST_DOM -> Node 3589\nEdge: Node 3596 -> POST_DOM -> Node 3602\nEdge: Node 3603 -> POST_DOM -> Node 3603\nEdge: Node 3589 -> POST_DOM -> Node 3599\nEdge: Node 3599 -> POST_DOM -> Node 3596\nEdge: Node 3586 -> IS_FUNCTION_OF_AST -> Node 3587\nEdge: Node 3586 -> IS_FUNCTION_OF_CFG -> Node 3602\n\nThe following example is Non-vulnerable.\nstatic int can_safely_read(GetBitContext* gb, int bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}\n\nThe following example is Vulnerable.\nstatic int can_safely_read(GetBitContext* gb, uint64_t bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}\n\nKey difference: Before patch: `static int can_safely_read(GetBitContext* gb, int bits) {`. After patch: `static int can_safely_read(GetBitContext* gb, uint64_t bits) {`. Security rationale: In FFmpeg libavcodec/escape124.c (commit 3d7817048cb387de87600f2152075f78b37b60a6, Ticket 1629), the upstream security fix addresses an integer overflow leading to excessive memory allocation. In the Non-vulnerable code, can_safely_read(gb, bits) declared parameter 'bits' as int (32-bit signed), while caller unpack_codebook computed 'size * 34' where 'size' was unsigned. The complete upstream fix consists of two changes: (1) in can_safely_read, widening the parameter type from 'int' to 'uint64_t' so that large bit counts do not evaluate improperly against get_bits_left(gb); and (2) in unpack_codebook, promoting the multiplication to 'size * 34L'. This contrastive demonstration pair captures exclusively change (1) — widening parameter 'bits' from 'int' to 'uint64_t' in can_safely_read — while change (2) ('size * 34L') resides in caller unpack_codebook outside this function pair. Reviewers must evaluate this demonstration in the context of the full upstream commit diff, acknowledging that the demonstrated snippet reflects the parameter type widening component of the integer overflow defense.\n\nAnswer (0 or 1):",
+  "prompt_sha256": "7f8227c435e365c49b6691b4fbd16cbd4e30258a35bae34d2b3c466c91349940",
+  "method": "b3-verified-patch-v1",
+  "selection": {
+    "method": "b3-verified-patch-v1",
+    "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+    "pair_payload_sha256": "0ced77fefccbcef797c3c01abfa0d139d5611e2d562e8f5ec01089ff05168ee1",
+    "score_numerator": 49,
+    "score_denominator": 150,
+    "mean_jaccard": 0.32666666666666666,
+    "eligible_pair_count": 1
+  },
+  "evidence": {
+    "arm": "B3-flip",
+    "seed": 42,
+    "id": "devign:validation:10",
+    "repeat": false,
+    "prompt_sha256": "7f8227c435e365c49b6691b4fbd16cbd4e30258a35bae34d2b3c466c91349940",
+    "tokens": {
+      "code": 30,
+      "graph": 1111,
+      "demo": 402,
+      "total": 1626,
+      "approx": false
+    },
+    "truncated": {
+      "code": false,
+      "graph": false,
+      "demo": false
+    },
+    "graph": {
+      "policy": "prefix",
+      "available_nodes": 20,
+      "available_edges": 40,
+      "rendered_nodes": 20,
+      "rendered_edges": 39,
+      "tokens": 1111,
+      "truncated": false
+    },
+    "demo": {
+      "policy": "contrastive",
+      "label_policy": "flip",
+      "demos": [
+        {
+          "function_uid": "devign:train:8614",
+          "true_label": 1,
+          "displayed_label": 0,
+          "code_shown": true,
+          "tokens": 29,
+          "truncated": false,
+          "original_tokens": 29
+        },
+        {
+          "function_uid": "devign:train:26054",
+          "true_label": 0,
+          "displayed_label": 1,
+          "code_shown": true,
+          "tokens": 32,
+          "truncated": false,
+          "original_tokens": 32
+        }
+      ],
+      "diff_block": {
+        "tokens": 341,
+        "truncated": false
+      },
+      "tokens": 402
+    },
+    "order": [
+      "role",
+      "code",
+      "question",
+      "graph",
+      "demonstration",
+      "answer"
+    ]
+  },
+  "threshold_from": "B3"
+}

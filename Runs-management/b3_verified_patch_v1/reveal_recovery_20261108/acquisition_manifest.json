@@ -1,0 +1,36 @@
+{
+  "recorded_at_utc": "2026-11-08T15:50:44.544339+00:00",
+  "tls_verification": "Windows certificate store; no TLS verification disabled",
+  "upstream_repo": "https://github.com/VulDetProject/ReVeal",
+  "upstream_revision": "ca31b783384b4cdb09b69950e48f79fa0748ef1d",
+  "csv_url": "https://drive.usercontent.google.com/download?id=1IE4qwQj9BkyeMD4-7RvrepocujHsYz9D&export=download&confirm=t",
+  "csv_response_status": 206,
+  "csv_content_range": "bytes 0-1048575/1448744816",
+  "csv_is_partial": true,
+  "curl_commit_api_url": "https://api.github.com/repos/curl/curl/commits/8732ec40db652c53fa58cd13e2acb8eab6e40874",
+  "curl_source_urls": [
+    "https://raw.githubusercontent.com/curl/curl/ee4f76606cfa4ee068bf28edd37c8dae7e8db317/lib/mprintf.c",
+    "https://raw.githubusercontent.com/curl/curl/8732ec40db652c53fa58cd13e2acb8eab6e40874/lib/mprintf.c"
+  ],
+  "curl_actual_diff_url": "https://github.com/curl/curl/commit/8732ec40db652c53fa58cd13e2acb8eab6e40874.diff",
+  "curl_advisory_url": "https://curl.se/docs/CVE-2016-8618.html",
+  "files_sha256": {
+    "curl_actual_fix.diff": "2901b9a06e568599d8a751bea4bf213ab3f9ae69152c823db10ec14f2444a72a",
+    "curl_advisory.html": "923ba73c29ead9aa4fe223d59345ada8e3c463e61b0b364777f6a1260ea474ce",
+    "curl_after.c": "0c68038f2c3c38d1d7ca97da238dacce3c94b13640cb016442df6d63def92ab7",
+    "curl_before.c": "4dfbcc70f45ac9cb4d4b3ca182fbb8e99f685a959f2f21a40bd5c6b2f9d85bc5",
+    "curl_fix_metadata.json": "d20ca3764dcd0ac27b9d4086d06cd1b879e034308ec217ee9d4c5dafd0c45b62",
+    "data_collection_gather_all.ipynb": "50ed7d57d101be4de6f46cb373e66b86fa78aa10ad2c7cf5268c686695ccc01c",
+    "data_collection_get_raw_data.sh": "2f494db3baf7a3debc13cda998b8f33537d6564ac70f1db28001c9bc0478c33f",
+    "data_collection_process_data.ipynb": "272d851eff0a7c8b0b9828b67e0e9c6c9ec17ff38c7121ac7e08ac65143fb67c",
+    "data_get_data.sh": "71b7f402b389871bcbc8c547d30153271bfce226804c83fdf2b6126c2d05dfe2",
+    "debian_data.download": "62298a4de6fe88ca34ecc2be929193b780fef69ace5a7a88cc24693541c1787c",
+    "debian_data.first_1MiB.partial": "0e062b482798bc242e5fc1d403bbf132c1c5bec9dfe65a8cb14d20f68b2957db",
+    "README.md": "84872f2da3a6642029c9cb3278ce48482d5efd8c7fe31a720051b93f4b1e36ce",
+    "source_-1768728156572022708_False.c": "70ffb16749c44ec7aad2e75c44993527a9e85b0b860a9acc7caf44b9d046bcf5",
+    "source_-1768728156572022708_True.c": "b5f772964dfc11ef5b428d8ff9a030ceaf88460d71f70af6e09d3abf0a0a12f7",
+    "source_-8228664527580018723_False.c": "7a916ea66b62e4cb6c032e20f87124c72a914539bcb05f3053b0b394f0a2edc5",
+    "source_-8228664527580018723_True.c": "53fdc599967e8d11ffc32ff128797de190dcc866fa558bb4a7f838499d55bede",
+    "upstream_revision.txt": "6baf140345a1dae35d06a0703364f0950f8bb46f13d25542e9411a2b0788d8c4"
+  }
+}

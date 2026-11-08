@@ -1,0 +1,12 @@
+{
+  "case_id": "case_06_qemu_IRQ_testbit_21393_16959",
+  "reviewer": "REVIEWER_NAME_HERE",
+  "reviewed_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "payload_sha256": "d093215330d3ac0d31be24dea50f1b87790c8e18f0efc54909791876cf206017",
+  "same_function_verified": false,
+  "security_fix_verified": false,
+  "source_revisions_verified": false,
+  "explanation_supported": false,
+  "decision": "reject",
+  "comments": "REVIEWER_COMMENTS_HERE"
+}

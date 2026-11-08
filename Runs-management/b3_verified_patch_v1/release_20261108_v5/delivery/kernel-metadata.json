@@ -1,0 +1,16 @@
+{
+  "id": "huuhieu/grace-b3-amended-devign-val",
+  "title": "grace-b3-amended-devign-val",
+  "code_file": "notebook.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "dataset_sources": [
+    "huuhieu/qwen3-coder-30b-a3b-instruct-q4-k-m",
+    "huuhieu/grace-b3-devign-val-inputs"
+  ],
+  "competition_sources": [],
+  "kernel_sources": []
+}

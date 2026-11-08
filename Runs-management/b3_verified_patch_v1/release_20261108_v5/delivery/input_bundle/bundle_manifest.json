@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release_20261108_v5",
+  "release_version": "v5_devign_validation_locked",
+  "parent_release": "release_20261108_v4",
+  "release_status": "FROZEN",
+  "method_id": "b3-verified-patch-v1",
+  "arm": "B3",
+  "dataset": "devign",
+  "split": "validation",
+  "seed": 42,
+  "count": 2732,
+  "prompts_sha256": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "model_filename": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "quantization": "Q4_K_M",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "prompt_budget_tokens": 8192,
+  "created_at_utc": "2026-11-08T14:49:37.411777+00:00",
+  "files": {
+    "prompts.jsonl": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+    "inputs_manifest.json": "e0fe6b1de28765aeb388316ddd78b6def786da41994c6a4d049cc70123b92d13",
+    "pool_manifest.json": "fb856cec6c22d11c79908d2e42ec2371c0e179c89e0dfa6092c9f80268351994",
+    "validation_prompt_manifest.json": "6d3863da6b00da4f9274d239cb9eae19cf8c131f3d5a939fe241e495b1d24c8a",
+    "scope_decision.json": "a498a8283857721d5c426df8be1de250916aae6db3dfb0deec53ebd6e3ba9307"
+  },
+  "manifest_seal_sha256": "9b8b4637b7e1d15ad42977c492b36a08e0a61ac60b2979f2e4125203936bb553"
+}

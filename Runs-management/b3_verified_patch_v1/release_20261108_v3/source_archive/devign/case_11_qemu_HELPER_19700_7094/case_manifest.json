@@ -1,0 +1,44 @@
+{
+  "case_id": "case_11_qemu_HELPER_19700_7094",
+  "project": "qemu",
+  "function_hint": "HELPER",
+  "vulnerable_donor": {
+    "id": "devign:train:19700",
+    "commit_id": "686eeb93d5738c84c59395b2ec6f8181c2b7cbed",
+    "code_len": 113,
+    "code_sha256": "ad70ce4cc59c76faa22b8576dd0c6214450a30c19f8bbae721a7ddf9f484716b"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:7094",
+    "commit_id": "bb8794307252be791f1723eae47983f815882376",
+    "code_len": 94,
+    "code_sha256": "83dfad8d48eac574c51c916019d149b9329496524e8a204de58cddf53c73d723"
+  },
+  "source_investigation": {
+    "has_both_commit_responses": true,
+    "is_direct_parent_edge": false,
+    "vulnerable_parent_shas": [
+      "7bbcb0afe715c36545bbbd872441c473927c1a4e"
+    ],
+    "patched_parent_shas": [
+      "e2d9f902378cc0b8de9bacfc9406e6c63bc236d7"
+    ],
+    "vulnerable_changed_files": [
+      "target-arm/helper.c"
+    ],
+    "patched_changed_files": [
+      "target/s390x/helper.h",
+      "target/s390x/mem_helper.c",
+      "target/s390x/translate.c"
+    ],
+    "shared_files": [],
+    "vulnerable_commit_msg": "target-arm: fix sdiv helper\n\n(INT32_MIN / -1) triggers an overflow, and the result depends on the\nhost architecture (INT32_MIN on arm, -1 on ppc, SIGFPE on x86). Use a\ntest to output the correct value",
+    "patched_commit_msg": "s390x/tcg: implement TEST PROTECTION\n\nLinux uses TEST PROTECTION to sense for available memory locations.\n\nLet's implement what we can for now (just as for the other instructions,\nexcluding AR mode an"
+  },
+  "decision": {
+    "status": "UNRESOLVED_RECORDED_COMMITS_NO_DIRECT_EDGE",
+    "reason": "Recorded donor commits do not form a direct parent-child relationship in git history; Recorded donor commits modify completely different files (vuln: ['target-arm/helper.c'], patch: ['target/s390x/helper.h', 'target/s390x/mem_helper.c', 'target/s390x/translate.c'])",
+    "admissible_for_candidate": false
+  },
+  "timestamp_utc": "2026-11-08T08:09:28.157509+00:00"
+}

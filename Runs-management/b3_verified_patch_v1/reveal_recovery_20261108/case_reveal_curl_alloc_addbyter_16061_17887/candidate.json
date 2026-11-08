@@ -1,0 +1,61 @@
+{
+  "dataset": "reveal",
+  "pair_id": "case_reveal_curl_alloc_addbyter_16061_17887",
+  "vulnerable_id": "reveal:train:16061",
+  "patched_id": "reveal:train:17887",
+  "before_sha256": "67173e0b6ee66fbe95f3f87b1e974b7fffc22c0385394e567413734f8cad3114",
+  "after_sha256": "f1e08e9393f776244c417cc55f978e3d003b68065998d9933a2492c19ab36348",
+  "source": {
+    "repository": "curl/curl",
+    "path": "lib/mprintf.c",
+    "function": "alloc_addbyter",
+    "fix_commit": "8732ec40db652c53fa58cd13e2acb8eab6e40874",
+    "parent_commit": "ee4f76606cfa4ee068bf28edd37c8dae7e8db317",
+    "source_url": "https://github.com/curl/curl/commit/8732ec40db652c53fa58cd13e2acb8eab6e40874",
+    "before": "static int alloc_addbyter ( int output , FILE * data ) {\n struct asprintf * infop = ( struct asprintf * ) data ;\n unsigned char outc = ( unsigned char ) output ;\n if ( ! infop -> buffer ) {\n infop -> buffer = malloc ( 32 ) ;\n if ( ! infop -> buffer ) {\n infop -> fail = 1 ;\n return - 1 ;\n }\n infop -> alloc = 32 ;\n infop -> len = 0 ;\n }\n else if ( infop -> len + 1 >= infop -> alloc ) {\n char * newptr ;\n newptr = realloc ( infop -> buffer , infop -> alloc * 2 ) ;\n if ( ! newptr ) {\n infop -> fail = 1 ;\n return - 1 ;\n }\n infop -> buffer = newptr ;\n infop -> alloc *= 2 ;\n }\n infop -> buffer [ infop -> len ] = outc ;\n infop -> len ++ ;\n return outc ;\n }",
+    "after": "static int alloc_addbyter ( int output , FILE * data ) {\n struct asprintf * infop = ( struct asprintf * ) data ;\n unsigned char outc = ( unsigned char ) output ;\n if ( ! infop -> buffer ) {\n infop -> buffer = malloc ( 32 ) ;\n if ( ! infop -> buffer ) {\n infop -> fail = 1 ;\n return - 1 ;\n }\n infop -> alloc = 32 ;\n infop -> len = 0 ;\n }\n else if ( infop -> len + 1 >= infop -> alloc ) {\n char * newptr = NULL ;\n size_t newsize = infop -> alloc * 2 ;\n if ( newsize > infop -> alloc ) newptr = realloc ( infop -> buffer , newsize ) ;\n if ( ! newptr ) {\n infop -> fail = 1 ;\n return - 1 ;\n }\n infop -> buffer = newptr ;\n infop -> alloc = newsize ;\n }\n infop -> buffer [ infop -> len ] = outc ;\n infop -> len ++ ;\n return outc ;\n }",
+    "fix_diff": "diff --git a/lib/mprintf.c b/lib/mprintf.c\nindex dbedeaa1836e..2c88aa833b1b 100644\n--- a/lib/mprintf.c\n+++ b/lib/mprintf.c\n@@ -1036,16 +1036,19 @@ static int alloc_addbyter(int output, FILE *data)\n     infop->len =0;\n   }\n   else if(infop->len+1 >= infop->alloc) {\n-    char *newptr;\n+    char *newptr = NULL;\n+    size_t newsize = infop->alloc*2;\n \n-    newptr = realloc(infop->buffer, infop->alloc*2);\n+    /* detect wrap-around or other overflow problems */\n+    if(newsize > infop->alloc)\n+      newptr = realloc(infop->buffer, newsize);\n \n     if(!newptr) {\n       infop->fail = 1;\n       return -1; /* fail */\n     }\n     infop->buffer = newptr;\n-    infop->alloc *= 2;\n+    infop->alloc = newsize;\n   }\n \n   infop->buffer[ infop->len ] = outc;\n",
+    "security_rationale": "CVE-2016-8618: on 32-bit size_t, doubling infop->alloc may wrap to zero. realloc(buffer, 0) may free the allocation and return NULL, leaving error cleanup able to free the stale pointer again. The actual upstream fix initializes newptr to NULL, computes newsize, calls realloc only if newsize > the old allocation, and assigns the checked size. This helper is the changed function in the full fix. Upstream advisory: https://curl.se/docs/CVE-2016-8618.html. Donor formatting is tokenized; explicit C lexical mapping is part of this payload and must be independently reviewed, not treated as a previously ratified mapping.",
+    "mapping": {
+      "type": "c_lexical_tokens_v1",
+      "upstream_before": "static int alloc_addbyter(int output, FILE *data)\n{\n  struct asprintf *infop=(struct asprintf *)data;\n  unsigned char outc = (unsigned char)output;\n\n  if(!infop->buffer) {\n    infop->buffer = malloc(32);\n    if(!infop->buffer) {\n      infop->fail = 1;\n      return -1; /* fail */\n    }\n    infop->alloc = 32;\n    infop->len =0;\n  }\n  else if(infop->len+1 >= infop->alloc) {\n    char *newptr;\n\n    newptr = realloc(infop->buffer, infop->alloc*2);\n\n    if(!newptr) {\n      infop->fail = 1;\n      return -1; /* fail */\n    }\n    infop->buffer = newptr;\n    infop->alloc *= 2;\n  }\n\n  infop->buffer[ infop->len ] = outc;\n\n  infop->len++;\n\n  return outc; /* fputc() returns like this on success */\n}",
+      "upstream_after": "static int alloc_addbyter(int output, FILE *data)\n{\n  struct asprintf *infop=(struct asprintf *)data;\n  unsigned char outc = (unsigned char)output;\n\n  if(!infop->buffer) {\n    infop->buffer = malloc(32);\n    if(!infop->buffer) {\n      infop->fail = 1;\n      return -1; /* fail */\n    }\n    infop->alloc = 32;\n    infop->len =0;\n  }\n  else if(infop->len+1 >= infop->alloc) {\n    char *newptr = NULL;\n    size_t newsize = infop->alloc*2;\n\n    /* detect wrap-around or other overflow problems */\n    if(newsize > infop->alloc)\n      newptr = realloc(infop->buffer, newsize);\n\n    if(!newptr) {\n      infop->fail = 1;\n      return -1; /* fail */\n    }\n    infop->buffer = newptr;\n    infop->alloc = newsize;\n  }\n\n  infop->buffer[ infop->len ] = outc;\n\n  infop->len++;\n\n  return outc; /* fputc() returns like this on success */\n}",
+      "upstream_before_sha256": "97454c81d5642369236ac989aaaed5eb321bc335581e386fee4e848c7bf04bf1",
+      "upstream_after_sha256": "de7b32fdf96fe501081d933e97a6601079250334692136a421f776a2aace482f",
+      "distribution_source_id": "-8228664527580018723",
+      "upstream_full_before_sha256": "4dfbcc70f45ac9cb4d4b3ca182fbb8e99f685a959f2f21a40bd5c6b2f9d85bc5",
+      "upstream_full_after_sha256": "0c68038f2c3c38d1d7ca97da238dacce3c94b13640cb016442df6d63def92ab7",
+      "mapping_decision_status": "PENDING_INDEPENDENT_HUMAN_REVIEW"
+    },
+    "diff": "--- vulnerable\n+++ patched\n@@ -11,14 +11,15 @@\n  infop -> len = 0 ;\n  }\n  else if ( infop -> len + 1 >= infop -> alloc ) {\n- char * newptr ;\n- newptr = realloc ( infop -> buffer , infop -> alloc * 2 ) ;\n+ char * newptr = NULL ;\n+ size_t newsize = infop -> alloc * 2 ;\n+ if ( newsize > infop -> alloc ) newptr = realloc ( infop -> buffer , newsize ) ;\n  if ( ! newptr ) {\n  infop -> fail = 1 ;\n  return - 1 ;\n  }\n  infop -> buffer = newptr ;\n- infop -> alloc *= 2 ;\n+ infop -> alloc = newsize ;\n  }\n  infop -> buffer [ infop -> len ] = outc ;\n  infop -> len ++ ;\n"
+  },
+  "changed_lines": [
+    {
+      "operation": "replace",
+      "before_start": 14,
+      "before_lines": [
+        " char * newptr ;",
+        " newptr = realloc ( infop -> buffer , infop -> alloc * 2 ) ;"
+      ],
+      "after_start": 14,
+      "after_lines": [
+        " char * newptr = NULL ;",
+        " size_t newsize = infop -> alloc * 2 ;",
+        " if ( newsize > infop -> alloc ) newptr = realloc ( infop -> buffer , newsize ) ;"
+      ]
+    },
+    {
+      "operation": "replace",
+      "before_start": 21,
+      "before_lines": [
+        " infop -> alloc *= 2 ;"
+      ],
+      "after_start": 22,
+      "after_lines": [
+        " infop -> alloc = newsize ;"
+      ]
+    }
+  ],
+  "key_difference": "Before patch: `char * newptr ;` | `newptr = realloc ( infop -> buffer , infop -> alloc * 2 ) ;` | `infop -> alloc *= 2 ;`. After patch: `char * newptr = NULL ;` | `size_t newsize = infop -> alloc * 2 ;` | `if ( newsize > infop -> alloc ) newptr = realloc ( infop -> buffer , newsize ) ;` | `infop -> alloc = newsize ;`. Security rationale: CVE-2016-8618: on 32-bit size_t, doubling infop->alloc may wrap to zero. realloc(buffer, 0) may free the allocation and return NULL, leaving error cleanup able to free the stale pointer again. The actual upstream fix initializes newptr to NULL, computes newsize, calls realloc only if newsize > the old allocation, and assigns the checked size. This helper is the changed function in the full fix. Upstream advisory: https://curl.se/docs/CVE-2016-8618.html. Donor formatting is tokenized; explicit C lexical mapping is part of this payload and must be independently reviewed, not treated as a previously ratified mapping.",
+  "reviews": []
+}

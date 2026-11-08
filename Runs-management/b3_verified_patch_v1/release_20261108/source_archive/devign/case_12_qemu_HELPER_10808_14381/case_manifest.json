@@ -1,0 +1,39 @@
+{
+  "case_id": "case_12_qemu_HELPER_10808_14381",
+  "project": "qemu",
+  "function_hint": "HELPER",
+  "vulnerable_donor": {
+    "id": "devign:train:10808",
+    "commit_id": "4d9ad7f793605abd9806fc932b3e04e028894565",
+    "code_len": 138,
+    "code_sha256": "65828a023199b330f002dd7c232c54979c3b34bc6a5f2bc524b01e35def28d98"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:14381",
+    "commit_id": "e8ede0a8bb5298a6979bcf7ed84ef64a64a4e3fe",
+    "code_len": 71,
+    "code_sha256": "3e07f0c498a6164fee72bf31c558ff5bd0b263335b766760f2be29a1a78c72e9"
+  },
+  "source_investigation": {
+    "is_direct_parent_edge": false,
+    "vulnerable_parent_shas": [],
+    "patched_parent_shas": [
+      "220c21474535d5a859bb10eff2e2be0a48a15694"
+    ],
+    "vulnerable_changed_files": [],
+    "patched_changed_files": [
+      "target-unicore32/ucf64_helper.c",
+      "target-unicore32/helper.c",
+      "target-unicore32/Makefile.objs"
+    ],
+    "shared_files": [],
+    "vulnerable_commit_msg": "",
+    "patched_commit_msg": "unicore32: Split UniCore-F64 instruction helpers from helper.c\n\nThis patch just splits ucf64 instruction simulation helpers from\nhelper.c.\nAlso, two checkpatch warnings are solved.\n\nv1->v2: adjust cop"
+  },
+  "decision": {
+    "status": "REJECTED_UNRELATED_SOURCE_COMMITS",
+    "reason": "Commits do not form a parent-child relationship in git history; Commits modify completely different files (vuln: [], patch: ['target-unicore32/ucf64_helper.c', 'target-unicore32/helper.c', 'target-unicore32/Makefile.objs'])",
+    "admissible_for_candidate": false
+  },
+  "timestamp_utc": "2026-11-08T05:00:25.918813+00:00"
+}

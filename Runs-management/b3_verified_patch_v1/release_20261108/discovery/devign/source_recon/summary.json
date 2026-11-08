@@ -1,0 +1,11 @@
+{
+  "dataset": "devign",
+  "requests_attempted": 16,
+  "requests_successful": 16,
+  "ssl_ca_bundle_used": "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\certifi\\cacert.pem",
+  "trusted_verification": true,
+  "source_checks_count": 12,
+  "direct_parent_edges_found": 0,
+  "timestamp_utc": "2026-11-08T05:00:20.993775+00:00",
+  "status": "STEP2_RECON_COMPLETED"
+}

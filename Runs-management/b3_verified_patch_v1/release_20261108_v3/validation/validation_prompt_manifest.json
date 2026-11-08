@@ -1,0 +1,44 @@
+{
+  "created_at_utc": "2026-11-08T08:28:12.824088+00:00",
+  "release_version": "v3_remediated",
+  "parent_release": "v2_remediated",
+  "method": "b3-verified-patch-v1",
+  "scope": "Validation Census Specification & Pool Readiness Audit",
+  "prompt_content_status": "BLOCKED_EMPTY_POOL_NO_PROMPTS_RENDERED",
+  "datasets": {
+    "devign": {
+      "dataset": "devign",
+      "census_count": 2732,
+      "expected_count": 2732,
+      "census_sha256": "c37ce662a49a83720062e24bac36aa0d39aca39fc546047b66d5f9c6c09cbc2c",
+      "unique_ids_count": 2732,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 2562,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "Zero pairs admitted: all investigated cases rejected by automated technical triage or lack of consensus.",
+      "paused_records_count": 2732,
+      "nonempty_prompt_count": 0
+    },
+    "reveal": {
+      "dataset": "reveal",
+      "census_count": 2273,
+      "expected_count": 2273,
+      "census_sha256": "6e969e1025b2fc8390e4491c6024055b6f28e73b56dd655feb4eac3cc945ae1b",
+      "unique_ids_count": 2273,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 0,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "All 17,636 donors missing upstream commit revisions in frozen export.",
+      "paused_records_count": 2273,
+      "nonempty_prompt_count": 0
+    }
+  },
+  "governance_status": "POOLS_BLOCKED_VALIDATION_PAUSED",
+  "gpu_inference_status": "INFERENCE_PAUSED_EMPTY_POOL",
+  "methodology_note": "Because eligible pair pools are empty, prompt construction is safely paused. Prompt evaluation flags (Figure 6 order, target label absence) are recorded as NOT_EVALUATED_BLOCKED_EMPTY_POOL rather than asserting compliance on null prompts.",
+  "prompt_manifest_seal_sha256": "0cd3293f34cd436725d047f038cd44ae5c8f6e1ec00d6e3369efeb9ac9609ee8"
+}

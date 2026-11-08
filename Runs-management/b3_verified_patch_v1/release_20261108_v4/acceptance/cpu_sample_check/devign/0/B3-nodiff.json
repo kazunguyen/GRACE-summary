@@ -1,0 +1,79 @@
+{
+  "id": "devign:validation:8",
+  "arm": "B3-nodiff",
+  "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nstatic void filter_mirror_setup(NetFilterState *nf, Error **errp)\n{\n    MirrorState *s = FILTER_MIRROR(nf);\n    Chardev *chr;\n    chr = qemu_chr_find(s->outdev);\n    if (chr == NULL) {\n        error_set(errp, ERROR_CLASS_DEVICE_NOT_FOUND,\n                  \"Device '%s' not found\", s->outdev);\n    qemu_chr_fe_init(&s->chr_out, chr, errp);\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 6091: (Function) 'filter_mirror_setup'\nNode 6092: (FunctionDef) 'filter_mirror_setup (NetFilterState * nf...'\nNode 6093: (CompoundStatement)\nNode 6094: (IdentifierDeclStatement) 'MirrorState * s = FILTER_MIRROR ( nf ) ;'\nNode 6095: (IdentifierDecl) '* s = FILTER_MIRROR ( nf )'\nNode 6096: (IdentifierDeclType) 'MirrorState *'\nNode 6097: (Identifier) 's'\nNode 6098: (AssignmentExpression) '* s = FILTER_MIRROR ( nf )'\nNode 6099: (Identifier) 's'\nNode 6100: (CallExpression) 'FILTER_MIRROR ( nf )'\nNode 6101: (Callee) 'FILTER_MIRROR'\nNode 6102: (Identifier) 'FILTER_MIRROR'\nNode 6103: (ArgumentList) 'nf'\nNode 6104: (Argument) 'nf'\nNode 6105: (Identifier) 'nf'\nNode 6106: (IdentifierDeclStatement) 'Chardev * chr ;'\nNode 6107: (IdentifierDecl) '* chr'\nNode 6108: (IdentifierDeclType) 'Chardev *'\nNode 6109: (Identifier) 'chr'\nNode 6110: (ExpressionStatement) 'chr = qemu_chr_find ( s -> outdev )'\nNode 6111: (AssignmentExpression) 'chr = qemu_chr_find ( s -> outdev )'\nNode 6112: (Identifier) 'chr'\nNode 6113: (CallExpression) 'qemu_chr_find ( s -> outdev )'\nNode 6114: (Callee) 'qemu_chr_find'\nNode 6115: (Identifier) 'qemu_chr_find'\nNode 6116: (ArgumentList) 's -> outdev'\nNode 6117: (Argument) 's -> outdev'\nNode 6118: (PtrMemberAccess) 's -> outdev'\nNode 6119: (Identifier) 's'\nNode 6120: (Identifier) 'outdev'\nNode 6121: (ReturnType) 'static void'\nNode 6122: (Identifier) 'filter_mirror_setup'\nNode 6123: (ParameterList) 'NetFilterState * nf , Error * * errp'\nNode 6124: (Parameter) 'NetFilterState * nf'\nNode 6125: (ParameterType) 'NetFilterState *'\nNode 6126: (Identifier) 'nf'\nNode 6127: (Parameter) 'Error * * errp'\nNode 6128: (ParameterType) 'Error * *'\nNode 6129: (Identifier) 'errp'\nNode 6130: (CFGEntryNode) 'ENTRY'\nThe edge information of the code snippet is as follows:\nEdge: Node 6095 -> IS_AST_PARENT -> Node 6096\nEdge: Node 6095 -> IS_AST_PARENT -> Node 6097\nEdge: Node 6098 -> IS_AST_PARENT -> Node 6099\nEdge: Node 6101 -> IS_AST_PARENT -> Node 6102\nEdge: Node 6100 -> IS_AST_PARENT -> Node 6101\nEdge: Node 6104 -> IS_AST_PARENT -> Node 6105\nEdge: Node 6103 -> IS_AST_PARENT -> Node 6104\nEdge: Node 6100 -> IS_AST_PARENT -> Node 6103\nEdge: Node 6098 -> IS_AST_PARENT -> Node 6100\nEdge: Node 6095 -> IS_AST_PARENT -> Node 6098\nEdge: Node 6094 -> IS_AST_PARENT -> Node 6095\nEdge: Node 6093 -> IS_AST_PARENT -> Node 6094\nEdge: Node 6107 -> IS_AST_PARENT -> Node 6108\nEdge: Node 6107 -> IS_AST_PARENT -> Node 6109\nEdge: Node 6106 -> IS_AST_PARENT -> Node 6107\nEdge: Node 6093 -> IS_AST_PARENT -> Node 6106\nEdge: Node 6111 -> IS_AST_PARENT -> Node 6112\nEdge: Node 6114 -> IS_AST_PARENT -> Node 6115\nEdge: Node 6113 -> IS_AST_PARENT -> Node 6114\nEdge: Node 6118 -> IS_AST_PARENT -> Node 6119\nEdge: Node 6118 -> IS_AST_PARENT -> Node 6120\nEdge: Node 6117 -> IS_AST_PARENT -> Node 6118\nEdge: Node 6116 -> IS_AST_PARENT -> Node 6117\nEdge: Node 6113 -> IS_AST_PARENT -> Node 6116\nEdge: Node 6111 -> IS_AST_PARENT -> Node 6113\nEdge: Node 6110 -> IS_AST_PARENT -> Node 6111\nEdge: Node 6093 -> IS_AST_PARENT -> Node 6110\nEdge: Node 6092 -> IS_AST_PARENT -> Node 6093\nEdge: Node 6092 -> IS_AST_PARENT -> Node 6121\nEdge: Node 6092 -> IS_AST_PARENT -> Node 6122\nEdge: Node 6124 -> IS_AST_PARENT -> Node 6125\nEdge: Node 6124 -> IS_AST_PARENT -> Node 6126\nEdge: Node 6123 -> IS_AST_PARENT -> Node 6124\nEdge: Node 6127 -> IS_AST_PARENT -> Node 6128\nEdge: Node 6127 -> IS_AST_PARENT -> Node 6129\nEdge: Node 6123 -> IS_AST_PARENT -> Node 6127\nEdge: Node 6092 -> IS_AST_PARENT -> Node 6123\nEdge: Node 6130 -> FLOWS_TO -> Node 6124\nEdge: Node 6124 -> FLOWS_TO -> Node 6127\nEdge: Node 6127 -> FLOWS_TO -> Node 6094\n\nThe following example is Vulnerable.\nstatic int can_safely_read(GetBitContext* gb, int bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}\n\nThe following example is Non-vulnerable.\nstatic int can_safely_read(GetBitContext* gb, uint64_t bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}\n\nAnswer (0 or 1):",
+  "prompt_sha256": "b0ffb3d224d8defa37dee4e30c1856d5f302e468f4c3c1dfe4546552ecdc052e",
+  "method": "b3-verified-patch-v1",
+  "selection": {
+    "method": "b3-verified-patch-v1",
+    "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+    "pair_payload_sha256": "0ced77fefccbcef797c3c01abfa0d139d5611e2d562e8f5ec01089ff05168ee1",
+    "score_numerator": 89,
+    "score_denominator": 440,
+    "mean_jaccard": 0.20227272727272727,
+    "eligible_pair_count": 1
+  },
+  "evidence": {
+    "arm": "B3-nodiff",
+    "seed": 42,
+    "id": "devign:validation:8",
+    "repeat": false,
+    "prompt_sha256": "b0ffb3d224d8defa37dee4e30c1856d5f302e468f4c3c1dfe4546552ecdc052e",
+    "tokens": {
+      "code": 97,
+      "graph": 1493,
+      "demo": 61,
+      "total": 1734,
+      "approx": false
+    },
+    "truncated": {
+      "code": false,
+      "graph": true,
+      "demo": false
+    },
+    "graph": {
+      "policy": "prefix",
+      "available_nodes": 49,
+      "available_edges": 88,
+      "rendered_nodes": 40,
+      "rendered_edges": 40,
+      "tokens": 1493,
+      "truncated": true
+    },
+    "demo": {
+      "policy": "contrastive",
+      "label_policy": "true",
+      "demos": [
+        {
+          "function_uid": "devign:train:8614",
+          "true_label": 1,
+          "displayed_label": 1,
+          "code_shown": true,
+          "tokens": 29,
+          "truncated": false,
+          "original_tokens": 29
+        },
+        {
+          "function_uid": "devign:train:26054",
+          "true_label": 0,
+          "displayed_label": 0,
+          "code_shown": true,
+          "tokens": 32,
+          "truncated": false,
+          "original_tokens": 32
+        }
+      ],
+      "diff_block": null,
+      "tokens": 61
+    },
+    "order": [
+      "role",
+      "code",
+      "question",
+      "graph",
+      "demonstration",
+      "answer"
+    ]
+  },
+  "threshold_from": "B3-nodiff"
+}

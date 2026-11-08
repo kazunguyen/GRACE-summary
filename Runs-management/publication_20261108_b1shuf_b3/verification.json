@@ -1,0 +1,20 @@
+{
+  "started_at_utc": "2026-11-08T16:24:54.253378+00:00",
+  "finished_at_utc": "2026-11-08T16:25:50.066472+00:00",
+  "command": [
+    "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "-m",
+    "pytest",
+    "tests/test_b3_delivery_v6.py",
+    "tests/test_b3_reveal_source_mapping.py",
+    "tests/test_b3_reveal_delivery_v7.py",
+    "tests/test_amended_b3.py",
+    "tests/test_preregistration_integrity.py",
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py",
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_stats_and_complementarity.py",
+    "-q",
+    "--basetemp=Runs-management\\publication_20261108_b1shuf_b3\\test_tmp"
+  ],
+  "returncode": 0,
+  "result": "104 passed in 53.56s"
+}

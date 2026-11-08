@@ -1,0 +1,58 @@
+{
+  "authority": {
+    "human_review_source": "Both final forms validated and user-confirmed 2026-11-08",
+    "new_scope_ratification_timestamp_claimed": false,
+    "scope": "Reviewed REVEAL curl alloc_addbyter pair16061/17887; operational fixes requested by user"
+  },
+  "bundle_filename": "b3_reveal_validation_v7.zip",
+  "bundle_sha256": "6c0d222121fd8648c5a65289508de81c65cba6d8fdfa99ab9533248a95c31e21",
+  "code_sha256": {
+    "b3_delivery_runtime.py": "730b1a13f045e3504fe7a7fe52c5ff177e6cf07e8af77a8c0ef64d797a89fb90",
+    "grace_runtime_contract.py": "27b57d69089d009b225e3653dd38afed14bb48442765652c2c80c0c38df01775",
+    "inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "kaggle_inference.py": "059c5fca1de0043f5b7710ed39c79976301d8b92548e3f2f85aaaf2afeb08fe8"
+  },
+  "created_at_utc": "2026-11-08T16:06:26.401844+00:00",
+  "dirty_source_inventory": {
+    "scripts\\b3_delivery_runtime.py": "730b1a13f045e3504fe7a7fe52c5ff177e6cf07e8af77a8c0ef64d797a89fb90",
+    "scripts\\build_b3_reveal_delivery_v7.py": "d3d5b51539dd3425a948f4d69f5ba87ef74a1f9c9e7d9bb94633a2342892d981"
+  },
+  "excluded": {
+    "devign": "SEPARATE_RELEASE_V6",
+    "test": "BLOCKED_VALIDATION_THRESHOLD"
+  },
+  "git_commit": "68b7bf137bb9b957051c46a86d53ec41a528731c",
+  "inference_rows_sha256": "08145b346fb4aa44c43fb9f982a8ef25fcb8de7cf6f6bd848f95a9c5cd39f0dc",
+  "labels_source_sha256": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1",
+  "members_sha256": {
+    "audited_census.jsonl": "fe3e026a8c6db6e08718d1cdaa45138ea4a79169f19225db7734522027c62676",
+    "bundle_manifest.json": "9420d829f8c249aece741a61479b96a1cd8e875f5e6f8956bf9fbd569c0b2d78",
+    "evidence/eligible_pairs.reveal.jsonl": "37bb24c5be0e36c9f6c03a046e17687265461abeb1873fe399c9232c7e761203",
+    "evidence/parent_inputs_manifest.json": "71fcddc0af41ba91260642848a8ffccab2e9ce7bc748ef4489ed870e6aed2dba",
+    "evidence/parent_pool_manifest.json": "624c8b00942521e8685103342d83809cbe5190babbe7f6216c7e62a8fa15c2c4",
+    "evidence/parent_prompt_manifest.json": "6705049060f0772a1ddf80caf07d9eaa33ba2e08db6a1c5d321c8dcbd48b6f6d",
+    "evidence/review_dung.json": "4a6f3f7f0db073673d8022067575ed96cc2588fd90566c491aa689e1cd1906d7",
+    "evidence/review_hieu.json": "80a2c27d1d78e393070b2156a6a9ddfcd270031e60e0f6bed1ca662f32230d37",
+    "labels.json": "7b14ebaf9fbb4da68de631d0f8b74a281cd2d89d588e244e92436bc933930dd7",
+    "prompts.jsonl": "08145b346fb4aa44c43fb9f982a8ef25fcb8de7cf6f6bd848f95a9c5cd39f0dc"
+  },
+  "method_id": "b3-verified-patch-v1",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "parent_release": "reveal_prompt_release_20261108",
+  "pool_sha256": "37bb24c5be0e36c9f6c03a046e17687265461abeb1873fe399c9232c7e761203",
+  "prompt_content_sha256": "fe3e026a8c6db6e08718d1cdaa45138ea4a79169f19225db7734522027c62676",
+  "release_id": "release_20261108_v7_reveal",
+  "release_status": "CPU_PREPARED_NATIVE_PENDING",
+  "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+  "schema_version": 1,
+  "scope": {
+    "arm": "B3",
+    "count": 2273,
+    "dataset": "reveal",
+    "seed": 42,
+    "split": "validation"
+  },
+  "scoring": "unconstrained_first_token_logits_v1",
+  "seal_sha256": "69b5fab8eea32446d15e6e6c14e29b369a484e9cc2fdfc0ee6c5f6f61e19ff3e",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+}

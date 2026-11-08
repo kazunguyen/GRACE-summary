@@ -1,0 +1,39 @@
+{
+  "case_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "status": "G1_VERIFIED_CANDIDATE_DOCUMENTED",
+  "evidence_verified": {
+    "upstream_repository": "FFmpeg/FFmpeg",
+    "source_path": "libavcodec/escape124.c",
+    "fix_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+    "parent_commit": "4b529edff8934c258af95e5acc51f84deea66262",
+    "parent_in_commit_api": true,
+    "parent_file_sha256": "4e074b83eda3521efb54114e61fa3abe3ded5ca710a6ccdd33ef232f8d1fdd7b",
+    "fix_file_sha256": "2177993013f8082f4fc2b83aae724dc3e94f97d4d43e5c3ea48dd5dc058ee82d",
+    "actual_fix_diff_sha256": "8a724a11eca0cb987643727f9be824a3b0fe2e9726958349416bab5de7ffd8df",
+    "candidate_payload_sha256": "f9591b61817ea3f976fbb897263dae2604fae1f62f81be2f8248efb46ad4ee41",
+    "donor_vulnerable_id": "devign:train:8614",
+    "donor_patched_id": "devign:train:26054",
+    "both_donors_in_clean_bank": true,
+    "donor_labels_valid": true,
+    "match_level": {
+      "vulnerable_before": {
+        "upstream_extracted_exact_sha256": "9e037e8ecb093f421a6d610b9c7de7ec5f2a7b8e03bc37ef813638c020857454",
+        "donor_bank_exact_sha256": "4606a83675db1907349a2ac64be8ed091bd0ec903a1ba397b70d893390429c0a",
+        "exact_bytes_match": false,
+        "token_and_strip_normalized_match": true,
+        "discrepancy_explanation": "Devign author export format added double-newlines between lines (func code lines formatted with blank lines). Semantic tokens and code characters are identical."
+      },
+      "patched_after": {
+        "upstream_extracted_exact_sha256": "bb0500eaa7a6b15f73c74262bd80837a2296bfc8007d927618183536737a5740",
+        "donor_bank_exact_sha256": "b67ffa61f2079da93b215ab6425df96642a65203cc3cce51c96126a1ce9cd7f6",
+        "exact_bytes_match": false,
+        "token_and_strip_normalized_match": true,
+        "discrepancy_explanation": "Devign author export format added double-newlines between lines. Semantic tokens and code characters are identical."
+      }
+    },
+    "validate_pair_passed": true
+  },
+  "human_review_status": "PENDING_INDEPENDENT_HUMAN_REVIEW",
+  "pool_admission_status": "NOT_ADMITTED_PENDING_TWO_APPROVED_REVIEWS",
+  "timestamp_utc": "2026-11-08T09:18:18.730555+00:00"
+}

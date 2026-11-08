@@ -1,0 +1,12 @@
+{
+  "case_id": "case_reveal_curl_alloc_addbyter_16061_17887",
+  "reviewer": "Dung",
+  "payload_sha256": "537b1732aa7cc6dbc3821044275e1364568c6a0893999262b9e5f1264a1c71a7",
+  "reviewed_at": null,
+  "decision": null,
+  "same_function_verified": null,
+  "security_fix_verified": null,
+  "source_revisions_verified": null,
+  "explanation_supported": null,
+  "comments": null
+}

@@ -1,0 +1,6 @@
+{
+  "scripts/build_reviewed_reveal_census.py": "924047b90a856e9dd825cf2c4ea913f61ea0bd57b8e83cc6830f5a37e6bccc06",
+  "scripts/build_b3_reveal_delivery_v7.py": "d3d5b51539dd3425a948f4d69f5ba87ef74a1f9c9e7d9bb94633a2342892d981",
+  "scripts/upload_b3_reveal_v7_inputs.py": "240a3cacdc71b5a0f20416e6d74bb704911e799d7d77b38d3c778848ae45b420",
+  "tests/test_b3_reveal_delivery_v7.py": "fb97d576ccec9b590de39864e85582de285809338b46e4ea8a695fab0409ec51"
+}

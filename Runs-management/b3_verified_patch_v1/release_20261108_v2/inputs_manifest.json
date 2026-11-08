@@ -1,0 +1,94 @@
+{
+  "created_at_utc": "2026-11-08T06:03:58.677256+00:00",
+  "release_version": "v2_remediated",
+  "git_commit": "46e6f4ab9d0ff2c9ecac124d3a6f2bdb72524bd9",
+  "git_status": "M CHANGES_AFTER_PREREG.md\n M Runs-management/b3_amended_20261106/check_b3.py\n M tests/test_amended_b3.py\n?? Runs-management/b3_verified_patch_v1/\n?? Runs-management/kaggle_status_20261108_112250/\n?? docs/B3_NEW_ALGORITHM_EXECUTION_PLAN_20261108.md\n?? extracted_de_cuong.txt\n?? scripts/b3_step1_snapshot.py\n?? scripts/b3_step2_https_recon.py\n?? scripts/b3_step3_devign_investigation.py\n?? scripts/b3_step4_reveal_provenance.py\n?? scripts/b3_step5_make_candidates.py\n?? scripts/b3_step6_dual_review.py\n?? scripts/b3_step6_packet_tool.py\n?? scripts/b3_step7_verify_selector_renderer.py\n?? scripts/b3_step8_validation_census_builder.py",
+  "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "freeze_manifest": {
+    "path": "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\freeze_manifest.json",
+    "sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448",
+    "status": "SEAL_VERIFIED"
+  },
+  "modules_sha256": {
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/amended_b3.py": "584d41053b7a3b7810b5476efb1c7d3bd6e7620940ebefa763a0ba5ba230562c",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/contrastive_pair_builder.py": "52158adac2a71409cf6faef8bceda8909e4359a37ee3b270358580f21e9d2079",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/probes.py": "a92d84bbe434ffb8973c11cd05ecaa2acaa7009a4925d450170e758fd7d9b5a9",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/token_budget.py": "1b8867bd5c51a941e02a526e22b136a321686b796e92ad5980d06f8f903b057f",
+    "configs/inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "Runs-management/b3_amended_20261106/check_b3.py": "dd6f349b8988126790d1de6b6c39eb7da25638809a6940435a4d208808090428"
+  },
+  "authority_documents_sha256": {
+    "docs/OSF_response/De_cuong_nghien_cuu_GRACE_hop_nhat.docx": "a55b3992696f69bd2c05e360e76827071396b5a9b5dec5a75bc6512cac9d0d40",
+    "docs/OSF-update-20261107.pdf": "dc7ef447795eba94c5e2527e3399b1dc76a47e7c910f84313c425cb67feb83c2"
+  },
+  "execution_scripts_sha256": {
+    "scripts/b3_step1_snapshot.py": "264e22698f81d43f5e033f6102af7b48c3f31a4b241366ca77e2284598e77928",
+    "scripts/b3_step2_https_recon.py": "db517a22b7485bbaf3374049e424e0fc752f59fe8675bc2f5a224950e1c0375b",
+    "scripts/b3_step3_devign_investigation.py": "07f76ca3a3cda130c69e57229a39a882a79d53f62ea7ce5c6ab81d1159fb6294",
+    "scripts/b3_step4_reveal_provenance.py": "dccbdb52cb3d732b4dfe3306c6c3525cd97a2787a37ad2359ee96370ea364737",
+    "scripts/b3_step5_make_candidates.py": "67d5c30c5a1c102410a61c5301ae8cba64f9a86ed96ee675436894fda98c1c96",
+    "scripts/b3_step6_packet_tool.py": "6b9fed9d54d76fb278011bdbb0445b9efb751bf992be470045d0c36830578b7a",
+    "scripts/b3_step7_verify_selector_renderer.py": "f7a1da35c532aa7538b098cf4d472ce6034d26ddc0a065c932062c9a7d7cb57e",
+    "scripts/b3_step8_validation_census_builder.py": "af1d461582cff5c46f1aca327fab8fb0938b07bca3707d8575bd15d357608785"
+  },
+  "verified_freeze_files": {
+    "devign/donors.jsonl": "7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62",
+    "devign/near_pairs.jsonl": "421b1d2f595de756f55d24038a02fdfa52a51325a7cbc820df8551160f301810",
+    "devign/test_manifest.jsonl": "f0f8672a88cddbe5c348847c285b843981b310c12117b5c8fdc3ccd785b759da",
+    "devign/test_raw.jsonl": "9fdb601ac2ba3e21a96e7312d6218518ac350182be9fcb2125b4175633d4640b",
+    "devign/train_manifest.jsonl": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4",
+    "devign/train_raw.jsonl": "3a87fbf479877717402531e51922955f88282043fc972641317f13ca3b4838d0",
+    "devign/validation_manifest.jsonl": "7a2eeec9a9aa2b472b2f4df0e6af91f6b90efab38d5ac44f9491adcf699b8eee",
+    "devign/validation_raw.jsonl": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5",
+    "reveal/donors.jsonl": "6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce",
+    "reveal/near_pairs.jsonl": "59c27ba8889dbda7e5dceff20e60ffc1df82b5c52978ec5058d4d668bebfda4d",
+    "reveal/test_manifest.jsonl": "19cc3f580f0441387ab3d194b0a06bb87ba3e3cf82ce5a818b70bf8c545c1f66",
+    "reveal/test_raw.jsonl": "466015aa06b08fd86d73a8feabe86b4dfb3e708b054a63ec2eccfb362fd977ab",
+    "reveal/train_manifest.jsonl": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b",
+    "reveal/train_raw.jsonl": "9be77b0037191fd995390486a057ffa4e3394f1ae3059ac54514e95016090a76",
+    "reveal/validation_manifest.jsonl": "b6632ec3a62f93f917e8f64365917b5546fcd1b426a67fbfa30b56d71d9d7267",
+    "reveal/validation_raw.jsonl": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1",
+    "declared_graph_source:devign/train": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\devign\\cpg\\train.jsonl",
+      "declared_sha256": "64d33f3403254fb6f8d2c8dc3815eeeed51254c33d523cd2ccf85ead08395cfb"
+    },
+    "declared_graph_source:devign/validation": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\devign\\cpg\\validation.jsonl",
+      "declared_sha256": "61ea6fe89569e7df38bee998025518dae02db5269b7bf17b97183d8c2fcb2950"
+    },
+    "declared_graph_source:devign/test": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\devign\\cpg\\test.jsonl",
+      "declared_sha256": "eb7c447772fc400c10111bdf13a4c0c8aacab7c4dcd0e0935a04ce67d0f485a1"
+    },
+    "declared_graph_source:reveal/train": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\reveal\\cpg\\train.jsonl",
+      "declared_sha256": "0d1cecbbd2b9de730e5a31bc868304e2f8d1ddb82aba550c970d6d9368a1f2ec"
+    },
+    "declared_graph_source:reveal/validation": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\reveal\\cpg\\validation.jsonl",
+      "declared_sha256": "5e663edd0160eeb7ed516cd3d8e86dc9ea5466c6c8a80264f6843f1225bd82e2"
+    },
+    "declared_graph_source:reveal/test": {
+      "path": "output\\local_full\\cpg_recovered_joern_final_20261031\\reveal\\cpg\\test.jsonl",
+      "declared_sha256": "92a0e279314ff8d4e0f16df673a1a67ca3bf42c178d35bbd7381b4959a44ac52"
+    }
+  },
+  "tokenizer": {
+    "revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "path": "11_Arm_B1H2_Evidence\\tokenizer_cache_v6\\models--Qwen--Qwen3-Coder-30B-A3B-Instruct\\snapshots\\b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "files_sha256": {
+      "chat_template.jinja": "e14eb779d4a91789ec3a5e6a9d00e29ce6b475783931d2e9c00a10910f1f0829",
+      "config.json": "216f6e5fc04dcac3b044cff82ab06302bd9cd142f4c9b4c91cf8fa358a395aaf",
+      "merges.txt": "0de0bc38a29ea38eef099b677fa1ff52edd181e573529af26c4cd2136e233777",
+      "tokenizer.json": "2060f1d2a86446343bfee1c84d48b5b177a163f8737067b977fd49d622a0670f",
+      "tokenizer_config.json": "53e5c9e37aecb5012cce84bdd414e5ecda7f1b986a04cdbc295969e9d0256a12",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  },
+  "clean_train_donors": {
+    "devign": 21691,
+    "reveal": 17636
+  },
+  "status": "STEP1_PASSED_SEALED",
+  "seal_sha256": "95eb4ee991da3fbf4010652a6bbb6e2ddccb29a8744d81d154bb9d405642592e"
+}

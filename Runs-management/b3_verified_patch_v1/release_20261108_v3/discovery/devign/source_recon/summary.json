@@ -1,0 +1,16 @@
+{
+  "dataset": "devign",
+  "total_commits_requested": 17,
+  "cache_hits": 16,
+  "network_requests_attempted": 1,
+  "network_requests_successful": 1,
+  "network_requests_failed": 0,
+  "ssl_ca_bundle_used": "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\certifi\\cacert.pem",
+  "trusted_verification": true,
+  "source_checks_count": 12,
+  "cases_with_both_responses": 12,
+  "cases_with_missing_responses": 0,
+  "direct_parent_edges_found": 0,
+  "timestamp_utc": "2026-11-08T08:09:23.005573+00:00",
+  "status": "STEP2_RECON_COMPLETED"
+}

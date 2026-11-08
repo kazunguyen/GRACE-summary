@@ -1,0 +1,54 @@
+{
+  "checked_at_utc": "2026-11-08T12:18:30.777109+00:00",
+  "parent_kernel": "tomandjerry223/grace-b1-shuf-locked-20261108",
+  "checkpoint_sha256": "6b4defda65f63c1704689d1a425d72983cac7e4f3d168370d6fae6f7093003e4",
+  "input_manifest_sha256": "1f008abc6f0d9928fca6c5684d9b49f508182a733acb12f0d8bbb03d11d3a70c",
+  "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "groups": [
+    {
+      "group": "B1-shuf/seed_42/devign/test",
+      "done": 2732,
+      "target": 2732,
+      "remaining": 0
+    },
+    {
+      "group": "B1-shuf/seed_42/reveal/test",
+      "done": 2274,
+      "target": 2274,
+      "remaining": 0
+    },
+    {
+      "group": "B1-shuf/seed_43/devign/test",
+      "done": 745,
+      "target": 2732,
+      "remaining": 1987
+    },
+    {
+      "group": "B1-shuf/seed_43/reveal/test",
+      "done": 0,
+      "target": 2274,
+      "remaining": 2274
+    },
+    {
+      "group": "B1-shuf/seed_44/devign/test",
+      "done": 0,
+      "target": 2732,
+      "remaining": 2732
+    },
+    {
+      "group": "B1-shuf/seed_44/reveal/test",
+      "done": 0,
+      "target": 2274,
+      "remaining": 2274
+    }
+  ],
+  "provenances": {
+    "locked_7y4i70yp/runtime_provenance.json": {
+      "sha256": "4e2266f500c083d5f511faba027e222d1b46c7ac908e4639d8981dae34416245",
+      "runtime_checks_pass": true
+    }
+  },
+  "total_done": 5751,
+  "total_target": 15018,
+  "remaining": 9267
+}

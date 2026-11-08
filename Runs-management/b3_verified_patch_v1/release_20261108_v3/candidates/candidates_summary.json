@@ -1,0 +1,9 @@
+{
+  "cases_audited": 12,
+  "candidates_admitted": 0,
+  "ineligible_cases_count": 12,
+  "dummy_fixtures_used": false,
+  "methodology_note": "Per audit finding F04, no dummy diffs or synthetic fixtures are used in the real-data pipeline. Cases failing parentage or file sharing are stopped at investigation and recorded as ineligible. make_pair_candidate is only called when authentic source diffs exist.",
+  "status": "STEP5_CANDIDATE_AUDIT_COMPLETED",
+  "timestamp_utc": "2026-11-08T08:09:59.269323+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "state": "timed_out",
+  "groups": {
+    "B1-shuf/seed_42/devign/test": 2732,
+    "B1-shuf/seed_42/reveal/test": 2274,
+    "B1-shuf/seed_43/devign/test": 1410,
+    "B1-shuf/seed_43/reveal/test": 0,
+    "B1-shuf/seed_44/devign/test": 0,
+    "B1-shuf/seed_44/reveal/test": 0
+  },
+  "new_records_this_session": 665,
+  "legacy_count": 0,
+  "updated_at_utc": "2026-11-08T13:44:41.852447+00:00"
+}

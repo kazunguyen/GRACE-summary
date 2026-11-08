@@ -1,0 +1,12 @@
+{
+  "case_id": "case_01_qemu_qemu_bh_delete_10182_17569",
+  "reviewer": "REVIEWER_NAME_HERE",
+  "reviewed_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "payload_sha256": "e273fc6f03e9f65282d4475b8aa3ce72914df282e039210ab40753597bb72422",
+  "same_function_verified": false,
+  "security_fix_verified": false,
+  "source_revisions_verified": false,
+  "explanation_supported": false,
+  "decision": "reject",
+  "comments": "REVIEWER_COMMENTS_HERE"
+}

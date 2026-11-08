@@ -1,0 +1,9 @@
+{
+  "launch_state": "NOT_LAUNCHED",
+  "machine_shape": "NvidiaTeslaT4",
+  "model_dataset_source": "PENDING_ACCOUNT_ASSET_CHECK",
+  "native_acceptance_required": true,
+  "owner": "huuhieu3333",
+  "session_timeout_seconds": 32400,
+  "source_readback_required": true
+}

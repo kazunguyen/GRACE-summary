@@ -1,0 +1,26 @@
+{
+  "milestone": "G1_SOURCE_INVESTIGATION_AND_CANDIDATE_AUTHENTICATION",
+  "governance_contract": "AUDIT_REPORT.md (Fourth Audit 20261108_153556)",
+  "devign": {
+    "investigated_cases": 12,
+    "authentic_candidates_verified": 1,
+    "unresolved_cases": 11,
+    "verified_candidate_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+    "verified_candidate_payload_sha256": "f9591b61817ea3f976fbb897263dae2604fae1f62f81be2f8248efb46ad4ee41",
+    "human_review_status": "PENDING_INDEPENDENT_HUMAN_REVIEW",
+    "active_pool_status": "PAUSED_EMPTY_POOL"
+  },
+  "reveal": {
+    "clean_train_donors": 17636,
+    "raw_export_records": 18187,
+    "unresolved_count": 17636,
+    "active_pool_status": "PAUSED_EMPTY_POOL",
+    "blocker": "Raw dataset export lacks upstream commit hashes and repository references."
+  },
+  "next_operational_steps": [
+    "Submit case_08 packet to two independent human reviewers (Hiếu & Dũng) for independent adjudication.",
+    "Await completed review forms with verified decision and rationale before proceeding to Task D (Pool Publication).",
+    "Maintain safe pause on validation census (5,005 records) and zero GPU inference until G2 and G3 gates are satisfied."
+  ],
+  "timestamp_utc": "2026-11-08T09:18:18.947332+00:00"
+}

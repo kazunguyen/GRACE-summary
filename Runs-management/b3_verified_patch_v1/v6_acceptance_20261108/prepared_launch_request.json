@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "code_file": "notebook.ipynb",
+    "competition_sources": [],
+    "dataset_sources": [
+      "huuhieu3333/grace-b3-v6-devign-inputs"
+    ],
+    "enable_gpu": true,
+    "enable_internet": true,
+    "id": "huuhieu3333/grace-b3-v6-devign-validation",
+    "is_private": true,
+    "kernel_sources": [
+      "huuhieu3333/qwen3coder30b-prepare-notebook"
+    ],
+    "kernel_type": "notebook",
+    "language": "python",
+    "title": "GRACE B3 v6 Devign validation",
+    "machine_shape": "NvidiaTeslaT4",
+    "session_timeout_seconds": 32400
+  },
+  "notebook_sha256": "c89e6accdaf0ce4b5d4708cc69e4264995fff6038d9928283b001e8aef10e88c",
+  "input_root_sha256": "38ed52ee4cc71ad41c1f5c94af41afa4e4c84a842cf2b0daa46e5cb1afe6fc36",
+  "private_input_dataset_to_publish": "huuhieu3333/grace-b3-v6-devign-inputs",
+  "input_dataset_files": [
+    "b3_devign_validation_v6.zip"
+  ],
+  "status": "PREPARED_NOT_SUBMITTED",
+  "required_checks": [
+    "Verify model kernel source and dataset accessibility as huuhieu3333",
+    "Check current account quota before setting session timeout",
+    "Official SDK request must retain machine_shape and timeout; old CLI drops shape",
+    "Read back all cell sources and machine_shape after push",
+    "Native runtime acceptance required; this request is not runtime PASS"
+  ],
+  "reveal": "BLOCKED_EMPTY_VERIFIED_POOL"
+}

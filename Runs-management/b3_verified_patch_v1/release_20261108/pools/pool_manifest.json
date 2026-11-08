@@ -1,0 +1,35 @@
+{
+  "created_at_utc": "2026-11-08T05:00:53.459607+00:00",
+  "governance": "amended_b3_verified_patch_v1",
+  "reviewers": [
+    "Hiếu",
+    "Dũng"
+  ],
+  "pool_criteria_version": "v1.0",
+  "pools": {
+    "devign": {
+      "dataset": "devign",
+      "clean_train_donors": 21691,
+      "candidate_combinations": 26700,
+      "admitted_pairs_count": 0,
+      "pool_file": "pools\\eligible_pairs.devign.jsonl",
+      "pool_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "BLOCKED_EMPTY_POOL",
+      "blocker_reason": "Zero pairs passed dual review criteria (Hiếu & Dũng rejected all candidate name matches)"
+    },
+    "reveal": {
+      "dataset": "reveal",
+      "clean_train_donors": 17636,
+      "candidate_combinations": 33947,
+      "admitted_pairs_count": 0,
+      "pool_file": "pools\\eligible_pairs.reveal.jsonl",
+      "pool_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "BLOCKED_EMPTY_POOL",
+      "blocker_reason": "All 17,636 donors missing upstream commit revisions in frozen export"
+    }
+  },
+  "synthetic_fixtures_permitted": false,
+  "synthetic_fixtures_count": 0,
+  "timestamp_utc": "2026-11-08T05:00:53.459607+00:00",
+  "manifest_seal_sha256": "bbdf9cd12511ee775394908ffb55b0e5577c2a0516c13dcf197adaae37e0888b"
+}
