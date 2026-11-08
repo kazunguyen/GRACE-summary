@@ -1,0 +1,34 @@
+{
+  "milestone": "G1_SOURCE_INVESTIGATION_AND_CANDIDATE_AUTHENTICATION",
+  "governance_contract": "AUDIT_REPORT.md (Fifth Audit 20261108_162642)",
+  "dossier_version": "v2",
+  "remediation_status": {
+    "empty_line_mapping_governance": "RATIFIED_BOUND_IN_PAYLOAD",
+    "security_rationale_precision": "GROUNDED_DEMO_SCOPE_LIMITED",
+    "dynamic_assertion_gate": "ENFORCED_FAIL_CLOSED"
+  },
+  "devign": {
+    "investigated_cases": 12,
+    "authentic_candidates_verified": 1,
+    "unresolved_cases": 11,
+    "verified_candidate_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+    "verified_candidate_payload_sha256": "0ced77fefccbcef797c3c01abfa0d139d5611e2d562e8f5ec01089ff05168ee1",
+    "evidence_inputs_manifest_sha256": "bd1a8c56480ad4e0e375715ca1d60b144a26fc1e787a2b6fe17913d3eaf9a921",
+    "human_review_status": "PENDING_INDEPENDENT_HUMAN_REVIEW",
+    "active_pool_status": "PAUSED_EMPTY_POOL"
+  },
+  "reveal": {
+    "clean_train_donors": 17636,
+    "raw_export_records": 18187,
+    "unresolved_count": 17636,
+    "active_pool_status": "PAUSED_EMPTY_POOL",
+    "blocker": "Raw dataset export lacks upstream commit hashes and repository references."
+  },
+  "next_operational_steps": [
+    "Submit case_08 packet.md, packet.json, and review_form_template.json to two independent human reviewers (Hiếu & Dũng).",
+    "Reviewers must independently adjudicate whether demonstrating can_safely_read is suitable given caller change size * 34L in unpack_codebook.",
+    "Verify completed review forms matching canonical payload_sha256 before admitting pair into pool.",
+    "Maintain safe pause on validation census (5,005 records) and zero GPU inference until G2 and G3 gates are satisfied."
+  ],
+  "timestamp_utc": "2026-11-08T09:41:17.143935+00:00"
+}

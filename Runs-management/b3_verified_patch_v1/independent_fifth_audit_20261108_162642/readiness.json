@@ -1,0 +1,11 @@
+{
+  "completed_at_utc": "2026-11-08T09:29:39.649195+00:00",
+  "tests_independently_passed": 43,
+  "source_files_changed": [],
+  "upstream_readback_matches": true,
+  "preliminary_human_review_may_continue": true,
+  "final_payload_review_ready": false,
+  "active_pool_ready": false,
+  "gpu_ready": false,
+  "missing_local_links": []
+}

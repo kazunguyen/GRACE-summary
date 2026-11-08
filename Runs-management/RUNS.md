@@ -1,5 +1,7 @@
 # GRACE-summary — sổ theo dõi mọi lượt chạy
 
+**Trạng thái mới nhất — 08/11/2026, sau23:11 GMT+7:** B1-shuf đã tải checkpoint6.416/15.018, dừng deadline, còn8.602; chưa resume thêm. B3 mới đã có review/pool và full validation prompts cho **cả Devign/REVEAL**, CPU preflight đạt; chưa native GPU acceptance, chưa score/τ*/test mới, còn quota trước launch. [B3 hiện hành](../docs/B3_CURRENT_STATUS_20261108.md). Các snapshot ghi thời điểm cũ bên dưới được giữ làm lịch sử.
+
 <!-- full-validation-dryrun-20261102 -->
 **Dry-run validation 02/11/2026 — P-10:** hoàn tất 70.070 dòng/28 tập cho 10 arm đủ đầu vào trên đủ 2.732 Devign + 2.273 REVEAL; sau đối chiếu nguồn 28/28 tập đạt audit tự động, 0 lỗi dựng, 0 cờ nhãn chưa giải quyết trong phạm vi kiểm tra. Giữ 176 cờ demo và 390 cờ graph thiếu (562 dòng hợp nhất); mỗi tập demo rỗng ≤1%. B1-shuf giữ 30 target graph trống có cờ ở cả ba seed. Năm arm H2/B3 blocked; đã tạo 60 mẫu/hai phiếu trống, chưa có hai người chấm nên Bước 3 chưa hoàn tất. Không có inference/score/tau mới. [Báo cáo](dry_run_validation_20261102/KET_QUA.md), [kiểm bàn giao](dry_run_validation_20261102/verification.json). Ghi chú 9 arm chưa chuẩn bị bên dưới là phạm vi hậu kiểm trước lượt này.
 <!-- /full-validation-dryrun-20261102 -->
@@ -23,10 +25,10 @@
 | B1-full — I-21 | 2.732 | 2.732 | 2.273 | 2.274 | Seed42 test COMPLETE 08/11 15:35:51 GMT+7; 5.006 fresh records, PASS_LAUNCH_CONTRACT; tau 0,99/0,01. Không cần seed43/44. Xem runtime acceptance |
 | B2-nolabel | 2.732 | 2.732 | 2.273 | 2.274 | Test COMPLETE, đã tải/publish; tau 0,98/0,21; full new-runtime certification chưa đủ |
 | B2-labelonly | 2.732 | 2.732 | 2.273 | 2.274 | Test COMPLETE, đã tải/publish; tau 0,99/0,02; full new-runtime certification chưa đủ |
-| B1-shuf | 8.196/8.196 | Chưa quan sát | 6.819/6.819 | Chưa quan sát | RUNNING tại snapshot 08/11 khoảng 16:08 GMT+7; mục tiêu test 15.018 trên seed42/43/44. Chưa có output công bố, không ghi 0 như số thực đã xử lý |
+| B1-shuf — I-23 | 8.196/8.196 | Checkpoint 4.142/8.196 | 6.819/6.819 | Checkpoint 2.274/6.822 | Resume huuhieu3333 version2 đã dừng theo deadline; 6.416/15.018, tăng665. Seed42 đủ cả2 tập; seed43 Devign1.410/2.732, REVEAL0; seed44 chưa chạy. Đã tải output/checkpoint và kiểm toàn vẹn, còn8.602 records. [Báo cáo](b1_shuf_download_20261108_231129/STATUS.md) |
 | B2-rand — I-09/I-11/I-15/I-17/I-18/I-19/I-20 | 8.196/8.196 | Seed42/43 đủ | 6.819/6.819 | Seed42/43 đủ | Validation đủ 15.015. Seed42/43 mỗi seed đủ 5.006 test theo I-20; REVEAL seed44 có 374 tail records lưu riêng, chưa xác nhận full seed44. Không ghi toàn bộ test = 0 hoặc toàn bộ 3 seed đã xong |
 | B3 lịch sử — I-22 | 2.732 | Chưa chạy | 2.273 | Chưa chạy | B3-only validation COMPLETE 08/11 10:40:57 GMT+7; 947 mới + 4.058 nhập, giữ provenance từng record; không phải thuật toán mới |
-| B3 mới / B3-nodiff / B3-swap / B3-flip | Chưa inference | Chưa inference | Chưa inference | Chưa inference | Verified-patch track còn chờ mapping/source evidence và hai review thật; không dùng score/tau lịch sử thay thế. Lịch GPU mới chỉ B3 khi đủ gate |
+| B3 mới — verified-patch; GPU scope chỉ B3 | Prompt2.732, chưa inference | Chưa mở | Prompt2.273, chưa inference | Chưa mở | Hai pool đã được hai người duyệt; Devign v6 và REVEAL v7 CPU preflight PASS, private inputs ready trên huuhieu3333. Chờ quota và native runtime acceptance trước full validation. Không dùng scores/τ* lịch sử; nodiff/swap/flip chưa launch. [Trạng thái](../docs/B3_CURRENT_STATUS_20261108.md) |
 
 Số liệu/nguồn: [HIEN_TRANG.md](HIEN_TRANG.md), [current_status.json](current_status.json). Sổ này lưu từng phiên J/E/P/I; bảng hiện tại không thay bằng chứng/history của các phiên cũ. Tổng record đã nhập ở sáu arm Kaggle có output là 50.412; không đồng nghĩa mọi điều kiện xác nhận đã hoàn tất và không bao gồm B1-H2 Colab exploratory. B0 raw invalid 1.132; B1 raw invalid 5 trên output hợp nhất I-07/I-08, score invalid 0; B2-rand có 2 raw invalid ở seed42/ReVeal, score invalid 0. Không gộp hai khái niệm invalid.
 
@@ -140,6 +142,10 @@ Sau I-05, Qwen Q4 B2 đã có đủ **10.011/10.011 prediction**, gồm 2.732 De
 | I-22 | Kaggle B3-only lịch sử continuation, `huuhieu3333/grace-b3-only-resume-20261108` | Status complete **08/11/2026 10:40:57 GMT+7** (03:40:57 UTC), theo worker status. | **COMPLETE validation 5.005/5.005**: Devign 2.732 + REVEAL 2.273. Phiên cuối thêm 947 REVEAL, nhập 4.058 cũ (4.029 lịch sử + 29 source-locked); không cộng trùng. Không chứng nhận hồi tố provenance cho 4.029 lịch sử; không phải verified-patch-v1. | [Records/identity](run_handoff_20261108/completed_results/b3_historical_validation_completed_20261108/), [completion hashes](run_handoff_20261108/completion_update_20261108.json), [snapshot](run_handoff_20261108/status_snapshot_1608/STATUS.md) |
 
 ## Cập nhật hoàn tất ngày 08/11/2026
+
+**Bổ sung 19:15 GMT+7 — I-23:** `tomandjerry223/grace-b1-shuf-locked-20261108` kết thúc phiên với worker `timed_out` lúc16:59:25, checkpoint5.751 records (seed42 đủ5.006, seed43 Devign745); còn9.267. Checkpoint CRC/bytes/record identity/score/runtime provenance đã kiểm. Tài khoản gốc hết quota; theo chỉ định chủ dự án, chuyển private checkpoint và nguyên prompt bundle sang `huuhieu3333`, launch `grace-b1-shuf-resume-20261108` version1, source readback đúng, RUNNING19:15:34. Timeout90 phút cùng300 giây dự phòng export; không thay lock hoặc chạy lại ID đã có. [Worklog I-23](../worklogs/2026-11-08_b1_shuf_checkpoint_resume.md). RUNNING chưa chứng minh native offload hoặc số inference mới.
+
+**I-23 tiếp tục19:19:** version1 dừng trước inference vì Kaggle giải nén checkpoint ZIP. Đã sửa nhận ZIP hoặc unpacked directory với exact per-member hashes, kiểm cả hai mode/corruption/missing; version2 cùng slug được launch19:19:22 và RUNNING19:19:26, source readback khớp. Checkpoint gốc giữ nguyên5.751; không chạy lại seed42. Chi tiết và bằng chứng ở worklog I-23.
 
 Snapshot mới khoảng **16:08 GMT+7**: B1-full đã COMPLETE và nghiệm thu theo contract lúc launch; B3 lịch sử đã đủ validation; B1-shuf còn RUNNING, tiến độ live chưa quan sát. B2-rep/nolabel/labelonly đủ test như handoff đã công bố. Các tổng/checkpoint cũ trong sổ là snapshot lịch sử, không cộng thêm records trùng vào chúng. Không tuyên bố toàn bộ ma trận đã xong test. [Worklog và giới hạn nghiệm thu](../worklogs/2026-11-08_b1_full_completion_runtime_acceptance.md).
 

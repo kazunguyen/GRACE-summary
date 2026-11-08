@@ -1,0 +1,18 @@
+.F.
+================================== FAILURES ===================================
+___________________ test_c_tokens_preserve_semantic_details ___________________
+
+    def test_c_tokens_preserve_semantic_details():
+        assert source_mapping_tokens('a -> b /* comment */ + 1')==source_mapping_tokens('a->b+1')
+        assert source_mapping_tokens('a++')!=source_mapping_tokens('a + +b')
+        assert source_mapping_tokens('"a b"')!=source_mapping_tokens('"ab"')
+        assert source_mapping_tokens('1U')!=source_mapping_tokens('1')
+        assert source_mapping_tokens('x > y')!=source_mapping_tokens('x >= y')
+        with pytest.raises(ValueError):source_mapping_tokens('#define A 1\nA')
+>       with pytest.raises(ValueError):source_mapping_tokens('/* unterminated')
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_b3_reveal_source_mapping.py:37: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_b3_reveal_source_mapping.py::test_c_tokens_preserve_semantic_details
+1 failed, 2 passed in 0.35s

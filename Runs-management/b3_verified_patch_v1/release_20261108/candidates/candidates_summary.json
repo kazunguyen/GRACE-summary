@@ -1,0 +1,12 @@
+{
+  "cases_audited": 12,
+  "candidates_valid_schema": 0,
+  "candidates_failed_local_validation": 12,
+  "reasons": [
+    "Displayed changes are not supported by actual fix diff or commits are unrelated",
+    "Function hint mismatch between raw parser and source function declaration",
+    "Missing genuine git diff connecting the two distinct donor functions"
+  ],
+  "timestamp_utc": "2026-11-08T05:00:48.673685+00:00",
+  "status": "STEP5_CANDIDATE_AUDIT_COMPLETED"
+}

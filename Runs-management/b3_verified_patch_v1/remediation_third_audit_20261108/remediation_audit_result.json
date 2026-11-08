@@ -1,0 +1,90 @@
+{
+  "audit_scope": "remediation_third_audit_20261108",
+  "target_release": "release_20261108_v3",
+  "v1_preservation": {
+    "files_count": 103,
+    "seal_verified": true,
+    "seal": "bbcdde03d09f32abf8ebed87d144e2913eadfe91a86b046c606cf2fea7403d1a",
+    "intact": true
+  },
+  "v2_preservation": {
+    "files_count": 118,
+    "seal_verified": true,
+    "seal": "95eb4ee991da3fbf4010652a6bbb6e2ddccb29a8744d81d154bb9d405642592e",
+    "intact": true
+  },
+  "seals": {
+    "inputs_manifest.json": {
+      "stored": "e32acbccbfeb32b49296a50526db8999bc189fe71950f5e6acab2572ee5b7ea5",
+      "calculated": "e32acbccbfeb32b49296a50526db8999bc189fe71950f5e6acab2572ee5b7ea5",
+      "match": true
+    },
+    "pools/pool_manifest.json": {
+      "stored": "191d1aec159b58e3ddd704e48dd982d1d90bd22c0799283aebbfc9bac223e82e",
+      "calculated": "191d1aec159b58e3ddd704e48dd982d1d90bd22c0799283aebbfc9bac223e82e",
+      "match": true
+    },
+    "validation/validation_prompt_manifest.json": {
+      "stored": "0cd3293f34cd436725d047f038cd44ae5c8f6e1ec00d6e3369efeb9ac9609ee8",
+      "calculated": "0cd3293f34cd436725d047f038cd44ae5c8f6e1ec00d6e3369efeb9ac9609ee8",
+      "match": true
+    }
+  },
+  "all_seals_pass": true,
+  "input_gates": {
+    "modules_pass": true,
+    "scripts_pass": false,
+    "authority_docs_pass": true,
+    "freeze_manifest_pass": true,
+    "freeze_data_files_pass": true,
+    "tokenizer_files_pass": true,
+    "specs_archive_pass": true
+  },
+  "all_input_gates_pass": false,
+  "remediation_t3_01": {
+    "step7_overall_passed": true,
+    "safe_pause_confirmed": true,
+    "safe_pause_or_render_confirmed": true,
+    "dataset_statuses": {
+      "devign": "PAUSED",
+      "reveal": "PAUSED"
+    },
+    "status": "PASS_STEP7_REMEDIATED"
+  },
+  "remediation_t3_02": {
+    "devign_status": "BLOCKED_EMPTY_POOL",
+    "reveal_status": "BLOCKED_EMPTY_POOL",
+    "devign_admitted_count": 0,
+    "reveal_admitted_count": 0,
+    "status": "PASS_POOL_PRESERVATION_AND_DISAGREEMENT_HANDLING"
+  },
+  "remediation_t3_03": {
+    "candidates_admitted": 0,
+    "ineligible_cases_count": 12,
+    "dummy_fixtures_used": false,
+    "status": "PASS_MANDATORY_SOURCE_FUNCTIONS_ENFORCED"
+  },
+  "remediation_t3_04": {
+    "triage_count": 12,
+    "evaluation_type_consistent": true,
+    "status": "PASS_TRIAGE_PAYLOAD_EVALUATION"
+  },
+  "remediation_t3_05": {
+    "synthetic_timestamp_rejected_in_production": true,
+    "status": "PASS_PRODUCTION_REVIEW_VALIDATION"
+  },
+  "remediation_t3_06": {
+    "release_version": "v3_remediated",
+    "parent_release": "v2_remediated",
+    "all_manifests_sealed_and_synchronized": false,
+    "status": "FAIL_T3_06"
+  },
+  "remediation_t3_07": {
+    "gpu_inference_status": "INFERENCE_PAUSED_EMPTY_POOL",
+    "acceptance_report_dynamic": true,
+    "third_audit_remediations_documented": true,
+    "status": "PASS_GATES_AND_DYNAMIC_REPORTS"
+  },
+  "all_third_audit_findings_remediated": false,
+  "operational_status": "SAFE_PAUSE_MAINTAINED_READY_FOR_NEXT_AUDIT"
+}

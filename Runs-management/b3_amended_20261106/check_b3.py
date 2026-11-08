@@ -15,7 +15,12 @@ from zipfile import ZipFile
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "01_Author_Baseline_Unified/diagnostic_kit/src"
 sys.path.insert(0, str(SRC))
-from grace_diag.amended_b3 import VerifiedPairSelector, digest, function_hint
+from grace_diag.amended_b3 import (
+    VerifiedPairSelector,
+    digest,
+    function_hint,
+    validate_pair,
+)
 from grace_diag.token_budget import TokenCounter
 
 FREEZE = ROOT / "01_Author_Baseline_Unified/output/research_freeze_20261101"
@@ -25,8 +30,15 @@ ZIP_SHA = "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b"
 
 
 def sha(path):
-    with Path(path).open("rb") as f:
-        return hashlib.file_digest(f, "sha256").hexdigest()
+    p = Path(path)
+    if hasattr(hashlib, "file_digest"):
+        with p.open("rb") as f:
+            return hashlib.file_digest(f, "sha256").hexdigest()
+    h = hashlib.sha256()
+    with p.open("rb") as f:
+        while chunk := f.read(65536):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def rows(path):
@@ -94,7 +106,16 @@ def discover(bank):
 def run(args):
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
-    supplied = list(rows(args.pairs)) if args.pairs else []
+    supplied = []
+    if args.pairs:
+        p_path = args.pairs.resolve()
+        if p_path.is_dir():
+            for ds_name in ("devign", "reveal"):
+                pf = p_path / f"eligible_pairs.{ds_name}.jsonl"
+                if pf.is_file():
+                    supplied.extend(rows(pf))
+        elif p_path.is_file():
+            supplied = list(rows(p_path))
     if any(p.get("test_fixture") for p in supplied):
         raise ValueError("Synthetic fixtures cannot enter the real donor workflow")
     counter = TokenCounter(str(args.tokenizer)) if args.tokenizer else None
@@ -104,7 +125,14 @@ def run(args):
               "sources": {str(Path(__file__).relative_to(ROOT)): sha(__file__),
                           str((SRC / "grace_diag/amended_b3.py").relative_to(ROOT)): sha(SRC / "grace_diag/amended_b3.py")}}
     if args.pairs:
-        report["pair_manifest_sha256"] = sha(args.pairs)
+        if args.pairs.is_file():
+            report["pair_manifest_sha256"] = sha(args.pairs)
+        elif args.pairs.is_dir():
+            report["pair_manifest_sha256"] = {
+                ds_name: sha(args.pairs / f"eligible_pairs.{ds_name}.jsonl")
+                for ds_name in ("devign", "reveal")
+                if (args.pairs / f"eligible_pairs.{ds_name}.jsonl").is_file()
+            }
     if args.tokenizer:
         if args.tokenizer.name != REVISION:
             raise ValueError("Use the pinned tokenizer snapshot directory")
@@ -119,6 +147,8 @@ def run(args):
         (out / f"{ds}_candidate_discovery.json").write_text(json.dumps(candidates, indent=2), encoding="utf-8")
         pairs = [p for p in supplied if p["dataset"] == ds]
         archive = ROOT / "grace_15arms_prompts_and_clean_specs.zip"
+        if not archive.is_file():
+            archive = ROOT / "Runs-management" / "grace_15arms_prompts_and_clean_specs.zip"
         if sha(archive) != ZIP_SHA:
             raise ValueError("Frozen target spec archive changed")
         report["sources"][str(archive.relative_to(ROOT))] = ZIP_SHA
@@ -129,11 +159,40 @@ def run(args):
             if validation_codes.get(d["id"]) != digest(d["query_code"].strip()):
                 raise ValueError("Target spec does not match frozen validation code")
         stats.update({"reviewed_pairs_supplied": len(pairs), "sample_attempts": []})
-        try:
-            selector = VerifiedPairSelector(pairs, bank, ds)
-        except ValueError as exc:
+        selector = None
+
+        pool_manifest_info = {}
+        if args.pairs and args.pairs.is_dir() and (args.pairs / "pool_manifest.json").is_file():
+            try:
+                pm = json.loads((args.pairs / "pool_manifest.json").read_text(encoding="utf-8"))
+                pool_manifest_info = pm.get("pools", {}).get(ds, {})
+            except Exception:
+                pass
+
+        pm_status = pool_manifest_info.get("status")
+        if pm_status and pm_status != "ACTIVE_VERIFIED_POOL":
+            stats["pool_state"] = pm_status
+            stats["blocker"] = pool_manifest_info.get("blocker_reason") or f"Pool status blocked: {pm_status}"
             selector = None
-            stats["blocker"] = str(exc)
+        elif len(pairs) == 0:
+            stats["pool_state"] = "EMPTY_POOL"
+            stats["blocker"] = "Pair pool cannot be empty"
+        else:
+            try:
+                for p in pairs:
+                    validate_pair(p, bank, ds, require_reviews=True)
+                selector = VerifiedPairSelector(pairs, bank, ds)
+                stats["pool_state"] = "ACTIVE_POOL"
+            except Exception as exc:
+                stats["pool_state"] = "INVALID_POOL"
+                stats["blocker"] = f"INVALID_POOL: {exc}"
+                stats["status"] = "INVALID_POOL"
+                for d in samples:
+                    stats["sample_attempts"].append({"id": d["id"], "status": "INVALID_POOL", "reason": stats["blocker"]})
+                report["datasets"][ds] = stats
+                (out / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+                raise ValueError(f"Pool for dataset {ds} is INVALID: {exc}")
+
         for d in samples:
             attempt = {"id": d["id"], "query_code_sha256": digest(d["query_code"])}
             if selector is None:

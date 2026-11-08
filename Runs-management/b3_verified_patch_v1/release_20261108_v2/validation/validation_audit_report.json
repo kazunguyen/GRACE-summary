@@ -1,0 +1,39 @@
+{
+  "method": "b3-verified-patch-v1",
+  "created_at_utc": "2026-11-08T06:05:30.809799+00:00",
+  "total_census_target": 5005,
+  "datasets": {
+    "devign": {
+      "dataset": "devign",
+      "census_count": 2732,
+      "expected_count": 2732,
+      "census_sha256": "005bf07b999240052f53f416a9f5463f1d04e87bc41c8018da9f7a9ec68aab23",
+      "unique_ids_count": 2732,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 2562,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "No verified pair pool: B3 must pause",
+      "paused_records_count": 2732,
+      "nonempty_prompt_count": 0
+    },
+    "reveal": {
+      "dataset": "reveal",
+      "census_count": 2273,
+      "expected_count": 2273,
+      "census_sha256": "5b32c1a1343f3ef39471fcb565848d3e81fc4aedfff9cfd74d1df0aef529e04a",
+      "unique_ids_count": 2273,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 0,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "No verified pair pool: B3 must pause",
+      "paused_records_count": 2273,
+      "nonempty_prompt_count": 0
+    }
+  },
+  "total_census_audited": 5005,
+  "all_censuses_matched": true
+}

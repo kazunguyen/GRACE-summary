@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "release_id": "release_20261108_v5",
+  "release_version": "v5_devign_validation_locked",
+  "parent_release": "release_20261108_v4",
+  "release_status": "FROZEN",
+  "method_id": "b3-verified-patch-v1",
+  "method": "b3-verified-patch-v1",
+  "authority": {
+    "lead_pi": "Nguyen Huu Hieu",
+    "advisory_directives": [
+      "De_cuong_nghien_cuu_GRACE_hop_nhat.docx",
+      "PhanhoiHieuDungVeDangKyOsf.pdf"
+    ],
+    "decision_timestamp_utc": "2026-11-08T12:00:00Z",
+    "status": "RATIFIED_BY_PROJECT_LEAD"
+  },
+  "scope": {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B3",
+    "prompt_seed": 42,
+    "expected_count": 2732
+  },
+  "pool_specification": {
+    "devign_pool_file": "pools/eligible_pairs.devign.jsonl",
+    "devign_pool_sha256": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+    "admitted_pairs_count": 1,
+    "admitted_pair_ids": [
+      "case_08_ffmpeg_can_safely_read_8614_26054"
+    ],
+    "scope_limitation": "Single verified pair in Devign pool: all 2,732 validation targets select this identical pair. This verifies prompt syntax, Figure 6 ordering, context budgets, and inference pipeline integrity, but does NOT evaluate dynamic target-dependent pair retrieval across a diverse pool. Pool composition is permanently locked before inference."
+  },
+  "excluded_from_execution": {
+    "reveal": "BLOCKED_UNRESOLVED_PROVENANCE",
+    "reason": "All 17,636 clean-train donors in REVEAL lack upstream commit hashes in frozen data. REVEAL is preserved in the overarching research matrix but safely blocked from this execution delivery until authentic provenance can be established.",
+    "test_split": "BLOCKED_PENDING_VALIDATION_ACCEPTANCE_AND_TAU_STAR_DERIVATION",
+    "exploratory_arms": [
+      "B3-nodiff",
+      "B3-swap",
+      "B3-flip"
+    ],
+    "exploratory_arms_status": "CPU_RENDER_VERIFIED_ONLY_NOT_LAUNCHED_ON_GPU"
+  },
+  "method_classification": {
+    "preregistration_status": "AMENDED_EXPLORATORY_SUBPROTOCOL",
+    "osf_registration": "https://osf.io/fqgh2",
+    "baseline_tag": "prereg-v1",
+    "note": "Documented in CHANGES_AFTER_PREREG.md. Threshold tau* will be derived post-validation."
+  },
+  "scope_decision_seal_sha256": "ab762bfc205b4e87575aa47149373989c146a3d4d50725cc165486c51d210ec4"
+}

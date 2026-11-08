@@ -1,0 +1,14 @@
+{
+  "dataset": "devign",
+  "clean_train_donors_in_bank": 21691,
+  "heuristic_opposite_label_candidates": 26700,
+  "investigated_cases_count": 12,
+  "cases_with_both_responses": 12,
+  "cases_unresolved_fetch": 0,
+  "cases_rejected_unrelated_commits": 0,
+  "cases_with_direct_parent_edge": 0,
+  "admitted_pairs": 0,
+  "verdict": "BLOCKED_NO_AUTHENTIC_PAIRS_IN_INVESTIGATED_SCOPE",
+  "scope_limitation": "Audited 12 prioritized candidate cases. 0 pairs meet authentic patch pair criteria. This finding applies to the investigated candidates and does not claim non-existence across all untested pairs in the bank.",
+  "timestamp_utc": "2026-11-08T08:09:28.157509+00:00"
+}

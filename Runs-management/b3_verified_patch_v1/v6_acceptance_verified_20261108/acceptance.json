@@ -1,0 +1,94 @@
+{
+  "started_at_utc": "2026-11-08T15:44:14.477664+00:00",
+  "suites": [
+    {
+      "command": [
+        "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_b3_delivery_v6.py",
+        "-q",
+        "--basetemp=D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\Runs-management\\b3_verified_patch_v1\\v6_acceptance_verified_20261108\\tmp_0"
+      ],
+      "returncode": 0,
+      "stdout_log": "suite_0.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_b3_reveal_source_mapping.py",
+        "-q",
+        "--basetemp=D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\Runs-management\\b3_verified_patch_v1\\v6_acceptance_verified_20261108\\tmp_1"
+      ],
+      "returncode": 0,
+      "stdout_log": "suite_1.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_amended_b3.py",
+        "-q",
+        "--basetemp=D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\Runs-management\\b3_verified_patch_v1\\v6_acceptance_verified_20261108\\tmp_2"
+      ],
+      "returncode": 0,
+      "stdout_log": "suite_2.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "pytest",
+        "tests/test_preregistration_integrity.py",
+        "-q",
+        "--basetemp=D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\Runs-management\\b3_verified_patch_v1\\v6_acceptance_verified_20261108\\tmp_3"
+      ],
+      "returncode": 0,
+      "stdout_log": "suite_3.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "pytest",
+        "01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py",
+        "-q",
+        "--basetemp=D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\Runs-management\\b3_verified_patch_v1\\v6_acceptance_verified_20261108\\tmp_4"
+      ],
+      "returncode": 0,
+      "stdout_log": "suite_4.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "pytest",
+        "01_Author_Baseline_Unified/diagnostic_kit/tests/test_stats_and_complementarity.py",
+        "-q",
+        "--basetemp=D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\Runs-management\\b3_verified_patch_v1\\v6_acceptance_verified_20261108\\tmp_5"
+      ],
+      "returncode": 0,
+      "stdout_log": "suite_5.log"
+    }
+  ],
+  "native_gpu_acceptance": "NOT_EVALUATED",
+  "reveal": "BLOCKED_EMPTY_VERIFIED_POOL",
+  "files_sha256": {
+    "b3_delivery_runtime.py": "730b1a13f045e3504fe7a7fe52c5ff177e6cf07e8af77a8c0ef64d797a89fb90",
+    "b3_devign_validation_v6.zip": "30d246dddd205c959bda0cccd83bd20e5d0a90c30b75190831aac36569aaf06b",
+    "dataset-metadata.json": "e6c9cfe48e950e75ffd3be29d7dc034ab38201d0a94dddcd9e11e6b6841c1a71",
+    "grace_runtime_contract.py": "27b57d69089d009b225e3653dd38afed14bb48442765652c2c80c0c38df01775",
+    "inference_input_manifest.json": "38ed52ee4cc71ad41c1f5c94af41afa4e4c84a842cf2b0daa46e5cb1afe6fc36",
+    "inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "kaggle_inference.py": "059c5fca1de0043f5b7710ed39c79976301d8b92548e3f2f85aaaf2afeb08fe8",
+    "kernel-metadata.json": "c26913cc503ee5ad66e9f8f49742baf8c20ebeeace524952413984ac9670f4a4",
+    "launch_requirements.json": "98273e250f7c2cfe3fe1044d89b5162eb7a0d425ada46b0f3f1b2ce52c73b3c6",
+    "notebook.ipynb": "c89e6accdaf0ce4b5d4708cc69e4264995fff6038d9928283b001e8aef10e88c"
+  },
+  "cpu_verdict": "PASS",
+  "full_validation_gpu_ready": false,
+  "finished_at_utc": "2026-11-08T15:46:18.859609+00:00"
+}

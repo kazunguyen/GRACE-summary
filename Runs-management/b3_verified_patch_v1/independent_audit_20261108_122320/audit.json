@@ -1,0 +1,407 @@
+{
+  "checked_at_utc": "2026-11-08T05:26:16.674024+00:00",
+  "scope": "Local evidence, all clean donors and full validation census; no inference",
+  "submitted_files_hashed": 113,
+  "seals": {
+    "inputs": {
+      "stored": "bbcdde03d09f32abf8ebed87d144e2913eadfe91a86b046c606cf2fea7403d1a",
+      "calculated": "bbcdde03d09f32abf8ebed87d144e2913eadfe91a86b046c606cf2fea7403d1a",
+      "matches": true
+    },
+    "pool": {
+      "stored": "bbdf9cd12511ee775394908ffb55b0e5577c2a0516c13dcf197adaae37e0888b",
+      "calculated": "bbdf9cd12511ee775394908ffb55b0e5577c2a0516c13dcf197adaae37e0888b",
+      "matches": true
+    },
+    "validation_census": {
+      "stored": "086a5b4a544f5008a1ae91e265bc35df2c408c6ec7d4a5f45e9d3c9c29322344",
+      "calculated": "086a5b4a544f5008a1ae91e265bc35df2c408c6ec7d4a5f45e9d3c9c29322344",
+      "matches": true
+    }
+  },
+  "freeze_manifest_hash_pass": true,
+  "freeze_file_hashes": {
+    "devign/donors.jsonl": true,
+    "devign/near_pairs.jsonl": true,
+    "devign/test_manifest.jsonl": true,
+    "devign/test_raw.jsonl": true,
+    "devign/train_manifest.jsonl": true,
+    "devign/train_raw.jsonl": true,
+    "devign/validation_manifest.jsonl": true,
+    "devign/validation_raw.jsonl": true,
+    "reveal/donors.jsonl": true,
+    "reveal/near_pairs.jsonl": true,
+    "reveal/test_manifest.jsonl": true,
+    "reveal/test_raw.jsonl": true,
+    "reveal/train_manifest.jsonl": true,
+    "reveal/train_raw.jsonl": true,
+    "reveal/validation_manifest.jsonl": true,
+    "reveal/validation_raw.jsonl": true
+  },
+  "module_hashes": {
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/amended_b3.py": true,
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/contrastive_pair_builder.py": true,
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/probes.py": true,
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/token_budget.py": true,
+    "configs/inference_runtime_lock.json": true,
+    "Runs-management/b3_amended_20261106/check_b3.py": true
+  },
+  "tokenizer_file_hashes": {
+    "chat_template.jinja": true,
+    "config.json": true,
+    "merges.txt": true,
+    "tokenizer.json": true,
+    "tokenizer_config.json": true,
+    "vocab.json": true
+  },
+  "banks": {
+    "devign": {
+      "clean_donors": 21691,
+      "unique_clean_ids": 21691,
+      "raw_ids_unique": true,
+      "manifest_ids_unique": true,
+      "membership_labels_code_hashes_pass": true,
+      "missing_commit_ids": 0,
+      "heuristic_combinations": 26700
+    },
+    "reveal": {
+      "clean_donors": 17636,
+      "unique_clean_ids": 17636,
+      "raw_ids_unique": true,
+      "manifest_ids_unique": true,
+      "membership_labels_code_hashes_pass": true,
+      "missing_commit_ids": 17636,
+      "heuristic_combinations": 33947
+    }
+  },
+  "source_requests": [
+    {
+      "commit": "1b435b10324fe9937f254bb00718f78d5e50837a",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "4e59b545868a5ee5f59b346337f0c44209929334",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "aa262928595d431bfee7914cb7d9d79197f887a2",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "d0cc2fbfa607678866475383c508be84818ceb64",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "198a0039c5fca224a77e9761e2350dd9cc102ad0",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "5fb6c7a8b26eab1a22207d24b4784bd2b39ab54b",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "686eeb93d5738c84c59395b2ec6f8181c2b7cbed",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "e8ede0a8bb5298a6979bcf7ed84ef64a64a4e3fe",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "af7e9e74c6a62a5bcd911726a9e88d28b61490e0",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "e69a17f65e9f12f33c48b04a789e49d40a8993f5",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "0b5538c300a56c3cfb33022840fe0b4968147e7a",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "4d68e86bb10159099da0798f74e7512955f15eec",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "e494f44c051d7dccc038a603ab22532b87dd1705",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "8d04fb55dec381bc5105cb47f29d918e579e8cbd",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    },
+    {
+      "commit": "bb8794307252be791f1723eae47983f815882376",
+      "http_status": "HTTP_200",
+      "cache_exists": true,
+      "hash_matches": true,
+      "length_matches": true,
+      "response_commit_matches": true
+    }
+  ],
+  "case_source_coverage": [
+    {
+      "vulnerable_id": "devign:train:10182",
+      "patched_id": "devign:train:17569",
+      "function_hint": "qemu_bh_delete",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:15574",
+      "patched_id": "devign:train:20798",
+      "function_hint": "event_notifier_cleanup",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:11725",
+      "patched_id": "devign:train:3267",
+      "function_hint": "vnc_client_error",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:19700",
+      "patched_id": "devign:train:14381",
+      "function_hint": "HELPER",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:19700",
+      "patched_id": "devign:train:8643",
+      "function_hint": "HELPER",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:21393",
+      "patched_id": "devign:train:16959",
+      "function_hint": "IRQ_testbit",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:5933",
+      "patched_id": "devign:train:18868",
+      "function_hint": "__attribute__",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:8614",
+      "patched_id": "devign:train:26054",
+      "function_hint": "can_safely_read",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:4792",
+      "patched_id": "devign:train:14381",
+      "function_hint": "HELPER",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:4792",
+      "patched_id": "devign:train:8643",
+      "function_hint": "HELPER",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:19700",
+      "patched_id": "devign:train:7094",
+      "function_hint": "HELPER",
+      "missing_sides": [],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    },
+    {
+      "vulnerable_id": "devign:train:10808",
+      "patched_id": "devign:train:14381",
+      "function_hint": "HELPER",
+      "missing_sides": [
+        "vulnerable"
+      ],
+      "direct_parent_edge": false,
+      "both_donors_in_clean_bank": true
+    }
+  ],
+  "source_summary": {
+    "archived_commit_responses": 16,
+    "candidate_cases": 12,
+    "cases_with_both_responses": 11,
+    "cases_with_missing_responses": 1,
+    "global_nonexistence_proven": false,
+    "archived_case_file_extensions": {
+      ".json": 35
+    }
+  },
+  "reveal_sidecar": {
+    "rows": 17636,
+    "unique_ids": 17636,
+    "exact_clean_ids": true,
+    "code_hashes_match": true,
+    "statuses": {
+      "UNRESOLVED_MISSING_UPSTREAM_METADATA": 17636
+    },
+    "donors_with_project_debian": 14149
+  },
+  "review_ledger": {
+    "case_entries": 12,
+    "review_entries": 24,
+    "reviewer_names": [
+      "Dũng",
+      "Hiếu"
+    ],
+    "distinct_review_timestamps": 1,
+    "decisions": {
+      "reject": 24
+    },
+    "packet_payload_hashes_match": true,
+    "user_confirmation": "No independent original human review forms exist; opinions/signatures were generated by step6 script.",
+    "human_review_valid": false
+  },
+  "pools": {
+    "devign": {
+      "pairs": 0,
+      "hash_matches": true
+    },
+    "reveal": {
+      "pairs": 0,
+      "hash_matches": true
+    }
+  },
+  "spec_archive_hash": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+  "spec_archive_hash_matches_expected": true,
+  "validation": {
+    "devign": {
+      "rows": 2732,
+      "unique_ids": 2732,
+      "exact_ID_set_against_raw_and_specs": true,
+      "code_hashes_match_specs_and_stripped_raw": true,
+      "spec_code_not_byte_identical_to_raw": 2562,
+      "census_hash_matches_manifest": true,
+      "states": {
+        "PAUSED": 2732
+      },
+      "nonempty_prompt_count": 0,
+      "nonnull_prompt_hash_count": 0,
+      "figure6_flag_true_without_prompt": 2732
+    },
+    "reveal": {
+      "rows": 2273,
+      "unique_ids": 2273,
+      "exact_ID_set_against_raw_and_specs": true,
+      "code_hashes_match_specs_and_stripped_raw": true,
+      "spec_code_not_byte_identical_to_raw": 0,
+      "census_hash_matches_manifest": true,
+      "states": {
+        "PAUSED": 2273
+      },
+      "nonempty_prompt_count": 0,
+      "nonnull_prompt_hash_count": 0,
+      "figure6_flag_true_without_prompt": 2273
+    }
+  },
+  "candidate_errors": {
+    "Displayed changes are not supported by archived actual fix diff": 12
+  },
+  "submitted_step7_test_results": {
+    "tests/test_amended_b3.py": {
+      "returncode": 0,
+      "stdout": "....................s\n20 passed, 1 skipped in 0.24s"
+    },
+    "tests/test_preregistration_integrity.py": {
+      "returncode": 0,
+      "stdout": "......\n6 passed in 0.81s"
+    },
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py": {
+      "returncode": 0,
+      "stdout": "....................\n20 passed in 0.24s"
+    },
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_stats_and_complementarity.py": {
+      "returncode": 0,
+      "stdout": "...........\n11 passed in 1.36s"
+    }
+  },
+  "submitted_artifacts_unchanged": true,
+  "release_readiness": "NOT_READY_FOR_NEW_B3_GPU_INFERENCE"
+}

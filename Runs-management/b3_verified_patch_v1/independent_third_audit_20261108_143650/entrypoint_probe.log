@@ -1,0 +1,19 @@
+=== Step 8: Build and Audit Full Validation Census (Target: entrypoint_missing_inputs) ===
+Target specs archive: grace_15arms_prompts_and_clean_specs.zip (SHA256: 9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b)
+Exact tokenizer loaded from D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary\11_Arm_B1H2_Evidence\tokenizer_cache_v6\models--Qwen--Qwen3-Coder-30B-A3B-Instruct\snapshots\b2cff646eb4bb1d68355c01b18ae02e7cf42d120. Approx: False
+
+--- Auditing Validation Census for DEVIGN (2732 targets) ---
+Loaded 2732 spec rows from specs/devign_validation_15arms.jsonl.
+Eligible pairs in pool for devign: 0
+Dataset devign: pool is safely empty (Zero pairs admitted: all 12 investigated candidate cases rejected by automated technical triage (unrelated commits/no git parentage); zero pairs approved by human review.).
+Completed devign: 2732 targets, census_sha256=96118d864df0...
+
+--- Auditing Validation Census for REVEAL (2273 targets) ---
+Loaded 2273 spec rows from specs/reveal_validation_15arms.jsonl.
+Eligible pairs in pool for reveal: 0
+Dataset reveal: pool is safely empty (All 17,636 donors missing upstream commit revisions in frozen export.).
+Completed reveal: 2273 targets, census_sha256=6e969e1025b2...
+
+Step 8 Complete! Acceptance report written to: D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary\Runs-management\b3_verified_patch_v1\independent_third_audit_20261108_143650\probe_sandbox\entrypoint_missing_inputs\acceptance\VALIDATION_DATA_AUDIT_REPORT.md
+Validation Census: 2,732 Devign + 2,273 REVEAL = 5,005 targets safely audited.
+Prompt manifest sealed with: 6a5ffd274321e129a430918c3d8eb7f5781c9ca2248d65e805707562c35326fd

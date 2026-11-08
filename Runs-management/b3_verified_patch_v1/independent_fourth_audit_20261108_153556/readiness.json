@@ -1,0 +1,14 @@
+{
+  "completed_at_utc": "2026-11-08T08:37:28.892483+00:00",
+  "source_files_checked": 356,
+  "source_files_changed": [],
+  "v2_preservation": {
+    "files": 118,
+    "mismatches": []
+  },
+  "tests_independently_passed": 35,
+  "source_investigation_may_continue": true,
+  "unconditional_G0_pass": false,
+  "gpu_ready": false,
+  "missing_report_links": []
+}

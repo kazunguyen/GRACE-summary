@@ -1,0 +1,75 @@
+{
+  "dossier": "g1_source_investigation_20261108_v2",
+  "files_count": 17,
+  "files": {
+    "case_08_ffmpeg_can_safely_read_8614_26054/actual_fix.diff": {
+      "size_bytes": 635,
+      "sha256": "8a724a11eca0cb987643727f9be824a3b0fe2e9726958349416bab5de7ffd8df"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/candidate_payload.json": {
+      "size_bytes": 7802,
+      "sha256": "e2c9fe457a4874da17a6a56b401a39f304e81db6377cc67632cd41303939b37e"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/case_verification_report.json": {
+      "size_bytes": 1989,
+      "sha256": "29bf2fd20c8153640de18515288381bad20bd22c283f1227f87c5d76846ce331"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/evidence_inputs_manifest.json": {
+      "size_bytes": 1508,
+      "sha256": "bd1a8c56480ad4e0e375715ca1d60b144a26fc1e787a2b6fe17913d3eaf9a921"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/evidence_sidecar.json": {
+      "size_bytes": 5928,
+      "sha256": "5cedf75dc81d90f7240a7a5b0b63cfee1aaabf6d8b8e7163f37a1654bf00f298"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/fix_file_3d7817048c.c": {
+      "size_bytes": 11830,
+      "sha256": "2177993013f8082f4fc2b83aae724dc3e94f97d4d43e5c3ea48dd5dc058ee82d"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/function_diff.diff": {
+      "size_bytes": 217,
+      "sha256": "ffd8e5c14d4e5c8cd9f566654705a4f1896b8dcd6a0865b842e72bfacd996949"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/github_commit_3d7817048c.json": {
+      "size_bytes": 4528,
+      "sha256": "ed22d35f299c7d0d4ea019ae55affc312096471cbb95d109a03b0f9e7ede39bf"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/mapping_decision.json": {
+      "size_bytes": 2852,
+      "sha256": "640c7dea0fe4dfa71ac95dceab00f398130709a7121c6ee4db843a14917a46dc"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/MAPPING_DECISION_CASE_08.md": {
+      "size_bytes": 2687,
+      "sha256": "486a8b3ff262c42d42d309619e4f1f37a3fcc3bebcfa43d5c7f80f6c2bdf38f8"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/packet.json": {
+      "size_bytes": 9990,
+      "sha256": "3deca425f6415cf724520f6f775bd6e2cd56659a6a88d09e68c2574887423a77"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/packet.md": {
+      "size_bytes": 4939,
+      "sha256": "358a90232b3b42dff957ec990054b17aa50646333d17a40ccbfd1f4d47ae0d2b"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/parent_file_4b529edff8.c": {
+      "size_bytes": 11824,
+      "sha256": "4e074b83eda3521efb54114e61fa3abe3ded5ca710a6ccdd33ef232f8d1fdd7b"
+    },
+    "case_08_ffmpeg_can_safely_read_8614_26054/review_form_template.json": {
+      "size_bytes": 468,
+      "sha256": "34c2b5c8212a77710b327b11da5ba6c635454784128f9ccdefde8f3e0db41c9e"
+    },
+    "devign_investigation_scope_audit.json": {
+      "size_bytes": 7446,
+      "sha256": "9c1159dc919e730175de716ec010643458b16907157242d2fa97acd4ad553435"
+    },
+    "g1_investigation_summary.json": {
+      "size_bytes": 1789,
+      "sha256": "ffdf140a8d3ba2711ab82a9ea285180c70a07bedf9f91bdb6ab8c7ee4037ae4d"
+    },
+    "reveal_source_provenance_audit.json": {
+      "size_bytes": 863,
+      "sha256": "b9de46496d438f47bfb598414b518ce9ff42d8903e45f4b35afb78145447672b"
+    }
+  },
+  "sealed_at_utc": "2026-11-08T09:41:17.375021+00:00"
+}

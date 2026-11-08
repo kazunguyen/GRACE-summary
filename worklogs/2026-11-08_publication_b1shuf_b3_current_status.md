@@ -1,0 +1,10 @@
+# Publication — current B1-shuf and amended B3 state
+
+User requested updating current progress/worklogs, creating a local-only B3 prompt handoff ZIP, checking baseline conflicts and pushing the resulting work to git.
+
+- B1-shuf: downloaded full latest HU output/checkpoint/log; API COMPLETE but worker timed_out on90min deadline.6,416/15,018 verified,665 new,5,751 parent records byte-preserved; seed42 complete, seed43 Devign1,410, remaining8,602. Launch-contract integrity passed; checkpoint remains resumable. No new resume launched.
+- B3: documented final admitted Devign/REVEAL pools, full validation prompt2,732/2,273, input identities, fixes and CPU tests. Devign v6 and REVEAL v7 share method/runtime. Both private input datasets ready; no GPU inference/runtime certification/new threshold/test yet. Last observed HU quota insufficient for9h request. Current authority doc: `docs/B3_CURRENT_STATUS_20261108.md`, linked from RUNS and B3 README.
+- Historical invalid review/delivery findings retained; no retroactive PASS. Existing latest acceptance sources/bytes reused without rerendering. B3 single-pair scope disclosed for each dataset.
+- Local ZIP: `Runs-management/local_deliveries/B3_NEW_ALGORITHM_PROMPTS_DEVIGN_REVEAL_20261108.zip`,15,083,684 bytes, SHA-256 `6c8558a7857c785245bccf6570daf40736351136d0745e499d7bd71e7c095b08`. CRC and all file hashes checked; ZIP is ignored and excluded from commit. Dataset-specific input archives are distinct launch artifacts; their hashes and release manifests remain available for reproducibility.
+- Fetched latest origin/baseline-unified. It already includes origin/hieu's previous HEAD plus9 commits, including newer B2-rand results; retain these when synchronizing the branch. Final merge/verification evidence will be recorded in the publication receipt.
+- No protected OSF branch/tag, frozen thresholds/arms/specs/banks modified; no credentials or model weights selected for publication. No force-push planned. Unrelated local operational snapshots remain local.

@@ -1,0 +1,88 @@
+SYNTHETIC SOFTWARE TEST ONLY. No real fix commits or human review. Not for inference.
+
+SYNTHETIC-target-0 / B3
+You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.
+
+int copy_item(char *d, char *s, unsigned n) { memcpy(d,s,n); return 0; }
+
+In the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.
+
+The node information of the code snippet is as follows:
+Node 0: (METHOD) 'synthetic'
+The edge information of the code snippet is as follows:
+[No Edge Information Available]
+
+The following example is Vulnerable.
+int copy_item(char *dst, const char *src, unsigned n) {
+    memcpy(dst, src, n);
+    return 0;
+}
+
+The following example is Non-vulnerable.
+int copy_item(char *dst, const char *src, unsigned n) {
+    if (n > 16) return -1;
+    memcpy(dst, src, n);
+    return 0;
+}
+
+Key difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.
+
+Answer (0 or 1):
+
+SYNTHETIC-target-1 / B3
+You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.
+
+int parse_header(unsigned n) { if(n > 16) return -1; return 0; }
+
+In the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.
+
+The node information of the code snippet is as follows:
+Node 0: (METHOD) 'synthetic'
+The edge information of the code snippet is as follows:
+[No Edge Information Available]
+
+The following example is Vulnerable.
+int parse_header(char *dst, const char *src, unsigned n) {
+    memcpy(dst, src, n);
+    return 0;
+}
+
+The following example is Non-vulnerable.
+int parse_header(char *dst, const char *src, unsigned n) {
+    if (n > 16) return -1;
+    memcpy(dst, src, n);
+    return 0;
+}
+
+Key difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.
+
+Answer (0 or 1):
+
+SYNTHETIC-target-2 / B3
+You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.
+
+int release_item(void *p) { free(p); return 0; }
+
+In the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.
+
+The node information of the code snippet is as follows:
+Node 0: (METHOD) 'synthetic'
+The edge information of the code snippet is as follows:
+[No Edge Information Available]
+
+The following example is Vulnerable.
+int copy_item(char *dst, const char *src, unsigned n) {
+    memcpy(dst, src, n);
+    return 0;
+}
+
+The following example is Non-vulnerable.
+int copy_item(char *dst, const char *src, unsigned n) {
+    if (n > 16) return -1;
+    memcpy(dst, src, n);
+    return 0;
+}
+
+Key difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.
+
+Answer (0 or 1):

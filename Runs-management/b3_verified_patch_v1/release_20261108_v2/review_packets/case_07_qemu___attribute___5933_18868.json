@@ -1,0 +1,47 @@
+{
+  "case_id": "case_07_qemu___attribute___5933_18868",
+  "dataset": "devign",
+  "project": "qemu",
+  "function_hint": "__attribute__",
+  "vulnerable_donor": {
+    "id": "devign:train:5933",
+    "commit_id": "0b5538c300a56c3cfb33022840fe0b4968147e7a",
+    "code_len": 96,
+    "code_sha256": "ad904b62bdb921e9113c6e8236764dc0f7984312814e8b94ea2ca80097c9f5d7"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:18868",
+    "commit_id": "4d68e86bb10159099da0798f74e7512955f15eec",
+    "code_len": 106,
+    "code_sha256": "2767bd481c24f782f727cdc78225603a3dfaef63a9f01481bb95e00a93e7772b"
+  },
+  "source_revisions": {
+    "vulnerable_commit": "0b5538c300a56c3cfb33022840fe0b4968147e7a",
+    "patched_candidate_commit": "4d68e86bb10159099da0798f74e7512955f15eec",
+    "vulnerable_parents": [
+      "07bf23a77131668ef8db37e08d508b117655ce86"
+    ],
+    "patched_parents": [
+      "c740ad92d0d958fa785e5d7aa1b67ecaf30a6a54"
+    ],
+    "is_direct_parent_edge": false
+  },
+  "changed_files": {
+    "vulnerable_files": [
+      "docs/tracing.txt",
+      "scripts/simpletrace.py",
+      "simpletrace.c",
+      "simpletrace.h",
+      "vl.c"
+    ],
+    "patched_files": [
+      "qemu-coroutine.c"
+    ],
+    "shared_files": []
+  },
+  "commit_messages": {
+    "vulnerable_commit_msg": "simpletrace: Thread-safe tracing\n\nTrace events outside the global mutex cannot be used with the simple\ntrace backend since it is not thread-safe.  There is no check to prevent\nthem being enabled so pe",
+    "patched_commit_msg": "coroutine: rewrite pool to avoid mutex\n\nThis patch removes the mutex by using fancy lock-free manipulation of\nthe pool.  Lock-free stacks and queues are not hard, but they can suffer\nfrom the ABA prob"
+  },
+  "payload_sha256": "d165923912699d739f8340ad3f5876956e83a15099365a7980bedff450124ba4"
+}

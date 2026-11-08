@@ -1,0 +1,13 @@
+{
+  "status": "TECHNICALLY_VERIFIED_UNREVIEWED",
+  "payload_sha256": "537b1732aa7cc6dbc3821044275e1364568c6a0893999262b9e5f1264a1c71a7",
+  "frozen_bank_membership": true,
+  "full_actual_patch_reproduces_after": true,
+  "exact_c_lexical_tokens_before_after": true,
+  "human_review_status": "PENDING",
+  "pool_admission": "BLOCKED_TWO_INDEPENDENT_REVIEWS_REQUIRED",
+  "upstream_commit": "8732ec40db652c53fa58cd13e2acb8eab6e40874",
+  "upstream_parent": "ee4f76606cfa4ee068bf28edd37c8dae7e8db317",
+  "distribution_mapping": "Numeric source_id matches original CSV hash field; not a Git commit",
+  "csv_download": "First 1 MiB only, NOT full 1448744816-byte artifact; selected CSV rows complete"
+}

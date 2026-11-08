@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "release_id": "release_20261108_v5",
+  "release_version": "v5_devign_validation_locked",
+  "parent_release": "release_20261108_v4",
+  "release_status": "FROZEN",
+  "method_id": "b3-verified-patch-v1",
+  "method": "b3-verified-patch-v1",
+  "created_at_utc": "2026-11-08T15:14:30.454726+00:00",
+  "scope": {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B3",
+    "prompt_seed": 42,
+    "expected_count": 2732
+  },
+  "excluded_from_execution": {
+    "reveal": "BLOCKED_UNRESOLVED_PROVENANCE"
+  },
+  "upstream_manifests": {
+    "inputs_manifest_seal_sha256": "1f1ccd0dc3f2b74ffe162a0aea2fc094e4b0533c79cc2dac93a9d888ba8fefd8",
+    "inputs_manifest_file_sha256": "e0fe6b1de28765aeb388316ddd78b6def786da41994c6a4d049cc70123b92d13",
+    "step7_report_sha256": "c7b504333d74658a16fd3467982b6ae0265ada2ee2133df48d4b997012391690",
+    "pool_manifest_sha256": "fb856cec6c22d11c79908d2e42ec2371c0e179c89e0dfa6092c9f80268351994"
+  },
+  "prompt_content_status": "PARTIAL_OR_UNRESOLVED",
+  "datasets": {
+    "devign": {
+      "dataset": "devign",
+      "census_count": 2732,
+      "expected_count": 2732,
+      "census_sha256": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+      "unique_ids_count": 2732,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 2562,
+      "target_label_leakage_cases": 0,
+      "pool_status": "ACTIVE",
+      "selector_status": "ALL_RENDERED",
+      "selector_reason": null,
+      "paused_records_count": 0,
+      "nonempty_prompt_count": 2732
+    },
+    "reveal": {
+      "dataset": "reveal",
+      "census_count": 2273,
+      "expected_count": 2273,
+      "census_sha256": "6e969e1025b2fc8390e4491c6024055b6f28e73b56dd655feb4eac3cc945ae1b",
+      "unique_ids_count": 2273,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 0,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "All 17,636 donors missing upstream commit revisions in frozen export.",
+      "paused_records_count": 2273,
+      "nonempty_prompt_count": 0
+    }
+  },
+  "governance_status": "PARTIAL_VALIDATION",
+  "gpu_inference_status": "INFERENCE_PAUSED",
+  "methodology_note": "Validation census prompts rendered and audited.",
+  "prompt_manifest_seal_sha256": "bdeabdccbc2fb48d6201a79756d93424215e123c4055a73127d525c4afad1a01"
+}

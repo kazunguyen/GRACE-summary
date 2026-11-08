@@ -1,0 +1,16 @@
+{
+  "args": [
+    "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "-m",
+    "pytest",
+    "tests/test_amended_b3.py",
+    "tests/test_preregistration_integrity.py",
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py",
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_stats_and_complementarity.py",
+    "--basetemp",
+    "Runs-management\\b3_verified_patch_v1\\independent_audit_20261108_122320\\pytest_tmp",
+    "-ra"
+  ],
+  "returncode": 0,
+  "log": "pytest.log"
+}

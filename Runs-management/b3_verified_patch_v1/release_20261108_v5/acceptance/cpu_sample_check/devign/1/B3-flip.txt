@@ -1,0 +1,91 @@
+You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.
+
+static inline int64_t sub64(const int64_t a, const int64_t b)
+
+{
+
+	return a - b;
+
+}
+
+In the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.
+
+The node information of the code snippet is as follows:
+Node 3586: (Function) 'sub64'
+Node 3587: (FunctionDef) 'sub64 (const int64_t a , const int64_t b...'
+Node 3588: (CompoundStatement)
+Node 3589: (ReturnStatement) 'return a - b ;'
+Node 3590: (AdditiveExpression) 'a - b'
+Node 3591: (Identifier) 'a'
+Node 3592: (Identifier) 'b'
+Node 3593: (ReturnType) 'static inline int64_t'
+Node 3594: (Identifier) 'sub64'
+Node 3595: (ParameterList) 'const int64_t a , const int64_t b'
+Node 3596: (Parameter) 'const int64_t a'
+Node 3597: (ParameterType) 'const int64_t'
+Node 3598: (Identifier) 'a'
+Node 3599: (Parameter) 'const int64_t b'
+Node 3600: (ParameterType) 'const int64_t'
+Node 3601: (Identifier) 'b'
+Node 3602: (CFGEntryNode) 'ENTRY'
+Node 3603: (CFGExitNode) 'EXIT'
+Node 3604: (Symbol) 'a'
+Node 3605: (Symbol) 'b'
+The edge information of the code snippet is as follows:
+Edge: Node 3590 -> IS_AST_PARENT -> Node 3591
+Edge: Node 3590 -> IS_AST_PARENT -> Node 3592
+Edge: Node 3589 -> IS_AST_PARENT -> Node 3590
+Edge: Node 3588 -> IS_AST_PARENT -> Node 3589
+Edge: Node 3587 -> IS_AST_PARENT -> Node 3588
+Edge: Node 3587 -> IS_AST_PARENT -> Node 3593
+Edge: Node 3587 -> IS_AST_PARENT -> Node 3594
+Edge: Node 3596 -> IS_AST_PARENT -> Node 3597
+Edge: Node 3596 -> IS_AST_PARENT -> Node 3598
+Edge: Node 3595 -> IS_AST_PARENT -> Node 3596
+Edge: Node 3599 -> IS_AST_PARENT -> Node 3600
+Edge: Node 3599 -> IS_AST_PARENT -> Node 3601
+Edge: Node 3595 -> IS_AST_PARENT -> Node 3599
+Edge: Node 3587 -> IS_AST_PARENT -> Node 3595
+Edge: Node 3602 -> FLOWS_TO -> Node 3596
+Edge: Node 3596 -> FLOWS_TO -> Node 3599
+Edge: Node 3599 -> FLOWS_TO -> Node 3589
+Edge: Node 3589 -> FLOWS_TO -> Node 3603
+Edge: Node 3596 -> DEF -> Node 3604
+Edge: Node 3589 -> USE -> Node 3604
+Edge: Node 3599 -> DEF -> Node 3605
+Edge: Node 3589 -> USE -> Node 3605
+Edge: Node 3596 -> REACHES -> Node 3589
+Edge: Node 3599 -> REACHES -> Node 3589
+Edge: Node 3602 -> CONTROLS -> Node 3596
+Edge: Node 3602 -> CONTROLS -> Node 3599
+Edge: Node 3602 -> CONTROLS -> Node 3589
+Edge: Node 3599 -> DOM -> Node 3589
+Edge: Node 3602 -> DOM -> Node 3602
+Edge: Node 3596 -> DOM -> Node 3599
+Edge: Node 3589 -> DOM -> Node 3603
+Edge: Node 3602 -> DOM -> Node 3596
+Edge: Node 3603 -> POST_DOM -> Node 3589
+Edge: Node 3596 -> POST_DOM -> Node 3602
+Edge: Node 3603 -> POST_DOM -> Node 3603
+Edge: Node 3589 -> POST_DOM -> Node 3599
+Edge: Node 3599 -> POST_DOM -> Node 3596
+Edge: Node 3586 -> IS_FUNCTION_OF_AST -> Node 3587
+Edge: Node 3586 -> IS_FUNCTION_OF_CFG -> Node 3602
+
+The following example is Non-vulnerable.
+static int can_safely_read(GetBitContext* gb, int bits) {
+
+    return get_bits_left(gb) >= bits;
+
+}
+
+The following example is Vulnerable.
+static int can_safely_read(GetBitContext* gb, uint64_t bits) {
+
+    return get_bits_left(gb) >= bits;
+
+}
+
+Key difference: Before patch: `static int can_safely_read(GetBitContext* gb, int bits) {`. After patch: `static int can_safely_read(GetBitContext* gb, uint64_t bits) {`. Security rationale: In FFmpeg libavcodec/escape124.c (commit 3d7817048cb387de87600f2152075f78b37b60a6, Ticket 1629), the upstream security fix addresses an integer overflow leading to excessive memory allocation. In the Non-vulnerable code, can_safely_read(gb, bits) declared parameter 'bits' as int (32-bit signed), while caller unpack_codebook computed 'size * 34' where 'size' was unsigned. The complete upstream fix consists of two changes: (1) in can_safely_read, widening the parameter type from 'int' to 'uint64_t' so that large bit counts do not evaluate improperly against get_bits_left(gb); and (2) in unpack_codebook, promoting the multiplication to 'size * 34L'. This contrastive demonstration pair captures exclusively change (1) — widening parameter 'bits' from 'int' to 'uint64_t' in can_safely_read — while change (2) ('size * 34L') resides in caller unpack_codebook outside this function pair. Reviewers must evaluate this demonstration in the context of the full upstream commit diff, acknowledging that the demonstrated snippet reflects the parameter type widening component of the integer overflow defense.
+
+Answer (0 or 1):

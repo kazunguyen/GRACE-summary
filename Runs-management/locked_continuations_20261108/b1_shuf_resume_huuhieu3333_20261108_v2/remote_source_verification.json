@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-11-08T12:19:24.867573+00:00",
+  "ref": "huuhieu3333/grace-b1-shuf-resume-20261108",
+  "all_cell_sources_match": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "version": 2,
+  "is_private": true,
+  "enable_gpu": true,
+  "dataset_sources": [
+    "huuhieu3333/grace-b1-shuf-checkpoint-20261108"
+  ],
+  "kernel_sources": [
+    "huuhieu3333/qwen3coder30b-prepare-notebook"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "reveal",
+  "initial_count": 0,
+  "proposed_count": 0,
+  "retained_count": 0,
+  "added_count": 0,
+  "updated_count": 0,
+  "removed_count": 0,
+  "retained": [],
+  "added": [],
+  "updated": [],
+  "removed": [],
+  "timestamp_utc": "2026-11-08T15:03:20.208273+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "case_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "reviewer": "REVIEWER_NAME_HERE",
+  "reviewed_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "payload_sha256": "6d90f954adabe2f002a5b38b9813c7847b02c891816aa93ab4ae6be8c1963a42",
+  "same_function_verified": false,
+  "security_fix_verified": false,
+  "source_revisions_verified": false,
+  "explanation_supported": false,
+  "decision": "reject",
+  "comments": "REVIEWER_COMMENTS_HERE"
+}

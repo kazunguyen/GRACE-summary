@@ -1,0 +1,12 @@
+{
+  "case_id": "case_07_qemu___attribute___5933_18868",
+  "reviewer": "REVIEWER_NAME_HERE",
+  "reviewed_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "payload_sha256": "d165923912699d739f8340ad3f5876956e83a15099365a7980bedff450124ba4",
+  "same_function_verified": false,
+  "security_fix_verified": false,
+  "source_revisions_verified": false,
+  "explanation_supported": false,
+  "decision": "reject",
+  "comments": "REVIEWER_COMMENTS_HERE"
+}

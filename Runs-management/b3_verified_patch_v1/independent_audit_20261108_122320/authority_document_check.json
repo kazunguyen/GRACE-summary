@@ -1,0 +1,14 @@
+{
+  "proposal_sha256": "a55b3992696f69bd2c05e360e76827071396b5a9b5dec5a75bc6512cac9d0d40",
+  "proposal_budget_excerpts": [
+    {
+      "paragraph_index_zero_based": 88,
+      "text": "Đơn vị duy nhất là token của tokenizer model. Ngân sách: code target ≤ 3.000 token, mỗi demo ≤ 1.500 token, graph ≤ 1.500 token, tổng ≤ 8.192 token. Ghi số token từng phần và cờ “bị cắt” cho mỗi prompt; không bao giờ cắt demo tới rỗng một cách im lặng — demo còn dưới 25% độ dài gốc bị đánh dấu và báo cáo riêng."
+    }
+  ],
+  "osf_pdf_sha256": "dc7ef447795eba94c5e2527e3399b1dc76a47e7c910f84313c425cb67feb83c2",
+  "osf_pdf_pages": 1,
+  "pdf_contains_review_page_path": true,
+  "pdf_contains_request_for_amendment": true,
+  "pdf_does_not_independently_establish_live_revision_status": true
+}

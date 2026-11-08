@@ -1,0 +1,78 @@
+{
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\inference_input_manifest.json": {
+    "previous": "0ded37bb3081b4b00680d7d6eded2e651fa6a616a22d2da717b9b0f489ca4e2d",
+    "current": "4df947d0d54da9e953e1e7da033ec43c897bb3e37d075672c21ec0c3aa94219e"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\inputs_manifest.json": {
+    "previous": "b63d4186ac8615098e4379a7d09cb724d70e7a6133e78e3e381e385034a8552e",
+    "current": "e0fe6b1de28765aeb388316ddd78b6def786da41994c6a4d049cc70123b92d13"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\validation_prompt_manifest.json": {
+    "previous": "b8463abba01994c4c4109ce8a3a4822a5171ddf6461b71012a80c97dc77c2fbf",
+    "current": "6d3863da6b00da4f9274d239cb9eae19cf8c131f3d5a939fe241e495b1d24c8a"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\acceptance\\PUBLISH_ACCEPTANCE_REPORT.md": {
+    "previous": "b41abd69b91fcb567df9d776c9780443fdaccd294c41a1ee178eea03ff31afcd",
+    "current": "2bf176d4fd653d08efe7f638228c27c19b7ae95962f0d923b04f406897aa47f4"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\acceptance\\step7_selector_renderer_report.json": {
+    "previous": "9df0c709eaf03ca6bd6ef64a9ef3cfb70928bf69f16ec5e36c7c6e0e1c2dd780",
+    "current": "c7b504333d74658a16fd3467982b6ae0265ada2ee2133df48d4b997012391690"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\acceptance\\VALIDATION_DATA_AUDIT_REPORT.md": {
+    "previous": "fb0ea39cfd282250645c0c461e662fab3bfea9ddeae068e4a496f6a109c1cb19",
+    "current": "1c32508dec6e5fcae8fbf272dd9759e9dfa1e3fb5310ba3e4cc7ddcc41606ff2"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\delivery\\b3_devign_val_input.zip": {
+    "previous": "797e011df80e25fbfd631658f7a78adcac2c19f15b119f18d5a59dbbe6b0fda7",
+    "current": "8d030884ed34deea0c4e7c55c50c8b8fc058de9a64116d9c9a483f8793306645"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\delivery\\delivery_manifest.json": {
+    "previous": "feda6dba19b95acae1f849a19ff7c2a9506d28f395124b51de915cfe795f0dc2",
+    "current": "45f09df978ef27d3d76abba4a7723677565b2fdcb43ee6abe26cc8c104d2f130"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\delivery\\inference_input_manifest.json": {
+    "previous": "0ded37bb3081b4b00680d7d6eded2e651fa6a616a22d2da717b9b0f489ca4e2d",
+    "current": "4df947d0d54da9e953e1e7da033ec43c897bb3e37d075672c21ec0c3aa94219e"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\delivery\\input_bundle\\bundle_manifest.json": {
+    "previous": "9627f895e30dd3da2b16de50c6aeac6d8ff62c87da1493348d6063cee92ed844",
+    "current": "afa1f73434bddb0a44ac7676fbd0312eb53c64014af13364fed5e5c8e29abc97"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\delivery\\input_bundle\\inputs_manifest.json": {
+    "previous": "b63d4186ac8615098e4379a7d09cb724d70e7a6133e78e3e381e385034a8552e",
+    "current": "e0fe6b1de28765aeb388316ddd78b6def786da41994c6a4d049cc70123b92d13"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\delivery\\input_bundle\\pool_manifest.json": {
+    "previous": "988b212534963548f1d1dfac589b4b5061ccb7e4ecd9af4afb008fd5d81cf49a",
+    "current": "fb856cec6c22d11c79908d2e42ec2371c0e179c89e0dfa6092c9f80268351994"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\delivery\\input_bundle\\validation_prompt_manifest.json": {
+    "previous": "b8463abba01994c4c4109ce8a3a4822a5171ddf6461b71012a80c97dc77c2fbf",
+    "current": "6d3863da6b00da4f9274d239cb9eae19cf8c131f3d5a939fe241e495b1d24c8a"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\pools\\membership_diff_devign.json": {
+    "previous": "0cdd5c0bebebf7a7d4a755da9851a4b51ecce3dbe4237ae93543395cb2d76fec",
+    "current": "ad78ad2eedd0307fa1f880d5c59cfd4a30f0ae55ed42e9c9c5de64f08b009c37"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\pools\\membership_diff_reveal.json": {
+    "previous": "3b6c219d8565e13ca8fbcec06024b58f9d47c013b565e97f6b6c23fb44ef77c4",
+    "current": "6bae185f5ee4854b62cc591b9310a2525dd85963bdcc6d89c4146cff2bc7ca10"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\pools\\pool_manifest.json": {
+    "previous": "988b212534963548f1d1dfac589b4b5061ccb7e4ecd9af4afb008fd5d81cf49a",
+    "current": "fb856cec6c22d11c79908d2e42ec2371c0e179c89e0dfa6092c9f80268351994"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\validation\\validation_audit_report.json": {
+    "previous": "18d650cb39ad36802139ea8ab00525972c70de5628b6584c2b4877f0ab0b6b12",
+    "current": "1e75dad995035fa0d619ef91a63e906ed9c58a6bc5c138ae9828abadaaa1a40d"
+  },
+  "Runs-management\\b3_verified_patch_v1\\release_20261108_v5\\validation\\validation_prompt_manifest.json": {
+    "previous": "b8463abba01994c4c4109ce8a3a4822a5171ddf6461b71012a80c97dc77c2fbf",
+    "current": "6d3863da6b00da4f9274d239cb9eae19cf8c131f3d5a939fe241e495b1d24c8a"
+  },
+  "scripts\\build_delivery_v5.py": {
+    "previous": "08217382b508b947fb559aed1dbd4d75c48d4834e95e62bb55a9fb0b101ef6b0",
+    "current": "eb37a8df7d62b4aafcd1e005167c3a72422afe85feea25398cd65604788d0952"
+  }
+}

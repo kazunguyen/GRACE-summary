@@ -1,0 +1,33 @@
+{
+  "manifest_type": "G1_EVIDENCE_INPUTS_MANIFEST",
+  "case_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "sources": {
+    "github_commit_api": {
+      "file": "github_commit_3d7817048c.json",
+      "url": "https://api.github.com/repos/FFmpeg/FFmpeg/commits/3d7817048cb387de87600f2152075f78b37b60a6",
+      "sha256": "ed22d35f299c7d0d4ea019ae55affc312096471cbb95d109a03b0f9e7ede39bf",
+      "fetch_source": "reused_v1_verified_cache"
+    },
+    "parent_source_file": {
+      "file": "parent_file_4b529edff8.c",
+      "url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/4b529edff8934c258af95e5acc51f84deea66262/libavcodec/escape124.c",
+      "sha256": "4e074b83eda3521efb54114e61fa3abe3ded5ca710a6ccdd33ef232f8d1fdd7b",
+      "fetch_source": "reused_v1_verified_cache"
+    },
+    "fix_source_file": {
+      "file": "fix_file_3d7817048c.c",
+      "url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/3d7817048cb387de87600f2152075f78b37b60a6/libavcodec/escape124.c",
+      "sha256": "2177993013f8082f4fc2b83aae724dc3e94f97d4d43e5c3ea48dd5dc058ee82d",
+      "fetch_source": "reused_v1_verified_cache"
+    },
+    "actual_fix_diff": {
+      "file": "actual_fix.diff",
+      "sha256": "8a724a11eca0cb987643727f9be824a3b0fe2e9726958349416bab5de7ffd8df"
+    },
+    "builder_script": {
+      "file": "build_g1_dossier.py",
+      "sha256": "dad47611bbbc5b4417e7a20457bf9193b8864a9a0a79245a05141c0aeb898a35"
+    }
+  },
+  "created_at_utc": "2026-11-08T09:41:16.919553+00:00"
+}

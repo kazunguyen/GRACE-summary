@@ -1,0 +1,12 @@
+{
+  "dataset": "reveal",
+  "raw_export_total_records": 18187,
+  "clean_train_donors_count": 17636,
+  "clean_donors_with_commit_hash": 0,
+  "clean_donors_with_repo_url": 0,
+  "clean_donors_with_file_path": 0,
+  "unresolved_clean_donors_count": 17636,
+  "status": "UNRESOLVED_ABSENT_RAW_UPSTREAM_PROVENANCE",
+  "explanation": "Audit of frozen REVEAL raw export (18187 raw rows, 17636 clean train donors with keep_in_bank=True) confirms that 100% (17636/17636) lack upstream git commit hashes, repository URLs, and file paths. Without an authoritative external mapping from the original dataset creators to exact git commit hashes, no authentic upstream security-fix commits can be cryptographically verified. Per Audit 4/5 guidelines, all 17636 REVEAL clean train donors remain UNRESOLVED for G1.",
+  "timestamp_utc": "2026-11-08T09:41:17.140932+00:00"
+}

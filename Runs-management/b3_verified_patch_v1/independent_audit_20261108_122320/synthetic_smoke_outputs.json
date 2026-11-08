@@ -1,0 +1,1001 @@
+[
+  {
+    "id": "SYNTHETIC-ONLY-0",
+    "arm": "B3",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint copy_item(char *d, char *s, unsigned n) { memcpy(d,s,n); return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Non-vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "12c898aca437f4c73b83a945dae038c490dd6d1def6095b205ef20ace61b396c",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-a",
+      "pair_payload_sha256": "cac11b14515415bf7c931cd314c648a079fe996bee612a3ef9f3ccc8f09f0672",
+      "score_numerator": 27,
+      "score_denominator": 40,
+      "mean_jaccard": 0.675,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-0",
+      "repeat": false,
+      "prompt_sha256": "12c898aca437f4c73b83a945dae038c490dd6d1def6095b205ef20ace61b396c",
+      "tokens": {
+        "code": 25,
+        "graph": 39,
+        "demo": 114,
+        "total": 260,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-a:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-a:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-0",
+    "arm": "B3-nodiff",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint copy_item(char *d, char *s, unsigned n) { memcpy(d,s,n); return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Non-vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nAnswer (0 or 1):",
+    "prompt_sha256": "a11048470420d26f8df929aa2fb235f1ccd4a7ac2e33c5850c063527c5e08b67",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-a",
+      "pair_payload_sha256": "cac11b14515415bf7c931cd314c648a079fe996bee612a3ef9f3ccc8f09f0672",
+      "score_numerator": 27,
+      "score_denominator": 40,
+      "mean_jaccard": 0.675,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-nodiff",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-0",
+      "repeat": false,
+      "prompt_sha256": "a11048470420d26f8df929aa2fb235f1ccd4a7ac2e33c5850c063527c5e08b67",
+      "tokens": {
+        "code": 25,
+        "graph": 39,
+        "demo": 73,
+        "total": 219,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-a:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-a:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": null,
+        "tokens": 73
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3-nodiff",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-0",
+    "arm": "B3-swap",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint copy_item(char *d, char *s, unsigned n) { memcpy(d,s,n); return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Non-vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "99aa5b2e93b9aa42a7a3b6d1fad1fd8e7e546cbdd203cdf234dd8d1a3c2ab11a",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-a",
+      "pair_payload_sha256": "cac11b14515415bf7c931cd314c648a079fe996bee612a3ef9f3ccc8f09f0672",
+      "score_numerator": 27,
+      "score_denominator": 40,
+      "mean_jaccard": 0.675,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-swap",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-0",
+      "repeat": false,
+      "prompt_sha256": "99aa5b2e93b9aa42a7a3b6d1fad1fd8e7e546cbdd203cdf234dd8d1a3c2ab11a",
+      "tokens": {
+        "code": 25,
+        "graph": 39,
+        "demo": 114,
+        "total": 260,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-a:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          },
+          {
+            "function_uid": "SYNTHETIC-a:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-0",
+    "arm": "B3-flip",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint copy_item(char *d, char *s, unsigned n) { memcpy(d,s,n); return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Non-vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "e9fea59648782defbff1407f68f9217452a71cff87462c0e77d01a06112c57aa",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-a",
+      "pair_payload_sha256": "cac11b14515415bf7c931cd314c648a079fe996bee612a3ef9f3ccc8f09f0672",
+      "score_numerator": 27,
+      "score_denominator": 40,
+      "mean_jaccard": 0.675,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-flip",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-0",
+      "repeat": false,
+      "prompt_sha256": "e9fea59648782defbff1407f68f9217452a71cff87462c0e77d01a06112c57aa",
+      "tokens": {
+        "code": 25,
+        "graph": 39,
+        "demo": 114,
+        "total": 260,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "flip",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-a:v",
+            "true_label": 1,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-a:p",
+            "true_label": 0,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-1",
+    "arm": "B3",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint parse_header(unsigned n) { if(n > 16) return -1; return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Vulnerable.\nint parse_header(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Non-vulnerable.\nint parse_header(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "61f903cb9e3ea24bb746433cabd1f3053e9e8e380ba212382da8044ac1a6f460",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-b",
+      "pair_payload_sha256": "57dea0fb2cd7542b2bbddeedb3a05fc410fe8d337a8dd1bd04aa6fd1d83fafd1",
+      "score_numerator": 27,
+      "score_denominator": 46,
+      "mean_jaccard": 0.5869565217391305,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-1",
+      "repeat": false,
+      "prompt_sha256": "61f903cb9e3ea24bb746433cabd1f3053e9e8e380ba212382da8044ac1a6f460",
+      "tokens": {
+        "code": 23,
+        "graph": 39,
+        "demo": 114,
+        "total": 258,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-b:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-b:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-1",
+    "arm": "B3-nodiff",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint parse_header(unsigned n) { if(n > 16) return -1; return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Vulnerable.\nint parse_header(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Non-vulnerable.\nint parse_header(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nAnswer (0 or 1):",
+    "prompt_sha256": "9466d9028e8f3d5c3a5be7be64d01c5d6ada9f88a4825272f31f97b7a810c3aa",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-b",
+      "pair_payload_sha256": "57dea0fb2cd7542b2bbddeedb3a05fc410fe8d337a8dd1bd04aa6fd1d83fafd1",
+      "score_numerator": 27,
+      "score_denominator": 46,
+      "mean_jaccard": 0.5869565217391305,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-nodiff",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-1",
+      "repeat": false,
+      "prompt_sha256": "9466d9028e8f3d5c3a5be7be64d01c5d6ada9f88a4825272f31f97b7a810c3aa",
+      "tokens": {
+        "code": 23,
+        "graph": 39,
+        "demo": 73,
+        "total": 217,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-b:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-b:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": null,
+        "tokens": 73
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3-nodiff",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-1",
+    "arm": "B3-swap",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint parse_header(unsigned n) { if(n > 16) return -1; return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Non-vulnerable.\nint parse_header(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Vulnerable.\nint parse_header(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "550c2cbd4b66984e5c3718017b3fc49f22f882e4fd3998850b6f18adb0608cd8",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-b",
+      "pair_payload_sha256": "57dea0fb2cd7542b2bbddeedb3a05fc410fe8d337a8dd1bd04aa6fd1d83fafd1",
+      "score_numerator": 27,
+      "score_denominator": 46,
+      "mean_jaccard": 0.5869565217391305,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-swap",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-1",
+      "repeat": false,
+      "prompt_sha256": "550c2cbd4b66984e5c3718017b3fc49f22f882e4fd3998850b6f18adb0608cd8",
+      "tokens": {
+        "code": 23,
+        "graph": 39,
+        "demo": 114,
+        "total": 258,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-b:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          },
+          {
+            "function_uid": "SYNTHETIC-b:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-1",
+    "arm": "B3-flip",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint parse_header(unsigned n) { if(n > 16) return -1; return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Non-vulnerable.\nint parse_header(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Vulnerable.\nint parse_header(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "5bd8fec705d0c6230a42c96a728a76e69afabad62fd37581012669f757d6e083",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-b",
+      "pair_payload_sha256": "57dea0fb2cd7542b2bbddeedb3a05fc410fe8d337a8dd1bd04aa6fd1d83fafd1",
+      "score_numerator": 27,
+      "score_denominator": 46,
+      "mean_jaccard": 0.5869565217391305,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-flip",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-1",
+      "repeat": false,
+      "prompt_sha256": "5bd8fec705d0c6230a42c96a728a76e69afabad62fd37581012669f757d6e083",
+      "tokens": {
+        "code": 23,
+        "graph": 39,
+        "demo": 114,
+        "total": 258,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "flip",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-b:v",
+            "true_label": 1,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-b:p",
+            "true_label": 0,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-2",
+    "arm": "B3",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint release_item(void *p) { free(p); return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Non-vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "ac051922948d7cca27f9b47fce616d677214c7afc3c4de6dc830c5233b04a1e0",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-a",
+      "pair_payload_sha256": "cac11b14515415bf7c931cd314c648a079fe996bee612a3ef9f3ccc8f09f0672",
+      "score_numerator": 49,
+      "score_denominator": 132,
+      "mean_jaccard": 0.3712121212121212,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-2",
+      "repeat": false,
+      "prompt_sha256": "ac051922948d7cca27f9b47fce616d677214c7afc3c4de6dc830c5233b04a1e0",
+      "tokens": {
+        "code": 16,
+        "graph": 39,
+        "demo": 114,
+        "total": 251,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-a:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-a:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-2",
+    "arm": "B3-nodiff",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint release_item(void *p) { free(p); return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Non-vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nAnswer (0 or 1):",
+    "prompt_sha256": "4de1fd391630e667fc0ddc030ad08578689b811f1f62bd6dcd1056ee5951f119",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-a",
+      "pair_payload_sha256": "cac11b14515415bf7c931cd314c648a079fe996bee612a3ef9f3ccc8f09f0672",
+      "score_numerator": 49,
+      "score_denominator": 132,
+      "mean_jaccard": 0.3712121212121212,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-nodiff",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-2",
+      "repeat": false,
+      "prompt_sha256": "4de1fd391630e667fc0ddc030ad08578689b811f1f62bd6dcd1056ee5951f119",
+      "tokens": {
+        "code": 16,
+        "graph": 39,
+        "demo": 73,
+        "total": 210,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-a:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-a:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": null,
+        "tokens": 73
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3-nodiff",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-2",
+    "arm": "B3-swap",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint release_item(void *p) { free(p); return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Non-vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "59e9b46778fc0f1bcae72893c74fda97171428887badb152e244f9592064f81e",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-a",
+      "pair_payload_sha256": "cac11b14515415bf7c931cd314c648a079fe996bee612a3ef9f3ccc8f09f0672",
+      "score_numerator": 49,
+      "score_denominator": 132,
+      "mean_jaccard": 0.3712121212121212,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-swap",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-2",
+      "repeat": false,
+      "prompt_sha256": "59e9b46778fc0f1bcae72893c74fda97171428887badb152e244f9592064f81e",
+      "tokens": {
+        "code": 16,
+        "graph": 39,
+        "demo": 114,
+        "total": 251,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "true",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-a:p",
+            "true_label": 0,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          },
+          {
+            "function_uid": "SYNTHETIC-a:v",
+            "true_label": 1,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  },
+  {
+    "id": "SYNTHETIC-ONLY-2",
+    "arm": "B3-flip",
+    "prompt": "You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\nint release_item(void *p) { free(p); return 0; }\n\nIn the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\nThe node information of the code snippet is as follows:\nNode 0: (METHOD) 'synthetic'\nThe edge information of the code snippet is as follows:\n[No Edge Information Available]\n\nThe following example is Non-vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    memcpy(dst, src, n);\n    return 0;\n}\n\nThe following example is Vulnerable.\nint copy_item(char *dst, const char *src, unsigned n) {\n    if (n > 16) return -1;\n    memcpy(dst, src, n);\n    return 0;\n}\n\nKey difference: After patch: `if (n > 16) return -1;`. Security rationale: SYNTHETIC fixture: assume dst capacity 16; reject larger copy lengths.\n\nAnswer (0 or 1):",
+    "prompt_sha256": "de70a1cc9a26a93da830b08a2958b8550beb36d902b6595cdd74dd30ea601621",
+    "method": "b3-verified-patch-v1",
+    "selection": {
+      "method": "b3-verified-patch-v1",
+      "pair_id": "SYNTHETIC-a",
+      "pair_payload_sha256": "cac11b14515415bf7c931cd314c648a079fe996bee612a3ef9f3ccc8f09f0672",
+      "score_numerator": 49,
+      "score_denominator": 132,
+      "mean_jaccard": 0.3712121212121212,
+      "eligible_pair_count": 2
+    },
+    "evidence": {
+      "arm": "B3-flip",
+      "seed": 42,
+      "id": "SYNTHETIC-ONLY-2",
+      "repeat": false,
+      "prompt_sha256": "de70a1cc9a26a93da830b08a2958b8550beb36d902b6595cdd74dd30ea601621",
+      "tokens": {
+        "code": 16,
+        "graph": 39,
+        "demo": 114,
+        "total": 251,
+        "approx": false
+      },
+      "truncated": {
+        "code": false,
+        "graph": false,
+        "demo": false
+      },
+      "graph": {
+        "policy": "prefix",
+        "available_nodes": 1,
+        "available_edges": 0,
+        "rendered_nodes": 1,
+        "rendered_edges": 0,
+        "tokens": 39,
+        "truncated": false
+      },
+      "demo": {
+        "policy": "contrastive",
+        "label_policy": "flip",
+        "demos": [
+          {
+            "function_uid": "SYNTHETIC-a:v",
+            "true_label": 1,
+            "displayed_label": 0,
+            "code_shown": true,
+            "tokens": 30,
+            "truncated": false,
+            "original_tokens": 30
+          },
+          {
+            "function_uid": "SYNTHETIC-a:p",
+            "true_label": 0,
+            "displayed_label": 1,
+            "code_shown": true,
+            "tokens": 43,
+            "truncated": false,
+            "original_tokens": 43
+          }
+        ],
+        "diff_block": {
+          "tokens": 41,
+          "truncated": false
+        },
+        "tokens": 114
+      },
+      "order": [
+        "role",
+        "code",
+        "question",
+        "graph",
+        "demonstration",
+        "answer"
+      ]
+    },
+    "threshold_from": "B3",
+    "test_fixture": true,
+    "inference_allowed": false
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "kernel": "huuhieu3333/grace-b1-shuf-resume-20261108",
+  "worker_state": "timed_out",
+  "input_manifest_sha256": "1f008abc6f0d9928fca6c5684d9b49f508182a733acb12f0d8bbb03d11d3a70c",
+  "checkpoint_sha256": "f69ddb1bf1f06a96ad04391d032d6f3be95b7fab35bd926ef851cb2028715b19",
+  "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "groups": [
+    {
+      "seed": 42,
+      "dataset": "devign",
+      "done": 2732,
+      "target": 2732,
+      "remaining": 0,
+      "new": 0
+    },
+    {
+      "seed": 42,
+      "dataset": "reveal",
+      "done": 2274,
+      "target": 2274,
+      "remaining": 0,
+      "new": 0
+    },
+    {
+      "seed": 43,
+      "dataset": "devign",
+      "done": 1410,
+      "target": 2732,
+      "remaining": 1322,
+      "new": 665
+    },
+    {
+      "seed": 43,
+      "dataset": "reveal",
+      "done": 0,
+      "target": 2274,
+      "remaining": 2274,
+      "new": 0
+    },
+    {
+      "seed": 44,
+      "dataset": "devign",
+      "done": 0,
+      "target": 2732,
+      "remaining": 2732,
+      "new": 0
+    },
+    {
+      "seed": 44,
+      "dataset": "reveal",
+      "done": 0,
+      "target": 2274,
+      "remaining": 2274,
+      "new": 0
+    }
+  ],
+  "total_done": 6416,
+  "total_target": 15018,
+  "original_record_bytes_preserved": true,
+  "new_records": 665,
+  "raw_invalid_but_score_valid": 2,
+  "runtime_sessions": [
+    {
+      "provenance": "locked_1unwzglu/runtime_provenance.json",
+      "native_contract_checks": "PASS",
+      "package_count": 6
+    },
+    {
+      "provenance": "locked_7y4i70yp/runtime_provenance.json",
+      "native_contract_checks": "PASS",
+      "package_count": 6
+    }
+  ],
+  "remaining": 8602,
+  "progress_percent": 42.7220668531096,
+  "continuation_integrity": "PASS_LAUNCH_CONTRACT",
+  "newer_seven_package_contract_claimed": false
+}

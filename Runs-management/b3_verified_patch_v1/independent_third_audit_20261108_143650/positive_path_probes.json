@@ -1,0 +1,36 @@
+{
+  "fixture_scope": "SYNTHETIC_SOFTWARE_ONLY_NO_REAL_PAIRS_OR_HUMAN_REVIEWS",
+  "generated_packet_to_candidate_binding": {
+    "candidate_valid_without_reviews": true,
+    "triage_status": "AUTOMATED_TRIAGE_PASS",
+    "generated_packet_hash": "20f0cb6e41cfd0994c838067005fc3868f9d4fce7a90335b69a8f5fd897c3d07",
+    "full_pair_payload_hash": "20f0cb6e41cfd0994c838067005fc3868f9d4fce7a90335b69a8f5fd897c3d07",
+    "both_forms_pass_ingestion": true,
+    "admitted_pairs": 1,
+    "validator_message": ""
+  },
+  "unresolved_review_disagreement": {
+    "approve_reviews": 2,
+    "reject_reviews": 1,
+    "admitted_pairs_despite_reject": 0
+  },
+  "placeholder_timestamp_accepted": false,
+  "actual_step8_render_audit_block": {
+    "code_block_is_expected_target": true,
+    "official_question_is_in_prompt": true,
+    "literal_Question_colon_is_in_prompt": false,
+    "record_status": "RENDERED",
+    "prompt_evaluation_status": "RENDERED_AUDITED",
+    "figure6_order_compliant": true,
+    "target_label_in_prompt": false
+  },
+  "existing_pool_with_invalid_submitted_form": {
+    "before_bytes": 2331,
+    "after_bytes": 2331,
+    "existing_pool_preserved": true
+  },
+  "remediation_overall_gate_probe": {
+    "mock_preservation_and_source_hashes_pass": false,
+    "all_remediations_passed_result": false
+  }
+}

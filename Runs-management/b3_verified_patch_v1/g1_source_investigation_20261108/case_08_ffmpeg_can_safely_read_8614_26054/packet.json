@@ -1,0 +1,72 @@
+{
+  "case_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "dataset": "devign",
+  "project": "ffmpeg",
+  "function_hint": "can_safely_read",
+  "vulnerable_donor": {
+    "id": "devign:train:8614",
+    "commit_id": "3d7817048cb387de87600f2152075f78b37b60a6",
+    "code_len": 99,
+    "code_sha256": "4606a83675db1907349a2ac64be8ed091bd0ec903a1ba397b70d893390429c0a"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:26054",
+    "commit_id": "e494f44c051d7dccc038a603ab22532b87dd1705",
+    "code_len": 104,
+    "code_sha256": "b67ffa61f2079da93b215ab6425df96642a65203cc3cce51c96126a1ce9cd7f6"
+  },
+  "has_candidate_payload": true,
+  "payload_sha256": "f9591b61817ea3f976fbb897263dae2604fae1f62f81be2f8248efb46ad4ee41",
+  "source_revisions": {
+    "vulnerable_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+    "patched_candidate_commit": "e494f44c051d7dccc038a603ab22532b87dd1705",
+    "actual_fix_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+    "actual_parent_commit": "4b529edff8934c258af95e5acc51f84deea66262",
+    "is_direct_parent_edge": true
+  },
+  "changed_files": {
+    "path": "libavcodec/escape124.c",
+    "upstream_fix_files": [
+      "libavcodec/escape124.c"
+    ]
+  },
+  "commit_messages": {
+    "actual_fix_msg": "escape124: fix integer overflow leading to excessive memory allocation\n\nFixes Ticket1629\n\nSigned-off-by: Michael Niedermayer <michaelni@gmx.at>"
+  },
+  "candidate_payload": {
+    "dataset": "devign",
+    "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+    "vulnerable_id": "devign:train:8614",
+    "patched_id": "devign:train:26054",
+    "before_sha256": "4606a83675db1907349a2ac64be8ed091bd0ec903a1ba397b70d893390429c0a",
+    "after_sha256": "b67ffa61f2079da93b215ab6425df96642a65203cc3cce51c96126a1ce9cd7f6",
+    "source": {
+      "repository": "FFmpeg/FFmpeg",
+      "path": "libavcodec/escape124.c",
+      "function": "can_safely_read",
+      "fix_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+      "parent_commit": "4b529edff8934c258af95e5acc51f84deea66262",
+      "source_url": "https://github.com/FFmpeg/FFmpeg/commit/3d7817048cb387de87600f2152075f78b37b60a6",
+      "security_rationale": "In escape124 decoding, can_safely_read() takes the number of bits to read. Passing a large value resulted in signed 32-bit integer overflow (e.g. size * 34), causing can_safely_read to return true even when insufficient bits remained in the bitstream. This caused invalid bitstream reads and excessive memory allocation (Ticket 1629). The fix widens the parameter type from signed int to uint64_t and uses 34L, correctly preventing integer overflow and memory corruption.",
+      "before": "static int can_safely_read(GetBitContext* gb, int bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}",
+      "after": "static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}",
+      "fix_diff": "--- a/libavcodec/escape124.c\n+++ b/libavcodec/escape124.c\n@@ -48,7 +48,7 @@ typedef struct Escape124Context {\n     CodeBook codebooks[3];\n } Escape124Context;\n \n-static int can_safely_read(GetBitContext* gb, int bits) {\n+static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n     return get_bits_left(gb) >= bits;\n }\n \n@@ -90,7 +90,7 @@ static CodeBook unpack_codebook(GetBitContext* gb, unsigned depth,\n     unsigned i, j;\n     CodeBook cb = { 0 };\n \n-    if (!can_safely_read(gb, size * 34))\n+    if (!can_safely_read(gb, size * 34L))\n         return cb;\n \n     if (size >= INT_MAX / sizeof(MacroBlock))\n",
+      "diff": "--- vulnerable\n+++ patched\n@@ -1,4 +1,4 @@\n-static int can_safely_read(GetBitContext* gb, int bits) {\n+static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n \n     return get_bits_left(gb) >= bits;\n \n"
+    },
+    "changed_lines": [
+      {
+        "operation": "replace",
+        "before_start": 1,
+        "before_lines": [
+          "static int can_safely_read(GetBitContext* gb, int bits) {"
+        ],
+        "after_start": 1,
+        "after_lines": [
+          "static int can_safely_read(GetBitContext* gb, uint64_t bits) {"
+        ]
+      }
+    ],
+    "key_difference": "Before patch: `static int can_safely_read(GetBitContext* gb, int bits) {`. After patch: `static int can_safely_read(GetBitContext* gb, uint64_t bits) {`. Security rationale: In escape124 decoding, can_safely_read() takes the number of bits to read. Passing a large value resulted in signed 32-bit integer overflow (e.g. size * 34), causing can_safely_read to return true even when insufficient bits remained in the bitstream. This caused invalid bitstream reads and excessive memory allocation (Ticket 1629). The fix widens the parameter type from signed int to uint64_t and uses 34L, correctly preventing integer overflow and memory corruption.",
+    "reviews": []
+  }
+}

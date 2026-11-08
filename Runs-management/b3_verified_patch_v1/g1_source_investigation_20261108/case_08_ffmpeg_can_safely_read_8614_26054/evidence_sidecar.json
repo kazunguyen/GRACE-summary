@@ -1,0 +1,32 @@
+{
+  "case_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "repository": "FFmpeg/FFmpeg",
+  "path": "libavcodec/escape124.c",
+  "function": "can_safely_read",
+  "fix_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+  "parent_commit": "4b529edff8934c258af95e5acc51f84deea66262",
+  "source_url": "https://github.com/FFmpeg/FFmpeg/commit/3d7817048cb387de87600f2152075f78b37b60a6",
+  "security_rationale": "In escape124 decoding, can_safely_read() takes the number of bits to read. Passing a large value resulted in signed 32-bit integer overflow (e.g. size * 34), causing can_safely_read to return true even when insufficient bits remained in the bitstream. This caused invalid bitstream reads and excessive memory allocation (Ticket 1629). The fix widens the parameter type from signed int to uint64_t and uses 34L, correctly preventing integer overflow and memory corruption.",
+  "before": "static int can_safely_read(GetBitContext* gb, int bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}",
+  "after": "static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}",
+  "upstream_before_raw": "static int can_safely_read(GetBitContext* gb, int bits) {\n    return get_bits_left(gb) >= bits;\n}",
+  "upstream_after_raw": "static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n    return get_bits_left(gb) >= bits;\n}",
+  "fix_diff": "--- a/libavcodec/escape124.c\n+++ b/libavcodec/escape124.c\n@@ -48,7 +48,7 @@ typedef struct Escape124Context {\n     CodeBook codebooks[3];\n } Escape124Context;\n \n-static int can_safely_read(GetBitContext* gb, int bits) {\n+static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n     return get_bits_left(gb) >= bits;\n }\n \n@@ -90,7 +90,7 @@ static CodeBook unpack_codebook(GetBitContext* gb, unsigned depth,\n     unsigned i, j;\n     CodeBook cb = { 0 };\n \n-    if (!can_safely_read(gb, size * 34))\n+    if (!can_safely_read(gb, size * 34L))\n         return cb;\n \n     if (size >= INT_MAX / sizeof(MacroBlock))\n",
+  "match_analysis": {
+    "vulnerable_before": {
+      "upstream_extracted_exact_sha256": "9e037e8ecb093f421a6d610b9c7de7ec5f2a7b8e03bc37ef813638c020857454",
+      "donor_bank_exact_sha256": "4606a83675db1907349a2ac64be8ed091bd0ec903a1ba397b70d893390429c0a",
+      "exact_bytes_match": false,
+      "token_and_strip_normalized_match": true,
+      "discrepancy_explanation": "Devign author export format added double-newlines between lines (func code lines formatted with blank lines). Semantic tokens and code characters are identical."
+    },
+    "patched_after": {
+      "upstream_extracted_exact_sha256": "bb0500eaa7a6b15f73c74262bd80837a2296bfc8007d927618183536737a5740",
+      "donor_bank_exact_sha256": "b67ffa61f2079da93b215ab6425df96642a65203cc3cce51c96126a1ce9cd7f6",
+      "exact_bytes_match": false,
+      "token_and_strip_normalized_match": true,
+      "discrepancy_explanation": "Devign author export format added double-newlines between lines. Semantic tokens and code characters are identical."
+    }
+  },
+  "investigation_timestamp_utc": "2026-11-08T09:18:18.724808+00:00"
+}

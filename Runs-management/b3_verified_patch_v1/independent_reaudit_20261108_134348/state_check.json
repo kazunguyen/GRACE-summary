@@ -1,0 +1,82 @@
+{
+  "checked_at_utc": "2026-11-08T06:45:48.335408+00:00",
+  "seals": {
+    "inputs_manifest.json": {
+      "stored": "95eb4ee991da3fbf4010652a6bbb6e2ddccb29a8744d81d154bb9d405642592e",
+      "calculated": "95eb4ee991da3fbf4010652a6bbb6e2ddccb29a8744d81d154bb9d405642592e",
+      "match": true
+    },
+    "pools/pool_manifest.json": {
+      "stored": "43232ef4969c5202d25e83f79de004f06b32eed836747e594b5528ba173dffe7",
+      "calculated": "43232ef4969c5202d25e83f79de004f06b32eed836747e594b5528ba173dffe7",
+      "match": true
+    },
+    "validation/validation_prompt_manifest.json": {
+      "stored": "9ea703314fefb6cb6aa0aaa0adaf4849f131c064d52332dfb8a97c202bcd0cde",
+      "calculated": "9ea703314fefb6cb6aa0aaa0adaf4849f131c064d52332dfb8a97c202bcd0cde",
+      "match": true
+    }
+  },
+  "v1_preservation": {
+    "files": 103,
+    "changed": []
+  },
+  "source_hashes": {
+    "modules_sha256": {
+      "entries": 6,
+      "mismatches": []
+    },
+    "execution_scripts_sha256": {
+      "entries": 8,
+      "mismatches": []
+    },
+    "authority_documents_sha256": {
+      "entries": 2,
+      "mismatches": []
+    }
+  },
+  "tokenizer_hashes_pass": true,
+  "freeze_manifest_hash_pass": true,
+  "freeze_file_hashes_pass": true,
+  "human_review_count": 0,
+  "triage": {
+    "AUTOMATED_TRIAGE_REJECT": 12
+  },
+  "all_triage_labeled_automated": true,
+  "pool_counts": {
+    "devign": 0,
+    "reveal": 0
+  },
+  "source_request_sources": {
+    "cache": 17
+  },
+  "cached_responses_pass": true,
+  "source_cases": {
+    "count": 12,
+    "both_responses": 12
+  },
+  "packet_hashes_pass": true,
+  "validation": {
+    "devign": {
+      "rows": 2732,
+      "unique_ids": 2732,
+      "ID_set_pass": true,
+      "code_hashes_pass": true,
+      "census_hash_pass": true,
+      "paused": 2732,
+      "nonempty_prompts": 0,
+      "null_flags_on_null_prompts": true
+    },
+    "reveal": {
+      "rows": 2273,
+      "unique_ids": 2273,
+      "ID_set_pass": true,
+      "code_hashes_pass": true,
+      "census_hash_pass": true,
+      "paused": 2273,
+      "nonempty_prompts": 0,
+      "null_flags_on_null_prompts": true
+    }
+  },
+  "source_inventory_unchanged_during_check": true
+}

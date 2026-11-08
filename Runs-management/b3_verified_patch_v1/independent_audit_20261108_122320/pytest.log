@@ -1,0 +1,17 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.11, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary
+configfile: pytest.ini
+plugins: anyio-4.12.1, langsmith-0.10.15, asyncio-1.4.0, cov-6.3.0
+asyncio: mode=strict, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 58 items
+
+tests\test_amended_b3.py ....................s
+tests\test_preregistration_integrity.py ......
+01_Author_Baseline_Unified\diagnostic_kit\tests\test_probes.py ....................
+01_Author_Baseline_Unified\diagnostic_kit\tests\test_stats_and_complementarity.py ...........
+
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_amended_b3.py:114: Pinned tokenizer not cached locally
+======================== 57 passed, 1 skipped in 2.54s ========================
+

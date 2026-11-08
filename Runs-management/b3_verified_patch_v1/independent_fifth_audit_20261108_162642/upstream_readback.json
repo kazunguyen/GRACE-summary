@@ -1,0 +1,21 @@
+[
+  {
+    "url": "https://api.github.com/repos/FFmpeg/FFmpeg/commits/3d7817048cb387de87600f2152075f78b37b60a6",
+    "checked_at_utc": "2026-11-08T09:28:00.501281+00:00",
+    "sha256": "ed22d35f299c7d0d4ea019ae55affc312096471cbb95d109a03b0f9e7ede39bf",
+    "exact_archive_bytes_match": true,
+    "source_identity_fields_match": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/4b529edff8934c258af95e5acc51f84deea66262/libavcodec/escape124.c",
+    "checked_at_utc": "2026-11-08T09:28:01.005242+00:00",
+    "sha256": "4e074b83eda3521efb54114e61fa3abe3ded5ca710a6ccdd33ef232f8d1fdd7b",
+    "exact_archive_bytes_match": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/FFmpeg/FFmpeg/3d7817048cb387de87600f2152075f78b37b60a6/libavcodec/escape124.c",
+    "checked_at_utc": "2026-11-08T09:28:01.887975+00:00",
+    "sha256": "2177993013f8082f4fc2b83aae724dc3e94f97d4d43e5c3ea48dd5dc058ee82d",
+    "exact_archive_bytes_match": true
+  }
+]

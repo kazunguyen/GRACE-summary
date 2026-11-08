@@ -1,0 +1,41 @@
+{
+  "case_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "status": "G1_VERIFIED_CANDIDATE_DOCUMENTED",
+  "dynamic_assertions": {
+    "clean_bank_vulnerable_present": true,
+    "clean_bank_patched_present": true,
+    "donor_labels_valid": true,
+    "parent_in_commit_api": true,
+    "patch_path_present": true,
+    "patch_hunk_can_safely_read_present": true,
+    "patch_hunk_caller_present": true,
+    "before_empty_line_filtered_match": true,
+    "after_empty_line_filtered_match": true,
+    "exact_bytes_match_honestly_reported_false": true,
+    "validate_pair_passed": true,
+    "canonical_payload_hash_valid": true,
+    "evidence_inputs_manifest_bound": true
+  },
+  "evidence_verified": {
+    "upstream_repository": "FFmpeg/FFmpeg",
+    "source_path": "libavcodec/escape124.c",
+    "fix_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+    "parent_commit": "4b529edff8934c258af95e5acc51f84deea66262",
+    "parent_in_commit_api": true,
+    "parent_file_sha256": "4e074b83eda3521efb54114e61fa3abe3ded5ca710a6ccdd33ef232f8d1fdd7b",
+    "fix_file_sha256": "2177993013f8082f4fc2b83aae724dc3e94f97d4d43e5c3ea48dd5dc058ee82d",
+    "actual_fix_diff_sha256": "8a724a11eca0cb987643727f9be824a3b0fe2e9726958349416bab5de7ffd8df",
+    "evidence_inputs_manifest_sha256": "bd1a8c56480ad4e0e375715ca1d60b144a26fc1e787a2b6fe17913d3eaf9a921",
+    "candidate_payload_sha256": "0ced77fefccbcef797c3c01abfa0d139d5611e2d562e8f5ec01089ff05168ee1",
+    "donor_vulnerable_id": "devign:train:8614",
+    "donor_patched_id": "devign:train:26054",
+    "both_donors_in_clean_bank": true,
+    "donor_labels_valid": true,
+    "mapping_decision": "MAPPING_DECISION_RATIFIED_EMPTY_LINES_ONLY",
+    "validate_pair_passed": true
+  },
+  "demonstration_scope_limitation_declared": true,
+  "human_review_status": "PENDING_INDEPENDENT_HUMAN_REVIEW",
+  "pool_admission_status": "NOT_ADMITTED_PENDING_TWO_APPROVED_REVIEWS",
+  "timestamp_utc": "2026-11-08T09:41:16.944995+00:00"
+}

@@ -1,0 +1,156 @@
+{
+  "scope": "B3/devign/validation/seed42",
+  "observations": {
+    "syntax": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true
+    },
+    "runtime_contract_embedded_bytes_match": true,
+    "embedded_code_sha256": {
+      "worker": "b4fd7dfe965efc7814b39d77482d8ca6a042bdcef33fc20ed6301b6cd4a2050b",
+      "helper": "04ed9585a2bbca3d77188a465983c9a8a7bff829df2bf6628c716d9792dcb842"
+    },
+    "seals": {
+      "inputs_manifest.json": true,
+      "pools/pool_manifest.json": true,
+      "validation/validation_prompt_manifest.json": true,
+      "governance/scope_decision.json": true,
+      "delivery/input_bundle/bundle_manifest.json": true,
+      "delivery/inference_input_manifest.json": true,
+      "delivery/delivery_manifest.json": true
+    },
+    "delivery_files": {
+      "notebook.ipynb": true,
+      "b3_devign_val_input.zip": true,
+      "kernel-metadata.json": true,
+      "inference_input_manifest.json": true
+    },
+    "input_zip_external_hash_matches": true,
+    "upstream_prompt_manifest_links": {
+      "inputs": true,
+      "step7": true,
+      "pool": true
+    },
+    "zip_members": {
+      "prompts.jsonl": true,
+      "inputs_manifest.json": true,
+      "pool_manifest.json": true,
+      "validation_prompt_manifest.json": true,
+      "scope_decision.json": true
+    },
+    "census": {
+      "count": 2732,
+      "unique_ids": 2732,
+      "sha256": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+      "matches_prior_audited_fingerprint": true,
+      "all_prompt_hashes_valid": true,
+      "rows_with_id": 0,
+      "rows_with_label": 0
+    },
+    "reused_source_review_pool_bytes": {
+      "candidates\\candidates.jsonl": true,
+      "pools\\eligible_pairs.devign.jsonl": true,
+      "pools\\eligible_pairs.reveal.jsonl": true,
+      "reviews\\review_ledger.jsonl": true,
+      "reviews\\TRIAGE_AND_REVIEW_STATUS.md": true,
+      "reviews\\triage_ledger.jsonl": true,
+      "reviews\\submitted\\review_dung.json": true,
+      "reviews\\submitted\\review_hieu.json": true,
+      "source_archive\\devign\\case_01_qemu_qemu_bh_delete_10182_17569\\case_manifest.json": true,
+      "source_archive\\devign\\case_01_qemu_qemu_bh_delete_10182_17569\\patched_candidate_commit_4e59b54586.json": true,
+      "source_archive\\devign\\case_01_qemu_qemu_bh_delete_10182_17569\\vulnerable_commit_1b435b1032.json": true,
+      "source_archive\\devign\\case_02_qemu_event_notifier_cleanup_15574_20798\\case_manifest.json": true,
+      "source_archive\\devign\\case_02_qemu_event_notifier_cleanup_15574_20798\\patched_candidate_commit_d0cc2fbfa6.json": true,
+      "source_archive\\devign\\case_02_qemu_event_notifier_cleanup_15574_20798\\vulnerable_commit_aa26292859.json": true,
+      "source_archive\\devign\\case_03_qemu_vnc_client_error_11725_3267\\case_manifest.json": true,
+      "source_archive\\devign\\case_03_qemu_vnc_client_error_11725_3267\\patched_candidate_commit_5fb6c7a8b2.json": true,
+      "source_archive\\devign\\case_03_qemu_vnc_client_error_11725_3267\\vulnerable_commit_198a0039c5.json": true,
+      "source_archive\\devign\\case_04_qemu_HELPER_19700_14381\\case_manifest.json": true,
+      "source_archive\\devign\\case_04_qemu_HELPER_19700_14381\\patched_candidate_commit_e8ede0a8bb.json": true,
+      "source_archive\\devign\\case_04_qemu_HELPER_19700_14381\\vulnerable_commit_686eeb93d5.json": true,
+      "source_archive\\devign\\case_05_qemu_HELPER_19700_8643\\case_manifest.json": true,
+      "source_archive\\devign\\case_05_qemu_HELPER_19700_8643\\patched_candidate_commit_e8ede0a8bb.json": true,
+      "source_archive\\devign\\case_05_qemu_HELPER_19700_8643\\vulnerable_commit_686eeb93d5.json": true,
+      "source_archive\\devign\\case_06_qemu_IRQ_testbit_21393_16959\\case_manifest.json": true,
+      "source_archive\\devign\\case_06_qemu_IRQ_testbit_21393_16959\\patched_candidate_commit_e69a17f65e.json": true,
+      "source_archive\\devign\\case_06_qemu_IRQ_testbit_21393_16959\\vulnerable_commit_af7e9e74c6.json": true,
+      "source_archive\\devign\\case_07_qemu___attribute___5933_18868\\case_manifest.json": true,
+      "source_archive\\devign\\case_07_qemu___attribute___5933_18868\\patched_candidate_commit_4d68e86bb1.json": true,
+      "source_archive\\devign\\case_07_qemu___attribute___5933_18868\\vulnerable_commit_0b5538c300.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\actual_fix.diff": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\candidate.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\candidate_payload.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\case_manifest.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\case_verification_report.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\evidence_inputs_manifest.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\evidence_sidecar.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\fix_file_3d7817048c.c": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\function_diff.diff": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\github_commit_3d7817048c.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\mapping_decision.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\MAPPING_DECISION_CASE_08.md": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\packet.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\packet.md": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\parent_file_4b529edff8.c": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\patched_candidate_commit_e494f44c05.json": true,
+      "source_archive\\devign\\case_08_ffmpeg_can_safely_read_8614_26054\\vulnerable_commit_3d7817048c.json": true,
+      "source_archive\\devign\\case_09_qemu_HELPER_4792_14381\\case_manifest.json": true,
+      "source_archive\\devign\\case_09_qemu_HELPER_4792_14381\\patched_candidate_commit_e8ede0a8bb.json": true,
+      "source_archive\\devign\\case_09_qemu_HELPER_4792_14381\\vulnerable_commit_8d04fb55de.json": true,
+      "source_archive\\devign\\case_10_qemu_HELPER_4792_8643\\case_manifest.json": true,
+      "source_archive\\devign\\case_10_qemu_HELPER_4792_8643\\patched_candidate_commit_e8ede0a8bb.json": true,
+      "source_archive\\devign\\case_10_qemu_HELPER_4792_8643\\vulnerable_commit_8d04fb55de.json": true,
+      "source_archive\\devign\\case_11_qemu_HELPER_19700_7094\\case_manifest.json": true,
+      "source_archive\\devign\\case_11_qemu_HELPER_19700_7094\\patched_candidate_commit_bb87943072.json": true,
+      "source_archive\\devign\\case_11_qemu_HELPER_19700_7094\\vulnerable_commit_686eeb93d5.json": true,
+      "source_archive\\devign\\case_12_qemu_HELPER_10808_14381\\case_manifest.json": true,
+      "source_archive\\devign\\case_12_qemu_HELPER_10808_14381\\patched_candidate_commit_e8ede0a8bb.json": true,
+      "source_archive\\devign\\case_12_qemu_HELPER_10808_14381\\vulnerable_commit_4d9ad7f793.json": true
+    },
+    "code_hash_inventory": {
+      "modules_sha256": {
+        "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/amended_b3.py": true,
+        "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/contrastive_pair_builder.py": true,
+        "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/probes.py": true,
+        "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/token_budget.py": true,
+        "configs/inference_runtime_lock.json": true,
+        "Runs-management/b3_amended_20261106/check_b3.py": true
+      },
+      "execution_scripts_sha256": {
+        "scripts/b3_step1_snapshot.py": true,
+        "scripts/b3_step2_https_recon.py": true,
+        "scripts/b3_step3_devign_investigation.py": true,
+        "scripts/b3_step4_reveal_provenance.py": true,
+        "scripts/b3_step5_make_candidates.py": true,
+        "scripts/b3_step6_packet_tool.py": true,
+        "scripts/b3_step7_verify_selector_renderer.py": true,
+        "scripts/b3_step8_validation_census_builder.py": true
+      },
+      "authority_documents_sha256": {
+        "docs/OSF_response/De_cuong_nghien_cuu_GRACE_hop_nhat.docx": true,
+        "docs/OSF-update-20261107.pdf": true
+      }
+    },
+    "actual_cell4_original_input": "KeyError: 'id'",
+    "tampered_bundle_loader_prefix_accepted": true,
+    "notebook_existing_record_validation": "NameError: name 'math' is not defined",
+    "native_log_format_regression": {
+      "source": "Runs-management\\locked_continuations_20261108\\b1_full\\remote_output\\b1_full_locked_20261108\\locked_q94f80c_\\model_load_offload.log",
+      "helper_device_matches": 0,
+      "using_device_cuda_matches": 2
+    },
+    "pure_scoring": {
+      "equal": 0.5,
+      "positive": 1.0,
+      "negative": 0.0,
+      "nonfinite_rejected": true
+    }
+  },
+  "verdict": "BLOCKED_DELIVERY_PREFLIGHT"
+}

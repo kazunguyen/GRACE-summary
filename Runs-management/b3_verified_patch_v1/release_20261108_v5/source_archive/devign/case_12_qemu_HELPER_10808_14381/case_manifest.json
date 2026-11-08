@@ -1,0 +1,44 @@
+{
+  "case_id": "case_12_qemu_HELPER_10808_14381",
+  "project": "qemu",
+  "function_hint": "HELPER",
+  "vulnerable_donor": {
+    "id": "devign:train:10808",
+    "commit_id": "4d9ad7f793605abd9806fc932b3e04e028894565",
+    "code_len": 138,
+    "code_sha256": "65828a023199b330f002dd7c232c54979c3b34bc6a5f2bc524b01e35def28d98"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:14381",
+    "commit_id": "e8ede0a8bb5298a6979bcf7ed84ef64a64a4e3fe",
+    "code_len": 71,
+    "code_sha256": "3e07f0c498a6164fee72bf31c558ff5bd0b263335b766760f2be29a1a78c72e9"
+  },
+  "source_investigation": {
+    "has_both_commit_responses": true,
+    "is_direct_parent_edge": false,
+    "vulnerable_parent_shas": [
+      "cc9453f457888bdd3ab7b37988adbfc4712fa125"
+    ],
+    "patched_parent_shas": [
+      "220c21474535d5a859bb10eff2e2be0a48a15694"
+    ],
+    "vulnerable_changed_files": [
+      "target-arm/neon_helper.c"
+    ],
+    "patched_changed_files": [
+      "target-unicore32/Makefile.objs",
+      "target-unicore32/helper.c",
+      "target-unicore32/ucf64_helper.c"
+    ],
+    "shared_files": [],
+    "vulnerable_commit_msg": "target-arm: Don't overflow when calculating value for signed VABAL\n\nIn the VABAL instruction we take the absolute difference of two\nvalues of size x and store it in a result of size 2x. This means\nwe ",
+    "patched_commit_msg": "unicore32: Split UniCore-F64 instruction helpers from helper.c\n\nThis patch just splits ucf64 instruction simulation helpers from\nhelper.c.\nAlso, two checkpatch warnings are solved.\n\nv1->v2: adjust cop"
+  },
+  "decision": {
+    "status": "UNRESOLVED_RECORDED_COMMITS_NO_DIRECT_EDGE",
+    "reason": "Recorded donor commits do not form a direct parent-child relationship in git history; Recorded donor commits modify completely different files (vuln: ['target-arm/neon_helper.c'], patch: ['target-unicore32/Makefile.objs', 'target-unicore32/helper.c', 'target-unicore32/ucf64_helper.c'])",
+    "admissible_for_candidate": false
+  },
+  "timestamp_utc": "2026-11-08T08:09:28.157509+00:00"
+}

@@ -50,6 +50,33 @@ def changed_lines(before, after):
     return changes
 
 
+def source_mapping_tokens(code):
+    """Exact C lexical tokens for an explicit source mapping, never retrieval.
+
+    Preserve strings, numbers and compound operators. Only whitespace/comments
+    can differ. Preprocessor directives are deliberately unsupported here.
+    """
+    pattern = re.compile(
+        r'\s+|/\*[\s\S]*?\*/|//[^\n]*|'
+        r'(?:u8|[LuU])?"(?:\\.|[^"\\\n])*"|(?:[LuU])?\'(?:\\.|[^\'\\\n])*\'|'
+        r'(?:0[xX][0-9a-fA-F]+|\d+(?:\.\d*)?)(?:[eEpP][+-]?\d+)?[uUlLfF]*|'
+        r'[A-Za-z_]\w*|>>=|<<=|\.\.\.|->|\+\+|--|<<|>>|<=|>=|==|!=|&&|\|\||'
+        r'[+*/%&|^!<>=-]=|[{}()\[\];,:.?~+*/%&|^!<>=-]')
+    tokens = []
+    pos = 0
+    while pos < len(code):
+        match = pattern.match(code, pos)
+        if not match:
+            raise ValueError('Unsupported token/directive in explicit source mapping')
+        value = match.group()
+        if code.startswith('/*', pos) and not value.startswith('/*'):
+            raise ValueError('Unterminated comment in explicit source mapping')
+        if not value.isspace() and not value.startswith(('/*', '//')):
+            tokens.append(value)
+        pos = match.end()
+    return tokens
+
+
 def difference_from_source(source):
     """Quote real changed code; security meaning comes from reviewed rationale."""
     changes = changed_lines(source["before"], source["after"])
@@ -126,8 +153,24 @@ def validate_pair(pair, bank, dataset, *, require_reviews=True):
         raise ValueError("Actual fix diff must identify the source file")
     removed = {line[1:] for line in fix_lines if line.startswith("-") and not line.startswith("---")}
     added = {line[1:] for line in fix_lines if line.startswith("+") and not line.startswith("+++")}
-    if any(line not in removed for c in changes for line in c["before_lines"] if line.strip()) or any(
-            line not in added for c in changes for line in c["after_lines"] if line.strip()):
+    mapping = source.get('mapping')
+    if mapping is not None:
+        if mapping.get('type') != 'c_lexical_tokens_v1':
+            raise ValueError('Unsupported explicit source mapping')
+        for side in ('before', 'after'):
+            raw = mapping.get('upstream_'+side)
+            if (not isinstance(raw, str) or not raw.strip()
+                    or function_hint(raw) != source['function']
+                    or mapping.get('upstream_'+side+'_sha256') != digest(raw)
+                    or source_mapping_tokens(raw) != source_mapping_tokens(source[side])):
+                raise ValueError('Explicit mapping changes C tokens or source identity')
+        # Verify the ORIGINAL upstream lines against the ORIGINAL actual patch.
+        # Never rewrite an actual fix diff to make tokenized donor lines fit it.
+        supported_changes = changed_lines(mapping['upstream_before'], mapping['upstream_after'])
+    else:
+        supported_changes = changes
+    if any(line not in removed for c in supported_changes for line in c['before_lines'] if line.strip()) or any(
+            line not in added for c in supported_changes for line in c['after_lines'] if line.strip()):
         raise ValueError("Displayed changes are not supported by archived actual fix diff")
     if pair.get("key_difference") != difference_from_source(source):
         raise ValueError("Difference must be generated from reviewed source changes; no generic fallback")

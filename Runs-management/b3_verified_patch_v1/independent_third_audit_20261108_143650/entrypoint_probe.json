@@ -1,0 +1,6 @@
+{
+  "inputs_manifest_exists": false,
+  "entrypoint_completed_without_inputs_manifest": true,
+  "prompt_content_status": "BLOCKED_EMPTY_POOL_NO_PROMPTS_RENDERED",
+  "gpu_inference_status": "INFERENCE_PAUSED_EMPTY_POOL"
+}

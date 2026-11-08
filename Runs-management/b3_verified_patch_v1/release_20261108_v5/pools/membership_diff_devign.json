@@ -1,0 +1,19 @@
+{
+  "dataset": "devign",
+  "initial_count": 1,
+  "proposed_count": 1,
+  "retained_count": 0,
+  "added_count": 0,
+  "updated_count": 1,
+  "removed_count": 0,
+  "retained": [],
+  "added": [],
+  "updated": [
+    {
+      "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+      "reason": "Updated reviews from active review ledger"
+    }
+  ],
+  "removed": [],
+  "timestamp_utc": "2026-11-08T15:03:20.207272+00:00"
+}

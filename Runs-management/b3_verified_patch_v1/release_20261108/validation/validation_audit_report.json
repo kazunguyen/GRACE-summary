@@ -1,0 +1,35 @@
+{
+  "method": "b3-verified-patch-v1",
+  "created_at_utc": "2026-11-08T05:03:03.056262+00:00",
+  "total_census_target": 5005,
+  "datasets": {
+    "devign": {
+      "dataset": "devign",
+      "census_count": 2732,
+      "expected_count": 2732,
+      "census_sha256": "bbe59a2a91cfad8f050cc8c6be713dd614121e46546aea44a681f3763427a613",
+      "unique_ids_count": 2732,
+      "code_mismatches_with_raw": 0,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "No verified pair pool: B3 must pause",
+      "paused_records_count": 2732
+    },
+    "reveal": {
+      "dataset": "reveal",
+      "census_count": 2273,
+      "expected_count": 2273,
+      "census_sha256": "0714f773fad16ea106eee88caf837b62de6bdc1e9c37c5b8ee53098744043438",
+      "unique_ids_count": 2273,
+      "code_mismatches_with_raw": 0,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "No verified pair pool: B3 must pause",
+      "paused_records_count": 2273
+    }
+  },
+  "total_census_audited": 5005,
+  "all_censuses_matched": true
+}
