@@ -1,8 +1,8 @@
 # Kaggle run handoff — 8 November 2026
 
-Latest API snapshot completed: **2026-11-08 09:11:33 GMT+7**. Read-only collection from the three configured accounts; no additional GPU run was started for this handoff.
+Latest status snapshot: **2026-11-08 approximately 16:08 GMT+7** (see `status_snapshot_1608/`). Read-only collection; no inference session was started/stopped by this handoff. B1-full runtime acceptance was completed later from its downloaded output.
 
-## Completed test arms published in Git
+## Previously published completed test arms
 
 The following exact records, original evaluation/run manifests and validation threshold-lock snapshots are in `completed_results/`. All 15,018 records were rechecked against frozen test IDs/labels, score/logprob math, locked predictions and original manifest hashes. Metrics were recomputed and match original evaluations. These are descriptive full-census results; no new significance test or threshold optimization was performed.
 
@@ -21,10 +21,10 @@ The following exact records, original evaluation/run manifests and validation th
 
 | Account / kernel | API status | Interpretation |
 |---|---|---|
-| [huuhieu3333/grace-b1-full-budgetfix-20261108](https://www.kaggle.com/code/huuhieu3333/grace-b1-full-budgetfix-20261108) | RUNNING | Fresh corrected B1-full test, target 5,006; all validation prompts reproduced exactly. Live output unavailable; current record count not observable. |
+| [huuhieu3333/grace-b1-full-budgetfix-20261108](https://www.kaggle.com/code/huuhieu3333/grace-b1-full-budgetfix-20261108) | COMPLETE | Fresh seed42 test: 5,006/5,006, zero legacy. Completion 15:35:51 GMT+7; PASS_LAUNCH_CONTRACT (six-package launch lock). Records and runtime/build evidence published. |
 | [huuhieu3333/grace-b1-full-test](https://www.kaggle.com/code/huuhieu3333/grace-b1-full-test) | ERROR | Historical failed test: 2,850 rows, prompt-budget violations. Preserve for audit; superseded operationally by corrected fresh census. |
 | [huuhieu3333/grace-b2-rep-test](https://www.kaggle.com/code/huuhieu3333/grace-b2-rep-test) | COMPLETE | 5,006/5,006, repeat cache tags checked; computational integrity passes, full new runtime lock not certified. |
-| [huuhieu3333/grace-b3-only-resume-20261108](https://www.kaggle.com/code/huuhieu3333/grace-b3-only-resume-20261108) | RUNNING | B3 ONLY, historical algorithm. Starts from 4,058 accepted rows (4,029 historical + 29 source-locked); 947 REVEAL rows remaining at launch. Current live count unavailable. |
+| [huuhieu3333/grace-b3-only-resume-20261108](https://www.kaggle.com/code/huuhieu3333/grace-b3-only-resume-20261108) | COMPLETE | Historical B3 validation 5,005/5,005. Added 947 REVEAL to 4,058 imported rows; completion 10:40:57 GMT+7. No retrospective runtime certification for the original 4,029 rows. |
 | [lznt123/grace-b1-shuf-test](https://www.kaggle.com/code/lznt123/grace-b1-shuf-test) | ERROR | Historical error before first inference record: native GPU-log parsing mismatch. Replaced by locked run on tomandjerry223. |
 | [lznt123/grace-b3-locked-resume-20261108](https://www.kaggle.com/code/lznt123/grace-b3-locked-resume-20261108) | CANCEL_ACKNOWLEDGED | Cancelled by PI; 4,058 B3 rows exported and migrated; zero B3-nodiff rows inferred. |
 | [lznt123/grace-b3-validation](https://www.kaggle.com/code/lznt123/grace-b3-validation) | COMPLETE | Kernel finished, NOT full validation census: 4,029 B3 rows; wall-clock interruption. Historical input/pairing, not amended B3. |
@@ -32,11 +32,26 @@ The following exact records, original evaluation/run manifests and validation th
 | [tomandjerry223/grace-b2-labelonly-test](https://www.kaggle.com/code/tomandjerry223/grace-b2-labelonly-test) | COMPLETE | 5,006/5,006; computational integrity passes, full new runtime lock not certified. |
 | [tomandjerry223/grace-b2-nolabel-test](https://www.kaggle.com/code/tomandjerry223/grace-b2-nolabel-test) | COMPLETE | 5,006/5,006; computational integrity passes, full new runtime lock not certified. |
 
-The active arrangement is **huuhieu3333: B1-full + B3-only**, **tomandjerry223: B1-shuf**. Each notebook requests a separate T4×2 runtime. RUNNING indicates a live Kaggle session, not a proven inference count or passed GPU model-load gate. All three active output APIs returned no published files in this snapshot; do not substitute historical checkpoint counts for current progress.
+At the 16:08 snapshot, B1-shuf on tomandjerry223 is the only RUNNING kernel among these tracked jobs. No files are published for it, so live sample count/health remain unknown. This does not mean the entire study/test matrix is complete. B1-full needs only prompt seed42; seeds43/44 are required for B1-shuf.
 
-## B3 algorithm and AGY discovery status
+## New completion and runtime acceptance
 
-The active B3-only notebook uses the historical 2 November prompt generation, not `b3-verified-patch-v1`; all 5,005 prompts were checked against the original dry-run texts. The new algorithm still requires authenticated before/after source pairs and two genuine human reviews. Runtime lock fixes do not change demonstration selection.
+B1-full now has 2,732 Devign + 2,274 REVEAL fresh test records. All IDs, labels, frozen prompt hashes, per-record provenance, scores and locked predictions pass the recorded checks. Native logs confirm T4x2, 49/49 offload, context8192 and batch/ubatch256. The exact launch contract is `85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6`; SciPy1.16.3 is observed in pip freeze but the later seven-package contract was not loaded retroactively. Two REVEAL raw tokens are non-binary; all numeric scores remain valid under the declared scoring policy.
+
+| Arm | Dataset | N | Locked tau | AUROC | MCC | BA | F1 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| B1-full | devign | 2,732 | 0.99 | 0.531096 | 0.069566 | 0.527480 | 0.312535 |
+| B1-full | reveal | 2,274 | 0.01 | 0.578215 | 0.084902 | 0.569695 | 0.209561 |
+
+See [runtime acceptance](B1_FULL_RUNTIME_ACCEPTANCE.md), [machine-readable checks](b1_full_runtime_acceptance.json), [completion/file hashes](completion_update_20261108.json), and [worklog](../../worklogs/2026-11-08_b1_full_completion_runtime_acceptance.md). Original selected output copies for B1-full and historical B3 are in `completed_results/`. Full B1-full output/checkpoint was also downloaded locally; checkpoint bytes/hash are in the acceptance JSON. No threshold refitting or significance analysis was performed.
+
+## Current B3 new-method milestone
+
+Historical B3 completion is separate from the new verified-patch method. A real FFmpeg source case has been investigated locally; source formatting mapping, rationale/evidence binding and two genuine human reviews remain prerequisites before pool admission. No new-method inference has started. The detailed B3 code/dossier working tree is outside this run-completion publication.
+
+## Historical B3/AGY discovery snapshot at 09:11 (preserved)
+
+At that earlier snapshot the B3-only notebook used the historical 2 November prompt generation, not `b3-verified-patch-v1`; all 5,005 prompts were checked against the original dry-run texts. The new algorithm still requires authenticated before/after source pairs and two genuine human reviews. Runtime lock fixes do not change demonstration selection.
 
 AGY-only workers generated the local indexer, independent tests, source fetcher and corrected review guide. No GPT subagents were spawned. The coordinator rejected the first guide for unsupported protocol changes and verified the revised one. The indexer passed 12 synthetic integrity/determinism tests and was then run locally over both frozen train banks:
 

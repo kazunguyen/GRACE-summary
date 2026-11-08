@@ -1,0 +1,87 @@
+{
+  "checked_at_utc": "2026-11-08T09:44:01.748581+00:00",
+  "checks": {
+    "launch_contract_byte_hash": true,
+    "launch_contract_canonical_seal": true,
+    "packages_all_launch_pins": true,
+    "constructor": true,
+    "model_identity": true,
+    "input_worker_helper_identity": true,
+    "backend_source_archive": true,
+    "native_and_build_log_hashes": true,
+    "two_t4_native_devices": true,
+    "full_gpu_offload": true,
+    "context_batch_ubatch": true,
+    "both_gpu_model_buffers": true,
+    "cuda_build_success": true,
+    "build_environment": true,
+    "provenance_platform_and_threads": true,
+    "complete_build_provenance": true,
+    "reviewed_notebook_source": true,
+    "input_bundle_sha": true,
+    "input_manifest_sha": true,
+    "fresh_only": true,
+    "threshold_lock_bytes_threshold_lock.json": true,
+    "threshold_lock_seal_threshold_lock.json": true,
+    "devign_input_hash": true,
+    "devign_census": true,
+    "devign_official_raw_hash": true,
+    "devign_official_ids_labels": true,
+    "devign_all_record_identity_score_budget_checks": true,
+    "devign_validation_threshold_inherited": true,
+    "reveal_input_hash": true,
+    "reveal_census": true,
+    "reveal_official_raw_hash": true,
+    "reveal_official_ids_labels": true,
+    "reveal_all_record_identity_score_budget_checks": true,
+    "reveal_validation_threshold_inherited": true,
+    "checkpoint_crc": true,
+    "checkpoint_records_exact": true
+  },
+  "all_checks_pass": true,
+  "runtime_acceptance": "PASS_LAUNCH_CONTRACT",
+  "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "later_current_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+  "scipy_observed_in_pip_freeze": "1.16.3",
+  "scipy_current_pin": "1.16.3",
+  "later_contract_retroactive_certification": false,
+  "groups": [
+    {
+      "dataset": "devign",
+      "count": 2732,
+      "unique_ids": 2732,
+      "errors": [],
+      "tau": 0.99,
+      "raw_response_invalid": 0,
+      "metrics": {
+        "auroc": 0.5310964672117219,
+        "mcc": 0.06956560975565788,
+        "ba": 0.5274800594507549,
+        "f1": 0.31253513209668354
+      }
+    },
+    {
+      "dataset": "reveal",
+      "count": 2274,
+      "unique_ids": 2274,
+      "errors": [],
+      "tau": 0.01,
+      "raw_response_invalid": 2,
+      "metrics": {
+        "auroc": 0.5782151365608781,
+        "mcc": 0.08490211992813342,
+        "ba": 0.5696949714966392,
+        "f1": 0.20956123117223316
+      }
+    }
+  ],
+  "checkpoint": {
+    "bytes": 1123481,
+    "sha256": "47bc55577c8d98fa1ba9d4a958da6fc6e7090401cc6ddaec5fb5deaf9a4cd99d"
+  },
+  "limitations": [
+    "Model file and loaded compiled libraries were hashed by the verified runner on Kaggle; audit verifies recorded provenance and source/build logs, not a local rehash of the large model or remote loaded memory.",
+    "Acceptance applies to the six-package contract pinned at launch, not a claim that the later SciPy-added contract was loaded.",
+    "No model rerun, threshold optimization or changes to frozen files."
+  ]
+}

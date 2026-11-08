@@ -1,0 +1,10 @@
+{
+  "arm": "B3",
+  "seed": 42,
+  "dataset": "reveal",
+  "split": "validation",
+  "member": "B3_42_reveal_validation.jsonl",
+  "sha256": "0b747c74ef58fe8b6edbdd0c8c8659905def1a39503811a1602193134b399753",
+  "count": 2273,
+  "runtime_lock_scope": "newly inferred records only; imported historical records are byte/value preserved"
+}

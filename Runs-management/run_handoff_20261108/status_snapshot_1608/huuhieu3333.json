@@ -1,0 +1,306 @@
+{
+  "owner": "huuhieu3333",
+  "checked_at_utc": "2026-11-08T09:07:49.448141+00:00",
+  "read_only": true,
+  "kernels": [
+    {
+      "ref": "huuhieu3333/grace-b1-full-budgetfix-20261108",
+      "checked_at_utc": "2026-11-08T09:07:50.094100+00:00",
+      "artifacts": [
+        {
+          "path": "b1_full_locked_20261108/B1-full/seed_42/devign/test/group_identity.json",
+          "bytes": 344,
+          "sha256": "2eda7c18520199642710772d4c09c4fd8c476bc41f6fd0529901ba4bf4ba96c2",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b1_full_locked_20261108/B1-full/seed_42/devign/test/records.jsonl",
+          "bytes": 3912678,
+          "sha256": "b6d3a60c59c1baf556f57b3bbb21cf5b88a8a3dc0f215258eee8e7c57833e609",
+          "count": 2732,
+          "unique_ids": 2732,
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b1_full_locked_20261108/B1-full/seed_42/reveal/test/group_identity.json",
+          "bytes": 344,
+          "sha256": "56614337a7146c4a185d036654da9b2c104fa7003d038627ac6e94813deedbc1",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b1_full_locked_20261108/B1-full/seed_42/reveal/test/records.jsonl",
+          "bytes": 3257285,
+          "sha256": "302f245a52a14dc54c191fdd1b065dd9cab2cc4ac3afafe95afc270894abf93f",
+          "count": 2274,
+          "unique_ids": 2274,
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b1_full_locked_20261108/inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b1_full_locked_20261108/locked_q94f80c_/model_load_offload.log",
+          "bytes": 30449,
+          "sha256": "85fdf4561f24ec004f3a018cabb020bf8c51ed341431f314f694f53bdaf3bfbf",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b1_full_locked_20261108/locked_q94f80c_/runtime_provenance.json",
+          "bytes": 23627,
+          "sha256": "2aef8c1c4969172ca494e5aedb97193df4921cb271a5768532466fb6313e21de",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b1_full_locked_20261108/run_identity.json",
+          "bytes": 939,
+          "sha256": "64f3a864472c54d8102bf9d63531dbf8b4e54474d63d7e2bdf075b9c01dbb5be",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b1_full_locked_20261108/status.json",
+          "bytes": 239,
+          "sha256": "558977358ba467580cb7c2a2de1e0bc23b18ac2cb0316c27231b92a07203dec1",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "grace_diagnostics/inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        }
+      ],
+      "status": "COMPLETE",
+      "failure_message": "",
+      "remote_file_count": 27
+    },
+    {
+      "ref": "huuhieu3333/grace-b1-full-test",
+      "checked_at_utc": "2026-11-08T09:08:00.850281+00:00",
+      "artifacts": [
+        {
+          "path": "b1_full_test/seed_42/devign/test/evaluation.json",
+          "bytes": 335,
+          "sha256": "41f04b47aa72c8e40471dd63300e346aa56a40c1d23c850b881630aaaa706cec",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_full_test/seed_42/devign/test/records.jsonl",
+          "bytes": 2594484,
+          "sha256": "61fccf1ab2670afeddab2df6f830425ce7443caae18b3d50eb7fe021040ee577",
+          "count": 2732,
+          "unique_ids": 2732,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_full_test/seed_42/devign/test/run_manifest.json",
+          "bytes": 1064,
+          "sha256": "6269d9a4853995fa1424ecaa4ef60a7ca794e4a4ce2859e30c986e29b480832e",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b1_full_test/seed_42/reveal/test/records.jsonl",
+          "bytes": 111828,
+          "sha256": "bbee17aba234cc1a11c1933412de7f2d6f40350c642f9eeac16e308ae2cedfa4",
+          "count": 118,
+          "unique_ids": 118,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        }
+      ],
+      "status": "ERROR",
+      "failure_message": "",
+      "remote_file_count": 11
+    },
+    {
+      "ref": "huuhieu3333/grace-b2-rep-test",
+      "checked_at_utc": "2026-11-08T09:08:06.205946+00:00",
+      "artifacts": [
+        {
+          "path": "b2_rep_test/seed_42/devign/test/evaluation.json",
+          "bytes": 331,
+          "sha256": "e149dda427d296bb82639b353d6153e49c30284b0bb752662eb204f2f6f3e543",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/devign/test/records.jsonl",
+          "bytes": 2681994,
+          "sha256": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+          "count": 2732,
+          "unique_ids": 2732,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/devign/test/run_manifest.json",
+          "bytes": 1095,
+          "sha256": "582f7876b8860745585b26ed2427814beb7457f850a2ac77c78aac0f73b186e3",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/reveal/test/evaluation.json",
+          "bytes": 332,
+          "sha256": "a45c872ace6305d21abcd6720275d3ac4dc0de4f072f08a4d1f590a285992df1",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/reveal/test/records.jsonl",
+          "bytes": 2235889,
+          "sha256": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+          "count": 2274,
+          "unique_ids": 2274,
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        },
+        {
+          "path": "b2_rep_test/seed_42/reveal/test/run_manifest.json",
+          "bytes": 1097,
+          "sha256": "8fd9baddec96fbeb9547a7f039fd27a71b71ac6fde9f4bddf55d8dbecfecab6d",
+          "prior_harvest_exists": true,
+          "matches_prior_harvest": true
+        }
+      ],
+      "status": "COMPLETE",
+      "failure_message": "",
+      "remote_file_count": 15
+    },
+    {
+      "ref": "huuhieu3333/grace-b3-only-resume-20261108",
+      "checked_at_utc": "2026-11-08T09:08:14.333890+00:00",
+      "artifacts": [
+        {
+          "path": "b3_only_locked_20261108/B3/seed_42/devign/validation/group_identity.json",
+          "bytes": 331,
+          "sha256": "3120a529143d76f8f38e9b1ae16db0146673f30654036560a400a80acc28f61c",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/B3/seed_42/devign/validation/records.jsonl",
+          "bytes": 3571382,
+          "sha256": "4d1ed656fabb329ad92b08888fb2a7950a8bfb867622465f295aa05b39e86700",
+          "count": 2732,
+          "unique_ids": 2732,
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/B3/seed_42/reveal/validation/group_identity.json",
+          "bytes": 331,
+          "sha256": "f2ddd5afa01223680f8f621ad26391118013a0cdcf339ff00f407f3a1ff7bf16",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/B3/seed_42/reveal/validation/records.jsonl",
+          "bytes": 3205706,
+          "sha256": "18b8cb90c5e0d1415a95baa2e1228d81d4b7c3fc573452dfa42e460f0708160e",
+          "count": 2273,
+          "unique_ids": 2273,
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/locked_rt3jkftt/model_load_offload.log",
+          "bytes": 30449,
+          "sha256": "85fdf4561f24ec004f3a018cabb020bf8c51ed341431f314f694f53bdaf3bfbf",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/locked_rt3jkftt/runtime_provenance.json",
+          "bytes": 23627,
+          "sha256": "847fba04a4593f5f4c7a1b1b9d507b3777d0981f36e086e0099a39c4c3bf1985",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/locked_vti6l7nv/model_load_offload.log",
+          "bytes": 30445,
+          "sha256": "46739d6476102fb9fb64190cc4386deb95d7ab7b35c740fa4269ee54c0342ef2",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/locked_vti6l7nv/runtime_provenance.json",
+          "bytes": 23627,
+          "sha256": "aa66d58414478612003f7410725bd096a85f7bc45029a8c72cefff75a514b331",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/run_identity.json",
+          "bytes": 964,
+          "sha256": "e099d66288279a8da5308c5029d8e3df1760c8be3798dace826ade78cfe202f0",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/source_migration_acceptance.json",
+          "bytes": 9173,
+          "sha256": "0f3ee50e7081590d12d882db41378797501fe87077f84a598a1973b3d1b54315",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "b3_only_locked_20261108/status.json",
+          "bytes": 243,
+          "sha256": "7b6d5b95483bc7882049ee035e278e5e1c4e3479b358d302ee48cd95317fedc6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "grace_diagnostics/inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        },
+        {
+          "path": "inference_runtime_lock.json",
+          "bytes": 14930,
+          "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "prior_harvest_exists": false,
+          "matches_prior_harvest": false
+        }
+      ],
+      "status": "COMPLETE",
+      "failure_message": "",
+      "remote_file_count": 31
+    }
+  ],
+  "listed_kernel_count": 32,
+  "finished_at_utc": "2026-11-08T09:08:25.223571+00:00"
+}

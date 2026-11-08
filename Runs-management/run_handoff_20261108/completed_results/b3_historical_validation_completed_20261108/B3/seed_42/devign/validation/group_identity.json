@@ -1,0 +1,10 @@
+{
+  "arm": "B3",
+  "seed": 42,
+  "dataset": "devign",
+  "split": "validation",
+  "member": "B3_42_devign_validation.jsonl",
+  "sha256": "17e7a38942e2d82d5e8f4695da235da4022c719fa88057bf7538bf14972b9f34",
+  "count": 2732,
+  "runtime_lock_scope": "newly inferred records only; imported historical records are byte/value preserved"
+}
