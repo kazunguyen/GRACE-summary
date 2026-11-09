@@ -64,7 +64,7 @@ def main(kind,action):
         request.slug=meta['id'];request.new_title=meta['title'];request.text=json.dumps(notebook,ensure_ascii=False)
         request.language='python';request.kernel_type='notebook';request.is_private=True
         request.enable_gpu=True;request.enable_tpu=False;request.enable_internet=True
-        request.machine_shape='NvidiaTeslaT4';request.session_timeout_seconds=32400
+        request.machine_shape='NvidiaTeslaT4';request.session_timeout_seconds=meta.get('session_timeout_seconds',32400)
         request.dataset_data_sources=meta['dataset_sources'];request.kernel_data_sources=meta['kernel_sources']
         request.competition_data_sources=[];request.model_data_sources=[];request.category_ids=[]
         # The installed old CLI drops machine_shape; use the official newer SDK request.

@@ -1,0 +1,44 @@
+{
+  "created_at_utc": "2026-11-08T10:32:36.091135+00:00",
+  "release_version": "v3_remediated",
+  "parent_release": "v2_remediated",
+  "method": "b3-verified-patch-v1",
+  "scope": "Validation Census Specification & Pool Readiness Audit",
+  "prompt_content_status": "PARTIAL_OR_UNRESOLVED",
+  "datasets": {
+    "devign": {
+      "dataset": "devign",
+      "census_count": 2732,
+      "expected_count": 2732,
+      "census_sha256": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+      "unique_ids_count": 2732,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 2562,
+      "target_label_leakage_cases": 0,
+      "pool_status": "ACTIVE",
+      "selector_status": "ALL_RENDERED",
+      "selector_reason": null,
+      "paused_records_count": 0,
+      "nonempty_prompt_count": 2732
+    },
+    "reveal": {
+      "dataset": "reveal",
+      "census_count": 2273,
+      "expected_count": 2273,
+      "census_sha256": "6e969e1025b2fc8390e4491c6024055b6f28e73b56dd655feb4eac3cc945ae1b",
+      "unique_ids_count": 2273,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 0,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "All 17,636 donors missing upstream commit revisions in frozen export.",
+      "paused_records_count": 2273,
+      "nonempty_prompt_count": 0
+    }
+  },
+  "governance_status": "PARTIAL_VALIDATION",
+  "gpu_inference_status": "INFERENCE_PAUSED",
+  "methodology_note": "Validation census prompts rendered and audited.",
+  "prompt_manifest_seal_sha256": "bf115cdb95dc79aa9ce37fd64bb81376d52226c6e3874d9fe7912ef53bc46b59"
+}

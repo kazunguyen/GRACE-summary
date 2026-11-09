@@ -1,0 +1,24 @@
+{
+  "state": "complete",
+  "fixed_order": [
+    "devign",
+    "reveal"
+  ],
+  "datasets": {
+    "devign": {
+      "state": "complete",
+      "input_root_sha256": "3b1311b8ee9af85ab1811a73338a4f4ce6cf3252f13c0ba9bfb5134acb0b57d6",
+      "records": 2732,
+      "expected": 2732,
+      "returncode": 0
+    },
+    "reveal": {
+      "state": "complete",
+      "input_root_sha256": "c58bef4072bcc4812446a1cc05eddd573b9bfa5b5e9fc5f3cac2ff3ef20d3c94",
+      "records": 2273,
+      "expected": 2273,
+      "returncode": 0
+    }
+  },
+  "deadline_epoch": 1794249401.0080082
+}

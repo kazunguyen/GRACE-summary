@@ -1,0 +1,39 @@
+{
+  "method": "b3-verified-patch-v1",
+  "created_at_utc": "2026-11-08T15:05:04.805607+00:00",
+  "total_census_target": 5005,
+  "datasets": {
+    "devign": {
+      "dataset": "devign",
+      "census_count": 2732,
+      "expected_count": 2732,
+      "census_sha256": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+      "unique_ids_count": 2732,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 2562,
+      "target_label_leakage_cases": 0,
+      "pool_status": "ACTIVE",
+      "selector_status": "ALL_RENDERED",
+      "selector_reason": null,
+      "paused_records_count": 0,
+      "nonempty_prompt_count": 2732
+    },
+    "reveal": {
+      "dataset": "reveal",
+      "census_count": 2273,
+      "expected_count": 2273,
+      "census_sha256": "6e969e1025b2fc8390e4491c6024055b6f28e73b56dd655feb4eac3cc945ae1b",
+      "unique_ids_count": 2273,
+      "substantive_code_mismatches": 0,
+      "whitespace_formatting_diff_count": 0,
+      "target_label_leakage_cases": 0,
+      "pool_status": "BLOCKED_EMPTY_POOL",
+      "selector_status": "PAUSED",
+      "selector_reason": "All 17,636 donors missing upstream commit revisions in frozen export.",
+      "paused_records_count": 2273,
+      "nonempty_prompt_count": 0
+    }
+  },
+  "total_census_audited": 5005,
+  "all_censuses_matched": true
+}

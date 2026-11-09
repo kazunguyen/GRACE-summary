@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "code_file": "notebook.ipynb",
+    "competition_sources": [],
+    "dataset_sources": [
+      "huuhieu3333/grace-b3-v7-reveal-inputs"
+    ],
+    "enable_gpu": true,
+    "enable_internet": true,
+    "id": "huuhieu3333/grace-b3-v7-reveal-validation",
+    "is_private": true,
+    "kernel_sources": [
+      "huuhieu3333/qwen3coder30b-prepare-notebook"
+    ],
+    "kernel_type": "notebook",
+    "language": "python",
+    "machine_shape": "NvidiaTeslaT4",
+    "title": "GRACE B3 v7 REVEAL validation",
+    "session_timeout_seconds": 32400
+  },
+  "notebook_sha256": "93d30723fcfcd152765fc07e4a62822527a66718ab09f8b03c0b6f1ce410db34",
+  "input_root_sha256": "3255dfa600e191c874560fbcd285a22337b8546e1a510c3f6804c46ff2cfc8fc",
+  "private_input_dataset_to_publish": "huuhieu3333/grace-b3-v7-reveal-inputs",
+  "status": "BLOCKED_INSUFFICIENT_CURRENT_QUOTA",
+  "observed_quota_remaining_seconds": 1417.606,
+  "quota_observation_at_utc": "2026-11-08T15:45:02.764696+00:00",
+  "native_runtime_acceptance": "NOT_EVALUATED",
+  "no_gpu_launch_in_this_step": true
+}

@@ -1,0 +1,101 @@
+{
+    "sha":  "8732ec40db652c53fa58cd13e2acb8eab6e40874",
+    "node_id":  "MDY6Q29tbWl0NTY5MDQxOjg3MzJlYzQwZGI2NTJjNTNmYTU4Y2QxM2UyYWNiOGVhYjZlNDA4NzQ=",
+    "commit":  {
+                   "author":  {
+                                  "name":  "Daniel Stenberg",
+                                  "email":  "daniel@haxx.se",
+                                  "date":  "2016-09-28T08:15:34Z"
+                              },
+                   "committer":  {
+                                     "name":  "Daniel Stenberg",
+                                     "email":  "daniel@haxx.se",
+                                     "date":  "2016-10-31T07:46:35Z"
+                                 },
+                   "message":  "aprintf: detect wrap-around when growing allocation\n\nOn 32bit systems we could otherwise wrap around after 2GB and allocate 0\nbytes and crash.\n\nCVE-2016-8618\n\nBug: https://curl.haxx.se/docs/adv_20161102D.html\nReported-by: Cure53",
+                   "tree":  {
+                                "sha":  "5fa2321f166bbacd895831857c9e8eb5278139e2",
+                                "url":  "https://api.github.com/repos/curl/curl/git/trees/5fa2321f166bbacd895831857c9e8eb5278139e2"
+                            },
+                   "url":  "https://api.github.com/repos/curl/curl/git/commits/8732ec40db652c53fa58cd13e2acb8eab6e40874",
+                   "comment_count":  0,
+                   "verification":  {
+                                        "verified":  false,
+                                        "reason":  "unsigned",
+                                        "signature":  null,
+                                        "payload":  null,
+                                        "verified_at":  null
+                                    }
+               },
+    "url":  "https://api.github.com/repos/curl/curl/commits/8732ec40db652c53fa58cd13e2acb8eab6e40874",
+    "html_url":  "https://github.com/curl/curl/commit/8732ec40db652c53fa58cd13e2acb8eab6e40874",
+    "comments_url":  "https://api.github.com/repos/curl/curl/commits/8732ec40db652c53fa58cd13e2acb8eab6e40874/comments",
+    "author":  {
+                   "login":  "bagder",
+                   "id":  177011,
+                   "node_id":  "MDQ6VXNlcjE3NzAxMQ==",
+                   "avatar_url":  "https://avatars.githubusercontent.com/u/177011?v=4",
+                   "gravatar_id":  "",
+                   "url":  "https://api.github.com/users/bagder",
+                   "html_url":  "https://github.com/bagder",
+                   "followers_url":  "https://api.github.com/users/bagder/followers",
+                   "following_url":  "https://api.github.com/users/bagder/following{/other_user}",
+                   "gists_url":  "https://api.github.com/users/bagder/gists{/gist_id}",
+                   "starred_url":  "https://api.github.com/users/bagder/starred{/owner}{/repo}",
+                   "subscriptions_url":  "https://api.github.com/users/bagder/subscriptions",
+                   "organizations_url":  "https://api.github.com/users/bagder/orgs",
+                   "repos_url":  "https://api.github.com/users/bagder/repos",
+                   "events_url":  "https://api.github.com/users/bagder/events{/privacy}",
+                   "received_events_url":  "https://api.github.com/users/bagder/received_events",
+                   "type":  "User",
+                   "user_view_type":  "public",
+                   "site_admin":  false
+               },
+    "committer":  {
+                      "login":  "bagder",
+                      "id":  177011,
+                      "node_id":  "MDQ6VXNlcjE3NzAxMQ==",
+                      "avatar_url":  "https://avatars.githubusercontent.com/u/177011?v=4",
+                      "gravatar_id":  "",
+                      "url":  "https://api.github.com/users/bagder",
+                      "html_url":  "https://github.com/bagder",
+                      "followers_url":  "https://api.github.com/users/bagder/followers",
+                      "following_url":  "https://api.github.com/users/bagder/following{/other_user}",
+                      "gists_url":  "https://api.github.com/users/bagder/gists{/gist_id}",
+                      "starred_url":  "https://api.github.com/users/bagder/starred{/owner}{/repo}",
+                      "subscriptions_url":  "https://api.github.com/users/bagder/subscriptions",
+                      "organizations_url":  "https://api.github.com/users/bagder/orgs",
+                      "repos_url":  "https://api.github.com/users/bagder/repos",
+                      "events_url":  "https://api.github.com/users/bagder/events{/privacy}",
+                      "received_events_url":  "https://api.github.com/users/bagder/received_events",
+                      "type":  "User",
+                      "user_view_type":  "public",
+                      "site_admin":  false
+                  },
+    "parents":  [
+                    {
+                        "sha":  "ee4f76606cfa4ee068bf28edd37c8dae7e8db317",
+                        "url":  "https://api.github.com/repos/curl/curl/commits/ee4f76606cfa4ee068bf28edd37c8dae7e8db317",
+                        "html_url":  "https://github.com/curl/curl/commit/ee4f76606cfa4ee068bf28edd37c8dae7e8db317"
+                    }
+                ],
+    "stats":  {
+                  "total":  9,
+                  "additions":  6,
+                  "deletions":  3
+              },
+    "files":  [
+                  {
+                      "sha":  "2c88aa833b1b1fbb50d9b33aa56a59279595e41a",
+                      "filename":  "lib/mprintf.c",
+                      "status":  "modified",
+                      "additions":  6,
+                      "deletions":  3,
+                      "changes":  9,
+                      "blob_url":  "https://github.com/curl/curl/blob/8732ec40db652c53fa58cd13e2acb8eab6e40874/lib%2Fmprintf.c",
+                      "raw_url":  "https://github.com/curl/curl/raw/8732ec40db652c53fa58cd13e2acb8eab6e40874/lib%2Fmprintf.c",
+                      "contents_url":  "https://api.github.com/repos/curl/curl/contents/lib%2Fmprintf.c?ref=8732ec40db652c53fa58cd13e2acb8eab6e40874",
+                      "patch":  "@@ -1036,16 +1036,19 @@ static int alloc_addbyter(int output, FILE *data)\n     infop-\u003elen =0;\n   }\n   else if(infop-\u003elen+1 \u003e= infop-\u003ealloc) {\n-    char *newptr;\n+    char *newptr = NULL;\n+    size_t newsize = infop-\u003ealloc*2;\n \n-    newptr = realloc(infop-\u003ebuffer, infop-\u003ealloc*2);\n+    /* detect wrap-around or other overflow problems */\n+    if(newsize \u003e infop-\u003ealloc)\n+      newptr = realloc(infop-\u003ebuffer, newsize);\n \n     if(!newptr) {\n       infop-\u003efail = 1;\n       return -1; /* fail */\n     }\n     infop-\u003ebuffer = newptr;\n-    infop-\u003ealloc *= 2;\n+    infop-\u003ealloc = newsize;\n   }\n \n   infop-\u003ebuffer[ infop-\u003elen ] = outc;"
+                  }
+              ]
+}

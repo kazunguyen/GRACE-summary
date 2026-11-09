@@ -23,3 +23,55 @@
 /Runs-management/run_handoff_20261108/completed_results/** -text whitespace=cr-at-eol
 /Runs-management/run_handoff_20261108/b1_full_runtime_acceptance_evidence/** -text whitespace=cr-at-eol
 /Runs-management/run_handoff_20261108/status_snapshot_1608/** -text whitespace=cr-at-eol
+
+# Keep B3 delivery pins and recovered public-source evidence byte exact.
+/Runs-management/b3_verified_patch_v1/release_20261108_v6/** -text
+/Runs-management/b3_verified_patch_v1/reveal_recovery_20261108/** -text
+/Runs-management/b3_verified_patch_v1/release_20261108_v7_reveal/** -text
+/Runs-management/b3_verified_patch_v1/reveal_prompt_release_20261108/** -text
+/Runs-management/b3_verified_patch_v1/reveal_reviewed_pool_20261108/** -text
+/Runs-management/b3_verified_patch_v1/reveal_final_forms_20261108/** -text
+
+# Audit/source snapshots contain raw byte hashes: preserve their original bytes.
+/Runs-management/b3_verified_patch_v1/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b1_shuf_download_20261108_231129/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/scripts/b3_*.py -text whitespace=cr-at-eol,-blank-at-eof
+/scripts/build_b3*.py -text whitespace=cr-at-eol,-blank-at-eof
+/scripts/build_release_v*.py -text whitespace=cr-at-eol,-blank-at-eof
+/scripts/build_delivery_v5.py -text whitespace=cr-at-eol,-blank-at-eof
+/scripts/build_g1_dossier.py -text whitespace=cr-at-eol,-blank-at-eof
+/scripts/build_reveal_curl_review_packet.py -text whitespace=cr-at-eol,-blank-at-eof
+/scripts/build_reviewed_reveal_census.py -text whitespace=cr-at-eol,-blank-at-eof
+/scripts/admit_reveal_curl_reviews.py -text whitespace=cr-at-eol,-blank-at-eof
+/01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/amended_b3.py -text whitespace=cr-at-eol,-blank-at-eof
+/Runs-management/b3_amended_20261106/check_b3.py -text whitespace=cr-at-eol,-blank-at-eof
+
+# Captured verification output is evidence, including original whitespace.
+/Runs-management/publication_20261108_b1shuf_b3/*.log -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/tests/test_amended_b3.py whitespace=-blank-at-eof
+
+# These pinned generators intentionally contain Markdown hard breaks in templates.
+/scripts/b3_step1_snapshot.py whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+/scripts/b3_step6_packet_tool.py whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+/scripts/b3_step8_validation_census_builder.py whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+/scripts/build_release_v5.py whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+
+# Imported baseline seed44 results retain their original CRLF and hashed bytes.
+/06_Arm_B2_Rand/test_results_20261107/** -text whitespace=cr-at-eol
+
+# Byte-pinned launch source/readback/checkpoint evidence.
+/Runs-management/huuhieu_b1shuf_b3_launch_20261108/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_lznt_linuxfix_20261109/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_lznt_resume_20261109/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_lznt_resume_v2_20261109/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_lznt_resume_retry_20261109/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+
+# Threshold release pins these exact source bytes.
+/scripts/calculate_b3_verified_patch_threshold_candidates_20261109.py -text
+/scripts/seal_b3_threshold_release_20261109.py -text
+/scripts/deploy_b3_lznt_linuxfix_20261109.py -text
+/scripts/launch_huuhieu_b1shuf_b3_20261108.py -text
+/scripts/resume_b3_lznt_linuxfix_20261109.py -text
+/scripts/resume_b3_lznt_linuxfix_20261109_v2.py -text
+/scripts/retry_b3_lznt_resume_20261109.py -text
+/Runs-management/publication_20261109_b3_thresholds/*.log -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof

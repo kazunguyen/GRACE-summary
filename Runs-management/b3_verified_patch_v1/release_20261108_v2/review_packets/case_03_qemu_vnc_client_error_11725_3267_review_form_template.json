@@ -1,0 +1,12 @@
+{
+  "case_id": "case_03_qemu_vnc_client_error_11725_3267",
+  "reviewer": "REVIEWER_NAME_HERE",
+  "reviewed_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "payload_sha256": "3933d59c76f09db058e7e2475471acd6ea87d2baad3be8d839978f944d704b94",
+  "same_function_verified": false,
+  "security_fix_verified": false,
+  "source_revisions_verified": false,
+  "explanation_supported": false,
+  "decision": "reject",
+  "comments": "REVIEWER_COMMENTS_HERE"
+}

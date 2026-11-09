@@ -1,0 +1,132 @@
+You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.
+
+void fw_cfg_add_callback(FWCfgState *s, uint16_t key, FWCfgCallback callback,
+
+                         void *callback_opaque, uint8_t *data, size_t len)
+
+{
+
+    int arch = !!(key & FW_CFG_ARCH_LOCAL);
+
+
+
+    assert(key & FW_CFG_WRITE_CHANNEL);
+
+
+
+    key &= FW_CFG_ENTRY_MASK;
+
+
+
+    assert(key < FW_CFG_MAX_ENTRY && len <= 65535);
+
+
+
+    s->entries[arch][key].data = data;
+
+    s->entries[arch][key].len = len;
+
+    s->entries[arch][key].callback_opaque = callback_opaque;
+
+    s->entries[arch][key].callback = callback;
+
+}
+
+In the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.
+
+The node information of the code snippet is as follows:
+Node 2298: (Function) 'fw_cfg_add_callback'
+Node 2299: (FunctionDef) 'fw_cfg_add_callback (FWCfgState * s , ui...'
+Node 2300: (CompoundStatement)
+Node 2301: (IdentifierDeclStatement) 'int arch = ! ! ( key & FW_CFG_ARCH_LOCAL...'
+Node 2302: (IdentifierDecl) 'arch = ! ! ( key & FW_CFG_ARCH_LOCAL )'
+Node 2303: (IdentifierDeclType) 'int'
+Node 2304: (Identifier) 'arch'
+Node 2305: (AssignmentExpression) 'arch = ! ! ( key & FW_CFG_ARCH_LOCAL )'
+Node 2306: (Identifier) 'arch'
+Node 2307: (UnaryOperationExpression) '! ! ( key & FW_CFG_ARCH_LOCAL )'
+Node 2308: (UnaryOperator) '!'
+Node 2309: (UnaryOperationExpression) '! ( key & FW_CFG_ARCH_LOCAL )'
+Node 2310: (UnaryOperator) '!'
+Node 2311: (BitAndExpression) 'key & FW_CFG_ARCH_LOCAL'
+Node 2312: (Identifier) 'key'
+Node 2313: (Identifier) 'FW_CFG_ARCH_LOCAL'
+Node 2314: (ExpressionStatement) 'assert ( key & FW_CFG_WRITE_CHANNEL )'
+Node 2315: (CallExpression) 'assert ( key & FW_CFG_WRITE_CHANNEL )'
+Node 2316: (Callee) 'assert'
+Node 2317: (Identifier) 'assert'
+Node 2318: (ArgumentList) 'key & FW_CFG_WRITE_CHANNEL'
+Node 2319: (Argument) 'key & FW_CFG_WRITE_CHANNEL'
+Node 2320: (BitAndExpression) 'key & FW_CFG_WRITE_CHANNEL'
+Node 2321: (Identifier) 'key'
+Node 2322: (Identifier) 'FW_CFG_WRITE_CHANNEL'
+Node 2323: (ExpressionStatement) 'key &= FW_CFG_ENTRY_MASK'
+Node 2324: (AssignmentExpression) 'key &= FW_CFG_ENTRY_MASK'
+Node 2325: (Identifier) 'key'
+Node 2326: (Identifier) 'FW_CFG_ENTRY_MASK'
+Node 2327: (ExpressionStatement) 'assert ( key < FW_CFG_MAX_ENTRY && len <...'
+Node 2328: (CallExpression) 'assert ( key < FW_CFG_MAX_ENTRY && len <...'
+Node 2329: (Callee) 'assert'
+Node 2330: (Identifier) 'assert'
+Node 2331: (ArgumentList) 'key < FW_CFG_MAX_ENTRY && len <= 65535'
+Node 2332: (Argument) 'key < FW_CFG_MAX_ENTRY && len <= 65535'
+Node 2333: (AndExpression) 'key < FW_CFG_MAX_ENTRY && len <= 65535'
+Node 2334: (RelationalExpression) 'key < FW_CFG_MAX_ENTRY'
+Node 2335: (Identifier) 'key'
+Node 2336: (Identifier) 'FW_CFG_MAX_ENTRY'
+Node 2337: (RelationalExpression) 'len <= 65535'
+The edge information of the code snippet is as follows:
+Edge: Node 2302 -> IS_AST_PARENT -> Node 2303
+Edge: Node 2302 -> IS_AST_PARENT -> Node 2304
+Edge: Node 2305 -> IS_AST_PARENT -> Node 2306
+Edge: Node 2307 -> IS_AST_PARENT -> Node 2308
+Edge: Node 2309 -> IS_AST_PARENT -> Node 2310
+Edge: Node 2311 -> IS_AST_PARENT -> Node 2312
+Edge: Node 2311 -> IS_AST_PARENT -> Node 2313
+Edge: Node 2309 -> IS_AST_PARENT -> Node 2311
+Edge: Node 2307 -> IS_AST_PARENT -> Node 2309
+Edge: Node 2305 -> IS_AST_PARENT -> Node 2307
+Edge: Node 2302 -> IS_AST_PARENT -> Node 2305
+Edge: Node 2301 -> IS_AST_PARENT -> Node 2302
+Edge: Node 2300 -> IS_AST_PARENT -> Node 2301
+Edge: Node 2316 -> IS_AST_PARENT -> Node 2317
+Edge: Node 2315 -> IS_AST_PARENT -> Node 2316
+Edge: Node 2320 -> IS_AST_PARENT -> Node 2321
+Edge: Node 2320 -> IS_AST_PARENT -> Node 2322
+Edge: Node 2319 -> IS_AST_PARENT -> Node 2320
+Edge: Node 2318 -> IS_AST_PARENT -> Node 2319
+Edge: Node 2315 -> IS_AST_PARENT -> Node 2318
+Edge: Node 2314 -> IS_AST_PARENT -> Node 2315
+Edge: Node 2300 -> IS_AST_PARENT -> Node 2314
+Edge: Node 2324 -> IS_AST_PARENT -> Node 2325
+Edge: Node 2324 -> IS_AST_PARENT -> Node 2326
+Edge: Node 2323 -> IS_AST_PARENT -> Node 2324
+Edge: Node 2300 -> IS_AST_PARENT -> Node 2323
+Edge: Node 2329 -> IS_AST_PARENT -> Node 2330
+Edge: Node 2328 -> IS_AST_PARENT -> Node 2329
+Edge: Node 2334 -> IS_AST_PARENT -> Node 2335
+Edge: Node 2334 -> IS_AST_PARENT -> Node 2336
+Edge: Node 2333 -> IS_AST_PARENT -> Node 2334
+Edge: Node 2333 -> IS_AST_PARENT -> Node 2337
+Edge: Node 2332 -> IS_AST_PARENT -> Node 2333
+Edge: Node 2331 -> IS_AST_PARENT -> Node 2332
+Edge: Node 2328 -> IS_AST_PARENT -> Node 2331
+Edge: Node 2327 -> IS_AST_PARENT -> Node 2328
+
+The following example is Vulnerable.
+static int can_safely_read(GetBitContext* gb, int bits) {
+
+    return get_bits_left(gb) >= bits;
+
+}
+
+The following example is Non-vulnerable.
+static int can_safely_read(GetBitContext* gb, uint64_t bits) {
+
+    return get_bits_left(gb) >= bits;
+
+}
+
+Key difference: Before patch: `static int can_safely_read(GetBitContext* gb, int bits) {`. After patch: `static int can_safely_read(GetBitContext* gb, uint64_t bits) {`. Security rationale: In FFmpeg libavcodec/escape124.c (commit 3d7817048cb387de87600f2152075f78b37b60a6, Ticket 1629), the upstream security fix addresses an integer overflow leading to excessive memory allocation. In the vulnerable code, can_safely_read(gb, bits) declared parameter 'bits' as int (32-bit signed), while caller unpack_codebook computed 'size * 34' where 'size' was unsigned. The complete upstream fix consists of two changes: (1) in can_safely_read, widening the parameter type from 'int' to 'uint64_t' so that large bit counts do not evaluate improperly against get_bits_left(gb); and (2) in unpack_codebook, promoting the multiplication to 'size * 34L'. This contrastive demonstration pair captures exclusively change (1) — widening parameter 'bits' from 'int' to 'uint64_t' in can_safely_read — while change (2) ('size * 34L') resides in caller unpack_codebook outside this function pair. Reviewers must evaluate this demonstration in the context of the full upstream commit diff, acknowledging that the demonstrated snippet reflects the parameter type widening component of the integer overflow defense.
+
+Answer (0 or 1):

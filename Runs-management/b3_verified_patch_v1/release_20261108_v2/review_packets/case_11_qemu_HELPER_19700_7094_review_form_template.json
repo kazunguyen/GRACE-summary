@@ -1,0 +1,12 @@
+{
+  "case_id": "case_11_qemu_HELPER_19700_7094",
+  "reviewer": "REVIEWER_NAME_HERE",
+  "reviewed_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "payload_sha256": "67162a8ba8c82afc5d15475ecafa0322ee5dff0e6ddb88cee68350592cdca8c5",
+  "same_function_verified": false,
+  "security_fix_verified": false,
+  "source_revisions_verified": false,
+  "explanation_supported": false,
+  "decision": "reject",
+  "comments": "REVIEWER_COMMENTS_HERE"
+}

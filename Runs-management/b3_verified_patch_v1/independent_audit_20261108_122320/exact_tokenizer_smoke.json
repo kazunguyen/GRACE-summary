@@ -1,0 +1,9 @@
+{
+  "status": "PASS_SYNTHETIC_SOFTWARE_ONLY",
+  "targets": 3,
+  "family_outputs": 12,
+  "tokenizer_approx": false,
+  "exact_ranking_determinism_probe_transformations_budgets_and_label_guard_pass": true,
+  "real_pairs_reviewed": 0,
+  "inference_performed": false
+}

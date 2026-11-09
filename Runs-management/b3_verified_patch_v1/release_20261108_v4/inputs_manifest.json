@@ -1,0 +1,66 @@
+{
+  "created_at_utc": "2026-11-08T10:16:32.871024+00:00",
+  "release_version": "v4_verified_patch_admitted",
+  "parent_release": "v3_remediated",
+  "git_commit": "46e6f4ab9d0ff2c9ecac124d3a6f2bdb72524bd9",
+  "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "freeze_manifest": {
+    "path": "D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\01_Author_Baseline_Unified\\output\\research_freeze_20261101\\freeze_manifest.json",
+    "sha256": "e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448",
+    "status": "SEAL_VERIFIED"
+  },
+  "specs_archive_sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+  "modules_sha256": {
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/amended_b3.py": "584d41053b7a3b7810b5476efb1c7d3bd6e7620940ebefa763a0ba5ba230562c",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/contrastive_pair_builder.py": "52158adac2a71409cf6faef8bceda8909e4359a37ee3b270358580f21e9d2079",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/probes.py": "a92d84bbe434ffb8973c11cd05ecaa2acaa7009a4925d450170e758fd7d9b5a9",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/token_budget.py": "1b8867bd5c51a941e02a526e22b136a321686b796e92ad5980d06f8f903b057f",
+    "configs/inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "Runs-management/b3_amended_20261106/check_b3.py": "d855431c7c486558825b91a01c33a810b3235a120f17d4b1fb18c0838cf2a628"
+  },
+  "authority_documents_sha256": {
+    "docs/OSF_response/De_cuong_nghien_cuu_GRACE_hop_nhat.docx": "a55b3992696f69bd2c05e360e76827071396b5a9b5dec5a75bc6512cac9d0d40",
+    "docs/OSF-update-20261107.pdf": "dc7ef447795eba94c5e2527e3399b1dc76a47e7c910f84313c425cb67feb83c2"
+  },
+  "execution_scripts_sha256": {
+    "scripts/b3_step1_snapshot.py": "e0c02be02f7fff3b47a0c886bf9ed5535acb4a3432397208f281a0188b369c63",
+    "scripts/b3_step2_https_recon.py": "fa262e0597650786d826630028dd885d513e4fdfbcc552438a1fb1a6f6f244e1",
+    "scripts/b3_step3_devign_investigation.py": "06f782b2838880db85a2368e0e46a817334fd16e34fcce51ff83ed2aa4c3a444",
+    "scripts/b3_step4_reveal_provenance.py": "1f156903530a26d93c67089bad0c4bee6cf4014bf5ad87821964f5cb86959028",
+    "scripts/b3_step5_make_candidates.py": "8d3f1bd2ef9aa6123557da91b21c4498a91093ce875d4d1411abd2804f244007",
+    "scripts/b3_step6_packet_tool.py": "be9f7d9bb9c002e55fb743cfc63f1386601014cf4d5fe1269a4a53737ec958ec",
+    "scripts/b3_step7_verify_selector_renderer.py": "4217b8426480b2f7cfa5451ca231b86934c0e1129496b2191627d0050eca83de",
+    "scripts/b3_step8_validation_census_builder.py": "d1e5861fe00083c54e3e3e9dd198f0b66e1917c754dca4c4798d3b5ad7be85cf"
+  },
+  "verified_freeze_files": {
+    "devign/donors.jsonl": "7727d2793fbb9f305e547bd6e7126ae70f2e0ee97e2b7c5c260322c6b6af5a62",
+    "devign/near_pairs.jsonl": "421b1d2f595de756f55d24038a02fdfa52a51325a7cbc820df8551160f301810",
+    "devign/test_manifest.jsonl": "f0f8672a88cddbe5c348847c285b843981b310c12117b5c8fdc3ccd785b759da",
+    "devign/test_raw.jsonl": "9fdb601ac2ba3e21a96e7312d6218518ac350182be9fcb2125b4175633d4640b",
+    "devign/train_manifest.jsonl": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4",
+    "devign/train_raw.jsonl": "3a87fbf479877717402531e51922955f88282043fc972641317f13ca3b4838d0",
+    "devign/validation_manifest.jsonl": "7a2eeec9a9aa2b472b2f4df0e6af91f6b90efab38d5ac44f9491adcf699b8eee",
+    "devign/validation_raw.jsonl": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5",
+    "reveal/donors.jsonl": "6bf44ab86c8524d239e610fdccff5916cfc402fef7945d7cbe7f695e287abbce",
+    "reveal/near_pairs.jsonl": "59c27ba8889dbda7e5dceff20e60ffc1df82b5c52978ec5058d4d668bebfda4d",
+    "reveal/test_manifest.jsonl": "19cc3f580f0441387ab3d194b0a06bb87ba3e3cf82ce5a818b70bf8c545c1f66",
+    "reveal/test_raw.jsonl": "466015aa06b08fd86d73a8feabe86b4dfb3e708b054a63ec2eccfb362fd977ab",
+    "reveal/train_manifest.jsonl": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b",
+    "reveal/train_raw.jsonl": "9be77b0037191fd995390486a057ffa4e3394f1ae3059ac54514e95016090a76",
+    "reveal/validation_manifest.jsonl": "b6632ec3a62f93f917e8f64365917b5546fcd1b426a67fbfa30b56d71d9d7267",
+    "reveal/validation_raw.jsonl": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1"
+  },
+  "tokenizer": {
+    "expected_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "local_path": "D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\11_Arm_B1H2_Evidence\\tokenizer_cache_v6\\models--Qwen--Qwen3-Coder-30B-A3B-Instruct\\snapshots\\b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "files_sha256": {
+      "chat_template.jinja": "e14eb779d4a91789ec3a5e6a9d00e29ce6b475783931d2e9c00a10910f1f0829",
+      "config.json": "216f6e5fc04dcac3b044cff82ab06302bd9cd142f4c9b4c91cf8fa358a395aaf",
+      "merges.txt": "0de0bc38a29ea38eef099b677fa1ff52edd181e573529af26c4cd2136e233777",
+      "tokenizer.json": "2060f1d2a86446343bfee1c84d48b5b177a163f8737067b977fd49d622a0670f",
+      "tokenizer_config.json": "53e5c9e37aecb5012cce84bdd414e5ecda7f1b986a04cdbc295969e9d0256a12",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  },
+  "seal_sha256": "44fd631b71d6e55d9bb7da1ea8e6798a20d49d944ba781999b7573c635aa8442"
+}

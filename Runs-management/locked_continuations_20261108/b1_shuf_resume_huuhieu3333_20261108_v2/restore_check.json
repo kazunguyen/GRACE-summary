@@ -1,0 +1,7 @@
+{
+  "zip_restored": 5751,
+  "unpacked_restored": 5751,
+  "unpacked_prompt_census": 15018,
+  "corrupt_member_rejected": true,
+  "missing_checkpoint_rejected": true
+}

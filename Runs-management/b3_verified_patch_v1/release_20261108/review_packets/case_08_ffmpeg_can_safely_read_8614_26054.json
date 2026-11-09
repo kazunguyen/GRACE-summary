@@ -1,0 +1,45 @@
+{
+  "case_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "dataset": "devign",
+  "project": "ffmpeg",
+  "function_hint": "can_safely_read",
+  "vulnerable_donor": {
+    "id": "devign:train:8614",
+    "commit_id": "3d7817048cb387de87600f2152075f78b37b60a6",
+    "code_len": 99,
+    "code_sha256": "4606a83675db1907349a2ac64be8ed091bd0ec903a1ba397b70d893390429c0a"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:26054",
+    "commit_id": "e494f44c051d7dccc038a603ab22532b87dd1705",
+    "code_len": 104,
+    "code_sha256": "b67ffa61f2079da93b215ab6425df96642a65203cc3cce51c96126a1ce9cd7f6"
+  },
+  "source_revisions": {
+    "vulnerable_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+    "patched_candidate_commit": "e494f44c051d7dccc038a603ab22532b87dd1705",
+    "vulnerable_parents": [
+      "4b529edff8934c258af95e5acc51f84deea66262"
+    ],
+    "patched_parents": [
+      "ca10d66719f5bb3242c77d178bdd9068f52ee668"
+    ],
+    "is_direct_parent_edge": false
+  },
+  "changed_files": {
+    "vulnerable_files": [
+      "libavcodec/escape124.c"
+    ],
+    "patched_files": [
+      "libavcodec/escape124.c"
+    ],
+    "shared_files": [
+      "libavcodec/escape124.c"
+    ]
+  },
+  "commit_messages": {
+    "vulnerable_commit_msg": "escape124: fix integer overflow leading to excessive memory allocation\n\nFixes Ticket1629\n\nSigned-off-by: Michael Niedermayer <michaelni@gmx.at>",
+    "patched_commit_msg": "avcodec/escape124: fix infinite loop\n\nRemove can_safely_read() as its not really needed with\nchecked bitstream reader.\n\nFixes #2984.\nReported-by: Piotr Bandurski <ami_stuff@o2.pl>\nSigned-off-by: Paul "
+  },
+  "payload_sha256": "6d90f954adabe2f002a5b38b9813c7847b02c891816aa93ab4ae6be8c1963a42"
+}

@@ -1,0 +1,117 @@
+{
+  "method": "b3-verified-patch-v1",
+  "scope": "CPU validation prompt construction only",
+  "inference_performed": false,
+  "test_inputs_read": false,
+  "thresholds_changed": false,
+  "datasets": {
+    "devign": {
+      "clean_train_donors": 21691,
+      "donors_missing_commit_id": 0,
+      "same_commit_same_function_hint_opposite_label_candidates": 0,
+      "same_project_function_hint_opposite_label_candidates": 26700,
+      "reviewed_pairs_supplied": 1,
+      "sample_attempts": [
+        {
+          "id": "devign:validation:8",
+          "query_code_sha256": "5d95f1489aa0697366d3f10f70bec12a8f20ba8619c4a62d91807c7e2d51cce2",
+          "status": "RENDERED_PENDING_CONTENT_AUDIT",
+          "selection": {
+            "method": "b3-verified-patch-v1",
+            "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+            "pair_payload_sha256": "0ced77fefccbcef797c3c01abfa0d139d5611e2d562e8f5ec01089ff05168ee1",
+            "score_numerator": 89,
+            "score_denominator": 440,
+            "mean_jaccard": 0.20227272727272727,
+            "eligible_pair_count": 1
+          }
+        },
+        {
+          "id": "devign:validation:10",
+          "query_code_sha256": "ef884ae9ffeeb98150c82c201fc4fa09e6954240157da94d3e57bb42cb3cc00a",
+          "status": "RENDERED_PENDING_CONTENT_AUDIT",
+          "selection": {
+            "method": "b3-verified-patch-v1",
+            "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+            "pair_payload_sha256": "0ced77fefccbcef797c3c01abfa0d139d5611e2d562e8f5ec01089ff05168ee1",
+            "score_numerator": 49,
+            "score_denominator": 150,
+            "mean_jaccard": 0.32666666666666666,
+            "eligible_pair_count": 1
+          }
+        },
+        {
+          "id": "devign:validation:15",
+          "query_code_sha256": "945e81e62fbd5cd8301d33127668f119fbc32669b96b9e15e987f846ff2afe1d",
+          "status": "RENDERED_PENDING_CONTENT_AUDIT",
+          "selection": {
+            "method": "b3-verified-patch-v1",
+            "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+            "pair_payload_sha256": "0ced77fefccbcef797c3c01abfa0d139d5611e2d562e8f5ec01089ff05168ee1",
+            "score_numerator": 91,
+            "score_denominator": 414,
+            "mean_jaccard": 0.21980676328502416,
+            "eligible_pair_count": 1
+          }
+        }
+      ],
+      "pool_state": "ACTIVE_POOL",
+      "status": "PROMPT_AUDIT_REQUIRED"
+    },
+    "reveal": {
+      "clean_train_donors": 17636,
+      "donors_missing_commit_id": 17636,
+      "same_commit_same_function_hint_opposite_label_candidates": 0,
+      "same_project_function_hint_opposite_label_candidates": 33947,
+      "reviewed_pairs_supplied": 0,
+      "sample_attempts": [
+        {
+          "id": "reveal:validation:0",
+          "query_code_sha256": "739e0c37ca9dfbc27dccf40b736fb143d4d9b302f4539ea8e15fdd7c1a7f303f",
+          "status": "PAUSED",
+          "reason": "All 17,636 donors missing upstream commit revisions in frozen export."
+        },
+        {
+          "id": "reveal:validation:1",
+          "query_code_sha256": "7ce57cbeea34593c68345b9eec9a66c6adf434bf0ea15011ac38366af11bec9b",
+          "status": "PAUSED",
+          "reason": "All 17,636 donors missing upstream commit revisions in frozen export."
+        },
+        {
+          "id": "reveal:validation:2",
+          "query_code_sha256": "fc31ffe42efbbe15165bbbff05e32ef1cdc3cb627dfad156399a52673acb3c74",
+          "status": "PAUSED",
+          "reason": "All 17,636 donors missing upstream commit revisions in frozen export."
+        }
+      ],
+      "pool_state": "BLOCKED_EMPTY_POOL",
+      "blocker": "All 17,636 donors missing upstream commit revisions in frozen export.",
+      "status": "PAUSED"
+    }
+  },
+  "sources": {
+    "Runs-management\\b3_amended_20261106\\check_b3.py": "d855431c7c486558825b91a01c33a810b3235a120f17d4b1fb18c0838cf2a628",
+    "01_Author_Baseline_Unified\\diagnostic_kit\\src\\grace_diag\\amended_b3.py": "584d41053b7a3b7810b5476efb1c7d3bd6e7620940ebefa763a0ba5ba230562c",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\devign\\train_raw.jsonl": "3a87fbf479877717402531e51922955f88282043fc972641317f13ca3b4838d0",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\devign\\train_manifest.jsonl": "794ca637911bc3c67f7f9b869f7b9af48781c8e5511b102ffcadafa9bd243cc4",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\devign\\validation_raw.jsonl": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5",
+    "Runs-management\\grace_15arms_prompts_and_clean_specs.zip": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\reveal\\train_raw.jsonl": "9be77b0037191fd995390486a057ffa4e3394f1ae3059ac54514e95016090a76",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\reveal\\train_manifest.jsonl": "166a1b418ec2c5ad50d53ede4b8eac590a1f274294818c0eb7aa5fa44ee18d0b",
+    "01_Author_Baseline_Unified\\output\\research_freeze_20261101\\reveal\\validation_raw.jsonl": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1"
+  },
+  "pair_manifest_sha256": {
+    "devign": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+    "reveal": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "tokenizer": {
+    "expected_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "local_path": "D:\\tai lieu hoc tap\\Đề tài nghiên cứu khoa học\\papers source code\\GRACE-summary\\11_Arm_B1H2_Evidence\\tokenizer_cache_v6\\models--Qwen--Qwen3-Coder-30B-A3B-Instruct\\snapshots\\b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "files_sha256": {
+      "config.json": "216f6e5fc04dcac3b044cff82ab06302bd9cd142f4c9b4c91cf8fa358a395aaf",
+      "tokenizer.json": "2060f1d2a86446343bfee1c84d48b5b177a163f8737067b977fd49d622a0670f",
+      "tokenizer_config.json": "53e5c9e37aecb5012cce84bdd414e5ecda7f1b986a04cdbc295969e9d0256a12",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  }
+}

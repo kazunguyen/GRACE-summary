@@ -1,0 +1,22 @@
+{
+  "kind": "b1_shuf_resume_huuhieu3333_20261108",
+  "owner": "huuhieu3333",
+  "ref": "huuhieu3333/grace-b1-shuf-resume-20261108",
+  "dataset": "huuhieu3333/grace-b1-shuf-checkpoint-20261108",
+  "stage": "Runs-management/locked_continuations_20261108/b1_shuf_resume_huuhieu3333_20261108",
+  "input_manifest_sha256": "1f008abc6f0d9928fca6c5684d9b49f508182a733acb12f0d8bbb03d11d3a70c",
+  "bundle_sha256": "6b4defda65f63c1704689d1a425d72983cac7e4f3d168370d6fae6f7093003e4",
+  "notebook_sha256": "5e14763a78b2f93c79487350bd98a60e47146c781de9d4b696a2b196e45c03ee",
+  "worker_sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+  "total": 15018,
+  "legacy_count": 0,
+  "new_target": 9267,
+  "resume_count": 5751,
+  "parent_ref": "tomandjerry223/grace-b1-shuf-locked-20261108",
+  "checkpoint_sha256": "6b4defda65f63c1704689d1a425d72983cac7e4f3d168370d6fae6f7093003e4",
+  "original_prompt_dataset": "tomandjerry223/grace-b1-shuf-locked-20261108-inputs",
+  "account_change_reason": "Original account GPU quota exhausted; PI explicitly selected huuhieu3333 and authorized transfer there. Short session fits remaining quota.",
+  "max_runtime_hours": 1.5,
+  "requested_session_timeout_seconds": 5400,
+  "original_bundle_sha256": "f803e8c5d73985cb4857c203311e71333eb57f9a3a04230182371b4563c867f8"
+}

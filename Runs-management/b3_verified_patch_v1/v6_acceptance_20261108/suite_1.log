@@ -1,0 +1,209 @@
+......................Candidate case_ok not admitted: Candidate case_ok pending: 1 approval(s), 2 required.
+Candidate case_ok not admitted: Candidate case_ok pending: 1 approval(s), 2 required.
+Candidate case_ok not admitted: Candidate case_ok not admitted: active disagreement or rejection present.
+..Candidate case_consensus not admitted: Candidate case_consensus not admitted: active disagreement or rejection present.
+.ERROR: 1 invalid review form(s) encountered in submitted reviews:
+  - File malformed.json: REJECTED_MISSING_REQUIRED_FIELDS: ['case_id', 'comments', 'decision', 'explanation_supported', 'payload_sha256', 'reviewed_at', 'reviewer', 'same_function_verified', 'security_fix_verified', 'source_revisions_verified']
+Preserving existing pool files and pool manifest intact without publishing active release.
+.Candidate case_supersession not admitted: Candidate case_supersession pending: 1 approval(s), 2 required.
+Candidate case_supersession not admitted: Candidate case_supersession not admitted: active disagreement or rejection present.
+Candidate case_supersession not admitted: Candidate case_supersession not admitted: unresolved multi-reviewer supersession (3 reviewers).
+.=== Step 5: Candidate Schema Generation and Real Source Audit (Target: step5_release) ===
+Loaded 2 clean donors for devign.
+Loaded 0 clean donors for reveal.
+Loaded 1 case manifests from Step 3.
+Step 5 Complete! Summary:
+{
+  "cases_audited": 1,
+  "candidates_admitted": 1,
+  "ineligible_cases_count": 0,
+  "dummy_fixtures_used": false,
+  "methodology_note": "Per audit finding F04, no dummy diffs or synthetic fixtures are used in the real-data pipeline. Cases failing parentage or file sharing are stopped at investigation and recorded as ineligible. make_pair_candidate is only called when authentic source diffs exist.",
+  "status": "STEP5_CANDIDATE_AUDIT_COMPLETED",
+  "timestamp_utc": "2026-11-08T15:36:07.757716+00:00"
+}
+.=== Step 7: Selector and Renderer Pre-GPU Verification (Target: step7_test) ===
+Running pytest on tests/test_amended_b3.py...
+Result for tests/test_amended_b3.py: returncode=0
+Stdout:
+OK
+Running pytest on tests/test_preregistration_integrity.py...
+Result for tests/test_preregistration_integrity.py: returncode=0
+Stdout:
+OK
+Running pytest on 01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py...
+Result for 01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py: returncode=0
+Stdout:
+OK
+Running pytest on 01_Author_Baseline_Unified/diagnostic_kit/tests/test_stats_and_complementarity.py...
+Result for 01_Author_Baseline_Unified/diagnostic_kit/tests/test_stats_and_complementarity.py: returncode=0
+Stdout:
+OK
+Loaded exact tokenizer from D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary\11_Arm_B1H2_Evidence\tokenizer_cache_v6\models--Qwen--Qwen3-Coder-30B-A3B-Instruct\snapshots\b2cff646eb4bb1d68355c01b18ae02e7cf42d120. Approx flag: False
+Running check_b3.py CPU sample check against pools in: D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary\Runs-management\b3_verified_patch_v1\v6_acceptance_20261108\tmp_1\test_step7_report_construction0\step7_test\pools...
+check_b3.py returncode: 0
+Step 7 Complete! Status: STEP7_VERIFICATION_PASSED
+{
+  "release_target": "step7_test",
+  "release_version": null,
+  "inputs_manifest_seal": null,
+  "pytest_suites": {
+    "tests/test_amended_b3.py": {
+      "returncode": 0,
+      "stdout": "OK",
+      "passed": true
+    },
+    "tests/test_preregistration_integrity.py": {
+      "returncode": 0,
+      "stdout": "OK",
+      "passed": true
+    },
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py": {
+      "returncode": 0,
+      "stdout": "OK",
+      "passed": true
+    },
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_stats_and_complementarity.py": {
+      "returncode": 0,
+      "stdout": "OK",
+      "passed": true
+    }
+  },
+  "all_pytest_passed": true,
+  "edge_cases": {
+    "empty_pool_pause": {
+      "passed": true,
+      "observed_message": "No verified pair pool: B3 must pause",
+      "expected_message": "No verified pair pool: B3 must pause"
+    },
+    "tokenizer_exactness": {
+      "passed": true,
+      "approx_flag": false,
+      "revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120"
+    },
+    "target_label_leakage_guard": {
+      "passed": true,
+      "observed_message": "Target accepts only ID, code and graph, never labels/demo hints"
+    },
+    "clean_target_render": {
+      "passed": true,
+      "arms_rendered": [
+        "B3",
+        "B3-nodiff",
+        "B3-swap",
+        "B3-flip"
+      ],
+      "figure6_order_verified": true
+    }
+  },
+  "all_edge_cases_passed": true,
+  "check_b3_cpu_sample_check": {
+    "passed": true,
+    "returncode": 0,
+    "output_folder": "acceptance/cpu_sample_check",
+    "report_file_exists": true,
+    "safe_pause_confirmed": true,
+    "safe_pause_or_render_confirmed": true,
+    "dataset_statuses": {
+      "devign": "PAUSED",
+      "reveal": "PAUSED"
+    },
+    "stdout": "OK"
+  },
+  "overall_passed": true,
+  "status": "STEP7_VERIFICATION_PASSED",
+  "timestamp_utc": "2026-11-08T15:36:08.314184+00:00"
+}
+.Candidate case_pool_reject not admitted: Candidate case_pool_reject not admitted: active disagreement or rejection present.
+Step 6 Complete! Eligible pool manifest sealed: ada4f631bca50a2838c4310f5d9557d51763f013ba1c761ee503ed24d4adcc23
+Devign Pool: D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary\Runs-management\b3_verified_patch_v1\v6_acceptance_20261108\tmp_1\test_existing_pool_with_new_re0\reject_release\pools\eligible_pairs.devign.jsonl (0 pairs)
+REVEAL Pool: D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary\Runs-management\b3_verified_patch_v1\v6_acceptance_20261108\tmp_1\test_existing_pool_with_new_re0\reject_release\pools\eligible_pairs.reveal.jsonl (0 pairs)
+Automated Triage Ledger and Status Report recorded without autogenerated human review.
+.=== Step 5: Candidate Schema Generation and Real Source Audit (Target: no_funcs_release) ===
+Loaded 2 clean donors for devign.
+Loaded 0 clean donors for reveal.
+Loaded 1 case manifests from Step 3.
+Step 5 Complete! Summary:
+{
+  "cases_audited": 1,
+  "candidates_admitted": 0,
+  "ineligible_cases_count": 1,
+  "dummy_fixtures_used": false,
+  "methodology_note": "Per audit finding F04, no dummy diffs or synthetic fixtures are used in the real-data pipeline. Cases failing parentage or file sharing are stopped at investigation and recorded as ineligible. make_pair_candidate is only called when authentic source diffs exist.",
+  "status": "STEP5_CANDIDATE_AUDIT_COMPLETED",
+  "timestamp_utc": "2026-11-08T15:36:08.409419+00:00"
+}
+...{
+  "devign": {
+    "clean_train_donors": 21691,
+    "donors_missing_commit_id": 0,
+    "same_commit_same_function_hint_opposite_label_candidates": 0,
+    "same_project_function_hint_opposite_label_candidates": 26700,
+    "reviewed_pairs_supplied": 1,
+    "sample_attempts": [
+      {
+        "id": "devign:validation:8",
+        "query_code_sha256": "5d95f1489aa0697366d3f10f70bec12a8f20ba8619c4a62d91807c7e2d51cce2",
+        "status": "PAUSED",
+        "reason": "Candidate has active disagreement in review ledger"
+      }
+    ],
+    "pool_state": "BLOCKED_DISAGREEMENT",
+    "blocker": "Candidate has active disagreement in review ledger",
+    "status": "PAUSED"
+  },
+  "reveal": {
+    "clean_train_donors": 17636,
+    "donors_missing_commit_id": 17636,
+    "same_commit_same_function_hint_opposite_label_candidates": 0,
+    "same_project_function_hint_opposite_label_candidates": 33947,
+    "reviewed_pairs_supplied": 0,
+    "sample_attempts": [
+      {
+        "id": "reveal:validation:0",
+        "query_code_sha256": "739e0c37ca9dfbc27dccf40b736fb143d4d9b302f4539ea8e15fdd7c1a7f303f",
+        "status": "PAUSED",
+        "reason": "All donors missing upstream commit revisions"
+      }
+    ],
+    "pool_state": "BLOCKED_EMPTY_POOL",
+    "blocker": "All donors missing upstream commit revisions",
+    "status": "PAUSED"
+  }
+}
+.=== Step 8: Build and Audit Full Validation Census (Target: test_gate_release) ===
+.=== Step 6: Review Packets, Technical Triage, and Pool Seal (Target: r01_release) ===
+Generated 0 review packets.
+Recorded automated technical triage for 1 cases.
+ERROR: 3 invalid review form(s) encountered in submitted reviews:
+  - File bad_hash.json: REJECTED_PAYLOAD_HASH_MISMATCH: expected 37660688bc2c106450b713bd31b9d5e5505407f0ae9f442e43b13cbc1fb330d1, got 0000000000000000000000000000000000000000000000000000000000000000
+  - File bad_syntax.json: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+  - File missing_fields.json: REJECTED_MISSING_REQUIRED_FIELDS: ['comments', 'decision', 'explanation_supported', 'payload_sha256', 'reviewed_at', 'reviewer', 'same_function_verified', 'security_fix_verified', 'source_revisions_verified']
+...Step 6 Complete! Eligible pool manifest sealed: 32d2d16df4615395c1bc981bd32ac47ddfd9f1a5ad0ee9fc0eb5d68febb62d31
+Devign Pool: D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary\Runs-management\b3_verified_patch_v1\v6_acceptance_20261108\tmp_1\test_r04_pool_membership_diff_0\r04_release\pools\eligible_pairs.devign.jsonl (1 pairs)
+REVEAL Pool: D:\tai lieu hoc tap\Đề tài nghiên cứu khoa học\papers source code\GRACE-summary\Runs-management\b3_verified_patch_v1\v6_acceptance_20261108\tmp_1\test_r04_pool_membership_diff_0\r04_release\pools\eligible_pairs.reveal.jsonl (0 pairs)
+Automated Triage Ledger and Status Report recorded without autogenerated human review.
+.=== Step 5: Candidate Schema Generation and Real Source Audit (Target: r05_release) ===
+Loaded 2 clean donors for devign.
+Loaded 0 clean donors for reveal.
+Loaded 1 case manifests from Step 3.
+Step 5 Complete! Summary:
+{
+  "cases_audited": 1,
+  "candidates_admitted": 0,
+  "ineligible_cases_count": 1,
+  "dummy_fixtures_used": false,
+  "methodology_note": "Per audit finding F04, no dummy diffs or synthetic fixtures are used in the real-data pipeline. Cases failing parentage or file sharing are stopped at investigation and recorded as ineligible. make_pair_candidate is only called when authentic source diffs exist.",
+  "status": "STEP5_CANDIDATE_AUDIT_COMPLETED",
+  "timestamp_utc": "2026-11-08T15:36:16.998085+00:00"
+}
+.=== Step 8: Build and Audit Full Validation Census (Target: r06_modules_sha256) ===
+=== Step 8: Build and Audit Full Validation Census (Target: r06_execution_scripts_sha256) ===
+=== Step 8: Build and Audit Full Validation Census (Target: r06_authority_documents_sha256) ===
+=== Step 8: Build and Audit Full Validation Census (Target: r06_verified_freeze_files) ===
+=== Step 8: Build and Audit Full Validation Census (Target: r06_missing_mandatory_module) ===
+.=== Step 8: Build and Audit Full Validation Census (Target: r07_binding_test) ===
+=== Step 8: Build and Audit Full Validation Census (Target: r07_binding_test) ===
+=== Step 8: Build and Audit Full Validation Census (Target: r07_binding_test) ===
+.............
+54 passed in 50.30s

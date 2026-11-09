@@ -1,0 +1,12 @@
+{
+  "dataset": "reveal",
+  "clean_train_donors": 17636,
+  "donors_missing_commit_id": 17636,
+  "donors_with_generic_project_debian": 14149,
+  "unique_source_ids": 1008,
+  "mappable_to_commit_sha": 0,
+  "authentic_before_after_pairs_recovered": 0,
+  "status": "BLOCKED",
+  "blocker_reason": "All 17,636 clean REVEAL donors lack commit IDs in the frozen export. source_id values are internal 64-bit token hashes without repository or path mappings. Per protocol AGENTS.md, synthetic fixtures or unverified heuristics cannot replace true provenance. REVEAL pair pool remains strictly empty (BLOCKED).",
+  "timestamp_utc": "2026-11-08T05:00:43.539445+00:00"
+}

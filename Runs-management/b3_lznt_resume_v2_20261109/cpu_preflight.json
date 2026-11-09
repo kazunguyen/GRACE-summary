@@ -1,0 +1,38 @@
+{
+  "verdict": "PASS",
+  "scope": "B3 checkpoint resume delivery preflight only; native execution is not certified by this receipt",
+  "checks": {
+    "failed_v1_confirmed_terminal_error_before_model_and_no_records": true,
+    "checkpoint_archives_independently_restored_and_validated": true,
+    "checkpoint_archive_hashes_and_complete_member_hash_maps_embedded": true,
+    "input_roots_worker_model_runtime_contract_unchanged": true,
+    "notebook_setup_build_model_inference_cells_unchanged": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7
+    ],
+    "resume_notebook_cells_ast_parsed_by_finalize": true,
+    "machine_shape": "NvidiaTeslaT4",
+    "checkpoint_dataset": "lznt123/grace-b3-new-dual-checkpoints-20261109"
+  },
+  "failure_root_cause": "Kaggle unpacked nested checkpoint ZIP inputs; v1 searched only for packed ZIP filenames and stopped before dependency installation/model load.",
+  "checkpoint_counts": {
+    "devign": {
+      "expected": 2732,
+      "records": 2732,
+      "remaining": 0,
+      "sha256": "21e1832c31298e2a20be61901f12170f2ce592e958f4edfb0f311134676d7552"
+    },
+    "reveal": {
+      "expected": 2273,
+      "records": 1713,
+      "remaining": 560,
+      "sha256": "8069d2051386f0dd3b110b58d4b63cae0b611aa430ca795306e8ed08c6e2d4a5"
+    }
+  },
+  "notebook_sha256": "81efc6112896b312176398013d4b352f7a9316b8e0a0aaa45f514808296203c5",
+  "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e"
+}

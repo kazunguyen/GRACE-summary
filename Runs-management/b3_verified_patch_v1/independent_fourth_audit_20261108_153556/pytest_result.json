@@ -1,0 +1,15 @@
+{
+  "returncode": 0,
+  "args": [
+    "-s",
+    "tests/test_amended_b3.py",
+    "--basetemp",
+    "D:\\tai lieu hoc tap\\\u0110\u1ec1 t\u00e0i nghi\u00ean c\u1ee9u khoa h\u1ecdc\\papers source code\\GRACE-summary\\Runs-management\\b3_verified_patch_v1\\independent_fourth_audit_20261108_153556\\pytest_tmp",
+    "-ra"
+  ],
+  "historical_preview_writes_redirected": [
+    "Runs-management/b3_amended_20261106/synthetic_smoke_prompts.json",
+    "Runs-management/b3_amended_20261106/synthetic_smoke_preview.txt"
+  ],
+  "test_assertions_unchanged": true
+}

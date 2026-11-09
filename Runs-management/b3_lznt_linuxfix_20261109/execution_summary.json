@@ -1,0 +1,39 @@
+{
+  "method_id": "b3-verified-patch-v1",
+  "execution_revision": "b3_linux_member_directory_v1_20261109",
+  "old_hu_records": 0,
+  "cpu_preflight": "PASS",
+  "launch": {
+    "at_utc": "2026-11-08T23:25:29.183056+00:00",
+    "ref": "/code/lznt123/grace-b3-new-dual-linuxfix-20261109",
+    "url": "https://www.kaggle.com/code/lznt123/grace-b3-new-dual-linuxfix-20261109",
+    "version": 1,
+    "error": "",
+    "invalid_dataset_sources": [],
+    "invalid_kernel_sources": [],
+    "machine_shape_requested": "NvidiaTeslaT4"
+  },
+  "server_readback": {
+    "at_utc": "2026-11-08T23:25:43.502047+00:00",
+    "ref": "lznt123/grace-b3-new-dual-linuxfix-20261109",
+    "requested_ref": "lznt123/grace-b3-new-dual-linuxfix-20261109",
+    "all_cell_sources_match": true,
+    "machine_shape": "NvidiaTeslaT4",
+    "private": true,
+    "gpu_enabled": true,
+    "version": 1,
+    "datasets": [
+      "lznt123/grace-b3-devign-v6-inputs-20261109",
+      "lznt123/grace-b3-reveal-v7-inputs-20261109"
+    ],
+    "kernel_sources": [
+      "lznt123/qwen3coder30b-prepare-notebook"
+    ]
+  },
+  "native_runtime": "PENDING_ARTIFACTS",
+  "source_sha256": {
+    "scripts/b3_dual_runtime_coordinator.py": "0654f5baf506fa2326646600a45f13cccc42ee151895cd5ea2467874e4d1c49f",
+    "scripts/deploy_b3_lznt_linuxfix_20261109.py": "e161b05e53cbf394146dc1a73a3fa948f7b0b142989c8b3ea0fdb93229e347f2",
+    "tests/test_b3_linux_payload_fix.py": "a51dddd7339f3f0ec6d1d12215153ab664a6e192313f5625fe13086ce20bbda9"
+  }
+}

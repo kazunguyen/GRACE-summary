@@ -1,0 +1,19 @@
+{
+  "checked_at_utc": "2026-11-08T06:50:53.270361+00:00",
+  "checked_original_files": 238,
+  "originals_unchanged": true,
+  "report_links_resolve": true,
+  "software_tests": "60 passed, 0 skipped",
+  "new_B3_GPU_inference_ready": false,
+  "full_validation_prompt_freeze_ready": false,
+  "source_investigation_may_continue": true,
+  "real_review_ingestion_tool_ready": false,
+  "remaining_reproducible_issues": [
+    "packet_vs_pair_payload_hash_mismatch",
+    "render_audit_wrong_question_marker_and_no_failure_gate",
+    "invalid_form_can_empty_existing_pool",
+    "review_disagreement_can_be_ignored",
+    "overall_remediation_verdict_ignores_some_computed_failures"
+  ],
+  "remaining_source_work": "Authenticate actual source functions/patch pairs in the frozen clean train banks; recover REVEAL provenance."
+}

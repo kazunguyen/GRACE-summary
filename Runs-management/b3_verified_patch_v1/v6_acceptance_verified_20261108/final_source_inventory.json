@@ -1,0 +1,13 @@
+{
+  "scripts/b3_delivery_runtime.py": "730b1a13f045e3504fe7a7fe52c5ff177e6cf07e8af77a8c0ef64d797a89fb90",
+  "scripts/build_b3_delivery_v6.py": "e986e41dcea59a680b3f56971c296d6ada3202091fb5fbb00e24444033571596",
+  "scripts/build_reveal_curl_review_packet.py": "90f50abbeacc1ccdc8b6251d63de61da0fdb0d4f15172abce07129294568f4b2",
+  "scripts/admit_reveal_curl_reviews.py": "a60bc298c46e45d8e5711bf7b0588b46f91a82de81adcac2dc3c27491a13c561",
+  "scripts/accept_b3_delivery_v6.py": "e30cb1dd97c863a07878c5551423bb7447e463c5a9d96b92d1f7349984fd8b05",
+  "scripts/prepare_b3_v6_launch.py": "d7be0646afbb89b41ddae8941179a8a503963a689cf266eeed6d8ae758f736a3",
+  "scripts/inspect_b3_v6_account.py": "8c4fd88e47b2fae57102c318196c6476415f6900404fafab5523611678656fbd",
+  "tests/test_b3_delivery_v6.py": "a6acfa4741facff260929a24e3f97b7fd3fd864efcd8ca240760fe6ecfcaaf0e",
+  "tests/test_b3_reveal_source_mapping.py": "29e7c0a0e696a94f99762a5aa078dda6e62f866f5d2cf6ae5a9c728ff2e18d95",
+  "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/amended_b3.py": "d87167da90979b19f94628490672c2b14c98b9a6ab9709750aa0abc4fde4b5d0",
+  "scripts/upload_b3_v6_inputs.py": "f8c5076bed038dcfb97fd3e1469993dcf473971af421069c5d7747dfabc01923"
+}

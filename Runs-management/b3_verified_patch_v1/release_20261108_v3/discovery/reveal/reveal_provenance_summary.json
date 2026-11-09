@@ -1,0 +1,20 @@
+{
+  "dataset": "reveal",
+  "clean_train_donors": 17636,
+  "donors_missing_commit_id": 17636,
+  "donors_with_project_debian": 14149,
+  "donors_with_project_chrome": 3487,
+  "unique_source_ids": 1008,
+  "upstream_repository": "claudios/ReVeal",
+  "upstream_revision": "71f62e1e6e2053173e7de31a342d2c38b3fe2dcc",
+  "mappable_to_commit_sha": 0,
+  "authentic_before_after_pairs_recovered": 0,
+  "status": "BLOCKED_UNRESOLVED_PROVENANCE",
+  "blocker_reason": "All 17,636 clean REVEAL train donors lack commit IDs and file paths in the frozen upstream export (claudios/ReVeal@71f62e1e6e2053173e7de31a342d2c38b3fe2dcc). The exported records contain numeric source_id values without an associated mapping table to git commit hashes or repository diffs in the frozen research assets. Per protocol AGENTS.md, synthetic fixtures or unverified heuristics cannot replace true provenance. REVEAL pair pool remains strictly empty (BLOCKED).",
+  "search_scope_audited": [
+    "01_Author_Baseline_Unified/output/local_full/reveal/raw/data_manifest.json",
+    "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/train_raw.jsonl",
+    "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/train_manifest.jsonl"
+  ],
+  "timestamp_utc": "2026-11-08T08:09:55.711667+00:00"
+}

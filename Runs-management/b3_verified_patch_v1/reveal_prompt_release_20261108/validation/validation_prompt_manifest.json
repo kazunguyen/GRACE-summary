@@ -1,0 +1,16 @@
+{
+  "census_sha256": "fe3e026a8c6db6e08718d1cdaa45138ea4a79169f19225db7734522027c62676",
+  "count": 2273,
+  "dataset": "reveal",
+  "max_chat_tokens": 5280,
+  "method_id": "b3-verified-patch-v1",
+  "native_gpu": "NOT_EVALUATED",
+  "pairs_count": 1,
+  "pool_sha256": "37bb24c5be0e36c9f6c03a046e17687265461abeb1873fe399c9232c7e761203",
+  "release_id": "reveal_prompt_release_20261108",
+  "reserve": 64,
+  "seal_sha256": "5517c025d242fcaa965b45af99dc6828c9a57a90d4848de67dcbd6fae73be6b7",
+  "single_pair_limitation": true,
+  "split": "validation",
+  "verdict": "FULL_PROMPT_CPU_AUDIT_PASS"
+}

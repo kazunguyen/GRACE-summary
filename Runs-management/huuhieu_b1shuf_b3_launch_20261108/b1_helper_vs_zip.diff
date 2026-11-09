@@ -1,0 +1,20 @@
+--- zip-helper
++++ current-b1-helper
+@@ -103,8 +103,14 @@
+         if not observed or int(observed[-1]) != c['constructor'][field]:
+             model.close()
+             raise RuntimeError(f'Effective {field} differs from contract; inspect {path}')
+-    gpu_devices = re.findall(r'Device\s+\d+:\s+[^\n]*\bT4\b', text)
+-    if len(gpu_devices) != c['gpu']['device_count']:
++    # Both historical headers and the captured current backend format are accepted.
++    # Prefer devices actually used for model load when those lines are present.
++    loaded_ids = set(re.findall(
++        r'(?mi)^\s*(?:[\w.]+:\s*)?using device CUDA(\d+)\s+\([^\n)]*\bT4\b[^\n)]*\)', text))
++    legacy_ids = set(re.findall(r'(?mi)^\s*Device\s+(\d+):[^\n]*\bT4\b', text))
++    observed_ids = loaded_ids if loaded_ids else legacy_ids
++    expected_ids = {str(i) for i in range(c['gpu']['device_count'])}
++    if observed_ids != expected_ids:
+         model.close()
+-        raise RuntimeError(f'Expected two visible T4 devices in backend log; inspect {path}')
++        raise RuntimeError(f'Expected T4 device IDs {expected_ids}, observed {observed_ids}; inspect {path}')
+     return model

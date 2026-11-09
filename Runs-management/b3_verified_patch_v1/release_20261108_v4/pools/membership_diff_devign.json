@@ -1,0 +1,19 @@
+{
+  "dataset": "devign",
+  "initial_count": 0,
+  "proposed_count": 1,
+  "retained_count": 0,
+  "added_count": 1,
+  "updated_count": 0,
+  "removed_count": 0,
+  "retained": [],
+  "added": [
+    {
+      "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+      "reason": "Newly admitted pair via dual independent human review"
+    }
+  ],
+  "updated": [],
+  "removed": [],
+  "timestamp_utc": "2026-11-08T10:16:32.842736+00:00"
+}

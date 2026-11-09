@@ -1,0 +1,9 @@
+{
+  "staged_files": 949,
+  "byte_exact_snapshot_files_checked": 880,
+  "protected_files_staged": false,
+  "combined_zip_staged": false,
+  "diff_check_returncode": 0,
+  "diff_check_lines": 0,
+  "archive_whitespace_policy": "Preserve hash-bound source/log bytes and intentional Markdown hard breaks; no evidence normalized"
+}

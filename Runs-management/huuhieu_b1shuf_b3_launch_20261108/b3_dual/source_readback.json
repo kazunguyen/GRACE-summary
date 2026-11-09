@@ -1,0 +1,17 @@
+{
+  "at_utc": "2026-11-08T16:53:35.027535+00:00",
+  "ref": "huuhieu3333/grace-b3-new-devign-and-reveal-validation",
+  "requested_ref": "huuhieu3333/grace-b3-new-dual-validation-20261108",
+  "all_cell_sources_match": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "private": true,
+  "gpu_enabled": true,
+  "version": 1,
+  "datasets": [
+    "huuhieu3333/grace-b3-v6-devign-inputs",
+    "huuhieu3333/grace-b3-v7-reveal-inputs"
+  ],
+  "kernel_sources": [
+    "huuhieu3333/qwen3coder30b-prepare-notebook"
+  ]
+}

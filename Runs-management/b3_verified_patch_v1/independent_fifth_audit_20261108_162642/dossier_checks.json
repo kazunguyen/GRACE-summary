@@ -1,0 +1,60 @@
+{
+  "historical_preservation": {
+    "release_20261108": {
+      "files": 103,
+      "mismatches": []
+    },
+    "release_20261108_v2": {
+      "files": 118,
+      "mismatches": []
+    },
+    "release_20261108_v3": {
+      "files": 118,
+      "mismatches": []
+    }
+  },
+  "schema_candidate_pass": true,
+  "candidate_has_no_reviews": true,
+  "candidate_packet_template_hash_match": true,
+  "packet_payload_equal": true,
+  "actual_fix_identity_match": true,
+  "parent_in_response": true,
+  "source_file_hashes_match": true,
+  "fix_blob_sha1_match": true,
+  "actual_diff_matches_api": true,
+  "actual_patch_applies_to_full_parent_and_equals_fix": true,
+  "function_comparisons": {
+    "before": {
+      "upstream_lines": [
+        51,
+        53
+      ],
+      "upstream_matches_sidecar_raw": true,
+      "donor_exact_match": false,
+      "split_whitespace_equal": true,
+      "remove_only_empty_lines_equal": true,
+      "actual_upstream_sha256": "9e037e8ecb093f421a6d610b9c7de7ec5f2a7b8e03bc37ef813638c020857454"
+    },
+    "after": {
+      "upstream_lines": [
+        51,
+        53
+      ],
+      "upstream_matches_sidecar_raw": true,
+      "donor_exact_match": false,
+      "split_whitespace_equal": true,
+      "remove_only_empty_lines_equal": true,
+      "actual_upstream_sha256": "bb0500eaa7a6b15f73c74262bd80837a2296bfc8007d927618183536737a5740"
+    }
+  },
+  "v3_source_hash_mismatches": {
+    "modules_sha256": [],
+    "execution_scripts_sha256": [
+      "scripts/b3_step6_packet_tool.py",
+      "scripts/b3_step7_verify_selector_renderer.py",
+      "scripts/b3_step8_validation_census_builder.py"
+    ],
+    "authority_documents_sha256": []
+  },
+  "note": "Source mapping has formatting differences; schema validation uses donor-format source fields. No human review or pool admission asserted."
+}

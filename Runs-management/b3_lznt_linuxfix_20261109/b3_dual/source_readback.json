@@ -1,0 +1,17 @@
+{
+  "at_utc": "2026-11-08T23:25:43.502047+00:00",
+  "ref": "lznt123/grace-b3-new-dual-linuxfix-20261109",
+  "requested_ref": "lznt123/grace-b3-new-dual-linuxfix-20261109",
+  "all_cell_sources_match": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "private": true,
+  "gpu_enabled": true,
+  "version": 1,
+  "datasets": [
+    "lznt123/grace-b3-devign-v6-inputs-20261109",
+    "lznt123/grace-b3-reveal-v7-inputs-20261109"
+  ],
+  "kernel_sources": [
+    "lznt123/qwen3coder30b-prepare-notebook"
+  ]
+}

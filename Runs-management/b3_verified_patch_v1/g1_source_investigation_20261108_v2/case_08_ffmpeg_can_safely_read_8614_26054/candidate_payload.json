@@ -1,0 +1,82 @@
+{
+  "dataset": "devign",
+  "pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "vulnerable_id": "devign:train:8614",
+  "patched_id": "devign:train:26054",
+  "before_sha256": "4606a83675db1907349a2ac64be8ed091bd0ec903a1ba397b70d893390429c0a",
+  "after_sha256": "b67ffa61f2079da93b215ab6425df96642a65203cc3cce51c96126a1ce9cd7f6",
+  "source": {
+    "repository": "FFmpeg/FFmpeg",
+    "path": "libavcodec/escape124.c",
+    "function": "can_safely_read",
+    "fix_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+    "parent_commit": "4b529edff8934c258af95e5acc51f84deea66262",
+    "source_url": "https://github.com/FFmpeg/FFmpeg/commit/3d7817048cb387de87600f2152075f78b37b60a6",
+    "security_rationale": "In FFmpeg libavcodec/escape124.c (commit 3d7817048cb387de87600f2152075f78b37b60a6, Ticket 1629), the upstream security fix addresses an integer overflow leading to excessive memory allocation. In the vulnerable code, can_safely_read(gb, bits) declared parameter 'bits' as int (32-bit signed), while caller unpack_codebook computed 'size * 34' where 'size' was unsigned. The complete upstream fix consists of two changes: (1) in can_safely_read, widening the parameter type from 'int' to 'uint64_t' so that large bit counts do not evaluate improperly against get_bits_left(gb); and (2) in unpack_codebook, promoting the multiplication to 'size * 34L'. This contrastive demonstration pair captures exclusively change (1) — widening parameter 'bits' from 'int' to 'uint64_t' in can_safely_read — while change (2) ('size * 34L') resides in caller unpack_codebook outside this function pair. Reviewers must evaluate this demonstration in the context of the full upstream commit diff, acknowledging that the demonstrated snippet reflects the parameter type widening component of the integer overflow defense.",
+    "before": "static int can_safely_read(GetBitContext* gb, int bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}",
+    "after": "static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n\n    return get_bits_left(gb) >= bits;\n\n}",
+    "fix_diff": "--- a/libavcodec/escape124.c\n+++ b/libavcodec/escape124.c\n@@ -48,7 +48,7 @@ typedef struct Escape124Context {\n     CodeBook codebooks[3];\n } Escape124Context;\n \n-static int can_safely_read(GetBitContext* gb, int bits) {\n+static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n     return get_bits_left(gb) >= bits;\n }\n \n@@ -90,7 +90,7 @@ static CodeBook unpack_codebook(GetBitContext* gb, unsigned depth,\n     unsigned i, j;\n     CodeBook cb = { 0 };\n \n-    if (!can_safely_read(gb, size * 34))\n+    if (!can_safely_read(gb, size * 34L))\n         return cb;\n \n     if (size >= INT_MAX / sizeof(MacroBlock))\n",
+    "evidence_inputs_manifest_sha256": "bd1a8c56480ad4e0e375715ca1d60b144a26fc1e787a2b6fe17913d3eaf9a921",
+    "raw_source_mapping": {
+      "case_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+      "governance_status": "MAPPING_DECISION_RATIFIED_EMPTY_LINES_ONLY",
+      "transformation_rule": "strip_empty_lines (filter out blank lines where line.strip() == '')",
+      "scope_limitation_statement": "This mapping decision applies strictly to Case 08 (FFmpeg can_safely_read). It establishes line-by-line identity between clean donor code and raw upstream source where discrepancy consists exclusively of interleaved blank lines introduced by Devign export. It does NOT assert general whitespace or token split (.split()) equivalence for C/C++ code. Donor banks remain 100% frozen.",
+      "upstream_repository": "FFmpeg/FFmpeg",
+      "upstream_path": "libavcodec/escape124.c",
+      "fix_commit": "3d7817048cb387de87600f2152075f78b37b60a6",
+      "parent_commit": "4b529edff8934c258af95e5acc51f84deea66262",
+      "parent_file_sha256": "4e074b83eda3521efb54114e61fa3abe3ded5ca710a6ccdd33ef232f8d1fdd7b",
+      "fix_file_sha256": "2177993013f8082f4fc2b83aae724dc3e94f97d4d43e5c3ea48dd5dc058ee82d",
+      "actual_fix_diff_sha256": "8a724a11eca0cb987643727f9be824a3b0fe2e9726958349416bab5de7ffd8df",
+      "upstream_before_raw": "static int can_safely_read(GetBitContext* gb, int bits) {\n    return get_bits_left(gb) >= bits;\n}",
+      "upstream_before_raw_sha256": "9e037e8ecb093f421a6d610b9c7de7ec5f2a7b8e03bc37ef813638c020857454",
+      "upstream_after_raw": "static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n    return get_bits_left(gb) >= bits;\n}",
+      "upstream_after_raw_sha256": "bb0500eaa7a6b15f73c74262bd80837a2296bfc8007d927618183536737a5740",
+      "donor_vulnerable_id": "devign:train:8614",
+      "donor_vulnerable_sha256": "4606a83675db1907349a2ac64be8ed091bd0ec903a1ba397b70d893390429c0a",
+      "donor_patched_id": "devign:train:26054",
+      "donor_patched_sha256": "b67ffa61f2079da93b215ab6425df96642a65203cc3cce51c96126a1ce9cd7f6",
+      "comparison_results": {
+        "vulnerable_before": {
+          "exact_bytes_match": false,
+          "empty_line_filtered_match": true,
+          "upstream_line_count": 3,
+          "donor_line_count": 5,
+          "filtered_line_count": 3
+        },
+        "patched_after": {
+          "exact_bytes_match": false,
+          "empty_line_filtered_match": true,
+          "upstream_line_count": 3,
+          "donor_line_count": 5,
+          "filtered_line_count": 3
+        }
+      },
+      "demonstration_scope_boundary": {
+        "upstream_diff_total_hunks": 2,
+        "hunk_1_can_safely_read_included_in_demo": true,
+        "hunk_2_unpack_codebook_included_in_demo": false,
+        "hunk_2_caller_expression": "size * 34 -> size * 34L",
+        "boundary_note": "The demonstration pair demonstrates exclusively the parameter type widening in can_safely_read. The caller modification size * 34L in unpack_codebook is outside the demonstration function."
+      },
+      "ratified_at_utc": "2026-11-08T09:41:16.871958+00:00"
+    },
+    "diff": "--- vulnerable\n+++ patched\n@@ -1,4 +1,4 @@\n-static int can_safely_read(GetBitContext* gb, int bits) {\n+static int can_safely_read(GetBitContext* gb, uint64_t bits) {\n \n     return get_bits_left(gb) >= bits;\n \n"
+  },
+  "changed_lines": [
+    {
+      "operation": "replace",
+      "before_start": 1,
+      "before_lines": [
+        "static int can_safely_read(GetBitContext* gb, int bits) {"
+      ],
+      "after_start": 1,
+      "after_lines": [
+        "static int can_safely_read(GetBitContext* gb, uint64_t bits) {"
+      ]
+    }
+  ],
+  "key_difference": "Before patch: `static int can_safely_read(GetBitContext* gb, int bits) {`. After patch: `static int can_safely_read(GetBitContext* gb, uint64_t bits) {`. Security rationale: In FFmpeg libavcodec/escape124.c (commit 3d7817048cb387de87600f2152075f78b37b60a6, Ticket 1629), the upstream security fix addresses an integer overflow leading to excessive memory allocation. In the vulnerable code, can_safely_read(gb, bits) declared parameter 'bits' as int (32-bit signed), while caller unpack_codebook computed 'size * 34' where 'size' was unsigned. The complete upstream fix consists of two changes: (1) in can_safely_read, widening the parameter type from 'int' to 'uint64_t' so that large bit counts do not evaluate improperly against get_bits_left(gb); and (2) in unpack_codebook, promoting the multiplication to 'size * 34L'. This contrastive demonstration pair captures exclusively change (1) — widening parameter 'bits' from 'int' to 'uint64_t' in can_safely_read — while change (2) ('size * 34L') resides in caller unpack_codebook outside this function pair. Reviewers must evaluate this demonstration in the context of the full upstream commit diff, acknowledging that the demonstrated snippet reflects the parameter type widening component of the integer overflow defense.",
+  "reviews": []
+}

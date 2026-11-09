@@ -1,0 +1,44 @@
+{
+  "case_id": "case_02_qemu_event_notifier_cleanup_15574_20798",
+  "project": "qemu",
+  "function_hint": "event_notifier_cleanup",
+  "vulnerable_donor": {
+    "id": "devign:train:15574",
+    "commit_id": "aa262928595d431bfee7914cb7d9d79197f887a2",
+    "code_len": 80,
+    "code_sha256": "ba914bdeae870955321aff07b62c945884d116cffbf20091578266ab0a31ef17"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:20798",
+    "commit_id": "d0cc2fbfa607678866475383c508be84818ceb64",
+    "code_len": 70,
+    "code_sha256": "156a86547919cef07d6facefde546e6bd96ba9b805f42d6aa56e1eeb9088d847"
+  },
+  "source_investigation": {
+    "has_both_commit_responses": true,
+    "is_direct_parent_edge": false,
+    "vulnerable_parent_shas": [
+      "df9046363220e57d45818312759b954c033c58ab"
+    ],
+    "patched_parent_shas": [
+      "fc97a652de3e54394ca4d0e5e5d689fd8aba8b6f"
+    ],
+    "vulnerable_changed_files": [
+      "util/event_notifier-posix.c",
+      "util/event_notifier-win32.c"
+    ],
+    "patched_changed_files": [
+      "event_notifier-posix.c",
+      "event_notifier.h"
+    ],
+    "shared_files": [],
+    "vulnerable_commit_msg": "event_notifier: prevent accidental use after close\n\nLet's set the handles to the underlying facilities to their extremal\nvalue so no accidental misuse can happen, and to make it obvious that the\nnotif",
+    "patched_commit_msg": "event_notifier: enable it to use pipes\n\nThis takes the eventfd emulation code from the main loop.  When the\nEventNotifier is used for the main loop too, we need this compatibility\ncode.\n\nWithout CONFI"
+  },
+  "decision": {
+    "status": "REJECTED_UNRELATED_SOURCE_COMMITS",
+    "reason": "Commits do not form a parent-child relationship in git history; Commits modify completely different files (vuln: ['util/event_notifier-posix.c', 'util/event_notifier-win32.c'], patch: ['event_notifier-posix.c', 'event_notifier.h'])",
+    "admissible_for_candidate": false
+  },
+  "timestamp_utc": "2026-11-08T06:04:19.688289+00:00"
+}

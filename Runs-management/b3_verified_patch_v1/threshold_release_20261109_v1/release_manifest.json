@@ -1,0 +1,32 @@
+{
+  "release_id": "threshold_release_20261109_v1",
+  "status": "LOCKED",
+  "created_at_utc": "2026-11-09T12:50:23.611109+00:00",
+  "thresholds": {
+    "devign": {
+      "tau_star": 0.99,
+      "path": "devign_threshold_lock.json",
+      "file_sha256": "53769b653d53a30f52ed815c34ce15778561ecb5e33f9cd4b09dc8e2c1d7d7f4"
+    },
+    "reveal": {
+      "tau_star": 0.01,
+      "path": "reveal_threshold_lock.json",
+      "file_sha256": "63556e5a135125b03b9931b8e9e91e035acfb09c87fe5674d2631f69a43c81d2"
+    }
+  },
+  "files_sha256": {
+    "devign_full_grid.json": "acbd1de35e6c8e3a5271c3e5f386273aa50e3e79bd565c35e32c5c3f704426e3",
+    "devign_threshold_lock.json": "53769b653d53a30f52ed815c34ce15778561ecb5e33f9cd4b09dc8e2c1d7d7f4",
+    "governance_record.json": "f9a759b0832812037c839741a36e4af6cfd1e383cf5d6d330807148b093ec5cd",
+    "reveal_full_grid.json": "a4ccea1df935553c9ac770a1686d44d5380dd3534a8166c38fe32fc162ac9816",
+    "reveal_threshold_lock.json": "63556e5a135125b03b9931b8e9e91e035acfb09c87fe5674d2631f69a43c81d2",
+    "runtime_acceptance.json": "a69f3147198794d186053d69b2e0ac2d2a8fb799263a691c62c52bdf498cbc7f",
+    "verification.json": "13c3b25070737355c0f3c7518fe94287dde00a4a2f682328fa8f669675322aaa"
+  },
+  "source_sha256": {
+    "scripts/seal_b3_threshold_release_20261109.py": "1174bd0a99c24c2e88e7005fca28555501346b0fe84f66b16029be3c2a4630bb",
+    "scripts/b3_threshold_lock.py": "8088251d3fda276801aa3d55e1d72be281fe4d5a3d221f8f0bde310a4e631c86"
+  },
+  "test_stage": "THRESHOLDS_READY_TEST_DELIVERY_NOT_YET_AUDITED_OR_LAUNCHED",
+  "seal_sha256": "0fb8b2dfa77e8ef0a3688273584806e359380695e703f593f562a70133bc4a57"
+}

@@ -1,0 +1,27 @@
+{
+  "created_at_utc": "2026-11-08T16:06:26.401844+00:00",
+  "devign": "SEPARATE_RELEASE_V6",
+  "files_sha256": {
+    "b3_delivery_runtime.py": "730b1a13f045e3504fe7a7fe52c5ff177e6cf07e8af77a8c0ef64d797a89fb90",
+    "b3_reveal_validation_v7.zip": "6c0d222121fd8648c5a65289508de81c65cba6d8fdfa99ab9533248a95c31e21",
+    "dataset-metadata.json": "b88ecda5e8d342810146f64f0794b4cc329c687a552846403c8528e5d7126fc4",
+    "grace_runtime_contract.py": "27b57d69089d009b225e3653dd38afed14bb48442765652c2c80c0c38df01775",
+    "inference_input_manifest.json": "3255dfa600e191c874560fbcd285a22337b8546e1a510c3f6804c46ff2cfc8fc",
+    "inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "kaggle_inference.py": "059c5fca1de0043f5b7710ed39c79976301d8b92548e3f2f85aaaf2afeb08fe8",
+    "kernel-metadata.json": "43674c1e45eb9dae4239ad5cf216c7812e7f1d459cdaa14921ee2fa4f2a7bdac",
+    "launch_requirements.json": "98273e250f7c2cfe3fe1044d89b5162eb7a0d425ada46b0f3f1b2ce52c73b3c6",
+    "notebook.ipynb": "93d30723fcfcd152765fc07e4a62822527a66718ab09f8b03c0b6f1ce410db34"
+  },
+  "parent_release": "reveal_prompt_release_20261108",
+  "release_id": "release_20261108_v7_reveal",
+  "scope": {
+    "arm": "B3",
+    "count": 2273,
+    "dataset": "reveal",
+    "seed": 42,
+    "split": "validation"
+  },
+  "seal_sha256": "bfe189aa590aae1ff83041e610e95e77af61281e6b0f377a4acfe1d4f90eaf89",
+  "status": "CPU_PREPARED_NATIVE_AND_MOUNTS_PENDING"
+}

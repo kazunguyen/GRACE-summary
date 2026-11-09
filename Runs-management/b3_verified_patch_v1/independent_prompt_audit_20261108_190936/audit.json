@@ -1,0 +1,60 @@
+{
+  "checked_at_utc": "2026-11-08T12:10:48.075518+00:00",
+  "seals": {
+    "inputs": true,
+    "pool": true,
+    "prompts": true
+  },
+  "input_hash_mismatches": {
+    "modules_sha256": [],
+    "execution_scripts_sha256": [],
+    "authority_documents_sha256": []
+  },
+  "datasets": {
+    "devign": {
+      "count": 2732,
+      "expected": 2732,
+      "unique_ids": 2732,
+      "exact_id_set": true,
+      "statuses": {
+        "RENDERED": 2732
+      },
+      "census_hash_matches_manifest": true,
+      "pool_hash_matches_manifest": true,
+      "eligible_pairs": 1,
+      "errors": [],
+      "all_canonical_B3_prompts_reproduced": true,
+      "max_chat_tokens": 4983,
+      "selected_pair_ids": [
+        "case_08_ffmpeg_can_safely_read_8614_26054"
+      ],
+      "selected_payload_hashes": [
+        "0ced77fefccbcef797c3c01abfa0d139d5611e2d562e8f5ec01089ff05168ee1"
+      ]
+    },
+    "reveal": {
+      "count": 2273,
+      "expected": 2273,
+      "unique_ids": 2273,
+      "exact_id_set": true,
+      "statuses": {
+        "PAUSED": 2273
+      },
+      "census_hash_matches_manifest": true,
+      "pool_hash_matches_manifest": true,
+      "eligible_pairs": 0,
+      "errors": [],
+      "all_null_prompts_and_flags": true
+    }
+  },
+  "review_authenticity": "FINAL_REVIEWS_CONFIRMED_EXPLICITLY_BY_USER_AND_FORMS_VALIDATED; see review_confirmation.json",
+  "version_labels": {
+    "inputs": "v4_verified_patch_admitted",
+    "pool": "v3_remediated",
+    "prompt": "v3_remediated"
+  },
+  "source_files_changed_during_audit": [],
+  "prompt_math_scope_pass": true,
+  "full_two_dataset_prompt_release_ready": false,
+  "GPU_release_ready": false
+}

@@ -1,0 +1,43 @@
+{
+  "case_id": "case_06_qemu_IRQ_testbit_21393_16959",
+  "project": "qemu",
+  "function_hint": "IRQ_testbit",
+  "vulnerable_donor": {
+    "id": "devign:train:21393",
+    "commit_id": "af7e9e74c6a62a5bcd911726a9e88d28b61490e0",
+    "code_len": 101,
+    "code_sha256": "428a215b7f959b798e03789623dd5a7fbb67a3fbc9c42f8ec121ed59ae608201"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:16959",
+    "commit_id": "e69a17f65e9f12f33c48b04a789e49d40a8993f5",
+    "code_len": 98,
+    "code_sha256": "6e492a44026c709289fe260faa50c7bca09abbdcd97b1399314d9d098a8e63e8"
+  },
+  "source_investigation": {
+    "is_direct_parent_edge": false,
+    "vulnerable_parent_shas": [
+      "d56af005dc3d6354bd39411e8446b415bbcf86b8"
+    ],
+    "patched_parent_shas": [
+      "47f73749c61765f7a898ac88f11995368740da10"
+    ],
+    "vulnerable_changed_files": [
+      "hw/openpic.c"
+    ],
+    "patched_changed_files": [
+      "hw/openpic.c"
+    ],
+    "shared_files": [
+      "hw/openpic.c"
+    ],
+    "vulnerable_commit_msg": "openpic: fix coding style issues\n\nThis patch fixes the following coding style violations:\n\n  - structs have to be typedef and be CamelCase\n  - if()s are always surrounded by curly braces\n\nSigned-off-b",
+    "patched_commit_msg": "openpic: use standard bitmap operations\n\nBesides the private implementation being redundant, namespace collisions\nprevented the use of other things in bitops.h.\n\nSerialization does get a bit more awkw"
+  },
+  "decision": {
+    "status": "REJECTED_UNRELATED_SOURCE_COMMITS",
+    "reason": "Commits do not form a parent-child relationship in git history",
+    "admissible_for_candidate": false
+  },
+  "timestamp_utc": "2026-11-08T05:00:25.892720+00:00"
+}

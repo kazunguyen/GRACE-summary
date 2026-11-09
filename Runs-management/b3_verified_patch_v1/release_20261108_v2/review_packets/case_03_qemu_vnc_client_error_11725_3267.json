@@ -1,0 +1,47 @@
+{
+  "case_id": "case_03_qemu_vnc_client_error_11725_3267",
+  "dataset": "devign",
+  "project": "qemu",
+  "function_hint": "vnc_client_error",
+  "vulnerable_donor": {
+    "id": "devign:train:11725",
+    "commit_id": "198a0039c5fca224a77e9761e2350dd9cc102ad0",
+    "code_len": 83,
+    "code_sha256": "5c96ad2dee1f8dd00233366ad480a8f24ef9c4ef659c7ed88056040d6af4b404"
+  },
+  "patched_candidate_donor": {
+    "id": "devign:train:3267",
+    "commit_id": "5fb6c7a8b26eab1a22207d24b4784bd2b39ab54b",
+    "code_len": 90,
+    "code_sha256": "5414a9369285f28a187a7eee341856f7e5d30befeb2fd9a338895f788f7d3235"
+  },
+  "source_revisions": {
+    "vulnerable_commit": "198a0039c5fca224a77e9761e2350dd9cc102ad0",
+    "patched_candidate_commit": "5fb6c7a8b26eab1a22207d24b4784bd2b39ab54b",
+    "vulnerable_parents": [
+      "11a1feb6552e3a4709e454faea5e3be5ca8d9e6a"
+    ],
+    "patched_parents": [
+      "19a490bfca85165de1acd2d5c3964fb44615746d"
+    ],
+    "is_direct_parent_edge": false
+  },
+  "changed_files": {
+    "vulnerable_files": [
+      "vnc.c"
+    ],
+    "patched_files": [
+      "Makefile",
+      "vnc.c",
+      "vnc.h"
+    ],
+    "shared_files": [
+      "vnc.c"
+    ]
+  },
+  "commit_messages": {
+    "vulnerable_commit_msg": "vnc: rework VncState release workflow.\n\nSplit socket closing and releasing of VncState into two steps.  First\nclose the socket and set the variable to -1 to indicate shutdown in\nprogress.  Do the actu",
+    "patched_commit_msg": "Move TLS auth into separate file (\"Daniel P. Berrange\")\n\nThis patch refactors the existing TLS code to make the main VNC code\nmore managable. The code moves to two new files\n\n - vnc-tls.c: generic hel"
+  },
+  "payload_sha256": "3933d59c76f09db058e7e2475471acd6ea87d2baad3be8d839978f944d704b94"
+}
