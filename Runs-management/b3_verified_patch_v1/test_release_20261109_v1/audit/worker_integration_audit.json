@@ -1,0 +1,12 @@
+{
+  "status": "PASS_LOCAL_INTEGRATION",
+  "test_census": 5006,
+  "scoring_ast_parity": true,
+  "mocked_model_load_path": true,
+  "tokenizer_mismatch_rejected": true,
+  "embedded_sources_verified": true,
+  "execution_inventory_verified": true,
+  "notebook_syntax": true,
+  "runtime_gpu_attestation": "PENDING_REAL_KAGGLE_SESSION",
+  "account": "lznt123"
+}

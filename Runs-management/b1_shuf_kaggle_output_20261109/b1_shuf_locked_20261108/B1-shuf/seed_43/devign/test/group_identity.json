@@ -1,0 +1,11 @@
+{
+  "arm": "B1-shuf",
+  "seed": 43,
+  "dataset": "devign",
+  "split": "test",
+  "member": "B1-shuf_43_devign_test.jsonl",
+  "sha256": "e66b201466b22196795024e4c7e9759dd35e1689300cda25bae08bb4ccdf9a36",
+  "count": 2732,
+  "tau": 0.96,
+  "runtime_lock_scope": "newly inferred records only; imported historical records are byte/value preserved"
+}

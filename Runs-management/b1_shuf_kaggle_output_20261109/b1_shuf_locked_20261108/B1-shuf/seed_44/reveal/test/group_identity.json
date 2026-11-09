@@ -1,0 +1,11 @@
+{
+  "arm": "B1-shuf",
+  "seed": 44,
+  "dataset": "reveal",
+  "split": "test",
+  "member": "B1-shuf_44_reveal_test.jsonl",
+  "sha256": "5861a03a5fc5ead592158f525aba42233ebe2608d282ba8e9605ca4aaad3e1d8",
+  "count": 2274,
+  "tau": 0.04,
+  "runtime_lock_scope": "newly inferred records only; imported historical records are byte/value preserved"
+}

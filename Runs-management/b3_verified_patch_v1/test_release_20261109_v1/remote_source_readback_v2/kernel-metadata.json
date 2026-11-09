@@ -1,0 +1,21 @@
+{
+  "id": "lznt123/grace-b3-new-test-20261109-v1",
+  "id_no": 143866269,
+  "title": "grace-b3-new-test-20261109-v1",
+  "code_file": "grace-b3-new-test-20261109-v1.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "lznt123/grace-b3-test-release-20261109-v1"
+  ],
+  "kernel_sources": [
+    "lznt123/qwen3coder30b-prepare-notebook"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}

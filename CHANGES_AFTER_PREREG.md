@@ -1,5 +1,16 @@
 # Changes and exposure record for OSF submission
 
+## 2026-11-09 - B1-shuf final census and B3 test queue update
+
+- Completed and locally audited the B1-shuf 3-seed test census (15,018/15,018 records). Runtime provenance for all four contributing sessions matches the pinned six-package contract, runner/model/backend-source identities, two Tesla T4 devices, and 49/49 layer-offload checks. Exact compiled backend binaries were not downloadable for a local re-hash; the contract permits the recorded Kaggle platform build and does not claim bit-identical binaries. Evidence: `Runs-management/b1_shuf_kaggle_output_20261109/RUNTIME_ACCEPTANCE_20261109.md`.
+- Pushed B3 new-algorithm test kernel version 2 to the canonical `lznt123/grace-b3-new-test-20261109-v1` kernel. Kaggle readback confirms all five executable notebook cells match the local release. At the 2026-11-09 16:08 UTC status check it was `QUEUED`; the earlier duplicate was `CANCEL_REQUESTED`. No B3 test inference or runtime attestation has occurred. This test execution remains amended/exploratory relative to the public registration; no confirmatory claim is made.
+
+## 2026-11-09 — B3-new test worker integration correction
+
+- Fixed the unlaunched B3-new test notebook's missing native-log helper dependency and tokenizer repository identity mismatch; added persistent backend build logs. Preserved the locked runtime JSON, model, package pins, GPU allocation policy, score function, pools, prompts, and validation-fitted thresholds.
+- Verified the model-load integration locally using a mocked backend, source parity, package inventory and notebook syntax. No real GPU inference or test outcomes were used for these corrections. A real Kaggle runtime attestation remains pending under `lznt123`.
+- Scope: operational preparation for amended/exploratory B3-new test execution; this entry does not ratify a new OSF registration or certify runtime compliance. Evidence: `Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/worker_integration_audit.json` and `execution_manifest.json`.
+
 The study has a public OSF registration at <https://osf.io/fqgh2/overview>, reported as registered on Nov 3, 2026 at 11:13 PM (Asia/Bangkok) in `AGENTS.md`. The registration documents the protocol as submitted at that time; it does not establish that protocol decisions preceded historical test runs. The `prereg-v1` Git tag is a repository snapshot, not a timestamp for OSF submission. Any amendment discussed in later planning documents is a separate, not-yet-submitted update unless a newer OSF record is added here.
 
 ## 2026-11-06 — Add retrospective and B3 feasibility evidence to OSF update

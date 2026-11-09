@@ -1,0 +1,92 @@
+{
+  "schema": "grace_b3_test_execution_manifest_v1",
+  "account": "lznt123",
+  "kernel_id": "lznt123/grace-b3-new-test-20261109-v1",
+  "status": "CANONICAL_VERSION_2_QUEUED_RUNTIME_PENDING",
+  "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+  "files": {
+    "grace_runtime_contract.py": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/worker/grace_runtime_contract.py",
+      "sha256": "439d31bfe4324b79d9b119d7178fa290bac651f4be336a1217573bfd86bd5477"
+    },
+    "b3_native_runtime.py": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/worker/b3_native_runtime.py",
+      "sha256": "960d3e35589ebd6dc31f0a70db9f809614afdb92e0132c91e27718383f21386f"
+    },
+    "inference_runtime_lock.json": {
+      "path": "Runs-management/b3_lznt_linuxfix_20261109/b3_dual/code/inference_runtime_lock.json",
+      "sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e"
+    },
+    "b3_test_runtime.py": {
+      "path": "scripts/b3_test_runtime.py",
+      "sha256": "8d5267e9a31ee09c366a691c016a1021d8ca5905e5e82320516e51645981167b"
+    },
+    "kaggle_inference_test.py": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/worker/kaggle_inference_test.py",
+      "sha256": "e0bc63d7e7e57230fca7f5d0add6e26c70971a7bfef0c50df89c63a903ab268d"
+    },
+    "notebook": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/kaggle_kernel/notebook.ipynb",
+      "sha256": "161c64ced4a7506030eaa6e025c2f83dbc753a9b0d3af0d8f5fc6d39ca775423"
+    },
+    "kernel_metadata": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/kaggle_kernel/kernel-metadata.json",
+      "sha256": "554c1248133f8a884bb7b4f7b3ad66088d41c946e45432a5e1b7b43397a99356"
+    },
+    "test_release_manifest": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/test_release_manifest.json",
+      "sha256": "a25a5cea81760b40bf2cde70b145d50f68880b97639cac73f8dcb7fea091bbf1"
+    },
+    "test_input_archive": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/kaggle_input.zip",
+      "sha256": "351dacf13e848d312764261eb43865f9b3b1dd687be78b3ff9b8dca3c6afa4ee"
+    },
+    "remote_source_verification_v2": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/remote_source_verification_v2.json",
+      "sha256": "54887bef4bf7275a13e555b016e3ac797530ee15fe089e3b802c3e87d8e3bd6f"
+    },
+    "remote_source_v2_notebook": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v2/grace-b3-new-test-20261109-v1.ipynb",
+      "sha256": "d3af4545c476b61a876a2a7fd58cdb3ba1bffcb4e6ddfc445dfb803d83fdc840"
+    },
+    "remote_source_v2_metadata": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v2/kernel-metadata.json",
+      "sha256": "296d12c874ee4b494d762fe6277cf56d78fb80aaa9cd9f239c6b959ccc9f0d64"
+    }
+  },
+  "remote": {
+    "dataset_id": "lznt123/grace-b3-test-release-20261109-v1",
+    "latest_dataset_readback": "manifest and all seven member hashes match",
+    "kernels": [
+      {
+        "id": "lznt123/grace-b3-new-algorithm-test-devign-and-reveal",
+        "status": "CANCEL_REQUESTED",
+        "same_executable_cells_as_canonical": true
+      },
+      {
+        "id": "lznt123/grace-b3-new-test-20261109-v1",
+        "status": "QUEUED",
+        "canonical": true,
+        "latest_version": 2
+      }
+    ],
+    "next_push_error": "Maximum batch GPU session count of 2 reached",
+    "runtime_attestation": "PENDING_NOT_STARTED",
+    "latest_push_error": null,
+    "previous_push_error": "Maximum batch GPU session count of 2 reached before version 2 was pushed.",
+    "source_readback_v2": {
+      "all_code_cell_sources_match": true,
+      "code_cell_count": 5,
+      "whole_notebook_hash_equal": false,
+      "reason_whole_notebook_hash_differs": "Kaggle pull normalized notebook metadata and code_file naming; all executable code cell sources match."
+    }
+  },
+  "status_checked_at_utc": "2026-11-09T16:08:52Z",
+  "latest_push": {
+    "version": 2,
+    "result": "PUSHED",
+    "kernel_id": "lznt123/grace-b3-new-test-20261109-v1",
+    "status": "QUEUED",
+    "remote_code_cell_readback": "PASS"
+  }
+}
