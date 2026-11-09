@@ -1,0 +1,10 @@
+# New B3 — Linux transport fix and LZ launch
+
+- User requested diagnosing failed HU B3 and moving the new algorithm to lznt123. Also explicitly reminded that this must remain `b3-verified-patch-v1`.
+- Downloaded HU failure: prepare-stage archive SHA mismatch before model/build;0 records. Exact member comparison proved all payload bytes identical; Windows create_system0 vs Linux3 explains different ZIP bytes. Acknowledged delivery cross-platform preflight gap; retained original failure evidence.
+- Fixed coordinator to consume fully verified member directories and worker identity to reference source archive hash without hashing a directory. Independent root/member pins remain enforced. No selector/pool/prompt/scoring/model/runtime change. Execution revision/source provenance explicitly separate from historical input-generation metadata.
+-24 targeted tests PASS, including actual Kaggle-produced archive, tamper rejection, packed/unpacked modes, worker AST equivalence for numerical functions and existing source/review/runtime regressions. Final preflight repeated after completing execution provenance fields; draft evidence preserved.
+- Created two PRIVATE LZ input datasets with original source archives. LZ model source version2 accessible; actual model SHA is still checked by runtime. HU B3 confirmed terminal ERROR; no duplicate HU inference and no B1-shuf modification.
+- SDK accepted `lznt123/grace-b3-new-dual-linuxfix-20261109` version1 at06:25:29 GMT+7,09/11. Full source readback exact; PRIVATE/GPU/T4 shape/correct mounts. API RUNNING, native runtime certification still pending observable logs; no score count claimed.
+- Runtime can be independently certified after model-load/first-inference provenance + native/build logs are obtainable, without waiting for full validation. If live API does not expose artifacts, collect complete output/checkpoint plus diagnostics after session termination. Do not equate RUNNING or CPU PASS with native acceptance.
+- Report: `Runs-management/b3_lznt_linuxfix_20261109/STATUS.md`. No git push or protected asset mutation in this task.

@@ -1,0 +1,69 @@
+{
+  "authority": {
+    "new_human_review_claimed": false,
+    "new_scope_ratification_timestamp_claimed": false,
+    "scope": "Existing reviewed Devign Case08; operational fixes requested by user"
+  },
+  "bundle_filename": "b3_devign_validation_v6.zip",
+  "bundle_sha256": "30d246dddd205c959bda0cccd83bd20e5d0a90c30b75190831aac36569aaf06b",
+  "code_sha256": {
+    "b3_delivery_runtime.py": "730b1a13f045e3504fe7a7fe52c5ff177e6cf07e8af77a8c0ef64d797a89fb90",
+    "b3_dual_runtime_coordinator.py": "0654f5baf506fa2326646600a45f13cccc42ee151895cd5ea2467874e4d1c49f",
+    "grace_runtime_contract.py": "27b57d69089d009b225e3653dd38afed14bb48442765652c2c80c0c38df01775",
+    "inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "kaggle_inference.py": "50616cbd3fc140632578421d45c3c45a9025c03c4cffc218d79f0210375ae3ed"
+  },
+  "created_at_utc": "2026-11-08T15:31:19.475616+00:00",
+  "excluded": {
+    "reveal": "BLOCKED_EMPTY_VERIFIED_POOL",
+    "test": "BLOCKED_VALIDATION_THRESHOLD"
+  },
+  "execution_git_commit": "40d49d46a1619c1716960b32ffe3b8c9a265fc8a",
+  "execution_revision": "b3_linux_member_directory_v1_20261109",
+  "execution_source_sha256": {
+    "scripts/b3_dual_runtime_coordinator.py": "0654f5baf506fa2326646600a45f13cccc42ee151895cd5ea2467874e4d1c49f",
+    "scripts/deploy_b3_lznt_linuxfix_20261109.py": "e161b05e53cbf394146dc1a73a3fa948f7b0b142989c8b3ea0fdb93229e347f2",
+    "scripts/launch_huuhieu_b1shuf_b3_20261108.py": "5c50b01dcd98214fac94e1f6f54c19a3ecfca60efceeacfc1d1f4c067c46c27c"
+  },
+  "inference_rows_sha256": "5d88962ab2cba9f364616b47181e452a628aa26ec2de8e0a4b3c020f5db2220d",
+  "labels_source_sha256": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5",
+  "members_sha256": {
+    "audited_census.jsonl": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+    "bundle_manifest.json": "2c9bc577af5df5dd7b68f5b3157c55ceb87f60ac859c39467d33452c16306625",
+    "evidence/eligible_pairs.devign.jsonl": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+    "evidence/parent_inputs_manifest.json": "e0fe6b1de28765aeb388316ddd78b6def786da41994c6a4d049cc70123b92d13",
+    "evidence/parent_pool_manifest.json": "fb856cec6c22d11c79908d2e42ec2371c0e179c89e0dfa6092c9f80268351994",
+    "evidence/parent_prompt_manifest.json": "6d3863da6b00da4f9274d239cb9eae19cf8c131f3d5a939fe241e495b1d24c8a",
+    "evidence/review_dung.json": "edcfa4008ce0ce25585f931488b522952f3a398417af8b8cb19a6faa82131df7",
+    "evidence/review_hieu.json": "0cc97c22ef80b966732d3df1a3521b19645a996a5e8b1c98180018cbd43ef121",
+    "labels.json": "94142cf8f46682a916de7ce816cc14fc29e14526973d1bfb7fd601ebdc6a3b34",
+    "prompts.jsonl": "5d88962ab2cba9f364616b47181e452a628aa26ec2de8e0a4b3c020f5db2220d"
+  },
+  "method_id": "b3-verified-patch-v1",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "parent_input_root_sha256": "38ed52ee4cc71ad41c1f5c94af41afa4e4c84a842cf2b0daa46e5cb1afe6fc36",
+  "parent_release": "release_20261108_v5",
+  "pool_sha256": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+  "prompt_content_sha256": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+  "release_id": "release_20261108_v6",
+  "release_status": "CPU_PREPARED_NATIVE_PENDING",
+  "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+  "schema_version": 1,
+  "scope": {
+    "arm": "B3",
+    "count": 2732,
+    "dataset": "devign",
+    "seed": 42,
+    "split": "validation"
+  },
+  "scoring": "unconstrained_first_token_logits_v1",
+  "seal_sha256": "1000dfbcbfd77918dcac667f8942b36b99e724bbcc412c63b53081b38bddaad9",
+  "source_input_dirty_inventory": {
+    "scripts\\b3_delivery_runtime.py": "730b1a13f045e3504fe7a7fe52c5ff177e6cf07e8af77a8c0ef64d797a89fb90",
+    "scripts\\build_b3_delivery_v6.py": "e986e41dcea59a680b3f56971c296d6ada3202091fb5fbb00e24444033571596"
+  },
+  "source_input_git_commit": "68b7bf137bb9b957051c46a86d53ec41a528731c",
+  "source_input_release": "release_20261108_v6",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "transport_policy": "Packed original archive hash OR complete independently pinned member directory; no recompression identity"
+}

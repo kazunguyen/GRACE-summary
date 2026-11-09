@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "-m",
+    "pytest",
+    "tests/test_b3_linux_payload_fix.py",
+    "tests/test_huuhieu_dual_launch.py",
+    "tests/test_b3_delivery_v6.py",
+    "tests/test_b3_reveal_delivery_v7.py",
+    "tests/test_b3_reveal_source_mapping.py",
+    "-q",
+    "--basetemp=Runs-management\\b3_lznt_linuxfix_20261109\\test_tmp_final"
+  ],
+  "returncode": 0,
+  "verdict": "PASS",
+  "native_gpu": "NOT_EVALUATED"
+}

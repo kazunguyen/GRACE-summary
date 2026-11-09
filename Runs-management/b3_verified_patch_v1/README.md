@@ -3,7 +3,7 @@
 Đọc [trạng thái B3 hiện tại](../../docs/B3_CURRENT_STATUS_20261108.md) trước khi chạy bất kỳ notebook nào.
 
 - Devign dùng `release_20261108_v6`; REVEAL dùng `release_20261108_v7_reveal`, cùng method/runtime. Hai pool đã được người thật duyệt; full validation prompts2.732/2.273 và CPU integration đạt.
-- Native GPU acceptance và validation inference mới **chưa chạy**. Quota huuhieu3333 lần kiểm gần nhất không đủ request9h; kiểm lại trước launch. Chưa có τ* mới hay test mới.
+- **Nghiệm thu mới nhất 09/11/2026:** B3 mới đã hoàn tất validation Devign 2.732/2.732 và REVEAL 2.273/2.273 trên lznt123. Records/runtime của từng session, gồm resume, đã được kiểm; threshold riêng đã khóa **Devign 0,99; REVEAL 0,01** tại `threshold_release_20261109_v1`. Xem [biên bản nghiệm thu](THRESHOLD_LOCK_ACCEPTANCE_20261109.md). Còn chuẩn bị/audit delivery test và pin lock vào notebook/evaluator trước launch; chưa chạy test B3 mới.
 - Latest detailed acceptance: `v7_reveal_acceptance_20261108/DUAL_DATASET_READINESS.md`; two-input identity: `experiment_index.json` cùng thư mục.
 - `release_20261108`…`v5` và các audit/remediation trước là **lịch sử**. Có release từng chứa review tự sinh không hợp lệ hoặc delivery lỗi; giữ để kiểm toán, không dùng như pool/runtime đang được chấp nhận. Dùng `b3_step6_packet_tool.py` hoặc admission tool với final forms thật; không dùng script historical `b3_step6_dual_review.py` để tạo quyết định người thật.
 - ZIP prompt tổng là local-only tại `Runs-management/local_deliveries/`; hash/counts có trong `B3_PROMPT_HANDOFF_MANIFEST_20261108.json`. Hai ZIP input theo dataset trong release là launch artifacts riêng, không phải ZIP tổng bàn giao. Không mount cả hai roots vào một notebook yêu cầu một root.

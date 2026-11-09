@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "staged_release_inventory_and_source_hashes": "PASS",
+    "staged_byte_pinned_evidence_matches_local": "PASS",
+    "no_protected_or_local_only_assets_staged": "PASS",
+    "staged_scope_matches_selection": "PASS",
+    "frozen_threshold_hashes_unchanged": "PASS",
+    "preregistration_branch_and_tag_unchanged": "PASS"
+  },
+  "status": "PASS",
+  "staged_files": 185,
+  "protected_branch": "release/osf-preregistration",
+  "protected_tag_expected": "7a1e16168591c37f005599cb4d5dc3ce33f7d950",
+  "baseline_synced_commit": "daa1a25a5169201ef82df46d670d9896b2c45160",
+  "verification_note": "184 content files verified before adding this receipt; final commit also includes this receipt."
+}

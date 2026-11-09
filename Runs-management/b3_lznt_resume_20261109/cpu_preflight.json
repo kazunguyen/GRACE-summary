@@ -1,0 +1,36 @@
+{
+  "verdict": "PASS",
+  "scope": "B3 checkpoint resume delivery preflight only; does not certify resumed native execution",
+  "checks": {
+    "both_checkpoint_archives_crc_identity_restore_and_records_valid": true,
+    "checkpoint_hashes_match_delivery": true,
+    "runtime_contract_and_input_roots_inherited_unchanged": true,
+    "notebook_inference_build_model_and_runtime_cells_unchanged": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7
+    ],
+    "resume_cells_ast_parsed_by_transport_finalize": true,
+    "machine_shape": "NvidiaTeslaT4",
+    "private_requested": true
+  },
+  "checkpoint_counts": {
+    "devign": {
+      "expected": 2732,
+      "records": 2732,
+      "remaining": 0,
+      "sha256": "21e1832c31298e2a20be61901f12170f2ce592e958f4edfb0f311134676d7552"
+    },
+    "reveal": {
+      "expected": 2273,
+      "records": 1713,
+      "remaining": 560,
+      "sha256": "8069d2051386f0dd3b110b58d4b63cae0b611aa430ca795306e8ed08c6e2d4a5"
+    }
+  },
+  "notebook_sha256": "94613fc4a253473657d2cab16f78220ac6e3dfa5a8c39578f08327d2d78557e7",
+  "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e"
+}

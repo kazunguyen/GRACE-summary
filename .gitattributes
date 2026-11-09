@@ -58,3 +58,20 @@
 
 # Imported baseline seed44 results retain their original CRLF and hashed bytes.
 /06_Arm_B2_Rand/test_results_20261107/** -text whitespace=cr-at-eol
+
+# Byte-pinned launch source/readback/checkpoint evidence.
+/Runs-management/huuhieu_b1shuf_b3_launch_20261108/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_lznt_linuxfix_20261109/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_lznt_resume_20261109/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_lznt_resume_v2_20261109/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_lznt_resume_retry_20261109/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+
+# Threshold release pins these exact source bytes.
+/scripts/calculate_b3_verified_patch_threshold_candidates_20261109.py -text
+/scripts/seal_b3_threshold_release_20261109.py -text
+/scripts/deploy_b3_lznt_linuxfix_20261109.py -text
+/scripts/launch_huuhieu_b1shuf_b3_20261108.py -text
+/scripts/resume_b3_lznt_linuxfix_20261109.py -text
+/scripts/resume_b3_lznt_linuxfix_20261109_v2.py -text
+/scripts/retry_b3_lznt_resume_20261109.py -text
+/Runs-management/publication_20261109_b3_thresholds/*.log -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof

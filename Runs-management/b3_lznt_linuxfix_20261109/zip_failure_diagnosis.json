@@ -1,0 +1,95 @@
+{
+  "payload_bytes_all_identical": true,
+  "zip_metadata_differences": [
+    {
+      "member": "audited_census.jsonl",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "bundle_manifest.json",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "evidence/eligible_pairs.devign.jsonl",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "evidence/parent_inputs_manifest.json",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "evidence/parent_pool_manifest.json",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "evidence/parent_prompt_manifest.json",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "evidence/review_dung.json",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "evidence/review_hieu.json",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "labels.json",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "member": "prompts.jsonl",
+      "metadata_diff": {
+        "create_system": [
+          0,
+          3
+        ]
+      }
+    }
+  ]
+}

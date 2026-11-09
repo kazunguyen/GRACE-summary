@@ -1,0 +1,59 @@
+{
+  "schema": "grace_b3_verified_patch_threshold_lock_v1",
+  "release_id": "threshold_release_20261109_v1",
+  "status": "LOCKED",
+  "locked_at_utc": "2026-11-09T12:50:23.611109+00:00",
+  "arm": "B3",
+  "method_id": "b3-verified-patch-v1",
+  "dataset": "devign",
+  "seed": 42,
+  "fit_split": "validation",
+  "n_expected": 2732,
+  "n_valid": 2732,
+  "tau_star": 0.99,
+  "validation_mcc": 0.0501474890867987,
+  "application_identity": {
+    "method_id": "b3-verified-patch-v1",
+    "pool_sha256": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+    "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "scoring": "unconstrained_first_token_logits_v1",
+    "worker_sha256": "50616cbd3fc140632578421d45c3c45a9025c03c4cffc218d79f0210375ae3ed"
+  },
+  "validation_identity": {
+    "release_id": "release_20261108_v6",
+    "input_root_sha256": "3b1311b8ee9af85ab1811a73338a4f4ce6cf3252f13c0ba9bfb5134acb0b57d6",
+    "bundle_sha256": "30d246dddd205c959bda0cccd83bd20e5d0a90c30b75190831aac36569aaf06b",
+    "pool_sha256": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+    "prompt_content_sha256": "dee4a33009f4ecbf42b96e6f18c5f4390d5f0a620370af925bae0f2cceeb7e59",
+    "prompt_member_sha256": "5d88962ab2cba9f364616b47181e452a628aa26ec2de8e0a4b3c020f5db2220d",
+    "labels_member_sha256": "94142cf8f46682a916de7ce816cc14fc29e14526973d1bfb7fd601ebdc6a3b34",
+    "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "runtime_contract_file_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "worker_sha256": "50616cbd3fc140632578421d45c3c45a9025c03c4cffc218d79f0210375ae3ed",
+    "validation_records_sha256": "d9560027be1aae1db562f9842830dfea7ff5452fa0e550417a9699740bbeb282",
+    "validation_evidence_sha256": "b0e300f78b5a1e37d2af883ba2dfafb6844d26311577fb8dbd2eb5139f0e1caa",
+    "run_manifest_sha256": "974f14b51cc9e4017bb774b0f462daef7b72a74a1a26d242c8fd1a1a6f90da2b"
+  },
+  "candidate_sha256": "acbd1de35e6c8e3a5271c3e5f386273aa50e3e79bd565c35e32c5c3f704426e3",
+  "rules_sha256": "80fbbd6fc78fb714eaa43f849ea78117a96ebdc495f10629d61f5295ea3c0d78",
+  "tie_thresholds_within_1e-9": [
+    0.99
+  ],
+  "classification": "AMENDED_EXPLORATORY_SUBPROTOCOL",
+  "governance_record": "governance_record.json",
+  "test_data_used_for_selection": false,
+  "probe_policy": "B3-flip/B3-swap inherit this B3 threshold; B3-nodiff requires its own validation.",
+  "application_requirements": [
+    "Pin raw lock SHA-256 in test delivery.",
+    "Verify canonical seal and application identity before test inference/evaluation.",
+    "Audit and seal fresh test prompts with unchanged pool/selector/renderer/runtime.",
+    "No threshold refit or method changes based on test scores."
+  ],
+  "governance_record_sha256": "f9a759b0832812037c839741a36e4af6cfd1e383cf5d6d330807148b093ec5cd",
+  "runtime_acceptance_sha256": "a69f3147198794d186053d69b2e0ac2d2a8fb799263a691c62c52bdf498cbc7f",
+  "seal_sha256": "22b9828da6cd3397b9b19de78e56f29b4e524a54bf109847a8c9982387952703"
+}

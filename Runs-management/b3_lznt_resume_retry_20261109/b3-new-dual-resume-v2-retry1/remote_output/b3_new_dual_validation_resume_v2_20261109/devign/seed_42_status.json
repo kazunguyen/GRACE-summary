@@ -1,0 +1,23 @@
+{
+  "state": "complete",
+  "timed_out": false,
+  "started_at": "2026-11-09T09:54:34.852113+00:00",
+  "deadline_at": "2026-11-09T18:36:41.008008+00:00",
+  "stop_new_records_at": "2026-11-09T18:31:41.008008+00:00",
+  "max_runtime_hours": 8.701709970831871,
+  "checkpoint_reserve_seconds": 300,
+  "runs": {
+    "devign/validation": {
+      "state": "complete",
+      "bundle": "/kaggle/working/b3_verified_bundles/devign",
+      "output": "/kaggle/working/b3_new_dual_validation_resume_v2_20261109/devign/seed_42/devign/validation",
+      "count": 2732,
+      "completed": 2732,
+      "records_path": "/kaggle/working/b3_new_dual_validation_resume_v2_20261109/devign/seed_42/devign/validation/records.jsonl",
+      "bundle_sha256": "30d246dddd205c959bda0cccd83bd20e5d0a90c30b75190831aac36569aaf06b",
+      "evaluation": "/kaggle/working/b3_new_dual_validation_resume_v2_20261109/devign/seed_42/devign/validation/evaluation.json"
+    }
+  },
+  "completed_records_total": 2732,
+  "completed_at": "2026-11-09T09:56:12.630236+00:00"
+}

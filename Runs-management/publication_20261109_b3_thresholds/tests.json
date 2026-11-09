@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "-m",
+    "pytest",
+    "tests/test_preregistration_integrity.py",
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_probes.py",
+    "01_Author_Baseline_Unified/diagnostic_kit/tests/test_stats_and_complementarity.py",
+    "tests/test_b3_linux_payload_fix.py",
+    "tests/test_huuhieu_dual_launch.py",
+    "-q",
+    "--basetemp=.pytest_cache\\b3_publication_20261109_gitcheck_v1"
+  ],
+  "exit_code": 0,
+  "recorded_at_utc": "2026-11-09T13:45:06.204620+00:00",
+  "initial_attempt": "38 passed; 10 fixture setup errors caused by sandbox-denied system temp. Rerun uses an isolated workspace basetemp; no tests skipped."
+}

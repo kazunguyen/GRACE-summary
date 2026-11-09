@@ -1,0 +1,302 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-11-09T12:50:23.611109+00:00",
+  "original_zip_sha256": "76a49a770897b7d0832ee87aa7d7e308ebbca57fdd7aaaf02f0f07f2400f156c",
+  "original_zip_comparison": {
+    "02_kaggle_qwen_q4_b1_full_validation_runtime_locked.ipynb": {
+      "core_policies_equal": [
+        "model",
+        "tokenizer",
+        "backend_source",
+        "constructor",
+        "gpu",
+        "threads",
+        "build",
+        "scoring",
+        "resume"
+      ],
+      "additional_pin": {
+        "scipy": "1.16.3"
+      }
+    },
+    "02_kaggle_qwen_q4_b1_shuf_validation_runtime_locked.ipynb": {
+      "core_policies_equal": [
+        "model",
+        "tokenizer",
+        "backend_source",
+        "constructor",
+        "gpu",
+        "threads",
+        "build",
+        "scoring",
+        "resume"
+      ],
+      "additional_pin": {
+        "scipy": "1.16.3"
+      }
+    },
+    "02_kaggle_qwen_q4_b2_labelonly_validation_runtime_locked.ipynb": {
+      "core_policies_equal": [
+        "model",
+        "tokenizer",
+        "backend_source",
+        "constructor",
+        "gpu",
+        "threads",
+        "build",
+        "scoring",
+        "resume"
+      ],
+      "additional_pin": {
+        "scipy": "1.16.3"
+      }
+    },
+    "02_kaggle_qwen_q4_b2_nolabel_validation_runtime_locked.ipynb": {
+      "core_policies_equal": [
+        "model",
+        "tokenizer",
+        "backend_source",
+        "constructor",
+        "gpu",
+        "threads",
+        "build",
+        "scoring",
+        "resume"
+      ],
+      "additional_pin": {
+        "scipy": "1.16.3"
+      }
+    },
+    "02_kaggle_qwen_q4_b2_rep_validation_runtime_locked.ipynb": {
+      "core_policies_equal": [
+        "model",
+        "tokenizer",
+        "backend_source",
+        "constructor",
+        "gpu",
+        "threads",
+        "build",
+        "scoring",
+        "resume"
+      ],
+      "additional_pin": {
+        "scipy": "1.16.3"
+      }
+    }
+  },
+  "contract_file_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+  "contract_canonical_sha256": "d79396de5d37ca6c3123ac05ea122d665f5f9b252aa0b32ac2b5c464b68e338f",
+  "policy": "Kaggle platform build is approved. Record exact Python patch, CUDA/nvcc/driver, compiler, CMake, flags, dependencies and compiled backend hash. A shared container or bit-identical binary is not required or claimed.",
+  "datasets": {
+    "devign": {
+      "records": 2732,
+      "sessions": [
+        {
+          "provenance_path": "Runs-management/b3_lznt_resume_retry_20261109/b3-new-dual-resume-v2-retry1/remote_output/b3_new_dual_validation_resume_v2_20261109/devign/runtime_provenance/seed_42_ramsrn8t/runtime_provenance.json",
+          "records": 2732,
+          "provenance_sha256": "bb19d8effb33171864003ba89670a7be4aef726cca9b2dc7f2b9a0b0161437b1",
+          "native_log_sha256": "46739d6476102fb9fb64190cc4386deb95d7ab7b35c740fa4269ee54c0342ef2",
+          "build_log_path": "Runs-management/b3_lznt_linuxfix_20261109/b3_dual/remote_output/grace_diagnostics/install_llama_cuda.log",
+          "build_log_sha256": "56a001d581ba6fe8e1c98a41a6c37b4f89fe5bf75323ec1198249f918fa244a0",
+          "layer_assignments": {
+            "CUDA0": 25,
+            "CUDA1": 24
+          },
+          "compiled_backend_sha256": {
+            "lib/libggml-base.so": "097feca87a5f879007fd7b39d3e594ba816fe965bed4b7a6e03faf957e487263",
+            "lib/libggml-cpu.so": "3e2078c6e4f687a2701e230acefbd4a90d165c2ed34747bbba41fc1145257284",
+            "lib/libggml-cuda.so": "136b7715a6c03bb9c7276c1abaa0b50c2f4997cc0724aab21cc595fb95dbdfd6",
+            "lib/libggml.so": "2ba3b40635c250520c64a2bc8b696fa9f0ab762b2295044d878c9f1c2f249112",
+            "lib/libllama.so": "01dc7f4800a48242baa19c8afa0e0e279b1251b7ac42d66522af9fd029b7b856",
+            "lib/libmtmd.so": "fcc75222e7f34ed0f257d9d75cad4c695c7a4f7657d342a5125da561d30e8c9d",
+            "llama_cpp/lib/libggml-base.so": "097feca87a5f879007fd7b39d3e594ba816fe965bed4b7a6e03faf957e487263",
+            "llama_cpp/lib/libggml-cpu.so": "3e2078c6e4f687a2701e230acefbd4a90d165c2ed34747bbba41fc1145257284",
+            "llama_cpp/lib/libggml-cuda.so": "136b7715a6c03bb9c7276c1abaa0b50c2f4997cc0724aab21cc595fb95dbdfd6",
+            "llama_cpp/lib/libggml.so": "2ba3b40635c250520c64a2bc8b696fa9f0ab762b2295044d878c9f1c2f249112",
+            "llama_cpp/lib/libllama.so": "01dc7f4800a48242baa19c8afa0e0e279b1251b7ac42d66522af9fd029b7b856",
+            "llama_cpp/lib/libmtmd.so": "fcc75222e7f34ed0f257d9d75cad4c695c7a4f7657d342a5125da561d30e8c9d"
+          },
+          "packages": {
+            "huggingface-hub": "0.36.2",
+            "llama-cpp-python": "0.3.16",
+            "numpy": "2.1.3",
+            "scikit-learn": "1.5.2",
+            "scipy": "1.16.3",
+            "tokenizers": "0.22.2",
+            "transformers": "4.57.1"
+          },
+          "constructor": {
+            "embedding": false,
+            "flash_attn": false,
+            "logits_all": true,
+            "main_gpu": 0,
+            "n_batch": 256,
+            "n_ctx": 8192,
+            "n_gpu_layers": -1,
+            "n_ubatch": 256,
+            "offload_kqv": true,
+            "seed": 4294967295,
+            "split_mode": "LLAMA_SPLIT_MODE_LAYER",
+            "tensor_split": null,
+            "use_mlock": false,
+            "use_mmap": true
+          },
+          "cpu_count": 4,
+          "n_threads": 2,
+          "n_threads_batch": 4,
+          "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+          "nvcc": "Cuda compilation tools, release 13.0, V13.0.88",
+          "build_cmake_report": [
+            "*** scikit-build-core 1.1.2 using CMake 4.4.4 (metadata_wheel)",
+            "*** scikit-build-core 1.1.2 using CMake 4.4.4 (wheel)",
+            "-- The C compiler identification is GNU 13.3.0",
+            "-- The CXX compiler identification is GNU 13.3.0",
+            "-- The CUDA compiler identification is NVIDIA 13.0.88 with host compiler GNU 13.3.0"
+          ],
+          "postinstall_cmake": "cmake version 3.31.10",
+          "verdict": "PASS_APPROVED_PLATFORM_BUILD_POLICY"
+        }
+      ]
+    },
+    "reveal": {
+      "records": 2273,
+      "sessions": [
+        {
+          "provenance_path": "Runs-management/b3_lznt_resume_retry_20261109/b3-new-dual-resume-v2-retry1/remote_output/b3_new_dual_validation_resume_v2_20261109/reveal/runtime_provenance/seed_42_3dtwvzh5/runtime_provenance.json",
+          "records": 1713,
+          "provenance_sha256": "bb19d8effb33171864003ba89670a7be4aef726cca9b2dc7f2b9a0b0161437b1",
+          "native_log_sha256": "46739d6476102fb9fb64190cc4386deb95d7ab7b35c740fa4269ee54c0342ef2",
+          "build_log_path": "Runs-management/b3_lznt_linuxfix_20261109/b3_dual/remote_output/grace_diagnostics/install_llama_cuda.log",
+          "build_log_sha256": "56a001d581ba6fe8e1c98a41a6c37b4f89fe5bf75323ec1198249f918fa244a0",
+          "layer_assignments": {
+            "CUDA0": 25,
+            "CUDA1": 24
+          },
+          "compiled_backend_sha256": {
+            "lib/libggml-base.so": "097feca87a5f879007fd7b39d3e594ba816fe965bed4b7a6e03faf957e487263",
+            "lib/libggml-cpu.so": "3e2078c6e4f687a2701e230acefbd4a90d165c2ed34747bbba41fc1145257284",
+            "lib/libggml-cuda.so": "136b7715a6c03bb9c7276c1abaa0b50c2f4997cc0724aab21cc595fb95dbdfd6",
+            "lib/libggml.so": "2ba3b40635c250520c64a2bc8b696fa9f0ab762b2295044d878c9f1c2f249112",
+            "lib/libllama.so": "01dc7f4800a48242baa19c8afa0e0e279b1251b7ac42d66522af9fd029b7b856",
+            "lib/libmtmd.so": "fcc75222e7f34ed0f257d9d75cad4c695c7a4f7657d342a5125da561d30e8c9d",
+            "llama_cpp/lib/libggml-base.so": "097feca87a5f879007fd7b39d3e594ba816fe965bed4b7a6e03faf957e487263",
+            "llama_cpp/lib/libggml-cpu.so": "3e2078c6e4f687a2701e230acefbd4a90d165c2ed34747bbba41fc1145257284",
+            "llama_cpp/lib/libggml-cuda.so": "136b7715a6c03bb9c7276c1abaa0b50c2f4997cc0724aab21cc595fb95dbdfd6",
+            "llama_cpp/lib/libggml.so": "2ba3b40635c250520c64a2bc8b696fa9f0ab762b2295044d878c9f1c2f249112",
+            "llama_cpp/lib/libllama.so": "01dc7f4800a48242baa19c8afa0e0e279b1251b7ac42d66522af9fd029b7b856",
+            "llama_cpp/lib/libmtmd.so": "fcc75222e7f34ed0f257d9d75cad4c695c7a4f7657d342a5125da561d30e8c9d"
+          },
+          "packages": {
+            "huggingface-hub": "0.36.2",
+            "llama-cpp-python": "0.3.16",
+            "numpy": "2.1.3",
+            "scikit-learn": "1.5.2",
+            "scipy": "1.16.3",
+            "tokenizers": "0.22.2",
+            "transformers": "4.57.1"
+          },
+          "constructor": {
+            "embedding": false,
+            "flash_attn": false,
+            "logits_all": true,
+            "main_gpu": 0,
+            "n_batch": 256,
+            "n_ctx": 8192,
+            "n_gpu_layers": -1,
+            "n_ubatch": 256,
+            "offload_kqv": true,
+            "seed": 4294967295,
+            "split_mode": "LLAMA_SPLIT_MODE_LAYER",
+            "tensor_split": null,
+            "use_mlock": false,
+            "use_mmap": true
+          },
+          "cpu_count": 4,
+          "n_threads": 2,
+          "n_threads_batch": 4,
+          "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+          "nvcc": "Cuda compilation tools, release 13.0, V13.0.88",
+          "build_cmake_report": [
+            "*** scikit-build-core 1.1.2 using CMake 4.4.4 (metadata_wheel)",
+            "*** scikit-build-core 1.1.2 using CMake 4.4.4 (wheel)",
+            "-- The C compiler identification is GNU 13.3.0",
+            "-- The CXX compiler identification is GNU 13.3.0",
+            "-- The CUDA compiler identification is NVIDIA 13.0.88 with host compiler GNU 13.3.0"
+          ],
+          "postinstall_cmake": "cmake version 3.31.10",
+          "verdict": "PASS_APPROVED_PLATFORM_BUILD_POLICY"
+        },
+        {
+          "provenance_path": "Runs-management/b3_lznt_resume_retry_20261109/b3-new-dual-resume-v2-retry1/remote_output/b3_new_dual_validation_resume_v2_20261109/reveal/runtime_provenance/seed_42_x65ffo1l/runtime_provenance.json",
+          "records": 560,
+          "provenance_sha256": "23c937e353870715d8e61342d9d21f2997f107508d212bf95a438ead464b7997",
+          "native_log_sha256": "46739d6476102fb9fb64190cc4386deb95d7ab7b35c740fa4269ee54c0342ef2",
+          "build_log_path": "Runs-management/b3_lznt_resume_retry_20261109/b3-new-dual-resume-v2-retry1/remote_output/grace_diagnostics/install_llama_cuda.log",
+          "build_log_sha256": "5bdd8a6e1dcdbb1a5991b3c0218be8863ca78fc714f7b45c79a0d3ecf6454875",
+          "layer_assignments": {
+            "CUDA0": 25,
+            "CUDA1": 24
+          },
+          "compiled_backend_sha256": {
+            "lib/libggml-base.so": "05cd72fa56debfc5b34134656801492b2b6c984aeeee0f320d465469b5016395",
+            "lib/libggml-cpu.so": "995f91b4eef83c4b7b532bb7ffcd1e4cc1df802db87028f99461017a1a3a7e3c",
+            "lib/libggml-cuda.so": "4dacd02f542c3892b2751767aa0938ebb850d613afcbb6cac7016223142b8991",
+            "lib/libggml.so": "5278a6a9a4f16fb3c80015e415287071f0f209d048e13961dd6d9de7e97c08c4",
+            "lib/libllama.so": "3ce94b3cd50e19feaa013bd235a705079949e81c7cf2f326a9bb7c8c571c33b5",
+            "lib/libmtmd.so": "aa57fd72851cd6dbef1bb78373a91a178a2fee4aa91786f2501c435b2e7fa12b",
+            "llama_cpp/lib/libggml-base.so": "05cd72fa56debfc5b34134656801492b2b6c984aeeee0f320d465469b5016395",
+            "llama_cpp/lib/libggml-cpu.so": "995f91b4eef83c4b7b532bb7ffcd1e4cc1df802db87028f99461017a1a3a7e3c",
+            "llama_cpp/lib/libggml-cuda.so": "4dacd02f542c3892b2751767aa0938ebb850d613afcbb6cac7016223142b8991",
+            "llama_cpp/lib/libggml.so": "5278a6a9a4f16fb3c80015e415287071f0f209d048e13961dd6d9de7e97c08c4",
+            "llama_cpp/lib/libllama.so": "3ce94b3cd50e19feaa013bd235a705079949e81c7cf2f326a9bb7c8c571c33b5",
+            "llama_cpp/lib/libmtmd.so": "aa57fd72851cd6dbef1bb78373a91a178a2fee4aa91786f2501c435b2e7fa12b"
+          },
+          "packages": {
+            "huggingface-hub": "0.36.2",
+            "llama-cpp-python": "0.3.16",
+            "numpy": "2.1.3",
+            "scikit-learn": "1.5.2",
+            "scipy": "1.16.3",
+            "tokenizers": "0.22.2",
+            "transformers": "4.57.1"
+          },
+          "constructor": {
+            "embedding": false,
+            "flash_attn": false,
+            "logits_all": true,
+            "main_gpu": 0,
+            "n_batch": 256,
+            "n_ctx": 8192,
+            "n_gpu_layers": -1,
+            "n_ubatch": 256,
+            "offload_kqv": true,
+            "seed": 4294967295,
+            "split_mode": "LLAMA_SPLIT_MODE_LAYER",
+            "tensor_split": null,
+            "use_mlock": false,
+            "use_mmap": true
+          },
+          "cpu_count": 4,
+          "n_threads": 2,
+          "n_threads_batch": 4,
+          "python": "3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]",
+          "nvcc": "Cuda compilation tools, release 13.0, V13.0.88",
+          "build_cmake_report": [
+            "*** scikit-build-core 1.1.2 using CMake 4.4.4 (metadata_wheel)",
+            "*** scikit-build-core 1.1.2 using CMake 4.4.4 (wheel)",
+            "-- The C compiler identification is GNU 13.3.0",
+            "-- The CXX compiler identification is GNU 13.3.0",
+            "-- The CUDA compiler identification is NVIDIA 13.0.88 with host compiler GNU 13.3.0"
+          ],
+          "postinstall_cmake": "cmake version 3.31.10",
+          "verdict": "PASS_APPROVED_PLATFORM_BUILD_POLICY"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Backend library hashes are recorded by the pinned worker; remote binary files were not retained for independent rehashing.",
+    "CMake used inside isolated build is 4.4.4; postinstall cmake probe is 3.31.10. Both are recorded; exact toolchain versions are not pinned by the approved policy.",
+    "This certifies the user-approved Kaggle llama-cpp-python contract, not literal execution with the older llama-server b3920 reference."
+  ]
+}

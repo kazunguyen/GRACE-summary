@@ -1,0 +1,27 @@
+{
+  "source_sha256": {
+    "scripts/b3_dual_runtime_coordinator.py": "9012d816162f6e9cfe79e3c09d05dd248c634e66f4e989b9448e573476e2aa56",
+    "scripts/launch_huuhieu_b1shuf_b3_20261108.py": "5c50b01dcd98214fac94e1f6f54c19a3ecfca60efceeacfc1d1f4c067c46c27c",
+    "tests/test_huuhieu_dual_launch.py": "6bcf5d47381105a92493f78297cc77c5bc0d53240c949784eaea83028a152ffa"
+  },
+  "jobs": {
+    "b1_shuf": {
+      "url": "https://www.kaggle.com/code/huuhieu3333/grace-b1-shuf-resume6416",
+      "version": 1,
+      "notebook_sha256": "f01e0d54772252cbb5fca0b72cf11b6881f51a6b7acb460ec1e0f15a3cf96150",
+      "source_readback": "PASS",
+      "api_status": "KernelWorkerStatus.RUNNING",
+      "observed_at_utc": "2026-11-08T16:58:42.756888+00:00",
+      "native_runtime": "PENDING_OBSERVABLE_LOG"
+    },
+    "b3_dual": {
+      "url": "https://www.kaggle.com/code/huuhieu3333/grace-b3-new-devign-and-reveal-validation",
+      "version": 1,
+      "notebook_sha256": "bbc931126fcd62d36622b90c3d8fea8f52d48f497efbb699326e4f3998249e88",
+      "source_readback": "PASS",
+      "api_status": "KernelWorkerStatus.RUNNING",
+      "observed_at_utc": "2026-11-08T16:58:45.147050+00:00",
+      "native_runtime": "PENDING_OBSERVABLE_LOG"
+    }
+  }
+}

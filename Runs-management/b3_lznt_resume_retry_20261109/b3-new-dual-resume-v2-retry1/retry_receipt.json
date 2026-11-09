@@ -1,0 +1,38 @@
+{
+  "previous_kernel": "lznt123/grace-b3-checkpoint-resume-v2",
+  "previous_status": "KernelWorkerStatus.CANCEL_ACKNOWLEDGED",
+  "new_version_expected": 2,
+  "notebook_sha256": "81efc6112896b312176398013d4b352f7a9316b8e0a0aaa45f514808296203c5",
+  "dataset_sources": [
+    "lznt123/grace-b3-devign-v6-inputs-20261109",
+    "lznt123/grace-b3-reveal-v7-inputs-20261109",
+    "lznt123/grace-b3-new-dual-checkpoints-20261109"
+  ],
+  "checkpoint_dataset_reused": true,
+  "accepted_version": 3,
+  "canonical_ref": "lznt123/grace-b3-checkpoint-resume-v2",
+  "source_readback": {
+    "at_utc": "2026-11-09T09:36:40.245059+00:00",
+    "ref": "lznt123/grace-b3-checkpoint-resume-v2",
+    "requested_ref": "lznt123/grace-b3-checkpoint-resume-v2",
+    "all_cell_sources_match": true,
+    "machine_shape": "NvidiaTeslaT4",
+    "private": true,
+    "gpu_enabled": true,
+    "version": 3,
+    "datasets": [
+      "lznt123/grace-b3-devign-v6-inputs-20261109",
+      "lznt123/grace-b3-new-dual-checkpoints-20261109",
+      "lznt123/grace-b3-reveal-v7-inputs-20261109"
+    ],
+    "kernel_sources": [
+      "lznt123/qwen3coder30b-prepare-notebook"
+    ]
+  },
+  "status": {
+    "at_utc": "2026-11-09T09:36:41.785408+00:00",
+    "ref": "lznt123/grace-b3-checkpoint-resume-v2",
+    "status": "KernelWorkerStatus.RUNNING",
+    "failure_message": ""
+  }
+}
