@@ -1,0 +1,25 @@
+{
+  "input_manifest_sha256": "1f008abc6f0d9928fca6c5684d9b49f508182a733acb12f0d8bbb03d11d3a70c",
+  "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "constructor": {
+    "n_ctx": 8192,
+    "n_batch": 256,
+    "n_ubatch": 256,
+    "n_gpu_layers": -1,
+    "split_mode": "LLAMA_SPLIT_MODE_LAYER",
+    "main_gpu": 0,
+    "tensor_split": null,
+    "seed": 4294967295,
+    "logits_all": true,
+    "flash_attn": false,
+    "offload_kqv": true,
+    "use_mmap": true,
+    "use_mlock": false,
+    "embedding": false
+  },
+  "legacy_records_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "legacy_count": 0,
+  "runtime_lock_scope": "newly inferred records only; imported historical records are byte/value preserved",
+  "method": "frozen B1-shuf prompts; GPU-log guard correction"
+}
