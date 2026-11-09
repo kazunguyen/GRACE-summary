@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-11-09T22:19:20Z",
+  "kernel_id": "lznt123/grace-b3-new-test-20261109-v1",
+  "pushed_version": 5,
+  "status": "RUNNING",
+  "local_notebook_sha256": "2b005a38c5c7778ab7578d88910374c745f58c7a5d7cef0df36d77b99bc78a2f",
+  "remote_notebook_sha256": "0b784def64028318ff9ec1e429a6e3a01d96685e186620497bf8780103aafc45",
+  "whole_notebook_hash_equal": false,
+  "code_cell_count": 5,
+  "all_code_cell_sources_match": true,
+  "recursive_manifest_search_uploaded": true,
+  "code_cell_sha256": [
+    "2df340b4415bf899c6bb01df074d8a90d3817153ae1517d89321a495003746b8",
+    "f3534de654f56662a190222d7d89c9ff5883e15a9e20a5c165327e6a6b42f22f",
+    "7e2a0dcf5afa38ee77a55a84e78e5421e5b14f0b276000488e129f2377fc3d49",
+    "80457d92b1770d850a89853e20e74964c2d145eb27a8586b3206fe32e0dea7a5",
+    "bff4424c9d4d9781a7f8f5572997aa4ae475d50a2aaf13924507800f826180c5"
+  ],
+  "runtime_attestation": "PENDING",
+  "live_output_available": false
+}

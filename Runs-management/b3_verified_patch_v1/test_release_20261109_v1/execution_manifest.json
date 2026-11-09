@@ -2,7 +2,7 @@
   "schema": "grace_b3_test_execution_manifest_v1",
   "account": "lznt123",
   "kernel_id": "lznt123/grace-b3-new-test-20261109-v1",
-  "status": "CANONICAL_VERSION_2_QUEUED_RUNTIME_PENDING",
+  "status": "VERSION_5_RUNNING_PREFLIGHT_PENDING",
   "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
   "files": {
     "grace_runtime_contract.py": {
@@ -27,7 +27,7 @@
     },
     "notebook": {
       "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/kaggle_kernel/notebook.ipynb",
-      "sha256": "161c64ced4a7506030eaa6e025c2f83dbc753a9b0d3af0d8f5fc6d39ca775423"
+      "sha256": "2b005a38c5c7778ab7578d88910374c745f58c7a5d7cef0df36d77b99bc78a2f"
     },
     "kernel_metadata": {
       "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/kaggle_kernel/kernel-metadata.json",
@@ -52,6 +52,30 @@
     "remote_source_v2_metadata": {
       "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v2/kernel-metadata.json",
       "sha256": "296d12c874ee4b494d762fe6277cf56d78fb80aaa9cd9f239c6b959ccc9f0d64"
+    },
+    "remote_source_verification_v4": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/remote_source_verification_v4.json",
+      "sha256": "d8f3dc25af25ce6a2c6c37f85d8585609e9a1568ae9a31b547afee9be7f00950"
+    },
+    "remote_source_v4_notebook": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v4/grace-b3-new-test-20261109-v1.ipynb",
+      "sha256": "d57949dc7648308f09927499d633822f763b2f8b62f6a8076aa5ce3550ae0897"
+    },
+    "remote_source_v4_metadata": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v4/kernel-metadata.json",
+      "sha256": "296d12c874ee4b494d762fe6277cf56d78fb80aaa9cd9f239c6b959ccc9f0d64"
+    },
+    "remote_source_verification_v5": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/remote_source_verification_v5.json",
+      "sha256": "cadf435e65ea5ce922fe193d866c321bfab1cab225fbfa6cadd0d911bc8c6dce"
+    },
+    "remote_source_v5_notebook": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v5/grace-b3-new-test-20261109-v1.ipynb",
+      "sha256": "0b784def64028318ff9ec1e429a6e3a01d96685e186620497bf8780103aafc45"
+    },
+    "remote_source_v5_metadata": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v5/kernel-metadata.json",
+      "sha256": "296d12c874ee4b494d762fe6277cf56d78fb80aaa9cd9f239c6b959ccc9f0d64"
     }
   },
   "remote": {
@@ -60,18 +84,17 @@
     "kernels": [
       {
         "id": "lznt123/grace-b3-new-algorithm-test-devign-and-reveal",
-        "status": "CANCEL_REQUESTED",
-        "same_executable_cells_as_canonical": true
+        "status": "CANCEL_REQUESTED"
       },
       {
         "id": "lznt123/grace-b3-new-test-20261109-v1",
-        "status": "QUEUED",
         "canonical": true,
-        "latest_version": 2
+        "latest_version": 5,
+        "status": "RUNNING"
       }
     ],
     "next_push_error": "Maximum batch GPU session count of 2 reached",
-    "runtime_attestation": "PENDING_NOT_STARTED",
+    "runtime_attestation": "PENDING_LIVE_LOGS_NOT_YET_AVAILABLE",
     "latest_push_error": null,
     "previous_push_error": "Maximum batch GPU session count of 2 reached before version 2 was pushed.",
     "source_readback_v2": {
@@ -79,14 +102,43 @@
       "code_cell_count": 5,
       "whole_notebook_hash_equal": false,
       "reason_whole_notebook_hash_differs": "Kaggle pull normalized notebook metadata and code_file naming; all executable code cell sources match."
+    },
+    "source_readback_v5": {
+      "all_code_cell_sources_match": true,
+      "code_cell_count": 5,
+      "recursive_manifest_search_uploaded": true
     }
   },
-  "status_checked_at_utc": "2026-11-09T16:08:52Z",
+  "status_checked_at_utc": "2026-11-09T22:19:20Z",
   "latest_push": {
-    "version": 2,
+    "version": 5,
     "result": "PUSHED",
-    "kernel_id": "lznt123/grace-b3-new-test-20261109-v1",
-    "status": "QUEUED",
+    "status": "RUNNING",
     "remote_code_cell_readback": "PASS"
+  },
+  "notebook_sha256": "2b005a38c5c7778ab7578d88910374c745f58c7a5d7cef0df36d77b99bc78a2f",
+  "failed_attempts": [
+    {
+      "version": 2,
+      "status": "ERROR",
+      "failure_stage": "notebook preflight In [2]",
+      "error": "Expected one private test release and pinned model dataset",
+      "inference_started": false,
+      "runtime_attestation": "NONE"
+    },
+    {
+      "version": 4,
+      "status": "ERROR",
+      "failure_stage": "notebook preflight In [2]",
+      "error": "Expected exactly one B3 test manifest",
+      "diagnostic": "input_roots were /kaggle/input/datasets and /kaggle/input/notebooks; manifest_candidates was empty because search was only one directory level deep",
+      "inference_started": false,
+      "runtime_attestation": "NONE"
+    }
+  ],
+  "fix_prepared": {
+    "change": "recursively discover the unique test_release_manifest.json under /kaggle/input; use its parent to locate and validate expanded or archived bundle; prefer pinned model path; emit candidates on failure",
+    "runtime_contract_changed": false,
+    "prompt_or_threshold_changed": false
   }
 }
