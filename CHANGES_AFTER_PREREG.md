@@ -274,3 +274,9 @@ Pinned `scipy==1.16.3` for future Kaggle Qwen inference after reviewing post-ins
 - Downloaded the completed Kaggle validation outputs and verified the full census (Devign 2,732; ReVeal 2,273), per-ID/prompt/model/runtime identities, score integrity, runtime provenance and 49/49 GPU layer offload on both T4s.
 - Applied the existing `validation_mcc_grid_v1` rule separately per dataset. Locked Devign tau=0.92 (validation MCC 0.0503599266) and ReVeal tau=0.01 (MCC 0.0804227825); all 99 grid values and self-seal match independent recomputation. These are validation-selected thresholds; no test data was read. Frozen global threshold/preregistration files remain unchanged.
 - Evidence and raw records are curated under `Runs-management/run_handoff_20261109/B3_NODIFF_VALIDATION/`; see `worklogs/2026-11-09_b3_nodiff_validation_thresholds.md`.
+
+## 2026-11-09 — Prepare B3-nodiff test inference using locked validation thresholds
+
+- Prepared all 5,006 frozen test targets (Devign 2,732; ReVeal 2,274) with dataset-specific, dual-reviewed train demonstration pairs and no Key difference text. Test labels are metadata only. Applied the already locked validation thresholds (Devign 0.92; ReVeal 0.01); the test notebook does not fit thresholds.
+- Packaged a sealed Kaggle delivery and runtime-locked test notebook. Input discovery handles Kaggle extracted mounts and nested ZIP extraction; inference logging emits a 60-second heartbeat with checkpoint progress. Separate resumable checkpoints and thresholded test predictions are written.
+- Local integrity checks passed for both inner bundles, all IDs/prompts, runtime and threshold pins, and notebook code-cell compilation. No test inference/GPU session was started. See `worklogs/2026-11-09_b3_nodiff_test_kaggle_delivery.md`.

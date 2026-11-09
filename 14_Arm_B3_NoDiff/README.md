@@ -1,21 +1,43 @@
-# Arm B3-nodiff — Contrastive Demonstration Without Key Difference (Validation & Test)
+# Arm B3-nodiff — validation delivery
 
-Arm chẩn đoán kiểm tra tác động của việc giữ nguyên cặp demonstration tương phản (1 hàm dễ bị tổn thương và 1 hàm an toàn) nhưng **lược bỏ hoàn toàn khối giải thích Key difference**.
+Arm chẩn đoán thuộc họ B3, giữ cặp demonstration contrastive (một hàm vulnerable, một hàm patched) và bỏ hoàn toàn phần giải thích `Key difference`. Arm id `B3-nodiff`; base arm `B3`; seed 42; model Qwen3-Coder-30B-A3B-Instruct GGUF Q4_K_M theo runtime lock.
 
-## 1. Dữ liệu & Cấu hình
-- **Mã định danh arm**: `B3-nodiff` (Base: `B3`, RQ liên quan: `RQ2`).
-- **Khác biệt cốt lõi**: `demo: contrastive, label: true, diff: false, order: normal`.
-- **Phạm vi chạy Validation**: Census toàn bộ tập validation đã chuẩn hóa (Devign: 2.732 target, REVEAL: 2.273 target; tổng cộng 5.005 prompt).
-- **Phạm vi chạy Test**: Census toàn bộ tập test đã chuẩn hóa sau khi khóa ngưỡng $\tau^*$.
-- **Model**: `Qwen/Qwen3-Coder-30B-A3B-Instruct` (GGUF Q4_K_M, SHA-256: `f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335`).
-- **Tokenizer revision**: `b2cff646eb4bb1d68355c01b18ae02e7cf42d120`.
-- **Ngân sách token tối đa**: 8.192 tokens.
+This package is prepared for **validation inference only** (seed 42): Devign 2,732 targets and ReVeal 2,273 targets. It does not contain test prompts.
 
-## 2. Notebook Inference trên Kaggle
-- File notebook: Chạy song song trong batch bundle với B3 tại kernel [`thanhduy9a4tv/grace-b3-validation`](../13_Arm_B3_Contrastive/notebooks/02_kaggle_qwen_q4_b3_validation.ipynb).
-- Bundle đầu vào: Tích hợp trong dataset `thanhduy9a4tv/grace-b3-validation-inputs-v2`.
-- Cấu hình runtime: GPU T4 x2, Internet Enabled, `llama-cpp-python==0.3.16`.
+## Kaggle files
 
-## 3. Đầu ra kiểm định
-- Thư mục đầu ra dự kiến: `output/` (hoặc `runs/final/{devign,reveal}/validation/B3-nodiff/42/`).
-- Artifacts: `records.jsonl`, `run_manifest.json`, `evaluation.json`.
+- Notebook: `notebooks/02_kaggle_qwen_q4_b3_nodiff_validation_runtime_locked_20261109.ipynb`
+- Kaggle Dataset upload: `kaggle_delivery_20261109/grace_b3_nodiff_validation_inputs.zip`
+- Upload the ZIP as one Kaggle Dataset. Kaggle auto-extracts it; the notebook traverses mounted input directories (including symlinks), verifies the sealed delivery manifest and every member hash, and reports discovered paths/rejection reasons if validation fails (it also accepts the original ZIP if present). Attach exactly one `Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf` model input, enable Internet, choose 2x Tesla T4, then run the notebook cells in order.
+
+Runtime lock source is the user-designated `Runs-management/kaggle_outputs_20261107/b2_rand_seed42_test_latest/b2_rand_seed42_test/inference_runtime_lock.json`, SHA-256 `85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6`. The notebook allows up to 10.5 hours from the first cell, with a five-minute checkpoint reserve, and verifies the lock bytes and internal seal; package versions, GGUF hash, tokenizer revision, full constructor, score calculation, device profile, and 49-layer offload are guarded by the contract. It writes package/build/GPU/offload/runner provenance.
+
+## Prompt construction
+
+The input source is `B3_NEW_ALGORITHM_PROMPTS_DEVIGN_REVEAL_20261108.zip`. The transform removes the complete `Key difference` and `Security rationale` explanation block from each B3 prompt. It preserves target code, graph, both examples, answer instruction, labels and IDs. Prompt SHA-256 values are recomputed and sealed. The ZIP retains the pair provenance and both review forms.
+
+- Devign demonstration: `case_08_ffmpeg_can_safely_read_8614_26054`
+- ReVeal demonstration: `case_reveal_curl_alloc_addbyter_16061_17887`
+
+## Outputs
+
+Kaggle Output will contain separate resumable checkpoints:
+
+- `grace_b3_nodiff_devign_validation_checkpoint.zip`
+- `grace_b3_nodiff_reveal_validation_checkpoint.zip`
+- `grace_diagnostics.zip`
+
+After both validation datasets reach full ID coverage, the notebook fits one threshold per dataset using the registered `validation_mcc_grid_v1` MCC grid (0.01–0.99), applies the `score >= threshold` rule and writes a sealed `validation_threshold_lock.json` with score coverage, confusion matrix, accuracy, full MCC grid, and run evidence. Incomplete runs retain checkpoints and skip threshold locking. It never reads test inputs. GPU execution has not yet been performed.
+
+## Test delivery (threshold locked)
+
+- Notebook: `notebooks/03_kaggle_qwen_q4_b3_nodiff_test_runtime_locked_20261109.ipynb`
+- Kaggle Dataset upload: `kaggle_delivery_20261109/grace_b3_nodiff_test_inputs.zip`
+- Scope: Devign test 2,732 and ReVeal test 2,274, seed 42.
+- Upload the ZIP as one Kaggle Dataset. Kaggle may expose only extracted folders; the notebook searches mounted inputs recursively, verifies the sealed delivery manifest and member hashes, and handles recursively extracted nested prompt ZIPs. It also accepts a still-packed nested ZIP. It prints a 60-second heartbeat with record progress during quiet inference periods.
+- Attach exactly one `Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf` model matching SHA-256 `f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335`, enable Internet, select 2x Tesla T4, then run cells in order.
+- Validation thresholds are pinned and applied unchanged: Devign `0.92`, ReVeal `0.01`; the notebook never fits a threshold on test. It writes one checkpoint per dataset and `test_predictions_at_validation_threshold.jsonl` with score, locked threshold, prediction and label for later evaluation.
+- Before loading the model for inference, it tokenizes every test prompt with the exact locked tokenizer and fails early with the offending target if any prompt exceeds the 8,192-token context.
+- Test targets use the frozen 15-arm test code/graph. Demonstrations reuse the corresponding dual-reviewed train pair from validation. Labels remain outside prompt text.
+- Outer bundle SHA-256: `1b8e1e7e45da033a753cf24b4338233b3c99cf59b6aaa8110a17f178c74a0d26`. Runtime contract SHA-256 remains `85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6`; validation threshold lock raw SHA-256 is pinned in the notebook.
+- Local bundle and notebook integrity checks passed; no Kaggle test inference has been launched. See `worklogs/2026-11-09_b3_nodiff_test_kaggle_delivery.md`.
