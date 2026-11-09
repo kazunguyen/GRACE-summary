@@ -239,3 +239,38 @@ Pinned `scipy==1.16.3` for future Kaggle Qwen inference after reviewing post-ins
 - Recomputed descriptive B1-full metrics using existing validation thresholds; no threshold tuning, significance analysis, frozen data/config edits or public history rewrites. Updated RUNS, handoff and worklog. B3 development changes are outside this run-publication commit.
 - Verification:37 required integrity/probe/stats tests passed after placing temporary test files inside the workspace (initial Windows TEMP permission error documented). Runtime verifier handles notebook source list/string serialization by exact resulting cell text without stripping.
 - Evidence:Runs-management/run_handoff_20261108/B1_FULL_RUNTIME_ACCEPTANCE.md, b1_full_runtime_acceptance.json, completion_update_20261108.json; worklogs/2026-11-08_b1_full_completion_runtime_acceptance.md.
+
+
+## 2026-11-09 — Prepare runtime-locked B3-nodiff Kaggle validation
+
+- Prepared a validation-only B3-nodiff notebook and sealed Devign/ReVeal prompt bundles from the user-supplied 2026-11-08 B3 prompt archive. The transform removes the full Key difference/Security rationale block and preserves the reviewed contrastive examples; prompt hashes are recomputed.
+- Used the exact runtime lock designated by the user (SHA-256 `85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6`) and added fail-closed checks for model, packages, tokenizer, constructor, two-T4 profile, full GPU offload, scoring, prompt identity, and provenance.
+- This is operational preparation for the registered B3-nodiff arm. It contains only validation inputs (Devign 2,732; ReVeal 2,273); no test data was read, no thresholds were fitted, and no Kaggle/GPU inference was launched. See `worklogs/2026-11-09_b3_nodiff_validation_kaggle_delivery.md`.
+
+## 2026-11-09 — Fix Kaggle auto-extracted B3-nodiff inputs
+
+- Updated the B3-nodiff validation notebook to accept Kaggle's extracted dataset directory: it locates the sealed `delivery_manifest.json`, verifies delivery scope and every inventoried file hash, and then loads the pinned runtime lock and dataset bundles. The packed-ZIP path remains supported.
+- The first submitted notebook stopped because it required the outer ZIP to exist in `/kaggle/input`; Kaggle had already extracted it. Updated the README and delivery worklog. Inference was not started by this correction.
+
+## 2026-11-09 — B3-nodiff validation threshold locking and runtime budget
+
+- By PI request, increased the validation inference deadline to 10.5 hours from session start, retaining a 300-second reserve for checkpointing. Notebook processing is for validation only.
+- After full Devign (2,732) and ReVeal (2,273) ID coverage and strict ID/label/prompt/model/seed identity checks, the notebook fits separate thresholds using the existing `validation_mcc_grid_v1` protocol (MCC over thresholds 0.01–0.99, score >= threshold, deterministic tie-break). It writes a self-hashed threshold lock with full grid/evidence and validation-at-threshold metrics. If either census is incomplete, it saves checkpoints and does not fit or lock thresholds.
+- No test inputs/metrics are read; no Kaggle/GPU run was launched by this notebook edit. Notebook code-cell compilation succeeded. Worklog: `worklogs/2026-11-09_b3_nodiff_validation_kaggle_delivery.md`.
+
+## 2026-11-09 — Harden Kaggle input mount discovery
+
+- Replaced recursive `Path.rglob` discovery with `os.walk(..., followlinks=True)` for the B3-nodiff upload archive, extracted delivery manifest, model, and optional resume checkpoint. The extracted-manifest path reports candidate paths and rejection reasons instead of suppressing them. This addresses the reported Kaggle run where the Input pane showed extracted files but no verified manifest was found.
+- Static code-cell compilation passed; no Kaggle inference was run. See the B3-nodiff delivery worklog.
+
+## 2026-11-09 — Support Kaggle recursive extraction of nested B3-nodiff ZIPs
+
+- Kaggle's diagnostic showed the outer sealed delivery was present, while its nested Devign/ReVeal ZIP members had been extracted and no longer existed as `.zip` files. The notebook now recognizes only those expected missing ZIP members, verifies all extracted inner bundle files against the sealed root/member inventories, reconstructs transport ZIPs for the existing runner, and records original plus reconstructed bundle hashes in a re-sealed runtime input manifest. Runtime lock, prompt bytes, member hashes, runner source and inference scoring remain pinned.
+- All notebook code cells compile. This correction has not been run on Kaggle/GPU. See the delivery worklog for identity handling and output hashes.
+
+
+## 2026-11-09 — B3-nodiff validation completed and thresholds locked
+
+- Downloaded the completed Kaggle validation outputs and verified the full census (Devign 2,732; ReVeal 2,273), per-ID/prompt/model/runtime identities, score integrity, runtime provenance and 49/49 GPU layer offload on both T4s.
+- Applied the existing `validation_mcc_grid_v1` rule separately per dataset. Locked Devign tau=0.92 (validation MCC 0.0503599266) and ReVeal tau=0.01 (MCC 0.0804227825); all 99 grid values and self-seal match independent recomputation. These are validation-selected thresholds; no test data was read. Frozen global threshold/preregistration files remain unchanged.
+- Evidence and raw records are curated under `Runs-management/run_handoff_20261109/B3_NODIFF_VALIDATION/`; see `worklogs/2026-11-09_b3_nodiff_validation_thresholds.md`.
