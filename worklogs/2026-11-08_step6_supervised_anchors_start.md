@@ -3,7 +3,7 @@ id: "step6-supervised-anchors-start-20261108"
 title: "Bắt đầu triển khai Bước 6: anchor có giám sát và phân tích bổ sung"
 recorded_at: "2026-11-08"
 timezone: "Asia/Bangkok"
-status: "step2_complete_anchor_training_pending"
+status: "step6_offline_analysis_complete_manual_studies_pending"
 ---
 
 # Bắt đầu Bước 6
@@ -17,6 +17,7 @@ Triển khai Bước 6 theo protocol đã đăng ký: huấn luyện SUP-LR, SUP
 - Lock vận hành: [step6_lock.json](../step6_supervised_anchors/step6_lock.json).
 - Commit lock: `e8f3cdc` (`docs:lock-step6-anchor-inputs`), chỉ commit một file lock.
 - Notebook bước 2 (WSL, NPZ adapter không encode lại): [02_export_locked_codet5_cache_to_npz_wsl.ipynb](../step6_supervised_anchors/02_export_locked_codet5_cache_to_npz_wsl.ipynb).
+- Notebook fit anchor (bước 4 theo lock): [04_fit_supervised_anchors_wsl.ipynb](../step6_supervised_anchors/04_fit_supervised_anchors_wsl.ipynb).
 - Protocol tham chiếu: `configs/protocol.yaml`, SHA-256 `273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116`.
 - Freeze dữ liệu: `01_Author_Baseline_Unified/output/research_freeze_20261101/freeze_manifest.json`, SHA-256 `e1d3c6b17c3a0b5c1e05203794d48a33825e0ea00a55deaaef565af25efe0448`.
 - Không sửa preregistration, protocol, threshold lock hay ma trận arm đã đăng ký.
@@ -28,7 +29,7 @@ Triển khai Bước 6 theo protocol đã đăng ký: huấn luyện SUP-LR, SUP
 - Pipeline cache được xác nhận qua `Runs-management/reconcile_donor_prompts.py::CachedEncoder`, retrieval provenance của cả hai dataset và `grace_15arms_prompts_and_clean_specs/validation_active_manifest.json`.
 - Cả sáu manifest/vector hiện có tại `output/local_full/{devign,reveal}/embedding_cache/{train,validation,test}` khớp SHA-256 được ghi trong retrieval provenance. Kiểm trực tiếp ID và SHA-256 của `func.strip()` trên raw freeze đạt 21.854/21.854 + 2.732/2.732 + 2.732/2.732 Devign; 18.187/18.187 + 2.273/2.273 + 2.274/2.274 ReVeal.
 - Cache dùng CodeT5 `Salesforce/codet5-base@02cd2d31bb7c6d0e4d91156167b2de044989c733`, đủ ba split và hoàn tất; không cần encode lại. Runner anchor hiện nhận NPZ (`ids`, `X`), trong khi cache là `vectors.npy` + manifest; chỉ cần adapter có kiểm ID nếu runner đó được dùng.
-- Chưa huấn luyện anchor; chưa tạo `anchor_scores.csv` hay `anchor_summary.json`.
+- Notebook fit anchor đã chạy trên Devign/ReVeal; đã kiểm tra có manifest và `anchor_scores.csv`, `anchor_summary.json` với seed 42/43/44, ngưỡng validation MCC và đúng số dòng từng split.
 - Notebook bước 2 đã chạy trên WSL; đọc lock commit `e8f3cdc`, kiểm tra hash/provenance/ID và xuất đủ sáu NPZ adapter. Kiểm tra độc lập xác nhận NPZ IDs và vector khớp cache nguồn; không có cell lỗi.
 
 ## Lưu ý huấn luyện theo đề cương
@@ -48,9 +49,9 @@ Triển khai Bước 6 theo protocol đã đăng ký: huấn luyện SUP-LR, SUP
 6. Xuất score validation/test và summary kèm provenance/hash.
 7. Khi có B2 score tương thích, chạy các phân tích meta-model và routing còn lại của Bước 6.
 
-## Trạng thái hiện tại
+## Trạng thái trước phân tích offline
 
-Đã tạo thư mục `step6_supervised_anchors/`, ghi lock JSON và bắt đầu worklog. Bước 2 hoàn tất: sáu cache CodeT5 dùng cho retrieval prompt cuối được tái sử dụng nguyên trạng và xuất NPZ adapters có ID. Chưa bắt đầu fit anchor.
+Đã tạo thư mục `step6_supervised_anchors/`, ghi lock JSON; bước 2 xuất đủ sáu NPZ adapters từ cache CodeT5 đã khóa; bước 4 fit ba anchor cho hai dataset và ba seed đã hoàn tất.
 
 ## Artifact tham chiếu
 
@@ -74,6 +75,27 @@ Triển khai Bước 6 theo protocol đã đăng ký: huấn luyện SUP-LR, SUP
 - Báo cáo provenance/hash: `STEP6_supervised_anchors/cache/anchor_npz/adapter_manifest.json`, SHA-256 `898ede843e4e8ff33ea7a2f55cdb4da27a3e3bb0dfcfda2697b83ebddb596de9`.
 - Không gọi CodeT5 hoặc LLM; chưa fit anchor. Sáu NPZ là artifact cục bộ và không được commit vì kích thước lớn; notebook và manifest nhỏ được commit để tái lập/kiểm toán.
 
+## Xuất đầu vào H3-B cho Step 6 — 2026-11-09
+
+- Rà repo `GRACE-H3-BenchmarkEnsemble`: có source `grace_h3v2` và artifact base/view cũ, nhưng chưa có cặp `xpre_<split>.npz` (34 cột + IDs) và `gate_<split>.csv` đúng giao diện đề cương cho validation/test.
+- Audit manifest cũ cho thấy số dòng train khớp nhưng định danh/code hash không đủ khớp bản freeze: Devign cùng ID nhưng 20.413/21.854 code hash khác; ReVeal dùng hệ ID khác. Không tái sử dụng các output cũ cho phân tích Step 6.
+- Thêm [export_locked_h3b.py](../step6_supervised_anchors/src/export_locked_h3b.py) và [05_export_locked_h3b_features_wsl.ipynb](../step6_supervised_anchors/05_export_locked_h3b_features_wsl.ipynb). Notebook dùng trực tiếp `grace_h3v2.features`, `grace_h3v2.common`, `grace_h3v2.meta.pre_features` từ repo H3-B gốc, nhưng nạp raw split, row manifest và CodeT5 NPZ theo Step 6 lock.
+- Script tái hiện base-view nested OOF của H3-B trên train, chọn arm/ngưỡng gate chỉ từ train OOF, fit view cuối trên train eligible, rồi xuất `X` 34 đặc trưng + `ids` và `id,y,p_gate` cho validation/test. Có cache theo fit và checkpoint outer-fold để resume; ghi source hashes và input hashes vào manifest.
+- Donor bank chốt được kiểm SHA và ghi vào provenance; theo lock/đề cương, bank này chỉ dùng truy hồi demo cho arm LLM, không dùng để fit classifier H3-B. H3-B fit trên full official train split với quy tắc eligible của source gốc.
+- Notebook đã chạy hoàn tất, không có cell lỗi. Đầu ra validation/test của hai dataset nằm dưới `STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/`; campaign manifest ràng buộc với lock hiện hành và ghi hash các artifact.
+
 ## Bước tiếp theo
 
-Chạy anchor fitting riêng cho Devign và ReVeal bằng các NPZ này, raw frozen cùng dataset, ba seed 42/43/44. SUP-LR/SUP-MLP dùng `X`; SUP-METRIC được tính từ `func` bởi runner. Fit trên train, chọn ngưỡng MCC trên validation; không dùng nhãn test để fit/chọn. Kết quả cần tạo `anchor_scores.csv` và `anchor_summary.json` cho mỗi dataset trước khi ghép với B2.
+H3-B đã được chạy và xuất đủ file cho validation/test. B2 run chính, score SUP-LR seed 42, lock và protocol đều sẵn có. Sau đó notebook phân tích offline đã được chạy hoàn tất.
+
+## Notebook phân tích offline Step 6 — 2026-11-09
+
+- Thêm `src/step6_complementarity.py` và `06_run_step6_complementarity_wsl.ipynb`. Script dùng B2 run chính seed 42 đã có, H3-B 34 đặc trưng và p_gate đã khóa, cùng SUP-LR seed 42; không gọi LLM, không fit lại các anchors hay gate.
+- Trước phân tích, script kiểm tra SHA của lock/protocol/CodeT5 adapter, raw split và row manifest; kiểm tra H3-B export manifest/hash; kiểm tra anchor score hash; đối chiếu chính xác coverage ID và nhãn cho B2, H3-B, SUP-LR với frozen split.
+- Phân tích P_pre/P_post dùng cùng 3 fold StratifiedGroupKFold, cùng ngưỡng validation OOF cho từng meta-model và paired cluster bootstrap 5.000 lượt. Repair/harm theo lớp, expert tham chiếu và routing 5%/10%/25% được báo cho H3-B gate (phân tích chính) và SUP-LR (bổ sung); τ gate lấy từ train OOF, τ SUP-LR lấy từ validation. Test không dùng để fit/chọn ngưỡng.
+- Ghi bảng ghép theo split, kết quả theo dataset và manifest có provenance/hash dưới `runs/complementarity_step6/step6_lock_<lock-hash>_<run-fingerprint>/`.
+- Notebook `06_run_step6_complementarity_wsl.ipynb` đã chạy hoàn tất trên WSL, ba code cell đã thực thi và không có cell lỗi. Kết quả nằm tại `STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_bba04c65/`.
+- Manifest `analysis_manifest.json` SHA-256 `69a6c080fd88aed683ba2823eb32d5649ac12949847eb3725febcbe19c4b3793`; ràng buộc lock SHA-256 `64fb2c99d9044548aaa07e949f1cd710580ff1b11571fdb833ddc18a56f80575` và protocol SHA-256 `273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116`. SHA của script khớp giá trị ghi trong manifest; cả sáu output hash được ghi nhận đều khớp file hiện có.
+- Join xác nhận đúng ID/nhãn và coverage: Devign validation/test 2.732/2.732; ReVeal validation/test 2.273/2.274. Đã sinh kết quả riêng cho hai dataset, gồm P_pre/P_post, repair/harm, expert tham chiếu và routing.
+- Bước 6 hoàn tất phần chạy anchors và phân tích offline. Các hạng mục chấm relevance demo, packet 60 ca, kiểm toán nhãn, audit prompt thủ công và thống kê/bảng tổng hợp cuối vẫn là việc tiếp theo của nghiên cứu; không gộp chúng vào kết luận hoàn tất Bước 6.
+- Code, notebook và worklog được đưa vào commit. NPZ embedding và các run output cục bộ vẫn theo quy ước không commit dữ liệu trong `cache/`/`runs/`; manifest/hash trong worklog cho phép xác định chính xác run đã nghiệm thu.
