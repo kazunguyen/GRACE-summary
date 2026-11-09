@@ -1,0 +1,63 @@
+{
+  "zip_sha256": "76a49a770897b7d0832ee87aa7d7e308ebbca57fdd7aaaf02f0f07f2400f156c",
+  "zip_contracts": {
+    "02_kaggle_qwen_q4_b1_full_validation_runtime_locked.ipynb": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+    "02_kaggle_qwen_q4_b1_shuf_validation_runtime_locked.ipynb": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+    "02_kaggle_qwen_q4_b2_labelonly_validation_runtime_locked.ipynb": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+    "02_kaggle_qwen_q4_b2_nolabel_validation_runtime_locked.ipynb": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+    "02_kaggle_qwen_q4_b2_rep_validation_runtime_locked.ipynb": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+  },
+  "b1_contract_byte_identical": true,
+  "b1_helper_byte_identical": false,
+  "b3_operational_fields_equal": {
+    "constructor": true,
+    "model": true,
+    "tokenizer": true,
+    "backend_source": true,
+    "gpu": true,
+    "build": true,
+    "scoring": true,
+    "decoding": true
+  },
+  "b3_extra_packages": {
+    "scipy": "1.16.3"
+  },
+  "shared_packages_equal": true,
+  "b1_scipy_pin_and_assert_present": true,
+  "server_readback": {
+    "b1_shuf": {
+      "at_utc": "2026-11-08T16:53:09.586937+00:00",
+      "ref": "huuhieu3333/grace-b1-shuf-resume6416",
+      "requested_ref": "huuhieu3333/grace-b1-shuf-resume-6416-20261108",
+      "all_cell_sources_match": true,
+      "machine_shape": "NvidiaTeslaT4",
+      "private": true,
+      "gpu_enabled": true,
+      "version": 1,
+      "datasets": [
+        "huuhieu3333/grace-b1-shuf-checkpoint-6416-20261108"
+      ],
+      "kernel_sources": [
+        "huuhieu3333/qwen3coder30b-prepare-notebook"
+      ]
+    },
+    "b3_dual": {
+      "at_utc": "2026-11-08T16:53:35.027535+00:00",
+      "ref": "huuhieu3333/grace-b3-new-devign-and-reveal-validation",
+      "requested_ref": "huuhieu3333/grace-b3-new-dual-validation-20261108",
+      "all_cell_sources_match": true,
+      "machine_shape": "NvidiaTeslaT4",
+      "private": true,
+      "gpu_enabled": true,
+      "version": 1,
+      "datasets": [
+        "huuhieu3333/grace-b3-v6-devign-inputs",
+        "huuhieu3333/grace-b3-v7-reveal-inputs"
+      ],
+      "kernel_sources": [
+        "huuhieu3333/qwen3coder30b-prepare-notebook"
+      ]
+    }
+  },
+  "native_runtime_observation": "PENDING_LIVE_OUTPUT_UNAVAILABLE"
+}

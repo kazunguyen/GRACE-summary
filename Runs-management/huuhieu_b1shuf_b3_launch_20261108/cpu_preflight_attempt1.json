@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "-m",
+    "pytest",
+    "tests/test_huuhieu_dual_launch.py",
+    "tests/test_b3_delivery_v6.py",
+    "tests/test_b3_reveal_delivery_v7.py",
+    "-q",
+    "--basetemp=Runs-management\\huuhieu_b1shuf_b3_launch_20261108\\test_tmp"
+  ],
+  "returncode": 1,
+  "verdict": "FAIL",
+  "native_gpu": "NOT_EVALUATED"
+}

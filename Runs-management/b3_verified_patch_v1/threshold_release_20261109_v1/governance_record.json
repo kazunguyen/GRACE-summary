@@ -1,0 +1,17 @@
+{
+  "schema": "grace_b3_threshold_authority_record_v1",
+  "recorded_at_utc": "2026-11-09T12:50:23.611109+00:00",
+  "authority_source": "Direct user instruction in the current Codex conversation",
+  "verbatim_instruction": "vậy thực hiện nốt các yêu cầu để chốt threshold đi, check kỹ runtime xem đã đúng cả chưa nhé",
+  "scope": "Finalize the separate thresholds for completed Devign and REVEAL B3-new seed42 validation, following full-grid review and runtime audit.",
+  "technical_review": "Codex reran both full grids and optimizer comparison, identity/coverage and every score-referenced runtime session.",
+  "human_signatures_created": false,
+  "new_pair_reviews_claimed": false,
+  "osf_amendment_or_preregistration_change_claimed": false,
+  "historical_roots_preserved": true,
+  "classification": "AMENDED_EXPLORATORY_SUBPROTOCOL",
+  "frozen_thresholds_before_and_after": {
+    "configs/thresholds.json": "aff315e0ae56f85b1da4c9f18e31420fc5d23fb0b89579693a0c9f0a53c3b331",
+    "configs/thresholds_flat.json": "dc48fca490f30d030a3c8f6b426387dcd3d3fe135984bb121984993a06146ae5"
+  }
+}

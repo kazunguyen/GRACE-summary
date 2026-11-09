@@ -1,0 +1,37 @@
+{
+  "status": "CANDIDATES_COMPUTED_NOT_LOCKED",
+  "arm": "B3",
+  "method_id": "b3-verified-patch-v1",
+  "seed": 42,
+  "candidate_thresholds": {
+    "devign": {
+      "tau_star_candidate": 0.99,
+      "validation_mcc": 0.0501474890867987,
+      "tp": 491,
+      "tn": 982,
+      "fp": 563,
+      "fn": 696,
+      "tie_thresholds_within_1e-9": [
+        0.99
+      ]
+    },
+    "reveal": {
+      "tau_star_candidate": 0.01,
+      "validation_mcc": 0.06487856711606896,
+      "tp": 189,
+      "tn": 383,
+      "fp": 1680,
+      "fn": 21,
+      "tie_thresholds_within_1e-9": [
+        0.01
+      ]
+    }
+  },
+  "candidate_files": {
+    "devign": "acbd1de35e6c8e3a5271c3e5f386273aa50e3e79bd565c35e32c5c3f704426e3",
+    "reveal": "a4ccea1df935553c9ac770a1686d44d5380dd3534a8166c38fe32fc162ac9816"
+  },
+  "frozen_threshold_files_modified": false,
+  "test_data_read": false,
+  "reason_not_sealed": "Plan Step 12 requires PI/governance review and authority confirmation before sealing the separate test lock."
+}

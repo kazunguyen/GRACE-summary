@@ -1,0 +1,8 @@
+# B3 resume delivery failure and v2 recovery
+
+- Date: 2026-11-09, latest status at 16:15 Asia/Saigon (09:15 UTC).
+- Resume v1 (`lznt123/grace-b3-new-algorithm-checkpoint-resume`) failed at checkpoint discovery: Kaggle expanded the nested checkpoint ZIPs into member directories, while v1 searched only for the original `.zip` filenames. Failure occurred before package installation, model load or inference; no records were created. Original validated checkpoints remain intact.
+- v2 now accepts either the exact archive SHA or Kaggle-unpacked member directories. It externally pins the complete member-name/SHA inventory and checkpoint archive SHA, then checks checkpoint run identity against each independently sealed input root before `restore_checkpoint`. This preserves fail-closed behavior.
+- Before release, both checkpoints were restored and validated locally: Devign 2,732/2,732; REVEAL 1,713/2,273, 560 remaining. Scientific inputs, prompts, worker/scoring/model code, and seven-package runtime contract SHA `4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e` are unchanged.
+- Kaggle v2 kernel: https://www.kaggle.com/code/lznt123/grace-b3-checkpoint-resume-v2, version1. Remote readback: exact cell source match, PRIVATE, GPU enabled, NvidiaTeslaT4, intended three datasets. Latest API status is `QUEUED` (2026-11-09T09:15:38Z); execution has not yet started, so no native runtime claim is made.
+- Evidence: `Runs-management/b3_lznt_resume_20261109/b3-new-dual-resume-20261109/` (v1 failure) and `Runs-management/b3_lznt_resume_v2_20261109/b3-new-dual-resume-v2-20261109/` (v2 delivery/status).

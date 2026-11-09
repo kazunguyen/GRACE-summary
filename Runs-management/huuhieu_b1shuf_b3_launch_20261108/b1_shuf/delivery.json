@@ -1,0 +1,14 @@
+{
+  "resume_count": 6416,
+  "remaining": 8602,
+  "checkpoint_sha256": "f69ddb1bf1f06a96ad04391d032d6f3be95b7fab35bd926ef851cb2028715b19",
+  "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "worker_sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+  "supplemental_scipy_pin": "1.16.3: observed in both parent session pip_freeze; historical contract identity retained",
+  "owner": "huuhieu3333",
+  "ref": "huuhieu3333/grace-b1-shuf-resume-6416-20261108",
+  "notebook_sha256": "f01e0d54772252cbb5fca0b72cf11b6881f51a6b7acb460ec1e0f15a3cf96150",
+  "quota_policy": "User explicitly authorized launch without client quota veto; server limits still apply",
+  "requested_machine_shape": "NvidiaTeslaT4",
+  "requested_session_timeout_seconds": 32400
+}

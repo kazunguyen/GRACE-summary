@@ -455,3 +455,65 @@ The first huuhieu3333 resume version failed before inference because Kaggle moun
 - Created separate REVEAL input/delivery `release_20261108_v7_reveal` using the same amended method/runtime as Devign v6. Three actual-bundle/notebook integration tests passed; prior suites reused only where source bytes match. Both input releases remain independently pinned and preserve frozen data/arms/thresholds.
 - Uploaded reviewed REVEAL bundle to PRIVATE `huuhieu3333/grace-b3-v7-reveal-inputs`; server ready/private confirmed. No kernel/GPU launch or account migration. Quota/native acceptance remain pending; no new validation score, threshold or test result claimed.
 - Evidence and exact two-release mapping: `v7_reveal_acceptance_20261108/DUAL_DATASET_READINESS.md` and `experiment_index.json`. This is an amended/exploratory operational/source-admission progression, not a rewrite of OSF history or a retrospective certification of historical B3.
+
+## 2026-11-08 — Authorized same-account launch: B1-shuf6416 and new B3 dual validation
+
+- User explicitly authorized both jobs on huuhieu3333 without remaining-quota client veto. API accepted9h T4 requests; no quota bypass, account migration, CPU/model fallback or protected-asset change was performed.
+- B1-shuf resumes the verified6416-record checkpoint with identical worker/input/model/tokenizer/threshold/launch-contract identity, retaining parent records. Added SciPy1.16.3 installation/assertion matching both parent pip_freeze observations; original6-package contract and historical certification scope remain unchanged. Private checkpoint dataset is newly versioned, not overwritten.
+- B3 uses the same reviewed Devign v6/REVEAL v7 workers/runtime helpers/input pins under a new notebook coordinator: fixed Devign→REVEAL order, one active child, native gates before score,60s verified atomic checkpoint snapshots. Incomplete/failed first dataset blocks the next. No threshold fit, test or additional GPU arm.
+-17 preflight tests passed on actual checkpoint/inputs/restore paths and orchestration fixtures. Both server source readbacks exact, private/GPU enabled, NvidiaTeslaT4 shape and correct dataset/model sources. Actual server slugs were derived from title; receipts are canonical and no duplicate launch was used to rename them.
+- API RUNNING for both after startup; live log/output endpoint currently empty. Native runtime PASS and incremental record counts remain pending observable evidence; do not infer them from API RUNNING. Detailed launch receipts/source/limits: `Runs-management/huuhieu_b1shuf_b3_launch_20261108/STATUS.md`.
+
+## 2026-11-09 — New B3 Linux member-directory fix and authorized LZ migration
+
+- HU B3 failed during prepare before build/model/score: the recompressed ZIP hash differed. Exact comparison of every member confirmed identical payload bytes; ZipInfo.create_system changed Windows0→Linux3. This exposed a cross-platform delivery preflight gap; original failure/log/source retained,0 records affected.
+- Replaced recompression identity with a directory validated against the complete independently pinned member inventory. Original packed ZIP hash still enforced when supplied as packed transport. Worker change is metadata-only: source-archive identity plus transport mode; numerical/model/tokenizer/scoring functions are AST-identical. Method/pool/selector/prompts remain `b3-verified-patch-v1`, not historical B3.
+- New execution roots retain source input release/parent hashes and separate source-generation Git metadata from execution revision/source hashes. Old data releases v6/v7/frozen bank/specs/thresholds remain unchanged;0 failed-parent scores to migrate.
+-24 targeted tests passed, including the actual failed Kaggle archive, transport/member tamper rejection and existing checkpoint/scoring/review guards. Final revision tested again after execution provenance metadata was completed; no native GPU PASS claimed from these CPU tests.
+- User explicitly requested transfer to lznt123. Created two PRIVATE ready LZ datasets, checked model-source version2 accessibility, and launched `lznt123/grace-b3-new-dual-linuxfix-20261109` version1 at06:25:29 GMT+7. Server source readback exact, PRIVATE/GPU/T4 shape/correct LZ sources. Parent HU B3 terminal ERROR; B1-shuf not altered.
+- Native certification remains pending actual model-load/provenance/native/build/scoring evidence; can be evaluated before full census if artifacts are obtainable. API RUNNING alone is not certification. Report: `Runs-management/b3_lznt_linuxfix_20261109/STATUS.md`.
+
+## 2026-11-09 ? Resume B3 verified-patch validation from sealed checkpoints (operational)
+
+- Previous LZ run exited at its planned runtime boundary: Devign 2,732/2,732; REVEAL 1,713/2,273. Kaggle worker status was terminal, while the internal dual ledger correctly remained `checkpointed`. No threshold fitting or test inference occurred.
+- Both dataset checkpoint archives were restored against the original sealed roots and revalidated for archive/member hashes, run identity, record IDs/scores, prompt/input identity, and referenced native provenance. Devign checkpoint SHA-256 `21e1832c31298e2a20be61901f12170f2ce592e958f4edfb0f311134676d7552`; REVEAL checkpoint SHA-256 `8069d2051386f0dd3b110b58d4b63cae0b611aa430ca795306e8ed08c6e2d4a5`.
+- Created PRIVATE ready checkpoint dataset `lznt123/grace-b3-new-dual-checkpoints-20261109`; resumed in fixed Devign -> REVEAL order using unchanged original roots, prompt bundles, worker/scoring code, model identity and seven-package runtime contract.
+- Launched `lznt123/grace-b3-new-algorithm-checkpoint-resume` v1 at 2026-11-09 15:49 Asia/Saigon. Kaggle readback matched all notebook cells and confirmed private GPU/T4 and the three intended datasets. Initial status RUNNING, no failure message. Native runtime certification for this session awaits its own provenance/log/record evidence. Evidence: `Runs-management/b3_lznt_resume_20261109/` and `worklogs/2026-11-09_b3_checkpoint_resume_lznt.md`. No frozen preregistration artifact/config/data/threshold was changed.
+
+## 2026-11-09 ? B3 checkpoint resume failure and v2 recovery (operational)
+
+- B3 resume v1 failed before package installation/model load because Kaggle exposed uploaded checkpoint ZIPs as unpacked directories. Exact exception: `Need exactly one verified checkpoint archive for devign`. No resumed records were written; the parent 2,732 Devign + 1,713 REVEAL records remain intact.
+- Prepared v2 to handle either packed ZIPs or Kaggle-unpacked directories. Both forms must match the externally pinned checkpoint archive hash/member inventory and original sealed run identity before restore; no relaxed integrity gate.
+- Independently revalidated checkpoint counts (Devign 2,732/2,732; REVEAL 1,713/2,273, 560 remaining). Reused the same private checkpoint dataset and original sealed inputs; worker, prompt selection, scoring, model and seven-package runtime contract were not changed.
+- Launched `lznt123/grace-b3-checkpoint-resume-v2` version1. Kaggle source readback is exact; PRIVATE/GPU/T4 and dataset sources match. Status at 2026-11-09T09:15:38Z is QUEUED; no inference or native runtime evidence yet for v2. See `Runs-management/b3_lznt_resume_v2_20261109/` and `worklogs/2026-11-09_b3_resume_failure_recovery.md`.
+
+## 2026-11-09 ? B3 resume reissued after queue cancellation; RUNNING (operational)
+
+- The corrected v2 queued session returned `CANCEL_ACKNOWLEDGED`. Reissued the identical corrected notebook against Kaggle's canonical slug; API accepted kernel version3. No new checkpoint/dataset or scientific source change.
+- At 2026-11-09T09:36:41Z, status is `RUNNING` with no failure message. Remote readback confirms exact notebook source, PRIVATE/GPU/T4, and intended datasets.
+- Still-resumed counts: Devign2,732/2,732; REVEAL1,713/2,273, 560 pending. Runtime contract and checkpoint/member pins unchanged. Native runtime evidence for the newly running session remains pending. See `Runs-management/b3_lznt_resume_retry_20261109/` and `worklogs/2026-11-09_b3_resume_retry_running.md`.
+
+## 2026-11-09 ? B3 verified-patch validation census completed (operational)
+
+- Kernel `lznt123/grace-b3-checkpoint-resume-v2` v3 completed. Devign validation seed42 2,732/2,732; REVEAL validation seed42 2,273/2,273; total 5,005/5,005. Both scores/responses are valid across their full censuses.
+- Independently checked sealed input/run identity, records, scores and provenance. Referenced runtime sessions pass the seven-package lock, native two-T4/49-of-49 offload and build-log SHA comparisons. Runtime contract SHA-256 `4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e`.
+- Raw-score AUROC: Devign0.5304264374; REVEAL0.5418507490. New validation-derived thresholds have not yet been recalculated/locked. No test inference or frozen configuration changes occurred. Evidence: `Runs-management/b3_lznt_resume_retry_20261109/b3-new-dual-resume-v2-retry1/execution_audit.json`, `STATUS.md`, `worklogs/2026-11-09_b3_validation_completed.md`.
+
+## 2026-11-09 ? B3 validation/runtime accepted; threshold candidates computed (not locked)
+
+- Full B3 verified-patch validation census accepted: Devign2,732/2,732; REVEAL2,273/2,273. Record/input/run identity and scoring checks PASS; runtime evidence referenced by records matches the 7-package contract, native two-T4/49-of-49 logs and provenance/build hashes.
+- Recomputed thresholds from raw validation records only: Devign `tau*=0.99` (MCC0.0501474890867987; TP491/TN982/FP563/FN696); REVEAL `tau*=0.01` (MCC0.06487856711606896; TP189/TN383/FP1680/FN21). Full 99-point independent sweep agrees with `validation_lock.py` for both datasets.
+- Candidates are prepared but not sealed. Execution-plan Step12 requires PI/governance review and confirmation of authority to apply thresholds to amended B3 scope; the roots do not claim a new scope-ratification timestamp. No test data read/inference; frozen threshold files unchanged. Evidence: `Runs-management/b3_lznt_resume_retry_20261109/b3-new-dual-resume-v2-retry1/threshold_candidates_20261109/` and `worklogs/2026-11-09_b3_threshold_candidates_audit.md`.
+
+## 2026-11-09 — Separate B3-new thresholds sealed after direct user authorization
+
+- User explicitly requested completion of threshold locking and detailed runtime review. The actual instruction and record creation timestamp are preserved in `Runs-management/b3_verified_patch_v1/threshold_release_20261109_v1/governance_record.json`; no human signature, historical scope timestamp or OSF update is claimed.
+- Reread the complete fresh B3 validation census (Devign2732; REVEAL2273), identity and score evidence. Recomputed all99 MCC grid points and independently checked the optimizer. Sealed Devign tau0.99 and REVEAL tau0.01 separately, classified AMENDED_EXPLORATORY_SUBPROTOCOL; no frozen preregistration threshold was changed.
+- Compared embedded contracts from all5 notebooks in the original runtime ZIP. Core model/tokenizer/backend/constructor/GPU/thread/build/scoring/resume policies match; current package contract adds scipy1.16.3. Every score-referenced session passes package/constructor/native/build-log checks: 2T4, CUDA0:25/CUDA1:24,49/49,ctx8192,batch/ubatch256. Retain documented platform-build limits: binaries need not be identical; isolated-build CMake4.4.4 differs from postinstall probe3.31.10. This is the approved llama-cpp-python runtime, not a claim of literal llama-server b3920 execution.
+- Added a separate hash/seal/identity-verifying threshold loader. All10 focused readback/corruption/identity rejection checks PASS; release inventory/source hash readback PASS. No test input/score analysis or new GPU launch. Test bundle and evaluator/notebook integration remain the next step. Report: `Runs-management/b3_verified_patch_v1/THRESHOLD_LOCK_ACCEPTANCE_20261109.md`.
+
+## 2026-11-09 — Publish accepted B3 validation and synchronize GitHub
+
+- User requested worklogs/docs/newly accepted results publication and GitHub synchronization. Fetched origin and fast-forwarded hieu40d49d4 to origin/baseline-unified daa1a25 (PR25); no conflicts. Protected preregistration branch/tag and thresholds remain untouched.
+- Publication includes final B3-new raw validation records, threshold releases/full grids, notebook/root/source readback and native/build/provenance evidence. Added a summary explicitly evaluated at locked thresholds; worker evaluation snapshots retain their original default-threshold metrics. Prompt/checkpoint ZIPs and backend archive remain local.
+- Required preregistration/probe/statistics checks plus published transport/dual-launch regression checks:48 passed. Initial sandbox system-temp permission errors were resolved with a fresh workspace basetemp; no checks were skipped. Selected files scanned for credential patterns and oversized artifacts. Publication receipts: `Runs-management/publication_20261109_b3_thresholds/`.

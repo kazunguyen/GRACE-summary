@@ -1,0 +1,10 @@
+{
+  "at_utc": "2026-11-09T09:14:00.580280+00:00",
+  "ref": "/code/lznt123/grace-b3-checkpoint-resume-v2",
+  "url": "https://www.kaggle.com/code/lznt123/grace-b3-checkpoint-resume-v2",
+  "version": 1,
+  "error": "",
+  "invalid_dataset_sources": [],
+  "invalid_kernel_sources": [],
+  "machine_shape_requested": "NvidiaTeslaT4"
+}
