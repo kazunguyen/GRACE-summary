@@ -539,3 +539,11 @@ The first huuhieu3333 resume version failed before inference because Kaggle moun
 - User requested worklogs/docs/newly accepted results publication and GitHub synchronization. Fetched origin and fast-forwarded hieu40d49d4 to origin/baseline-unified daa1a25 (PR25); no conflicts. Protected preregistration branch/tag and thresholds remain untouched.
 - Publication includes final B3-new raw validation records, threshold releases/full grids, notebook/root/source readback and native/build/provenance evidence. Added a summary explicitly evaluated at locked thresholds; worker evaluation snapshots retain their original default-threshold metrics. Prompt/checkpoint ZIPs and backend archive remain local.
 - Required preregistration/probe/statistics checks plus published transport/dual-launch regression checks:48 passed. Initial sandbox system-temp permission errors were resolved with a fresh workspace basetemp; no checks were skipped. Selected files scanned for credential patterns and oversized artifacts. Publication receipts: `Runs-management/publication_20261109_b3_thresholds/`.
+
+
+## 2026-11-10 ? B3 test worker input-path correction (amended operational delivery)
+
+- Retrieved canonical Kaggle v5 output. Manifest, package, threshold, model-hash preflight passed; two Tesla T4 devices were visible. Worker launch then failed before inference because notebook cell `In [5]` referenced undefined `INPUT_DIR` while preflight only set `INPUT_SOURCE`. Zero test records; no worker model-load/offload or runtime provenance acceptance.
+- Prepared a local v6 notebook correction: bind `INPUT_DIR` to the validated expanded bundle; if only the pinned archive is mounted, safely materialize verified members and revalidate the complete inventory. Manifest discovery uses the exact pinned dataset mount with a symlink-following fallback. Runtime/model/worker/prompt/pool/threshold pins remain unchanged.
+- This is an amended operational software fix for the separate verified-patch B3 test delivery; it does not modify OSF registration, frozen configs, thresholds, or historical results. Remote push/readback and new-run runtime acceptance remain pending.
+- Evidence: `Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/failure_diagnosis_20261110.md` and `live_output_v5/`.

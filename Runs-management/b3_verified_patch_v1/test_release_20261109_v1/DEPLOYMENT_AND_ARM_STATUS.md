@@ -1,28 +1,25 @@
-# B3 test deployment and other arm status
+# B3 test deployment and arm status
 
-Checked 2026-11-09 22:19 UTC (2026-11-10 05:19 Asia/Saigon). Kaggle status and output requests returned normally.
+Checked 2026-11-10 00:16 UTC (07:16 Asia/Saigon). Kaggle status/output checked with the lznt123 account config.
 
 ## B3 new-algorithm test on lznt123
 
-- The private input dataset `lznt123/grace-b3-test-release-20261109-v1` is intact: remote readback confirms the sealed manifest and all seven member hashes; target labels are absent from the Kaggle input.
-- Canonical kernel version 5 has been pushed. Remote readback confirms all five code-cell sources match the fixed local notebook, including recursive manifest discovery. Kaggle reports `RUNNING`.
-- Version 4 stopped in preflight before package installation, model load, GPU/offload attestation, or inference. No test records exist and no test sample was processed. The earlier version 2 also stopped at the combined preflight guard.
-- Version 5 fixes the mount discovery. The current live output endpoint has not exposed logs while the run is active, so successful preflight, GPU/runtime attestation, and inference are not yet confirmed. Runtime lock, model, worker, prompts, pools, and validation-fitted thresholds are unchanged.
-- The earlier title-derived duplicate `lznt123/grace-b3-new-algorithm-test-devign-and-reveal` remains `CANCEL_REQUESTED`; cancellation is not confirmed. Runtime attestation for B3 test is pending; current output logs are not yet available.
+- Private release `lznt123/grace-b3-test-release-20261109-v1`: sealed manifest and seven input-member hashes verified; test labels remain outside Kaggle input.
+- Canonical kernel `lznt123/grace-b3-new-test-20261109-v1`, v6: Kaggle reports `RUNNING`; source readback confirms all 5 executable code cells match local.
+- Latest output request returned no files. Therefore no v6 worker progress, model load, 49/49 offload, runtime provenance, or inference records are currently observable. Do not treat RUNNING/readback as runtime acceptance.
+- v5 passed preflight and environment checks but failed at worker launch with `NameError: INPUT_DIR`; worker did not start and wrote zero records. v6 repairs this binding for expanded and archive-only mounts. Versions 2 and 4 failed earlier in preflight.
+- Duplicate kernel `lznt123/grace-b3-new-algorithm-test-devign-and-reveal` remains `CANCEL_REQUESTED`; cancellation is not confirmed.
 
-See `audit/failure_diagnosis_20261110.md`, version 4 log under `running_output_20261110_v4/`, and version 5 readback under `audit/remote_source_verification_v5.json`.
+## Other current arms
 
-## Other arms
-
-| Arm | Current evidence | Status |
+| Arm/work | Latest evidence | Status |
 |---|---|---|
-| B1-shuf test | All six seed/dataset groups completed: 15,018/15,018. Four runtime provenance sessions pass the locked six-package contract, full 49/49 layer offload on 2x Tesla T4, and constructor checks. | **Complete; runtime accepted under B1-shuf contract.** See `Runs-management/b1_shuf_kaggle_output_20261109/RUNTIME_ACCEPTANCE_20261109.md`. |
-| B1-full test | 5,006/5,006, accepted under its six-package launch contract. | Complete; no rerun needed. |
-| B3-new validation | Devign and REVEAL validation complete; runtime and threshold acceptance recorded under the seven-package contract. | Complete; no validation rerun needed. |
-| B2-labelonly, B2-nolabel, B2-rep tests | Results exist, but prior acceptance records do not certify the full newer runtime lock. | Do not represent as fully runtime-certified. |
-| Historical B3 test/validation | Separate from the verified-patch algorithm; no full retrospective runtime acceptance for inherited outputs. | Do not treat as the new-algorithm test. |
-| B3-nodiff | Not included in the current B3-only test request. | No new run planned here. |
+| B1-shuf test | 15,018/15,018; two T4, 49/49; accepted under its six-package contract | COMPLETE / runtime accepted |
+| B1-full test | 5,006/5,006; accepted under its recorded launch contract | COMPLETE |
+| B3 verified-patch validation | Devign 2,732 + REVEAL 2,273; runtime and threshold audit complete | COMPLETE; tau*=0.99 / 0.01 locked in separate amended release |
+| B3 verified-patch test | v6 source readback 5/5; Kaggle `RUNNING`; output endpoint empty | IN PROGRESS; acceptance pending |
+| B3-swap / B3-flip | No separate verified-patch test bundle | NOT PREPARED FOR GPU LAUNCH |
+| B3-nodiff | No current test bundle; user excluded it from current run scope | EXCLUDED |
+| B2-nolabel / B2-labelonly / B2-rep | Full test outputs exist; current acceptance summary lacks full newer-runtime certification | CENSUS COMPLETE; retrospective provenance audit pending |
 
-## Decision
-
-B1-shuf is complete and runtime-accepted. B3 version 5 is running with source readback verified. Wait for live logs to confirm the preflight and runtime checks before treating inference as started.
+See [full arm matrix and required next steps](../../ARM_STATUS_AND_REMAINING_WORK_20261110.md), [failure diagnosis](audit/failure_diagnosis_20261110.md), and [v6 readback verification](audit/remote_source_verification_v6.json).

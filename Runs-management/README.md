@@ -9,6 +9,7 @@ Thư mục này lưu **sổ chạy, trạng thái, ngưỡng và bằng chứng 
 | [step34_b2_rand_20261102/](step34_b2_rand_20261102/README.md) | Bằng chứng checkpoint B2-rand, phiếu chấm và hồ sơ bước 4 nháp | Trước khi tiếp tục I-09; chưa nghiệm thu hoặc đăng ký |
 | [dry_run_validation_20261102/](dry_run_validation_20261102/README.md) | Dry-run đủ validation 10 arm: 70.070 dòng/28 tập, kết luận và hồ sơ hai người chấm | 28/28 đạt sau đối chiếu nguồn; 5 arm blocked và chấm tay còn thiếu |
 | [RUNS.md](RUNS.md) | Sổ duy nhất cho mọi lượt Joern, CodeT5, prompt, inference | Trước khi nhận/chạy và sau mỗi lần hoàn tất, timeout, lỗi, resume |
+| [ARM_STATUS_AND_REMAINING_WORK_20261110.md](ARM_STATUS_AND_REMAINING_WORK_20261110.md) | Current status of each arm, active Kaggle runs, unfinished work, and required checks before handoff or launch | Update after a status change or before handoff |
 | [HIEN_TRANG.md](HIEN_TRANG.md) | Bảng record đã kiểm local; sinh từ [current_status.json](current_status.json) | Dùng refresh_current_status.py sau khi cập nhật nguồn đúng phiên; không sửa tay |
 | [MA_TRAN_RUN.md](MA_TRAN_RUN.md) | Định nghĩa arm/tầng/seed, ghi chú cấu hình | Khi chốt kế hoạch hoặc đổi trạng thái/variant của arm |
 | [TIEN_DO_PHUONG_AN_2.md](TIEN_DO_PHUONG_AN_2.md) | Tiến độ 10 bước, điều kiện nghiệm thu, audit đã gộp, mốc cải tiến | Khi hoàn tất một điều kiện/milestone hoặc phát hiện hạn chế mới |

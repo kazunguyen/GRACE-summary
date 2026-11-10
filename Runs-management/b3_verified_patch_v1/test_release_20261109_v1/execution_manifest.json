@@ -2,7 +2,7 @@
   "schema": "grace_b3_test_execution_manifest_v1",
   "account": "lznt123",
   "kernel_id": "lznt123/grace-b3-new-test-20261109-v1",
-  "status": "VERSION_5_RUNNING_PREFLIGHT_PENDING",
+  "status": "VERSION_6_RUNNING_SOURCE_READBACK_PASS_LIVE_OUTPUT_EMPTY",
   "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
   "files": {
     "grace_runtime_contract.py": {
@@ -27,7 +27,7 @@
     },
     "notebook": {
       "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/kaggle_kernel/notebook.ipynb",
-      "sha256": "2b005a38c5c7778ab7578d88910374c745f58c7a5d7cef0df36d77b99bc78a2f"
+      "sha256": "0ae4a4f966952c13f2c7ce343ad239df06d5a8ee452a4608e09f519d8314dbb6"
     },
     "kernel_metadata": {
       "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/kaggle_kernel/kernel-metadata.json",
@@ -76,6 +76,14 @@
     "remote_source_v5_metadata": {
       "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v5/kernel-metadata.json",
       "sha256": "296d12c874ee4b494d762fe6277cf56d78fb80aaa9cd9f239c6b959ccc9f0d64"
+    },
+    "remote_source_verification_v6": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/remote_source_verification_v6.json",
+      "sha256": "932fee66bc826bb9df7035d08af90e2dacff5fd0174e48542c4db1f8a4a9fcc5"
+    },
+    "remote_source_v6_notebook": {
+      "path": "Runs-management/b3_verified_patch_v1/test_release_20261109_v1/remote_source_readback_v6/grace-b3-new-test-20261109-v1.ipynb",
+      "sha256": "52db58c73abb409eb5ae095e1edb2cd936cc2d2a1b3e1046869509edf3bb8db8"
     }
   },
   "remote": {
@@ -89,12 +97,12 @@
       {
         "id": "lznt123/grace-b3-new-test-20261109-v1",
         "canonical": true,
-        "latest_version": 5,
+        "latest_version": 6,
         "status": "RUNNING"
       }
     ],
     "next_push_error": "Maximum batch GPU session count of 2 reached",
-    "runtime_attestation": "PENDING_LIVE_LOGS_NOT_YET_AVAILABLE",
+    "runtime_attestation": "PENDING_LIVE_OUTPUT_MODEL_LOAD_49_OF_49_AND_PROVENANCE",
     "latest_push_error": null,
     "previous_push_error": "Maximum batch GPU session count of 2 reached before version 2 was pushed.",
     "source_readback_v2": {
@@ -106,17 +114,38 @@
     "source_readback_v5": {
       "all_code_cell_sources_match": true,
       "code_cell_count": 5,
-      "recursive_manifest_search_uploaded": true
-    }
+      "remote_version_status": "ERROR"
+    },
+    "version_5_failure": {
+      "status": "ERROR",
+      "failure_stage": "notebook cell In [5], immediately before worker invocation",
+      "exception": "NameError: name INPUT_DIR is not defined",
+      "preflight": "PASS; mounted test manifest and expanded input found; all 5,006 rows and validation thresholds loaded; model path and SHA check passed",
+      "environment": "locked package pins matched; 2 Tesla T4 devices enumerated",
+      "inference_started": false,
+      "records_written": 0
+    },
+    "source_readback_v6": {
+      "all_code_cell_sources_match": true,
+      "code_cell_count": 5,
+      "verification_file": "audit/remote_source_verification_v6.json"
+    },
+    "v6_output_observation": {
+      "output_request_returned_files": false,
+      "records_observed": 0,
+      "inference_progress_observed": false
+    },
+    "duplicate_kernel_status": "CANCEL_REQUESTED; cancellation not confirmed"
   },
-  "status_checked_at_utc": "2026-11-09T22:19:20Z",
+  "status_checked_at_utc": "2026-11-10T00:16:00Z",
   "latest_push": {
-    "version": 5,
+    "version": 6,
     "result": "PUSHED",
     "status": "RUNNING",
-    "remote_code_cell_readback": "PASS"
+    "remote_code_cell_readback": "PASS",
+    "live_output": "EMPTY_AT_2026-11-10T00:16:00Z"
   },
-  "notebook_sha256": "2b005a38c5c7778ab7578d88910374c745f58c7a5d7cef0df36d77b99bc78a2f",
+  "notebook_sha256": "0ae4a4f966952c13f2c7ce343ad239df06d5a8ee452a4608e09f519d8314dbb6",
   "failed_attempts": [
     {
       "version": 2,
@@ -137,8 +166,11 @@
     }
   ],
   "fix_prepared": {
-    "change": "recursively discover the unique test_release_manifest.json under /kaggle/input; use its parent to locate and validate expanded or archived bundle; prefer pinned model path; emit candidates on failure",
+    "change": "define worker INPUT_DIR from validated expanded input; for archive-only mount safely materialize validated members under /kaggle/working and revalidate; use explicit pinned dataset mount then symlink-following fallback for manifest discovery",
     "runtime_contract_changed": false,
-    "prompt_or_threshold_changed": false
+    "prompt_or_threshold_changed": false,
+    "local_notebook_sha256": "0ae4a4f966952c13f2c7ce343ad239df06d5a8ee452a4608e09f519d8314dbb6",
+    "remote_version": "6",
+    "remote_code_readback": "PASS: all 5 executable code cell sources match local"
   }
 }

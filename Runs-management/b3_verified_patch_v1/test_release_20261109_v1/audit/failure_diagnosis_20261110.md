@@ -1,25 +1,19 @@
-# B3 new-test preflight failures and correction - 2026-11-10
+# B3 new-test failures and version 6 correction - 2026-11-10
 
-## Version 2
+## Version 2 and version 4
 
-Kaggle reported `ERROR`; the log failed in cell `In [2]` with `Expected one private test release and pinned model dataset`. That guard combined three conditions and did not emit candidate counts, so the v2 log alone could not identify the failed condition. No inference began.
+Versions 2 and 4 stopped in preflight before package installation, model loading, GPU/offload attestation, or inference. Version 4 printed no manifest candidates because it only searched immediate `/kaggle/input` children.
 
-## Version 4: exact root cause
+## Version 5: actual failure
 
-Version 4 added diagnostics. Its log showed:
+The downloaded Kaggle log shows that the earlier diagnosis was incomplete: version 5 **did find the nested mount**. Preflight passed with manifest `/kaggle/input/datasets/lznt123/grace-b3-test-release-20261109-v1/test_release_manifest.json`, validated the expanded input, loaded all 2,732 Devign and 2,274 REVEAL rows with thresholds 0.99 and 0.01, and verified the pinned model path/hash. The locked seven package versions matched, and `nvidia-smi` reported two Tesla T4 GPUs.
 
-- Kaggle top-level input roots: `/kaggle/input/datasets` and `/kaggle/input/notebooks`
-- `manifest_candidates: []`
-- Failure: `Expected exactly one B3 test manifest`
+The actual fatal error was `NameError: name 'INPUT_DIR' is not defined` in notebook cell `In [5]`. Preflight stored the validated input as `INPUT_SOURCE` but the worker launch passed `INPUT_DIR`. The worker never started; no model was loaded by the worker, no 49/49 layer placement was observed, no runtime provenance was written, and zero test records were produced. The two-GPU listing and CUDA backend availability are partial environment evidence only, not runtime acceptance.
 
-The test dataset is mounted below `/kaggle/input/datasets/<owner>/<dataset>/`, but the notebook searched only immediate children of `/kaggle/input`. Therefore it could not see the manifest. The published dataset file listing confirms `test_release_manifest.json` at the dataset root and the seven input members under `kaggle_input/`. The model discovery was never reached in this attempt.
+## Version 6 local correction
 
-## Impact
+The worker input directory is now explicitly defined from the validated expanded dataset. If Kaggle supplies only the pinned archive, the notebook validates archive and member hashes, extracts only safe relative paths into a fresh working directory, then re-reads and validates the complete member inventory before invoking the worker. Manifest lookup first checks the exact pinned Kaggle dataset mount and uses a symlink-following walk of the datasets mount only as fallback.
 
-Both failures occurred before package installation, model load, GPU/offload attestation, and inference. No Devign or REVEAL test records were produced; no test sample was processed; no threshold was refit. These failures do not test the B3 algorithm.
+The notebook's runtime contract, model pin, package pins, worker, prompts, retrieval pools, thresholds, and inference command are unchanged. Code cells for runtime setup/build, GPU contract, and worker invocation remain identical to remote v5 except for the corrected input-directory binding in the preflight cell; no tests or scores were produced by v5. Version 6 was pushed to the same canonical kernel, Kaggle reports `RUNNING`, and remote readback confirms all five executable code cells match local. This does not certify worker startup, model loading, 49/49 GPU layer placement, runtime provenance, or inference; those gates remain pending live output.
 
-## Version 5 correction
-
-The notebook now recursively discovers the unique `test_release_manifest.json` below `/kaggle/input` and uses its parent as the release root. It validates either the expanded `kaggle_input/` tree or the exact-hash archive, prefers the previously verified pinned model-source path, verifies the model SHA-256, and prints candidate paths if resolution fails. The runtime lock, model, packages, worker, test prompts, retrieval pools, and validation-fitted thresholds remain unchanged. Local Python syntax and release-package hash checks pass. Version 5 has been pushed and read back with all five executable code cells matching local; Kaggle reports `RUNNING`. Live output is not available yet, so preflight and runtime have not been accepted.
-
-Evidence: `failed_output_20261110_v1/grace-b3-new-test-20261109-v1.log` and `running_output_20261110_v4/grace-b3-new-test-20261109-v1.log`.
+Evidence: `live_output_v5/grace-b3-new-test-20261109-v1.log`, `remote_source_readback_v5/`, `kaggle_kernel/notebook.ipynb`, and `execution_manifest.json`.
