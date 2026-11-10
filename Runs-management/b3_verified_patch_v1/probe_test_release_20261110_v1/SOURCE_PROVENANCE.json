@@ -1,0 +1,16 @@
+{
+  "source_sha256": {
+    "scripts/build_b3_probe_delivery_20261110.py": "a05b0af4d6569c4c2e286654b34ed924a1c705530405604d82abd172805f4a5f",
+    "scripts/audit_b3_probe_reference_20261110.py": "3d18eabb8488780f1e7034c26ff3c806195ebb7b34685b7ce1ddeadcdec220c7",
+    "scripts/evaluate_b3_probe_test_20261110.py": "100b1cdfa43da94c3eab156f5e953e752a264c8040b685fc434d3f79c4844b3e",
+    "scripts/package_b3_probe_handoff_20261110.py": "17e9a8a6493b83077c5594f021d0fded1c6be13be3233dae9ba4804d0d15f586",
+    "scripts/b3_test_runtime.py": "dfd17ff01cf7b4d8a549f96371ac45078d4a164400c05e2574c9fb417ab17240",
+    "scripts/build_b3_test_prompts_20261109.py": "21481ac8cd68fc7ac23f04f165da6e5ab143645d6e29a285386ba5858993719c",
+    "tests/test_b3_probe_delivery.py": "4dd53ce00450c5fee533abec03f7002796d2adbecfdb94af8b7b72a94699412b",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/amended_b3.py": "d87167da90979b19f94628490672c2b14c98b9a6ab9709750aa0abc4fde4b5d0",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/probes.py": "a92d84bbe434ffb8973c11cd05ecaa2acaa7009a4925d450170e758fd7d9b5a9",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/token_budget.py": "1b8867bd5c51a941e02a526e22b136a321686b796e92ad5980d06f8f903b057f",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/evaluate_final.py": "592e55ffa2026b088ef21daacb9cafc1c4fc0e408c0942172cfca115130ce680",
+    "01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag/stats.py": "4c4f72e2f47cb770641c0e7bd5eaa40d91733ccfe4b300743fa0737f2b2605dd"
+  }
+}

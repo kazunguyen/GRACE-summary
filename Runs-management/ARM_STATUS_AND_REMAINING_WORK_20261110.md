@@ -39,9 +39,9 @@ Evidence: [deployment status](b3_verified_patch_v1/test_release_20261109_v1/DEPL
 | B2-rep | Test 5,006/5,006; manifests record `repeat: true`, `tag: "repeat"`. | Census/cache-isolation requirement met in recorded manifests. Full newer runtime lock remains uncertified in current acceptance summary; audit the actual run provenance. |
 | B3, historical algorithm | Historical validation is complete; it is distinct from the verified-patch algorithm. | Do not substitute it for the B3 new-algorithm validation/test. |
 | B3, verified-patch-v1 | Validation complete: Devign 2,732/2,732; REVEAL 2,273/2,273. | Runtime accepted for the score-producing sessions. Separate amended threshold locks: Devign tau*=0.99; REVEAL tau*=0.01. Classified `AMENDED_EXPLORATORY_SUBPROTOCOL`, not an OSF preregistered lock. |
-| B3-nodiff | No current verified-patch test release or test run. | Excluded from the present GPU scope per user instruction. If later included, it needs its own validation-derived threshold before test. |
-| B3-swap | No current verified-patch test release or test run. | Not run-ready; preparation and gates are below. Inherits B3 threshold; no retuning. |
-| B3-flip | No current verified-patch test release or test run. | Not run-ready; preparation and gates are below. Inherits B3 threshold; no retuning. |
+| B3-nodiff | User update on 2026-11-10: Dũng has also run this arm. | Execution reported by user; output, version, split/census, independent validation threshold and runtime acceptance must be reconciled with Dũng's artifacts. The earlier exclusion described a prior launch scope. |
+| B3-swap | Prepared 2026-11-10: complete 5,006-target paired prompt delivery and notebook in `probe_test_release_20261110_v1/b3_swap/`. | LOCAL READY; 9 probe delivery tests pass. Upload/source readback/GPU runtime acceptance pending. Inherits B3 threshold. |
+| B3-flip | Prepared 2026-11-10: complete 5,006-target paired prompt delivery and notebook in `probe_test_release_20261110_v1/b3_flip/`. | LOCAL READY; 9 probe delivery tests pass. Upload/source readback/GPU runtime acceptance pending. Inherits B3 threshold. |
 
 Older rendered/validation artifacts for variants are not a substitute for a sealed test delivery built from the current verified-patch B3 pair selector and current test census.
 
@@ -59,19 +59,19 @@ Older rendered/validation artifacts for variants are not a substitute for a seal
 4. Validate record uniqueness and expected 2,732 Devign + 2,274 REVEAL census, scores against logits, prompt/worker/model/runtime/threshold identities, and checkpoint integrity. If interrupted, resume only from verified matching checkpoint; do not overwrite or rerun completed IDs.
 5. Only after downloading and validating score-only outputs, join the held-out labels locally and compute test metrics at the already locked thresholds. Never tune on test.
 
-### 2. Prepare B3-swap and B3-flip as separate test arms (not yet ready to launch)
+### 2. B3-swap and B3-flip separate test deliveries (local preparation passed)
 
-**Available:** locked B3 thresholds; current B3 selector/pool and reviewed pair; CPU renderer/selector-family checks; arm definitions in `configs/arms.yaml`. The current B3 test release contains B3 only, not swap/flip test prompt bundles.
+**Available:** locked B3 thresholds; current selector/pool and reviewed pair; full separate prompt deliveries, shared worker and notebooks in `probe_test_release_20261110_v1/`. Prompt/census checks and 9 acceptance tests pass. Reference audit matches the core runtime/scorer in all five original locked notebooks; the current lock adds the documented SciPy pin. Remote upload, exact source readback and GPU runtime acceptance remain pending.
 
 **Required prompt semantics:** for each target use the same verified-patch B3-selected pair, target code/graph, and `Key difference` content as B3. Render a separate prompt and hash for each arm:
 
 - B3-swap reverses the two demonstration blocks while keeping each label attached to its original code.
-- B3-flip keeps the order and code blocks but reverses both demonstration labels.
+- B3-flip keeps the order and code blocks but reverses both demonstration labels and flips label words in `Key difference` via the existing `_flip_words` renderer. The former requirement to preserve that text byte-for-byte was inaccurate for flip.
 
 **Before a teammate launches either arm, check:**
 
 1. Generate the full Devign 2,732 and REVEAL 2,274 target census from the current B3 test selection; do not use historical pair selections or select a different donor pair for the variant.
-2. Prove the only change from the paired B3 prompt is the specified order/label manipulation; preserve target fields, graph, pair IDs, and `Key difference`.
+2. Prove the only change from the paired B3 prompt is the specified order/label manipulation; preserve target fields, graph and pair IDs. Preserve `Key difference` for swap; apply the registered label-word flip for flip.
 3. Prove no target labels or label-derived fields enter prompts/input; keep test labels private.
 4. Audit exact-tokenizer counts, Figure 6 section order, per-component/context limits, unique IDs, prompt hashes, and expected row counts.
 5. Pin a separate variant manifest/archive and worker/runner hashes; verify the runner supports the arm ID and never reads a B3 response cache.
@@ -80,9 +80,9 @@ Older rendered/validation artifacts for variants are not a substitute for a seal
 
 Only after these checks pass is the arm ready for GPU execution. Prompt-generation/CPU auditing can be delegated now; GPU launch is a separate gate.
 
-### 3. B3-nodiff scope decision
+### 3. B3-nodiff execution reported by user
 
-The current instruction excludes B3-nodiff from this execution. Do not add it implicitly to the B3/swap/flip package. If the project later elects to include it, prepare its own validation prompts/results and lock a separate validation threshold before preparing test inference; it cannot inherit B3's threshold under the stated protocol.
+The user confirmed on 2026-11-10 that Dũng has run B3-nodiff. Obtain the actual version, outputs, split/census, validation-derived threshold lock and runtime provenance before accepting it. It cannot inherit B3's threshold under the stated protocol. This supersedes the prior launch-scope exclusion; execution reported by the user is not itself runtime acceptance.
 
 ### 4. Retrospective runtime audit for completed legacy outputs
 
@@ -92,7 +92,8 @@ B2-nolabel, B2-labelonly, and B2-rep have complete output censuses, but current 
 
 - **Run already underway:** B3 verified-patch test v6. Handoff monitoring, checkpoint/output collection, and runtime/result acceptance; do not create another B3 base run.
 - **Offline prep teammate can start:** B3-swap and B3-flip prompt bundle generation and audit against the checks above.
-- **Do not launch yet:** B3-swap/flip until the variant bundles and exact source readback pass; B3-nodiff remains excluded.
+- **B3-swap/flip preparation:** see `b3_verified_patch_v1/probe_test_release_20261110_v1/` for the new paired test deliveries and local acceptance checks. Remote runtime acceptance remains a launch-time gate.
+- **B3-nodiff:** Dũng has run it according to the user; reconcile artifacts before acceptance.
 - **Non-GPU audit task:** retrospective provenance review for completed B2-nolabel/B2-labelonly/B2-rep.
 
 ## Governance note

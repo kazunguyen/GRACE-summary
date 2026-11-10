@@ -1,0 +1,8 @@
+{
+  "archive": "Runs-management/local_deliveries/B3_SWAP_FLIP_TEST_READY_20261110_v1.zip",
+  "sha256": "27ce96bab4ac8bab5c318e641f820fec5c38fe1fc3fdd8a4381640819eb336cc",
+  "bytes": 10836832,
+  "members": 36,
+  "labels_included": false,
+  "status": "LOCAL_READY_REMOTE_RUNTIME_PENDING"
+}
