@@ -1,0 +1,16 @@
+{
+  "status": "LOCAL_READY_REMOTE_RUNTIME_PENDING",
+  "probe_delivery_tests": {
+    "passed": 9
+  },
+  "required_governance_probe_stats_tests": {
+    "passed": 37
+  },
+  "test_archive_crc_and_member_hashes": "PASS",
+  "paired_prompt_full_census": "PASS",
+  "notebook_source_compile_and_embedded_helper_identity": "PASS",
+  "reference_five_arm_runtime": "PASS",
+  "remote_upload": false,
+  "gpu_execution": false,
+  "runtime_certification": "PENDING"
+}

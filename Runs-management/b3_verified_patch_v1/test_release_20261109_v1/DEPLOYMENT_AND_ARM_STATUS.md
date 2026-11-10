@@ -18,8 +18,8 @@ Checked 2026-11-10 00:16 UTC (07:16 Asia/Saigon). Kaggle status/output checked w
 | B1-full test | 5,006/5,006; accepted under its recorded launch contract | COMPLETE |
 | B3 verified-patch validation | Devign 2,732 + REVEAL 2,273; runtime and threshold audit complete | COMPLETE; tau*=0.99 / 0.01 locked in separate amended release |
 | B3 verified-patch test | v6 source readback 5/5; Kaggle `RUNNING`; output endpoint empty | IN PROGRESS; acceptance pending |
-| B3-swap / B3-flip | No separate verified-patch test bundle | NOT PREPARED FOR GPU LAUNCH |
-| B3-nodiff | No current test bundle; user excluded it from current run scope | EXCLUDED |
+| B3-swap / B3-flip | Separate full test bundles and notebooks in `../probe_test_release_20261110_v1/`; 9 local acceptance tests pass | LOCAL READY; upload/readback/GPU acceptance pending |
+| B3-nodiff | User confirms 2026-11-10 that Dũng has run this arm | EXECUTION REPORTED; artifact/runtime acceptance pending |
 | B2-nolabel / B2-labelonly / B2-rep | Full test outputs exist; current acceptance summary lacks full newer-runtime certification | CENSUS COMPLETE; retrospective provenance audit pending |
 
 See [full arm matrix and required next steps](../../ARM_STATUS_AND_REMAINING_WORK_20261110.md), [failure diagnosis](audit/failure_diagnosis_20261110.md), and [v6 readback verification](audit/remote_source_verification_v6.json).

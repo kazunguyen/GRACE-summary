@@ -38,8 +38,10 @@ def load_manifest(path, expected_sha256):
     if sha(raw) != expected_sha256: raise ValueError("Test prompt manifest hash mismatch")
     root = json.loads(raw)
     if root.get("status") != "SEALED_TEST_DELIVERY": raise ValueError("Test package not sealed")
-    if (root.get("method_id"), root.get("arm"), root.get("seed"), root.get("inference_split")) != (
-            "b3-verified-patch-v1", "B3", 42, "test"):
+    if root.get("arm") not in ("B3", "B3-swap", "B3-flip"):
+        raise ValueError("Unsupported test arm")
+    if (root.get("method_id"), root.get("seed"), root.get("inference_split")) != (
+            "b3-verified-patch-v1", 42, "test"):
         raise ValueError("Test package scope mismatch")
     if root.get("labels_in_kaggle_input") is not False: raise ValueError("Target labels must be held out of Kaggle input")
     return root
@@ -91,6 +93,8 @@ def read_dataset_rows(members, root, dataset):
     if len(rows) != info["expected"] or len({r.get("id") for r in rows}) != len(rows):
         raise ValueError("Test census has missing/duplicate IDs")
     for row in rows:
+        if root['arm'] != 'B3' and row.get('arm') != root['arm']:
+            raise ValueError('Variant prompt arm mismatch')
         if any(k in row for k in ("label", "target", "target_label")):
             raise ValueError("Target label leaked into test prompt row")
         if (row.get("dataset"), row.get("split"), row.get("method_id")) != (dataset, "test", root["method_id"]):
@@ -135,7 +139,7 @@ def load_threshold(root, members, dataset):
 
 def run_identity(root, dataset):
     x = root["datasets"][dataset]
-    return {"release_id": root["release_id"], "method_id": root["method_id"], "arm": "B3",
+    return {"release_id": root["release_id"], "method_id": root["method_id"], "arm": root['arm'],
             "dataset": dataset, "split": "test", "seed": 42, "count": x["expected"],
             "prompts_sha256": x["prompts_sha256"], "pool_sha256": x["pool_sha256"],
             "model_sha256": root["model_sha256"], "tokenizer_revision": root["tokenizer_revision"],
@@ -144,7 +148,10 @@ def run_identity(root, dataset):
             "worker_sha256": root["test_worker_sha256"]}
 
 
-def checked_records(output_root, root, rows, dataset, split="test", seed=42, arm="B3"):
+def checked_records(output_root, root, rows, dataset, split="test", seed=42, arm=None):
+    arm = root['arm'] if arm is None else arm
+    if arm != root['arm'] or split != 'test' or seed != 42:
+        raise ValueError('Resume arm/split/seed differs from sealed delivery')
     base = Path(output_root) / f"seed_{seed}" / dataset / split
     path = base / "records.jsonl"
     if not path.is_file(): return 0

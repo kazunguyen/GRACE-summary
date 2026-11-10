@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "reference_zip_sha256": "76a49a770897b7d0832ee87aa7d7e308ebbca57fdd7aaaf02f0f07f2400f156c",
+  "current_runtime_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+  "comparisons": [
+    {
+      "notebook": "02_kaggle_qwen_q4_b1_full_validation_runtime_locked.ipynb",
+      "same_core_contract": {
+        "model": true,
+        "tokenizer": true,
+        "backend_source": true,
+        "constructor": true,
+        "gpu": true,
+        "scoring": true,
+        "threads": true,
+        "build": true,
+        "decoding": true,
+        "resume": true
+      },
+      "binary_scores_ast_identical": true,
+      "package_difference": {
+        "added": {
+          "scipy": "1.16.3"
+        }
+      }
+    },
+    {
+      "notebook": "02_kaggle_qwen_q4_b1_shuf_validation_runtime_locked.ipynb",
+      "same_core_contract": {
+        "model": true,
+        "tokenizer": true,
+        "backend_source": true,
+        "constructor": true,
+        "gpu": true,
+        "scoring": true,
+        "threads": true,
+        "build": true,
+        "decoding": true,
+        "resume": true
+      },
+      "binary_scores_ast_identical": true,
+      "package_difference": {
+        "added": {
+          "scipy": "1.16.3"
+        }
+      }
+    },
+    {
+      "notebook": "02_kaggle_qwen_q4_b2_labelonly_validation_runtime_locked.ipynb",
+      "same_core_contract": {
+        "model": true,
+        "tokenizer": true,
+        "backend_source": true,
+        "constructor": true,
+        "gpu": true,
+        "scoring": true,
+        "threads": true,
+        "build": true,
+        "decoding": true,
+        "resume": true
+      },
+      "binary_scores_ast_identical": true,
+      "package_difference": {
+        "added": {
+          "scipy": "1.16.3"
+        }
+      }
+    },
+    {
+      "notebook": "02_kaggle_qwen_q4_b2_nolabel_validation_runtime_locked.ipynb",
+      "same_core_contract": {
+        "model": true,
+        "tokenizer": true,
+        "backend_source": true,
+        "constructor": true,
+        "gpu": true,
+        "scoring": true,
+        "threads": true,
+        "build": true,
+        "decoding": true,
+        "resume": true
+      },
+      "binary_scores_ast_identical": true,
+      "package_difference": {
+        "added": {
+          "scipy": "1.16.3"
+        }
+      }
+    },
+    {
+      "notebook": "02_kaggle_qwen_q4_b2_rep_validation_runtime_locked.ipynb",
+      "same_core_contract": {
+        "model": true,
+        "tokenizer": true,
+        "backend_source": true,
+        "constructor": true,
+        "gpu": true,
+        "scoring": true,
+        "threads": true,
+        "build": true,
+        "decoding": true,
+        "resume": true
+      },
+      "binary_scores_ast_identical": true,
+      "package_difference": {
+        "added": {
+          "scipy": "1.16.3"
+        }
+      }
+    }
+  ],
+  "amendment_reference": "worklogs/2026-11-07_kaggle_package_lock_standardization.md",
+  "notebook_format": "B3 v6: 1 markdown + 5 executable cells; setup and environment cells unchanged",
+  "historical_format_note": "Five-arm validation ZIP has additional legacy bundle/checkpoint/diagnostic cells; its historical notebooks are preserved.",
+  "runtime_certification": "PENDING_GPU_EXECUTION"
+}

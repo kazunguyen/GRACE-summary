@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "base_manifest_sha256": "a25a5cea81760b40bf2cde70b145d50f68880b97639cac73f8dcb7fea091bbf1",
+  "shared_worker_sha256": {
+    "grace_runtime_contract.py": "439d31bfe4324b79d9b119d7178fa290bac651f4be336a1217573bfd86bd5477",
+    "b3_native_runtime.py": "960d3e35589ebd6dc31f0a70db9f809614afdb92e0132c91e27718383f21386f",
+    "kaggle_inference_test.py": "7d21f95a646d562bfa124b8f1898fef9dc85fba26bec89dc3d88753ee6824272",
+    "b3_test_runtime.py": "dfd17ff01cf7b4d8a549f96371ac45078d4a164400c05e2574c9fb417ab17240",
+    "inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e"
+  },
+  "arms": {
+    "B3-swap": {
+      "manifest_sha256": "3598bf9d005e552690c11cb1e2ae5dd1f4af2a9ac2459e061f5110f04c53952f",
+      "notebook_sha256": "d7140c79be03af781eb5ac16c9aa10fc259562e16e1c233f688a08e2552a252c",
+      "datasets": {
+        "devign": {
+          "rows": 2732,
+          "max_chat_tokens": 4982,
+          "base_prompt_and_selection_match": true,
+          "non_demo_blocks_identical": true,
+          "canonical_render_family": true,
+          "exact_tokenizer": true,
+          "target_label_fields_absent": true
+        },
+        "reveal": {
+          "rows": 2274,
+          "max_chat_tokens": 5279,
+          "base_prompt_and_selection_match": true,
+          "non_demo_blocks_identical": true,
+          "canonical_render_family": true,
+          "exact_tokenizer": true,
+          "target_label_fields_absent": true
+        }
+      },
+      "status": "LOCAL_READY_REMOTE_RUNTIME_PENDING"
+    },
+    "B3-flip": {
+      "manifest_sha256": "af6ac2b6467bcfdd8009c967e20aa5d6426b55217d08d9e86732026c96593524",
+      "notebook_sha256": "f4c95dc3e23a1db661d21fcd2819866e264e2ab8ec28982961a27b355f39d75b",
+      "datasets": {
+        "devign": {
+          "rows": 2732,
+          "max_chat_tokens": 4984,
+          "base_prompt_and_selection_match": true,
+          "non_demo_blocks_identical": true,
+          "canonical_render_family": true,
+          "exact_tokenizer": true,
+          "target_label_fields_absent": true
+        },
+        "reveal": {
+          "rows": 2274,
+          "max_chat_tokens": 5279,
+          "base_prompt_and_selection_match": true,
+          "non_demo_blocks_identical": true,
+          "canonical_render_family": true,
+          "exact_tokenizer": true,
+          "target_label_fields_absent": true
+        }
+      },
+      "status": "LOCAL_READY_REMOTE_RUNTIME_PENDING"
+    }
+  },
+  "remote_upload": false,
+  "runtime_certified": false
+}
