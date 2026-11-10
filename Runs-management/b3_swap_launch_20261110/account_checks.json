@@ -1,0 +1,99 @@
+[
+  {
+    "config_folder": "kaggle_huuhieu_config",
+    "checked_at_utc": "2026-11-10T15:57:50.640483+00:00",
+    "owner": "huuhieu3333",
+    "quota": {
+      "quotaRefreshTime": "2026-11-14T00:00:00Z",
+      "gpuQuota": {
+        "timeUsed": "138731.377s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "108000s",
+        "minimumTimeAllowed": "108000s",
+        "hasEverRun": true
+      },
+      "tpuQuota": {
+        "timeUsed": "0s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "72000s",
+        "minimumTimeAllowed": "72000s",
+        "hasEverRun": true
+      }
+    },
+    "remaining_seconds": -30731.377000000008,
+    "model_source": "huuhieu3333/qwen3coder30b-prepare-notebook",
+    "model_source_version": 1
+  },
+  {
+    "config_folder": "kaggle_lznt123_config",
+    "checked_at_utc": "2026-11-10T15:57:52.427675+00:00",
+    "owner": "lznt123",
+    "quota": {
+      "quotaRefreshTime": "2026-11-14T00:00:00Z",
+      "gpuQuota": {
+        "timeUsed": "137658.295264700s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "108000s",
+        "minimumTimeAllowed": "108000s",
+        "hasEverRun": true
+      },
+      "tpuQuota": {
+        "timeUsed": "0s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "72000s",
+        "minimumTimeAllowed": "72000s",
+        "hasEverRun": true
+      }
+    },
+    "remaining_seconds": -29658.29526469999,
+    "model_source": "lznt123/qwen3coder30b-prepare-notebook",
+    "model_source_version": 2
+  },
+  {
+    "config_folder": "kaggle_thanhduy_config",
+    "checked_at_utc": "2026-11-10T15:57:53.950327+00:00",
+    "owner": "thanhduy9a4tv",
+    "quota": {
+      "quotaRefreshTime": "2026-11-14T00:00:00Z",
+      "gpuQuota": {
+        "timeUsed": "24.152s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "108000s",
+        "minimumTimeAllowed": "108000s",
+        "hasEverRun": true
+      },
+      "tpuQuota": {
+        "timeUsed": "201.223s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "72000s",
+        "minimumTimeAllowed": "72000s",
+        "hasEverRun": true
+      }
+    },
+    "remaining_seconds": 107975.848,
+    "model_source": "thanhduy9a4tv/qwen3coder30b-prepare-notebook",
+    "model_source_version": 1
+  },
+  {
+    "config_folder": "kaggle_tomandjerry223_config",
+    "checked_at_utc": "2026-11-10T15:57:55.494276+00:00",
+    "owner": "tomandjerry223",
+    "quota": {
+      "quotaRefreshTime": "2026-11-14T00:00:00Z",
+      "gpuQuota": {
+        "timeUsed": "108158.682s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "108000s",
+        "minimumTimeAllowed": "108000s",
+        "hasEverRun": true
+      },
+      "tpuQuota": {
+        "timeUsed": "0s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "72000s",
+        "minimumTimeAllowed": "72000s"
+      }
+    },
+    "remaining_seconds": -158.6820000000007
+  }
+]

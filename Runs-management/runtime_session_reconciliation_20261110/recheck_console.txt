@@ -1,0 +1,214 @@
+{
+  "priority_processes": 6,
+  "priority_records": 15018,
+  "priority_binding": [
+    [
+      "B2-nolabel/test/seed42/devign",
+      2732,
+      2732,
+      [
+        "f677541ab72fdf8204d91761ffaa5d0809ed2df1adab2c7a7a4c913ac015ded5"
+      ]
+    ],
+    [
+      "B2-nolabel/test/seed42/reveal",
+      2274,
+      2274,
+      [
+        "f677541ab72fdf8204d91761ffaa5d0809ed2df1adab2c7a7a4c913ac015ded5"
+      ]
+    ],
+    [
+      "B2-labelonly/test/seed42/devign",
+      2732,
+      2732,
+      [
+        "799e8bf3abd74447f4b6c3edc3fff0780d3ff6276c695c5ff7eaa63645d1c172"
+      ]
+    ],
+    [
+      "B2-labelonly/test/seed42/reveal",
+      2274,
+      2274,
+      [
+        "799e8bf3abd74447f4b6c3edc3fff0780d3ff6276c695c5ff7eaa63645d1c172"
+      ]
+    ],
+    [
+      "B2-rep/test/seed42/devign",
+      2732,
+      2732,
+      [
+        "4783fc2f00294b645144baced114d5cea1eef7ca42bc25f546a801a41bf83cab"
+      ]
+    ],
+    [
+      "B2-rep/test/seed42/reveal",
+      2274,
+      2274,
+      [
+        "4783fc2f00294b645144baced114d5cea1eef7ca42bc25f546a801a41bf83cab"
+      ]
+    ]
+  ],
+  "validation_binding": [
+    [
+      "B1-full/validation/seed42",
+      [
+        [
+          "devign",
+          2732,
+          2732
+        ],
+        [
+          "reveal",
+          2273,
+          2273
+        ]
+      ]
+    ],
+    [
+      "B1-shuf/validation/seed44",
+      [
+        [
+          "devign",
+          2732,
+          619
+        ],
+        [
+          "reveal",
+          2273,
+          2273
+        ]
+      ]
+    ],
+    [
+      "B2-nolabel/validation/seed42",
+      [
+        [
+          "devign",
+          2732,
+          2732
+        ],
+        [
+          "reveal",
+          2273,
+          2273
+        ]
+      ]
+    ],
+    [
+      "B2-labelonly/validation/seed42",
+      [
+        [
+          "devign",
+          2732,
+          2732
+        ],
+        [
+          "reveal",
+          2273,
+          2273
+        ]
+      ]
+    ],
+    [
+      "B2-rep/validation/seed42",
+      [
+        [
+          "devign",
+          2732,
+          2732
+        ],
+        [
+          "reveal",
+          2273,
+          2273
+        ]
+      ]
+    ]
+  ],
+  "rand_final_sources": [
+    [
+      "rand-test-seed42-head",
+      4749,
+      {
+        "contract_byte_hash_checkout": false,
+        "contract_original_byte_identity": true,
+        "contract_canonical_seal": true,
+        "packages": true,
+        "constructor": true,
+        "runner_source_hash_checkout": false,
+        "runner_original_byte_identity": true,
+        "backend_source_claim": true,
+        "two_t4_uuid_before_after": true,
+        "threads": true,
+        "compiled_backend_hashes_recorded": true,
+        "dependency_freeze_recorded": true,
+        "native_offload_log_available": false,
+        "native_offload_hash_replayed": null
+      }
+    ],
+    [
+      "rand-test-seed43-head",
+      4760,
+      {
+        "contract_byte_hash_checkout": false,
+        "contract_original_byte_identity": true,
+        "contract_canonical_seal": true,
+        "packages": true,
+        "constructor": true,
+        "runner_source_hash_checkout": false,
+        "runner_original_byte_identity": true,
+        "backend_source_claim": true,
+        "two_t4_uuid_before_after": true,
+        "threads": true,
+        "compiled_backend_hashes_recorded": true,
+        "dependency_freeze_recorded": true,
+        "native_offload_log_available": false,
+        "native_offload_hash_replayed": null
+      }
+    ],
+    [
+      "rand-test-seed44-head",
+      4661,
+      {
+        "contract_byte_hash_checkout": false,
+        "contract_original_byte_identity": true,
+        "contract_canonical_seal": true,
+        "packages": true,
+        "constructor": true,
+        "runner_source_hash_checkout": false,
+        "runner_original_byte_identity": true,
+        "backend_source_claim": true,
+        "two_t4_uuid_before_after": true,
+        "threads": true,
+        "compiled_backend_hashes_recorded": true,
+        "dependency_freeze_recorded": true,
+        "native_offload_log_available": false,
+        "native_offload_hash_replayed": null
+      }
+    ],
+    [
+      "rand-test-three-seed-tail",
+      848,
+      {
+        "contract_byte_hash_checkout": false,
+        "contract_original_byte_identity": true,
+        "contract_canonical_seal": true,
+        "packages": true,
+        "constructor": true,
+        "runner_source_hash_checkout": false,
+        "runner_original_byte_identity": true,
+        "backend_source_claim": true,
+        "two_t4_uuid_before_after": true,
+        "threads": true,
+        "compiled_backend_hashes_recorded": true,
+        "dependency_freeze_recorded": true,
+        "native_offload_log_available": false,
+        "native_offload_hash_replayed": null
+      }
+    ]
+  ],
+  "inventory_files": 265
+}

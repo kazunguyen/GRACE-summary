@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-11-10T15:58:42.814240+00:00",
+  "owner": "thanhduy9a4tv",
+  "response_keys": [
+    "files",
+    "log"
+  ],
+  "files": [
+    {
+      "fileName": "qwen_gguf/.cache/huggingface/.gitignore"
+    },
+    {
+      "fileName": "qwen_gguf/.cache/huggingface/CACHEDIR.TAG"
+    },
+    {
+      "fileName": "qwen_gguf/.cache/huggingface/download/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf.lock"
+    },
+    {
+      "fileName": "qwen_gguf/.cache/huggingface/download/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf.metadata"
+    },
+    {
+      "fileName": "qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf"
+    }
+  ]
+}

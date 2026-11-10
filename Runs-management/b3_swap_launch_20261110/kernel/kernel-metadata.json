@@ -1,0 +1,19 @@
+{
+  "id": "thanhduy9a4tv/grace-b3-swap-test-20261110-v1",
+  "title": "grace-b3-swap-test-20261110-v1",
+  "code_file": "notebook.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "session_timeout_seconds": 32400,
+  "competition_sources": [],
+  "dataset_sources": [
+    "thanhduy9a4tv/grace-b3-swap-test-release-20261110-v1"
+  ],
+  "kernel_sources": [
+    "thanhduy9a4tv/qwen3coder30b-prepare-notebook"
+  ]
+}

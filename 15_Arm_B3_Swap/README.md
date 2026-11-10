@@ -1,6 +1,6 @@
 # B3-swap — Kaggle test delivery
 
-Đây là thư mục chạy chính thức của arm B3-swap. Sau khi pull nhánh `docs/b1-shuf-runtime-b3-queue-20261109`, các file cần xem nằm ngay dưới đây:
+Đây là thư mục bàn giao của arm B3-swap. **Đã có run private trên Thanh Duy được submit ngày 10/11; latest QUEUED, runtime pending.** Xem [deployment hiện hành](../Runs-management/b3_swap_launch_20261110/STATUS.md) trước khi khởi tạo thêm run. Các file chuẩn bị nằm ngay dưới đây:
 
 ```text
 15_Arm_B3_Swap/
@@ -32,4 +32,4 @@
 
 Hướng dẫn handoff chi tiết: [`HANDOFF_TO_DUNG.md`](../Runs-management/b3_verified_patch_v1/probe_test_release_20261110_v1/HANDOFF_TO_DUNG.md). Hồ sơ prompt/runtime: [`probe release README`](../Runs-management/b3_verified_patch_v1/probe_test_release_20261110_v1/README.md).
 
-Trạng thái: **đã chuẩn bị và kiểm tra local; chưa upload hoặc nghiệm thu runtime Kaggle**. Arm thuộc amended/exploratory B3 protocol.
+Trạng thái: **đã upload/submit trên Thanh Duy; latest QUEUED, chưa nghiệm thu runtime Kaggle**. Arm thuộc amended/exploratory B3 protocol. Bản notebook tại đây vẫn là bản bàn giao đã niêm phong; bản đổi account phục vụ launch được giữ ở hồ sơ deployment riêng.

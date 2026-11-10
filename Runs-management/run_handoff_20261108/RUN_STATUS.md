@@ -1,5 +1,7 @@
 # Kaggle run handoff — 8 November 2026
 
+Later addendum, 10 November: [session reconciliation](../runtime_session_reconciliation_20261110/REPORT.md) rechecks the three completed B2 test arms and remaining legacy sessions. Their census acceptance remains; native/full test provenance is still missing. New build facts are recorded without retroactive full-lock certification. This file's dated snapshots below are preserved.
+
 Latest status snapshot: **2026-11-08 approximately 16:08 GMT+7** (see `status_snapshot_1608/`). Read-only collection; no inference session was started/stopped by this handoff. B1-full runtime acceptance was completed later from its downloaded output.
 
 ## Previously published completed test arms

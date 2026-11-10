@@ -1,5 +1,9 @@
 
 # Preserve exact snapshot/cache bytes and SHA256 on Windows/Linux
+/Runs-management/runtime_session_reconciliation_20261110/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/Runs-management/b3_swap_launch_20261110/** -text whitespace=cr-at-eol,-trailing-space,-blank-at-eof
+/scripts/audit_runtime_sessions_20261110.py -text
+/scripts/deploy_b3_swap_20261110.py -text
 /configs/protocol.yaml -text
 /configs/thresholds.json -text
 /configs/thresholds_flat.json -text

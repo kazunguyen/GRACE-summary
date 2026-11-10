@@ -1,0 +1,3436 @@
+{
+  "checked_at_utc": "2026-11-10T16:11:58.064883+00:00",
+  "scope": "Local session artifacts; no cloud mutation, inference or threshold fitting",
+  "priority_test_processes": [
+    {
+      "session_id": "B2-nolabel/test/seed42/devign",
+      "arm": "B2-nolabel",
+      "split": "test",
+      "seed": 42,
+      "dataset": "devign",
+      "kernel": "tomandjerry223/grace-b2-nolabel-test",
+      "window": {
+        "start_utc": "2026-11-07T10:34:42.849727+00:00",
+        "end_utc": "2026-11-07T15:33:28.527073+00:00",
+        "exit_code": 0
+      },
+      "records": {
+        "artifact": {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/output/b2_nolabel_test/seed_42/devign/test/records.jsonl",
+          "sha256": "cd71dfe2902da36a0748d315fd8b1cf5c45c4710c33a6f829c93877833d12bf2",
+          "bytes": 2603903
+        },
+        "arm": "B2-nolabel",
+        "dataset": "devign",
+        "split": "test",
+        "seed": 42,
+        "n": 2732,
+        "unique_ids": 2732,
+        "expected": 2732,
+        "errors": {},
+        "first_timestamp": "2026-11-07T10:35:18.047528+00:00",
+        "last_timestamp": "2026-11-07T15:33:22.984011+00:00",
+        "runtime_hash_counts": {
+          "ABSENT": 2732
+        },
+        "runtime_reference_count": 0
+      },
+      "records_in_process_window": 2732,
+      "progress_log_unique_ids": 2732,
+      "progress_rounded_score_matches": 2732,
+      "record_file_hash_matches_manifest": true,
+      "record_repeat_isolation": null,
+      "source_constructor": [
+        "llama_cpp.Llama(\n        model_path=str(model_path),\n        n_ctx=8192,\n        n_batch=256,\n        n_ubatch=256,\n        n_gpu_layers=-1,\n        split_mode=llama_cpp.LLAMA_SPLIT_MODE_LAYER,\n        seed=4294967295,\n        logits_all=True,\n        verbose=False\n    )"
+      ],
+      "source_verbose_false": true,
+      "source_enforces_contract": false,
+      "native_log": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "session_install_and_build": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [
+          "f677541ab72fdf8204d91761ffaa5d0809ed2df1adab2c7a7a4c913ac015ded5"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": true,
+        "post_install_package_snapshots": []
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/output/grace_diagnostics/events.log",
+          "sha256": "0103d28bd227e5ebc75f61f24777e3475e722c2a877e341f6bfb985f0ed59f4f",
+          "bytes": 3110
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/session.log",
+          "sha256": "c9a8baf7606ca7e238b930198697574bca97418192ede2a0744276d1744161fa",
+          "bytes": 4253697
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/output/kaggle_test_inference.py",
+          "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+          "bytes": 9433
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/output/b2_nolabel_test/seed_42/devign/test/run_manifest.json",
+          "sha256": "4af4b57c63aba958e8fd378bd96ed7a3630b3325784845415d4dfd7c78ee4a60",
+          "bytes": 1071
+        },
+        {
+          "path": "Runs-management/kernel_outputs_harvest/tomandjerry223_grace-b2-nolabel-test/grace_diagnostics.zip",
+          "member": "test_b2_nolabel_devign.log",
+          "sha256": "75a8d929eaa500a2acf63a1976f213d62ad0fa761992234518280a5b12e22d6f",
+          "bytes": 181111
+        }
+      ],
+      "diagnostics_crc": true,
+      "verdict": "PARTIAL_CORE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "native 49/49 placement for this process",
+        "source archive verified before build",
+        "loaded backend library hashes",
+        "GPU UUID/order/free VRAM at load",
+        "effective constructor/thread attestation",
+        "post-install dependency freeze/contract-bound provenance"
+      ]
+    },
+    {
+      "session_id": "B2-nolabel/test/seed42/reveal",
+      "arm": "B2-nolabel",
+      "split": "test",
+      "seed": 42,
+      "dataset": "reveal",
+      "kernel": "tomandjerry223/grace-b2-nolabel-test",
+      "window": {
+        "start_utc": "2026-11-07T15:33:28.589967+00:00",
+        "end_utc": "2026-11-07T19:12:30.554738+00:00",
+        "exit_code": 0
+      },
+      "records": {
+        "artifact": {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/output/b2_nolabel_test/seed_42/reveal/test/records.jsonl",
+          "sha256": "8259d08187fe0085c0a571ad1393d631a427ee2b571792de2b85b4ba0b766bc1",
+          "bytes": 2168215
+        },
+        "arm": "B2-nolabel",
+        "dataset": "reveal",
+        "split": "test",
+        "seed": 42,
+        "n": 2274,
+        "unique_ids": 2274,
+        "expected": 2274,
+        "errors": {},
+        "first_timestamp": "2026-11-07T15:33:45.886789+00:00",
+        "last_timestamp": "2026-11-07T19:12:29.074764+00:00",
+        "runtime_hash_counts": {
+          "ABSENT": 2274
+        },
+        "runtime_reference_count": 0
+      },
+      "records_in_process_window": 2274,
+      "progress_log_unique_ids": 2274,
+      "progress_rounded_score_matches": 2274,
+      "record_file_hash_matches_manifest": true,
+      "record_repeat_isolation": null,
+      "source_constructor": [
+        "llama_cpp.Llama(\n        model_path=str(model_path),\n        n_ctx=8192,\n        n_batch=256,\n        n_ubatch=256,\n        n_gpu_layers=-1,\n        split_mode=llama_cpp.LLAMA_SPLIT_MODE_LAYER,\n        seed=4294967295,\n        logits_all=True,\n        verbose=False\n    )"
+      ],
+      "source_verbose_false": true,
+      "source_enforces_contract": false,
+      "native_log": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "session_install_and_build": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [
+          "f677541ab72fdf8204d91761ffaa5d0809ed2df1adab2c7a7a4c913ac015ded5"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": true,
+        "post_install_package_snapshots": []
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/output/grace_diagnostics/events.log",
+          "sha256": "0103d28bd227e5ebc75f61f24777e3475e722c2a877e341f6bfb985f0ed59f4f",
+          "bytes": 3110
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/session.log",
+          "sha256": "c9a8baf7606ca7e238b930198697574bca97418192ede2a0744276d1744161fa",
+          "bytes": 4253697
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/output/kaggle_test_inference.py",
+          "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+          "bytes": 9433
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-nolabel-test/output/b2_nolabel_test/seed_42/reveal/test/run_manifest.json",
+          "sha256": "cc3504f81230a3d2166fab20bf4e45816aa86f3262624fb84af99376632bdb8f",
+          "bytes": 1070
+        },
+        {
+          "path": "Runs-management/kernel_outputs_harvest/tomandjerry223_grace-b2-nolabel-test/grace_diagnostics.zip",
+          "member": "test_b2_nolabel_reveal.log",
+          "sha256": "cae5274b1380dcb8a59d0d9c4362341a61b7f34f9aff0584e01636f34962dce5",
+          "bytes": 148121
+        }
+      ],
+      "diagnostics_crc": true,
+      "verdict": "PARTIAL_CORE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "native 49/49 placement for this process",
+        "source archive verified before build",
+        "loaded backend library hashes",
+        "GPU UUID/order/free VRAM at load",
+        "effective constructor/thread attestation",
+        "post-install dependency freeze/contract-bound provenance"
+      ]
+    },
+    {
+      "session_id": "B2-labelonly/test/seed42/devign",
+      "arm": "B2-labelonly",
+      "split": "test",
+      "seed": 42,
+      "dataset": "devign",
+      "kernel": "tomandjerry223/grace-b2-labelonly-test",
+      "window": {
+        "start_utc": "2026-11-07T10:35:53.452809+00:00",
+        "end_utc": "2026-11-07T14:45:14.092054+00:00",
+        "exit_code": 0
+      },
+      "records": {
+        "artifact": {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/output/b2_labelonly_test/seed_42/devign/test/records.jsonl",
+          "sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+          "bytes": 2610746
+        },
+        "arm": "B2-labelonly",
+        "dataset": "devign",
+        "split": "test",
+        "seed": 42,
+        "n": 2732,
+        "unique_ids": 2732,
+        "expected": 2732,
+        "errors": {},
+        "first_timestamp": "2026-11-07T10:36:33.364489+00:00",
+        "last_timestamp": "2026-11-07T14:45:05.493043+00:00",
+        "runtime_hash_counts": {
+          "ABSENT": 2732
+        },
+        "runtime_reference_count": 0
+      },
+      "records_in_process_window": 2732,
+      "progress_log_unique_ids": 2732,
+      "progress_rounded_score_matches": 2732,
+      "record_file_hash_matches_manifest": true,
+      "record_repeat_isolation": null,
+      "source_constructor": [
+        "llama_cpp.Llama(\n        model_path=str(model_path),\n        n_ctx=8192,\n        n_batch=256,\n        n_ubatch=256,\n        n_gpu_layers=-1,\n        split_mode=llama_cpp.LLAMA_SPLIT_MODE_LAYER,\n        seed=4294967295,\n        logits_all=True,\n        verbose=False\n    )"
+      ],
+      "source_verbose_false": true,
+      "source_enforces_contract": false,
+      "native_log": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "session_install_and_build": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [
+          "799e8bf3abd74447f4b6c3edc3fff0780d3ff6276c695c5ff7eaa63645d1c172"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": true,
+        "post_install_package_snapshots": []
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/output/grace_diagnostics/events.log",
+          "sha256": "5c220430a4c345436497387c0c4a80f5a76deb3d5209f632f3b8619e47ab1c91",
+          "bytes": 3150
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/session.log",
+          "sha256": "3db24a540e27f674a24d2435571b1a9ead67f77b56a10ec8b0c1118766966f98",
+          "bytes": 4263675
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/output/kaggle_test_inference.py",
+          "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+          "bytes": 9433
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/output/b2_labelonly_test/seed_42/devign/test/run_manifest.json",
+          "sha256": "832ef7cdcf2e278e338be363a46f716d7c3286c9213db1052c187e6c47ca6b48",
+          "bytes": 1074
+        },
+        {
+          "path": "Runs-management/kernel_outputs_harvest/tomandjerry223_grace-b2-labelonly-test/grace_diagnostics.zip",
+          "member": "test_b2_labelonly_devign.log",
+          "sha256": "2ea2eab952d18d0217dc8cb3e80e32e7b6e46bc454b61a47292e62a3025f0b17",
+          "bytes": 186579
+        }
+      ],
+      "diagnostics_crc": true,
+      "verdict": "PARTIAL_CORE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "native 49/49 placement for this process",
+        "source archive verified before build",
+        "loaded backend library hashes",
+        "GPU UUID/order/free VRAM at load",
+        "effective constructor/thread attestation",
+        "post-install dependency freeze/contract-bound provenance"
+      ]
+    },
+    {
+      "session_id": "B2-labelonly/test/seed42/reveal",
+      "arm": "B2-labelonly",
+      "split": "test",
+      "seed": 42,
+      "dataset": "reveal",
+      "kernel": "tomandjerry223/grace-b2-labelonly-test",
+      "window": {
+        "start_utc": "2026-11-07T14:45:14.168230+00:00",
+        "end_utc": "2026-11-07T17:58:18.711016+00:00",
+        "exit_code": 0
+      },
+      "records": {
+        "artifact": {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/output/b2_labelonly_test/seed_42/reveal/test/records.jsonl",
+          "sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+          "bytes": 2175394
+        },
+        "arm": "B2-labelonly",
+        "dataset": "reveal",
+        "split": "test",
+        "seed": 42,
+        "n": 2274,
+        "unique_ids": 2274,
+        "expected": 2274,
+        "errors": {},
+        "first_timestamp": "2026-11-07T14:45:31.424200+00:00",
+        "last_timestamp": "2026-11-07T17:58:17.093560+00:00",
+        "runtime_hash_counts": {
+          "ABSENT": 2274
+        },
+        "runtime_reference_count": 0
+      },
+      "records_in_process_window": 2274,
+      "progress_log_unique_ids": 2274,
+      "progress_rounded_score_matches": 2274,
+      "record_file_hash_matches_manifest": true,
+      "record_repeat_isolation": null,
+      "source_constructor": [
+        "llama_cpp.Llama(\n        model_path=str(model_path),\n        n_ctx=8192,\n        n_batch=256,\n        n_ubatch=256,\n        n_gpu_layers=-1,\n        split_mode=llama_cpp.LLAMA_SPLIT_MODE_LAYER,\n        seed=4294967295,\n        logits_all=True,\n        verbose=False\n    )"
+      ],
+      "source_verbose_false": true,
+      "source_enforces_contract": false,
+      "native_log": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "session_install_and_build": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [
+          "799e8bf3abd74447f4b6c3edc3fff0780d3ff6276c695c5ff7eaa63645d1c172"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": true,
+        "post_install_package_snapshots": []
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/output/grace_diagnostics/events.log",
+          "sha256": "5c220430a4c345436497387c0c4a80f5a76deb3d5209f632f3b8619e47ab1c91",
+          "bytes": 3150
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/session.log",
+          "sha256": "3db24a540e27f674a24d2435571b1a9ead67f77b56a10ec8b0c1118766966f98",
+          "bytes": 4263675
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/output/kaggle_test_inference.py",
+          "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+          "bytes": 9433
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/tomandjerry223/grace-b2-labelonly-test/output/b2_labelonly_test/seed_42/reveal/test/run_manifest.json",
+          "sha256": "a8c43ecec41dc8c5736b7e0860272216424704e04bb86d4340ff42588a831d11",
+          "bytes": 1073
+        },
+        {
+          "path": "Runs-management/kernel_outputs_harvest/tomandjerry223_grace-b2-labelonly-test/grace_diagnostics.zip",
+          "member": "test_b2_labelonly_reveal.log",
+          "sha256": "98d0db79f85fd4c337cea5a07810668bb55045758d8cd344b830b8eba9152c40",
+          "bytes": 152667
+        }
+      ],
+      "diagnostics_crc": true,
+      "verdict": "PARTIAL_CORE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "native 49/49 placement for this process",
+        "source archive verified before build",
+        "loaded backend library hashes",
+        "GPU UUID/order/free VRAM at load",
+        "effective constructor/thread attestation",
+        "post-install dependency freeze/contract-bound provenance"
+      ]
+    },
+    {
+      "session_id": "B2-rep/test/seed42/devign",
+      "arm": "B2-rep",
+      "split": "test",
+      "seed": 42,
+      "dataset": "devign",
+      "kernel": "huuhieu3333/grace-b2-rep-test",
+      "window": {
+        "start_utc": "2026-11-07T11:31:01.732130+00:00",
+        "end_utc": "2026-11-07T16:47:50.052562+00:00",
+        "exit_code": 0
+      },
+      "records": {
+        "artifact": {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/output/b2_rep_test/seed_42/devign/test/records.jsonl",
+          "sha256": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+          "bytes": 2681994
+        },
+        "arm": "B2-rep",
+        "dataset": "devign",
+        "split": "test",
+        "seed": 42,
+        "n": 2732,
+        "unique_ids": 2732,
+        "expected": 2732,
+        "errors": {},
+        "first_timestamp": "2026-11-07T11:31:39.442827+00:00",
+        "last_timestamp": "2026-11-07T16:47:43.993485+00:00",
+        "runtime_hash_counts": {
+          "ABSENT": 2732
+        },
+        "runtime_reference_count": 0
+      },
+      "records_in_process_window": 2732,
+      "progress_log_unique_ids": 2732,
+      "progress_rounded_score_matches": 2732,
+      "record_file_hash_matches_manifest": true,
+      "record_repeat_isolation": true,
+      "source_constructor": [
+        "llama_cpp.Llama(\n        model_path=str(model_path),\n        n_ctx=8192,\n        n_batch=256,\n        n_ubatch=256,\n        n_gpu_layers=-1,\n        split_mode=llama_cpp.LLAMA_SPLIT_MODE_LAYER,\n        seed=4294967295,\n        logits_all=True,\n        verbose=False\n    )"
+      ],
+      "source_verbose_false": true,
+      "source_enforces_contract": false,
+      "native_log": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "session_install_and_build": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [
+          "4783fc2f00294b645144baced114d5cea1eef7ca42bc25f546a801a41bf83cab"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": true,
+        "post_install_package_snapshots": []
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/output/grace_diagnostics/events.log",
+          "sha256": "3b857ad9e738b7d24fd341287e4d4edd30e6b59ccd772974769903011e54247b",
+          "bytes": 3084
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/session.log",
+          "sha256": "0f638135d98a3983dcc738ed74d7f2da2bf2f07df269b9c719febf9ddda7d765",
+          "bytes": 4233931
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/output/kaggle_test_inference.py",
+          "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+          "bytes": 9433
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/output/b2_rep_test/seed_42/devign/test/run_manifest.json",
+          "sha256": "582f7876b8860745585b26ed2427814beb7457f850a2ac77c78aac0f73b186e3",
+          "bytes": 1095
+        },
+        {
+          "path": "Runs-management/kernel_outputs_harvest/huuhieu3333_grace-b2-rep-test/grace_diagnostics.zip",
+          "member": "test_b2_rep_devign.log",
+          "sha256": "518d3fd0b8afd66ca160bc6e0c2f9def9ee9e78651192415bfee5556f96b3cf7",
+          "bytes": 170174
+        }
+      ],
+      "diagnostics_crc": true,
+      "verdict": "PARTIAL_CORE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "native 49/49 placement for this process",
+        "source archive verified before build",
+        "loaded backend library hashes",
+        "GPU UUID/order/free VRAM at load",
+        "effective constructor/thread attestation",
+        "post-install dependency freeze/contract-bound provenance"
+      ]
+    },
+    {
+      "session_id": "B2-rep/test/seed42/reveal",
+      "arm": "B2-rep",
+      "split": "test",
+      "seed": 42,
+      "dataset": "reveal",
+      "kernel": "huuhieu3333/grace-b2-rep-test",
+      "window": {
+        "start_utc": "2026-11-07T16:47:50.117335+00:00",
+        "end_utc": "2026-11-07T20:40:30.941286+00:00",
+        "exit_code": 0
+      },
+      "records": {
+        "artifact": {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/output/b2_rep_test/seed_42/reveal/test/records.jsonl",
+          "sha256": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+          "bytes": 2235889
+        },
+        "arm": "B2-rep",
+        "dataset": "reveal",
+        "split": "test",
+        "seed": 42,
+        "n": 2274,
+        "unique_ids": 2274,
+        "expected": 2274,
+        "errors": {},
+        "first_timestamp": "2026-11-07T16:48:08.666414+00:00",
+        "last_timestamp": "2026-11-07T20:40:29.259667+00:00",
+        "runtime_hash_counts": {
+          "ABSENT": 2274
+        },
+        "runtime_reference_count": 0
+      },
+      "records_in_process_window": 2274,
+      "progress_log_unique_ids": 2274,
+      "progress_rounded_score_matches": 2274,
+      "record_file_hash_matches_manifest": true,
+      "record_repeat_isolation": true,
+      "source_constructor": [
+        "llama_cpp.Llama(\n        model_path=str(model_path),\n        n_ctx=8192,\n        n_batch=256,\n        n_ubatch=256,\n        n_gpu_layers=-1,\n        split_mode=llama_cpp.LLAMA_SPLIT_MODE_LAYER,\n        seed=4294967295,\n        logits_all=True,\n        verbose=False\n    )"
+      ],
+      "source_verbose_false": true,
+      "source_enforces_contract": false,
+      "native_log": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "session_install_and_build": {
+        "native_offload_counts": [],
+        "native_devices": [],
+        "native_context": {
+          "n_ctx": [],
+          "n_batch": [],
+          "n_ubatch": []
+        },
+        "wheel_sha256": [
+          "4783fc2f00294b645144baced114d5cea1eef7ca42bc25f546a801a41bf83cab"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": true,
+        "post_install_package_snapshots": []
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/output/grace_diagnostics/events.log",
+          "sha256": "3b857ad9e738b7d24fd341287e4d4edd30e6b59ccd772974769903011e54247b",
+          "bytes": 3084
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/session.log",
+          "sha256": "0f638135d98a3983dcc738ed74d7f2da2bf2f07df269b9c719febf9ddda7d765",
+          "bytes": 4233931
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/output/kaggle_test_inference.py",
+          "sha256": "9a0e5c3363817b7f8ce49032286994d1da0e176e2cfc85e002c3785bf92e14b6",
+          "bytes": 9433
+        },
+        {
+          "path": "Runs-management/acceptance_6arms_20261108/network_verified/huuhieu3333/grace-b2-rep-test/output/b2_rep_test/seed_42/reveal/test/run_manifest.json",
+          "sha256": "8fd9baddec96fbeb9547a7f039fd27a71b71ac6fde9f4bddf55d8dbecfecab6d",
+          "bytes": 1097
+        },
+        {
+          "path": "Runs-management/kernel_outputs_harvest/huuhieu3333_grace-b2-rep-test/grace_diagnostics.zip",
+          "member": "test_b2_rep_reveal.log",
+          "sha256": "50ebf3c995183689367b62e12701aac2ce6f3cb5bd6e91d8ee6a35190c9f3778",
+          "bytes": 139011
+        }
+      ],
+      "diagnostics_crc": true,
+      "verdict": "PARTIAL_CORE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "native 49/49 placement for this process",
+        "source archive verified before build",
+        "loaded backend library hashes",
+        "GPU UUID/order/free VRAM at load",
+        "effective constructor/thread attestation",
+        "post-install dependency freeze/contract-bound provenance"
+      ]
+    }
+  ],
+  "legacy_validation_processes": [
+    {
+      "session_id": "B1-full/validation/seed42",
+      "arm": "B1-full",
+      "split": "validation",
+      "seed": 42,
+      "window": {
+        "start_utc": "2026-11-04T09:53:27.932191+00:00",
+        "end_utc": "2026-11-04T16:54:40.013200+00:00",
+        "exit_code": 0
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "runs/final/devign/validation/B1-full/42/records.jsonl",
+            "sha256": "259c462963a6427a1873032b1734b0710ffdfc958283e7bb0209b67be1b05fda",
+            "bytes": 3563514
+          },
+          "arm": "B1-full",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-04T09:56:15.010768+00:00",
+          "last_timestamp": "2026-11-04T13:55:05.593340+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2732,
+          "carried_or_unbound_records": 0
+        },
+        {
+          "artifact": {
+            "path": "runs/final/reveal/validation/B1-full/42/records.jsonl",
+            "sha256": "e5f126a3ed787fb7cbf601e047e6facfad2fffdf39f5f2e3f70cfebc2c9fe94e",
+            "bytes": 2965961
+          },
+          "arm": "B1-full",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-04T13:55:10.794879+00:00",
+          "last_timestamp": "2026-11-04T16:54:34.363625+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2273,
+          "carried_or_unbound_records": 0
+        }
+      ],
+      "native_log": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "notebook_console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "1c3440ae73a37cea0369a86cfcc6b61ec61c75cb38702dfc4cd270fb2f20fe86"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/output_b1_full/grace_diagnostics.zip",
+          "sha256": "da096649c0b067e55bbc739753f18a53ad4b0e70266f716878a2a5664e7345f3",
+          "bytes": 179592
+        },
+        {
+          "path": "Runs-management/output_b1_full/grace_diagnostics.zip",
+          "member": "validation_seed_42.log",
+          "sha256": "c58e074522a62031de0e53e4ebff85c205167a6ecf46da021011b0fca8ce6eca",
+          "bytes": 389528
+        },
+        {
+          "path": "Runs-management/output_b1_full/grace_diagnostics.zip",
+          "member": "events.log",
+          "sha256": "9bc98b453af93818fd671b6e7a18b179fed23159eda738c1b0bd57f40672255c",
+          "bytes": 4860
+        },
+        {
+          "path": "Runs-management/GRACE_5ARMS_EXECUTED_NOTEBOOKS_AND_LOGS.zip",
+          "member": "notebooks_executed/B1-full/02_kaggle_qwen_q4_b1_full_validation_executed.ipynb",
+          "sha256": "5d26781799db872b62c3126cc4cac00c967ac638ecddf96093dc8a554f125b4d",
+          "bytes": 780157
+        }
+      ],
+      "verdict": "HISTORICAL_NATIVE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "contract-bound per-record provenance",
+        "pre-build source archive verification",
+        "loaded library hashes and full dependency/thread/UUID attestation"
+      ],
+      "warning": "A native log here does not certify another seed or test process."
+    },
+    {
+      "session_id": "B1-shuf/validation/seed44",
+      "arm": "B1-shuf",
+      "split": "validation",
+      "seed": 44,
+      "window": {
+        "start_utc": "2026-11-07T00:41:18.400114+00:00",
+        "end_utc": "2026-11-07T04:47:15.231413+00:00",
+        "exit_code": 0
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "runs/final/devign/validation/B1-shuf/44/records.jsonl",
+            "sha256": "af63e6dbd0125da2a0023030078f8a5c537db68e03d296cb607c1bd0b1c39626",
+            "bytes": 3563133
+          },
+          "arm": "B1-shuf",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 44,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-05T10:15:24.624899+00:00",
+          "last_timestamp": "2026-11-07T01:38:03.852920+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 619,
+          "carried_or_unbound_records": 2113
+        },
+        {
+          "artifact": {
+            "path": "runs/final/reveal/validation/B1-shuf/44/records.jsonl",
+            "sha256": "669ee4292aec5de6c64a2b480ec814cd669ca2dd52e89417899f83ac0d536ed4",
+            "bytes": 2965303
+          },
+          "arm": "B1-shuf",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 44,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-07T01:38:09.315327+00:00",
+          "last_timestamp": "2026-11-07T04:47:09.747608+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2273,
+          "carried_or_unbound_records": 0
+        }
+      ],
+      "native_log": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "notebook_console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "c27007967665b061197f52de121dbdb50360a7d81e6fe4c4b65e913ef33c3844"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/output_b1_shuf/grace_diagnostics.zip",
+          "sha256": "19eb9e247d84a2837259ac7cddfb465ffb0e30b82491beb3e36e72b88cc3ca29",
+          "bytes": 160550
+        },
+        {
+          "path": "Runs-management/output_b1_shuf/grace_diagnostics.zip",
+          "member": "validation_seed_44.log",
+          "sha256": "c58926688b75ec876a98c04adb1a4adcd9dba77ca679f682658c206478ea6788",
+          "bytes": 237485
+        },
+        {
+          "path": "Runs-management/output_b1_shuf/grace_diagnostics.zip",
+          "member": "events.log",
+          "sha256": "dca4d77ac346ee6fdaaeda7eeb38e8b1f2771c4c61ff7ad9be630e545f2dd72d",
+          "bytes": 5344
+        },
+        {
+          "path": "Runs-management/GRACE_5ARMS_EXECUTED_NOTEBOOKS_AND_LOGS.zip",
+          "member": "notebooks_executed/B1-shuf/02_kaggle_qwen_q4_b1_shuf_validation_executed.ipynb",
+          "sha256": "811c3c8616087f430f1283b23ae46d4ee9584a83c72303d4fa01707c49ffcf5b",
+          "bytes": 610187
+        }
+      ],
+      "verdict": "HISTORICAL_NATIVE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "contract-bound per-record provenance",
+        "pre-build source archive verification",
+        "loaded library hashes and full dependency/thread/UUID attestation"
+      ],
+      "warning": "A native log here does not certify another seed or test process."
+    },
+    {
+      "session_id": "B2-nolabel/validation/seed42",
+      "arm": "B2-nolabel",
+      "split": "validation",
+      "seed": 42,
+      "window": {
+        "start_utc": "2026-11-04T09:52:36.300123+00:00",
+        "end_utc": "2026-11-04T18:39:26.507652+00:00",
+        "exit_code": 0
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "runs/final/devign/validation/B2-nolabel/42/records.jsonl",
+            "sha256": "5750e440e7981785d9bcf67c78f500a25ec72128ad7279667fc39a71513d51e0",
+            "bytes": 3629299
+          },
+          "arm": "B2-nolabel",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-04T09:55:24.487281+00:00",
+          "last_timestamp": "2026-11-04T14:59:24.081929+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2732,
+          "carried_or_unbound_records": 0
+        },
+        {
+          "artifact": {
+            "path": "runs/final/reveal/validation/B2-nolabel/42/records.jsonl",
+            "sha256": "d4d482e922c7918d6bfafec248df4caa478b11fbb5ce56e94025222c19a6c00d",
+            "bytes": 3019921
+          },
+          "arm": "B2-nolabel",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-04T14:59:30.152048+00:00",
+          "last_timestamp": "2026-11-04T18:39:20.816205+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2273,
+          "carried_or_unbound_records": 0
+        }
+      ],
+      "native_log": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "notebook_console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "259e0fb2f93473794675541f83fb59a090fd4c9e4a4dfe9e25f752f368ec9a14"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/output_b2_nolabel/grace_diagnostics.zip",
+          "sha256": "3ca9c7f1b9f6f9c63ebd428b7a430e5a692912d559cfac34a3c5637c66ca8a9d",
+          "bytes": 179654
+        },
+        {
+          "path": "Runs-management/output_b2_nolabel/grace_diagnostics.zip",
+          "member": "validation_seed_42.log",
+          "sha256": "12ed0c0943ffa249eef6a1669be8b835bf4eb98d3e06cd44a57c6f12ca9e2cbc",
+          "bytes": 389510
+        },
+        {
+          "path": "Runs-management/output_b2_nolabel/grace_diagnostics.zip",
+          "member": "events.log",
+          "sha256": "e115d8ff7a7c97984ac7b01378b4531b6e23ba1b518a58016bc12af16cc67074",
+          "bytes": 4881
+        },
+        {
+          "path": "Runs-management/GRACE_5ARMS_EXECUTED_NOTEBOOKS_AND_LOGS.zip",
+          "member": "notebooks_executed/B2-nolabel/02_kaggle_qwen_q4_b2_nolabel_validation_executed.ipynb",
+          "sha256": "8f127a2a7eb1206c44a335b67545a28e4cc398c1a2fe479dd439840977e04cd1",
+          "bytes": 780184
+        }
+      ],
+      "verdict": "HISTORICAL_NATIVE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "contract-bound per-record provenance",
+        "pre-build source archive verification",
+        "loaded library hashes and full dependency/thread/UUID attestation"
+      ],
+      "warning": "A native log here does not certify another seed or test process."
+    },
+    {
+      "session_id": "B2-labelonly/validation/seed42",
+      "arm": "B2-labelonly",
+      "split": "validation",
+      "seed": 42,
+      "window": {
+        "start_utc": "2026-11-04T16:09:50.521601+00:00",
+        "end_utc": "2026-11-04T23:40:49.561044+00:00",
+        "exit_code": 0
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "runs/final/devign/validation/B2-labelonly/42/records.jsonl",
+            "sha256": "a54e872e841ac3f380d4c80fda32de2520e004b374fb9916085093cfe447b542",
+            "bytes": 3634047
+          },
+          "arm": "B2-labelonly",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-04T16:12:29.989846+00:00",
+          "last_timestamp": "2026-11-04T20:25:59.632162+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2732,
+          "carried_or_unbound_records": 0
+        },
+        {
+          "artifact": {
+            "path": "runs/final/reveal/validation/B2-labelonly/42/records.jsonl",
+            "sha256": "f9ce918d1fc44c748e341c0cac259983f2e60262f44e2cb346568034fba7fb9d",
+            "bytes": 3025390
+          },
+          "arm": "B2-labelonly",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-04T20:26:05.083421+00:00",
+          "last_timestamp": "2026-11-04T23:40:44.188637+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2273,
+          "carried_or_unbound_records": 0
+        }
+      ],
+      "native_log": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "notebook_console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "d5b7dcfc9aedd25d126215ba1c4fe718d85f31e16ac50af745da84072635c43a"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/output_b2_labelonly/grace_diagnostics.zip",
+          "sha256": "fdb99c1d5da551cbfb9bead08bd606ce7ce5cccb07581055d0c278cbac5ad1ef",
+          "bytes": 179098
+        },
+        {
+          "path": "Runs-management/output_b2_labelonly/grace_diagnostics.zip",
+          "member": "validation_seed_42.log",
+          "sha256": "a21b9f069e6ffa35e9baf8b24625cb2d9359c04c90b43e3d78fd1915473a2321",
+          "bytes": 389486
+        },
+        {
+          "path": "Runs-management/output_b2_labelonly/grace_diagnostics.zip",
+          "member": "events.log",
+          "sha256": "bdc8642a949dbeb076e36e0d68d159968b14b210fb49dd8db7acd2f8b7d11da3",
+          "bytes": 4844
+        },
+        {
+          "path": "Runs-management/GRACE_5ARMS_EXECUTED_NOTEBOOKS_AND_LOGS.zip",
+          "member": "notebooks_executed/B2-labelonly/02_kaggle_qwen_q4_b2_labelonly_validation_executed.ipynb",
+          "sha256": "4499529a4a6a8f830b0ee10821b34dcc447fb3f64319d051defdaafbc4b04d49",
+          "bytes": 780117
+        }
+      ],
+      "verdict": "HISTORICAL_NATIVE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "contract-bound per-record provenance",
+        "pre-build source archive verification",
+        "loaded library hashes and full dependency/thread/UUID attestation"
+      ],
+      "warning": "A native log here does not certify another seed or test process."
+    },
+    {
+      "session_id": "B2-rep/validation/seed42",
+      "arm": "B2-rep",
+      "split": "validation",
+      "seed": 42,
+      "window": {
+        "start_utc": "2026-11-04T16:18:31.381587+00:00",
+        "end_utc": "2026-11-05T01:06:22.766238+00:00",
+        "exit_code": 0
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "runs/final/devign/validation/B2-rep/42/records.jsonl",
+            "sha256": "c41c900f3864314057f9c3bbecc0067a54105e2c7c4feb0ce4a6cc6f68c10993",
+            "bytes": 3710620
+          },
+          "arm": "B2-rep",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-04T16:20:49.771111+00:00",
+          "last_timestamp": "2026-11-04T21:25:41.224698+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2732,
+          "carried_or_unbound_records": 0
+        },
+        {
+          "artifact": {
+            "path": "runs/final/reveal/validation/B2-rep/42/records.jsonl",
+            "sha256": "12d7940a50af7247ee4f686cf65c39b531a35041bf2b6c903c1bd847965e310c",
+            "bytes": 3087312
+          },
+          "arm": "B2-rep",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-04T21:25:47.301140+00:00",
+          "last_timestamp": "2026-11-05T01:06:18.774383+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "records_in_this_process_window": 2273,
+          "carried_or_unbound_records": 0
+        }
+      ],
+      "native_log": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "notebook_console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "4c5e26de5dcf97ab7ab3e6b95f5b7269c93166b69aec0572d6821f9812203990"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/output_b2_rep/grace_diagnostics.zip",
+          "sha256": "dc0a9878bc1f237e2e12f795dddaabf9a46390de65d5fe09a87a64d864f7118c",
+          "bytes": 178910
+        },
+        {
+          "path": "Runs-management/output_b2_rep/grace_diagnostics.zip",
+          "member": "validation_seed_42.log",
+          "sha256": "c5d5a0a2b76e79407e769755a968ac86104bbe61b293d5f3c4ad106c540e03a2",
+          "bytes": 389486
+        },
+        {
+          "path": "Runs-management/output_b2_rep/grace_diagnostics.zip",
+          "member": "events.log",
+          "sha256": "008d7814ca925306953f34a27783a19f9a478be63ea491a7d4bfc99f1b60e10c",
+          "bytes": 4824
+        },
+        {
+          "path": "Runs-management/GRACE_5ARMS_EXECUTED_NOTEBOOKS_AND_LOGS.zip",
+          "member": "notebooks_executed/B2-rep/02_kaggle_qwen_q4_b2_rep_validation_executed.ipynb",
+          "sha256": "4ed442101a93e2c7a56ae1fbe1d4fac1d98900d6251edd2479df9d6166ddd898",
+          "bytes": 780587
+        }
+      ],
+      "verdict": "HISTORICAL_NATIVE_MATCH_NOT_FULL_LOCK",
+      "missing": [
+        "contract-bound per-record provenance",
+        "pre-build source archive verification",
+        "loaded library hashes and full dependency/thread/UUID attestation"
+      ],
+      "warning": "A native log here does not certify another seed or test process."
+    }
+  ],
+  "b2_rand_test_sessions": [
+    {
+      "session_id": "rand-test-seed42-head",
+      "arm": "B2-rand",
+      "split": "test",
+      "raw_counts": {
+        "42/devign": 2732,
+        "42/reveal": 2017
+      },
+      "first_record_timestamp": "2026-11-07T04:10:15.604267+00:00",
+      "last_record_timestamp": "2026-11-07T12:44:17.361720+00:00",
+      "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+      "checks": {
+        "contract_byte_hash_checkout": false,
+        "contract_original_byte_identity": true,
+        "contract_canonical_seal": true,
+        "packages": true,
+        "constructor": true,
+        "runner_source_hash_checkout": false,
+        "runner_original_byte_identity": true,
+        "backend_source_claim": true,
+        "two_t4_uuid_before_after": true,
+        "threads": true,
+        "compiled_backend_hashes_recorded": true,
+        "dependency_freeze_recorded": true,
+        "native_offload_log_available": false,
+        "native_offload_hash_replayed": null
+      },
+      "source_identity": {
+        "contract": {
+          "checkout_sha256": "a83c467e6536209c65b78715ca264bdce78357f6bcc87789d24ee7998d68a7d4",
+          "expected_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "lf_normalization_diagnostic_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "git_blob_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "exact_original_bytes_recovered": true,
+          "git_commit": "c5a7b64149d70648432b389a45daf6de57a60b7b",
+          "preserved_original": {
+            "path": "Runs-management/runtime_session_reconciliation_20261110/recovered_sources/rand-test-seed42-head/inference_runtime_lock.json",
+            "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+            "bytes": 14930
+          }
+        },
+        "worker": {
+          "checkout_sha256": "74e7e3d67a78457d24dfb0bcd0a9fcbc91f53f7bf603569c3fd05cfb8bdf6757",
+          "expected_sha256": "a3cadc8734ec2e6ed6bd058fa4f7228057ede3ef26e8606507efb6ec6370a4e4",
+          "lf_normalization_diagnostic_sha256": "a3cadc8734ec2e6ed6bd058fa4f7228057ede3ef26e8606507efb6ec6370a4e4",
+          "git_blob_sha256": "a3cadc8734ec2e6ed6bd058fa4f7228057ede3ef26e8606507efb6ec6370a4e4",
+          "exact_original_bytes_recovered": true,
+          "git_commit": "c5a7b64149d70648432b389a45daf6de57a60b7b",
+          "preserved_original": {
+            "path": "Runs-management/runtime_session_reconciliation_20261110/recovered_sources/rand-test-seed42-head/kaggle_inference.py",
+            "sha256": "a3cadc8734ec2e6ed6bd058fa4f7228057ede3ef26e8606507efb6ec6370a4e4",
+            "bytes": 20843
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed42_test_latest/b2_rand_seed42_test/runtime_provenance.json",
+          "sha256": "5be4f4119f5e71676d54636ee751807cf3649fba10eb3005fd74f200ebd562a0",
+          "bytes": 23256
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed42_test_latest/inference_runtime_lock.json",
+          "sha256": "a83c467e6536209c65b78715ca264bdce78357f6bcc87789d24ee7998d68a7d4",
+          "bytes": 15352
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed42_test_latest/kaggle_inference.py",
+          "sha256": "74e7e3d67a78457d24dfb0bcd0a9fcbc91f53f7bf603569c3fd05cfb8bdf6757",
+          "bytes": 21188
+        }
+      ],
+      "verdict": "PROVENANCE_MATCH_NATIVE_LOG_NOT_REPLAYABLE",
+      "missing": [
+        "native model-load log matching recorded SHA",
+        "build/install log chain for this exact session"
+      ],
+      "records_used_in_final_merge": 4749
+    },
+    {
+      "session_id": "rand-test-seed43-head",
+      "arm": "B2-rand",
+      "split": "test",
+      "raw_counts": {
+        "43/devign": 2732,
+        "43/reveal": 2028
+      },
+      "first_record_timestamp": "2026-11-07T04:30:01.405702+00:00",
+      "last_record_timestamp": "2026-11-07T13:04:03.139619+00:00",
+      "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+      "checks": {
+        "contract_byte_hash_checkout": false,
+        "contract_original_byte_identity": true,
+        "contract_canonical_seal": true,
+        "packages": true,
+        "constructor": true,
+        "runner_source_hash_checkout": false,
+        "runner_original_byte_identity": true,
+        "backend_source_claim": true,
+        "two_t4_uuid_before_after": true,
+        "threads": true,
+        "compiled_backend_hashes_recorded": true,
+        "dependency_freeze_recorded": true,
+        "native_offload_log_available": false,
+        "native_offload_hash_replayed": null
+      },
+      "source_identity": {
+        "contract": {
+          "checkout_sha256": "a83c467e6536209c65b78715ca264bdce78357f6bcc87789d24ee7998d68a7d4",
+          "expected_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "lf_normalization_diagnostic_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "git_blob_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+          "exact_original_bytes_recovered": true,
+          "git_commit": "c5a7b64149d70648432b389a45daf6de57a60b7b",
+          "preserved_original": {
+            "path": "Runs-management/runtime_session_reconciliation_20261110/recovered_sources/rand-test-seed43-head/inference_runtime_lock.json",
+            "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+            "bytes": 14930
+          }
+        },
+        "worker": {
+          "checkout_sha256": "b08a8d370b41b10c54e8759c87be97830a01593dcfc9377a8993ffdd60194833",
+          "expected_sha256": "1f48c04cf0cbe0b029da542c8ddfdd9dca88c51ad864c2776e8ce0131988aaca",
+          "lf_normalization_diagnostic_sha256": "1f48c04cf0cbe0b029da542c8ddfdd9dca88c51ad864c2776e8ce0131988aaca",
+          "git_blob_sha256": "1f48c04cf0cbe0b029da542c8ddfdd9dca88c51ad864c2776e8ce0131988aaca",
+          "exact_original_bytes_recovered": true,
+          "git_commit": "c5a7b64149d70648432b389a45daf6de57a60b7b",
+          "preserved_original": {
+            "path": "Runs-management/runtime_session_reconciliation_20261110/recovered_sources/rand-test-seed43-head/kaggle_inference.py",
+            "sha256": "1f48c04cf0cbe0b029da542c8ddfdd9dca88c51ad864c2776e8ce0131988aaca",
+            "bytes": 20843
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed43_test_latest/b2_rand_seed43_test/runtime_provenance.json",
+          "sha256": "79e7a272a881be5b19dba23a21242145ddd98f75dfbf765c93df0a27f94df00f",
+          "bytes": 23256
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed43_test_latest/inference_runtime_lock.json",
+          "sha256": "a83c467e6536209c65b78715ca264bdce78357f6bcc87789d24ee7998d68a7d4",
+          "bytes": 15352
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed43_test_latest/kaggle_inference.py",
+          "sha256": "b08a8d370b41b10c54e8759c87be97830a01593dcfc9377a8993ffdd60194833",
+          "bytes": 21188
+        }
+      ],
+      "verdict": "PROVENANCE_MATCH_NATIVE_LOG_NOT_REPLAYABLE",
+      "missing": [
+        "native model-load log matching recorded SHA",
+        "build/install log chain for this exact session"
+      ],
+      "records_used_in_final_merge": 4760
+    },
+    {
+      "session_id": "rand-test-seed44-head",
+      "arm": "B2-rand",
+      "split": "test",
+      "raw_counts": {
+        "44/devign": 2732,
+        "44/reveal": 1929
+      },
+      "first_record_timestamp": "2026-11-07T11:35:20.232229+00:00",
+      "last_record_timestamp": "2026-11-07T20:09:24.382483+00:00",
+      "runtime_contract_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+      "checks": {
+        "contract_byte_hash_checkout": false,
+        "contract_original_byte_identity": true,
+        "contract_canonical_seal": true,
+        "packages": true,
+        "constructor": true,
+        "runner_source_hash_checkout": false,
+        "runner_original_byte_identity": true,
+        "backend_source_claim": true,
+        "two_t4_uuid_before_after": true,
+        "threads": true,
+        "compiled_backend_hashes_recorded": true,
+        "dependency_freeze_recorded": true,
+        "native_offload_log_available": false,
+        "native_offload_hash_replayed": null
+      },
+      "source_identity": {
+        "contract": {
+          "checkout_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+          "expected_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+          "lf_normalization_diagnostic_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+          "git_blob_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+          "exact_original_bytes_recovered": true,
+          "git_commit": "c5a7b64149d70648432b389a45daf6de57a60b7b",
+          "preserved_original": {
+            "path": "Runs-management/runtime_session_reconciliation_20261110/recovered_sources/rand-test-seed44-head/inference_runtime_lock.json",
+            "sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+            "bytes": 15416
+          }
+        },
+        "worker": {
+          "checkout_sha256": "3173afc5cc82e75effd90bc0bfd01dbf54afdaa09a8d7d7843cee298b2a3be69",
+          "expected_sha256": "88e7a1255607744fe802252d69384d5338aadaa6fe75ee18f8a1f02ad8c5408b",
+          "lf_normalization_diagnostic_sha256": "88e7a1255607744fe802252d69384d5338aadaa6fe75ee18f8a1f02ad8c5408b",
+          "git_blob_sha256": "88e7a1255607744fe802252d69384d5338aadaa6fe75ee18f8a1f02ad8c5408b",
+          "exact_original_bytes_recovered": true,
+          "git_commit": "c5a7b64149d70648432b389a45daf6de57a60b7b",
+          "preserved_original": {
+            "path": "Runs-management/runtime_session_reconciliation_20261110/recovered_sources/rand-test-seed44-head/kaggle_inference.py",
+            "sha256": "88e7a1255607744fe802252d69384d5338aadaa6fe75ee18f8a1f02ad8c5408b",
+            "bytes": 20843
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261108/b2_rand_seed44_test_latest/b2_rand_seed44_test/runtime_provenance.json",
+          "sha256": "f47c5c27b75b513cf0959ecb38c313f19c247b1a036ee263b0907df95dce2754",
+          "bytes": 23280
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261108/b2_rand_seed44_test_latest/inference_runtime_lock.json",
+          "sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+          "bytes": 15842
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261108/b2_rand_seed44_test_latest/kaggle_inference.py",
+          "sha256": "3173afc5cc82e75effd90bc0bfd01dbf54afdaa09a8d7d7843cee298b2a3be69",
+          "bytes": 21188
+        }
+      ],
+      "verdict": "PROVENANCE_MATCH_NATIVE_LOG_NOT_REPLAYABLE",
+      "missing": [
+        "native model-load log matching recorded SHA",
+        "build/install log chain for this exact session"
+      ],
+      "records_used_in_final_merge": 4661
+    },
+    {
+      "session_id": "rand-test-three-seed-tail",
+      "arm": "B2-rand",
+      "split": "test",
+      "raw_counts": {
+        "42/reveal": 257,
+        "43/reveal": 246,
+        "44/reveal": 374
+      },
+      "first_record_timestamp": "2026-11-07T13:50:17.379078+00:00",
+      "last_record_timestamp": "2026-11-07T15:18:45.307651+00:00",
+      "runtime_contract_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+      "checks": {
+        "contract_byte_hash_checkout": false,
+        "contract_original_byte_identity": true,
+        "contract_canonical_seal": true,
+        "packages": true,
+        "constructor": true,
+        "runner_source_hash_checkout": false,
+        "runner_original_byte_identity": true,
+        "backend_source_claim": true,
+        "two_t4_uuid_before_after": true,
+        "threads": true,
+        "compiled_backend_hashes_recorded": true,
+        "dependency_freeze_recorded": true,
+        "native_offload_log_available": false,
+        "native_offload_hash_replayed": null
+      },
+      "source_identity": {
+        "contract": {
+          "checkout_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+          "expected_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+          "lf_normalization_diagnostic_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+          "git_blob_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+          "exact_original_bytes_recovered": true,
+          "git_commit": "c5a7b64149d70648432b389a45daf6de57a60b7b",
+          "preserved_original": {
+            "path": "Runs-management/runtime_session_reconciliation_20261110/recovered_sources/rand-test-three-seed-tail/inference_runtime_lock.json",
+            "sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+            "bytes": 15416
+          }
+        },
+        "worker": {
+          "checkout_sha256": "f4375fb1b060952c2c557ccbbba5e29b06132177f7d9d197125a492ae10e9968",
+          "expected_sha256": "22c9aaa285afc21f8eec50dae26fca5bec3f73519ebe581e0e04c8a563127e4a",
+          "lf_normalization_diagnostic_sha256": "22c9aaa285afc21f8eec50dae26fca5bec3f73519ebe581e0e04c8a563127e4a",
+          "git_blob_sha256": "22c9aaa285afc21f8eec50dae26fca5bec3f73519ebe581e0e04c8a563127e4a",
+          "exact_original_bytes_recovered": true,
+          "git_commit": "c5a7b64149d70648432b389a45daf6de57a60b7b",
+          "preserved_original": {
+            "path": "Runs-management/runtime_session_reconciliation_20261110/recovered_sources/rand-test-three-seed-tail/kaggle_inference.py",
+            "sha256": "22c9aaa285afc21f8eec50dae26fca5bec3f73519ebe581e0e04c8a563127e4a",
+            "bytes": 20833
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_three_seed_test_tail_latest/b2_rand_three_seed_test_tail/runtime_provenance.json",
+          "sha256": "eb2d091acb137a163929efd1e51c9f1e4bb4fe2c2d31129dfbc1ec4e5317088a",
+          "bytes": 23280
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_three_seed_test_tail_latest/inference_runtime_lock.json",
+          "sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+          "bytes": 15842
+        },
+        {
+          "path": "Runs-management/kaggle_outputs_20261107/b2_rand_three_seed_test_tail_latest/kaggle_inference.py",
+          "sha256": "f4375fb1b060952c2c557ccbbba5e29b06132177f7d9d197125a492ae10e9968",
+          "bytes": 21179
+        }
+      ],
+      "verdict": "PROVENANCE_MATCH_NATIVE_LOG_NOT_REPLAYABLE",
+      "missing": [
+        "native model-load log matching recorded SHA",
+        "build/install log chain for this exact session"
+      ],
+      "records_used_in_final_merge": 848
+    }
+  ],
+  "b2_rand_final_groups": [
+    {
+      "artifact": {
+        "path": "06_Arm_B2_Rand/test_results_20261107/seed_42/devign/test/records.jsonl",
+        "sha256": "8590a9a927c1d5f03445d3547d936f6c902901a1557abd2ca0849d97b3293869",
+        "bytes": 4355985
+      },
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 42,
+      "n": 2732,
+      "unique_ids": 2732,
+      "expected": 2732,
+      "errors": {},
+      "first_timestamp": "2026-11-07T04:10:15.604267+00:00",
+      "last_timestamp": "2026-11-07T09:20:40.411792+00:00",
+      "runtime_hash_counts": {
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6": 2732
+      },
+      "runtime_reference_count": 0,
+      "source_session_counts_full_record_equality": {
+        "rand-test-seed42-head": 2732
+      }
+    },
+    {
+      "artifact": {
+        "path": "06_Arm_B2_Rand/test_results_20261107/seed_42/reveal/test/records.jsonl",
+        "sha256": "2dde8734cd5a91b8f51163ea28896ed5fbb44856bc79c3eeb632e02b0eb4bb2f",
+        "bytes": 3626922
+      },
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 42,
+      "n": 2274,
+      "unique_ids": 2274,
+      "expected": 2274,
+      "errors": {},
+      "first_timestamp": "2026-11-07T09:20:45.963434+00:00",
+      "last_timestamp": "2026-11-07T14:15:46.256076+00:00",
+      "runtime_hash_counts": {
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6": 2017,
+        "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e": 257
+      },
+      "runtime_reference_count": 0,
+      "source_session_counts_full_record_equality": {
+        "rand-test-seed42-head": 2017,
+        "rand-test-three-seed-tail": 257
+      }
+    },
+    {
+      "artifact": {
+        "path": "06_Arm_B2_Rand/test_results_20261107/seed_43/devign/test/records.jsonl",
+        "sha256": "4dbab3f4a13efad1ab0c249d1030b88b7a23c23178bfdbdebafe70d52abddbcd",
+        "bytes": 4356109
+      },
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 43,
+      "n": 2732,
+      "unique_ids": 2732,
+      "expected": 2732,
+      "errors": {},
+      "first_timestamp": "2026-11-07T04:30:01.405702+00:00",
+      "last_timestamp": "2026-11-07T09:39:41.939581+00:00",
+      "runtime_hash_counts": {
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6": 2732
+      },
+      "runtime_reference_count": 0,
+      "source_session_counts_full_record_equality": {
+        "rand-test-seed43-head": 2732
+      }
+    },
+    {
+      "artifact": {
+        "path": "06_Arm_B2_Rand/test_results_20261107/seed_43/reveal/test/records.jsonl",
+        "sha256": "911452bf5b0c5a3ea0a1675f84c3b311f64b49bdb84aa25aaf21eee1c1950619",
+        "bytes": 3626516
+      },
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 43,
+      "n": 2274,
+      "unique_ids": 2274,
+      "expected": 2274,
+      "errors": {},
+      "first_timestamp": "2026-11-07T09:39:48.019206+00:00",
+      "last_timestamp": "2026-11-07T14:40:44.662183+00:00",
+      "runtime_hash_counts": {
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6": 2028,
+        "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e": 246
+      },
+      "runtime_reference_count": 0,
+      "source_session_counts_full_record_equality": {
+        "rand-test-seed43-head": 2028,
+        "rand-test-three-seed-tail": 246
+      }
+    },
+    {
+      "artifact": {
+        "path": "06_Arm_B2_Rand/test_results_20261107/seed_44/devign/test/records.jsonl",
+        "sha256": "c84101e5675959bcbe7017bb1ccfedd1c8d0b886c7f8eded98292f91d44a2642",
+        "bytes": 4356199
+      },
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "split": "test",
+      "seed": 44,
+      "n": 2732,
+      "unique_ids": 2732,
+      "expected": 2732,
+      "errors": {},
+      "first_timestamp": "2026-11-07T11:35:20.232229+00:00",
+      "last_timestamp": "2026-11-07T16:51:14.804544+00:00",
+      "runtime_hash_counts": {
+        "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e": 2732
+      },
+      "runtime_reference_count": 0,
+      "source_session_counts_full_record_equality": {
+        "rand-test-seed44-head": 2732
+      }
+    },
+    {
+      "artifact": {
+        "path": "06_Arm_B2_Rand/test_results_20261107/seed_44/reveal/test/records.jsonl",
+        "sha256": "68c737d7bda457c25a9c7303e260d8971b3fea912e1df593b9e75adde551d087",
+        "bytes": 3626969
+      },
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "split": "test",
+      "seed": 44,
+      "n": 2274,
+      "unique_ids": 2274,
+      "expected": 2274,
+      "errors": {},
+      "first_timestamp": "2026-11-07T14:43:59.731832+00:00",
+      "last_timestamp": "2026-11-07T20:09:24.382483+00:00",
+      "runtime_hash_counts": {
+        "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e": 2274
+      },
+      "runtime_reference_count": 0,
+      "source_session_counts_full_record_equality": {
+        "rand-test-seed44-head": 1929,
+        "rand-test-three-seed-tail": 345
+      }
+    }
+  ],
+  "historical_saved_notebooks": [
+    {
+      "session_id": "B0/I03",
+      "arm": "B0",
+      "saved_notebook_window": {
+        "start_utc": "2026-11-01T04:00:56.410018+00:00",
+        "end_utc": "2026-11-01T08:48:04.460431+00:00"
+      },
+      "saved_output_chars": 296228,
+      "console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "fcdcba0ab5521b36650cf137615bf851be5dc98a22e828ebb392150937892102"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/validation/records.jsonl",
+            "sha256": "d856cf6b2271d4fb6f22dc999c83efe3c0e6ec29b8bc4e1340e28a6093c44ce1",
+            "bytes": 4416971
+          },
+          "arm": "B0",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-01T04:22:36.057738+00:00",
+          "last_timestamp": "2026-11-01T05:42:40.818328+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 2732
+        },
+        {
+          "artifact": {
+            "path": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/validation/records.jsonl",
+            "sha256": "80397c2e90f78cb2d67a94313a5cd02a09901ec64e56176f7d903e85385446d7",
+            "bytes": 3674816
+          },
+          "arm": "B0",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-01T05:42:42.549559+00:00",
+          "last_timestamp": "2026-11-01T06:34:38.662437+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 2273
+        }
+      ],
+      "artifact": {
+        "path": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb",
+        "sha256": "8ceec72c4aafa6535b61ec0997be6edbeb0349fb04bf9d14423df42d7ad7d49a",
+        "bytes": 391157
+      },
+      "verdict": "HISTORICAL_EVIDENCE_PARTIAL_NOT_FULL_LOCK",
+      "warning": "Saved output is evidence for its own session only; carried records outside this window are unbound. Current source alone is not runtime attestation."
+    },
+    {
+      "session_id": "B1/I08",
+      "arm": "B1",
+      "saved_notebook_window": {
+        "start_utc": "2026-11-01T23:36:32.240842+00:00",
+        "end_utc": "2026-11-02T06:32:08.576833+00:00"
+      },
+      "saved_output_chars": 294202,
+      "console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "4203f2ae0623f1766aaf81c70465c1842ad28bbe3503201a548084fd155bfe8b"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/devign/validation/records.jsonl",
+            "sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
+            "bytes": 3614727
+          },
+          "arm": "B1",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-01T10:18:37.956383+00:00",
+          "last_timestamp": "2026-11-01T14:24:16.404839+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/reveal/validation/records.jsonl",
+            "sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
+            "bytes": 3008858
+          },
+          "arm": "B1",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-01T14:24:21.723867+00:00",
+          "last_timestamp": "2026-11-01T17:33:13.471137+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        }
+      ],
+      "artifact": {
+        "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb",
+        "sha256": "6e501ab2f57b964e9c43a807297df4407620bcb9a02f0a3744d742341dce22fb",
+        "bytes": 340542
+      },
+      "verdict": "HISTORICAL_EVIDENCE_PARTIAL_NOT_FULL_LOCK",
+      "warning": "Saved output is evidence for its own session only; carried records outside this window are unbound. Current source alone is not runtime attestation."
+    },
+    {
+      "session_id": "B2/I05",
+      "arm": "B2",
+      "saved_notebook_window": {
+        "start_utc": "2026-11-01T10:48:57.517364+00:00",
+        "end_utc": "2026-11-01T13:25:11.367059+00:00"
+      },
+      "saved_output_chars": 292087,
+      "console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "0b7f1615c51b05a091b501963f083e68e9159a5fe10d1d7679228a3aaa639eab"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/test/records.jsonl",
+            "sha256": "ef6097b78b10b51447e7634dca4930e53e0f0667f450b0c4a24921bf17f4f09f",
+            "bytes": 4240237
+          },
+          "arm": "B2",
+          "dataset": "devign",
+          "split": "test",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-01T03:14:29.496600+00:00",
+          "last_timestamp": "2026-11-01T08:28:11.367467+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/devign/validation/records.jsonl",
+            "sha256": "bab9d47d935ae4f5b51ade2a1619d8b89abe73d82d18b73bb5583d32c1e4b2ff",
+            "bytes": 4273219
+          },
+          "arm": "B2",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-10-31T17:11:48.443286+00:00",
+          "last_timestamp": "2026-10-31T22:17:13.510548+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/test/records.jsonl",
+            "sha256": "f15fa8eb6f445514659d6a1e810ada8a5a4349da65a309d7744a4d51c4f1aef7",
+            "bytes": 3529107
+          },
+          "arm": "B2",
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 42,
+          "n": 2274,
+          "unique_ids": 2274,
+          "expected": 2274,
+          "errors": {},
+          "first_timestamp": "2026-11-01T08:28:16.791496+00:00",
+          "last_timestamp": "2026-11-01T13:25:06.168774+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2274
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 1297
+        },
+        {
+          "artifact": {
+            "path": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_20261101/grace_b2_four_split_8h/reveal/validation/records.jsonl",
+            "sha256": "7b8f5a4242ecdb54533efe80e53b320c56682533d6bc379d6629dbeb261bfd1b",
+            "bytes": 3555329
+          },
+          "arm": "B2",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-10-31T22:17:19.609255+00:00",
+          "last_timestamp": "2026-11-01T03:14:18.811075+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        }
+      ],
+      "artifact": {
+        "path": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
+        "sha256": "a03fb6ca054402539359c0a420b6a63e88d35409884fb3fe40c88215af2cf2b6",
+        "bytes": 404964
+      },
+      "verdict": "HISTORICAL_EVIDENCE_PARTIAL_NOT_FULL_LOCK",
+      "warning": "Saved output is evidence for its own session only; carried records outside this window are unbound. Current source alone is not runtime attestation."
+    },
+    {
+      "session_id": "B2-flip/I10",
+      "arm": "B2-flip",
+      "saved_notebook_window": {
+        "start_utc": "2026-11-04T14:30:07.271715+00:00",
+        "end_utc": "2026-11-04T23:08:00.48988+00:00"
+      },
+      "saved_output_chars": 734763,
+      "console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "f5d1134aaafdbb7e9f88669021fc50e7a151ecf746d735b2a8e61108f4a490f3"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "record_groups": [],
+      "artifact": {
+        "path": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
+        "sha256": "df68083b82bdf7567cc1146ae4fe5fd4f02474094dfd4492432e3bfaaac78c4a",
+        "bytes": 845345
+      },
+      "verdict": "HISTORICAL_EVIDENCE_PARTIAL_NOT_FULL_LOCK",
+      "warning": "Saved output is evidence for its own session only; carried records outside this window are unbound. Current source alone is not runtime attestation."
+    },
+    {
+      "session_id": "B1-H2/Kaggle-validation",
+      "arm": "B1-H2",
+      "saved_notebook_window": {
+        "start_utc": "2026-11-06T12:29:44.038859+00:00",
+        "end_utc": "2026-11-06T15:04:32.126697+00:00"
+      },
+      "saved_output_chars": 656395,
+      "console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "80c56816b8443b5b36bebdaf10255d59c722c96074784fc844ada3afbcbf7575"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": true,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/b1_h2_validation/seed_42/devign/validation/records.jsonl",
+            "sha256": "111fe731b028b386ede50b62e0413fb988c9b6c21b765f300489934fe3f0815c",
+            "bytes": 3453329
+          },
+          "arm": "B1-H2",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-06T12:50:09.014622+00:00",
+          "last_timestamp": "2026-11-06T14:12:04.607450+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 2732
+        },
+        {
+          "artifact": {
+            "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/b1_h2_validation/seed_42/reveal/validation/records.jsonl",
+            "sha256": "3d44ada0a4aa42b78ff27752a928ee7c12a58f4dec2645f412ba1aa3d37b6c7f",
+            "bytes": 2873795
+          },
+          "arm": "B1-H2",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-06T14:12:06.087663+00:00",
+          "last_timestamp": "2026-11-06T15:04:24.707747+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 2273
+        }
+      ],
+      "artifact": {
+        "path": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb",
+        "sha256": "6486e41d51d3e947e6e6c690904e68dfc5abf1fff1d57fc394b1ff428e657fe7",
+        "bytes": 750207
+      },
+      "verdict": "HISTORICAL_EVIDENCE_PARTIAL_NOT_FULL_LOCK",
+      "warning": "Saved output is evidence for its own session only; carried records outside this window are unbound. Current source alone is not runtime attestation."
+    },
+    {
+      "session_id": "B1-H2/Kaggle-test",
+      "arm": "B1-H2",
+      "saved_notebook_window": {
+        "start_utc": "2026-11-06T17:04:35.531829+00:00",
+        "end_utc": "2026-11-06T19:40:00.082974+00:00"
+      },
+      "saved_output_chars": 298590,
+      "console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [
+          "f6f9936b9692497de1df6222f802aaf62d62f8f7abd2099097302f56ff39c244"
+        ],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": true,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/b1_h2_test/seed_42/devign/test/records.jsonl",
+            "sha256": "83731ac85eb69c2d8e5089533ad6e58f983f040734d7ae425935a280999ad218",
+            "bytes": 3751038
+          },
+          "arm": "B1-H2",
+          "dataset": "devign",
+          "split": "test",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-06T17:24:22.347345+00:00",
+          "last_timestamp": "2026-11-06T18:46:40.458748+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 2732
+        },
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/b1_h2_test/seed_42/reveal/test/records.jsonl",
+            "sha256": "ede12975e55e522207a344e43397cfe238066d23830e4693919c8ca28f2382bc",
+            "bytes": 3122522
+          },
+          "arm": "B1-H2",
+          "dataset": "reveal",
+          "split": "test",
+          "seed": 42,
+          "n": 2274,
+          "unique_ids": 2274,
+          "expected": 2274,
+          "errors": {},
+          "first_timestamp": "2026-11-06T18:46:41.340482+00:00",
+          "last_timestamp": "2026-11-06T19:39:54.093365+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2274
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 2274
+        }
+      ],
+      "artifact": {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb",
+        "sha256": "d71dd169f8c5ed0cc99c979fa23f9a683be24acb44ef7ea14762a36701ee4cf3",
+        "bytes": 374379
+      },
+      "verdict": "HISTORICAL_EVIDENCE_PARTIAL_NOT_FULL_LOCK",
+      "warning": "Saved output is evidence for its own session only; carried records outside this window are unbound. Current source alone is not runtime attestation."
+    },
+    {
+      "session_id": "B2-rand/validation",
+      "arm": "B2-rand",
+      "saved_notebook_window": {
+        "start_utc": "2026-11-07T03:58:12.050527+00:00",
+        "end_utc": "2026-11-07T08:34:03.692458+00:00"
+      },
+      "saved_output_chars": 263914,
+      "console": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [],
+        "build_cmake": [
+          "4.4.4"
+        ],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": [
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          },
+          {
+            "llama-cpp-python": "0.3.16",
+            "transformers": "4.57.1",
+            "huggingface_hub": "0.36.2",
+            "scikit-learn": "1.5.2",
+            "numpy": "2.1.3",
+            "scipy": "1.16.3"
+          }
+        ]
+      },
+      "record_groups": [
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/b2_donor_rerun_66/devign/test/records.jsonl",
+            "sha256": "d131b9ffff3ebed1c8c49e844e005f31d6e2598051e6baa55760d424de3acc1d",
+            "bytes": 58937
+          },
+          "arm": "B2",
+          "dataset": "devign",
+          "split": "test",
+          "seed": 42,
+          "n": 38,
+          "unique_ids": 38,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-02T00:13:29.468748+00:00",
+          "last_timestamp": "2026-11-02T00:16:58.900076+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 38
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/b2_donor_rerun_66/devign/validation/records.jsonl",
+            "sha256": "31ce9a4e2eab8e2f4d50d4b99b8a304984ae4d8ea091f38fb2d2461f654d6492",
+            "bytes": 43792
+          },
+          "arm": "B2",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 28,
+          "unique_ids": 28,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-02T00:09:30.153918+00:00",
+          "last_timestamp": "2026-11-02T00:12:19.673745+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 28
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/seed_42/devign/validation/records.jsonl",
+            "sha256": "71fc44ff78ad8acdbbd36f60fc3da96fead704a417058d7637fa4360558ad557",
+            "bytes": 3578096
+          },
+          "arm": "B2-rand",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 42,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-02T00:18:04.119637+00:00",
+          "last_timestamp": "2026-11-02T05:31:16.940452+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/seed_42/reveal/validation/records.jsonl",
+            "sha256": "039a5ffd7124469e3207bba10e7e2a9fe5ed5454becd8d19c26afa5f35463a76",
+            "bytes": 2978111
+          },
+          "arm": "B2-rand",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 42,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-02T05:31:22.512438+00:00",
+          "last_timestamp": "2026-11-05T01:19:09.065978+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/seed_43/devign/validation/records.jsonl",
+            "sha256": "dce24cffeac38ec053a28916d8ed7f0159489100be3837b1071adc632f3eaebb",
+            "bytes": 3577663
+          },
+          "arm": "B2-rand",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 43,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-05T01:20:24.273945+00:00",
+          "last_timestamp": "2026-11-05T06:39:54.210050+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2732
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/seed_43/reveal/validation/records.jsonl",
+            "sha256": "42438e457fd1e3928cd1e056ca88c2dff7c1d2e17b895055e3d65fd96ad18315",
+            "bytes": 2978324
+          },
+          "arm": "B2-rand",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 43,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-05T06:39:59.917111+00:00",
+          "last_timestamp": "2026-11-06T19:29:46.328675+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2273
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 0
+        },
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/seed_44/devign/validation/records.jsonl",
+            "sha256": "8f3b1bbd1779c723c01f829236c97a210dba7eadc4aee9500b26f67fb569b5c6",
+            "bytes": 3658739
+          },
+          "arm": "B2-rand",
+          "dataset": "devign",
+          "split": "validation",
+          "seed": 44,
+          "n": 2732,
+          "unique_ids": 2732,
+          "expected": 2732,
+          "errors": {},
+          "first_timestamp": "2026-11-06T19:31:03.555046+00:00",
+          "last_timestamp": "2026-11-07T04:52:00.868820+00:00",
+          "runtime_hash_counts": {
+            "ABSENT": 2426,
+            "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6": 306
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 306
+        },
+        {
+          "artifact": {
+            "path": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/seed_44/reveal/validation/records.jsonl",
+            "sha256": "cd98024cbfae8cd65e12ab668c0782619e68161332b0ad8956760b36a4142fe4",
+            "bytes": 3580603
+          },
+          "arm": "B2-rand",
+          "dataset": "reveal",
+          "split": "validation",
+          "seed": 44,
+          "n": 2273,
+          "unique_ids": 2273,
+          "expected": 2273,
+          "errors": {},
+          "first_timestamp": "2026-11-07T04:52:07.252471+00:00",
+          "last_timestamp": "2026-11-07T08:33:56.316835+00:00",
+          "runtime_hash_counts": {
+            "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6": 2273
+          },
+          "runtime_reference_count": 0,
+          "within_saved_notebook_window": 2273
+        }
+      ],
+      "artifact": {
+        "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+        "sha256": "a9bc444c153eae50f10b1b81ea6501e778995437028b89cbbd3cb580c4254643",
+        "bytes": 366209
+      },
+      "verdict": "HISTORICAL_EVIDENCE_PARTIAL_NOT_FULL_LOCK",
+      "warning": "Saved output is evidence for its own session only; carried records outside this window are unbound. Current source alone is not runtime attestation."
+    }
+  ],
+  "historical_b3": {
+    "sessions": [
+      {
+        "session_id": "B3-historical/locked_rt3jkftt",
+        "arm": "B3-historical",
+        "split": "validation",
+        "records_referenced": 947,
+        "first_record_timestamp": "2026-11-08T01:51:23.669437+00:00",
+        "last_record_timestamp": "2026-11-08T03:40:57.906588+00:00",
+        "checks": {
+          "record_provenance_hashes": true,
+          "record_contract_and_model": true,
+          "launch_contract_bytes": true,
+          "packages": true,
+          "constructor": true,
+          "native_log_hash": true,
+          "native_full_offload": true,
+          "native_two_t4": true,
+          "native_context_batch": true,
+          "two_t4_uuid_before_after": true,
+          "threads": true,
+          "backend_source": true,
+          "compiled_hashes_and_freeze_recorded": true,
+          "runner_sha256_matched": true,
+          "runtime_helper_sha256_matched": true,
+          "backend_build_log_sha256_matched": true
+        },
+        "evidence": [
+          {
+            "path": "Runs-management/run_handoff_20261108/completed_results/b3_historical_validation_completed_20261108/locked_rt3jkftt/runtime_provenance.json",
+            "sha256": "847fba04a4593f5f4c7a1b1b9d507b3777d0981f36e086e0099a39c4c3bf1985",
+            "bytes": 23627
+          },
+          {
+            "path": "Runs-management/run_handoff_20261108/completed_results/b3_historical_validation_completed_20261108/locked_rt3jkftt/model_load_offload.log",
+            "sha256": "85fdf4561f24ec004f3a018cabb020bf8c51ed341431f314f694f53bdaf3bfbf",
+            "bytes": 30449
+          },
+          {
+            "path": "Runs-management/run_handoff_20261108/completed_results/b3_historical_validation_completed_20261108/inference_runtime_lock.json",
+            "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+            "bytes": 14930
+          }
+        ],
+        "matched_sources_and_build": {
+          "runner_sha256": {
+            "source": {
+              "path": "Runs-management/b1_shuf_download_20261108_231129/kaggle_inference.py",
+              "sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+              "bytes": 17433
+            },
+            "published_copy": {
+              "path": "Runs-management/runtime_session_reconciliation_20261110/verified_legacy_b3_evidence/locked_rt3jkftt/kaggle_inference.py",
+              "sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+              "bytes": 17433
+            }
+          },
+          "runtime_helper_sha256": {
+            "source": {
+              "path": "Runs-management/b1_shuf_download_20261108_231129/grace_runtime_contract.py",
+              "sha256": "3e232635a01bfca9adc4b9d684bb9d67c264c692a3f2038dbfb763e88684bf5d",
+              "bytes": 6574
+            },
+            "published_copy": {
+              "path": "Runs-management/runtime_session_reconciliation_20261110/verified_legacy_b3_evidence/locked_rt3jkftt/grace_runtime_contract.py",
+              "sha256": "3e232635a01bfca9adc4b9d684bb9d67c264c692a3f2038dbfb763e88684bf5d",
+              "bytes": 6574
+            }
+          },
+          "backend_build_log_sha256": {
+            "source": {
+              "path": "Runs-management/locked_continuations_20261108/b3_only_migrated/remote_output/grace_diagnostics/install_llama_cuda.log",
+              "sha256": "d04d072c99c81a1b49b33e137469d039130836b79bf816a6dfab69a4adc1311a",
+              "bytes": 992793
+            },
+            "published_copy": {
+              "path": "Runs-management/runtime_session_reconciliation_20261110/verified_legacy_b3_evidence/locked_rt3jkftt/build_output.txt",
+              "sha256": "d04d072c99c81a1b49b33e137469d039130836b79bf816a6dfab69a4adc1311a",
+              "bytes": 992793
+            }
+          }
+        },
+        "verdict": "PASS_LAUNCH_RUNTIME_REFERENCED_SUBSET",
+        "boundary": "Applies only to this session's referenced records; 4,029 legacy carried rows remain uncertified. This is the historical algorithm, not amended B3."
+      },
+      {
+        "session_id": "B3-historical/locked_vti6l7nv",
+        "arm": "B3-historical",
+        "split": "validation",
+        "records_referenced": 29,
+        "first_record_timestamp": "2026-11-08T01:25:10.421955+00:00",
+        "last_record_timestamp": "2026-11-08T01:28:00.861962+00:00",
+        "checks": {
+          "record_provenance_hashes": true,
+          "record_contract_and_model": true,
+          "launch_contract_bytes": true,
+          "packages": true,
+          "constructor": true,
+          "native_log_hash": true,
+          "native_full_offload": true,
+          "native_two_t4": true,
+          "native_context_batch": true,
+          "two_t4_uuid_before_after": true,
+          "threads": true,
+          "backend_source": true,
+          "compiled_hashes_and_freeze_recorded": true,
+          "runner_sha256_matched": true,
+          "runtime_helper_sha256_matched": true,
+          "backend_build_log_sha256_matched": true
+        },
+        "evidence": [
+          {
+            "path": "Runs-management/run_handoff_20261108/completed_results/b3_historical_validation_completed_20261108/locked_vti6l7nv/runtime_provenance.json",
+            "sha256": "aa66d58414478612003f7410725bd096a85f7bc45029a8c72cefff75a514b331",
+            "bytes": 23627
+          },
+          {
+            "path": "Runs-management/run_handoff_20261108/completed_results/b3_historical_validation_completed_20261108/locked_vti6l7nv/model_load_offload.log",
+            "sha256": "46739d6476102fb9fb64190cc4386deb95d7ab7b35c740fa4269ee54c0342ef2",
+            "bytes": 30445
+          },
+          {
+            "path": "Runs-management/run_handoff_20261108/completed_results/b3_historical_validation_completed_20261108/inference_runtime_lock.json",
+            "sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+            "bytes": 14930
+          }
+        ],
+        "matched_sources_and_build": {
+          "runner_sha256": {
+            "source": {
+              "path": "Runs-management/b1_shuf_download_20261108_231129/kaggle_inference.py",
+              "sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+              "bytes": 17433
+            },
+            "published_copy": {
+              "path": "Runs-management/runtime_session_reconciliation_20261110/verified_legacy_b3_evidence/locked_vti6l7nv/kaggle_inference.py",
+              "sha256": "5d7001c326adc5277484950aa96a33455c8c6673c9e7d15409287be2672df3f6",
+              "bytes": 17433
+            }
+          },
+          "runtime_helper_sha256": {
+            "source": {
+              "path": "Runs-management/b1_shuf_download_20261108_231129/grace_runtime_contract.py",
+              "sha256": "3e232635a01bfca9adc4b9d684bb9d67c264c692a3f2038dbfb763e88684bf5d",
+              "bytes": 6574
+            },
+            "published_copy": {
+              "path": "Runs-management/runtime_session_reconciliation_20261110/verified_legacy_b3_evidence/locked_vti6l7nv/grace_runtime_contract.py",
+              "sha256": "3e232635a01bfca9adc4b9d684bb9d67c264c692a3f2038dbfb763e88684bf5d",
+              "bytes": 6574
+            }
+          },
+          "backend_build_log_sha256": {
+            "source": {
+              "path": "Runs-management/locked_continuations_20261108/b3/remote_output/grace_diagnostics/install_llama_cuda.log",
+              "sha256": "e8c1778022b10c70fac4557ea0ce2f2ab4be8627a0d287dd36b0ee66bc92c6f6",
+              "bytes": 992794
+            },
+            "published_copy": {
+              "path": "Runs-management/runtime_session_reconciliation_20261110/verified_legacy_b3_evidence/locked_vti6l7nv/build_output.txt",
+              "sha256": "e8c1778022b10c70fac4557ea0ce2f2ab4be8627a0d287dd36b0ee66bc92c6f6",
+              "bytes": 992794
+            }
+          }
+        },
+        "verdict": "PASS_LAUNCH_RUNTIME_REFERENCED_SUBSET",
+        "boundary": "Applies only to this session's referenced records; 4,029 legacy carried rows remain uncertified. This is the historical algorithm, not amended B3."
+      }
+    ],
+    "legacy_without_session_provenance": 4029,
+    "legacy_native_session": {
+      "session_id": "B3-historical/original-validation-process",
+      "window": {
+        "start_utc": "2026-11-07T12:01:28.728076+00:00",
+        "end_utc": "2026-11-07T20:56:57.810842+00:00",
+        "exit_code": 0
+      },
+      "records": 4029,
+      "records_in_process_window": 4029,
+      "native_log": {
+        "native_offload_counts": [
+          [
+            "49",
+            "49"
+          ]
+        ],
+        "native_devices": [
+          [
+            "0",
+            "Tesla T4"
+          ],
+          [
+            "1",
+            "Tesla T4"
+          ]
+        ],
+        "native_context": {
+          "n_ctx": [
+            "8192"
+          ],
+          "n_batch": [
+            "256"
+          ],
+          "n_ubatch": [
+            "256"
+          ]
+        },
+        "wheel_sha256": [],
+        "build_cmake": [],
+        "t4_probe_present": false,
+        "post_install_package_snapshots": []
+      },
+      "artifacts": [
+        {
+          "path": "Runs-management/kernel_outputs_harvest/lznt123_grace-b3-validation/grace_diagnostics.zip",
+          "sha256": "719ce54236866eb71395b585cbfb6cce815f685b04607f05772940e765c90775",
+          "bytes": 175682
+        },
+        {
+          "path": "Runs-management/kernel_outputs_harvest/lznt123_grace-b3-validation/grace_diagnostics.zip",
+          "member": "events.log",
+          "sha256": "7729b69b4fb3214985e62beff9d6902fd5ed4d799dd5b29e2edb22d554d8b12a",
+          "bytes": 5244
+        },
+        {
+          "path": "Runs-management/kernel_outputs_harvest/lznt123_grace-b3-validation/grace_diagnostics.zip",
+          "member": "validation_B3_seed_42.log",
+          "sha256": "5f4b3e1ecf5ad8142f7f0ac0ac8be5c0a3749881e124e5fea9d3ee1b5d221167",
+          "bytes": 607631
+        }
+      ],
+      "verdict": "HISTORICAL_NATIVE_MATCH_NOT_FULL_LOCK"
+    },
+    "total": 5005
+  },
+  "b1_shuf_validation_unbound_groups": [
+    {
+      "artifact": {
+        "path": "runs/final/devign/validation/B1-shuf/42/records.jsonl",
+        "sha256": "5e3d4979aad9922bd056b17e9dabb3fdcdec0f1568513c8741a276ab07e6a8ec",
+        "bytes": 3562914
+      },
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "split": "validation",
+      "seed": 42,
+      "n": 2732,
+      "unique_ids": 2732,
+      "expected": 2732,
+      "errors": {},
+      "first_timestamp": "2026-11-04T19:14:01.315215+00:00",
+      "last_timestamp": "2026-11-04T23:17:15.763386+00:00",
+      "runtime_hash_counts": {
+        "ABSENT": 2732
+      },
+      "runtime_reference_count": 0,
+      "verdict": "NO_MATCHING_SEED_SESSION_LOG_IN_REVIEWED_PACKAGE"
+    },
+    {
+      "artifact": {
+        "path": "runs/final/reveal/validation/B1-shuf/42/records.jsonl",
+        "sha256": "aa0b9e9f84201245af0674ca5d97c6d8697dee46c9b764088cad1f4964274f94",
+        "bytes": 2965267
+      },
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "split": "validation",
+      "seed": 42,
+      "n": 2273,
+      "unique_ids": 2273,
+      "expected": 2273,
+      "errors": {},
+      "first_timestamp": "2026-11-04T23:17:21.084399+00:00",
+      "last_timestamp": "2026-11-05T02:24:28.280073+00:00",
+      "runtime_hash_counts": {
+        "ABSENT": 2273
+      },
+      "runtime_reference_count": 0,
+      "verdict": "NO_MATCHING_SEED_SESSION_LOG_IN_REVIEWED_PACKAGE"
+    },
+    {
+      "artifact": {
+        "path": "runs/final/devign/validation/B1-shuf/43/records.jsonl",
+        "sha256": "94bc25796387135f1f6ecac36d1270ff44d4cc42941aec4389c8a54f783059d6",
+        "bytes": 3563032
+      },
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "split": "validation",
+      "seed": 43,
+      "n": 2732,
+      "unique_ids": 2732,
+      "expected": 2732,
+      "errors": {},
+      "first_timestamp": "2026-11-05T02:25:38.408956+00:00",
+      "last_timestamp": "2026-11-05T07:02:26.385103+00:00",
+      "runtime_hash_counts": {
+        "ABSENT": 2732
+      },
+      "runtime_reference_count": 0,
+      "verdict": "NO_MATCHING_SEED_SESSION_LOG_IN_REVIEWED_PACKAGE"
+    },
+    {
+      "artifact": {
+        "path": "runs/final/reveal/validation/B1-shuf/43/records.jsonl",
+        "sha256": "c87a5f610b6b70f312d9b4c4ec751231a028c53f70bf73b1fc007ef4c56c0085",
+        "bytes": 2965266
+      },
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "split": "validation",
+      "seed": 43,
+      "n": 2273,
+      "unique_ids": 2273,
+      "expected": 2273,
+      "errors": {},
+      "first_timestamp": "2026-11-05T07:02:31.903664+00:00",
+      "last_timestamp": "2026-11-05T10:14:14.886707+00:00",
+      "runtime_hash_counts": {
+        "ABSENT": 2273
+      },
+      "runtime_reference_count": 0,
+      "verdict": "NO_MATCHING_SEED_SESSION_LOG_IN_REVIEWED_PACKAGE"
+    }
+  ],
+  "historical_report_windows": [
+    {
+      "session_id": "B1/I07",
+      "arm": "B1",
+      "reported_window": {
+        "start_utc": "2026-11-01T10:17:36+00:00",
+        "end_utc": "2026-11-01T18:12:21+00:00"
+      },
+      "records_within_reported_window": 5005,
+      "reported_time_resolution_seconds": 1,
+      "window_evidence": {
+        "path": "Runs-management/RUNS.md",
+        "sha256": "5cedfbb1b365e651c4293d733b1137516e310197c8e7995daf85587a70eac615",
+        "bytes": 63060
+      },
+      "verdict": "REPORTED_WINDOW_MATCH_ONLY_NATIVE_SESSION_LOG_PENDING"
+    },
+    {
+      "session_id": "B2/I02",
+      "arm": "B2",
+      "reported_window": {
+        "start_utc": "2026-10-31T17:05:34+00:00",
+        "end_utc": "2026-11-01T01:00:25+00:00"
+      },
+      "records_within_reported_window": 4396,
+      "reported_time_resolution_seconds": 1,
+      "window_evidence": {
+        "path": "Runs-management/RUNS.md",
+        "sha256": "5cedfbb1b365e651c4293d733b1137516e310197c8e7995daf85587a70eac615",
+        "bytes": 63060
+      },
+      "verdict": "REPORTED_WINDOW_MATCH_ONLY_NATIVE_SESSION_LOG_PENDING"
+    },
+    {
+      "session_id": "B2/I04",
+      "arm": "B2",
+      "reported_window": {
+        "start_utc": "2026-11-01T02:12:23+00:00",
+        "end_utc": "2026-11-01T10:07:11+00:00"
+      },
+      "records_within_reported_window": 4318,
+      "reported_time_resolution_seconds": 1,
+      "window_evidence": {
+        "path": "Runs-management/RUNS.md",
+        "sha256": "5cedfbb1b365e651c4293d733b1137516e310197c8e7995daf85587a70eac615",
+        "bytes": 63060
+      },
+      "verdict": "REPORTED_WINDOW_MATCH_ONLY_NATIVE_SESSION_LOG_PENDING"
+    },
+    {
+      "session_id": "B2/donor-correction-I09",
+      "arm": "B2",
+      "reported_window": {
+        "start_utc": "2026-11-02T00:04:23+00:00",
+        "end_utc": "2026-11-02T08:59:13+00:00"
+      },
+      "records_within_reported_window": 66,
+      "reported_time_resolution_seconds": 1,
+      "window_evidence": {
+        "path": "Runs-management/RUNS.md",
+        "sha256": "5cedfbb1b365e651c4293d733b1137516e310197c8e7995daf85587a70eac615",
+        "bytes": 63060
+      },
+      "verdict": "REPORTED_WINDOW_MATCH_ONLY_NATIVE_SESSION_LOG_PENDING"
+    },
+    {
+      "session_id": "B2-rand/validation-I09",
+      "arm": "B2-rand",
+      "reported_window": {
+        "start_utc": "2026-11-02T00:04:23+00:00",
+        "end_utc": "2026-11-02T08:59:13+00:00"
+      },
+      "records_within_reported_window": 4798,
+      "reported_time_resolution_seconds": 1,
+      "window_evidence": {
+        "path": "Runs-management/RUNS.md",
+        "sha256": "5cedfbb1b365e651c4293d733b1137516e310197c8e7995daf85587a70eac615",
+        "bytes": 63060
+      },
+      "verdict": "REPORTED_WINDOW_MATCH_ONLY_NATIVE_SESSION_LOG_PENDING"
+    },
+    {
+      "session_id": "B2-rand/validation-I11",
+      "arm": "B2-rand",
+      "reported_window": {
+        "start_utc": "2026-11-05T00:55:46+00:00",
+        "end_utc": "2026-11-05T06:45:32+00:00"
+      },
+      "records_within_reported_window": 2991,
+      "reported_time_resolution_seconds": 1,
+      "window_evidence": {
+        "path": "Runs-management/RUNS.md",
+        "sha256": "5cedfbb1b365e651c4293d733b1137516e310197c8e7995daf85587a70eac615",
+        "bytes": 63060
+      },
+      "verdict": "REPORTED_WINDOW_MATCH_ONLY_NATIVE_SESSION_LOG_PENDING"
+    },
+    {
+      "session_id": "B2-rand/validation-I15",
+      "arm": "B2-rand",
+      "reported_window": {
+        "start_utc": "2026-11-06T15:22:02+00:00",
+        "end_utc": "2026-11-07T00:12:11+00:00"
+      },
+      "records_within_reported_window": 4647,
+      "reported_time_resolution_seconds": 1,
+      "window_evidence": {
+        "path": "Runs-management/RUNS.md",
+        "sha256": "5cedfbb1b365e651c4293d733b1137516e310197c8e7995daf85587a70eac615",
+        "bytes": 63060
+      },
+      "verdict": "REPORTED_WINDOW_MATCH_ONLY_NATIVE_SESSION_LOG_PENDING"
+    }
+  ],
+  "existing_acceptance_not_replaced": [
+    "Runs-management/run_handoff_20261108/b1_full_runtime_acceptance.json",
+    "Runs-management/b1_shuf_kaggle_output_20261109/RUNTIME_ACCEPTANCE_20261109.md",
+    "Runs-management/b3_verified_patch_v1/threshold_release_20261109_v1/runtime_acceptance.json"
+  ],
+  "pending_result_delivery": [
+    "B3-new test: assigned to Dung; no new result accepted by this audit",
+    "B3-nodiff: execution reported; session artifacts pending",
+    "B3-swap: deployed on thanhduy9a4tv; runtime acceptance pending; see b3_swap_launch_20261110",
+    "B3-flip: no score-producing session"
+  ],
+  "inventory_files": 265,
+  "inventory_distinct_file_hashes": 88
+}

@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-11-10T16:20:15.951183+00:00",
+  "ref": "thanhduy9a4tv/grace-b3-swap-test-20261110-v1",
+  "all_cell_sources_match": true,
+  "machine_shape": "NvidiaTeslaT4",
+  "version": 2,
+  "is_private": true,
+  "enable_gpu": true,
+  "dataset_sources": [
+    "thanhduy9a4tv/grace-b3-swap-test-release-20261110-v1"
+  ],
+  "kernel_sources": [
+    "thanhduy9a4tv/qwen3coder30b-prepare-notebook"
+  ]
+}
