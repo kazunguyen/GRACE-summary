@@ -1,6 +1,6 @@
 # Handoff B3-swap / B3-flip cho Dũng
 
-Pull nhánh `docs/b1-shuf-runtime-b3-queue-20261109` sau khi commit được push. Cấu trúc mỗi arm:
+Pull nhánh `docs/b1-shuf-runtime-b3-queue-20261109`. Thư mục dùng trực tiếp sau pull là `15_Arm_B3_Swap/` hoặc `16_Arm_B3_Flip/` ở repo root. Notebook, metadata và manifest đã được đặt sẵn tại đó:
 
 ```text
 b3_swap/ hoặc b3_flip/
@@ -14,7 +14,7 @@ b3_swap/ hoặc b3_flip/
     └── kaggle_input.zip   # nhận qua gói ZIP chuyển riêng, không commit Git
 ```
 
-ZIP chuyển riêng: `B3_SWAP_FLIP_TEST_READY_20261110_v1.zip`, SHA-256 `27ce96bab4ac8bab5c318e641f820fec5c38fe1fc3fdd8a4381640819eb336cc`. Giải nén gói đó tại repo; giữ nguyên đường dẫn và đối chiếu notebook/manifest với Git. Không thay đổi notebook hoặc file input sau khi kiểm checksum.
+ZIP chuyển riêng: `B3_SWAP_FLIP_TEST_READY_20261110_v1.zip`, SHA-256 `27ce96bab4ac8bab5c318e641f820fec5c38fe1fc3fdd8a4381640819eb336cc`. Mỗi thư mục arm ở repo root có sẵn Kaggle notebook và metadata. Input ZIP được chuyển riêng; đặt ZIP tương ứng vào `kaggle_dataset/kaggle_input.zip` rồi xác minh SHA-256 theo manifest. Không sửa notebook hoặc nội dung input sau khi kiểm checksum.
 
 Mỗi `kaggle_input.zip` trong dataset có SHA-256 ở manifest tương ứng và chỉ chứa prompt/pool/threshold/runtime lock, không có nhãn target. Upload riêng từng `kaggle_dataset/` thành Kaggle dataset private cùng tên metadata. Sau đó kiểm tra ID nguồn dữ liệu trong kernel metadata; kernel hiện trỏ `lznt123`. Model source hiện trỏ notebook `lznt123/qwen3coder30b-prepare-notebook`.
 
