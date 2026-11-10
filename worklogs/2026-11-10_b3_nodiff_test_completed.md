@@ -21,10 +21,12 @@
 
 The notebook called `grace_diag.evaluate_final.table_a`; the downloaded CSV and JSON are preserved under `b3_nodiff_test/shared_evaluator_output/`.
 
-| Dataset | n | Score-valid | AUROC | AUPRC | τ | MCC@τ | Balanced accuracy@τ | F1@τ | TP / FP / TN / FN |
+| Dataset | n | Score-valid | AUROC | AUPRC | τ | MCC@τ | Balanced accuracy@τ | F1@τ | TP / FP / TN / FN @τ |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| Devign | 2,732 | 2,732 | 0.535915 | 0.500679 | 0.92 | 0.053011 | 0.526507 | 0.522885 | 891 / 988 / 489 / 364 |
-| ReVeal | 2,274 | 2,274 | 0.557163 | 0.118942 | 0.01 | 0.060267 | 0.547975 | 0.198220 | 104 / 734 / 1,310 / 126 |
+| Devign | 2,732 | 2,732 | 0.535915 | 0.500679 | 0.92 | 0.053011 | 0.526507 | 0.522885 | 714 / 762 / 715 / 541 |
+| ReVeal | 2,274 | 2,274 | 0.557163 | 0.118942 | 0.01 | 0.060267 | 0.547975 | 0.198220 | 167 / 1,288 / 756 / 63 |
+
+The evaluator CSV's unsuffixed `TP,FP,TN,FN` columns are computed at 0.5 (`m05`) even though the row also contains locked-threshold metrics. The confusion matrices above were recalculated from record scores at the locked τ values and checked against MCC/BA/F1/PPR@τ.
 
 Devign has one raw response marked invalid (`response_coverage=0.999634`), but all 2,732 rows have valid scores; ReVeal has 2,274 valid responses and scores. The run is complete as an inference census; the metrics are weak and should be interpreted as reported, without threshold changes based on test.
 
