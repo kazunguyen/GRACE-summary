@@ -411,6 +411,12 @@ Pinned `scipy==1.16.3` for future Kaggle Qwen inference after reviewing post-ins
 
 - The first Kaggle test attempt stopped at pre-inference token preflight: `devign:test:569` was 41,169 tokens because raw graph text had bypassed the shared arm renderer. Rebuilt all test prompts with `grace_diag.probes.render_arm` / `B3-nodiff`, the locked tokenizer, and registered code/graph/demo/total budgets; the previously failing prompt now fits. Re-sealed the delivery and updated its notebook pin.
 - All 5,006 prompts rendered with the actual tokenizer and passed the renderer's full chat-token budget. The optimized graph prefix selection was compared against the canonical renderer on four targets in each dataset and prompts matched exactly. Notebook cells compile and delivery integrity checks pass. No Kaggle inference was rerun; details are in the corrected test worklog.
+
+## 2026-11-10 — Align B3-nodiff test with runtime config and shared evaluator
+
+- Replaced the earlier validation runtime pin with exact `configs/inference_runtime_lock.json` SHA-256 `bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e`, including the SciPy pin. The B3 validation threshold lock remains pinned and its inference-affecting fields match the current contract.
+- Replaced notebook-local test confusion/accuracy calculations with shared `grace_diag.evaluate_final.table_a`. Results use the evaluator's canonical run path and standard metrics output. A self-sealed run-local threshold adapter applies the B3-nodiff validation lock because frozen `configs/thresholds.json` has no B3-nodiff entry; no frozen config changes or test threshold fitting occur.
+- Bundle includes hashed evaluator modules; outer delivery SHA-256 is `c35cbd864a0c3a912ac7a4e22eb4b546c56f8e34c4222e02d191011aeca1d433`. Static and artifact checks pass; no Kaggle GPU inference was run.
 ## 2026-11-08 — Post-Audit 5 Execution: Dual Independent Human Reviews, Gate G2 Devign Pool Admission, Gate G3 Validation Census Freeze, and Release v4 Seal
 
 - Successfully completed the operational tasks specified in `Runs-management/b3_verified_patch_v1/independent_fifth_audit_20261108_162642/AUDIT_REPORT.md`:

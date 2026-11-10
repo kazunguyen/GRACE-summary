@@ -49,10 +49,10 @@ def fast_prefix_graph(policy,spec,counter,budget,prefix,seed,donors):
     return text,{**info,'rendered_nodes':len(kn),'rendered_edges':len(selected),'tokens':counter.count(text),'truncated':truncated}
 
 def main():
-    runtime=(HANDOFF/'inference_runtime_lock.json').read_bytes()
+    runtime=(ROOT/'configs/inference_runtime_lock.json').read_bytes()
     runtime_lock=json.loads(runtime)
     runtime_sha=sha(runtime)
-    if runtime_sha!='85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6': raise ValueError('Runtime lock bytes changed')
+    if runtime_sha!='bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e': raise ValueError('configs/inference_runtime_lock.json bytes changed')
     threshold_raw=(HANDOFF/'validation_threshold_lock.json').read_bytes()
     threshold=json.loads(threshold_raw)
     unsigned={k:v for k,v in threshold.items() if k!='locked_sha256'}
@@ -69,7 +69,10 @@ def main():
     helper=helper.replace("root['scope']['dataset']+':validation:'", "root['scope']['dataset']+':'+root['scope']['split']+':'")
     helper=helper.replace("(row['dataset'], row['split']) != (root['scope']['dataset'], 'validation')", "(row['dataset'], row['split']) != (root['scope']['dataset'], root['scope']['split'])")
     helper_bytes=helper.encode('utf-8')
-    support_bytes={name:(support/name).read_bytes() for name in ('grace_runtime_contract.py','kaggle_inference.py')}
+    contract=(support/'grace_runtime_contract.py').read_text(encoding='utf-8').replace(
+        'EXPECTED_CONTRACT_SHA256 = \'85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6\'',
+        'EXPECTED_CONTRACT_SHA256 = \'bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e\'')
+    support_bytes={'grace_runtime_contract.py':contract.encode('utf-8'),'kaggle_inference.py':(support/'kaggle_inference.py').read_bytes()}
     code_hashes={'b3_delivery_runtime.py':sha(helper_bytes),**{k:sha(v) for k,v in support_bytes.items()}}
     for ds,expected in [('devign',2732),('reveal',2274)]:
         valzip=zipfile.ZipFile(HANDOFF/ds/'input_bundle.zip')
@@ -140,6 +143,9 @@ def main():
         print(f'{ds}: packaged {len(rows)} rows, pair={pair_id}, tau={root["threshold"]}',flush=True)
     delivery_files['support/b3_delivery_runtime.py']=helper_bytes
     for name,raw in support_bytes.items(): delivery_files[f'support/{name}']=raw
+    evaluator_src=ROOT/'01_Author_Baseline_Unified/diagnostic_kit/src/grace_diag'
+    for name in ('__init__.py','evaluate_final.py','stats.py','thresholds.py'):
+        delivery_files[f'shared_evaluator/grace_diag/{name}']=(evaluator_src/name).read_bytes()
     delivery_files['inference_runtime_lock.json']=runtime
     delivery_files['validation_threshold_lock.json']=threshold_raw
     manifest={'schema_version':1,'release_id':'b3_nodiff_test_20261109','arm':'B3-nodiff','split':'test','seed':42,
