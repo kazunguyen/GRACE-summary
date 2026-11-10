@@ -1,5 +1,27 @@
 # Changes and exposure record for OSF submission
 
+## 2026-11-10 - B3 test mount-path diagnosis and recursive lookup fix
+
+- Version 4 diagnostics proved Kaggle mounts the release at `/kaggle/input/datasets/<owner>/<dataset>/`; the notebook had searched only the immediate `/kaggle/input/*` roots, yielding no manifest. The run failed before model/runtime setup or inference.
+- Version 5 applies recursive unique-manifest discovery, bundle validation from the manifest directory, a preferred pinned model path, and fail-closed candidate diagnostics. Kaggle readback matches all five code cells and the kernel reports `RUNNING`; live preflight/runtime logs are pending. Runtime contract, prompts, pools, model, worker and validation-fitted thresholds are unchanged. See `Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/failure_diagnosis_20261110.md`.
+
+## 2026-11-10 - B3 test version 2 preflight failure and repair
+
+- Kaggle version 2 failed in preflight cell `In [2]` before package installation, model load, GPU attestation, or test inference. The generic input-discovery guard did not report which candidate count failed. No test samples were processed and no test threshold was refit.
+- Prepared a version 3 preflight correction that validates the package from its unique manifest, supports either expanded inputs or the pinned archive, prefers the previously verified model-source path, and emits candidate paths on failure. Model checksum verification and all runtime/prompt/threshold locks remain unchanged.
+- Classification remains amended/exploratory relative to the public registration; no confirmatory result is claimed. Diagnosis: `Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/failure_diagnosis_20261110.md`.
+
+## 2026-11-09 - B1-shuf final census and B3 test queue update
+
+- Completed and locally audited the B1-shuf 3-seed test census (15,018/15,018 records). Runtime provenance for all four contributing sessions matches the pinned six-package contract, runner/model/backend-source identities, two Tesla T4 devices, and 49/49 layer-offload checks. Exact compiled backend binaries were not downloadable for a local re-hash; the contract permits the recorded Kaggle platform build and does not claim bit-identical binaries. Evidence: `Runs-management/b1_shuf_kaggle_output_20261109/RUNTIME_ACCEPTANCE_20261109.md`.
+- Pushed B3 new-algorithm test kernel version 2 to the canonical `lznt123/grace-b3-new-test-20261109-v1` kernel. Kaggle readback confirms all five executable notebook cells match the local release. At the 2026-11-09 16:08 UTC status check it was `QUEUED`; the earlier duplicate was `CANCEL_REQUESTED`. No B3 test inference or runtime attestation has occurred. This test execution remains amended/exploratory relative to the public registration; no confirmatory claim is made.
+
+## 2026-11-09 — B3-new test worker integration correction
+
+- Fixed the unlaunched B3-new test notebook's missing native-log helper dependency and tokenizer repository identity mismatch; added persistent backend build logs. Preserved the locked runtime JSON, model, package pins, GPU allocation policy, score function, pools, prompts, and validation-fitted thresholds.
+- Verified the model-load integration locally using a mocked backend, source parity, package inventory and notebook syntax. No real GPU inference or test outcomes were used for these corrections. A real Kaggle runtime attestation remains pending under `lznt123`.
+- Scope: operational preparation for amended/exploratory B3-new test execution; this entry does not ratify a new OSF registration or certify runtime compliance. Evidence: `Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/worker_integration_audit.json` and `execution_manifest.json`.
+
 The study has a public OSF registration at <https://osf.io/fqgh2/overview>, reported as registered on Nov 3, 2026 at 11:13 PM (Asia/Bangkok) in `AGENTS.md`. The registration documents the protocol as submitted at that time; it does not establish that protocol decisions preceded historical test runs. The `prereg-v1` Git tag is a repository snapshot, not a timestamp for OSF submission. Any amendment discussed in later planning documents is a separate, not-yet-submitted update unless a newer OSF record is added here.
 
 ## 2026-11-06 — Add retrospective and B3 feasibility evidence to OSF update
@@ -568,3 +590,11 @@ The first huuhieu3333 resume version failed before inference because Kaggle moun
 - User requested worklogs/docs/newly accepted results publication and GitHub synchronization. Fetched origin and fast-forwarded hieu40d49d4 to origin/baseline-unified daa1a25 (PR25); no conflicts. Protected preregistration branch/tag and thresholds remain untouched.
 - Publication includes final B3-new raw validation records, threshold releases/full grids, notebook/root/source readback and native/build/provenance evidence. Added a summary explicitly evaluated at locked thresholds; worker evaluation snapshots retain their original default-threshold metrics. Prompt/checkpoint ZIPs and backend archive remain local.
 - Required preregistration/probe/statistics checks plus published transport/dual-launch regression checks:48 passed. Initial sandbox system-temp permission errors were resolved with a fresh workspace basetemp; no checks were skipped. Selected files scanned for credential patterns and oversized artifacts. Publication receipts: `Runs-management/publication_20261109_b3_thresholds/`.
+
+
+## 2026-11-10 ? B3 test worker input-path correction (amended operational delivery)
+
+- Retrieved canonical Kaggle v5 output. Manifest, package, threshold, model-hash preflight passed; two Tesla T4 devices were visible. Worker launch then failed before inference because notebook cell `In [5]` referenced undefined `INPUT_DIR` while preflight only set `INPUT_SOURCE`. Zero test records; no worker model-load/offload or runtime provenance acceptance.
+- Prepared a local v6 notebook correction: bind `INPUT_DIR` to the validated expanded bundle; if only the pinned archive is mounted, safely materialize verified members and revalidate the complete inventory. Manifest discovery uses the exact pinned dataset mount with a symlink-following fallback. Runtime/model/worker/prompt/pool/threshold pins remain unchanged.
+- This is an amended operational software fix for the separate verified-patch B3 test delivery; it does not modify OSF registration, frozen configs, thresholds, or historical results. Remote push/readback and new-run runtime acceptance remain pending.
+- Evidence: `Runs-management/b3_verified_patch_v1/test_release_20261109_v1/audit/failure_diagnosis_20261110.md` and `live_output_v5/`.

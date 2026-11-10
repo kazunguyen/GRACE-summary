@@ -1,5 +1,7 @@
 # GRACE-summary — sổ theo dõi mọi lượt chạy
 
+> **Current consolidated status (2026-11-10):** See [ARM_STATUS_AND_REMAINING_WORK_20261110.md](ARM_STATUS_AND_REMAINING_WORK_20261110.md) for current Kaggle state, completed arms, unfinished B3 variants, required runtime gates, and teammate handoff tasks. Historical entries below remain dated snapshots.
+
 **Cập nhật B3 — 09/11/2026:** B3 mới đủ validation Devign 2.732 + REVEAL 2.273; records và runtime đã được nghiệm thu lại, threshold riêng đã **LOCKED: Devign 0,99; REVEAL 0,01**. Còn dựng/audit delivery test; chưa chạy test B3 mới. [Biên bản](b3_verified_patch_v1/THRESHOLD_LOCK_ACCEPTANCE_20261109.md). Các trạng thái cũ bên dưới là snapshot lịch sử; các arm khác không được kiểm mới trong lượt khóa B3 này.
 
 **B3 mới09/11,06:25 GMT+7:** HU failed trước model vì ZIP create_system metadata khác;0 score. Đã sửa transport và push B3 thuật toán mới Devign→REVEAL lên lznt123,24 tests PASS, source/shape/private/mount readback khớp, API RUNNING. Native runtime evidence PENDING. B1-shuf không được thay đổi trong lần chuyển B3 này. [B3 LZ status](b3_lznt_linuxfix_20261109/STATUS.md).

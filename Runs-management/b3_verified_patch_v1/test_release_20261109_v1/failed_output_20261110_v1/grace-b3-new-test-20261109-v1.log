@@ -1,0 +1,40 @@
+[{"stream_name":"stderr","time":7.556269136,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.556332341,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.556338274,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.556341841,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.152448611,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.152502803,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.152508237,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.152512303,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.567724716,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":10.568361779,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":10.568379771,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)\n"}
+,{"stream_name":"stderr","time":10.568385508,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":10.568389564,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":10.568393369,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":10.568397728,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":10.568401862,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":10.568406101,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":10.568409823,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":10.5684136,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":10.568417345,"data":"Exception encountered at \"In [2]\":\n"}
+,{"stream_name":"stderr","time":10.568421571,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":10.568425367,"data":"RuntimeError                              Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":10.5684289,"data":"/tmp/ipykernel_23/1177189215.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":10.568432377,"data":"      8 member_roots=[p/'kaggle_input' for p in inputs if (p/'kaggle_input').is_dir()]\n"}
+,{"stream_name":"stderr","time":10.568435704,"data":"      9 model_candidates=list(Path('/kaggle/input').rglob(RUNTIME['model']['filename']))\n"}
+,{"stream_name":"stderr","time":10.568439099999999,"data":"---\u003e 10 if len(manifest_candidates)!=1 or len(member_roots)!=1 or len(model_candidates)!=1: raise RuntimeError('Expected one private test release and pinned model dataset')\n"}
+,{"stream_name":"stderr","time":10.568442817,"data":"     11 MANIFEST_PATH, INPUT_DIR, MODEL_PATH=manifest_candidates[0],member_roots[0],model_candidates[0]\n"}
+,{"stream_name":"stderr","time":10.568456595,"data":"     12 if hashlib.sha256(MANIFEST_PATH.read_bytes()).hexdigest()!=EXPECTED_MANIFEST_SHA256: raise RuntimeError('Test release manifest checksum mismatch')\n"}
+,{"stream_name":"stderr","time":10.568460387,"data":"\n"}
+,{"stream_name":"stderr","time":10.568463421,"data":"RuntimeError: Expected one private test release and pinned model dataset\n"}
+,{"stream_name":"stderr","time":10.568466858,"data":"\n"}
+,{"stream_name":"stderr","time":12.750642125,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":12.75069043,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":12.917652436000001,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":12.917699488,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":13.656956237,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":13.728581594,"data":"[NbConvertApp] Writing 77487 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":16.167650215,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":16.674312223,"data":"[NbConvertApp] Writing 374573 bytes to __results__.html\n"}
+]
