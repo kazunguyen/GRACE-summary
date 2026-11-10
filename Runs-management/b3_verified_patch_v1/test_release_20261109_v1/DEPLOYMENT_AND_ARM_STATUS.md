@@ -18,8 +18,9 @@ Checked 2026-11-10 00:16 UTC (07:16 Asia/Saigon). Kaggle status/output checked w
 | B1-full test | 5,006/5,006; accepted under its recorded launch contract | COMPLETE |
 | B3 verified-patch validation | Devign 2,732 + REVEAL 2,273; runtime and threshold audit complete | COMPLETE; tau*=0.99 / 0.01 locked in separate amended release |
 | B3 verified-patch test | v6 source readback 5/5; Kaggle `RUNNING`; output endpoint empty | IN PROGRESS; acceptance pending |
-| B3-swap / B3-flip | Separate full test bundles and notebooks in `../probe_test_release_20261110_v1/`; 9 local acceptance tests pass | LOCAL READY; upload/readback/GPU acceptance pending |
+| B3-swap | Submitted private on thanhduy9a4tv; latest QUEUED; extra pushes hit the 2 batch GPU session limit | See `../../b3_swap_launch_20261110/STATUS.md`; runtime acceptance pending |
+| B3-flip | Separate full test bundle and notebook in `../probe_test_release_20261110_v1/`; local acceptance passes | LOCAL READY; remote launch/runtime pending |
 | B3-nodiff | User confirms 2026-11-10 that Dũng has run this arm | EXECUTION REPORTED; artifact/runtime acceptance pending |
-| B2-nolabel / B2-labelonly / B2-rep | Full test outputs exist; current acceptance summary lacks full newer-runtime certification | CENSUS COMPLETE; retrospective provenance audit pending |
+| B2-nolabel / B2-labelonly / B2-rep | Session reconciliation completed: six processes/15,018 rows match; wheel/build facts recovered | CENSUS COMPLETE; PARTIAL_CORE_MATCH_NOT_FULL_LOCK; native placement/provenance still absent |
 
 See [full arm matrix and required next steps](../../ARM_STATUS_AND_REMAINING_WORK_20261110.md), [failure diagnosis](audit/failure_diagnosis_20261110.md), and [v6 readback verification](audit/remote_source_verification_v6.json).

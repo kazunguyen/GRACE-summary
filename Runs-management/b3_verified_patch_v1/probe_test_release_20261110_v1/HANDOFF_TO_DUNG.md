@@ -1,5 +1,7 @@
 # Handoff B3-swap / B3-flip cho Dũng
 
+**Cập nhật 10/11:** B3-swap đã được submit trên `thanhduy9a4tv` theo chỉ đạo của Hiếu; xem [status](../../b3_swap_launch_20261110/STATUS.md) trước khi chạy thêm B3-swap. B3-flip vẫn ở trạng thái chuẩn bị local. B3 test base tiếp tục do Dũng đảm nhận như đã phân công.
+
 Pull nhánh `docs/b1-shuf-runtime-b3-queue-20261109`. Thư mục dùng trực tiếp sau pull là `15_Arm_B3_Swap/` hoặc `16_Arm_B3_Flip/` ở repo root. Notebook, metadata và manifest đã được đặt sẵn tại đó:
 
 ```text

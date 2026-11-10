@@ -1,0 +1,9 @@
+{
+  "at_utc": "2026-11-10T16:25:43.348439+00:00",
+  "notebook": "thanhduy9a4tv/grace-b3-swap-test-20261110-v1",
+  "recipient": "duchuynguyen1802",
+  "requested_role": "viewer",
+  "status": "NOT_GRANTED_TOOL_CAPABILITY_UNAVAILABLE",
+  "reason": "Available Kaggle CLI/SDK exposes no notebook collaborator mutation; token cannot open private UI/internal API. Owner web session required.",
+  "is_private_unchanged": true
+}
