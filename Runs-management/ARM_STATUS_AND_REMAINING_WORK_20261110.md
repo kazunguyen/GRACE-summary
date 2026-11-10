@@ -40,8 +40,8 @@ Evidence: [deployment status](b3_verified_patch_v1/test_release_20261109_v1/DEPL
 | B3, historical algorithm | Historical validation is complete; it is distinct from the verified-patch algorithm. | Do not substitute it for the B3 new-algorithm validation/test. |
 | B3, verified-patch-v1 | Validation complete: Devign 2,732/2,732; REVEAL 2,273/2,273. | Runtime accepted for the score-producing sessions. Separate amended threshold locks: Devign tau*=0.99; REVEAL tau*=0.01. Classified `AMENDED_EXPLORATORY_SUBPROTOCOL`, not an OSF preregistered lock. |
 | B3-nodiff | User update on 2026-11-10: Dũng has also run this arm. | Execution reported by user; output, version, split/census, independent validation threshold and runtime acceptance must be reconciled with Dũng's artifacts. The earlier exclusion described a prior launch scope. |
-| B3-swap | Prepared 2026-11-10: complete 5,006-target paired prompt delivery and notebook in `probe_test_release_20261110_v1/b3_swap/`. | LOCAL READY; 9 probe delivery tests pass. Upload/source readback/GPU runtime acceptance pending. Inherits B3 threshold. |
-| B3-flip | Prepared 2026-11-10: complete 5,006-target paired prompt delivery and notebook in `probe_test_release_20261110_v1/b3_flip/`. | LOCAL READY; 9 probe delivery tests pass. Upload/source readback/GPU runtime acceptance pending. Inherits B3 threshold. |
+| B3-swap | Prepared 2026-11-10: complete 5,006-target paired prompt delivery; notebook also placed at `15_Arm_B3_Swap/kaggle_kernel/`. | LOCAL READY; 9 probe delivery tests pass. Upload/source readback/GPU runtime acceptance pending. Inherits B3 threshold. |
+| B3-flip | Prepared 2026-11-10: complete 5,006-target paired prompt delivery; notebook also placed at `16_Arm_B3_Flip/kaggle_kernel/`. | LOCAL READY; 9 probe delivery tests pass. Upload/source readback/GPU runtime acceptance pending. Inherits B3 threshold. |
 
 Older rendered/validation artifacts for variants are not a substitute for a sealed test delivery built from the current verified-patch B3 pair selector and current test census.
 

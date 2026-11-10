@@ -1,0 +1,72 @@
+{
+  "schema": "grace_b3_test_release_v1",
+  "release_id": "b3_flip_test_release_20261110_v1",
+  "status": "SEALED_TEST_DELIVERY",
+  "method_id": "b3-verified-patch-v1",
+  "arm": "B3-flip",
+  "seed": 42,
+  "fit_split": "validation",
+  "inference_split": "test",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "runtime_contract_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+  "threshold_application_worker_sha256": "50616cbd3fc140632578421d45c3c45a9025c03c4cffc218d79f0210375ae3ed",
+  "test_worker_sha256": "7d21f95a646d562bfa124b8f1898fef9dc85fba26bec89dc3d88753ee6824272",
+  "runtime_lock_member": "inference_runtime_lock.json",
+  "runtime_lock_sha256": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+  "datasets": {
+    "devign": {
+      "expected": 2732,
+      "rows": 2732,
+      "prompts_sha256": "2a41fce66666909871e3d199d823d6efef36b47968c804f2155930167aa1fd16",
+      "pool_sha256": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+      "threshold_lock_sha256": "53769b653d53a30f52ed815c34ce15778561ecb5e33f9cd4b09dc8e2c1d7d7f4",
+      "tau_star": 0.99,
+      "threshold_scope": "validation",
+      "unique_ids": true,
+      "no_label_fields": true,
+      "all_prompt_hashes_valid": true,
+      "base_prompts_sha256": "a912322d8dc554c2f0401aa09f00176bf219a78e1353981c9d79118845684614"
+    },
+    "reveal": {
+      "expected": 2274,
+      "rows": 2274,
+      "prompts_sha256": "57a99fb0fac2c2bd0b87629508a4c79ee696c5a2f60e73a22de691410cf386c3",
+      "pool_sha256": "37bb24c5be0e36c9f6c03a046e17687265461abeb1873fe399c9232c7e761203",
+      "threshold_lock_sha256": "63556e5a135125b03b9931b8e9e91e035acfb09c87fe5674d2631f69a43c81d2",
+      "tau_star": 0.01,
+      "threshold_scope": "validation",
+      "unique_ids": true,
+      "no_label_fields": true,
+      "all_prompt_hashes_valid": true,
+      "base_prompts_sha256": "de6c42cfecec8bd7a1fe6b313c816b786694a39979e7c66edc0ee73bb70fcc7a"
+    }
+  },
+  "threshold_lock_sha256": {
+    "devign": "53769b653d53a30f52ed815c34ce15778561ecb5e33f9cd4b09dc8e2c1d7d7f4",
+    "reveal": "63556e5a135125b03b9931b8e9e91e035acfb09c87fe5674d2631f69a43c81d2"
+  },
+  "labels_in_kaggle_input": false,
+  "private_label_sha256": "32d22321a4f6cd014e76cd75a2cd569a81c4df4b8a64bf03b6c4ed582e7e3c7f",
+  "frozen_specs_zip_sha256": "9db0d3eebb66a2f83c1f9803ceb0192954a3dfe2c3de9515188a996ede84ed7b",
+  "kaggle_input_members_sha256": {
+    "inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e",
+    "pools/devign_eligible_pairs.jsonl": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+    "pools/reveal_eligible_pairs.jsonl": "37bb24c5be0e36c9f6c03a046e17687265461abeb1873fe399c9232c7e761203",
+    "threshold_locks/devign_threshold_lock.json": "53769b653d53a30f52ed815c34ce15778561ecb5e33f9cd4b09dc8e2c1d7d7f4",
+    "threshold_locks/reveal_threshold_lock.json": "63556e5a135125b03b9931b8e9e91e035acfb09c87fe5674d2631f69a43c81d2",
+    "prompts/devign.jsonl": "2a41fce66666909871e3d199d823d6efef36b47968c804f2155930167aa1fd16",
+    "prompts/reveal.jsonl": "57a99fb0fac2c2bd0b87629508a4c79ee696c5a2f60e73a22de691410cf386c3"
+  },
+  "kaggle_input_archive_sha256": "2b6f9fc0063b3905025c7e4ebab7000833639310ca9c906c357b18381861690f",
+  "notes": "Test labels remain local; threshold locks were fitted on validation only. No threshold re-fit on test.",
+  "threshold_from": "B3",
+  "base_release_manifest_sha256": "a25a5cea81760b40bf2cde70b145d50f68880b97639cac73f8dcb7fea091bbf1",
+  "shared_worker_sha256": {
+    "grace_runtime_contract.py": "439d31bfe4324b79d9b119d7178fa290bac651f4be336a1217573bfd86bd5477",
+    "b3_native_runtime.py": "960d3e35589ebd6dc31f0a70db9f809614afdb92e0132c91e27718383f21386f",
+    "kaggle_inference_test.py": "7d21f95a646d562bfa124b8f1898fef9dc85fba26bec89dc3d88753ee6824272",
+    "b3_test_runtime.py": "dfd17ff01cf7b4d8a549f96371ac45078d4a164400c05e2574c9fb417ab17240",
+    "inference_runtime_lock.json": "4c9c3bcff5e9fd32532d7edf85df7a961e45ec9c64bee3df8833d986a2eb276e"
+  }
+}
