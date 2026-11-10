@@ -2,7 +2,7 @@
 """Build the sealed B3-nodiff test prompts and Kaggle delivery from frozen sources."""
 from __future__ import annotations
 
-import hashlib, json, re, zipfile
+import hashlib, json, re, zipfile, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -10,24 +10,43 @@ HANDOFF = ROOT / 'Runs-management/run_handoff_20261109/B3_NODIFF_VALIDATION'
 SPECS = ROOT / 'grace_15arms_prompts_and_clean_specs.zip'
 OUT = ROOT / '14_Arm_B3_NoDiff/kaggle_delivery_20261109'
 OUT.mkdir(parents=True, exist_ok=True)
+DIAG_SRC=ROOT/'01_Author_Baseline_Unified/diagnostic_kit/src'
+TOKENIZER=ROOT/'11_Arm_B1H2_Evidence/tokenizer_cache_v6/models--Qwen--Qwen3-Coder-30B-A3B-Instruct/snapshots/b2cff646eb4bb1d68355c01b18ae02e7cf42d120'
+if not TOKENIZER.is_dir(): raise FileNotFoundError(f'Locked local tokenizer snapshot missing: {TOKENIZER}')
+sys.path.insert(0,str(DIAG_SRC))
+from grace_diag.probes import render_arm
+import grace_diag.probes as probes
+from grace_diag.token_budget import TokenCounter
 
 def sha(raw: bytes) -> str: return hashlib.sha256(raw).hexdigest()
 def canon(obj) -> bytes: return (json.dumps(obj, sort_keys=True, ensure_ascii=False, indent=2) + '\n').encode()
 def seal(obj, key): return sha(json.dumps({k:v for k,v in obj.items() if k != key}, sort_keys=True, ensure_ascii=False, indent=2).encode())
 
-def graph_text(spec):
-    nodes = (spec.get('nodes') or [])[:40]
-    ids = {str(n.get('id', i)) for i,n in enumerate(nodes)}
-    edges = [e for e in (spec.get('edges') or []) if str(e.get('start',e.get('source'))) in ids and str(e.get('end',e.get('target'))) in ids][:80]
-    nlines=[]
-    for i,n in enumerate(nodes):
-        code=str(n.get('code','')).strip().replace('\n',' ')
-        if len(code)>40: code=code[:40]+'...'
-        typ=n.get('type',n.get('label','Node')); nid=n.get('id',i)
-        nlines.append(f"Node {nid}: ({typ}) '{code}'" if code else f'Node {nid}: ({typ})')
-    elines=[f"Edge: Node {e.get('start',e.get('source'))} -> {e.get('type','CONNECTED_TO')} -> Node {e.get('end',e.get('target'))}" for e in edges]
-    return ('The node information of the code snippet is as follows:\n'+('\n'.join(nlines) or '[No Node Information Available]')+
-            '\nThe edge information of the code snippet is as follows:\n'+('\n'.join(elines) or '[No Edge Information Available]'))
+def fast_prefix_graph(policy,spec,counter,budget,prefix,seed,donors):
+    """Token-equivalent prefix graph budget search from probes.render_graph, using fewer counts."""
+    nodes,edges=spec.get('nodes') or [],spec.get('edges') or []
+    if policy!='prefix': return probes.render_graph(policy,spec,counter,budget,prefix,seed,donors)
+    info={'policy':policy,'available_nodes':len(nodes),'available_edges':len(edges)}
+    if not nodes: return '',{**info,'rendered_nodes':0,'rendered_edges':0,'tokens':0,'missing':True}
+    kn,ke=probes.closed_prefix(nodes,edges,prefix['nodes'],prefix['edges'])
+    def format_graph(nlist,elist): return f'{probes.NODE_HEAD}\n{probes.format_nodes(nlist)}\n{probes.EDGE_HEAD}\n{probes.format_edges(elist)}'
+    def count_edges(k): return counter.count(format_graph(kn,ke[:k]))
+    full=len(ke); low,high=0,full
+    # Counts are nondecreasing with appended edge lines in this renderer; find largest fitting prefix.
+    while low<high:
+        mid=(low+high+1)//2
+        if count_edges(mid)<=budget: low=mid
+        else: high=mid-1
+    while low and count_edges(low)>budget: low-=1
+    while low<full and count_edges(low+1)<=budget: low+=1
+    selected=ke[:low]; text=format_graph(kn,selected); truncated=(len(kn)<min(len(nodes),prefix['nodes']) or low<len(ke))
+    if counter.count(text)>budget:
+        # Preserve the canonical renderer's fallback: once edges are exhausted, remove nodes from the tail.
+        selected=[]
+        while kn and counter.count(format_graph(kn,selected))>budget: kn.pop(); truncated=True
+        text=format_graph(kn,selected)
+    if counter.count(text)>budget: raise ValueError('Graph headers exceed token budget')
+    return text,{**info,'rendered_nodes':len(kn),'rendered_edges':len(selected),'tokens':counter.count(text),'truncated':truncated}
 
 def main():
     runtime=(HANDOFF/'inference_runtime_lock.json').read_bytes()
@@ -40,6 +59,9 @@ def main():
     if threshold.get('locked_sha256') != sha(json.dumps(unsigned,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()): raise ValueError('Validation threshold lock seal invalid')
     if threshold.get('arm')!='B3-nodiff' or threshold.get('split')!='validation': raise ValueError('Wrong threshold lock scope')
     support=HANDOFF/'support'
+    counter=TokenCounter(str(TOKENIZER))
+    if counter.approx: raise ValueError('Expected real locked tokenizer; approximate token counting is forbidden')
+    probes.render_graph=fast_prefix_graph
     speczip=zipfile.ZipFile(SPECS)
     delivery_files={}
     helper=(support/'b3_delivery_runtime.py').read_text(encoding='utf-8')
@@ -62,26 +84,27 @@ def main():
         if not demo: raise ValueError(f'{ds}: cannot extract exact reviewed demonstration from validation prompt')
         vulnerable,patched=demo.group(1),demo.group(2)
         rows=[]; ids=set()
-        for line in speczip.read(f'specs/{ds}_test_15arms.jsonl').splitlines():
+        spec_lines=speczip.read(f'specs/{ds}_test_15arms.jsonl').splitlines()
+        for row_number,line in enumerate(spec_lines,1):
             if not line.strip(): continue
             spec=json.loads(line); uid=spec['id']
             if uid in ids: raise ValueError(f'{ds}: duplicate target {uid}')
             ids.add(uid)
             if not uid.startswith(ds+':test:'): raise ValueError(f'{ds}: unexpected split ID {uid}')
             # Target fields come only from the test spec. Demonstrations are the reviewed TRAIN pair.
-            prompt=('You are now an excellent programmer. You are conducting a function vulnerability detection task for C/C++ language.\n\n'
-                +spec['query_code'].strip()+'\n\n'
-                +'In the above code snippet, check for potential security vulnerabilities and answer with a single digit: 1 if Vulnerable, 0 if Non-vulnerable.\n\n'
-                +graph_text(spec)+'\n\n'
-                +'The following example is Vulnerable.\n'+vulnerable.strip()+'\n\n'
-                +'The following example is Non-vulnerable.\n'+patched.strip()+'\n\n'
-                +'Answer (0 or 1):')
+            render_spec={'id':uid,'query_code':spec['query_code'],'nodes':spec.get('nodes') or [],'edges':spec.get('edges') or [],
+                'demonstrations_pair':[{'function_uid':source_manifest['source_vulnerable_id'],'func':vulnerable,'target':1},
+                    {'function_uid':source_manifest['source_patched_id'],'func':patched,'target':0}]}
+            rendered=render_arm(render_spec,'B3-nodiff',seed=42,counter=counter)
+            prompt=rendered.prompt
             # Explicit guard: no test answer leaks into the rendered prompt.
             label=spec['label']
             if type(label) is not int or label not in (0,1): raise ValueError(f'{ds}: bad test label')
             row={'id':uid,'dataset':ds,'split':'test','label':label,'prompt':prompt,'prompt_sha256':sha(prompt.encode()),
-                 'source_pair_id':pair_id,'source_pair_dataset_split':'train'}
+                 'source_pair_id':pair_id,'source_pair_dataset_split':'train','prompt_token_count':rendered.evidence['tokens']['total'],
+                 'render_evidence':rendered.evidence}
             rows.append(row)
+            if row_number%100==0: print(f'{ds} prompt render: {row_number}/{len(spec_lines)}',flush=True)
         if len(rows)!=expected: raise ValueError(f'{ds}: expected {expected} test targets, got {len(rows)}')
         prompt_bytes=(''.join(json.dumps(r,ensure_ascii=False,separators=(',',':'))+'\n' for r in rows)).encode()
         common={'arm':'B3-nodiff','count':len(rows),'dataset':ds,'seed':42,'split':'test'}

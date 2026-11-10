@@ -406,6 +406,11 @@ Pinned `scipy==1.16.3` for future Kaggle Qwen inference after reviewing post-ins
 - Prepared all 5,006 frozen test targets (Devign 2,732; ReVeal 2,274) with dataset-specific, dual-reviewed train demonstration pairs and no Key difference text. Test labels are metadata only. Applied the already locked validation thresholds (Devign 0.92; ReVeal 0.01); the test notebook does not fit thresholds.
 - Packaged a sealed Kaggle delivery and runtime-locked test notebook. Input discovery handles Kaggle extracted mounts and nested ZIP extraction; inference logging emits a 60-second heartbeat with checkpoint progress. Separate resumable checkpoints and thresholded test predictions are written.
 - Local integrity checks passed for both inner bundles, all IDs/prompts, runtime and threshold pins, and notebook code-cell compilation. No test inference/GPU session was started. See `worklogs/2026-11-09_b3_nodiff_test_kaggle_delivery.md`.
+
+## 2026-11-10 — Correct B3-nodiff test prompt token budgeting
+
+- The first Kaggle test attempt stopped at pre-inference token preflight: `devign:test:569` was 41,169 tokens because raw graph text had bypassed the shared arm renderer. Rebuilt all test prompts with `grace_diag.probes.render_arm` / `B3-nodiff`, the locked tokenizer, and registered code/graph/demo/total budgets; the previously failing prompt now fits. Re-sealed the delivery and updated its notebook pin.
+- All 5,006 prompts rendered with the actual tokenizer and passed the renderer's full chat-token budget. The optimized graph prefix selection was compared against the canonical renderer on four targets in each dataset and prompts matched exactly. Notebook cells compile and delivery integrity checks pass. No Kaggle inference was rerun; details are in the corrected test worklog.
 ## 2026-11-08 — Post-Audit 5 Execution: Dual Independent Human Reviews, Gate G2 Devign Pool Admission, Gate G3 Validation Census Freeze, and Release v4 Seal
 
 - Successfully completed the operational tasks specified in `Runs-management/b3_verified_patch_v1/independent_fifth_audit_20261108_162642/AUDIT_REPORT.md`:

@@ -8,7 +8,7 @@ nb=json.loads(base.read_text(encoding='utf-8'))
 def get(i): return ''.join(nb['cells'][i]['source'])
 def setsrc(i,s): nb['cells'][i]['source']=s.splitlines(keepends=True)
 
-md=get(0).replace('Kaggle validation','Kaggle test').replace('census validation, seed 42: Devign 2.732 + ReVeal 2.273','full test census, seed 42: Devign 2,732 + ReVeal 2,274').replace('validation inference','test inference').replace('Chỉ đọc validation; sau khi đủ toàn bộ validation IDs, notebook chọn và khóa ngưỡng MCC riêng cho Devign/ReVeal theo quy tắc `validation_mcc_grid_v1`. Không đọc test.','Chỉ đọc test; không tối ưu ngưỡng trên test. Áp dụng nguyên ngưỡng validation đã khóa: Devign 0.92, ReVeal 0.01.').replace('grace_b3_nodiff_devign_validation_checkpoint.zip`, `grace_b3_nodiff_reveal_validation_checkpoint.zip`, `grace_diagnostics.zip','grace_b3_nodiff_devign_test_checkpoint.zip`, `grace_b3_nodiff_reveal_test_checkpoint.zip`, `grace_diagnostics.zip')
+md=get(0).replace('Kaggle validation','Kaggle test').replace('census validation, seed 42: Devign 2.732 + ReVeal 2.273','full test census, seed 42: Devign 2,732 + ReVeal 2,274').replace('validation inference','test inference').replace('Inference chỉ chạy validation; chỉ đọc validation; sau khi đủ toàn bộ validation IDs, notebook chọn và khóa ngưỡng MCC riêng cho Devign/ReVeal theo quy tắc `validation_mcc_grid_v1`. Không đọc test.','Chỉ đọc test; không tối ưu ngưỡng trên test. Áp dụng nguyên ngưỡng validation đã khóa: Devign 0.92, ReVeal 0.01.').replace('Kết quả tải xuống từ Kaggle Output: `grace_b3_nodiff_devign_validation_checkpoint.zip`, `grace_b3_nodiff_reveal_validation_checkpoint.zip`, `grace_diagnostics.zip`.','Kaggle Output gồm checkpoint riêng cho từng dataset: `grace_b3_nodiff_devign_test_checkpoint.zip`, `grace_b3_nodiff_reveal_test_checkpoint.zip`, cùng `grace_diagnostics.zip`.')
 md=md.replace('grace_b3_nodiff_validation_inputs.zip','grace_b3_nodiff_test_inputs.zip')
 md += '\n\nTest prompts dùng code và graph của từng mẫu test; demo là cặp vulnerable/patched nguồn train đã được Dung và Hiếu duyệt, giữ nguyên như validation. Label test chỉ nằm trong metadata, không nằm trong prompt.\n'
 setsrc(0,md)
@@ -16,7 +16,7 @@ setsrc(0,md)
 cell=get(2)
 cell=cell.replace("SPLIT='validation'", "SPLIT='test'")
 cell=cell.replace("BUNDLE_NAME='grace_b3_nodiff_validation_inputs.zip'", "BUNDLE_NAME='grace_b3_nodiff_test_inputs.zip'")
-cell=cell.replace("BUNDLE_SHA256='6e8a5ff58b4e09bb826abcd0037b6f5f6933b3754212fc830422c41651ff0ee3'", "BUNDLE_SHA256='1b8e1e7e45da033a753cf24b4338233b3c99cf59b6aaa8110a17f178c74a0d26'")
+cell=cell.replace("BUNDLE_SHA256='6e8a5ff58b4e09bb826abcd0037b6f5f6933b3754212fc830422c41651ff0ee3'", "BUNDLE_SHA256='2aeef20d4eac4e50df204d79183db3cb8a1c2856258a51e39aa716f8e67f2b16'")
 cell=cell.replace("if delivery.get('arm')!=ARM or delivery.get('split')!=SPLIT or delivery.get('seed')!=SEED:", "if delivery.get('arm')!=ARM or delivery.get('split')!=SPLIT or delivery.get('seed')!=SEED:")
 cell=cell.replace("expected_count=2732 if ds=='devign' else 2273", "expected_count=2732 if ds=='devign' else 2274")
 cell=cell.replace("print('Verified validation rows:'", "print('Verified test rows:'")
@@ -163,6 +163,12 @@ setsrc(1,runner)
 
 nb['metadata'].setdefault('kaggle',{})
 nb['metadata']['kaggle'].update({'is_gpu_enabled':True,'is_internet_enabled':True})
+for cell_obj in nb['cells']:
+    if cell_obj.get('cell_type')=='code':
+        cell_obj['execution_count']=None
+        cell_obj['outputs']=[]
+        cell_obj.get('metadata',{}).pop('execution',None)
+        cell_obj.get('metadata',{}).pop('papermill',None)
 with out.open('w',encoding='utf-8',newline='\n') as stream:
     stream.write(json.dumps(nb,ensure_ascii=False,indent=1)+'\n')
 print(out)
