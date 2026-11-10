@@ -15,3 +15,17 @@ Verified the existing private test dataset readback and pushed canonical kernel 
 The earlier push had hit the two-session limit; the version 2 push succeeded. Do not treat a successful push or queue state as a running/completed test. Keep the B3 execution exploratory/amended relative to the public OSF registration unless a formal amendment is submitted.
 
 Evidence and live status: `Runs-management/b3_verified_patch_v1/test_release_20261109_v1/DEPLOYMENT_AND_ARM_STATUS.md`, `execution_manifest.json`, and `TEST_RELEASE_READINESS.md`.
+
+## B3 version 2 failure and correction prepared - 2026-11-10
+
+Pulled the latest Kaggle output. Kernel version 2 reports `ERROR`; the log fails in `In [2]` at the combined input/model discovery guard, before runtime setup or inference. The log omits candidate counts, so it cannot identify the exact subcondition. The published test dataset contains the root manifest and `kaggle_input/` members; the kernel metadata attaches the pinned model source.
+
+Prepared a preflight fix in the notebook: resolve inputs from the unique manifest, validate expanded or archived bundle contents, prefer the known pinned model-source path, and print candidate paths on failure. The model hash and release manifest remain mandatory. Runtime lock, prompts, pools, and threshold locks are unchanged. Local syntax parsing passed; the fix still needs Kaggle readback and a live run. No test sample was processed by version 2.
+
+
+Version 4 instrumentation identified the exact mount-path defect: Kaggle mounts the dataset at `/kaggle/input/datasets/lznt123/grace-b3-test-release-20261109-v1/`, while the notebook checked only immediate `/kaggle/input` children. Its manifest candidate list was empty. The recursive-manifest fix is prepared in local version 5; package/threshold/runtime hashes remain unchanged. Versions 2 and 4 stopped before runtime or inference.
+
+
+## Version 5 live update - 2026-11-10
+
+Pushed canonical B3 kernel version 5 with the recursive Kaggle manifest lookup. Remote readback verifies all five executable cells match local. Latest observed kernel state is `RUNNING`; repeated `kernels output` calls have not returned live logs yet, so preflight success, runtime attestation, and inference remain pending. Detailed incident report: `worklogs/2026-11-10_b3_preflight_remediation.md`.
