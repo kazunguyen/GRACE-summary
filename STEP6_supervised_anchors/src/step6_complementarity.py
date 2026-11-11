@@ -29,6 +29,7 @@ BUDGETS = (0.05, 0.10, 0.25)
 RANDOM_ROUTER_SEEDS = 20
 RIDGE_ALPHA = 10.0
 LOGISTIC_C = 1.0
+REVEAL_FILE_GROUP_COUNTS = {"validation": 627, "test": 646}
 
 
 def sha256_file(path: Path) -> str:
@@ -127,6 +128,8 @@ def _locked_rows(summary_root: Path, lock: dict[str, Any], dataset: str,
     if len(rows) != len(manifest_rows):
         raise ValueError(f"Raw/manifest row count mismatch for {dataset}/{split}")
 
+    group_key = "commit_id" if dataset == "devign" else "source_id"
+    group_unit = "commit_id" if dataset == "devign" else "file_hash (source_id)"
     ids: set[str] = set()
     joined = {}
     for raw, frozen in zip(rows, manifest_rows):
@@ -140,23 +143,23 @@ def _locked_rows(summary_root: Path, lock: dict[str, Any], dataset: str,
         if (rid != frozen["id"] or code_hash != frozen["code_sha256"]
                 or label != int(frozen["label"])):
             raise ValueError(f"Frozen ID/code/label mismatch: {dataset}/{split}/{rid}")
-        if dataset == "devign":
-            group = raw.get("commit_id")
-            group_unit = "commit_id"
-        else:
-            # In the locked ReVeal source, code_sha256 is the function/file identity.
-            group = raw.get("file_hash") or code_hash
-            group_unit = "file_hash (code_sha256 fallback)"
-        if group in (None, ""):
-            raise ValueError(f"Missing preregistered cluster ID: {dataset}/{split}/{rid}")
+        # ReVeal's frozen source_id identifies a file. code_sha256 identifies a function.
+        group = raw.get(group_key)
+        if group is None or not str(group).strip():
+            raise ValueError(f"Missing {group_key} for preregistered cluster: {dataset}/{split}/{rid}")
         joined[rid] = {"id": rid, "y": label, "group": str(group),
                        "code_sha256": code_hash, "raw": raw}
     if not rows:
         raise ValueError(f"Empty locked split: {dataset}/{split}")
+    n_groups = len({row["group"] for row in joined.values()})
+    if dataset == "reveal" and n_groups != REVEAL_FILE_GROUP_COUNTS[split]:
+        raise ValueError(f"Unexpected ReVeal {split} file cluster count: "
+                         f"{n_groups}, expected {REVEAL_FILE_GROUP_COUNTS[split]}")
     return list(joined.values()), {"path": raw_spec["path"], "sha256": raw_spec["sha256"],
                                    "manifest_path": manifest_spec["path"],
                                    "manifest_sha256": manifest_spec["sha256"],
-                                   "rows": len(rows), "group_unit": group_unit}
+                                   "rows": len(rows), "group_unit": group_unit,
+                                   "group_source": f"raw.{group_key}", "n_groups": n_groups}
 
 
 def _read_b2(b2_root: Path, dataset: str, split: str) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
@@ -420,7 +423,8 @@ def _expert_features(s: np.ndarray, valid: np.ndarray, p: np.ndarray) -> np.ndar
 
 
 def _fit_paired_meta(stats, Xv, yv, sv, vv, pv, gv,
-                     Xt, yt, st, vt, pt, gt) -> dict[str, Any]:
+                     Xt, yt, st, vt, pt, gt, *, test_scores=None) -> dict[str, Any]:
+    """Fit the locked pair and optionally return scores for a downstream paired analysis."""
     folds = list(StratifiedGroupKFold(n_splits=N_FOLDS, shuffle=True,
                                       random_state=SEED).split(Xv, yv, gv))
     if len(folds) != N_FOLDS:
@@ -453,11 +457,6 @@ def _fit_paired_meta(stats, Xv, yv, sv, vv, pv, gv,
     tau_post, mcc_post = stats.pick_threshold(yv, oof_post)
     pred_pre_oof = (oof_pre >= tau_pre).astype(int)
     pred_post_oof = (oof_post >= tau_post).astype(int)
-    ci_val_mcc = stats.paired_bootstrap(yv, pred_pre_oof, pred_post_oof, stats.mcc,
-                                        n_boot=N_BOOT, seed=BOOTSTRAP_SEED, groups=gv)
-    ci_val_auc = stats.paired_bootstrap(yv, oof_pre, oof_post, stats.auroc,
-                                        n_boot=N_BOOT, seed=BOOTSTRAP_SEED, groups=gv)
-
     model_pre = make_pipeline(StandardScaler(), LogisticRegression(
         C=LOGISTIC_C, max_iter=2000, random_state=SEED)).fit(Xv, yv)
     model_post = make_pipeline(StandardScaler(), LogisticRegression(
@@ -468,6 +467,22 @@ def _fit_paired_meta(stats, Xv, yv, sv, vv, pv, gv,
     score_post_test[~vt] = score_pre_test[~vt]
     pred_pre_test = (score_pre_test >= tau_pre).astype(int)
     pred_post_test = (score_post_test >= tau_post).astype(int)
+    thresholds = {"P_pre": float(tau_pre), "P_post": float(tau_post),
+                  "P_pre_mcc_oof": mcc_pre, "P_post_mcc_oof": mcc_post}
+    test_metrics = {
+        "P_pre": {"metrics": stats.thresholded_metrics(yt, pred_pre_test),
+                  "auroc": stats.auroc(yt, score_pre_test), "auprc": stats.auprc(yt, score_pre_test)},
+        "P_post": {"metrics": stats.thresholded_metrics(yt, pred_post_test),
+                   "auroc": stats.auroc(yt, score_post_test), "auprc": stats.auprc(yt, score_post_test)},
+    }
+    if test_scores is not None:
+        test_scores.update({"P-PRE": score_pre_test, "P-POST": score_post_test})
+        return {"thresholds_selected_on_validation_oof": thresholds, "test": test_metrics}
+
+    ci_val_mcc = stats.paired_bootstrap(yv, pred_pre_oof, pred_post_oof, stats.mcc,
+                                        n_boot=N_BOOT, seed=BOOTSTRAP_SEED, groups=gv)
+    ci_val_auc = stats.paired_bootstrap(yv, oof_pre, oof_post, stats.auroc,
+                                        n_boot=N_BOOT, seed=BOOTSTRAP_SEED, groups=gv)
     ci_test_mcc = stats.paired_bootstrap(yt, pred_pre_test, pred_post_test, stats.mcc,
                                          n_boot=N_BOOT, seed=BOOTSTRAP_SEED, groups=gt)
     ci_test_auc = stats.paired_bootstrap(yt, score_pre_test, score_post_test, stats.auroc,
@@ -478,10 +493,7 @@ def _fit_paired_meta(stats, Xv, yv, sv, vv, pv, gv,
                      "scaler": "StandardScaler", "same_fold_assignments": True,
                      "threshold_grid": "0.01..0.99 step 0.01; MCC; tie closest to 0.5",
                      "invalid_fallback": "P_post score and prediction set to P_pre"},
-        "thresholds_selected_on_validation_oof": {"P_pre": float(tau_pre),
-                                                   "P_post": float(tau_post),
-                                                   "P_pre_mcc_oof": mcc_pre,
-                                                   "P_post_mcc_oof": mcc_post},
+        "thresholds_selected_on_validation_oof": thresholds,
         "validation_oof": {
             "P_pre": {"metrics": stats.thresholded_metrics(yv, pred_pre_oof),
                       "auroc": stats.auroc(yv, oof_pre), "auprc": stats.auprc(yv, oof_pre)},
@@ -491,10 +503,7 @@ def _fit_paired_meta(stats, Xv, yv, sv, vv, pv, gv,
             "delta_auroc_post_minus_pre_ci": ci_val_auc.to_dict(),
             "folds": fold_manifest},
         "test": {
-            "P_pre": {"metrics": stats.thresholded_metrics(yt, pred_pre_test),
-                      "auroc": stats.auroc(yt, score_pre_test), "auprc": stats.auprc(yt, score_pre_test)},
-            "P_post": {"metrics": stats.thresholded_metrics(yt, pred_post_test),
-                       "auroc": stats.auroc(yt, score_post_test), "auprc": stats.auprc(yt, score_post_test)},
+            **test_metrics,
             "delta_mcc_post_minus_pre_ci": ci_test_mcc.to_dict(),
             "delta_auroc_post_minus_pre_ci": ci_test_auc.to_dict(),
             "verdict_mcc_delta_0_02": stats.verdict(ci_test_mcc, DELTA_MCC_META)},
@@ -676,8 +685,10 @@ def run_analysis(step6_root: Path, summary_root: Path, b2_root: Path) -> Path:
             if len(joined[split]) != len({r["id"] for r in joined[split]}):
                 raise ValueError(f"Duplicate ID after join: {dataset}/{split}")
         joins[dataset] = joined
-        print(f"Join PASS: {dataset}: validation={len(joined['validation'])}, test={len(joined['test'])}",
-              flush=True)
+        val_groups = inputs[f"{dataset}/validation"]["locked_split"]["n_groups"]
+        test_groups = inputs[f"{dataset}/test"]["locked_split"]["n_groups"]
+        print(f"Join PASS: {dataset}: validation={len(joined['validation'])} ({val_groups} groups), "
+              f"test={len(joined['test'])} ({test_groups} groups)", flush=True)
 
     script_sha = sha256_file(Path(__file__).resolve())
     run_key = fingerprint({"lock_sha256": lock_sha, "protocol_sha256": protocol_sha,
@@ -716,6 +727,8 @@ def run_analysis(step6_root: Path, summary_root: Path, b2_root: Path) -> Path:
                                          "SUP-LR", tau_sup, primary=False)
         results[dataset] = {
             "n_validation": len(val), "n_test": len(test),
+            "n_validation_groups": inputs[f"{dataset}/validation"]["locked_split"]["n_groups"],
+            "n_test_groups": inputs[f"{dataset}/test"]["locked_split"]["n_groups"],
             "group_unit": inputs[f"{dataset}/validation"]["locked_split"]["group_unit"],
             "gate_tau_train_oof": tau_gate, "sup_lr_tau_validation": tau_sup,
             "p_pre_vs_p_post": meta,
@@ -742,7 +755,7 @@ def run_analysis(step6_root: Path, summary_root: Path, b2_root: Path) -> Path:
         "h3b_export_root": h3b_root.relative_to(step6_root).as_posix(),
         "b2_source_root": b2_root.relative_to(summary_root).as_posix(),
         "b2_selection": "registered main B2, seed 42; continuous s and valid; no rerun/inference",
-        "group_units": {"devign": "commit_id", "reveal": "file_hash (locked code_sha256)"},
+        "group_units": {ds: inputs[f"{ds}/test"]["locked_split"]["group_unit"] for ds in DATASETS},
         "analysis_config": {"seed": SEED, "folds": N_FOLDS,
                             "n_boot": N_BOOT, "bootstrap_seed": BOOTSTRAP_SEED,
                             "delta_mcc_meta": DELTA_MCC_META,

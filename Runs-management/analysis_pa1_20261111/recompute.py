@@ -11,8 +11,8 @@ from pathlib import Path
 import numpy as np
 
 
-OUT = Path(__file__).resolve().parent
-ROOT = OUT.parents[1]
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
 KIT = "docs/20261111/grace_diag_kit.zip"
 sys.path.insert(0, str(ROOT / KIT) + "/grace_diag_kit/src")
 from grace_diag import stats
@@ -25,6 +25,8 @@ RUNS = "Runs-management"
 AUTHOR = "01_Author_Baseline_Unified"
 HANDOFF = f"{RUNS}/run_handoff_20261108/completed_results"
 ANCHOR = "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108"
+STEP6 = "STEP6_supervised_anchors"
+META_RUN = f"{STEP6}/runs/complementarity_step6/step6_lock_64fb2c99d904_44f00d19"
 PAIRS = [
     ("B0", "B2", 0.03, 0.02, "registered"),
     ("B0", "B1", 0.03, 0.02, "registered"),
@@ -34,6 +36,9 @@ PAIRS = [
     ("B2", "B2-flip", 0.03, 0.02, "registered"),
     ("B2-labelonly", "B2", 0.03, 0.02, "registered"),
     ("B2", "SUP-LR", 0.15, 0.05, "registered"),
+    ("B2", "B3", 0.03, 0.02, "registered_pair_exploratory_run"),
+    ("B1", "B1-H2", 0.03, 0.02, "registered_pair_exploratory_run"),
+    ("P-PRE", "P-POST", 0.02, 0.02, "registered"),
     ("B1", "B2", 0.03, 0.02, "gap_component"),
     ("B1", "B2-labelonly", 0.03, 0.02, "gap_component"),
 ]
@@ -62,6 +67,61 @@ def by_id(rows, source):
     if len(keyed) != len(rows):
         raise ValueError(f"Duplicate IDs in {source}")
     return keyed
+
+
+def load_meta_scores(ds, ids, labels, groups, audit):
+    sys.path.insert(0, str(ROOT / STEP6 / "src"))
+    import step6_complementarity as step6
+
+    source = f"{STEP6}/src/step6_complementarity.py"
+    audit[source] = hashlib.sha256((ROOT / source).read_bytes()).hexdigest()
+    original = load_json(f"{META_RUN}/analysis_manifest.json", audit)
+    result_path = f"{ds}/complementarity_step6.json"
+    previous = load_json(f"{META_RUN}/{result_path}", audit)["p_pre_vs_p_post"]
+    if audit[f"{META_RUN}/{result_path}"] != original["output_hashes"][result_path]:
+        raise ValueError(f"Original Step 6 result hash mismatch: {ds}")
+    inputs = []
+    for split in ("validation", "test"):
+        joined = f"{ds}/joined_{split}.csv"
+        rows = load_csv(f"{META_RUN}/{joined}", audit)
+        if audit[f"{META_RUN}/{joined}"] != original["output_hashes"][joined]:
+            raise ValueError(f"Original Step 6 join hash mismatch: {ds}/{split}")
+        h3b = original["inputs"][f"{ds}/{split}"]["h3b"]
+        path = f"{STEP6}/{original['h3b_export_root']}/{h3b['xpre_path']}"
+        audit[path] = hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+        if audit[path] != h3b["xpre_sha256"]:
+            raise ValueError(f"Original Step 6 feature hash mismatch: {ds}/{split}")
+        with np.load(ROOT / path, allow_pickle=False) as archive:
+            pos = {str(i): n for n, i in enumerate(archive["ids"])}
+            X = np.asarray(archive["X"][[pos[r["id"]] for r in rows]], dtype=np.float64)
+        inputs.extend([X, np.array([int(r["y"]) for r in rows]),
+                       np.array([float(r["s_llm"]) for r in rows]),
+                       np.array([bool(int(r["valid"])) for r in rows]),
+                       np.array([float(r["p_gate"]) for r in rows]),
+                       np.array([r["group"] for r in rows])])
+    keyed = by_id(rows, f"{META_RUN}/{joined}")
+    if set(keyed) != set(ids) or any(
+        (int(keyed[i]["y"]), keyed[i]["group"]) != (label, str(group))
+        for i, label, group in zip(ids, labels, groups)
+    ):
+        raise ValueError(f"Step 6 test IDs, labels or clusters differ from paired-analysis inputs: {ds}")
+    fitted = {}
+    result = step6._fit_paired_meta(stats, *inputs, test_scores=fitted)
+    taus = result["thresholds_selected_on_validation_oof"]
+    for original_name in ("P_pre", "P_post"):
+        if taus[original_name] != previous["thresholds_selected_on_validation_oof"][original_name]:
+            raise ValueError(f"Step 6 OOF threshold was not reproduced: {ds}/{original_name}")
+        for metric in ("mcc", "balanced_accuracy", "f1"):
+            if not np.isclose(result["test"][original_name]["metrics"][metric],
+                              previous["test"][original_name]["metrics"][metric], atol=1e-10, rtol=0):
+                raise ValueError(f"Step 6 test metric was not reproduced: {ds}/{original_name}/{metric}")
+        if not np.isclose(result["test"][original_name]["auroc"],
+                          previous["test"][original_name]["auroc"], atol=1e-10, rtol=0):
+            raise ValueError(f"Step 6 test AUROC was not reproduced: {ds}/{original_name}")
+    pos = {r["id"]: n for n, r in enumerate(rows)}
+    order = [pos[i] for i in ids]
+    print(f"{ds}: Step 6 validation thresholds and test metrics reproduced", flush=True)
+    return {k: v[order] for k, v in fitted.items()}, {"P-PRE": taus["P_pre"], "P-POST": taus["P_post"]}
 
 
 def load_dataset(ds, expected_n, expected_groups, core, frozen, correction, audit):
@@ -149,6 +209,40 @@ def load_dataset(ds, expected_n, expected_groups, core, frozen, correction, audi
     summaries = load_json(f"{ANCHOR}/{ds}/anchor_summary.json", audit)
     anchor_tau, = [r["tau"] for r in summaries if r["arm"] == "SUP-LR" and r["seed"] == ARM_SEED]
     thresholds["SUP-LR"] = dict.fromkeys(("registered_B0_B1", "corrected_B0_B1"), float(anchor_tau))
+    h2_lock = load_json(f"{RUNS}/b1h2_kaggle_validation_threshold_lock_20261106.json", audit)
+    b3_lock = load_json(
+        f"{RUNS}/b3_verified_patch_v1/threshold_release_20261109_v1/{ds}_threshold_lock.json", audit
+    )
+    for arm, base, tau, tau_key, pred_key in (
+        ("B1-H2", f"{RUNS}/kaggle_outputs_20261107/b1h2_test_latest/b1_h2_test",
+         float(h2_lock["results"][ds]["tau_star"]), "tau", "pred_tau"),
+        ("B3", f"{RUNS}/kaggle_outputs_20261111/b3_verified_patch_test_10h/b3_test_release_20261110",
+         float(b3_lock["tau_star"]), "threshold_tau", "threshold_prediction"),
+    ):
+        path = f"{base}/seed_42/{ds}/test/records.jsonl"
+        records = by_id(load_records(path, audit), path)
+        if set(records) != set(ids):
+            raise ValueError(f"Missing or extra test IDs in {path}")
+        values = []
+        for i in ids:
+            r = records[i]
+            score = float(r["s"])
+            if (str(r["dataset"]).lower(), r["split"], r["arm"], int(r["seed"])) != (ds, "test", arm, ARM_SEED):
+                raise ValueError(f"Record identity mismatch in {path}: {i}")
+            if "label" in r and int(r["label"]) != manifest[i]["label"]:
+                raise ValueError(f"Label mismatch in {path}: {i}")
+            if not r["valid"] or r.get("s_bounded") or not 0 <= score <= 1:
+                raise ValueError(f"Unusable score in {path}: {i}")
+            if not np.isclose(float(r[tau_key]), tau) or int(r[pred_key]) != int(score >= tau):
+                raise ValueError(f"Locked threshold mismatch in {path}: {i}")
+            values.append(score)
+        scores[arm] = np.array(values)
+        thresholds[arm] = dict.fromkeys(("registered_B0_B1", "corrected_B0_B1"), tau)
+        runtime[arm] = dict(Counter(r.get("runtime_contract_sha256") or "not_in_record" for r in records.values()))
+    meta_scores, meta_taus = load_meta_scores(ds, ids, labels, groups, audit)
+    scores.update(meta_scores)
+    for arm, tau in meta_taus.items():
+        thresholds[arm] = dict.fromkeys(("registered_B0_B1", "corrected_B0_B1"), tau)
     return labels, np.array(groups), clean, scores, thresholds, runtime
 
 
@@ -232,6 +326,11 @@ def write_csv(path, rows):
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--out", type=Path, required=True)
+    out = parser.parse_args().out
+    out.mkdir(parents=True, exist_ok=True)
     audit = {KIT: hashlib.sha256((ROOT / KIT).read_bytes()).hexdigest()}
     status = load_json(f"{RUNS}/current_status.json", audit)
     core = {(sp["dataset"], arm["arm"]): sp["records_path"]
@@ -260,9 +359,15 @@ def main():
                       and r["threshold_policy"] in (policy, "unchanged")}
             for i, p in stats.holm(family).items():
                 contrasts[i][f"mcnemar_p_holm_partial_{policy}"] = p
-    write_csv(OUT / "contrasts.csv", contrasts)
-    write_csv(OUT / "sensitivity.csv", sensitivity)
-    (OUT / "provenance.json").write_text(json.dumps({
+            available = {i: r["mcnemar_p"] for i, r in enumerate(contrasts)
+                         if r["partition"] == partition and r["metric"] == "MCC"
+                         and r["comparison_role"] in ("registered", "registered_pair_exploratory_run")
+                         and r["threshold_policy"] in (policy, "unchanged")}
+            for i, p in stats.holm(available).items():
+                contrasts[i][f"mcnemar_p_holm_available_{policy}"] = p
+    write_csv(out / "contrasts.csv", contrasts)
+    write_csv(out / "sensitivity.csv", sensitivity)
+    (out / "provenance.json").write_text(json.dumps({
         "n_boot": N_BOOT, "bootstrap_seed": BOOT_SEED, "headline_arm_seed": ARM_SEED,
         "delta_direction": "arm_b minus arm_a", "kit": KIT, "inputs_sha256": audit,
         "runtime_contract_sha256_counts": runtime,
