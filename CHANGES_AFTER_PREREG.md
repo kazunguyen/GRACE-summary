@@ -623,3 +623,16 @@ The first huuhieu3333 resume version failed before inference because Kaggle moun
 - Preserved the prior output field, all existing run artifacts, the registered protocol/configuration, thresholds, lock, models, inputs, and predictions. This is an implementation/reporting correction only; no hypothesis, threshold, or contrast was changed. New script hash creates a distinct output run.
 - Updated `STEP6_supervised_anchors/06_run_step6_complementarity_wsl.ipynb` to display H5.3 checks. Rerun of notebook 06 is pending; no analysis was executed and no tests were run during this change.
 - Worklog: `worklogs/2026-11-11_step6_h53_routing_criteria_alignment.md`.
+
+## 2026-11-11 — Step 6 ReVeal file grouping correction
+
+- The first Step 6 analysis fell back to a function hash when the frozen ReVeal rows did not contain a field named `file_hash`. That yielded 2,272 test clusters instead of the 646 file clusters specified in the preregistration.
+- The Step 6 runner now uses the locked raw row's `source_id` as the ReVeal file group. The validation and test group/label counts match the Step 0 canonical exports (627 and 646 groups). The runner checks those counts and records the group field and count by split in the new run manifest.
+- The correction applies to grouped validation OOF and validation-selected thresholds for P_pre/P_post, plus cluster-bootstrap intervals for P_pre/P_post and routing. This is a post-registration implementation correction to restore the specified grouping after the earlier results had been viewed. Report the rerun alongside the original run history and disclose the correction.
+- Notebook `06_run_step6_complementarity_wsl.ipynb` reuses the locked B2, H3-B and SUP-LR artifacts. Its final cell verifies the manifest from the run it launched, including output hashes and the ReVeal cluster counts.
+
+## 2026-11-11 — B3-flip test execution
+
+- Completed the B3-flip seed-42 test run on Kaggle: 2,732 Devign and 2,274 ReVeal examples (5,006/5,006 total), with no invalid responses. This is inference/runtime completion evidence; test metrics were not calculated because labels were not included in the Kaggle output.
+- The prompt/selection seed is 42. The `inference_runtime_lock.json` and each output record's `inference_seed` field identify the configured inference seed as `4294967295`. This is a distinct RNG setting; B3-flip inherited B3's validation thresholds and did not fit them on test data.
+- B3-flip inherits B3's validation thresholds (Devign 0.99; ReVeal 0.01); it does not fit a new threshold. See `Runs-management/RUNS.md` I-31, `worklogs/2026-11-11_b3_flip_test_completed.md`, and `Runs-management/kaggle_outputs_20261111/b3_flip_test_20261110_v1/`.
