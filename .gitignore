@@ -37,6 +37,9 @@ Runs-management/audit_*.json
 !/Runs-management/osf_registration_draft_20261102/output/**
 
 
+# Step 6 CodeT5 adapter matrices are local inputs; keep their small provenance manifest tracked.
+/STEP6_supervised_anchors/cache/anchor_npz/**/*.npz
+
 # WSL Python environment (local only)
 /.venv-wsl/
 

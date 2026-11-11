@@ -1,0 +1,87 @@
+{
+  "state": "accepted_validation_census",
+  "arm": "B3-nodiff",
+  "seed": 42,
+  "split": "validation",
+  "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "threshold_lock_sha256": "64dde9b94a44ae56b3abe0b7e6abd6ced2a5320d7fee2785a961c5da225a786c",
+  "thresholds": {
+    "devign": {
+      "tau_star": 0.92,
+      "validation_mcc": 0.050359926559537437,
+      "n_total": 2732,
+      "n_valid": 2732,
+      "n_invalid": 0,
+      "score_coverage": 1.0,
+      "confusion_matrix_at_tau": [
+        [
+          763,
+          782
+        ],
+        [
+          526,
+          661
+        ]
+      ],
+      "accuracy_at_tau": 0.5212298682284041,
+      "validation_records_sha256": "6370fad9ce31d66eca9f6eb40fb88b4628e83b634f4ced738eb7b54991f54705",
+      "validation_evidence_sha256": "3850638998c9da9f0b624c5939d10c76de2715268527e781b86a74693d4dfb11"
+    },
+    "reveal": {
+      "tau_star": 0.01,
+      "validation_mcc": 0.08042278247889736,
+      "n_total": 2273,
+      "n_valid": 2273,
+      "n_invalid": 0,
+      "score_coverage": 1.0,
+      "confusion_matrix_at_tau": [
+        [
+          840,
+          1223
+        ],
+        [
+          57,
+          153
+        ]
+      ],
+      "accuracy_at_tau": 0.4368675758908931,
+      "validation_records_sha256": "4389db581f0c671fd829066d79af4c3ff3265987e718e0816086e8b9b138dc4d",
+      "validation_evidence_sha256": "2259b4831b6b7256eb91d7a8d1f1fe889aa210ea6c046c56acaa11c80f9676df"
+    }
+  },
+  "verification": {
+    "complete_ids_and_hashes": "PASS",
+    "all_scores_valid_and_finite": "PASS",
+    "thresholds_recomputed_with_validation_lock_py": "PASS",
+    "self_seal": "PASS",
+    "runtime_lock_sha256": "PASS",
+    "model_and_runner_identity": "PASS",
+    "two_t4_and_49_of_49_offload": "PASS",
+    "test_inputs_read": "NO"
+  },
+  "output_files_sha256": {
+    "batch_summary.json": "344d87f7724c99029ed58b7b2f37e79b9e32c0c1c07b645b0f28b114bb8c3d5c",
+    "devign/evaluation.json": "c82c93abe5ee460f31c0d82dafd9f416453d997545e87d6f1d6caf28a99a6283",
+    "devign/inference_input_manifest.json": "39fe62c51655a3f07da9747eac9e7265cf701d3bb23400b068221e2b4ec06711",
+    "devign/input_bundle.zip": "5817294fa8e4ea63a4a3d58b57cef810b85417406cf50d2e50173300ed2580d6",
+    "devign/model_load_offload.log": "8eecd3d4e9bcecce1ee4faa2be53a71ceae60f3c28416c9881ea071a169e5184",
+    "devign/records.jsonl": "6370fad9ce31d66eca9f6eb40fb88b4628e83b634f4ced738eb7b54991f54705",
+    "devign/run_manifest.json": "69562a68a9863ac3a7de7fc4f9dfbed05a193e44ac813edb424a2c592612e5da",
+    "devign/runtime_provenance.json": "3f7fc8343da9d69fc0a38b1f48643ee8d5e82624af75af995edc2f882c8c8b04",
+    "devign/status.json": "509d93d601da6d4304694a3a9a4a526bb40b300c3799538da7277e4a9553c69b",
+    "grace_diagnostics.zip": "dc0bb6839982506b2eda74978fa284268527a2f524c2f81b4371d3cc924890d5",
+    "inference_runtime_lock.json": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+    "reveal/evaluation.json": "23c561980a10705a2c1e706f179bc79a96f90f58ac9368adaa2176b570457f0d",
+    "reveal/inference_input_manifest.json": "9e8a2f1a7df1e54cddbfdb3865df8e039528afcaef818733110137a957894bed",
+    "reveal/input_bundle.zip": "3d6077678f8c3aad7ec8d9e40fa3f4898d02ea6d4c472d895fb4d383f4dd98ee",
+    "reveal/model_load_offload.log": "8eecd3d4e9bcecce1ee4faa2be53a71ceae60f3c28416c9881ea071a169e5184",
+    "reveal/records.jsonl": "4389db581f0c671fd829066d79af4c3ff3265987e718e0816086e8b9b138dc4d",
+    "reveal/run_manifest.json": "bcf4b90cdde369ee6e1303bd95db9c89a50ad91ee2ec367d7230746df26c8147",
+    "reveal/runtime_provenance.json": "3f7fc8343da9d69fc0a38b1f48643ee8d5e82624af75af995edc2f882c8c8b04",
+    "reveal/status.json": "230e43554e450d2f17aa1fe7b5727a1c5eb39c2338cd87c27e5d9e64eff6ee3d",
+    "support/b3_delivery_runtime.py": "45e44db244206e4fc52eecc9db616b49d04a147d33e6dbaff876d20bd335d340",
+    "support/grace_runtime_contract.py": "b7f9c0ea7fb09365ea2d74a1278f945900b4e43d1ec49bb681ca5740701ca62a",
+    "support/kaggle_inference.py": "059c5fca1de0043f5b7710ed39c79976301d8b92548e3f2f85aaaf2afeb08fe8",
+    "validation_threshold_lock.json": "c4c438a413ffafcbcac993be49c12963497a3290a8dc679f2c3e6fee763bdebf"
+  }
+}
