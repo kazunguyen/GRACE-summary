@@ -1,0 +1,500 @@
+{
+  "adapter_manifest_sha256": "898ede843e4e8ff33ea7a2f55cdb4da27a3e3bb0dfcfda2697b83ebddb596de9",
+  "analysis_config": {
+    "bootstrap_seed": 20261117,
+    "budgets": [
+      0.05,
+      0.1,
+      0.25
+    ],
+    "delta_mcc_meta": 0.02,
+    "folds": 3,
+    "h5_3": {
+      "benefit_vs_confidence_metrics": [
+        "balanced_accuracy",
+        "mcc"
+      ],
+      "benefit_vs_confidence_upper_ci_margin": 0.02,
+      "benefit_vs_random_metric": "balanced_accuracy",
+      "benefit_vs_random_upper_ci_margin": 0.01,
+      "q": 0.1,
+      "random_expert_reference_seeds": 20,
+      "random_expert_repair_limit": "97.5th percentile"
+    },
+    "logistic_C": 1.0,
+    "n_boot": 5000,
+    "random_router_seeds": 20,
+    "ridge_alpha": 10.0,
+    "seed": 42,
+    "test_labels_used_for_fit_or_threshold_selection": false
+  },
+  "analysis_script_sha256": "d19d28d4efb771442a7d57f3233b68e82320dcb817a8a5580a29226d037d0170",
+  "b2_selection": "registered main B2, seed 42; continuous s and valid; no rerun/inference",
+  "b2_source_root": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h",
+  "group_units": {
+    "devign": "commit_id",
+    "reveal": "file_hash (source_id)"
+  },
+  "h3b_export_root": "runs/h3b_locked/step6_lock_64fb2c99d904",
+  "inputs": {
+    "devign/test": {
+      "b2": {
+        "arm": "B2",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "prompt_set_sha256": "9cac0bc7657390983da8c594a6354eaf339f2c5869d27ce9a6602630d6cbeb72",
+        "quantization": "Q4_K_M",
+        "records_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/devign/test/records.jsonl",
+        "records_sha256": "0dbcf384bd0f640250f71aa03113765b7927a37c6d550807fc2ea851b94c78f1",
+        "rows": 2732,
+        "run_manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/devign/test/run_manifest.json",
+        "run_manifest_sha256": "5378cdd86bf44f9206150646b7d1fbb9ba63ab0b2e6f219278f901faee2477ce",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed": 42,
+        "valid_n": 2732
+      },
+      "h3b": {
+        "feature_names": [
+          "logit_semantic_lr",
+          "logit_semantic_lr_balanced",
+          "logit_semantic_mlp",
+          "logit_lexical",
+          "logit_numeric",
+          "p_gate",
+          "abs_p_gate_minus_half",
+          "abs_semantic_mlp_minus_lexical",
+          "log_bytes",
+          "log_lines",
+          "log_tokens",
+          "if",
+          "else",
+          "for",
+          "while",
+          "switch",
+          "case",
+          "return",
+          "goto",
+          "break",
+          "sizeof",
+          "null",
+          "star",
+          "arrow",
+          "bracket",
+          "compare",
+          "logical",
+          "arithmetic",
+          "allocation",
+          "release",
+          "copy",
+          "input",
+          "error",
+          "assert"
+        ],
+        "gate_path": "devign/gate_test.csv",
+        "gate_sha256": "fa2a9a7c2137eedb402eb6f6317b4dee3a84b9065725b9bc7323ce5fe726c825",
+        "gate_winner": "fusion_all",
+        "manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/devign/h3b_export_manifest.json",
+        "manifest_sha256": "c67882f9c0299d4f94a7532e5612d2c704075467430a751deb52974c7eda61e7",
+        "rows": 2732,
+        "shape": [
+          2732,
+          34
+        ],
+        "tau_gate_train_oof": 0.4,
+        "xpre_path": "devign/xpre_test.npz",
+        "xpre_sha256": "7122bbb11dc4819418447ea7bb280628533c1ca828ce6761c3d19a34b024b5b7"
+      },
+      "join": {
+        "all_ids_exact": true,
+        "labels_exact": true,
+        "order": "frozen raw split order",
+        "rows": 2732
+      },
+      "locked_split": {
+        "group_source": "raw.commit_id",
+        "group_unit": "commit_id",
+        "manifest_path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/test_manifest.jsonl",
+        "manifest_sha256": "f0f8672a88cddbe5c348847c285b843981b310c12117b5c8fdc3ccd785b759da",
+        "n_groups": 2068,
+        "path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/test_raw.jsonl",
+        "rows": 2732,
+        "sha256": "9fdb601ac2ba3e21a96e7312d6218518ac350182be9fcb2125b4175633d4640b"
+      },
+      "sup_lr": {
+        "rows": 2732,
+        "run_manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_run_manifest.json",
+        "run_manifest_sha256": "7e727ea834de91e0efc203e18d53bcf6152f2653614cb63cbd0d3521488a0cbf",
+        "scores_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_scores.csv",
+        "scores_sha256": "12ae859febef416d6645edda735ed49bb7fdab4139bf31410bc9b745a8ba2301",
+        "summary_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+        "summary_sha256": "b01a091a1e53fc3c36bbba043552228933c6dc83ef7fe4213527a96fb4f2d198",
+        "tau_validation_mcc": 0.37
+      },
+      "tau_sup_lr_validation": 0.37
+    },
+    "devign/validation": {
+      "b2": {
+        "arm": "B2",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "prompt_set_sha256": "e42592eaf0cfcd74fb483ee8a45ef3b49fb9f42a5ecead26c3e8ea96f4e842c3",
+        "quantization": "Q4_K_M",
+        "records_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/devign/validation/records.jsonl",
+        "records_sha256": "39ecf541d2d3b440a87177f0d8f98c28cc3eb25b4247ace085bf0e1890ceb79a",
+        "rows": 2732,
+        "run_manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/devign/validation/run_manifest.json",
+        "run_manifest_sha256": "4919e19298f1f2412ce19a01a535ad20079e2c1accb43dfe7ba930faf8d6b917",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed": 42,
+        "valid_n": 2732
+      },
+      "h3b": {
+        "feature_names": [
+          "logit_semantic_lr",
+          "logit_semantic_lr_balanced",
+          "logit_semantic_mlp",
+          "logit_lexical",
+          "logit_numeric",
+          "p_gate",
+          "abs_p_gate_minus_half",
+          "abs_semantic_mlp_minus_lexical",
+          "log_bytes",
+          "log_lines",
+          "log_tokens",
+          "if",
+          "else",
+          "for",
+          "while",
+          "switch",
+          "case",
+          "return",
+          "goto",
+          "break",
+          "sizeof",
+          "null",
+          "star",
+          "arrow",
+          "bracket",
+          "compare",
+          "logical",
+          "arithmetic",
+          "allocation",
+          "release",
+          "copy",
+          "input",
+          "error",
+          "assert"
+        ],
+        "gate_path": "devign/gate_validation.csv",
+        "gate_sha256": "1f26bdbba9a49cec0ad16901a8086fe0784f266fdac9e4aa2652b358e16573ba",
+        "gate_winner": "fusion_all",
+        "manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/devign/h3b_export_manifest.json",
+        "manifest_sha256": "c67882f9c0299d4f94a7532e5612d2c704075467430a751deb52974c7eda61e7",
+        "rows": 2732,
+        "shape": [
+          2732,
+          34
+        ],
+        "tau_gate_train_oof": 0.4,
+        "xpre_path": "devign/xpre_validation.npz",
+        "xpre_sha256": "44898c6090a9705d3e84d9ec9aefa0b0ce335766335886199976695ae6c37fa1"
+      },
+      "join": {
+        "all_ids_exact": true,
+        "labels_exact": true,
+        "order": "frozen raw split order",
+        "rows": 2732
+      },
+      "locked_split": {
+        "group_source": "raw.commit_id",
+        "group_unit": "commit_id",
+        "manifest_path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/validation_manifest.jsonl",
+        "manifest_sha256": "7a2eeec9a9aa2b472b2f4df0e6af91f6b90efab38d5ac44f9491adcf699b8eee",
+        "n_groups": 2025,
+        "path": "01_Author_Baseline_Unified/output/research_freeze_20261101/devign/validation_raw.jsonl",
+        "rows": 2732,
+        "sha256": "c2685476bfffb0c02d99f9aa443a4db48cc3ebd1987b4f71edb4890223ac79a5"
+      },
+      "sup_lr": {
+        "rows": 2732,
+        "run_manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_run_manifest.json",
+        "run_manifest_sha256": "7e727ea834de91e0efc203e18d53bcf6152f2653614cb63cbd0d3521488a0cbf",
+        "scores_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_scores.csv",
+        "scores_sha256": "12ae859febef416d6645edda735ed49bb7fdab4139bf31410bc9b745a8ba2301",
+        "summary_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+        "summary_sha256": "b01a091a1e53fc3c36bbba043552228933c6dc83ef7fe4213527a96fb4f2d198",
+        "tau_validation_mcc": 0.37
+      },
+      "tau_sup_lr_validation": 0.37
+    },
+    "reveal/test": {
+      "b2": {
+        "arm": "B2",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "prompt_set_sha256": "b0030bc08e2605f7416a1b88d7ab0702d0f10601bdcaa596f1f71e2879e9dcff",
+        "quantization": "Q4_K_M",
+        "records_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/reveal/test/records.jsonl",
+        "records_sha256": "dcdaf0d0b52451b295e73cda7ba2e95653051035fcf3a9cd48e4b8d2ba39a415",
+        "rows": 2274,
+        "run_manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/reveal/test/run_manifest.json",
+        "run_manifest_sha256": "d4d26e259497aac2914832be56945b759776f1a5c124b50ef8de6b4a72345603",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed": 42,
+        "valid_n": 2274
+      },
+      "h3b": {
+        "feature_names": [
+          "logit_semantic_lr",
+          "logit_semantic_lr_balanced",
+          "logit_semantic_mlp",
+          "logit_lexical",
+          "logit_numeric",
+          "p_gate",
+          "abs_p_gate_minus_half",
+          "abs_semantic_mlp_minus_lexical",
+          "log_bytes",
+          "log_lines",
+          "log_tokens",
+          "if",
+          "else",
+          "for",
+          "while",
+          "switch",
+          "case",
+          "return",
+          "goto",
+          "break",
+          "sizeof",
+          "null",
+          "star",
+          "arrow",
+          "bracket",
+          "compare",
+          "logical",
+          "arithmetic",
+          "allocation",
+          "release",
+          "copy",
+          "input",
+          "error",
+          "assert"
+        ],
+        "gate_path": "reveal/gate_test.csv",
+        "gate_sha256": "e7b188c7284f587925a0e405f07f9b08518045fbcc6ce077a70216dd3ceb872d",
+        "gate_winner": "fusion_semantic_lexical",
+        "manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/reveal/h3b_export_manifest.json",
+        "manifest_sha256": "637d43e452c7ca5a5cd18e67d81de8e24aa2b7bf8432c7d2ccdc4abc70ed5022",
+        "rows": 2274,
+        "shape": [
+          2274,
+          34
+        ],
+        "tau_gate_train_oof": 0.17,
+        "xpre_path": "reveal/xpre_test.npz",
+        "xpre_sha256": "f5113d4e81d3b02cd9017a24214f19ab15af71df0bbd1a8802d9e47ec9c290f1"
+      },
+      "join": {
+        "all_ids_exact": true,
+        "labels_exact": true,
+        "order": "frozen raw split order",
+        "rows": 2274
+      },
+      "locked_split": {
+        "group_source": "raw.source_id",
+        "group_unit": "file_hash (source_id)",
+        "manifest_path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/test_manifest.jsonl",
+        "manifest_sha256": "19cc3f580f0441387ab3d194b0a06bb87ba3e3cf82ce5a818b70bf8c545c1f66",
+        "n_groups": 646,
+        "path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/test_raw.jsonl",
+        "rows": 2274,
+        "sha256": "466015aa06b08fd86d73a8feabe86b4dfb3e708b054a63ec2eccfb362fd977ab"
+      },
+      "sup_lr": {
+        "rows": 2274,
+        "run_manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_run_manifest.json",
+        "run_manifest_sha256": "b4e52e421a478f30713ce6364951e6d4ec00d1f0aa71ea9fe23c249ff33ee7c9",
+        "scores_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_scores.csv",
+        "scores_sha256": "c788711d288bfe7a41ea4b5e23f443d35385b94d9833e83d72f37ab564977cd8",
+        "summary_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+        "summary_sha256": "a786f43ac21337abc7ead7b0ece89da84d17ca61a1e5c153efecd70a46a05196",
+        "tau_validation_mcc": 0.15000000000000002
+      },
+      "tau_sup_lr_validation": 0.15000000000000002
+    },
+    "reveal/validation": {
+      "b2": {
+        "arm": "B2",
+        "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+        "prompt_set_sha256": "531b274808e0435ce47c6d1831903e4421486a034c6884a2a67ba01e779b3e42",
+        "quantization": "Q4_K_M",
+        "records_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/reveal/validation/records.jsonl",
+        "records_sha256": "221a794e55d8f900ce3986e27cdf227a23a947aa4dd864b6ed597fe5363fa994",
+        "rows": 2273,
+        "run_manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/reveal/validation/run_manifest.json",
+        "run_manifest_sha256": "c4fbd655f2e163fc25655293c800a48a0139f5bdd6fc2cda71f8c6f1057878c8",
+        "scoring": "unconstrained_first_token_logits_v1",
+        "seed": 42,
+        "valid_n": 2273
+      },
+      "h3b": {
+        "feature_names": [
+          "logit_semantic_lr",
+          "logit_semantic_lr_balanced",
+          "logit_semantic_mlp",
+          "logit_lexical",
+          "logit_numeric",
+          "p_gate",
+          "abs_p_gate_minus_half",
+          "abs_semantic_mlp_minus_lexical",
+          "log_bytes",
+          "log_lines",
+          "log_tokens",
+          "if",
+          "else",
+          "for",
+          "while",
+          "switch",
+          "case",
+          "return",
+          "goto",
+          "break",
+          "sizeof",
+          "null",
+          "star",
+          "arrow",
+          "bracket",
+          "compare",
+          "logical",
+          "arithmetic",
+          "allocation",
+          "release",
+          "copy",
+          "input",
+          "error",
+          "assert"
+        ],
+        "gate_path": "reveal/gate_validation.csv",
+        "gate_sha256": "c59c4430d493c1f718d8f9acc8de1373dfcdbfd563a373908551664cfd3d88fd",
+        "gate_winner": "fusion_semantic_lexical",
+        "manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/reveal/h3b_export_manifest.json",
+        "manifest_sha256": "637d43e452c7ca5a5cd18e67d81de8e24aa2b7bf8432c7d2ccdc4abc70ed5022",
+        "rows": 2273,
+        "shape": [
+          2273,
+          34
+        ],
+        "tau_gate_train_oof": 0.17,
+        "xpre_path": "reveal/xpre_validation.npz",
+        "xpre_sha256": "fd88b1426aa6d2cd2cfcfbc6eb195f1b489194bf34bdbb2a486676601b0b60a8"
+      },
+      "join": {
+        "all_ids_exact": true,
+        "labels_exact": true,
+        "order": "frozen raw split order",
+        "rows": 2273
+      },
+      "locked_split": {
+        "group_source": "raw.source_id",
+        "group_unit": "file_hash (source_id)",
+        "manifest_path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/validation_manifest.jsonl",
+        "manifest_sha256": "b6632ec3a62f93f917e8f64365917b5546fcd1b426a67fbfa30b56d71d9d7267",
+        "n_groups": 627,
+        "path": "01_Author_Baseline_Unified/output/research_freeze_20261101/reveal/validation_raw.jsonl",
+        "rows": 2273,
+        "sha256": "09078fc8d186560a17a6bf26c27cf47c75086be17c077c42a0154151513835b1"
+      },
+      "sup_lr": {
+        "rows": 2273,
+        "run_manifest_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_run_manifest.json",
+        "run_manifest_sha256": "b4e52e421a478f30713ce6364951e6d4ec00d1f0aa71ea9fe23c249ff33ee7c9",
+        "scores_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_scores.csv",
+        "scores_sha256": "c788711d288bfe7a41ea4b5e23f443d35385b94d9833e83d72f37ab564977cd8",
+        "summary_path": "/mnt/d/JUNIOR/LabThayTho/GRACE-summary/STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+        "summary_sha256": "a786f43ac21337abc7ead7b0ece89da84d17ca61a1e5c153efecd70a46a05196",
+        "tau_validation_mcc": 0.15000000000000002
+      },
+      "tau_sup_lr_validation": 0.15000000000000002
+    }
+  },
+  "join_outputs": {
+    "devign/test": {
+      "columns": [
+        "id",
+        "y",
+        "p_gate",
+        "s_llm",
+        "valid",
+        "group",
+        "s_sup_lr",
+        "code_sha256"
+      ],
+      "path": "joined_test.csv",
+      "rows": 2732,
+      "sha256": "fbc408df39b02ead646584d76a76ec438803b7b389f772a85f007beb07900f87"
+    },
+    "devign/validation": {
+      "columns": [
+        "id",
+        "y",
+        "p_gate",
+        "s_llm",
+        "valid",
+        "group",
+        "s_sup_lr",
+        "code_sha256"
+      ],
+      "path": "joined_validation.csv",
+      "rows": 2732,
+      "sha256": "1c157107f3ea964cbcd7989b6cfb3dc4c1cd083dcb04edb28f540f56288b28f2"
+    },
+    "reveal/test": {
+      "columns": [
+        "id",
+        "y",
+        "p_gate",
+        "s_llm",
+        "valid",
+        "group",
+        "s_sup_lr",
+        "code_sha256"
+      ],
+      "path": "joined_test.csv",
+      "rows": 2274,
+      "sha256": "3e1a3c2cde0e95c2a5b2c432bb6c9f4318ecfc33bd656a0054b1036e339d4b8a"
+    },
+    "reveal/validation": {
+      "columns": [
+        "id",
+        "y",
+        "p_gate",
+        "s_llm",
+        "valid",
+        "group",
+        "s_sup_lr",
+        "code_sha256"
+      ],
+      "path": "joined_validation.csv",
+      "rows": 2273,
+      "sha256": "4afeb73c3d62111e08081432e488ebcc779d37ac7e92d0494664da3bbbbbad1f"
+    }
+  },
+  "output_hashes": {
+    "devign/complementarity_step6.json": "3bcabe54ed92df7dea583e17da5c5483bdc77b28ff49450e41a8d9cfb16661a1",
+    "devign/joined_test.csv": "fbc408df39b02ead646584d76a76ec438803b7b389f772a85f007beb07900f87",
+    "devign/joined_validation.csv": "1c157107f3ea964cbcd7989b6cfb3dc4c1cd083dcb04edb28f540f56288b28f2",
+    "reveal/complementarity_step6.json": "55612876d34951e68c39016b9c8a0d0a5a85334c4785c8dc8e88ed85fef44ac0",
+    "reveal/joined_test.csv": "3e1a3c2cde0e95c2a5b2c432bb6c9f4318ecfc33bd656a0054b1036e339d4b8a",
+    "reveal/joined_validation.csv": "4afeb73c3d62111e08081432e488ebcc779d37ac7e92d0494664da3bbbbbad1f"
+  },
+  "protocol_sha256": "273f750ff2323d7f2bd842223a02c36dc49c69bead396333ab78dade7a125116",
+  "result_outputs": {
+    "devign/complementarity_step6.json": "3bcabe54ed92df7dea583e17da5c5483bdc77b28ff49450e41a8d9cfb16661a1",
+    "reveal/complementarity_step6.json": "55612876d34951e68c39016b9c8a0d0a5a85334c4785c8dc8e88ed85fef44ac0"
+  },
+  "run_fingerprint": "44f00d19834f768e259c3fa2575fa9b66e3ae872769ce9d486969aa94cbdd34a",
+  "runtime_versions": {
+    "numpy": "1.26.4",
+    "scikit-learn": "1.5.2",
+    "scipy": "1.17.1"
+  },
+  "schema": "step6_complementarity_analysis_v1",
+  "step6_lock_sha256": "64fb2c99d9044548aaa07e949f1cd710580ff1b11571fdb833ddc18a56f80575"
+}
