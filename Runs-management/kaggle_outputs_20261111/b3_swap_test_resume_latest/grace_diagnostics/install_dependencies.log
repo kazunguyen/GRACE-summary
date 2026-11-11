@@ -1,0 +1,68 @@
+Collecting huggingface-hub==0.36.2
+  Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: numpy==2.1.3 in /usr/local/lib/python3.13/dist-packages (2.1.3)
+Collecting scikit-learn==1.5.2
+  Downloading scikit_learn-1.5.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+Requirement already satisfied: scipy==1.16.3 in /usr/local/lib/python3.13/dist-packages (1.16.3)
+Collecting tokenizers==0.22.2
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting transformers==4.57.1
+  Downloading transformers-4.57.1-py3-none-any.whl.metadata (43 kB)
+Requirement already satisfied: typing-extensions>=4.5.0 in /usr/local/lib/python3.13/dist-packages (4.16.0)
+Collecting diskcache>=5.6.1
+  Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+Requirement already satisfied: jinja2>=2.11.3 in /usr/local/lib/python3.13/dist-packages (3.1.6)
+Requirement already satisfied: filelock in /usr/local/lib/python3.13/dist-packages (from huggingface-hub==0.36.2) (4.2.4)
+Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.13/dist-packages (from huggingface-hub==0.36.2) (2025.12.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in /usr/local/lib/python3.13/dist-packages (from huggingface-hub==0.36.2) (1.7.0)
+Requirement already satisfied: packaging>=20.9 in /usr/local/lib/python3.13/dist-packages (from huggingface-hub==0.36.2) (26.3)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.13/dist-packages (from huggingface-hub==0.36.2) (6.0.3)
+Requirement already satisfied: requests in /usr/local/lib/python3.13/dist-packages (from huggingface-hub==0.36.2) (2.34.2)
+Requirement already satisfied: tqdm>=4.42.1 in /usr/local/lib/python3.13/dist-packages (from huggingface-hub==0.36.2) (4.67.3)
+Requirement already satisfied: joblib>=1.2.0 in /usr/local/lib/python3.13/dist-packages (from scikit-learn==1.5.2) (1.6.0)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.13/dist-packages (from scikit-learn==1.5.2) (3.7.0)
+Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.13/dist-packages (from transformers==4.57.1) (2025.11.3)
+Requirement already satisfied: safetensors>=0.4.3 in /usr/local/lib/python3.13/dist-packages (from transformers==4.57.1) (0.8.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.13/dist-packages (from jinja2>=2.11.3) (3.0.4)
+Requirement already satisfied: cloudpickle>=3.0 in /usr/local/lib/python3.13/dist-packages (from joblib>=1.2.0->scikit-learn==1.5.2) (3.1.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.13/dist-packages (from requests->huggingface-hub==0.36.2) (3.4.9)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.13/dist-packages (from requests->huggingface-hub==0.36.2) (3.20)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.13/dist-packages (from requests->huggingface-hub==0.36.2) (2.8.0)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.13/dist-packages (from requests->huggingface-hub==0.36.2) (2026.10.23)
+Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 24.4 MB/s  0:00:00
+Downloading scikit_learn-1.5.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 112.8 MB/s  0:00:00
+Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 151.1 MB/s  0:00:00
+Downloading transformers-4.57.1-py3-none-any.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 96.3 MB/s  0:00:00
+Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)
+Installing collected packages: diskcache, scikit-learn, huggingface-hub, tokenizers, transformers
+  Attempting uninstall: scikit-learn
+    Found existing installation: scikit-learn 1.6.1
+    Uninstalling scikit-learn-1.6.1:
+      Successfully uninstalled scikit-learn-1.6.1
+  Attempting uninstall: huggingface-hub
+    Found existing installation: huggingface_hub 1.33.0
+    Uninstalling huggingface_hub-1.33.0:
+      Successfully uninstalled huggingface_hub-1.33.0
+  Attempting uninstall: tokenizers
+    Found existing installation: tokenizers 0.23.3
+    Uninstalling tokenizers-0.23.3:
+      Successfully uninstalled tokenizers-0.23.3
+  Attempting uninstall: transformers
+    Found existing installation: transformers 5.20.2
+    Uninstalling transformers-5.20.2:
+      Successfully uninstalled transformers-5.20.2
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+category-encoders 2.11.2 requires scikit-learn>=1.6.0, but you have scikit-learn 1.5.2 which is incompatible.
+tpot 1.1.0 requires scikit-learn>=1.6, but you have scikit-learn 1.5.2 which is incompatible.
+umap-learn 0.5.12 requires scikit-learn>=1.6, but you have scikit-learn 1.5.2 which is incompatible.
+gradio-client 2.7.2 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+gradio 6.30.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+gradio 6.30.0 requires pillow<13.0,>=8.0, but you have pillow 13.0.0 which is incompatible.
+hdbscan 0.8.44 requires scikit-learn>=1.6, but you have scikit-learn 1.5.2 which is incompatible.
+diffusers 0.42.0 requires huggingface-hub<3.0,>=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.
+Successfully installed diskcache-5.6.3 huggingface-hub-0.36.2 scikit-learn-1.5.2 tokenizers-0.22.2 transformers-4.57.1
