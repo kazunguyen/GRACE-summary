@@ -2,7 +2,28 @@
 
 **Ngày lập ban đầu:** 08/11/2026<br>
 **Cập nhật:** 10/11/2026<br>
-**Phạm vi:** B0, B1, B1-full, B1-shuf (seed 42/43/44), B2, B2-flip, B1-H2, B2-rand seed 42/43/44 và ba arm B2-rep, B2-nolabel, B2-labelonly có test đủ trên cả hai dataset; bổ sung kết quả Bước 6 (SUP-LR/MLP/METRIC, P_pre/P_post, sửa–hỏng và routing). B1-full corrected seed42 có 5.006 record và runtime `PASS_LAUNCH_CONTRACT`; B1-shuf đủ 15.018 record và được nghiệm thu runtime theo contract khóa. B2-rand seed44 đã ghép head/tail đủ 5.006; ba arm B2 bàn giao mỗi arm cũng đủ 5.006 nhưng chưa có đủ provenance source/build/native full-offload để chứng nhận theo runtime lock mới. **B3-nodiff test seed42 đã hoàn tất 5.006/5.006** dưới runtime lock, với ngưỡng validation cố định Devign 0,92/ReVeal 0,01; kết quả được thêm ở các bảng dưới và là kết quả của biến thể không có `Key difference`. B3 verified-patch đầy đủ vẫn là run riêng: snapshot status 10/11 00:16 UTC ghi v6 `RUNNING`, 0 record quan sát được; v5 đã dừng trước inference do lỗi notebook. Không gộp hai arm này. Các arm còn lại chưa có đủ output test được xác minh.
+**Phạm vi:** B0, B1, B1-full, B1-shuf (seed 42/43/44), B2, B2-flip, B1-H2, B2-rand (seed 42/43/44), B2-rep, B2-nolabel, B2-labelonly, B3-nodiff; bổ sung Step 6 gồm SUP-LR/SUP-MLP/SUP-METRIC, P_pre/P_post, đối chứng sửa–hỏng và routing. B3-nodiff là test seed 42 đủ 5.006 record với ngưỡng khóa validation 0,92/0,01; không đại diện cho B3 đầy đủ. Các run B0/B1 cũ dùng ngưỡng hiệu chỉnh hồi cứu; giữ rõ exposure khi báo cáo.
+
+## 0. Đối chứng expert hằng và ngẫu nhiên trên test
+
+Theo mục 7/B.5 của đề cương, ALL-0, ALL-1 và RANDOM là **expert tham chiếu trong phân tích sửa–hỏng/oracle**, không phải các arm GRACE độc lập. Với mỗi expert `g`, so với dự đoán của bộ phân loại nền `h`: *repair* = `h` sai, `g` đúng; *harm* = `h` đúng, `g` sai. H3-B gate là nền chính; SUP-LR là phân tích bổ sung. Các số ALL-0/ALL-1 bên dưới tính trên toàn bộ test đã khóa của từng dataset. RANDOM dùng 20 vector Bernoulli, với tỷ lệ dự đoán 1 bằng tỷ lệ B2 score `s ≥ 0,5` (`p=0,649707` Devign; `p=0,459982` ReVeal); báo trung bình và phân vị 2,5–97,5% giữa 20 lượt theo đúng quy tắc trong đề cương.
+
+| Dataset | Nền `h` | Expert `g` | p(1) của g | Repair (ALL-0/1: tổng [y=0/y=1]; RANDOM: TB [P2,5; P97,5]) | Harm (ALL-0/1: tổng [y=0/y=1]; RANDOM: TB [P2,5; P97,5]) | Cả hai đúng | Cả hai sai |
+|---|---|---|---:|---:|---:|---:|---:|
+| Devign | H3-B gate | ALL-0 | 0 | 764 (764 / 0) | 998 (0 / 998) | 713 | 257 |
+| Devign | H3-B gate | ALL-1 | 1 | 257 (0 / 257) | 713 (713 / 0) | 998 | 764 |
+| Devign | H3-B gate | RANDOM, n=20, seed=42 | 0,649707 | 433,85 [411,28; 465,05] | 812,55 [775,85; 841,05] | 898,45 | 587,15 |
+| Devign | SUP-LR | ALL-0 | 0 | 826 (826 / 0) | 964 (0 / 964) | 651 | 291 |
+| Devign | SUP-LR | ALL-1 | 1 | 291 (0 / 291) | 651 (651 / 0) | 964 | 826 |
+| Devign | SUP-LR | RANDOM, n=20, seed=42 | 0,649707 | 480,80 [461,90; 498,00] | 763,50 [723,35; 791,15] | 851,50 | 636,20 |
+| ReVeal | H3-B gate | ALL-0 | 0 | 201 (201 / 0) | 116 (0 / 116) | 1.843 | 114 |
+| ReVeal | H3-B gate | ALL-1 | 1 | 114 (0 / 114) | 1.843 (1.843 / 0) | 116 | 201 |
+| ReVeal | H3-B gate | RANDOM, n=20, seed=42 | 0,459982 | 161,35 [150,85; 176,15] | 904,25 [862,93; 952,20] | 1.054,75 | 153,65 |
+| ReVeal | SUP-LR | ALL-0 | 0 | 360 (360 / 0) | 121 (0 / 121) | 1.684 | 109 |
+| ReVeal | SUP-LR | ALL-1 | 1 | 109 (0 / 109) | 1.684 (1.684 / 0) | 121 | 360 |
+| ReVeal | SUP-LR | RANDOM, n=20, seed=42 | 0,459982 | 245,05 [230,90; 263,58] | 833,95 [800,50; 872,05] | 971,05 | 223,95 |
+
+Với ALL-0/ALL-1, cột repair/harm ghi tổng và phần tách theo lớp y=0/y=1; summary RANDOM lưu tổng thể giữa 20 lượt, chưa lưu phân rã theo lớp. ALL-0 sửa chủ yếu lỗi dương tính giả của nền nhưng làm hỏng nhiều ca dương tính thật; ALL-1 có chiều ngược lại. Vì ReVeal mất cân bằng mạnh, ALL-0 có số ca cả hai đúng lớn, nhưng không thể diễn giải đó là năng lực phát hiện lớp 1. RANDOM cho thấy số ca sửa tự nhiên có thể lớn chỉ nhờ tỷ lệ dự đoán 1; do đó số repair của B2/LLM phải được đọc cạnh đối chứng này, không đứng riêng. Khoảng trong ngoặc vuông của RANDOM là phân vị thực nghiệm giữa 20 lượt, **không phải CI của chênh lệch**.
 
 ## 1. Ngưỡng và metric của các arm đã hoàn tất
 
@@ -102,85 +123,108 @@ Các metric phân loại dùng quy tắc `dự đoán vulnerable nếu s ≥ τ`
 | Devign | B2-rand s44 | 2.732 | 0 | 0,0589 | 0,5327 | 0,5006 | 0,3295 | 0,5243 | 0,5153 | 0,2422 | 0,2160 |
 | ReVeal | B2-rand s44 | 2.274 | 0 | 0,0665 | 0,5748 | 0,1235 | 0,1959 | 0,5495 | 0,1332 | 0,3696 | 0,2806 |
 
-**Ghi chú metric/provenance B3-nodiff:** các metric @τ được đối soát trực tiếp từ 5.006 record tại τ=0,92/0,01 và khớp MCC/BA/F1/PPR trong shared evaluator. Cột `TP/FP/TN/FN` ở cuối `table_A_metrics.csv` của evaluator hiện là confusion tại **0,5** (code gán từ `m05`), không phải tại τ; vì vậy không dùng các cột đó làm confusion @τ. Confusion đã tính lại từ record tại τ: Devign `TP=714, FP=762, TN=715, FN=541`; ReVeal `TP=167, FP=1.288, TN=756, FN=63`. Devign có một raw response không hợp lệ nhưng score vẫn hợp lệ; cả 5.006 score đều hữu hạn. Không thay ngưỡng sau khi xem test. Threshold được seal từ validation có source runtime SHA `85d877…c5bd6`, trong khi test chạy runtime SHA `bf1f…0ac2e`; audit runtime ghi core inference settings khớp và lock mới thêm pin SciPy. Giữ khác biệt nguồn threshold/runtime này trong provenance, không gọi hai lock là cùng một hash.
+**Ghi chú metric/provenance B3-nodiff:** metric @τ được đối soát trực tiếp từ 5.006 record tại τ=0,92/0,01 và khớp MCC/BA/F1/tỷ lệ dự đoán 1 trong shared evaluator. Các cột confusion trong `table_A_metrics.csv` của evaluator là tại 0,5, không phải tại τ; confusion tính lại tại τ: Devign `TP=714, FP=762, TN=715, FN=541`; ReVeal `TP=167, FP=1.288, TN=756, FN=63`. Devign có một raw response lỗi nhưng score vẫn hợp lệ; cả 5.006 score hữu hạn. Threshold được khóa trên validation và không đổi sau khi xem test. Runtime SHA của nguồn seal validation và runtime test khác nhau do test lock bổ sung pin SciPy; audit ghi core inference settings khớp, nhưng hai SHA không được coi là cùng một lock.
 
+Metric từng mẫu, ma trận nhầm lẫn, kiểm tra ID/nhãn, nguồn record và các chênh lệch ghép cặp của các arm đã tích hợp trước đó được lưu trong [workbook metric](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/outputs/metrics_completed_arms_20261107/GRACE_completed_arms_metrics.xlsx). B3-nodiff chưa được nhập vào workbook. Chênh lệch trong workbook là point estimate; chưa gồm paired bootstrap CI, McNemar hay hiệu chỉnh Holm.
 
-Metric từng mẫu, ma trận nhầm lẫn, kiểm tra ID/nhãn, nguồn record và các chênh lệch ghép cặp của các arm đã tích hợp trước đó được lưu trong [workbook metric](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/outputs/metrics_completed_arms_20261107/GRACE_completed_arms_metrics.xlsx). B3-nodiff mới được thêm vào báo cáo này; records, manifests và shared-evaluator output của nó hiện lưu riêng trong `Runs-management/kaggle_outputs_20261110/b3_nodiff_test_runtime_locked/`, chưa được nhập vào workbook. Chênh lệch trong workbook là point estimate; chưa gồm paired bootstrap CI, McNemar hay hiệu chỉnh Holm.
+B1-shuf được tính từ toàn bộ sáu nhóm records đã tải (15.018/15.018); ID/nhãn khớp frozen test manifest và `pred_tau` khớp quy tắc `s ≥ τ`. Mỗi seed ReVeal có hai raw response không hợp lệ nhưng score số vẫn hợp lệ và được giữ trong metric. Đây là descriptive point estimate; chưa thay thế kiểm định ghép cặp. Xem [worklog nghiệm thu B1-shuf](https://github.com/kazunguyen/GRACE-summary/blob/dung/worklogs/2026-11-08_b1_shuf_checkpoint_resume.md).
 
-B1-shuf được tính lại từ toàn bộ sáu nhóm records đã tải (15.018/15.018). ID và nhãn khớp frozen test manifest; mọi score hợp lệ và `pred_tau` khớp `s ≥ τ`. Có 2 raw response không hợp lệ trong mỗi seed ReVeal, nhưng score số vẫn hợp lệ và được giữ trong metric. Runtime acceptance và giới hạn provenance được ghi trong [báo cáo nghiệm thu B1-shuf](../Runs-management/b1_shuf_kaggle_output_20261109/RUNTIME_ACCEPTANCE_20261109.md). Các metric trên là descriptive point estimates, không thay thế kiểm định ghép cặp.
+### 1.4. Các mốc phân loại có giám sát (Step 6)
 
-## 2. Các câu hỏi ở mục 4 có thể trả lời từ kết quả hiện có
+Ba anchor được fit trên train; τ chọn theo MCC validation, không dùng nhãn test để chọn. SUP-LR/SUP-MLP dùng embedding CodeT5 đóng băng 768 chiều; SUP-METRIC dùng 26 code metrics. Bảng đầu ghi ngưỡng và metric validation trong summary đã khóa; bảng sau báo test theo đúng các ngưỡng đó. Metric test được tính lại bằng cách ghép `anchor_scores.csv` theo ID với nhãn trong frozen `test_raw.jsonl`; đối chiếu SUP-LR seed 42 khớp `test_baseline` trong output Step 6. SUP-LR và SUP-METRIC cho kết quả giống hệt giữa ba seed; không xem ba bản sao này là ba quan sát độc lập.
 
-### RQ1 — Với LLM open-weight và giao thức chuẩn, GRACE có hơn zero-shot/đối chứng hằng và đạt mức bài gốc không?
+| Dataset | Arm | Seed | τ validation | MCC validation | AUROC validation |
+|---|---|---:|---:|---:|---:|
+| Devign | SUP-LR | 42/43/44 | 0,37 | 0,2262 | 0,6527 |
+| Devign | SUP-MLP | 42 | 0,78 | 0,2456 | 0,6702 |
+| Devign | SUP-MLP | 43 | 0,77 | 0,2499 | 0,6680 |
+| Devign | SUP-MLP | 44 | 0,34 | 0,2438 | 0,6572 |
+| Devign | SUP-METRIC | 42/43/44 | 0,58 | 0,1348 | 0,5476 |
+| ReVeal | SUP-LR | 42/43/44 | 0,15 | 0,3086 | 0,7894 |
+| ReVeal | SUP-MLP | 42 | 0,11 | 0,3257 | 0,8014 |
+| ReVeal | SUP-MLP | 43 | 0,08 | 0,3128 | 0,7955 |
+| ReVeal | SUP-MLP | 44 | 0,26 | 0,3416 | 0,7869 |
+| ReVeal | SUP-METRIC | 42/43/44 | 0,15 | 0,2483 | 0,7124 |
 
-**Trả lời mô tả:** Trong các kết quả Qwen hiện có, B2 không vượt B0 trên MCC hoặc AUROC ở cả hai dataset. MCC của B2 cũng dưới 0,15 trên cả hai dataset. F1 Devign của B2 là 0,5485, thấp hơn mốc luôn đoán vulnerable 0,6295 được nêu trong đề cương. B1-full corrected test cũng không cho cải thiện nhất quán so với B0: ΔMCC là −0,0226 Devign/−0,0025 ReVeal và ΔAUROC là −0,0094/+0,0042. Kết quả này tiếp tục không cho thấy GRACE cải thiện đồng đều theo dataset/metric; so sánh với B0 vẫn mang tính mô tả và các arm không giống nhau về đầu vào.
+Các giá trị validation là MCC tại τ đã chọn và AUROC trên validation, trích từ summary khóa. Metric test ở dưới được tính độc lập từ score và nhãn frozen.
 
-| Dataset | ΔMCC (B2 − B0) | ΔAUROC (B2 − B0) | MCC B2 | F1 B2 | Đối chiếu F1 luôn đoán vulnerable |
-|---|---:|---:|---:|---:|---:|
-| Devign | −0,0325 | −0,0100 | 0,0597 | 0,5485 | 0,6295 |
-| ReVeal | −0,0229 | −0,0079 | 0,0645 | 0,2005 | 0,1837 |
+| Dataset | Arm | Seed | N | τ | MCC | AUROC | AUPRC (AP) | F1 | Balanced accuracy | Precision | Recall | Tỷ lệ dự đoán 1 |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Devign | SUP-LR | 42/43/44 | 2.732 | 0,37 | 0,2190 | 0,6559 | 0,6321 | 0,6332 | 0,6044 | 0,5385 | 0,7681 | 0,6552 |
+| Devign | SUP-MLP | 42 | 2.732 | 0,78 | 0,1829 | 0,6737 | 0,6449 | 0,1781 | 0,5417 | 0,8389 | 0,0996 | 0,0545 |
+| Devign | SUP-MLP | 43 | 2.732 | 0,77 | 0,2219 | 0,6647 | 0,6519 | 0,4074 | 0,5881 | 0,6842 | 0,2900 | 0,1947 |
+| Devign | SUP-MLP | 44 | 2.732 | 0,34 | 0,1907 | 0,6497 | 0,6251 | 0,6280 | 0,5885 | 0,5231 | 0,7857 | 0,6900 |
+| Devign | SUP-METRIC | 42/43/44 | 2.732 | 0,58 | 0,1298 | 0,5668 | 0,5420 | 0,1625 | 0,5306 | 0,7188 | 0,0916 | 0,0586 |
+| ReVeal | SUP-LR | 42/43/44 | 2.274 | 0,15 | 0,2584 | 0,7709 | 0,2841 | 0,3404 | 0,6750 | 0,2516 | 0,5261 | 0,2115 |
+| ReVeal | SUP-MLP | 42 | 2.274 | 0,11 | 0,3015 | 0,7809 | 0,3147 | 0,3728 | 0,7078 | 0,2713 | 0,5957 | 0,2221 |
+| ReVeal | SUP-MLP | 43 | 2.274 | 0,08 | 0,2641 | 0,7688 | 0,2713 | 0,3356 | 0,6975 | 0,2276 | 0,6391 | 0,2841 |
+| ReVeal | SUP-MLP | 44 | 2.274 | 0,26 | 0,2492 | 0,7481 | 0,2843 | 0,3300 | 0,6330 | 0,3071 | 0,3565 | 0,1174 |
+| ReVeal | SUP-METRIC | 42/43/44 | 2.274 | 0,15 | 0,1760 | 0,6733 | 0,2098 | 0,2735 | 0,6085 | 0,2202 | 0,3609 | 0,1658 |
 
-Kết quả hiện có chỉ trả lời trên backbone Qwen của lượt này; chưa đại diện cho yêu cầu tái lập trên ba backbone trong câu hỏi. So sánh với F1 bài gốc cũng chỉ nên dùng làm tham chiếu vì model và giao thức không đồng nhất.
+### 1.5. Giá trị bổ sung sau truy vấn và định tuyến theo ngân sách (Step 6)
 
-### RQ2 — Demonstration tác động qua nội dung mã hay qua nhãn đi kèm?
+#### Cặp meta-model P_pre/P_post
 
-**Trả lời một phần:** Đảo nhãn demo trong B2-flip làm thay đổi dự đoán của **20,3%** mẫu Devign test và **10,7%** mẫu ReVeal test so với B2; MCC giảm 0,0260/0,0273 và AUROC giảm 0,0065/0,0401. Điều này cho thấy dự đoán nhạy với nhãn demo trong phép thử đảo nhãn.
+Hai meta-model logistic dùng cùng 34 đặc trưng nền, cùng 3 fold StratifiedGroupKFold, cùng scaler và fallback đối xứng khi expert invalid. Ngưỡng chọn từ validation OOF. CI là paired cluster bootstrap 5.000 lượt (Devign nhóm theo commit_id; ReVeal theo file_hash/code_sha256 fallback).
 
-Ba seed B2-rand bổ sung đối chứng demo ngẫu nhiên trên đủ hai dataset. So với B2, AUROC tăng +0,0013/+0,0032/+0,0022 trên Devign và +0,0143/+0,0086/+0,0087 trên ReVeal (s42/s43/s44); AUPRC tăng +0,0105/+0,0125/+0,0150 và +0,0006/+0,0014/+0,0014. Cả sáu ΔAUROC điểm đều nhỏ hơn 0,02 về trị tuyệt đối. Tỷ lệ dự đoán vulnerable giảm rõ: Devign từ 60,2% ở B2 xuống 22,5%/22,0%/21,6%; ReVeal từ 56,1% xuống 19,8%/28,1%/28,1%. Điều này gợi ý demo ngẫu nhiên làm đổi operating point mạnh hơn discrimination trong ba seed đã chạy; chưa có CI để kết luận tương đương thống kê. REVEAL s42/43 được ghép từ hai phiên runtime khác hash; s44 head/tail cùng runtime-lock hash.
+| Dataset | Model | τ OOF | MCC test | AUROC test | AP test | BA test | F1 test | Precision | Recall | Tỷ lệ dự đoán 1 |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Devign | P_pre | 0,53 | 0,2866 | 0,7136 | 0,6787 | 0,6307 | 0,5300 | 0,6817 | 0,4335 | 0,2921 |
+| Devign | P_post | 0,52 | 0,2851 | 0,7120 | 0,6780 | 0,6321 | 0,5398 | 0,6722 | 0,4510 | 0,3082 |
+| ReVeal | P_pre | 0,25 | 0,3769 | 0,8094 | 0,3491 | 0,6995 | 0,4431 | 0,4160 | 0,4739 | 0,1152 |
+| ReVeal | P_post | 0,30 | 0,3527 | 0,8089 | 0,3512 | 0,6718 | 0,4161 | 0,4286 | 0,4043 | 0,0954 |
 
-Ba arm đã có thêm test. B2-rep trùng prediction B2 ở mọi ID ghép (flip rate 0%); các metric tổng hợp cũng trùng. B2-nolabel so với B1 có ΔAUROC −0,0066 Devign và −0,0120 ReVeal; B2-labelonly so với B1 là +0,0128 và +0,0165. Các độ lớn đều dưới 0,02 nhưng chưa chứng minh tương đương vì thiếu paired CI/kiểm định. Với B2-labelonly, hướng AUROC so với B1 trái dấu với chênh lệch B2−B1 trên cả hai dataset; do đó chưa thể nói arm này tái tạo chênh lệch B2−B1 theo hướng đăng ký trước. **B3-nodiff nay đã có test 5.006/5.006**; so với B2, ΔAUROC điểm là +0,0054 Devign và −0,0090 ReVeal, còn tỷ lệ đoán vulnerable thay đổi −6,15 và +7,87 điểm phần trăm. Đây là biến thể không có `Key difference`, nên chưa trả lời hiệu ứng của khối giải thích so với B3 đầy đủ. B3 verified-patch test v6 vẫn là run riêng; status snapshot 10/11 00:16 UTC ghi `RUNNING` nhưng chưa có record. B3 lịch sử chỉ có validation, không thay thế B3 verified-patch. Các kết quả test là full-census descriptive estimates, không thay thế kiểm định ghép cặp.
+| Dataset | ΔMCC (P_post − P_pre) | CI 95% | ΔAUROC | CI 95% | Kết luận theo δ MCC=0,02 |
+|---|---:|---:|---:|---:|---|
+| Devign | −0,0015 | [−0,0122; 0,0093] | −0,0016 | [−0,0041; 0,0009] | Cận trên < 0,02: loại trừ mức tăng MCC có ý nghĩa đã định trước |
+| ReVeal | −0,0242 | [−0,0550; 0,0047] | −0,0004 | [−0,0017; 0,0008] | Cận trên < 0,02: loại trừ mức tăng MCC có ý nghĩa đã định trước |
 
-**Ý nghĩa cho phần RQ2 trong đề cương:** B3-nodiff cung cấp kết quả test toàn bộ cho biến thể cặp vulnerable/patched nhưng bỏ khối `Key difference`. Kết quả này có thể được báo cáo như một nhánh trong ma trận demonstration; nó chưa cho phép kết luận khối `Key difference` có tác dụng hay không. Phép đối chiếu cần thiết là B3 đầy đủ với B3-nodiff trên cùng target/pair, sau khi có test records của B3 đầy đủ và paired CI.
+#### Benefit-router của H3-B gate theo ngân sách
 
-### RQ3 — LLM có dùng thông tin graph dưới các ngân sách context thực tế không?
+`Random` là 20 router chọn ngẫu nhiên đúng `ceil(qN)` mẫu; các khoảng là phân vị 2,5–97,5% của 20 lượt, không phải CI paired của chênh lệch. `Repair/harm` so với H3-B gate trước routing.
 
-**Trả lời một phần:** So với B0, B1 không cho mức cải thiện nhất quán: ΔMCC (B1 − B0) là −0,0134 trên Devign và −0,0351 trên ReVeal; ΔAUROC lần lượt −0,0070 và +0,0101. B1-H2 so với B1 có ΔMCC −0,0133 trên Devign và +0,0569 trên ReVeal; ΔAUROC +0,0142 và +0,0115. B1-full corrected so với B1 cho ΔMCC −0,0092/+0,0326 và ΔAUROC −0,0024/−0,0059 (Devign/ReVeal); AUROC không tăng ở cả hai dataset dù tỷ lệ dự đoán 1 trên ReVeal tăng 33,2 điểm phần trăm. B1-shuf nay đã đủ test ba seed. So với B1, ΔAUROC (B1 − B1-shuf) lần lượt là −0,0096/−0,0008/−0,0016 trên Devign và +0,0064/+0,0043/+0,0158 trên ReVeal (seed 42/43/44); mọi point estimate đều nằm trong ±0,02. Đây là so sánh mô tả; chưa có paired cluster-bootstrap CI và seed B1-shuf được chọn ngưỡng riêng trên validation. B1-full cũng là corrected renderer thay prompt ở 4.753/5.006 mẫu và dùng tau khác B1, nên không cô lập riêng tác dụng của ngân sách graph. Chưa thể kết luận H3.1 theo tiêu chí đăng ký nếu thiếu CI.
+| Dataset | Ngân sách | Số truy vấn | BA benefit | BA random: TB [P2,5; P97,5] | MCC benefit | MCC random: TB [P2,5; P97,5] | Repair / harm benefit |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Devign | 5% | 137 | 0,6448 | 0,6336 [0,6286; 0,6365] | 0,2991 | 0,2781 [0,2680; 0,2839] | 34 / 15 |
+| Devign | 10% | 274 | 0,6482 | 0,6279 [0,6211; 0,6338] | 0,3049 | 0,2666 [0,2530; 0,2791] | 55 / 25 |
+| Devign | 25% | 683 | 0,6444 | 0,6104 [0,6016; 0,6203] | 0,2908 | 0,2301 [0,2122; 0,2507] | 128 / 97 |
+| ReVeal | 5% | 114 | 0,6643 | 0,6943 [0,6856; 0,7042] | 0,3178 | 0,3239 [0,3089; 0,3423] | 47 / 24 |
+| ReVeal | 10% | 228 | 0,6402 | 0,6888 [0,6756; 0,6996] | 0,2871 | 0,3017 [0,2813; 0,3196] | 68 / 41 |
+| ReVeal | 25% | 569 | 0,6065 | 0,6651 [0,6529; 0,6869] | 0,2143 | 0,2403 [0,2235; 0,2717] | 85 / 93 |
 
-Đã có kết quả test B1-shuf làm đối chứng graph nhiễu; các chênh lệch AUROC điểm so với B1 nhỏ (|Δ| ≤0,0158). Tuy vậy B1-full dùng corrected renderer và các seed B1-shuf có tau riêng theo validation. Cần paired cluster-bootstrap CI theo protocol trước khi kết luận liệu nội dung graph có đóng góp hay không.
+Ở ngân sách 10%, BA benefit-router cao hơn trung bình Random ở Devign (+0,0204) nhưng thấp hơn ở ReVeal (−0,0487). Output hiện lưu phân phối metric của từng loại router, không lưu CI paired cho `benefit − random`; vì vậy chưa áp dụng được đúng tiêu chí cận trên CI < 0,01 của H5.3. Số repair 55/68 cũng cần đặt cạnh RANDOM expert ở mục 0: 433,85 [411,28; 465,05] trên Devign và 161,35 [150,85; 176,15] trên ReVeal. Đây là so sánh mô tả theo protocol; số ca router được gọi chỉ bằng 10% test nên không diễn giải chênh lệch thô như một phép thử paired.
 
-### RQ4 — Các biến thể khác nhau về khả năng phân biệt hay chỉ dịch chuyển điểm hoạt động?
+## 2. Trả lời câu hỏi nghiên cứu tại mục 4
 
-**Trả lời mô tả cho các arm hiện có:** Với B1→B2 trên Devign, AUROC giảm 0,0030 và AUPRC giảm 0,0167, trong khi tỷ lệ dự đoán vulnerable tăng 38,1 điểm phần trăm. Trên ReVeal, AUROC giảm 0,0179 và AUPRC giảm 0,0018, còn tỷ lệ dự đoán vulnerable tăng 32,3 điểm phần trăm. Mẫu này gợi ý rằng thêm demo truy hồi làm thay đổi mạnh điểm hoạt động nhưng không cải thiện khả năng phân biệt trong các phép so này.
+| Câu hỏi | Trả lời từ kết quả hiện có | Mức kết luận |
+|---|---|---|
+| **RQ1 – Tái lập:** GRACE có vượt zero-shot và đối chứng hằng không? | B2 không vượt B0 theo point estimate trên hai test: Devign ΔMCC = −0,0325, ΔAUROC = −0,0100; ReVeal ΔMCC = −0,0229, ΔAUROC = −0,0078. MCC B2 là 0,0597/0,0645, đều dưới 0,15; F1 B2 Devign 0,5485 thấp hơn ALL-1 (0,6295). | Kết quả mô tả nhất quán với “không vượt”; chưa xác nhận H1.1 bằng CI paired. H1.2 đạt tiêu chí số học đã nêu. |
+| **RQ2 – Cơ chế demonstration:** ảnh hưởng đến từ mã demo hay nhãn? | B2-rand AUROC gần B2, chênh lệch B2-rand−B2 lần lượt +0,0013 đến +0,0031 Devign và +0,0085 đến +0,0143 ReVeal qua ba seed. B2-nolabel thấp hơn B1 về AUROC (−0,0066/−0,0120); B2-labelonly cao hơn B1 (+0,0127/+0,0164), trong khi B2 thấp hơn B1 (−0,0030/−0,0179). | Chưa chứng minh cơ chế bằng CI. Point estimate không cho thấy nội dung demo tạo lợi thế; label-only không tái tạo “lợi thế B2 so với B1” vì B2 vốn không cao hơn B1. Net label sensitivity theo cặp cần bảng prediction từng mẫu/đối chứng repeat. |
+| **RQ3 – Graph:** LLM có dùng thông tin graph không? | B1−B0 về AUROC là −0,0070 Devign và +0,0101 ReVeal. B1-H2−B1 là +0,0142/+0,0115. So với B1-shuf seed 42, B1−B1-shuf là −0,0096 Devign và +0,0064 ReVeal. | Chỉ mô tả point estimate; chưa kết luận graph có/không được dùng vì H3.1 yêu cầu CI và B1-shuf có nhiều seed. |
+| **RQ4 – Phân biệt hay dịch chuyển ngưỡng:** khác biệt prompt có đổi AUROC hay chỉ operating point? | B3-nodiff−B2: ΔAUROC +0,0054 Devign và −0,0090 ReVeal, nhưng tỷ lệ dự đoán 1 đổi −6,15 và +7,87 điểm phần trăm. Đây là ví dụ AUROC khá gần trong khi operating point dịch chuyển rõ. | Có thể mô tả sự tách biệt giữa ranking và operating point ở cặp B3-nodiff/B2; không suy rộng sang B3 đầy đủ. Các arm khác cũng cần CI để khẳng định “chỉ” dịch chuyển ngưỡng. |
+| **RQ5 – Mốc có giám sát:** anchor thắng LLM và LLM có bổ sung tín hiệu không? | Cả SUP-LR, SUP-MLP và SUP-METRIC đều cao hơn B2 về MCC và AUROC theo point estimate trên cả hai dataset. Riêng SUP-LR, ΔMCC là +0,1593 Devign và +0,1939 ReVeal; AUROC là 0,6559/0,7709. P_post không tăng MCC đáng kể so với P_pre: Δ=−0,0015 [−0,0122; 0,0093] và −0,0242 [−0,0550; 0,0047]. Routing q=10% có kết quả trái nhau giữa dataset: BA benefit-router cao hơn Random trên Devign, thấp hơn trên ReVeal. | Mốc có giám sát thắng theo point estimate. H5.2 được ủng hộ theo biên δ. H5.1 chưa được ủng hộ toàn bộ: AUROC Devign không đạt 0,68 và CI ΔMCC chưa có. H5.3 chưa adjudicate vì thiếu CI paired benefit−random. |
+| **RQ6 – Truy hồi và lỗi:** demo có liên quan cơ chế không, và lỗi có phải nhãn nhiễu? | Worklog Step 6 xác nhận chấm relevance demo, packet 60 ca và audit nhãn vẫn là việc tiếp theo; báo cáo hiện chưa có metric cho các phân tích này. | Chưa trả lời được từ kết quả hiện có. |
 
-Trong các arm có test, AUROC cao nhất vẫn là 0,6005 (B2-labelonly trên ReVeal), thấp hơn 0,62. B2-rand seed42/43/44 đều ≤0,5805 trên cả hai dataset. B1-full so với B1 cũng cho AUROC giảm nhẹ ở cả hai dataset (−0,0024 Devign; −0,0059 ReVeal), trong khi tỷ lệ dự đoán 1 giảm 2,9 điểm phần trăm ở Devign và tăng 33,2 điểm ở ReVeal. B2-rand và B1-full đều gợi ý operating point có thể thay đổi mà không có cải thiện discrimination rõ; đây vẫn là point estimate, không thay thế phép đánh giá toàn ma trận và cần CI ghép cặp.
+## 3. Đối chiếu giả thuyết đăng ký trước tại mục 4.3
 
-B3-nodiff so với B2 cho ΔAUROC **+0,0054** ở Devign và **−0,0090** ở ReVeal; cả hai point estimate nằm trong ±0,02. Tuy nhiên, tỷ lệ đoán vulnerable @ngưỡng đã khóa là **54,03% so với 60,18%** ở Devign (−6,15 điểm) và **63,98% so với 56,11%** ở ReVeal (+7,87 điểm). Hướng thay đổi khác nhau theo dataset và không đạt mức tăng ≥10 điểm ở dataset nào. Đây là so sánh mô tả với B2 lịch sử, chưa được chứng nhận theo runtime lock hiện hành. Chưa thể kết luận “chỉ dịch chuyển operating point”: chưa có paired cluster-bootstrap CI, ngưỡng riêng của mỗi arm ảnh hưởng PPR, và B3 đầy đủ vẫn chưa có test output.
-
-### RQ5 — Mốc có giám sát và giá trị bổ sung của LLM (Step 6)
-
-**Tiến độ:** Đã chạy xong notebook huấn luyện ba anchor SUP-LR, SUP-MLP, SUP-METRIC trên hai dataset, ba seed (42/43/44), chọn ngưỡng trên validation và xuất `anchor_scores.csv` cùng `anchor_summary.json`. Đã chạy phân tích offline ghép B2, H3-B và SUP-LR theo ID/nhãn; các đầu ra đã được khóa dưới `STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_bba04c65/`. Kết quả định lượng bên dưới là trên test, dùng ngưỡng chọn từ validation; paired cluster bootstrap dùng 5.000 lượt, đơn vị cụm là commit_id (Devign) và file/code hash (ReVeal).
-
-**P_pre/P_post — H5.2:** Trên test, ΔMCC (P_post−P_pre) là **−0,0015**, CI 95% [−0,0122; 0,0093] ở Devign và **−0,0242**, CI 95% [−0,0550; 0,0047] ở ReVeal. Cận trên CI ở cả hai dataset thấp hơn δ=0,02; kết quả hiện có không cho thấy lợi ích đạt biên ý nghĩa đã đăng ký. AUROC cũng gần như không đổi: 0,7136→0,7120 ở Devign và 0,8094→0,8089 ở ReVeal. Diễn giải là chưa có bằng chứng về mức tăng MCC ≥0,02, không phải chứng minh tác động bằng không.
-
-**Điểm cần chốt về giao thức H5.2:** đề cương mô tả “cùng ngưỡng”, trong khi `complementarity_step6.json` ghi ngưỡng validation OOF riêng cho hai meta-model: Devign P_pre=0,53/P_post=0,52; ReVeal cả hai=0,15. Vì vậy CI hiện tại trả lời phép so cặp theo ngưỡng đã chọn riêng; nếu “cùng ngưỡng” trong preregistration yêu cầu một ngưỡng dùng chung cho P_pre/P_post, cần bổ sung phép chạy đó trước khi tuyên bố H5.2 đã được adjudicate hoàn toàn theo đúng protocol.
-
-**Sửa–hỏng:** Khi so B2 với H3-B gate, Devign có 397 ca sửa và 718 ca hỏng; ReVeal có 164 ca sửa và 875 ca hỏng. Theo lớp, Devign: y=0 sửa/hỏng 255/422, y=1 là 142/296; ReVeal: y=0 là 99/819, y=1 là 65/56. Số ca sửa riêng lẻ không chứng minh phối hợp có ích vì số ca hỏng cũng lớn. H3-B gate đạt MCC 0,2895 Devign và 0,3534 ReVeal ở ngưỡng khóa; đây là đối chứng mạnh để định vị kết quả LLM.
-
-**Routing — H5.3:** Ở ngân sách 10%, benefit-router của H3-B so với confidence-router có ΔMCC **+0,0148** (CI 95% [−0,0062; 0,0357]) trên Devign, chưa phân biệt được lợi ích; trên ReVeal ΔMCC **−0,0509** (CI 95% [−0,1049; −0,0002]), bất lợi so với confidence trong phép chạy này. So với 20 lượt random, balanced accuracy benefit-router là 0,648 ở Devign (random mean 0,628; khoảng min–max 0,621–0,634) và 0,640 ở ReVeal (random mean 0,689; 0,676–0,700). Đây là đối chiếu mô tả: preregistration H5.3 yêu cầu CI của Δbalanced accuracy (benefit−random) có cận trên <0,01 và đối chiếu số ca sửa với expert ngẫu nhiên; verdict hiện có trong JSON lại là ΔMCC benefit−confidence. Chưa đủ để kết luận H5.3 theo đúng tiêu chí đăng ký.
-
-**H5.1 — mốc có giám sát thắng rõ:** Các anchor đã được huấn luyện và có điểm số test. Phân tích hiện có cho thấy SUP-LR trên Devign có MCC 0,2190 và AUROC 0,6559; AUROC thấp hơn ngưỡng 0,68 của H5.1. Tuy nhiên, đầu ra đang ghi không có CI ghép cặp ΔMCC(SUP-LR−B2) theo đúng định nghĩa giả thuyết, nên chưa adjudicate H5.1 trên cả hai dataset. Không kết luận “SUP-LR thắng rõ” chỉ từ so sánh point estimate.
-
-**Phạm vi RQ:** Step 6 cung cấp bằng chứng cho RQ5/H5.1–H5.3. Nó không tự trả lời RQ1–RQ4 về backbone, demonstration, graph hay phân biệt/ngưỡng. RQ6 còn cần chấm mù relevance của demo và các gói audit thủ công; bảng sửa–hỏng không thay thế những đánh giá đó. Các kiểm định toàn chiến dịch (mọi arm, McNemar, Holm và CI theo protocol chung) cũng chưa hoàn tất.
-
-## 3. Đối chiếu các giả thuyết đăng ký trước ở mục 4.3
-
-| Giả thuyết | Tiêu chí chính trong đề cương | Đối chiếu với kết quả hiện có | Trạng thái |
+| Giả thuyết | Tiêu chí đăng ký trước | Kết quả | Đối chiếu |
 |---|---|---|---|
-| **H1.1** — B2 không vượt B0 | Cận trên CI của ΔMCC (B2−B0) < 0,03 và ΔAUROC < 0,02 trên cả hai dataset | Point estimate ΔMCC là −0,0325/−0,0229; ΔAUROC là −0,0100/−0,0079 (Devign/ReVeal). Chưa có CI ghép cặp nên chưa kiểm tra được tiêu chí cận trên. | **Chưa kết luận theo quy tắc đăng ký; point estimate phù hợp hướng dự đoán.** |
-| **H1.2** — GRACE không đạt mức bài gốc | MCC B2 < 0,15 trên cả hai dataset; F1 Devign thấp hơn luôn đoán vulnerable | MCC B2: 0,0597 Devign và 0,0645 ReVeal. F1 Devign: 0,5485 so với mốc 0,6295. | **Các điều kiện số học của giả thuyết đạt trên kết quả test hiện có.** |
-| **H2.1** — Demo tác động qua nhãn | Net label sensitivity (B2 so với B2-flip trừ biến động B2-rep) ≥ 15 điểm phần trăm | B2-rep/B2 có tỷ lệ đổi prediction 0% ở cả hai dataset. B2/B2-flip đổi 20,3% Devign và 10,7% ReVeal; net point estimate vì vậy là 20,3 và 10,7 điểm phần trăm. | **Đạt ngưỡng point estimate ở Devign nhưng không ở ReVeal; chưa có CI và không đồng nhất giữa hai dataset.** |
-| **H2.2** — Nội dung demo không mang tín hiệu | Cận trên CI của ΔAUROC B2−B2-rand và B2-nolabel−B1 <0,02; B2-labelonly tái tạo ≥80% chênh lệch B2−B1 | B2-rand s42/43/44, B2-nolabel và B2-labelonly đều đủ test. Các ΔAUROC điểm B2−B2-rand và B2-nolabel−B1 nằm trong ±0,02 trên từng dataset. Tuy nhiên B2-labelonly−B1 mang dấu ngược với B2−B1 trên cả Devign lẫn ReVeal, nên không tái tạo gap theo hướng dự đoán. Chưa có CI; REVEAL s42/43 vẫn có khác runtime hash giữa các phiên ghép. | **Chưa kết luận giả thuyết: một số point estimate nhỏ, nhưng thiếu CI và vế tái tạo gap không được hỗ trợ theo hướng.** |
-| **H2.3** — Cặp tương phản chỉ dịch chuyển điểm hoạt động | Tỷ lệ dự đoán 1 của B3 cao hơn B2 ≥10 điểm; cận trên CI của ΔAUROC B3−B2 <0,02 | B3-nodiff test đầy đủ. So với B2, PPR @τ thay đổi −6,15 điểm Devign (54,03%−60,18%) và +7,87 điểm ReVeal (63,98%−56,11%); không đạt tăng ≥10 điểm trên điểm ước lượng ở dataset nào. ΔAUROC (B3-nodiff−B2) là +0,0054/−0,0090. Chưa có CI ghép cặp; B3 đầy đủ có `Key difference` là run riêng, hiện chưa có record test. B2 là kết quả lịch sử, chưa được chứng nhận theo runtime lock hiện hành. | **Chưa adjudicate H2.3: điều kiện PPR không đạt ở point estimate của B3-nodiff; điều kiện CI chưa kiểm tra và kết quả này không thay cho B3 đầy đủ.** |
-| **H3.1** — LLM không đọc graph | Cận trên CI của ΔAUROC B1−B0 và B1−B1-shuf <0,02; B1-H2 không khác B1 theo cùng tiêu chí | Point estimate ΔAUROC B1−B0 là −0,0070 Devign và +0,0101 ReVeal; B1-H2−B1 là +0,0142/+0,0115; B1-full−B1 là −0,0024/−0,0059. B1-shuf đã đủ ba seed; ΔAUROC B1−B1-shuf là −0,0096/−0,0008/−0,0016 Devign và +0,0064/+0,0043/+0,0158 ReVeal. Chưa có CI ghép cặp. | **Chưa kết luận theo tiêu chí đăng ký; cần paired cluster-bootstrap CI.** |
-| **H4.1** — Pipeline LLM gần ngẫu nhiên khi đo không ngưỡng | AUROC mọi arm LLM ≤0,62 | Các arm đã có test, nay gồm cả B3-nodiff (0,5359 Devign; 0,5572 ReVeal), đều có AUROC ≤0,6006. Nhiều arm trong toàn ma trận chưa có kết quả. | **Phù hợp trong phạm vi arm đã có test; chưa xác nhận toàn ma trận.** |
-| **H5.1** — Mốc có giám sát thắng rõ | ΔMCC (SUP-LR−B2) ≥0,15 với CI không chứa 0; AUROC SUP-LR ≥0,68 | Anchor đã chạy. SUP-LR Devign có AUROC 0,6559 (<0,68); đầu ra hiện có chưa báo CI ghép cặp ΔMCC theo tiêu chí H5.1. | **Chưa được ủng hộ trên Devign; chưa adjudicate đầy đủ trên cả hai dataset do thiếu CI đúng phép so.** |
-| **H5.2** — LLM không bổ sung tín hiệu sau truy vấn | Cận trên CI của ΔMCC (P_post−P_pre) <0,02; cùng đặc trưng nền, fold và ngưỡng | ΔMCC test: −0,0015 [−0,0122; 0,0093] Devign; −0,0242 [−0,0550; 0,0047] ReVeal. Cả hai cận trên <0,02. Ngưỡng hiện được chọn riêng cho P_pre/P_post (0,53/0,52 Devign; 0,15/0,15 ReVeal), cần đối chiếu yêu cầu “cùng ngưỡng” trong đề cương. | **Ủng hộ theo biên δ với giao thức đang chạy; cần làm rõ/chạy phép cùng ngưỡng để xác nhận khớp hoàn toàn preregistration.** |
-| **H5.3** — Không biết trước khi nào nên gọi LLM | Ở ngân sách 10%, cận trên CI của Δbalanced accuracy (benefit-router−random) <0,01; đối chiếu số ca sửa đúng với expert ngẫu nhiên | Có routing 5/10/25%, random 20 seed và so sánh benefit−confidence. Tuy nhiên CI/verdict hiện có là ΔMCC benefit−confidence; chưa thấy kiểm định CI Δbalanced accuracy benefit−random và tiêu chí số ca sửa theo đúng H5.3. | **Có kết quả chẩn đoán nhưng chưa adjudicate theo tiêu chí đăng ký.** |
-| **H6.1** — Demo hiếm khi đúng cơ chế; liên quan không kéo theo đúng | Tỷ lệ “Neither” Devign ≥40%; CI chênh lệch accuracy giữa nhóm liên quan/không liên quan chứa 0 | Cần kết quả chấm mù và phân tích theo nhóm liên quan; các metric inference không thay thế được dữ liệu này. | **Chưa đánh giá.** |
+| **H1.1** | Cận trên CI ΔMCC(B2−B0) < 0,03 và ΔAUROC < 0,02 | Point estimate: ΔMCC −0,0325/−0,0229; ΔAUROC −0,0100/−0,0078 (Devign/ReVeal). | Chưa adjudicate: CI paired chưa có; point estimate phù hợp hướng dự đoán. |
+| **H1.2** | MCC B2 < 0,15 trên cả hai; F1 B2 Devign thấp hơn ALL-1 | MCC 0,0597/0,0645; F1 B2 0,5485 so với ALL-1 0,6295. | Đạt tiêu chí số học trên các kết quả hiện có. |
+| **H2.1** | Net label sensitivity ≥ 15 điểm | Chưa có phép tính paired đảo nhãn trừ biến động tự nhiên trong bảng kết quả hiện tại. | Chưa adjudicate. |
+| **H2.2** | Cận trên CI AUROC(B2−B2-rand) < 0,02 và AUROC(B2-nolabel−B1) < 0,02; label-only tái tạo ≥80% chênh B2−B1 | Chênh lệch AUROC point estimate nhỏ nhưng CI chưa có. B2 thấp hơn B1 ở cả hai dataset nên label-only không tái tạo được một lợi thế dương B2−B1. | Chưa đủ bằng chứng cho các điều kiện CI; điều kiện label-only không được hỗ trợ bởi kết quả hiện có. |
+| **H2.3** | Tỷ lệ dự đoán 1 của B3 cao hơn B2 ≥10 điểm; cận trên CI ΔAUROC(B3−B2)<0,02 | Có B3-nodiff, chưa có B3 đầy đủ; B3-nodiff không tăng tỷ lệ dự đoán 1 ≥10 điểm trên cả hai dataset. | Chưa adjudicate H2.3 vì arm B3 đầy đủ chưa có kết quả test. |
+| **H3.1** | Cận trên CI ΔAUROC(B1−B0), ΔAUROC(B1−B1-shuffle) <0,02; B1-H2 không khác B1 theo cùng tiêu chí | Các chênh AUROC điểm đều nhỏ (RQ3); CI chưa có. | Chưa adjudicate. |
+| **H4.1** | AUROC mọi arm LLM ≤0,62 | Trong các arm LLM có test metric trong báo cáo, lớn nhất là 0,6005 (B2-labelonly, ReVeal). | Đạt trên nhóm arm đã có metric test; chưa khẳng định cho arm chưa hoàn tất/chưa có test. |
+| **H5.1** | ΔMCC(SUP-LR−B2) ≥0,15, CI không chứa 0; AUROC SUP-LR ≥0,68 | ΔMCC +0,1593/+0,1939; AUROC 0,6559/0,7709. Chưa có CI paired ΔMCC. | Một phần: point MCC đạt cả hai dataset; AUROC Devign không đạt ngưỡng, và điều kiện CI chưa kiểm tra. Không kết luận H5.1 được ủng hộ toàn bộ. |
+| **H5.2** | Cận trên CI ΔMCC(P_post−P_pre) <0,02 trên cùng đặc trưng/fold/ngưỡng | Devign −0,0015, CI [−0,0122; 0,0093]; ReVeal −0,0242, CI [−0,0550; 0,0047]. | Đạt tiêu chí ở cả hai dataset: loại trừ mức tăng MCC ≥0,02 trong phân tích này. |
+| **H5.3** | q=10%: cận trên CI ΔBA(benefit−random)<0,01; số repair LLM không vượt khoảng 95% của expert random cùng tỷ lệ dự đoán 1 | ΔBA điểm +0,0204 Devign và −0,0487 ReVeal; random-router chỉ có phân vị riêng từng nhóm, không có paired CI delta. Benefit-router repair 55/68; random-expert repair khoảng [411,28;465,05]/[150,85;176,15]. | Chưa adjudicate tiêu chí CI; điểm Devign không phù hợp hướng “<0,01”. Số repair router thấp hơn khoảng tham chiếu, nhưng đối chiếu thô không thay cho CI theo đúng ngân sách. |
+| **H6.1** | “Neither” ≥40% Devign; CI accuracy giữa demo liên quan/không liên quan chứa 0 | Chưa có kết quả chấm relevance demo và ghép với đúng/sai. | Chưa adjudicate; chờ phần chấm mù/audit đã nêu trong worklog. |
+
 
 ### Kết luận ngắn
 
-Trong phạm vi các kết quả hiện có, B1-full corrected và B1-shuf đều đủ test; các so sánh graph vẫn cần CI ghép cụm. B3-nodiff nay cũng đủ test 5.006 mẫu. So với B2 lịch sử, AUROC điểm của B3-nodiff gần nhau (Δ=+0,0054 Devign/−0,0090 ReVeal), nhưng tỷ lệ vulnerable dự đoán thay đổi trái hướng giữa hai dataset (−6,15/+7,87 điểm) và không đạt mức tăng 10 điểm của H2.3. Vì chưa có CI và B3 đầy đủ chưa có test records, H2.3 chưa được adjudicate; kết quả không cô lập được tác dụng riêng của `Key difference`. B2-rep trùng prediction B2; B2-rand có AUROC gần B2 nhưng operating point khác; B2-labelonly không tái tạo chênh lệch B2−B1 theo hướng dự đoán. B2 không vượt B0 trên MCC/AUROC; điều kiện số học H1.2 đạt trên B2 và H4.1 tiếp tục phù hợp trong phạm vi arm có test, nay bao gồm cả B3-nodiff. H2.1 đạt point estimate ở Devign nhưng không ở ReVeal; H2.2 vẫn thiếu CI. **Step 6** giữ các giới hạn đã nêu cho H5.1–H5.3; RQ6 và các giả thuyết cần chấm mù vẫn để mở.
+Các kết quả hiện có cho thấy B2 không vượt B0 trên MCC/AUROC, còn MCC B2 thấp hơn 0,15 trên cả hai dataset và F1 Devign thấp hơn ALL-1. Với RQ5, SUP-LR có MCC cao hơn B2 theo point estimate, nhưng AUROC Devign không đạt tiêu chí H5.1 và chưa có CI paired cho chênh MCC. Cặp P_pre/P_post cho kết quả chắc nhất ở Step 6: cận trên CI ΔMCC thấp hơn 0,02 trên cả Devign lẫn ReVeal, nên loại trừ mức tăng có ý nghĩa đã định trước của P_post trong phép thử này. Routing q=10% có hướng khác nhau giữa hai dataset và chưa có CI paired benefit−random; không tuyên bố router tốt hơn/ngang random theo tiêu chí đăng ký. Các kết luận về RQ2/RQ3 hiện vẫn là mô tả point estimate; H2.1, H2.3 và RQ6 còn thiếu phân tích/arm cần thiết.
 
 **Giới hạn suy luận:** Các metric arm trong workbook vẫn chủ yếu là point estimates, chưa có paired cluster bootstrap CI, McNemar hoặc hiệu chỉnh Holm cho toàn bộ đối chiếu. Riêng phân tích Step 6 đã có paired cluster bootstrap 5.000 lượt cho P_pre/P_post và routing benefit−confidence; các CI đó không tự thay thế phép kiểm định đúng tiêu chí H5.1/H5.3 nêu trên. So sánh B3-nodiff−B2 được bổ sung ở đây mới là point estimate, hơn nữa B2 chưa có chứng nhận theo runtime lock hiện hành; không dùng nó để kết luận tương đương hoặc xác nhận H2.3. Kết quả B0/B1 dùng ngưỡng hiệu chỉnh hồi cứu; mọi mức độ tiếp xúc test cần được giữ trong báo cáo cuối.
 
@@ -196,12 +240,12 @@ Trong phạm vi các kết quả hiện có, B1-full corrected và B1-shuf đề
 - [Hồ sơ nghiệm thu và metric test B2-rep/B2-nolabel/B2-labelonly](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/Runs-management/run_handoff_20261108/RUN_STATUS.md)
 - [B1-full runtime acceptance và full test metrics](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/Runs-management/run_handoff_20261108/B1_FULL_RUNTIME_ACCEPTANCE.md)
 - [B1-full completion worklog](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/worklogs/2026-11-08_b1_full_completion_runtime_acceptance.md)
-- [B1-shuf full-test runtime acceptance](../Runs-management/b1_shuf_kaggle_output_20261109/RUNTIME_ACCEPTANCE_20261109.md)
-- [Current arm status and B3 test readiness](../Runs-management/ARM_STATUS_AND_REMAINING_WORK_20261110.md)
+- [Worklog tiếp tục và nghiệm thu B1-shuf](https://github.com/kazunguyen/GRACE-summary/blob/dung/worklogs/2026-11-08_b1_shuf_checkpoint_resume.md)
+- [B3-nodiff test completion worklog](https://github.com/kazunguyen/GRACE-summary/blob/dung/worklogs/2026-11-09_b3_nodiff_test_kaggle_delivery.md)
 - [RUNS.md — lượt I-20 và tình trạng đủ 5.006 test record mỗi seed](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/Runs-management/RUNS.md)
 - [B2-rand merged evaluation summary](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/06_Arm_B2_Rand/test_results_20261107/evaluation_summary.json) · [Provenance và runtime hashes](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/06_Arm_B2_Rand/test_results_20261107/provenance.json)
-- [Step 6 lock và protocol](../STEP6_supervised_anchors/step6_lock.json) · [Anchor scores và summaries](../STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/) · [Phân tích complementarity đã khóa](../STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_bba04c65/)
+- [Step 6 lock](https://github.com/kazunguyen/GRACE-summary/blob/dung/STEP6_supervised_anchors/step6_lock.json) · [Worklog Step 6, gồm protocol, hash và trạng thái đầu ra](https://github.com/kazunguyen/GRACE-summary/blob/dung/worklogs/2026-11-08_step6_supervised_anchors_start.md) · [Mã phân tích complementarity](https://github.com/kazunguyen/GRACE-summary/blob/dung/STEP6_supervised_anchors/src/step6_complementarity.py)
 - [B2-rand test records — seed 42 Devign](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/06_Arm_B2_Rand/test_results_20261107/seed_42/devign/test/records.jsonl) · [seed 42 ReVeal](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/06_Arm_B2_Rand/test_results_20261107/seed_42/reveal/test/records.jsonl)
 - [B2-rand test records — seed 43 Devign](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/06_Arm_B2_Rand/test_results_20261107/seed_43/devign/test/records.jsonl) · [seed 43 ReVeal](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/06_Arm_B2_Rand/test_results_20261107/seed_43/reveal/test/records.jsonl)
-- [B3-nodiff test output and shared evaluator metrics](../Runs-management/kaggle_outputs_20261110/b3_nodiff_test_runtime_locked/b3_nodiff_test/shared_evaluator_output/table_A_metrics.csv) · [batch completion/locked thresholds](../Runs-management/kaggle_outputs_20261110/b3_nodiff_test_runtime_locked/b3_nodiff_test/batch_summary.json) · [completion worklog](2026-11-10_b3_nodiff_test_completed.md)
+- B3-nodiff runtime-locked test outputs remain in local ignored run storage; the completion summary and test protocol are documented in the [B3-nodiff worklog](https://github.com/kazunguyen/GRACE-summary/blob/dung/worklogs/2026-11-09_b3_nodiff_test_kaggle_delivery.md).
 - [Lịch sử thay đổi sau đăng ký](https://github.com/kazunguyen/GRACE-summary/blob/baseline-unified/CHANGES_AFTER_PREREG.md)
