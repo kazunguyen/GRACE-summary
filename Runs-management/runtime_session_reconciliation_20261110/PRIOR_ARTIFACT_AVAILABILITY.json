@@ -1,0 +1,462 @@
+[
+  {
+    "prior_run": "B0",
+    "artifacts": [
+      {
+        "path": "02_Arm_B0_Source_Only/notebooks/02_kaggle_qwen_q4_b0.ipynb",
+        "recorded_sha256": "fdc0ee82e6df6903463023471e2babef6fd6a136bfc4ce14e7dd8806376ee7d6",
+        "exists_now": true,
+        "sha256_now": "8ceec72c4aafa6535b61ec0997be6edbeb0349fb04bf9d14423df42d7ad7d49a",
+        "same_snapshot_now": false
+      },
+      {
+        "path": "C:\\MY-FILES\\LAB-THAY-THO\\tmp\\b0_kaggle_20261101\\grace_b0_checkpoint.zip",
+        "recorded_sha256": "bf3dacfaa18725aa2d473ae8fd0c8e3a602e9ab69c0cddfd32f874735553135b",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      }
+    ]
+  },
+  {
+    "prior_run": "B1 I08",
+    "artifacts": [
+      {
+        "path": "03_Arm_B1_Graph_Only/notebooks/02_kaggle_qwen_q4_b1_executed_I08.ipynb",
+        "recorded_sha256": "6e501ab2f57b964e9c43a807297df4407620bcb9a02f0a3744d742341dce22fb",
+        "exists_now": true,
+        "sha256_now": "6e501ab2f57b964e9c43a807297df4407620bcb9a02f0a3744d742341dce22fb",
+        "same_snapshot_now": true
+      },
+      {
+        "path": "C:\\MY-FILES\\LAB-THAY-THO\\kaggle_stage_b1\\grace_b1_checkpoint.zip",
+        "recorded_sha256": "613cbe9e92da5291177239d3c7eac799ec5f46fce4623dd551ca53c4efbbce99",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      }
+    ]
+  },
+  {
+    "prior_run": "B2",
+    "artifacts": [
+      {
+        "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/cmake.log",
+        "recorded_sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/cuda_compiler.log",
+        "recorded_sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/events.log",
+        "recorded_sha256": "56a96682034439a2eb125552f13dc5fbdd0ce3f273c10bae05f6a2a0d29946f5",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/gpu.log",
+        "recorded_sha256": "51d28d5d957e39707e5380f84c631da14a29d2b333fd28e2aee87e8a00674e38",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/inference_batch.log",
+        "recorded_sha256": "0283525346e439d50ff671a33cb0201ee417a47dd88b242d13d4fd6fe1f20858",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_dependencies.log",
+        "recorded_sha256": "71cead94afc33f74c67ec372b5d4a31798f0bbffbce25a58ff601cf6fe1a0134",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/install_llama_cuda.log",
+        "recorded_sha256": "7e612efe80e423e1ea29b4fea7cc2bb8dcb854e56297ef5a8fae846d9bdda732",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_diagnostics/pip.log",
+        "recorded_sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "01_Author_Baseline_Unified/notebooks/02_kaggle_qwen_q4_b2.ipynb",
+        "recorded_sha256": "d83c14d4f069e1987c024b27ac801840f7fa080d6fd3f75a17f2e004fdce9ba3",
+        "exists_now": true,
+        "sha256_now": "a03fb6ca054402539359c0a420b6a63e88d35409884fb3fe40c88215af2cf2b6",
+        "same_snapshot_now": false
+      }
+    ]
+  },
+  {
+    "prior_run": "B2-flip",
+    "artifacts": [
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/cmake.log",
+        "recorded_sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/cuda_compiler.log",
+        "recorded_sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/events.log",
+        "recorded_sha256": "5f7ede2ce5fd3d0773077b164dc092af4bcd472862e176a427fc028ae751d3a9",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/gpu.log",
+        "recorded_sha256": "082acf50948755184c8a68b334a8d49a0376f177f5eb413819b498e8d82f233e",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/inference_batch.log",
+        "recorded_sha256": "72180bf9b0867123d78b0235ce3f2baec6cdd89978900a5b3e16324e787166ed",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_dependencies.log",
+        "recorded_sha256": "3fe287d61762f3c5734d95857343c7d5bf08c70c4b25f94b3bfe90624f2a5998",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/install_llama_cuda.log",
+        "recorded_sha256": "994172a080c608e99165adf58d4107e22c5f09b7494a9276a33565610361a36c",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_flip/grace_diagnostics/pip.log",
+        "recorded_sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "04_Arm_B2_Flip/notebooks/02_kaggle_qwen_q4_b2_flip.ipynb",
+        "recorded_sha256": "c6e7ce9c1351ab88375cd6e4d9b7d34cd5bb9f7862108fef5d12d81196cf37fb",
+        "exists_now": true,
+        "sha256_now": "df68083b82bdf7567cc1146ae4fe5fd4f02474094dfd4492432e3bfaaac78c4a",
+        "same_snapshot_now": false
+      }
+    ]
+  },
+  {
+    "prior_run": "B2-rand validation 20261105",
+    "artifacts": [
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/cmake.log",
+        "recorded_sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/cuda_compiler.log",
+        "recorded_sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/events.log",
+        "recorded_sha256": "812ec77ee9075a4c9ab3fd377193df4e6a95aa8d809b202bd2dac13cd98c126b",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/gpu.log",
+        "recorded_sha256": "afdcae3fa4b87d13e29d4f32d110f2bbde84ce6fa060f9640b08ad69a97ade86",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_dependencies.log",
+        "recorded_sha256": "b18e9628e90c578ebb7789f4a6b4a454e58c104de3d1da90e2ed8757a2bb3669",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/install_llama_cuda.log",
+        "recorded_sha256": "fc6be431306cc99201369fc21585c67f28a32ba005cf0a0194b8934cb747522f",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/pip.log",
+        "recorded_sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_42_validation.log",
+        "recorded_sha256": "0f2092b4fd483e554c2ea8ed88a45c4da0354d01605af097b15c0cb8d55796e7",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261105/b2_rand/grace_diagnostics/resume_seed_43_validation.log",
+        "recorded_sha256": "5c19234ae45841a25045b712c89a8547a88e4a71aa2639e35e928c25ccecddc6",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+        "recorded_sha256": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
+        "exists_now": true,
+        "sha256_now": "a9bc444c153eae50f10b1b81ea6501e778995437028b89cbbd3cb580c4254643",
+        "same_snapshot_now": false
+      }
+    ]
+  },
+  {
+    "prior_run": "B2-rand validation 20261107",
+    "artifacts": [
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/cmake.log",
+        "recorded_sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/cuda_compiler.log",
+        "recorded_sha256": "68f8b0a1301428031e307cf5260142a517bff25cc232a09eae2734be475d721f",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/events.log",
+        "recorded_sha256": "d0b19ab4ce2b695a87db154e7b2fe2cc1904451a6f4d65f832341e1bbd4a05d9",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/gpu.log",
+        "recorded_sha256": "0a52e3dd1b700e15db55bd370089e3df481693575370a39f1aee887339cd1097",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_dependencies.log",
+        "recorded_sha256": "4eddd6948b7e372625611ec89332b24825619a3bb1ddd4aa3992aec6080e53dd",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/install_llama_cuda.log",
+        "recorded_sha256": "fc321e10b9d1b71f36c98577120f4741931d418484b9107c6a518a328b66b9c4",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/pip.log",
+        "recorded_sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_43_validation.log",
+        "recorded_sha256": "4d0308310ca2ef96a182c21ee8eaa8bed6bdeaf8eca5986074cc7df83c5a1b99",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_diagnostics/resume_seed_44_validation.log",
+        "recorded_sha256": "3d55097f1a5bcb78387a85971e9392eb0d2d84f6cc86ab842b1bddc152507adb",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "06_Arm_B2_Rand/notebooks/02_kaggle_qwen_q4_b2_rand.ipynb",
+        "recorded_sha256": "b819048b5f126882dba6ff59581354937101195d8807974bc3a1f7cc65910c86",
+        "exists_now": true,
+        "sha256_now": "a9bc444c153eae50f10b1b81ea6501e778995437028b89cbbd3cb580c4254643",
+        "same_snapshot_now": false
+      }
+    ]
+  },
+  {
+    "prior_run": "B1-H2 validation",
+    "artifacts": [
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/cmake.log",
+        "recorded_sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/cuda_compiler.log",
+        "recorded_sha256": "fc7ce0c80d28ed925fd490dc4e3915ce620fcf115f965189688c6f049243aad5",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/events.log",
+        "recorded_sha256": "a1e24efe5895bfc014b5d046941e581152cc10b2cf3a24091e3c007e2f7dc510",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/gpu.log",
+        "recorded_sha256": "0ce4b9d07eeb6293496da769c53c73354eb5e7e6fbbc5d90eee1b572494ae673",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_dependencies.log",
+        "recorded_sha256": "67c9227e49e8dbdcaedf1728f49ec42c9e9eba2db5402f29f73fb2fd4d8f7922",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/install_llama_cuda.log",
+        "recorded_sha256": "9a9d8995c8ccc6018e73c9c65589162163a29e8da5353863a327a6d438c1fcf8",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/pip.log",
+        "recorded_sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/grace_diagnostics/validation_seed_42.log",
+        "recorded_sha256": "f35b56181edd839a6062643873688873cd7dc8d27b609d08e82543bcbba13167",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/notebooks/02_kaggle_qwen_q4_b1_h2_validation_20261106.ipynb",
+        "recorded_sha256": "57cdf5249395aec0f0c5bc47421a9d6fb3789fd5809de7d42bc80f632d91c88f",
+        "exists_now": true,
+        "sha256_now": "6486e41d51d3e947e6e6c690904e68dfc5abf1fff1d57fc394b1ff428e657fe7",
+        "same_snapshot_now": false
+      }
+    ]
+  },
+  {
+    "prior_run": "B1-H2 test",
+    "artifacts": [
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/cmake.log",
+        "recorded_sha256": "246a2f1394c1f89d947b498ec32196bac864589d0a4aa532c7990a6e011e9fa8",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/cuda_compiler.log",
+        "recorded_sha256": "fc7ce0c80d28ed925fd490dc4e3915ce620fcf115f965189688c6f049243aad5",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/events.log",
+        "recorded_sha256": "de1a7137115c2f7e3f003718ba681d83c7e8fa0f37c443f7198923aafae5aac2",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/gpu.log",
+        "recorded_sha256": "d1b0d8253bb13f87686e98216de007ff2e673b772ed307ada970d2913a34402c",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_dependencies.log",
+        "recorded_sha256": "497e52ad722689b02b2fadc6fd53188fade258e0a67675ac457420dbe530122f",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/install_llama_cuda.log",
+        "recorded_sha256": "8c8050ce6c88c492f10c67d4bbe737e54c856da67f057b2e0ae467344ef61514",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/pip.log",
+        "recorded_sha256": "ed48aa087f400b5c0dc572f7f6ca6c804f67d2fe9b273986925bb005a51dd94b",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/grace_diagnostics/test_seed_42.log",
+        "recorded_sha256": "83d17df23c8fd9b87962d2b6453ef94950704737cc376441548edfab746e262c",
+        "exists_now": false,
+        "sha256_now": null,
+        "same_snapshot_now": null
+      },
+      {
+        "path": "11_Arm_B1H2_Evidence/kaggle_b1h2_test_20261106/02_kaggle_qwen_q4_b1_h2_test_20261106.ipynb",
+        "recorded_sha256": "3cb1f4d4fc2d4e9ca839d22db2b1660f671aebbd046bdd2a0e2e94f4a8541dc7",
+        "exists_now": true,
+        "sha256_now": "d71dd169f8c5ed0cc99c979fa23f9a683be24acb44ef7ea14762a36701ee4cf3",
+        "same_snapshot_now": false
+      }
+    ]
+  }
+]

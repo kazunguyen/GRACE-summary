@@ -1,0 +1,11 @@
+{
+  "page": {
+    "http_status": 404
+  },
+  "https://www.kaggle.com": {
+    "http_status": 403
+  },
+  "https://api.kaggle.com": {
+    "http_status": 400
+  }
+}

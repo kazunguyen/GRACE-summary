@@ -1,16 +1,35 @@
-# Arm B3-swap — Order Swapping Probe for Contrastive Demonstration (Test Split)
+# B3-swap — Kaggle test delivery
 
-Probe kiểm định độ nhạy với thứ tự trình bày của cặp demonstration tương phản. Arm này đảo ngược thứ tự hai mẫu demonstration (ví dụ: đưa mẫu Benign lên trước Vuln hoặc ngược lại) trong khi vẫn giữ nguyên giải thích Key difference.
+Đây là thư mục bàn giao của arm B3-swap. **Đã có run private trên Thanh Duy được submit ngày 10/11; latest QUEUED, runtime pending.** Xem [deployment hiện hành](../Runs-management/b3_swap_launch_20261110/STATUS.md) trước khi khởi tạo thêm run. Các file chuẩn bị nằm ngay dưới đây:
 
-## 1. Dữ liệu & Cấu hình
-- **Mã định danh arm**: `B3-swap` (Base: `B3`, RQ liên quan: `RQ2`).
-- **Khác biệt cốt lõi**: `demo: contrastive, label: true, diff: true, order: swap`.
-- **Ràng buộc ngưỡng OSF**: `threshold_from: B3` — Bắt buộc kế thừa trực tiếp ngưỡng tối ưu $\tau^*$ từ Arm B3 (Nghiêm cấm dò lại ngưỡng riêng nhằm loại bỏ rủi ro p-hacking theo hợp đồng OSF).
-- **Phạm vi chạy**: Test census (Devign: 2.732 target, REVEAL: 2.274 target) sau khi hoàn tất kiểm định B3 validation và khóa $\tau^*$.
-- **Model**: `Qwen/Qwen3-Coder-30B-A3B-Instruct` (GGUF Q4_K_M, SHA-256: `f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335`).
-- **Ngân sách token tối đa**: 8.192 tokens.
+```text
+15_Arm_B3_Swap/
+├── kaggle_kernel/
+│   ├── notebook.ipynb
+│   └── kernel-metadata.json
+└── kaggle_dataset/
+    ├── dataset-metadata.json
+    ├── test_release_manifest.json
+    ├── test_release_manifest.sha256
+    └── kaggle_input.zip  # ZIP prompt được chuyển riêng, không commit Git
+```
 
-## 2. Kế hoạch Thực thi trên Kaggle
-- Bundle prompt sẽ được tạo bằng cách đảo thứ tự vị trí demo 1 và demo 2 trong prompt B3.
-- Chạy inference greedy (temperature 0.0, seed 42) trên backend GPU T4 x2.
-- Đánh giá chẩn đoán: Đo độ suy giảm hiệu năng so với B3 để chứng minh LLM có bị thiên lệch bởi hiệu ứng vị trí (recency bias / primacy bias) hay không.
+`notebook.ipynb` là bản B3-swap đã kiểm tra. Manifest chứa SHA-256 của `kaggle_input.zip`; kiểm tra hash trước khi upload dataset. ZIP đã chuyển riêng có SHA-256 `27ce96bab4ac8bab5c318e641f820fec5c38fe1fc3fdd8a4381640819eb336cc` (gói bàn giao ngoài; bên trong có ZIP input riêng cho từng arm). Đặt đúng ZIP B3-swap vào `kaggle_dataset/kaggle_input.zip`; không sửa nội dung prompt hay manifest.
+
+## Đặc tả arm
+
+- Mỗi test prompt dùng chính target, graph và cặp donor mà B3 đã chọn. Thay đổi duy nhất là đảo thứ tự hai khối demonstration; nhãn vẫn đi cùng đúng mã nguồn. `Key difference` được giữ nguyên.
+- Census: Devign 2.732; REVEAL 2.274; seed 42. Nhãn target không nằm trong input Kaggle.
+- Kế thừa nguyên khóa threshold B3 từ validation: Devign 0,99; REVEAL 0,01. Không tối ưu lại threshold.
+- Dùng cùng evaluator, exact tokenizer, cắt tỉa, worker và runtime lock với notebook B3 v6. Model Qwen3-Coder-30B-A3B-Instruct GGUF Q4_K_M; contract yêu cầu hai Tesla T4, context 8192, batch/ubatch 256 và offload 49/49.
+
+## Trước khi chạy
+
+1. Kiểm tra SHA-256 của ZIP khớp `test_release_manifest.json`, rồi tạo Kaggle dataset **private** theo `dataset-metadata.json`.
+2. Tạo kernel từ `kaggle_kernel/`; kiểm tra account/dataset IDs trong `kernel-metadata.json` và quyền đọc model notebook được khai báo.
+3. Chọn 2×Tesla T4, bật Internet; đọc lại remote notebook source và so với file trong Git trước Run All.
+4. Sau chạy, tải toàn bộ output, status, logs và provenance. Chỉ nghiệm thu runtime khi xác nhận hai T4, offload 49/49, hash chain đúng và census đủ.
+
+Hướng dẫn handoff chi tiết: [`HANDOFF_TO_DUNG.md`](../Runs-management/b3_verified_patch_v1/probe_test_release_20261110_v1/HANDOFF_TO_DUNG.md). Hồ sơ prompt/runtime: [`probe release README`](../Runs-management/b3_verified_patch_v1/probe_test_release_20261110_v1/README.md).
+
+Trạng thái: **đã upload/submit trên Thanh Duy; latest QUEUED, chưa nghiệm thu runtime Kaggle**. Arm thuộc amended/exploratory B3 protocol. Bản notebook tại đây vẫn là bản bàn giao đã niêm phong; bản đổi account phục vụ launch được giữ ở hồ sơ deployment riêng.

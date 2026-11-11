@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": {
+    "six_priority_processes": true,
+    "all_priority_records_bound": true,
+    "priority_partial_not_falsely_certified": true,
+    "rand_all_final_records_assigned": true,
+    "rand_original_sources_match_git_blobs": true,
+    "legacy_b3_scope_only_976": true,
+    "b1_shuf_other_seed_logs_not_borrowed": true,
+    "legacy_b3_native_process_time_binding": true
+  }
+}
