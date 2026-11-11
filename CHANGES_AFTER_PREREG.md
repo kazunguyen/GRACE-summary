@@ -614,3 +614,12 @@ The first huuhieu3333 resume version failed before inference because Kaggle moun
 - Verified the launch runtime of exactly 976 historical B3 resume records (29+947) against record/provenance/source/helper/native/build-log hash chains. The 4,029 legacy carried rows retain historical partial status. Reviewed remaining legacy saved notebook/record evidence and documented missing original session artifacts. No thresholds/results/frozen registration files were changed.
 - PI authorized B3-swap deployment on any configured account with positive quota. Checked four accounts including token-based thanhduy9a4tv; only Thanh Duy had positive quota. Created private sealed input dataset, adapted only account/mount/timeout metadata from the prepared notebook, submitted v1 and v2, and verified source readback. Latest observed state QUEUED; subsequent pushes rejected by Kaggle's two batch GPU session limit. Cancellation could not be confirmed without actual session IDs. GPU runtime acceptance remains pending.
 - Evidence: `Runs-management/runtime_session_reconciliation_20261110/` and `Runs-management/b3_swap_launch_20261110/`. These are operational audits/deployment changes; amended B3 retains its prior amended/exploratory classification. Credentials and ZIP payloads are excluded from publication.
+
+
+## 2026-11-11 — Step 6 H5.3 routing contrast reporting correction
+
+- Post-registration audit found the Step 6 script emitted the q=10% benefit-vs-confidence MCC CI but did not emit all H5.3 registered criteria.
+- Updated the offline analysis code to report paired cluster-bootstrap CIs for benefit-vs-confidence balanced accuracy and MCC, benefit-vs-random balanced accuracy (20 random-router seeds), and the LLM repair count against the 97.5th percentile of 20 random experts at the same positive prediction rate. Results include per-criterion and combined flags; H3-B gate remains primary and SUP-LR supplementary.
+- Preserved the prior output field, all existing run artifacts, the registered protocol/configuration, thresholds, lock, models, inputs, and predictions. This is an implementation/reporting correction only; no hypothesis, threshold, or contrast was changed. New script hash creates a distinct output run.
+- Updated `STEP6_supervised_anchors/06_run_step6_complementarity_wsl.ipynb` to display H5.3 checks. Rerun of notebook 06 is pending; no analysis was executed and no tests were run during this change.
+- Worklog: `worklogs/2026-11-11_step6_h53_routing_criteria_alignment.md`.

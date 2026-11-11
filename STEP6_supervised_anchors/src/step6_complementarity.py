@@ -358,6 +358,55 @@ def _oracle_accuracy(y: np.ndarray, h: np.ndarray, expert: np.ndarray,
             "expert_accuracy_valid": float((expert[valid] == y[valid]).mean()) if valid.any() else 0.0}
 
 
+def _cluster_bootstrap_benefit_vs_random_ba(
+        stats, y: np.ndarray, benefit: np.ndarray, random_predictions: list[np.ndarray],
+        groups: np.ndarray, n_boot: int = N_BOOT,
+        seed: int = BOOTSTRAP_SEED) -> dict[str, Any]:
+    """Paired cluster-bootstrap CI for benefit BA minus mean random-router BA.
+
+    Each replicate resamples test clusters and, independently, the 20 random-router
+    seeds with replacement. The point estimate uses all observed random seeds.
+    """
+    y = np.asarray(y, dtype=int)
+    benefit = np.asarray(benefit, dtype=int)
+    random_predictions = [np.asarray(pred, dtype=int) for pred in random_predictions]
+    groups = np.asarray(groups)
+    if not random_predictions:
+        raise ValueError("At least one random-router prediction is required")
+    if not (len(y) == len(benefit) == len(groups)
+            and all(len(pred) == len(y) for pred in random_predictions)):
+        raise ValueError("H5.3 bootstrap inputs must have identical row counts")
+
+    unique, inverse = np.unique(groups, return_inverse=True)
+    members = [np.flatnonzero(inverse == group_index) for group_index in range(len(unique))]
+    rng = np.random.default_rng(seed)
+    deltas = []
+    degenerate = 0
+    for _ in range(n_boot):
+        picked_groups = rng.integers(0, len(unique), len(unique))
+        indices = np.concatenate([members[group_index] for group_index in picked_groups])
+        picked_seeds = rng.integers(0, len(random_predictions), len(random_predictions))
+        benefit_ba = stats.balanced_accuracy(y[indices], benefit[indices])
+        random_ba = [stats.balanced_accuracy(y[indices], random_predictions[i][indices])
+                     for i in picked_seeds]
+        if benefit_ba is None or not np.isfinite(benefit_ba) or not np.all(np.isfinite(random_ba)):
+            degenerate += 1
+            continue
+        deltas.append(float(benefit_ba - np.mean(random_ba)))
+
+    point_benefit = stats.balanced_accuracy(y, benefit)
+    point_random = float(np.mean([stats.balanced_accuracy(y, pred)
+                                  for pred in random_predictions]))
+    if not deltas:
+        lo = hi = float("nan")
+    else:
+        lo, hi = (float(value) for value in np.percentile(deltas, [2.5, 97.5]))
+    return {"delta": float(point_benefit - point_random), "lo": lo, "hi": hi,
+            "n_boot": n_boot, "n_degenerate": degenerate, "seed": seed,
+            "unit": "cluster", "random_router_seeds": len(random_predictions),
+            "random_seed_resampling": "with replacement per cluster-bootstrap replicate"}
+
+
 def _threshold_metrics(stats, y: np.ndarray, score: np.ndarray, tau: float) -> dict[str, Any]:
     pred = (score >= tau).astype(int)
     return {"tau": float(tau), "metrics": stats.thresholded_metrics(y, pred),
@@ -493,6 +542,7 @@ def _repair_and_route(stats, joined_v, Xv, joined_t, Xt,
         return pred, mask
 
     policies = {}
+    random_predictions_by_budget = {}
     rng = np.random.default_rng(SEED)
     for q in BUDGETS:
         q_rows = {}
@@ -506,12 +556,15 @@ def _repair_and_route(stats, joined_v, Xv, joined_t, Xt,
                             "repair_harm": _repair_harm(yt, h_t, pred, np.ones_like(valid_t))["total"]}
         random_metrics = {key: [] for key in ("mcc", "balanced_accuracy", "f1")}
         random_queries = []
+        random_predictions = []
         for _ in range(RANDOM_ROUTER_SEEDS):
             pred, mask = route(rng.random(len(yt)), q)
+            random_predictions.append(pred)
             m = stats.thresholded_metrics(yt, pred)
             random_queries.append(int(mask.sum()))
             for key in random_metrics:
                 random_metrics[key].append(float("nan") if m[key] is None else float(m[key]))
+        random_predictions_by_budget[q] = random_predictions
         q_rows["random_20_seed"] = {
             "n_random": RANDOM_ROUTER_SEEDS, "requested_queries_each": random_queries,
             "metrics": {key: {"mean": float(np.nanmean(vals)),
@@ -522,20 +575,60 @@ def _repair_and_route(stats, joined_v, Xv, joined_t, Xt,
 
     pred_benefit_10, _ = route(benefit_t, 0.10)
     pred_confidence_10, _ = route(confidence_t, 0.10)
+    ci_benefit_confidence_ba = stats.paired_bootstrap(
+        yt, pred_confidence_10, pred_benefit_10, stats.balanced_accuracy,
+        n_boot=N_BOOT, seed=BOOTSTRAP_SEED, groups=groups_t)
     ci_benefit_confidence = stats.paired_bootstrap(
         yt, pred_confidence_10, pred_benefit_10, stats.mcc,
         n_boot=N_BOOT, seed=BOOTSTRAP_SEED, groups=groups_t)
+    ci_benefit_random_ba = _cluster_bootstrap_benefit_vs_random_ba(
+        stats, yt, pred_benefit_10, random_predictions_by_budget[0.10], groups_t,
+        n_boot=N_BOOT, seed=BOOTSTRAP_SEED)
 
     p_base_test = _threshold_metrics(stats, yt, p_t, tau)
     h_base = p_base_test.pop("prediction")
+    repair_harm_llm = _repair_harm(yt, h_t, g_t, valid_t)
+    reference_experts = _reference_experts(yt, h_t, g_t, valid_t)
+    random_expert_key = next(key for key in reference_experts if key.startswith("RANDOM("))
+    random_expert_repair_hi = reference_experts[random_expert_key]["repair"]["hi"]
+    llm_correct_repairs = repair_harm_llm["total"]["repair"]
+    h5_3_checks = {
+        "primary_baseline": "H3B_GATE" if primary else "SUP-LR supplementary",
+        "budget": 0.10,
+        "benefit_minus_confidence_delta_balanced_accuracy_ci": ci_benefit_confidence_ba.to_dict(),
+        "benefit_minus_confidence_delta_mcc_ci": ci_benefit_confidence.to_dict(),
+        "benefit_minus_random_delta_balanced_accuracy_ci": ci_benefit_random_ba,
+        "llm_correct_repairs": llm_correct_repairs,
+        "random_expert_repair_reference": {
+            "name": random_expert_key,
+            "n_random": reference_experts[random_expert_key]["n_random"],
+            "repair_mean": reference_experts[random_expert_key]["repair"]["mean"],
+            "repair_lo_2_5": reference_experts[random_expert_key]["repair"]["lo"],
+            "repair_hi_97_5": random_expert_repair_hi,
+        },
+        "criteria": {
+            "benefit_vs_confidence_ba_upper_ci_lt_0_02":
+                bool(ci_benefit_confidence_ba.hi < 0.02),
+            "benefit_vs_confidence_mcc_upper_ci_lt_0_02":
+                bool(ci_benefit_confidence.hi < 0.02),
+            "benefit_vs_random_ba_upper_ci_lt_0_01":
+                bool(ci_benefit_random_ba["hi"] < 0.01),
+            "llm_repairs_not_above_random_expert_97_5_percentile":
+                bool(llm_correct_repairs <= random_expert_repair_hi),
+        },
+    }
+    h5_3_checks["all_routing_criteria_met"] = all(h5_3_checks["criteria"].values())
     return {
         "baseline": baseline,
         "tau": float(tau),
         "test_baseline": p_base_test,
-        "test_repair_harm_llm_by_class": _repair_harm(yt, h_base, g_t, valid_t),
+        "test_repair_harm_llm_by_class": repair_harm_llm,
         "test_oracle_ceiling": _oracle_accuracy(yt, h_base, g_t, valid_t),
-        "test_reference_experts": _reference_experts(yt, h_base, g_t, valid_t),
+        "test_reference_experts": reference_experts,
         "routing_test": policies,
+        "h5_3_registered_checks": h5_3_checks,
+        "q10_benefit_minus_confidence_delta_balanced_accuracy_ci":
+            ci_benefit_confidence_ba.to_dict(),
         "q10_benefit_minus_confidence_delta_mcc_ci": ci_benefit_confidence.to_dict(),
         "q10_benefit_minus_confidence_verdict_delta_0_02": stats.verdict(
             ci_benefit_confidence, 0.02) if primary else "supplementary; H5.3 primary is H3B_GATE",
@@ -655,6 +748,13 @@ def run_analysis(step6_root: Path, summary_root: Path, b2_root: Path) -> Path:
                             "delta_mcc_meta": DELTA_MCC_META,
                             "budgets": list(BUDGETS),
                             "random_router_seeds": RANDOM_ROUTER_SEEDS,
+                            "h5_3": {"q": 0.10,
+                                     "benefit_vs_confidence_metrics": ["balanced_accuracy", "mcc"],
+                                     "benefit_vs_random_metric": "balanced_accuracy",
+                                     "benefit_vs_random_upper_ci_margin": 0.01,
+                                     "benefit_vs_confidence_upper_ci_margin": 0.02,
+                                     "random_expert_reference_seeds": 20,
+                                     "random_expert_repair_limit": "97.5th percentile"},
                             "ridge_alpha": RIDGE_ALPHA, "logistic_C": LOGISTIC_C,
                             "test_labels_used_for_fit_or_threshold_selection": False},
         "inputs": inputs,
