@@ -1,0 +1,843 @@
+[{"stream_name":"stderr","time":8.072975206,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.07301691,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.073022612,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.073026783,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.687686358,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.687722541,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.687729084,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.687733247,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.341592601,"data":"{\n"}
+,{"stream_name":"stdout","time":11.341636072,"data":"  \"preflight\": \"PASS\",\n"}
+,{"stream_name":"stdout","time":11.341642196,"data":"  \"manifest_source\": \"sealed_manifest_embedded_in_notebook\",\n"}
+,{"stream_name":"stdout","time":11.341756534,"data":"  \"manifest\": \"/kaggle/working/embedded_test_release_manifest.json\",\n"}
+,{"stream_name":"stdout","time":11.341762255999999,"data":"  \"input_source\": \"/kaggle/input/datasets/duchuynguyen1802/b3-swap-kaggle-input-zip\",\n"}
+,{"stream_name":"stdout","time":11.341765986,"data":"  \"input_mode\": \"kaggle_auto_extracted\",\n"}
+,{"stream_name":"stdout","time":11.341770096,"data":"  \"model_path\": \"/kaggle/input/notebooks/duchuynguyen1802/huy-qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf\",\n"}
+,{"stream_name":"stdout","time":11.341774658,"data":"  \"model_candidate_count\": 1\n"}
+,{"stream_name":"stdout","time":11.341778702,"data":"}\n"}
+,{"stream_name":"stdout","time":135.466411976,"data":"Preflight devign: n=2732 threshold=0.99\n"}
+,{"stream_name":"stdout","time":135.547789962,"data":"Preflight reveal: n=2274 threshold=0.01\n"}
+,{"stream_name":"stderr","time":1233.686455209,"data":"ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no\n"}
+,{"stream_name":"stderr","time":1233.686499579,"data":"\n"}
+,{"stream_name":"stderr","time":1233.686505682,"data":"ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no\n"}
+,{"stream_name":"stderr","time":1233.687418854,"data":"ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no\n"}
+,{"stream_name":"stderr","time":1233.687437933,"data":"\n"}
+,{"stream_name":"stderr","time":1233.687442861,"data":"ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no\n"}
+,{"stream_name":"stderr","time":1233.688287406,"data":"ggml_cuda_init: found 2 CUDA devices:\n"}
+,{"stream_name":"stderr","time":1233.688305887,"data":"\n"}
+,{"stream_name":"stderr","time":1233.68831048,"data":"ggml_cuda_init: found 2 CUDA devices:\n"}
+,{"stream_name":"stderr","time":1233.689169053,"data":"  Device 0: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stderr","time":1233.689190234,"data":"\n"}
+,{"stream_name":"stderr","time":1233.689195437,"data":"  Device 0: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stderr","time":1233.689972207,"data":"  Device 1: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stderr","time":1233.689987555,"data":"\n"}
+,{"stream_name":"stderr","time":1233.689993138,"data":"  Device 1: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stdout","time":1233.945779115,"data":"Locked package versions: {'huggingface-hub': '0.36.2', 'llama-cpp-python': '0.3.16', 'numpy': '2.1.3', 'scikit-learn': '1.5.2', 'scipy': '1.16.3', 'tokenizers': '0.22.2', 'transformers': '4.57.1'}\n"}
+,{"stream_name":"stdout","time":1233.945824024,"data":"0, GPU-010ffeb4-e5ae-2a2a-ddf8-de07b66879b2, Tesla T4, 14909 MiB, 15360 MiB, 580.178.04\n"}
+,{"stream_name":"stdout","time":1233.945829294,"data":"1, GPU-474b5b0b-2da1-a21c-684d-cf5d87a725a2, Tesla T4, 14807 MiB, 15360 MiB, 580.178.04\n"}
+,{"stream_name":"stdout","time":1233.94583388,"data":"\n"}
+,{"stream_name":"stderr","time":1322.728402834,"data":"ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no\n"}
+,{"stream_name":"stderr","time":1322.728440694,"data":"ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no\n"}
+,{"stream_name":"stderr","time":1322.728447942,"data":"ggml_cuda_init: found 2 CUDA devices:\n"}
+,{"stream_name":"stderr","time":1322.728709372,"data":"  Device 0: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stderr","time":1322.728731519,"data":"  Device 1: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stderr","time":1322.933534837,"data":"ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no\n"}
+,{"stream_name":"stderr","time":1322.933558788,"data":"ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no\n"}
+,{"stream_name":"stderr","time":1322.933564447,"data":"ggml_cuda_init: found 2 CUDA devices:\n"}
+,{"stream_name":"stderr","time":1322.933570385,"data":"  Device 0: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stderr","time":1322.933576148,"data":"  Device 1: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stderr","time":1322.933582176,"data":"\n"}
+,{"stream_name":"stderr","time":1322.933587732,"data":"ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    no\n"}
+,{"stream_name":"stderr","time":1322.933594212,"data":"ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no\n"}
+,{"stream_name":"stderr","time":1322.933600126,"data":"ggml_cuda_init: found 2 CUDA devices:\n"}
+,{"stream_name":"stderr","time":1322.933605977,"data":"  Device 0: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stderr","time":1322.933612027,"data":"  Device 1: Tesla T4, compute capability 7.5, VMM: yes\n"}
+,{"stream_name":"stdout","time":1329.207138813,"data":"llama_model_load_from_file_impl: using device CUDA0 (Tesla T4) - 14806 MiB free\n"}
+,{"stream_name":"stdout","time":1329.207172144,"data":"llama_model_load_from_file_impl: using device CUDA1 (Tesla T4) - 14704 MiB free\n"}
+,{"stream_name":"stdout","time":1329.207176332,"data":"llama_model_loader: loaded meta data with 39 key-value pairs and 579 tensors from /kaggle/input/notebooks/duchuynguyen1802/huy-qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf (version GGUF V3 (latest))\n"}
+,{"stream_name":"stdout","time":1329.207180869,"data":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.\n"}
+,{"stream_name":"stdout","time":1329.207184136,"data":"llama_model_loader: - kv   0:                       general.architecture str              = qwen3moe\n"}
+,{"stream_name":"stdout","time":1329.207187271,"data":"llama_model_loader: - kv   1:                               general.type str              = model\n"}
+,{"stream_name":"stdout","time":1329.207190351,"data":"llama_model_loader: - kv   2:                     general.sampling.top_k i32              = 20\n"}
+,{"stream_name":"stdout","time":1329.207193532,"data":"llama_model_loader: - kv   3:                     general.sampling.top_p f32              = 0.800000\n"}
+,{"stream_name":"stdout","time":1329.207196603,"data":"llama_model_loader: - kv   4:                      general.sampling.temp f32              = 0.700000\n"}
+,{"stream_name":"stdout","time":1329.207199759,"data":"llama_model_loader: - kv   5:            general.sampling.penalty_repeat f32              = 1.050000\n"}
+,{"stream_name":"stdout","time":1329.207229918,"data":"llama_model_loader: - kv   6:                               general.name str              = Qwen3-Coder-30B-A3B-Instruct\n"}
+,{"stream_name":"stdout","time":1329.207234951,"data":"llama_model_loader: - kv   7:                         general.size_label str              = 128x1.8B\n"}
+,{"stream_name":"stdout","time":1329.207238603,"data":"llama_model_loader: - kv   8:                            general.license str              = apache-2.0\n"}
+,{"stream_name":"stdout","time":1329.207242774,"data":"llama_model_loader: - kv   9:                       general.license.link str              = https://huggingface.co/Qwen/Qwen3-Cod...\n"}
+,{"stream_name":"stdout","time":1329.207246655,"data":"llama_model_loader: - kv  10:                               general.tags arr[str,1]       = [\"text-generation\"]\n"}
+,{"stream_name":"stdout","time":1329.207250615,"data":"llama_model_loader: - kv  11:                       qwen3moe.block_count u32              = 48\n"}
+,{"stream_name":"stdout","time":1329.207254116,"data":"llama_model_loader: - kv  12:                    qwen3moe.context_length u32              = 262144\n"}
+,{"stream_name":"stdout","time":1329.207257644,"data":"llama_model_loader: - kv  13:                  qwen3moe.embedding_length u32              = 2048\n"}
+,{"stream_name":"stdout","time":1329.207750965,"data":"llama_model_loader: - kv  14:               qwen3moe.feed_forward_length u32              = 6144\n"}
+,{"stream_name":"stdout","time":1329.207769839,"data":"llama_model_loader: - kv  15:              qwen3moe.attention.head_count u32              = 32\n"}
+,{"stream_name":"stdout","time":1329.207774398,"data":"llama_model_loader: - kv  16:           qwen3moe.attention.head_count_kv u32              = 4\n"}
+,{"stream_name":"stdout","time":1329.207778504,"data":"llama_model_loader: - kv  17:                    qwen3moe.rope.freq_base f32              = 10000000.000000\n"}
+,{"stream_name":"stdout","time":1329.207782537,"data":"llama_model_loader: - kv  18:  qwen3moe.attention.layer_norm_rms_epsilon f32              = 0.000001\n"}
+,{"stream_name":"stdout","time":1329.20778648,"data":"llama_model_loader: - kv  19:                      qwen3moe.expert_count u32              = 128\n"}
+,{"stream_name":"stdout","time":1329.207790292,"data":"llama_model_loader: - kv  20:                 qwen3moe.expert_used_count u32              = 8\n"}
+,{"stream_name":"stdout","time":1329.207794461,"data":"llama_model_loader: - kv  21:              qwen3moe.attention.key_length u32              = 128\n"}
+,{"stream_name":"stdout","time":1329.207798299,"data":"llama_model_loader: - kv  22:            qwen3moe.attention.value_length u32              = 128\n"}
+,{"stream_name":"stdout","time":1329.207802122,"data":"llama_model_loader: - kv  23:        qwen3moe.expert_feed_forward_length u32              = 768\n"}
+,{"stream_name":"stdout","time":1329.207805899,"data":"llama_model_loader: - kv  24:                       tokenizer.ggml.model str              = gpt2\n"}
+,{"stream_name":"stdout","time":1329.20780972,"data":"llama_model_loader: - kv  25:                         tokenizer.ggml.pre str              = qwen2\n"}
+,{"stream_name":"stdout","time":1329.207813627,"data":"llama_model_loader: - kv  26:                      tokenizer.ggml.tokens arr[str,151936]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"\u0026\", \"'\", ...\n"}
+,{"stream_name":"stdout","time":1329.207818711,"data":"llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,151936]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...\n"}
+,{"stream_name":"stdout","time":1329.207822741,"data":"llama_model_loader: - kv  28:                      tokenizer.ggml.merges arr[str,151387]  = [\"Ġ Ġ\", \"ĠĠ ĠĠ\", \"i n\", \"Ġ t\",...\n"}
+,{"stream_name":"stdout","time":1329.20783668,"data":"llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 151645\n"}
+,{"stream_name":"stdout","time":1329.20784063,"data":"llama_model_loader: - kv  30:            tokenizer.ggml.padding_token_id u32              = 151643\n"}
+,{"stream_name":"stdout","time":1329.207844489,"data":"llama_model_loader: - kv  31:                tokenizer.ggml.bos_token_id u32              = 151643\n"}
+,{"stream_name":"stdout","time":1329.207848348,"data":"llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false\n"}
+,{"stream_name":"stdout","time":1329.207852168,"data":"llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false\n"}
+,{"stream_name":"stdout","time":1329.207856399,"data":"llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% macro render_extra_keys(json_dict,...\n"}
+,{"stream_name":"stdout","time":1329.207860621,"data":"llama_model_loader: - kv  35:              tokenizer.ggml.normalizer.nfc bool             = true\n"}
+,{"stream_name":"stdout","time":1329.20786416,"data":"llama_model_loader: - kv  36:                tokenizer.ggml.clean_spaces bool             = false\n"}
+,{"stream_name":"stdout","time":1329.207868105,"data":"llama_model_loader: - kv  37:               general.quantization_version u32              = 2\n"}
+,{"stream_name":"stdout","time":1329.207871936,"data":"llama_model_loader: - kv  38:                          general.file_type u32              = 15\n"}
+,{"stream_name":"stdout","time":1329.207875797,"data":"llama_model_loader: - type  f32:  241 tensors\n"}
+,{"stream_name":"stdout","time":1329.207879404,"data":"llama_model_loader: - type q8_0:  194 tensors\n"}
+,{"stream_name":"stdout","time":1329.207883043,"data":"llama_model_loader: - type q4_K:  144 tensors\n"}
+,{"stream_name":"stdout","time":1329.207886714,"data":"print_info: file format = GGUF V3 (latest)\n"}
+,{"stream_name":"stdout","time":1329.207890267,"data":"print_info: file type   = Q4_K - Medium\n"}
+,{"stream_name":"stdout","time":1329.207893894,"data":"print_info: file size   = 16.75 GiB (4.71 BPW) \n"}
+,{"stream_name":"stdout","time":1329.207897553,"data":"init_tokenizer: initializing tokenizer for type 2\n"}
+,{"stream_name":"stdout","time":1329.20790119,"data":"load: control token: 151660 '\u003c|fim_middle|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207905105,"data":"load: control token: 151659 '\u003c|fim_prefix|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207908935,"data":"load: control token: 151653 '\u003c|vision_end|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.20791271,"data":"load: control token: 151648 '\u003c|box_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207916514,"data":"load: control token: 151646 '\u003c|object_ref_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207920351,"data":"load: control token: 151649 '\u003c|box_end|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207924209,"data":"load: control token: 151655 '\u003c|image_pad|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207928019,"data":"load: control token: 151651 '\u003c|quad_end|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207931851,"data":"load: control token: 151647 '\u003c|object_ref_end|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207935651,"data":"load: control token: 151652 '\u003c|vision_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207939549,"data":"load: control token: 151654 '\u003c|vision_pad|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207946255,"data":"load: control token: 151656 '\u003c|video_pad|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.20795017,"data":"load: control token: 151644 '\u003c|im_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207953922,"data":"load: control token: 151661 '\u003c|fim_suffix|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207957686,"data":"load: control token: 151650 '\u003c|quad_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.207961507,"data":"load: printing all EOG tokens:\n"}
+,{"stream_name":"stdout","time":1329.207968113,"data":"load:   - 151643 ('\u003c|endoftext|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.207971884,"data":"load:   - 151645 ('\u003c|im_end|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.207975652,"data":"load:   - 151662 ('\u003c|fim_pad|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.207979381,"data":"load:   - 151663 ('\u003c|repo_name|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.207983063,"data":"load:   - 151664 ('\u003c|file_sep|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.207986753,"data":"load: special tokens cache size = 26\n"}
+,{"stream_name":"stdout","time":1329.207990751,"data":"load: token to piece cache size = 0.9311 MB\n"}
+,{"stream_name":"stdout","time":1329.207994428,"data":"print_info: arch             = qwen3moe\n"}
+,{"stream_name":"stdout","time":1329.207997986,"data":"print_info: vocab_only       = 0\n"}
+,{"stream_name":"stdout","time":1329.20800149,"data":"print_info: n_ctx_train      = 262144\n"}
+,{"stream_name":"stdout","time":1329.20800508,"data":"print_info: n_embd           = 2048\n"}
+,{"stream_name":"stdout","time":1329.208008691,"data":"print_info: n_layer          = 48\n"}
+,{"stream_name":"stdout","time":1329.208012208,"data":"print_info: n_head           = 32\n"}
+,{"stream_name":"stdout","time":1329.208015795,"data":"print_info: n_head_kv        = 4\n"}
+,{"stream_name":"stdout","time":1329.208019461,"data":"print_info: n_rot            = 128\n"}
+,{"stream_name":"stdout","time":1329.208023074,"data":"print_info: n_swa            = 0\n"}
+,{"stream_name":"stdout","time":1329.208026586,"data":"print_info: is_swa_any       = 0\n"}
+,{"stream_name":"stdout","time":1329.208030126,"data":"print_info: n_embd_head_k    = 128\n"}
+,{"stream_name":"stdout","time":1329.208033685,"data":"print_info: n_embd_head_v    = 128\n"}
+,{"stream_name":"stdout","time":1329.20804437,"data":"print_info: n_gqa            = 8\n"}
+,{"stream_name":"stdout","time":1329.208047957,"data":"print_info: n_embd_k_gqa     = 512\n"}
+,{"stream_name":"stdout","time":1329.20805152,"data":"print_info: n_embd_v_gqa     = 512\n"}
+,{"stream_name":"stdout","time":1329.208055066,"data":"print_info: f_norm_eps       = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.208058639,"data":"print_info: f_norm_rms_eps   = 1.0e-06\n"}
+,{"stream_name":"stdout","time":1329.208062255,"data":"print_info: f_clamp_kqv      = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.208065803,"data":"print_info: f_max_alibi_bias = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.208069383,"data":"print_info: f_logit_scale    = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.208072918,"data":"print_info: f_attn_scale     = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.208076477,"data":"print_info: n_ff             = 6144\n"}
+,{"stream_name":"stdout","time":1329.208080079,"data":"print_info: n_expert         = 128\n"}
+,{"stream_name":"stdout","time":1329.208083676,"data":"print_info: n_expert_used    = 8\n"}
+,{"stream_name":"stdout","time":1329.208090194,"data":"print_info: causal attn      = 1\n"}
+,{"stream_name":"stdout","time":1329.208093869,"data":"print_info: pooling type     = 0\n"}
+,{"stream_name":"stdout","time":1329.208097599,"data":"print_info: rope type        = 2\n"}
+,{"stream_name":"stdout","time":1329.208101259,"data":"print_info: rope scaling     = linear\n"}
+,{"stream_name":"stdout","time":1329.208104936,"data":"print_info: freq_base_train  = 10000000.0\n"}
+,{"stream_name":"stdout","time":1329.208108583,"data":"print_info: freq_scale_train = 1\n"}
+,{"stream_name":"stdout","time":1329.208112104,"data":"print_info: n_ctx_orig_yarn  = 262144\n"}
+,{"stream_name":"stdout","time":1329.208115614,"data":"print_info: rope_finetuned   = unknown\n"}
+,{"stream_name":"stdout","time":1329.208119148,"data":"print_info: model type       = 30B.A3B\n"}
+,{"stream_name":"stdout","time":1329.208122783,"data":"print_info: model params     = 30.53 B\n"}
+,{"stream_name":"stdout","time":1329.208126323,"data":"print_info: general.name     = Qwen3-Coder-30B-A3B-Instruct\n"}
+,{"stream_name":"stdout","time":1329.208129971,"data":"print_info: n_ff_exp         = 768\n"}
+,{"stream_name":"stdout","time":1329.208133503,"data":"print_info: vocab type       = BPE\n"}
+,{"stream_name":"stdout","time":1329.208137036,"data":"print_info: n_vocab          = 151936\n"}
+,{"stream_name":"stdout","time":1329.208140608,"data":"print_info: n_merges         = 151387\n"}
+,{"stream_name":"stdout","time":1329.208144161,"data":"print_info: BOS token        = 151643 '\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208147943,"data":"print_info: EOS token        = 151645 '\u003c|im_end|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208151805,"data":"print_info: EOT token        = 151645 '\u003c|im_end|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208155667,"data":"print_info: PAD token        = 151643 '\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208159401,"data":"print_info: LF token         = 198 'Ċ'\n"}
+,{"stream_name":"stdout","time":1329.208163105,"data":"print_info: FIM PRE token    = 151659 '\u003c|fim_prefix|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208166988,"data":"print_info: FIM SUF token    = 151661 '\u003c|fim_suffix|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208170785,"data":"print_info: FIM MID token    = 151660 '\u003c|fim_middle|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.20817455,"data":"print_info: FIM PAD token    = 151662 '\u003c|fim_pad|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208178457,"data":"print_info: FIM REP token    = 151663 '\u003c|repo_name|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208182254,"data":"print_info: FIM SEP token    = 151664 '\u003c|file_sep|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208186433,"data":"print_info: EOG token        = 151643 '\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208190276,"data":"print_info: EOG token        = 151645 '\u003c|im_end|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208194035,"data":"print_info: EOG token        = 151662 '\u003c|fim_pad|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208197731,"data":"print_info: EOG token        = 151663 '\u003c|repo_name|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208201457,"data":"print_info: EOG token        = 151664 '\u003c|file_sep|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.208205183,"data":"print_info: max token length = 256\n"}
+,{"stream_name":"stdout","time":1329.208208784,"data":"load_tensors: loading model tensors, this can take a while... (mmap = true)\n"}
+,{"stream_name":"stdout","time":1329.208212542,"data":"load_tensors: layer   0 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208218886,"data":"load_tensors: layer   1 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208222657,"data":"load_tensors: layer   2 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208226303,"data":"load_tensors: layer   3 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208229969,"data":"load_tensors: layer   4 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208233639,"data":"load_tensors: layer   5 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208237285,"data":"load_tensors: layer   6 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208240926,"data":"load_tensors: layer   7 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208244529,"data":"load_tensors: layer   8 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208248184,"data":"load_tensors: layer   9 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208251809,"data":"load_tensors: layer  10 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208255602,"data":"load_tensors: layer  11 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208259301,"data":"load_tensors: layer  12 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208262939,"data":"load_tensors: layer  13 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.20826667,"data":"load_tensors: layer  14 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.20827033,"data":"load_tensors: layer  15 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208273957,"data":"load_tensors: layer  16 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208277594,"data":"load_tensors: layer  17 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208281239,"data":"load_tensors: layer  18 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208284923,"data":"load_tensors: layer  19 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208288557,"data":"load_tensors: layer  20 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208292181,"data":"load_tensors: layer  21 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208295811,"data":"load_tensors: layer  22 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208299425,"data":"load_tensors: layer  23 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208302963,"data":"load_tensors: layer  24 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208306225,"data":"load_tensors: layer  25 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208309469,"data":"load_tensors: layer  26 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208313087,"data":"load_tensors: layer  27 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208316856,"data":"load_tensors: layer  28 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208320305,"data":"load_tensors: layer  29 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208323581,"data":"load_tensors: layer  30 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208327211,"data":"load_tensors: layer  31 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208331003,"data":"load_tensors: layer  32 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.20833742,"data":"load_tensors: layer  33 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208341105,"data":"load_tensors: layer  34 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208344754,"data":"load_tensors: layer  35 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.20834833,"data":"load_tensors: layer  36 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208351805,"data":"load_tensors: layer  37 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208355317,"data":"load_tensors: layer  38 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208359056,"data":"load_tensors: layer  39 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.20836286,"data":"load_tensors: layer  40 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208366507,"data":"load_tensors: layer  41 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208370139,"data":"load_tensors: layer  42 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208373834,"data":"load_tensors: layer  43 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208377489,"data":"load_tensors: layer  44 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208381082,"data":"load_tensors: layer  45 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208384651,"data":"load_tensors: layer  46 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208388272,"data":"load_tensors: layer  47 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208391863,"data":"load_tensors: layer  48 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.208395685,"data":"load_tensors: tensor 'token_embd.weight' (q8_0) (and 0 others) cannot be used with preferred buffer type CUDA_Host, using CPU instead\n"}
+,{"stream_name":"stdout","time":1329.208399724,"data":"load_tensors: offloading 48 repeating layers to GPU\n"}
+,{"stream_name":"stdout","time":1329.208404481,"data":"load_tensors: offloading output layer to GPU\n"}
+,{"stream_name":"stdout","time":1329.208408311,"data":"load_tensors: offloaded 49/49 layers to GPU\n"}
+,{"stream_name":"stdout","time":1329.208412047,"data":"load_tensors:        CUDA0 model buffer size =  8603.55 MiB\n"}
+,{"stream_name":"stdout","time":1329.208415544,"data":"load_tensors:        CUDA1 model buffer size =  8230.57 MiB\n"}
+,{"stream_name":"stdout","time":1329.208419313,"data":"load_tensors:   CPU_Mapped model buffer size =   315.30 MiB\n"}
+,{"stream_name":"stdout","time":1329.208422833,"data":"..................................................................................................\n"}
+,{"stream_name":"stdout","time":1329.208426773,"data":"llama_context: constructing llama_context\n"}
+,{"stream_name":"stdout","time":1329.208430391,"data":"llama_context: n_seq_max     = 1\n"}
+,{"stream_name":"stdout","time":1329.208433867,"data":"llama_context: n_ctx         = 8192\n"}
+,{"stream_name":"stdout","time":1329.20843755,"data":"llama_context: n_ctx_per_seq = 8192\n"}
+,{"stream_name":"stdout","time":1329.208441116,"data":"llama_context: n_batch       = 256\n"}
+,{"stream_name":"stdout","time":1329.208444998,"data":"llama_context: n_ubatch      = 256\n"}
+,{"stream_name":"stdout","time":1329.20844878,"data":"llama_context: causal_attn   = 1\n"}
+,{"stream_name":"stdout","time":1329.208452453,"data":"llama_context: flash_attn    = 0\n"}
+,{"stream_name":"stdout","time":1329.208459221,"data":"llama_context: kv_unified    = false\n"}
+,{"stream_name":"stdout","time":1329.208463858,"data":"llama_context: freq_base     = 10000000.0\n"}
+,{"stream_name":"stdout","time":1329.208467392,"data":"llama_context: freq_scale    = 1\n"}
+,{"stream_name":"stdout","time":1329.208470812,"data":"llama_context: n_ctx_per_seq (8192) \u003c n_ctx_train (262144) -- the full capacity of the model will not be utilized\n"}
+,{"stream_name":"stdout","time":1329.208474774,"data":"set_abort_callback: call\n"}
+,{"stream_name":"stdout","time":1329.208478234,"data":"llama_context:  CUDA_Host  output buffer size =     0.58 MiB\n"}
+,{"stream_name":"stdout","time":1329.208481609,"data":"create_memory: n_ctx = 8192 (padded)\n"}
+,{"stream_name":"stdout","time":1329.208485535,"data":"llama_kv_cache_unified: layer   0: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208489259,"data":"llama_kv_cache_unified: layer   1: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208492721,"data":"llama_kv_cache_unified: layer   2: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208496369,"data":"llama_kv_cache_unified: layer   3: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208499951,"data":"llama_kv_cache_unified: layer   4: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208503547,"data":"llama_kv_cache_unified: layer   5: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208507137,"data":"llama_kv_cache_unified: layer   6: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208510777,"data":"llama_kv_cache_unified: layer   7: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208514315,"data":"llama_kv_cache_unified: layer   8: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208517957,"data":"llama_kv_cache_unified: layer   9: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208521581,"data":"llama_kv_cache_unified: layer  10: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208525205,"data":"llama_kv_cache_unified: layer  11: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208528858,"data":"llama_kv_cache_unified: layer  12: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208532419,"data":"llama_kv_cache_unified: layer  13: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208536031,"data":"llama_kv_cache_unified: layer  14: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208539276,"data":"llama_kv_cache_unified: layer  15: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208542945,"data":"llama_kv_cache_unified: layer  16: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208546519,"data":"llama_kv_cache_unified: layer  17: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208550133,"data":"llama_kv_cache_unified: layer  18: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208553691,"data":"llama_kv_cache_unified: layer  19: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208557263,"data":"llama_kv_cache_unified: layer  20: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208560841,"data":"llama_kv_cache_unified: layer  21: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208564391,"data":"llama_kv_cache_unified: layer  22: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208567986,"data":"llama_kv_cache_unified: layer  23: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208571748,"data":"llama_kv_cache_unified: layer  24: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.208575429,"data":"llama_kv_cache_unified: layer  25: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208579074,"data":"llama_kv_cache_unified: layer  26: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208582757,"data":"llama_kv_cache_unified: layer  27: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208589633,"data":"llama_kv_cache_unified: layer  28: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208593377,"data":"llama_kv_cache_unified: layer  29: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208597009,"data":"llama_kv_cache_unified: layer  30: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208600603,"data":"llama_kv_cache_unified: layer  31: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208604232,"data":"llama_kv_cache_unified: layer  32: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208607922,"data":"llama_kv_cache_unified: layer  33: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208611879,"data":"llama_kv_cache_unified: layer  34: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208615535,"data":"llama_kv_cache_unified: layer  35: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208619112,"data":"llama_kv_cache_unified: layer  36: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208622667,"data":"llama_kv_cache_unified: layer  37: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208626238,"data":"llama_kv_cache_unified: layer  38: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208629887,"data":"llama_kv_cache_unified: layer  39: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.20863353,"data":"llama_kv_cache_unified: layer  40: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208637193,"data":"llama_kv_cache_unified: layer  41: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208640764,"data":"llama_kv_cache_unified: layer  42: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208644331,"data":"llama_kv_cache_unified: layer  43: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208666751,"data":"llama_kv_cache_unified: layer  44: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208670513,"data":"llama_kv_cache_unified: layer  45: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208674137,"data":"llama_kv_cache_unified: layer  46: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208677761,"data":"llama_kv_cache_unified: layer  47: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.208681406,"data":"llama_kv_cache_unified:      CUDA0 KV buffer size =   400.00 MiB\n"}
+,{"stream_name":"stdout","time":1329.208685114,"data":"llama_kv_cache_unified:      CUDA1 KV buffer size =   368.00 MiB\n"}
+,{"stream_name":"stdout","time":1329.208688899,"data":"llama_kv_cache_unified: size =  768.00 MiB (  8192 cells,  48 layers,  1/1 seqs), K (f16):  384.00 MiB, V (f16):  384.00 MiB\n"}
+,{"stream_name":"stdout","time":1329.208692885,"data":"llama_context: enumerating backends\n"}
+,{"stream_name":"stdout","time":1329.208696447,"data":"llama_context: backend_ptrs.size() = 3\n"}
+,{"stream_name":"stdout","time":1329.208700011,"data":"llama_context: max_nodes = 4632\n"}
+,{"stream_name":"stdout","time":1329.208703613,"data":"llama_context: pipeline parallelism enabled (n_copies=4)\n"}
+,{"stream_name":"stdout","time":1329.208707367,"data":"llama_context: worst-case: n_tokens = 256, n_seqs = 1, n_outputs = 0\n"}
+,{"stream_name":"stdout","time":1329.208711319,"data":"graph_reserve: reserving a graph for ubatch with n_tokens =  256, n_seqs =  1, n_outputs =  256\n"}
+,{"stream_name":"stdout","time":1329.208715233,"data":"graph_reserve: reserving a graph for ubatch with n_tokens =    1, n_seqs =  1, n_outputs =    1\n"}
+,{"stream_name":"stdout","time":1329.208719113,"data":"graph_reserve: reserving a graph for ubatch with n_tokens =  256, n_seqs =  1, n_outputs =  256\n"}
+,{"stream_name":"stdout","time":1329.208722971,"data":"llama_context:      CUDA0 compute buffer size =   312.01 MiB\n"}
+,{"stream_name":"stdout","time":1329.208729986,"data":"llama_context:      CUDA1 compute buffer size =   312.02 MiB\n"}
+,{"stream_name":"stdout","time":1329.208733787,"data":"llama_context:  CUDA_Host compute buffer size =    38.02 MiB\n"}
+,{"stream_name":"stdout","time":1329.208737543,"data":"llama_context: graph nodes  = 3174\n"}
+,{"stream_name":"stdout","time":1329.208741128,"data":"llama_context: graph splits = 3\n"}
+,{"stream_name":"stdout","time":1329.208744801,"data":"CUDA : ARCHS = 750 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | \n"}
+,{"stream_name":"stdout","time":1329.208755459,"data":"Model metadata: {'general.quantization_version': '2', 'tokenizer.ggml.normalizer.nfc': 'true', 'tokenizer.ggml.add_eos_token': 'false', 'general.file_type': '15', 'qwen3moe.context_length': '262144', 'general.type': 'model', 'tokenizer.ggml.clean_spaces': 'false', 'qwen3moe.rope.freq_base': '10000000.000000', 'tokenizer.ggml.bos_token_id': '151643', 'general.name': 'Qwen3-Coder-30B-A3B-Instruct', 'qwen3moe.attention.layer_norm_rms_epsilon': '0.000001', 'qwen3moe.attention.key_length': '128', 'qwen3moe.embedding_length': '2048', 'tokenizer.ggml.padding_token_id': '151643', 'general.license': 'apache-2.0', 'qwen3moe.feed_forward_length': '6144', 'general.sampling.temp': '0.700000', 'general.sampling.top_p': '0.800000', 'general.sampling.penalty_repeat': '1.050000', 'general.size_label': '128x1.8B', 'tokenizer.ggml.add_bos_token': 'false', 'general.sampling.top_k': '20', 'qwen3moe.block_count': '48', 'qwen3moe.expert_count': '128', 'general.architecture': 'qwen3moe', 'qwen3moe.expert_feed_forward_length': '768', 'qwen3moe.attention.head_count': '32', 'tokenizer.ggml.eos_token_id': '151645', 'general.license.link': 'https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE', 'tokenizer.ggml.pre': 'qwen2', 'qwen3moe.attention.head_count_kv': '4', 'tokenizer.ggml.model': 'gpt2', 'qwen3moe.expert_used_count': '8', 'tokenizer.chat_template': '{% macro render_extra_keys(json_dict, handled_keys) %}\\n    {%- if json_dict is mapping %}\\n        {%- for json_key in json_dict if json_key not in handled_keys %}\\n            {%- if json_dict[json_key] is mapping or (json_dict[json_key] is sequence and json_dict[json_key] is not string) %}\\n                {{- \\'\\\\n\u003c\\' ~ json_key ~ \\'\u003e\\' ~ (json_dict[json_key] | tojson | safe) ~ \\'\u003c/\\' ~ json_key ~ \\'\u003e\\' }}\\n            {%- else %}\\n                {{-\\'\\\\n\u003c\\' ~ json_key ~ \\'\u003e\\' ~ (json_dict[json_key] | string) ~ \\'\u003c/\\' ~ json_key ~ \\'\u003e\\' }}\\n            {%- endif %}\\n        {%- endfor %}\\n    {%- endif %}\\n{% endmacro %}\\n\\n{%- if messages[0][\"role\"] == \"system\" %}\\n    {%- set system_message = messages[0][\"content\"] %}\\n    {%- set loop_messages = messages[1:] %}\\n{%- else %}\\n    {%- set loop_messages = messages %}\\n{%- endif %}\\n\\n{%- if not tools is defined %}\\n    {%- set tools = [] %}\\n{%- endif %}\\n\\n{%- if system_message is defined %}\\n    {{- \"\u003c|im_start|\u003esystem\\\\n\" + system_message }}\\n{%- else %}\\n    {%- if tools is iterable and tools | length \u003e 0 %}\\n        {{- \"\u003c|im_start|\u003esystem\\\\nYou are Qwen, a helpful AI assistant that can interact with a computer to solve tasks.\" }}\\n    {%- endif %}\\n{%- endif %}\\n{%- if tools is iterable and tools | length \u003e 0 %}\\n    {{- \"\\\\n\\\\n# Tools\\\\n\\\\nYou have access to the following functions:\\\\n\\\\n\" }}\\n    {{- \"\u003ctools\u003e\" }}\\n    {%- for tool in tools %}\\n        {%- if tool.function is defined %}\\n            {%- set tool = tool.function %}\\n        {%- endif %}\\n        {{- \"\\\\n\u003cfunction\u003e\\\\n\u003cname\u003e\" ~ tool.name ~ \"\u003c/name\u003e\" }}\\n        {%- if tool.description is defined %}\\n            {{- \\'\\\\n\u003cdescription\u003e\\' ~ (tool.description | trim) ~ \\'\u003c/description\u003e\\' }}\\n        {%- endif %}\\n        {{- \\'\\\\n\u003cparameters\u003e\\' }}\\n        {%- if tool.parameters is defined and tool.parameters is mapping and tool.parameters.properties is defined and tool.parameters.properties is mapping %}\\n            {%- for param_name, param_fields in tool.parameters.properties|items %}\\n                {{- \\'\\\\n\u003cparameter\u003e\\' }}\\n                {{- \\'\\\\n\u003cname\u003e\\' ~ param_name ~ \\'\u003c/name\u003e\\' }}\\n                {%- if param_fields.type is defined %}\\n                    {{- \\'\\\\n\u003ctype\u003e\\' ~ (param_fields.type | string) ~ \\'\u003c/type\u003e\\' }}\\n                {%- endif %}\\n                {%- if param_fields.description is defined %}\\n                    {{- \\'\\\\n\u003cdescription\u003e\\' ~ (param_fields.description | trim) ~ \\'\u003c/description\u003e\\' }}\\n                {%- endif %}\\n                {%- set handled_keys = [\\'name\\', \\'type\\', \\'description\\'] %}\\n                {{- render_extra_keys(param_fields, handled_keys) }}\\n                {{- \\'\\\\n\u003c/parameter\u003e\\' }}\\n            {%- endfor %}\\n        {%- endif %}\\n        {% set handled_keys = [\\'type\\', \\'properties\\'] %}\\n        {{- render_extra_keys(tool.parameters, handled_keys) }}\\n        {{- \\'\\\\n\u003c/parameters\u003e\\' }}\\n        {%- set handled_keys = [\\'type\\', \\'name\\', \\'description\\', \\'parameters\\'] %}\\n        {{- render_extra_keys(tool, handled_keys) }}\\n        {{- \\'\\\\n\u003c/function\u003e\\' }}\\n    {%- endfor %}\\n    {{- \"\\\\n\u003c/tools\u003e\" }}\\n    {{- \\'\\\\n\\\\nIf you choose to call a function ONLY reply in the following format with NO suffix:\\\\n\\\\n\u003ctool_call\u003e\\\\n\u003cfunction=example_function_name\u003e\\\\n\u003cparameter=example_parameter_1\u003e\\\\nvalue_1\\\\n\u003c/parameter\u003e\\\\n\u003cparameter=example_parameter_2\u003e\\\\nThis is the value for the second parameter\\\\nthat can span\\\\nmultiple lines\\\\n\u003c/parameter\u003e\\\\n\u003c/function\u003e\\\\n\u003c/tool_call\u003e\\\\n\\\\n\u003cIMPORTANT\u003e\\\\nReminder:\\\\n- Function calls MUST follow the specified format: an inner \u003cfunction=...\u003e\u003c/function\u003e block must be nested within \u003ctool_call\u003e\u003c/tool_call\u003e XML tags\\\\n- Required parameters MUST be specified\\\\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\\\\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\\\\n\u003c/IMPORTANT\u003e\\' }}\\n{%- endif %}\\n{%- if system_message is defined %}\\n    {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n{%- else %}\\n    {%- if tools is iterable and tools | length \u003e 0 %}\\n        {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n    {%- endif %}\\n{%- endif %}\\n{%- for message in loop_messages %}\\n    {%- if message.role == \"assistant\" and message.tool_calls is defined and message.tool_calls is iterable and message.tool_calls | length \u003e 0 %}\\n        {{- \\'\u003c|im_start|\u003e\\' + message.role }}\\n        {%- if message.content is defined and message.content is string and message.content | trim | length \u003e 0 %}\\n            {{- \\'\\\\n\\' + message.content | trim + \\'\\\\n\\' }}\\n        {%- endif %}\\n        {%- for tool_call in message.tool_calls %}\\n            {%- if tool_call.function is defined %}\\n                {%- set tool_call = tool_call.function %}\\n            {%- endif %}\\n            {{- \\'\\\\n\u003ctool_call\u003e\\\\n\u003cfunction=\\' + tool_call.name + \\'\u003e\\\\n\\' }}\\n            {%- if tool_call.arguments is defined %}\\n                {%- for args_name, args_value in tool_call.arguments|items %}\\n                    {{- \\'\u003cparameter=\\' + args_name + \\'\u003e\\\\n\\' }}\\n                    {%- set args_value = args_value | tojson | safe if args_value is mapping or (args_value is sequence and args_value is not string) else args_value | string %}\\n                    {{- args_value }}\\n                    {{- \\'\\\\n\u003c/parameter\u003e\\\\n\\' }}\\n                {%- endfor %}\\n            {%- endif %}\\n            {{- \\'\u003c/function\u003e\\\\n\u003c/tool_call\u003e\\' }}\\n        {%- endfor %}\\n        {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n    {%- elif message.role == \"user\" or message.role == \"system\" or message.role == \"assistant\" %}\\n        {{- \\'\u003c|im_start|\u003e\\' + message.role + \\'\\\\n\\' + message.content + \\'\u003c|im_end|\u003e\\' + \\'\\\\n\\' }}\\n    {%- elif message.role == \"tool\" %}\\n        {%- if loop.previtem and loop.previtem.role != \"tool\" %}\\n            {{- \\'\u003c|im_start|\u003euser\\\\n\\' }}\\n        {%- endif %}\\n        {{- \\'\u003ctool_response\u003e\\\\n\\' }}\\n        {{- message.content }}\\n        {{- \\'\\\\n\u003c/tool_response\u003e\\\\n\\' }}\\n        {%- if not loop.last and loop.nextitem.role != \"tool\" %}\\n            {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n        {%- elif loop.last %}\\n            {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n        {%- endif %}\\n    {%- else %}\\n        {{- \\'\u003c|im_start|\u003e\\' + message.role + \\'\\\\n\\' + message.content + \\'\u003c|im_end|\u003e\\\\n\\' }}\\n    {%- endif %}\\n{%- endfor %}\\n{%- if add_generation_prompt %}\\n    {{- \\'\u003c|im_start|\u003eassistant\\\\n\\' }}\\n{%- endif %}\\n', 'qwen3moe.attention.value_length': '128'}\n"}
+,{"stream_name":"stdout","time":1329.208828585,"data":"Available chat formats from metadata: chat_template.default\n"}
+,{"stream_name":"stdout","time":1329.208832598,"data":"Using gguf chat template: {% macro render_extra_keys(json_dict, handled_keys) %}\n"}
+,{"stream_name":"stdout","time":1329.208836505,"data":"    {%- if json_dict is mapping %}\n"}
+,{"stream_name":"stdout","time":1329.208840137,"data":"        {%- for json_key in json_dict if json_key not in handled_keys %}\n"}
+,{"stream_name":"stdout","time":1329.208843913,"data":"            {%- if json_dict[json_key] is mapping or (json_dict[json_key] is sequence and json_dict[json_key] is not string) %}\n"}
+,{"stream_name":"stdout","time":1329.208848177,"data":"                {{- '\\n\u003c' ~ json_key ~ '\u003e' ~ (json_dict[json_key] | tojson | safe) ~ '\u003c/' ~ json_key ~ '\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.208852469,"data":"            {%- else %}\n"}
+,{"stream_name":"stdout","time":1329.208856065,"data":"                {{-'\\n\u003c' ~ json_key ~ '\u003e' ~ (json_dict[json_key] | string) ~ '\u003c/' ~ json_key ~ '\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.208860207,"data":"            {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.208863802,"data":"        {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.208867397,"data":"    {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.208870964,"data":"{% endmacro %}\n"}
+,{"stream_name":"stdout","time":1329.20887446,"data":"\n"}
+,{"stream_name":"stdout","time":1329.208877964,"data":"{%- if messages[0][\"role\"] == \"system\" %}\n"}
+,{"stream_name":"stdout","time":1329.208881985,"data":"    {%- set system_message = messages[0][\"content\"] %}\n"}
+,{"stream_name":"stdout","time":1329.20888584,"data":"    {%- set loop_messages = messages[1:] %}\n"}
+,{"stream_name":"stdout","time":1329.208889483,"data":"{%- else %}\n"}
+,{"stream_name":"stdout","time":1329.208893001,"data":"    {%- set loop_messages = messages %}\n"}
+,{"stream_name":"stdout","time":1329.20889667,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.208900144,"data":"\n"}
+,{"stream_name":"stdout","time":1329.208903631,"data":"{%- if not tools is defined %}\n"}
+,{"stream_name":"stdout","time":1329.208907421,"data":"    {%- set tools = [] %}\n"}
+,{"stream_name":"stdout","time":1329.208913967,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.208917636,"data":"\n"}
+,{"stream_name":"stdout","time":1329.208921037,"data":"{%- if system_message is defined %}\n"}
+,{"stream_name":"stdout","time":1329.208924681,"data":"    {{- \"\u003c|im_start|\u003esystem\\n\" + system_message }}\n"}
+,{"stream_name":"stdout","time":1329.208928607,"data":"{%- else %}\n"}
+,{"stream_name":"stdout","time":1329.208932134,"data":"    {%- if tools is iterable and tools | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.208935921,"data":"        {{- \"\u003c|im_start|\u003esystem\\nYou are Qwen, a helpful AI assistant that can interact with a computer to solve tasks.\" }}\n"}
+,{"stream_name":"stdout","time":1329.208940136,"data":"    {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.208943667,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.208947189,"data":"{%- if tools is iterable and tools | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.208950965,"data":"    {{- \"\\n\\n# Tools\\n\\nYou have access to the following functions:\\n\\n\" }}\n"}
+,{"stream_name":"stdout","time":1329.208955102,"data":"    {{- \"\u003ctools\u003e\" }}\n"}
+,{"stream_name":"stdout","time":1329.20895884,"data":"    {%- for tool in tools %}\n"}
+,{"stream_name":"stdout","time":1329.208962417,"data":"        {%- if tool.function is defined %}\n"}
+,{"stream_name":"stdout","time":1329.208966089,"data":"            {%- set tool = tool.function %}\n"}
+,{"stream_name":"stdout","time":1329.208969722,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.208973253,"data":"        {{- \"\\n\u003cfunction\u003e\\n\u003cname\u003e\" ~ tool.name ~ \"\u003c/name\u003e\" }}\n"}
+,{"stream_name":"stdout","time":1329.208977475,"data":"        {%- if tool.description is defined %}\n"}
+,{"stream_name":"stdout","time":1329.208981137,"data":"            {{- '\\n\u003cdescription\u003e' ~ (tool.description | trim) ~ '\u003c/description\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.208985305,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.208988823,"data":"        {{- '\\n\u003cparameters\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.208992649,"data":"        {%- if tool.parameters is defined and tool.parameters is mapping and tool.parameters.properties is defined and tool.parameters.properties is mapping %}\n"}
+,{"stream_name":"stdout","time":1329.20899669,"data":"            {%- for param_name, param_fields in tool.parameters.properties|items %}\n"}
+,{"stream_name":"stdout","time":1329.209000473,"data":"                {{- '\\n\u003cparameter\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209004246,"data":"                {{- '\\n\u003cname\u003e' ~ param_name ~ '\u003c/name\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209008245,"data":"                {%- if param_fields.type is defined %}\n"}
+,{"stream_name":"stdout","time":1329.209012014,"data":"                    {{- '\\n\u003ctype\u003e' ~ (param_fields.type | string) ~ '\u003c/type\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209016014,"data":"                {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209019628,"data":"                {%- if param_fields.description is defined %}\n"}
+,{"stream_name":"stdout","time":1329.209023331,"data":"                    {{- '\\n\u003cdescription\u003e' ~ (param_fields.description | trim) ~ '\u003c/description\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209027611,"data":"                {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209031197,"data":"                {%- set handled_keys = ['name', 'type', 'description'] %}\n"}
+,{"stream_name":"stdout","time":1329.209034957,"data":"                {{- render_extra_keys(param_fields, handled_keys) }}\n"}
+,{"stream_name":"stdout","time":1329.209047545,"data":"                {{- '\\n\u003c/parameter\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209051408,"data":"            {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.209054992,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209058611,"data":"        {% set handled_keys = ['type', 'properties'] %}\n"}
+,{"stream_name":"stdout","time":1329.209062485,"data":"        {{- render_extra_keys(tool.parameters, handled_keys) }}\n"}
+,{"stream_name":"stdout","time":1329.209066255,"data":"        {{- '\\n\u003c/parameters\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209070038,"data":"        {%- set handled_keys = ['type', 'name', 'description', 'parameters'] %}\n"}
+,{"stream_name":"stdout","time":1329.209073751,"data":"        {{- render_extra_keys(tool, handled_keys) }}\n"}
+,{"stream_name":"stdout","time":1329.209077371,"data":"        {{- '\\n\u003c/function\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209081068,"data":"    {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.209084608,"data":"    {{- \"\\n\u003c/tools\u003e\" }}\n"}
+,{"stream_name":"stdout","time":1329.209088598,"data":"    {{- '\\n\\nIf you choose to call a function ONLY reply in the following format with NO suffix:\\n\\n\u003ctool_call\u003e\\n\u003cfunction=example_function_name\u003e\\n\u003cparameter=example_parameter_1\u003e\\nvalue_1\\n\u003c/parameter\u003e\\n\u003cparameter=example_parameter_2\u003e\\nThis is the value for the second parameter\\nthat can span\\nmultiple lines\\n\u003c/parameter\u003e\\n\u003c/function\u003e\\n\u003c/tool_call\u003e\\n\\n\u003cIMPORTANT\u003e\\nReminder:\\n- Function calls MUST follow the specified format: an inner \u003cfunction=...\u003e\u003c/function\u003e block must be nested within \u003ctool_call\u003e\u003c/tool_call\u003e XML tags\\n- Required parameters MUST be specified\\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\\n\u003c/IMPORTANT\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209097487,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209100992,"data":"{%- if system_message is defined %}\n"}
+,{"stream_name":"stdout","time":1329.209104569,"data":"    {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209108378,"data":"{%- else %}\n"}
+,{"stream_name":"stdout","time":1329.209111919,"data":"    {%- if tools is iterable and tools | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.209115643,"data":"        {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209119357,"data":"    {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209122899,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209126395,"data":"{%- for message in loop_messages %}\n"}
+,{"stream_name":"stdout","time":1329.209130055,"data":"    {%- if message.role == \"assistant\" and message.tool_calls is defined and message.tool_calls is iterable and message.tool_calls | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.209134283,"data":"        {{- '\u003c|im_start|\u003e' + message.role }}\n"}
+,{"stream_name":"stdout","time":1329.20913804,"data":"        {%- if message.content is defined and message.content is string and message.content | trim | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.209142548,"data":"            {{- '\\n' + message.content | trim + '\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209146416,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209152675,"data":"        {%- for tool_call in message.tool_calls %}\n"}
+,{"stream_name":"stdout","time":1329.209157593,"data":"            {%- if tool_call.function is defined %}\n"}
+,{"stream_name":"stdout","time":1329.209161268,"data":"                {%- set tool_call = tool_call.function %}\n"}
+,{"stream_name":"stdout","time":1329.209164937,"data":"            {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209168519,"data":"            {{- '\\n\u003ctool_call\u003e\\n\u003cfunction=' + tool_call.name + '\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.2091726,"data":"            {%- if tool_call.arguments is defined %}\n"}
+,{"stream_name":"stdout","time":1329.209176304,"data":"                {%- for args_name, args_value in tool_call.arguments|items %}\n"}
+,{"stream_name":"stdout","time":1329.209180126,"data":"                    {{- '\u003cparameter=' + args_name + '\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209184143,"data":"                    {%- set args_value = args_value | tojson | safe if args_value is mapping or (args_value is sequence and args_value is not string) else args_value | string %}\n"}
+,{"stream_name":"stdout","time":1329.209188229,"data":"                    {{- args_value }}\n"}
+,{"stream_name":"stdout","time":1329.209191839,"data":"                    {{- '\\n\u003c/parameter\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209195735,"data":"                {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.209199361,"data":"            {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209204223,"data":"            {{- '\u003c/function\u003e\\n\u003c/tool_call\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.209208113,"data":"        {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.209211684,"data":"        {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209215445,"data":"    {%- elif message.role == \"user\" or message.role == \"system\" or message.role == \"assistant\" %}\n"}
+,{"stream_name":"stdout","time":1329.209219691,"data":"        {{- '\u003c|im_start|\u003e' + message.role + '\\n' + message.content + '\u003c|im_end|\u003e' + '\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209223797,"data":"    {%- elif message.role == \"tool\" %}\n"}
+,{"stream_name":"stdout","time":1329.209227574,"data":"        {%- if loop.previtem and loop.previtem.role != \"tool\" %}\n"}
+,{"stream_name":"stdout","time":1329.209231382,"data":"            {{- '\u003c|im_start|\u003euser\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209235265,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209238769,"data":"        {{- '\u003ctool_response\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.2092425,"data":"        {{- message.content }}\n"}
+,{"stream_name":"stdout","time":1329.209246154,"data":"        {{- '\\n\u003c/tool_response\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209249952,"data":"        {%- if not loop.last and loop.nextitem.role != \"tool\" %}\n"}
+,{"stream_name":"stdout","time":1329.209253707,"data":"            {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209257465,"data":"        {%- elif loop.last %}\n"}
+,{"stream_name":"stdout","time":1329.209261064,"data":"            {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209264809,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209268385,"data":"    {%- else %}\n"}
+,{"stream_name":"stdout","time":1329.209271932,"data":"        {{- '\u003c|im_start|\u003e' + message.role + '\\n' + message.content + '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.209276015,"data":"    {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209282129,"data":"{%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.209285696,"data":"{%- if add_generation_prompt %}\n"}
+,{"stream_name":"stdout","time":1329.209289255,"data":"    {{- '\u003c|im_start|\u003eassistant\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.20929296,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.209296415,"data":"\n"}
+,{"stream_name":"stdout","time":1329.209299866,"data":"Using chat eos_token: \u003c|im_end|\u003e\n"}
+,{"stream_name":"stdout","time":1329.209303578,"data":"Using chat bos_token: \u003c|endoftext|\u003e\n"}
+,{"stream_name":"stdout","time":1329.209307303,"data":"\n"}
+,{"stream_name":"stdout","time":1329.411982713,"data":"llama_model_load_from_file_impl: using device CUDA0 (Tesla T4) - 14806 MiB free\n"}
+,{"stream_name":"stdout","time":1329.412013383,"data":"llama_model_load_from_file_impl: using device CUDA1 (Tesla T4) - 14704 MiB free\n"}
+,{"stream_name":"stdout","time":1329.412024547,"data":"llama_model_loader: loaded meta data with 39 key-value pairs and 579 tensors from /kaggle/input/notebooks/duchuynguyen1802/huy-qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf (version GGUF V3 (latest))\n"}
+,{"stream_name":"stdout","time":1329.412027962,"data":"llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.\n"}
+,{"stream_name":"stdout","time":1329.412030501,"data":"llama_model_loader: - kv   0:                       general.architecture str              = qwen3moe\n"}
+,{"stream_name":"stdout","time":1329.412033203,"data":"llama_model_loader: - kv   1:                               general.type str              = model\n"}
+,{"stream_name":"stdout","time":1329.412035801,"data":"llama_model_loader: - kv   2:                     general.sampling.top_k i32              = 20\n"}
+,{"stream_name":"stdout","time":1329.412039513,"data":"llama_model_loader: - kv   3:                     general.sampling.top_p f32              = 0.800000\n"}
+,{"stream_name":"stdout","time":1329.412044072,"data":"llama_model_loader: - kv   4:                      general.sampling.temp f32              = 0.700000\n"}
+,{"stream_name":"stdout","time":1329.41204675,"data":"llama_model_loader: - kv   5:            general.sampling.penalty_repeat f32              = 1.050000\n"}
+,{"stream_name":"stdout","time":1329.412049235,"data":"llama_model_loader: - kv   6:                               general.name str              = Qwen3-Coder-30B-A3B-Instruct\n"}
+,{"stream_name":"stdout","time":1329.412051903,"data":"llama_model_loader: - kv   7:                         general.size_label str              = 128x1.8B\n"}
+,{"stream_name":"stdout","time":1329.412054457,"data":"llama_model_loader: - kv   8:                            general.license str              = apache-2.0\n"}
+,{"stream_name":"stdout","time":1329.412056929,"data":"llama_model_loader: - kv   9:                       general.license.link str              = https://huggingface.co/Qwen/Qwen3-Cod...\n"}
+,{"stream_name":"stdout","time":1329.412059473,"data":"llama_model_loader: - kv  10:                               general.tags arr[str,1]       = [\"text-generation\"]\n"}
+,{"stream_name":"stdout","time":1329.412062078,"data":"llama_model_loader: - kv  11:                       qwen3moe.block_count u32              = 48\n"}
+,{"stream_name":"stdout","time":1329.412064919,"data":"llama_model_loader: - kv  12:                    qwen3moe.context_length u32              = 262144\n"}
+,{"stream_name":"stdout","time":1329.412067341,"data":"llama_model_loader: - kv  13:                  qwen3moe.embedding_length u32              = 2048\n"}
+,{"stream_name":"stdout","time":1329.412070517,"data":"llama_model_loader: - kv  14:               qwen3moe.feed_forward_length u32              = 6144\n"}
+,{"stream_name":"stdout","time":1329.412081413,"data":"llama_model_loader: - kv  15:              qwen3moe.attention.head_count u32              = 32\n"}
+,{"stream_name":"stdout","time":1329.412084084,"data":"llama_model_loader: - kv  16:           qwen3moe.attention.head_count_kv u32              = 4\n"}
+,{"stream_name":"stdout","time":1329.412086473,"data":"llama_model_loader: - kv  17:                    qwen3moe.rope.freq_base f32              = 10000000.000000\n"}
+,{"stream_name":"stdout","time":1329.412089,"data":"llama_model_loader: - kv  18:  qwen3moe.attention.layer_norm_rms_epsilon f32              = 0.000001\n"}
+,{"stream_name":"stdout","time":1329.412091426,"data":"llama_model_loader: - kv  19:                      qwen3moe.expert_count u32              = 128\n"}
+,{"stream_name":"stdout","time":1329.412093853,"data":"llama_model_loader: - kv  20:                 qwen3moe.expert_used_count u32              = 8\n"}
+,{"stream_name":"stdout","time":1329.412096261,"data":"llama_model_loader: - kv  21:              qwen3moe.attention.key_length u32              = 128\n"}
+,{"stream_name":"stdout","time":1329.412098985,"data":"llama_model_loader: - kv  22:            qwen3moe.attention.value_length u32              = 128\n"}
+,{"stream_name":"stdout","time":1329.412101384,"data":"llama_model_loader: - kv  23:        qwen3moe.expert_feed_forward_length u32              = 768\n"}
+,{"stream_name":"stdout","time":1329.412103987,"data":"llama_model_loader: - kv  24:                       tokenizer.ggml.model str              = gpt2\n"}
+,{"stream_name":"stdout","time":1329.412106891,"data":"llama_model_loader: - kv  25:                         tokenizer.ggml.pre str              = qwen2\n"}
+,{"stream_name":"stdout","time":1329.412109491,"data":"llama_model_loader: - kv  26:                      tokenizer.ggml.tokens arr[str,151936]  = [\"!\", \"\\\"\", \"#\", \"$\", \"%\", \"\u0026\", \"'\", ...\n"}
+,{"stream_name":"stdout","time":1329.412112966,"data":"llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,151936]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...\n"}
+,{"stream_name":"stdout","time":1329.412115519,"data":"llama_model_loader: - kv  28:                      tokenizer.ggml.merges arr[str,151387]  = [\"Ġ Ġ\", \"ĠĠ ĠĠ\", \"i n\", \"Ġ t\",...\n"}
+,{"stream_name":"stdout","time":1329.412119352,"data":"llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 151645\n"}
+,{"stream_name":"stdout","time":1329.412121781,"data":"llama_model_loader: - kv  30:            tokenizer.ggml.padding_token_id u32              = 151643\n"}
+,{"stream_name":"stdout","time":1329.412124197,"data":"llama_model_loader: - kv  31:                tokenizer.ggml.bos_token_id u32              = 151643\n"}
+,{"stream_name":"stdout","time":1329.412126605,"data":"llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false\n"}
+,{"stream_name":"stdout","time":1329.412129032,"data":"llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false\n"}
+,{"stream_name":"stdout","time":1329.41213166,"data":"llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% macro render_extra_keys(json_dict,...\n"}
+,{"stream_name":"stdout","time":1329.412134127,"data":"llama_model_loader: - kv  35:              tokenizer.ggml.normalizer.nfc bool             = true\n"}
+,{"stream_name":"stdout","time":1329.412136555,"data":"llama_model_loader: - kv  36:                tokenizer.ggml.clean_spaces bool             = false\n"}
+,{"stream_name":"stdout","time":1329.412138982,"data":"llama_model_loader: - kv  37:               general.quantization_version u32              = 2\n"}
+,{"stream_name":"stdout","time":1329.412143892,"data":"llama_model_loader: - kv  38:                          general.file_type u32              = 15\n"}
+,{"stream_name":"stdout","time":1329.412146525,"data":"llama_model_loader: - type  f32:  241 tensors\n"}
+,{"stream_name":"stdout","time":1329.412148831,"data":"llama_model_loader: - type q8_0:  194 tensors\n"}
+,{"stream_name":"stdout","time":1329.412151157,"data":"llama_model_loader: - type q4_K:  144 tensors\n"}
+,{"stream_name":"stdout","time":1329.412153473,"data":"print_info: file format = GGUF V3 (latest)\n"}
+,{"stream_name":"stdout","time":1329.412155788,"data":"print_info: file type   = Q4_K - Medium\n"}
+,{"stream_name":"stdout","time":1329.412158075,"data":"print_info: file size   = 16.75 GiB (4.71 BPW) \n"}
+,{"stream_name":"stdout","time":1329.412160428,"data":"init_tokenizer: initializing tokenizer for type 2\n"}
+,{"stream_name":"stdout","time":1329.412162797,"data":"load: control token: 151660 '\u003c|fim_middle|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412165369,"data":"load: control token: 151659 '\u003c|fim_prefix|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412167853,"data":"load: control token: 151653 '\u003c|vision_end|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412170275,"data":"load: control token: 151648 '\u003c|box_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412172736,"data":"load: control token: 151646 '\u003c|object_ref_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412175235,"data":"load: control token: 151649 '\u003c|box_end|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412177711,"data":"load: control token: 151655 '\u003c|image_pad|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412180168,"data":"load: control token: 151651 '\u003c|quad_end|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412182638,"data":"load: control token: 151647 '\u003c|object_ref_end|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412185101,"data":"load: control token: 151652 '\u003c|vision_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412187572,"data":"load: control token: 151654 '\u003c|vision_pad|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412190004,"data":"load: control token: 151656 '\u003c|video_pad|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412192443,"data":"load: control token: 151644 '\u003c|im_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412195049,"data":"load: control token: 151661 '\u003c|fim_suffix|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412197485,"data":"load: control token: 151650 '\u003c|quad_start|\u003e' is not marked as EOG\n"}
+,{"stream_name":"stdout","time":1329.412199935,"data":"load: printing all EOG tokens:\n"}
+,{"stream_name":"stdout","time":1329.412202247,"data":"load:   - 151643 ('\u003c|endoftext|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.412204736,"data":"load:   - 151645 ('\u003c|im_end|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.412207205,"data":"load:   - 151662 ('\u003c|fim_pad|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.412209628,"data":"load:   - 151663 ('\u003c|repo_name|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.412212014,"data":"load:   - 151664 ('\u003c|file_sep|\u003e')\n"}
+,{"stream_name":"stdout","time":1329.41221439,"data":"load: special tokens cache size = 26\n"}
+,{"stream_name":"stdout","time":1329.412216741,"data":"load: token to piece cache size = 0.9311 MB\n"}
+,{"stream_name":"stdout","time":1329.412219418,"data":"print_info: arch             = qwen3moe\n"}
+,{"stream_name":"stdout","time":1329.412223934,"data":"print_info: vocab_only       = 0\n"}
+,{"stream_name":"stdout","time":1329.412226369,"data":"print_info: n_ctx_train      = 262144\n"}
+,{"stream_name":"stdout","time":1329.412228691,"data":"print_info: n_embd           = 2048\n"}
+,{"stream_name":"stdout","time":1329.41223099,"data":"print_info: n_layer          = 48\n"}
+,{"stream_name":"stdout","time":1329.412233278,"data":"print_info: n_head           = 32\n"}
+,{"stream_name":"stdout","time":1329.412235579,"data":"print_info: n_head_kv        = 4\n"}
+,{"stream_name":"stdout","time":1329.412237891,"data":"print_info: n_rot            = 128\n"}
+,{"stream_name":"stdout","time":1329.412240211,"data":"print_info: n_swa            = 0\n"}
+,{"stream_name":"stdout","time":1329.412242511,"data":"print_info: is_swa_any       = 0\n"}
+,{"stream_name":"stdout","time":1329.412244784,"data":"print_info: n_embd_head_k    = 128\n"}
+,{"stream_name":"stdout","time":1329.412247092,"data":"print_info: n_embd_head_v    = 128\n"}
+,{"stream_name":"stdout","time":1329.412249384,"data":"print_info: n_gqa            = 8\n"}
+,{"stream_name":"stdout","time":1329.412251669,"data":"print_info: n_embd_k_gqa     = 512\n"}
+,{"stream_name":"stdout","time":1329.412253951,"data":"print_info: n_embd_v_gqa     = 512\n"}
+,{"stream_name":"stdout","time":1329.412267835,"data":"print_info: f_norm_eps       = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.412270237,"data":"print_info: f_norm_rms_eps   = 1.0e-06\n"}
+,{"stream_name":"stdout","time":1329.412272412,"data":"print_info: f_clamp_kqv      = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.41227475,"data":"print_info: f_max_alibi_bias = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.412276947,"data":"print_info: f_logit_scale    = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.412279198,"data":"print_info: f_attn_scale     = 0.0e+00\n"}
+,{"stream_name":"stdout","time":1329.412281471,"data":"print_info: n_ff             = 6144\n"}
+,{"stream_name":"stdout","time":1329.412283626,"data":"print_info: n_expert         = 128\n"}
+,{"stream_name":"stdout","time":1329.412285858,"data":"print_info: n_expert_used    = 8\n"}
+,{"stream_name":"stdout","time":1329.412288003,"data":"print_info: causal attn      = 1\n"}
+,{"stream_name":"stdout","time":1329.41229024,"data":"print_info: pooling type     = 0\n"}
+,{"stream_name":"stdout","time":1329.412292411,"data":"print_info: rope type        = 2\n"}
+,{"stream_name":"stdout","time":1329.412294562,"data":"print_info: rope scaling     = linear\n"}
+,{"stream_name":"stdout","time":1329.412296718,"data":"print_info: freq_base_train  = 10000000.0\n"}
+,{"stream_name":"stdout","time":1329.412298957,"data":"print_info: freq_scale_train = 1\n"}
+,{"stream_name":"stdout","time":1329.412301094,"data":"print_info: n_ctx_orig_yarn  = 262144\n"}
+,{"stream_name":"stdout","time":1329.412303282,"data":"print_info: rope_finetuned   = unknown\n"}
+,{"stream_name":"stdout","time":1329.412305438,"data":"print_info: model type       = 30B.A3B\n"}
+,{"stream_name":"stdout","time":1329.412307668,"data":"print_info: model params     = 30.53 B\n"}
+,{"stream_name":"stdout","time":1329.412309834,"data":"print_info: general.name     = Qwen3-Coder-30B-A3B-Instruct\n"}
+,{"stream_name":"stdout","time":1329.412312022,"data":"print_info: n_ff_exp         = 768\n"}
+,{"stream_name":"stdout","time":1329.412314172,"data":"print_info: vocab type       = BPE\n"}
+,{"stream_name":"stdout","time":1329.412316387,"data":"print_info: n_vocab          = 151936\n"}
+,{"stream_name":"stdout","time":1329.412318552,"data":"print_info: n_merges         = 151387\n"}
+,{"stream_name":"stdout","time":1329.412323342,"data":"print_info: BOS token        = 151643 '\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412325743,"data":"print_info: EOS token        = 151645 '\u003c|im_end|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.41232803,"data":"print_info: EOT token        = 151645 '\u003c|im_end|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412330308,"data":"print_info: PAD token        = 151643 '\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412332567,"data":"print_info: LF token         = 198 'Ċ'\n"}
+,{"stream_name":"stdout","time":1329.412334729,"data":"print_info: FIM PRE token    = 151659 '\u003c|fim_prefix|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412337007,"data":"print_info: FIM SUF token    = 151661 '\u003c|fim_suffix|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412339271,"data":"print_info: FIM MID token    = 151660 '\u003c|fim_middle|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.41234151,"data":"print_info: FIM PAD token    = 151662 '\u003c|fim_pad|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412343754,"data":"print_info: FIM REP token    = 151663 '\u003c|repo_name|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.41234601,"data":"print_info: FIM SEP token    = 151664 '\u003c|file_sep|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412348292,"data":"print_info: EOG token        = 151643 '\u003c|endoftext|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412350803,"data":"print_info: EOG token        = 151645 '\u003c|im_end|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412353205,"data":"print_info: EOG token        = 151662 '\u003c|fim_pad|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412355541,"data":"print_info: EOG token        = 151663 '\u003c|repo_name|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412357813,"data":"print_info: EOG token        = 151664 '\u003c|file_sep|\u003e'\n"}
+,{"stream_name":"stdout","time":1329.412360063,"data":"print_info: max token length = 256\n"}
+,{"stream_name":"stdout","time":1329.41236223,"data":"load_tensors: loading model tensors, this can take a while... (mmap = true)\n"}
+,{"stream_name":"stdout","time":1329.412364473,"data":"load_tensors: layer   0 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41236669,"data":"load_tensors: layer   1 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412368901,"data":"load_tensors: layer   2 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412371102,"data":"load_tensors: layer   3 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412373292,"data":"load_tensors: layer   4 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412375478,"data":"load_tensors: layer   5 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412377677,"data":"load_tensors: layer   6 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412379873,"data":"load_tensors: layer   7 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412382055,"data":"load_tensors: layer   8 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412384245,"data":"load_tensors: layer   9 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412386436,"data":"load_tensors: layer  10 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412388631,"data":"load_tensors: layer  11 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412390817,"data":"load_tensors: layer  12 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412393131,"data":"load_tensors: layer  13 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412397264,"data":"load_tensors: layer  14 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412399521,"data":"load_tensors: layer  15 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412401683,"data":"load_tensors: layer  16 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41240387,"data":"load_tensors: layer  17 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412406053,"data":"load_tensors: layer  18 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41240824,"data":"load_tensors: layer  19 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41241045,"data":"load_tensors: layer  20 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412412633,"data":"load_tensors: layer  21 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412414811,"data":"load_tensors: layer  22 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412417,"data":"load_tensors: layer  23 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412419182,"data":"load_tensors: layer  24 assigned to device CUDA0, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412421355,"data":"load_tensors: layer  25 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412423537,"data":"load_tensors: layer  26 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412425718,"data":"load_tensors: layer  27 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412428155,"data":"load_tensors: layer  28 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.4124441,"data":"load_tensors: layer  29 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412448044,"data":"load_tensors: layer  30 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412451845,"data":"load_tensors: layer  31 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41245515,"data":"load_tensors: layer  32 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412459102,"data":"load_tensors: layer  33 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412462938,"data":"load_tensors: layer  34 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412466374,"data":"load_tensors: layer  35 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41246967,"data":"load_tensors: layer  36 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412472909,"data":"load_tensors: layer  37 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412476251,"data":"load_tensors: layer  38 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412485303,"data":"load_tensors: layer  39 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41248776,"data":"load_tensors: layer  40 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412489981,"data":"load_tensors: layer  41 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412492193,"data":"load_tensors: layer  42 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412494395,"data":"load_tensors: layer  43 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412496604,"data":"load_tensors: layer  44 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412501535,"data":"load_tensors: layer  45 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41250383,"data":"load_tensors: layer  46 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.41250602,"data":"load_tensors: layer  47 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412508215,"data":"load_tensors: layer  48 assigned to device CUDA1, is_swa = 0\n"}
+,{"stream_name":"stdout","time":1329.412510473,"data":"load_tensors: tensor 'token_embd.weight' (q8_0) (and 0 others) cannot be used with preferred buffer type CUDA_Host, using CPU instead\n"}
+,{"stream_name":"stdout","time":1329.412512827,"data":"load_tensors: offloading 48 repeating layers to GPU\n"}
+,{"stream_name":"stdout","time":1329.41251501,"data":"load_tensors: offloading output layer to GPU\n"}
+,{"stream_name":"stdout","time":1329.412517183,"data":"load_tensors: offloaded 49/49 layers to GPU\n"}
+,{"stream_name":"stdout","time":1329.412519446,"data":"load_tensors:        CUDA0 model buffer size =  8603.55 MiB\n"}
+,{"stream_name":"stdout","time":1329.412521635,"data":"load_tensors:        CUDA1 model buffer size =  8230.57 MiB\n"}
+,{"stream_name":"stdout","time":1329.412523818,"data":"load_tensors:   CPU_Mapped model buffer size =   315.30 MiB\n"}
+,{"stream_name":"stdout","time":1329.412526038,"data":"..................................................................................................\n"}
+,{"stream_name":"stdout","time":1329.41252911,"data":"llama_context: constructing llama_context\n"}
+,{"stream_name":"stdout","time":1329.412549657,"data":"llama_context: n_seq_max     = 1\n"}
+,{"stream_name":"stdout","time":1329.412553411,"data":"llama_context: n_ctx         = 8192\n"}
+,{"stream_name":"stdout","time":1329.41255722,"data":"llama_context: n_ctx_per_seq = 8192\n"}
+,{"stream_name":"stdout","time":1329.412560779,"data":"llama_context: n_batch       = 256\n"}
+,{"stream_name":"stdout","time":1329.412564003,"data":"llama_context: n_ubatch      = 256\n"}
+,{"stream_name":"stdout","time":1329.412567571,"data":"llama_context: causal_attn   = 1\n"}
+,{"stream_name":"stdout","time":1329.412571171,"data":"llama_context: flash_attn    = 0\n"}
+,{"stream_name":"stdout","time":1329.412574332,"data":"llama_context: kv_unified    = false\n"}
+,{"stream_name":"stdout","time":1329.412577564,"data":"llama_context: freq_base     = 10000000.0\n"}
+,{"stream_name":"stdout","time":1329.412580783,"data":"llama_context: freq_scale    = 1\n"}
+,{"stream_name":"stdout","time":1329.412585825,"data":"llama_context: n_ctx_per_seq (8192) \u003c n_ctx_train (262144) -- the full capacity of the model will not be utilized\n"}
+,{"stream_name":"stdout","time":1329.412593452,"data":"set_abort_callback: call\n"}
+,{"stream_name":"stdout","time":1329.412595742,"data":"llama_context:  CUDA_Host  output buffer size =     0.58 MiB\n"}
+,{"stream_name":"stdout","time":1329.412597997,"data":"create_memory: n_ctx = 8192 (padded)\n"}
+,{"stream_name":"stdout","time":1329.412600201,"data":"llama_kv_cache_unified: layer   0: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412602431,"data":"llama_kv_cache_unified: layer   1: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412604621,"data":"llama_kv_cache_unified: layer   2: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412609948,"data":"llama_kv_cache_unified: layer   3: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412612325,"data":"llama_kv_cache_unified: layer   4: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412614628,"data":"llama_kv_cache_unified: layer   5: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412619758,"data":"llama_kv_cache_unified: layer   6: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412622066,"data":"llama_kv_cache_unified: layer   7: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412624712,"data":"llama_kv_cache_unified: layer   8: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.41264041,"data":"llama_kv_cache_unified: layer   9: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412644922,"data":"llama_kv_cache_unified: layer  10: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412648751,"data":"llama_kv_cache_unified: layer  11: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412652793,"data":"llama_kv_cache_unified: layer  12: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412672737,"data":"llama_kv_cache_unified: layer  13: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412676202,"data":"llama_kv_cache_unified: layer  14: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412679495,"data":"llama_kv_cache_unified: layer  15: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412682794,"data":"llama_kv_cache_unified: layer  16: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412686107,"data":"llama_kv_cache_unified: layer  17: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412689323,"data":"llama_kv_cache_unified: layer  18: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412692653,"data":"llama_kv_cache_unified: layer  19: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412696863,"data":"llama_kv_cache_unified: layer  20: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412700278,"data":"llama_kv_cache_unified: layer  21: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412703513,"data":"llama_kv_cache_unified: layer  22: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412706785,"data":"llama_kv_cache_unified: layer  23: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412714843,"data":"llama_kv_cache_unified: layer  24: dev = CUDA0\n"}
+,{"stream_name":"stdout","time":1329.412717535,"data":"llama_kv_cache_unified: layer  25: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412719731,"data":"llama_kv_cache_unified: layer  26: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412721934,"data":"llama_kv_cache_unified: layer  27: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412724199,"data":"llama_kv_cache_unified: layer  28: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412726399,"data":"llama_kv_cache_unified: layer  29: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412728595,"data":"llama_kv_cache_unified: layer  30: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.41274384,"data":"llama_kv_cache_unified: layer  31: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412747885,"data":"llama_kv_cache_unified: layer  32: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412752021,"data":"llama_kv_cache_unified: layer  33: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412755483,"data":"llama_kv_cache_unified: layer  34: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412760587,"data":"llama_kv_cache_unified: layer  35: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412764065,"data":"llama_kv_cache_unified: layer  36: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412767329,"data":"llama_kv_cache_unified: layer  37: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412770641,"data":"llama_kv_cache_unified: layer  38: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412773895,"data":"llama_kv_cache_unified: layer  39: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412777172,"data":"llama_kv_cache_unified: layer  40: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412784028,"data":"llama_kv_cache_unified: layer  41: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412787427,"data":"llama_kv_cache_unified: layer  42: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412790572,"data":"llama_kv_cache_unified: layer  43: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412793916,"data":"llama_kv_cache_unified: layer  44: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.41279722,"data":"llama_kv_cache_unified: layer  45: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412800421,"data":"llama_kv_cache_unified: layer  46: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412803672,"data":"llama_kv_cache_unified: layer  47: dev = CUDA1\n"}
+,{"stream_name":"stdout","time":1329.412806928,"data":"llama_kv_cache_unified:      CUDA0 KV buffer size =   400.00 MiB\n"}
+,{"stream_name":"stdout","time":1329.412810272,"data":"llama_kv_cache_unified:      CUDA1 KV buffer size =   368.00 MiB\n"}
+,{"stream_name":"stdout","time":1329.412813573,"data":"llama_kv_cache_unified: size =  768.00 MiB (  8192 cells,  48 layers,  1/1 seqs), K (f16):  384.00 MiB, V (f16):  384.00 MiB\n"}
+,{"stream_name":"stdout","time":1329.41282217,"data":"llama_context: enumerating backends\n"}
+,{"stream_name":"stdout","time":1329.41282496,"data":"llama_context: backend_ptrs.size() = 3\n"}
+,{"stream_name":"stdout","time":1329.412827908,"data":"llama_context: max_nodes = 4632\n"}
+,{"stream_name":"stdout","time":1329.412841638,"data":"llama_context: pipeline parallelism enabled (n_copies=4)\n"}
+,{"stream_name":"stdout","time":1329.412845697,"data":"llama_context: worst-case: n_tokens = 256, n_seqs = 1, n_outputs = 0\n"}
+,{"stream_name":"stdout","time":1329.412849667,"data":"graph_reserve: reserving a graph for ubatch with n_tokens =  256, n_seqs =  1, n_outputs =  256\n"}
+,{"stream_name":"stdout","time":1329.412853653,"data":"graph_reserve: reserving a graph for ubatch with n_tokens =    1, n_seqs =  1, n_outputs =    1\n"}
+,{"stream_name":"stdout","time":1329.412857485,"data":"graph_reserve: reserving a graph for ubatch with n_tokens =  256, n_seqs =  1, n_outputs =  256\n"}
+,{"stream_name":"stdout","time":1329.412860989,"data":"llama_context:      CUDA0 compute buffer size =   312.01 MiB\n"}
+,{"stream_name":"stdout","time":1329.412864321,"data":"llama_context:      CUDA1 compute buffer size =   312.02 MiB\n"}
+,{"stream_name":"stdout","time":1329.412867599,"data":"llama_context:  CUDA_Host compute buffer size =    38.02 MiB\n"}
+,{"stream_name":"stdout","time":1329.412870882,"data":"llama_context: graph nodes  = 3174\n"}
+,{"stream_name":"stdout","time":1329.412874117,"data":"llama_context: graph splits = 3\n"}
+,{"stream_name":"stdout","time":1329.412877448,"data":"CUDA : ARCHS = 750 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | \n"}
+,{"stream_name":"stdout","time":1329.412884764,"data":"Model metadata: {'general.quantization_version': '2', 'tokenizer.ggml.normalizer.nfc': 'true', 'tokenizer.ggml.add_eos_token': 'false', 'general.file_type': '15', 'qwen3moe.context_length': '262144', 'general.type': 'model', 'tokenizer.ggml.clean_spaces': 'false', 'qwen3moe.rope.freq_base': '10000000.000000', 'tokenizer.ggml.bos_token_id': '151643', 'general.name': 'Qwen3-Coder-30B-A3B-Instruct', 'qwen3moe.attention.layer_norm_rms_epsilon': '0.000001', 'qwen3moe.attention.key_length': '128', 'qwen3moe.embedding_length': '2048', 'tokenizer.ggml.padding_token_id': '151643', 'general.license': 'apache-2.0', 'qwen3moe.feed_forward_length': '6144', 'general.sampling.temp': '0.700000', 'general.sampling.top_p': '0.800000', 'general.sampling.penalty_repeat': '1.050000', 'general.size_label': '128x1.8B', 'tokenizer.ggml.add_bos_token': 'false', 'general.sampling.top_k': '20', 'qwen3moe.block_count': '48', 'qwen3moe.expert_count': '128', 'general.architecture': 'qwen3moe', 'qwen3moe.expert_feed_forward_length': '768', 'qwen3moe.attention.head_count': '32', 'tokenizer.ggml.eos_token_id': '151645', 'general.license.link': 'https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE', 'tokenizer.ggml.pre': 'qwen2', 'qwen3moe.attention.head_count_kv': '4', 'tokenizer.ggml.model': 'gpt2', 'qwen3moe.expert_used_count': '8', 'tokenizer.chat_template': '{% macro render_extra_keys(json_dict, handled_keys) %}\\n    {%- if json_dict is mapping %}\\n        {%- for json_key in json_dict if json_key not in handled_keys %}\\n            {%- if json_dict[json_key] is mapping or (json_dict[json_key] is sequence and json_dict[json_key] is not string) %}\\n                {{- \\'\\\\n\u003c\\' ~ json_key ~ \\'\u003e\\' ~ (json_dict[json_key] | tojson | safe) ~ \\'\u003c/\\' ~ json_key ~ \\'\u003e\\' }}\\n            {%- else %}\\n                {{-\\'\\\\n\u003c\\' ~ json_key ~ \\'\u003e\\' ~ (json_dict[json_key] | string) ~ \\'\u003c/\\' ~ json_key ~ \\'\u003e\\' }}\\n            {%- endif %}\\n        {%- endfor %}\\n    {%- endif %}\\n{% endmacro %}\\n\\n{%- if messages[0][\"role\"] == \"system\" %}\\n    {%- set system_message = messages[0][\"content\"] %}\\n    {%- set loop_messages = messages[1:] %}\\n{%- else %}\\n    {%- set loop_messages = messages %}\\n{%- endif %}\\n\\n{%- if not tools is defined %}\\n    {%- set tools = [] %}\\n{%- endif %}\\n\\n{%- if system_message is defined %}\\n    {{- \"\u003c|im_start|\u003esystem\\\\n\" + system_message }}\\n{%- else %}\\n    {%- if tools is iterable and tools | length \u003e 0 %}\\n        {{- \"\u003c|im_start|\u003esystem\\\\nYou are Qwen, a helpful AI assistant that can interact with a computer to solve tasks.\" }}\\n    {%- endif %}\\n{%- endif %}\\n{%- if tools is iterable and tools | length \u003e 0 %}\\n    {{- \"\\\\n\\\\n# Tools\\\\n\\\\nYou have access to the following functions:\\\\n\\\\n\" }}\\n    {{- \"\u003ctools\u003e\" }}\\n    {%- for tool in tools %}\\n        {%- if tool.function is defined %}\\n            {%- set tool = tool.function %}\\n        {%- endif %}\\n        {{- \"\\\\n\u003cfunction\u003e\\\\n\u003cname\u003e\" ~ tool.name ~ \"\u003c/name\u003e\" }}\\n        {%- if tool.description is defined %}\\n            {{- \\'\\\\n\u003cdescription\u003e\\' ~ (tool.description | trim) ~ \\'\u003c/description\u003e\\' }}\\n        {%- endif %}\\n        {{- \\'\\\\n\u003cparameters\u003e\\' }}\\n        {%- if tool.parameters is defined and tool.parameters is mapping and tool.parameters.properties is defined and tool.parameters.properties is mapping %}\\n            {%- for param_name, param_fields in tool.parameters.properties|items %}\\n                {{- \\'\\\\n\u003cparameter\u003e\\' }}\\n                {{- \\'\\\\n\u003cname\u003e\\' ~ param_name ~ \\'\u003c/name\u003e\\' }}\\n                {%- if param_fields.type is defined %}\\n                    {{- \\'\\\\n\u003ctype\u003e\\' ~ (param_fields.type | string) ~ \\'\u003c/type\u003e\\' }}\\n                {%- endif %}\\n                {%- if param_fields.description is defined %}\\n                    {{- \\'\\\\n\u003cdescription\u003e\\' ~ (param_fields.description | trim) ~ \\'\u003c/description\u003e\\' }}\\n                {%- endif %}\\n                {%- set handled_keys = [\\'name\\', \\'type\\', \\'description\\'] %}\\n                {{- render_extra_keys(param_fields, handled_keys) }}\\n                {{- \\'\\\\n\u003c/parameter\u003e\\' }}\\n            {%- endfor %}\\n        {%- endif %}\\n        {% set handled_keys = [\\'type\\', \\'properties\\'] %}\\n        {{- render_extra_keys(tool.parameters, handled_keys) }}\\n        {{- \\'\\\\n\u003c/parameters\u003e\\' }}\\n        {%- set handled_keys = [\\'type\\', \\'name\\', \\'description\\', \\'parameters\\'] %}\\n        {{- render_extra_keys(tool, handled_keys) }}\\n        {{- \\'\\\\n\u003c/function\u003e\\' }}\\n    {%- endfor %}\\n    {{- \"\\\\n\u003c/tools\u003e\" }}\\n    {{- \\'\\\\n\\\\nIf you choose to call a function ONLY reply in the following format with NO suffix:\\\\n\\\\n\u003ctool_call\u003e\\\\n\u003cfunction=example_function_name\u003e\\\\n\u003cparameter=example_parameter_1\u003e\\\\nvalue_1\\\\n\u003c/parameter\u003e\\\\n\u003cparameter=example_parameter_2\u003e\\\\nThis is the value for the second parameter\\\\nthat can span\\\\nmultiple lines\\\\n\u003c/parameter\u003e\\\\n\u003c/function\u003e\\\\n\u003c/tool_call\u003e\\\\n\\\\n\u003cIMPORTANT\u003e\\\\nReminder:\\\\n- Function calls MUST follow the specified format: an inner \u003cfunction=...\u003e\u003c/function\u003e block must be nested within \u003ctool_call\u003e\u003c/tool_call\u003e XML tags\\\\n- Required parameters MUST be specified\\\\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\\\\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\\\\n\u003c/IMPORTANT\u003e\\' }}\\n{%- endif %}\\n{%- if system_message is defined %}\\n    {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n{%- else %}\\n    {%- if tools is iterable and tools | length \u003e 0 %}\\n        {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n    {%- endif %}\\n{%- endif %}\\n{%- for message in loop_messages %}\\n    {%- if message.role == \"assistant\" and message.tool_calls is defined and message.tool_calls is iterable and message.tool_calls | length \u003e 0 %}\\n        {{- \\'\u003c|im_start|\u003e\\' + message.role }}\\n        {%- if message.content is defined and message.content is string and message.content | trim | length \u003e 0 %}\\n            {{- \\'\\\\n\\' + message.content | trim + \\'\\\\n\\' }}\\n        {%- endif %}\\n        {%- for tool_call in message.tool_calls %}\\n            {%- if tool_call.function is defined %}\\n                {%- set tool_call = tool_call.function %}\\n            {%- endif %}\\n            {{- \\'\\\\n\u003ctool_call\u003e\\\\n\u003cfunction=\\' + tool_call.name + \\'\u003e\\\\n\\' }}\\n            {%- if tool_call.arguments is defined %}\\n                {%- for args_name, args_value in tool_call.arguments|items %}\\n                    {{- \\'\u003cparameter=\\' + args_name + \\'\u003e\\\\n\\' }}\\n                    {%- set args_value = args_value | tojson | safe if args_value is mapping or (args_value is sequence and args_value is not string) else args_value | string %}\\n                    {{- args_value }}\\n                    {{- \\'\\\\n\u003c/parameter\u003e\\\\n\\' }}\\n                {%- endfor %}\\n            {%- endif %}\\n            {{- \\'\u003c/function\u003e\\\\n\u003c/tool_call\u003e\\' }}\\n        {%- endfor %}\\n        {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n    {%- elif message.role == \"user\" or message.role == \"system\" or message.role == \"assistant\" %}\\n        {{- \\'\u003c|im_start|\u003e\\' + message.role + \\'\\\\n\\' + message.content + \\'\u003c|im_end|\u003e\\' + \\'\\\\n\\' }}\\n    {%- elif message.role == \"tool\" %}\\n        {%- if loop.previtem and loop.previtem.role != \"tool\" %}\\n            {{- \\'\u003c|im_start|\u003euser\\\\n\\' }}\\n        {%- endif %}\\n        {{- \\'\u003ctool_response\u003e\\\\n\\' }}\\n        {{- message.content }}\\n        {{- \\'\\\\n\u003c/tool_response\u003e\\\\n\\' }}\\n        {%- if not loop.last and loop.nextitem.role != \"tool\" %}\\n            {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n        {%- elif loop.last %}\\n            {{- \\'\u003c|im_end|\u003e\\\\n\\' }}\\n        {%- endif %}\\n    {%- else %}\\n        {{- \\'\u003c|im_start|\u003e\\' + message.role + \\'\\\\n\\' + message.content + \\'\u003c|im_end|\u003e\\\\n\\' }}\\n    {%- endif %}\\n{%- endfor %}\\n{%- if add_generation_prompt %}\\n    {{- \\'\u003c|im_start|\u003eassistant\\\\n\\' }}\\n{%- endif %}\\n', 'qwen3moe.attention.value_length': '128'}\n"}
+,{"stream_name":"stdout","time":1329.412951903,"data":"Available chat formats from metadata: chat_template.default\n"}
+,{"stream_name":"stdout","time":1329.412958003,"data":"Using gguf chat template: {% macro render_extra_keys(json_dict, handled_keys) %}\n"}
+,{"stream_name":"stdout","time":1329.412961373,"data":"    {%- if json_dict is mapping %}\n"}
+,{"stream_name":"stdout","time":1329.412964687,"data":"        {%- for json_key in json_dict if json_key not in handled_keys %}\n"}
+,{"stream_name":"stdout","time":1329.412968037,"data":"            {%- if json_dict[json_key] is mapping or (json_dict[json_key] is sequence and json_dict[json_key] is not string) %}\n"}
+,{"stream_name":"stdout","time":1329.412971833,"data":"                {{- '\\n\u003c' ~ json_key ~ '\u003e' ~ (json_dict[json_key] | tojson | safe) ~ '\u003c/' ~ json_key ~ '\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.412975563,"data":"            {%- else %}\n"}
+,{"stream_name":"stdout","time":1329.412978732,"data":"                {{-'\\n\u003c' ~ json_key ~ '\u003e' ~ (json_dict[json_key] | string) ~ '\u003c/' ~ json_key ~ '\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.412982507,"data":"            {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.412985629,"data":"        {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.412988778,"data":"    {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.412992149,"data":"{% endmacro %}\n"}
+,{"stream_name":"stdout","time":1329.412995355,"data":"\n"}
+,{"stream_name":"stdout","time":1329.412998459,"data":"{%- if messages[0][\"role\"] == \"system\" %}\n"}
+,{"stream_name":"stdout","time":1329.413002064,"data":"    {%- set system_message = messages[0][\"content\"] %}\n"}
+,{"stream_name":"stdout","time":1329.413010802,"data":"    {%- set loop_messages = messages[1:] %}\n"}
+,{"stream_name":"stdout","time":1329.413013445,"data":"{%- else %}\n"}
+,{"stream_name":"stdout","time":1329.4130166,"data":"    {%- set loop_messages = messages %}\n"}
+,{"stream_name":"stdout","time":1329.413030033,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413033763,"data":"\n"}
+,{"stream_name":"stdout","time":1329.413037237,"data":"{%- if not tools is defined %}\n"}
+,{"stream_name":"stdout","time":1329.413047004,"data":"    {%- set tools = [] %}\n"}
+,{"stream_name":"stdout","time":1329.413050497,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413054178,"data":"\n"}
+,{"stream_name":"stdout","time":1329.413057772,"data":"{%- if system_message is defined %}\n"}
+,{"stream_name":"stdout","time":1329.413061452,"data":"    {{- \"\u003c|im_start|\u003esystem\\n\" + system_message }}\n"}
+,{"stream_name":"stdout","time":1329.413065071,"data":"{%- else %}\n"}
+,{"stream_name":"stdout","time":1329.413068248,"data":"    {%- if tools is iterable and tools | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.413071628,"data":"        {{- \"\u003c|im_start|\u003esystem\\nYou are Qwen, a helpful AI assistant that can interact with a computer to solve tasks.\" }}\n"}
+,{"stream_name":"stdout","time":1329.413075413,"data":"    {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413078533,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413081668,"data":"{%- if tools is iterable and tools | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.413085021,"data":"    {{- \"\\n\\n# Tools\\n\\nYou have access to the following functions:\\n\\n\" }}\n"}
+,{"stream_name":"stdout","time":1329.413088765,"data":"    {{- \"\u003ctools\u003e\" }}\n"}
+,{"stream_name":"stdout","time":1329.413092115,"data":"    {%- for tool in tools %}\n"}
+,{"stream_name":"stdout","time":1329.413095314,"data":"        {%- if tool.function is defined %}\n"}
+,{"stream_name":"stdout","time":1329.41309852,"data":"            {%- set tool = tool.function %}\n"}
+,{"stream_name":"stdout","time":1329.413105426,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413108746,"data":"        {{- \"\\n\u003cfunction\u003e\\n\u003cname\u003e\" ~ tool.name ~ \"\u003c/name\u003e\" }}\n"}
+,{"stream_name":"stdout","time":1329.413112568,"data":"        {%- if tool.description is defined %}\n"}
+,{"stream_name":"stdout","time":1329.413117668,"data":"            {{- '\\n\u003cdescription\u003e' ~ (tool.description | trim) ~ '\u003c/description\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.41312403,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413139133,"data":"        {{- '\\n\u003cparameters\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.413143526,"data":"        {%- if tool.parameters is defined and tool.parameters is mapping and tool.parameters.properties is defined and tool.parameters.properties is mapping %}\n"}
+,{"stream_name":"stdout","time":1329.413147612,"data":"            {%- for param_name, param_fields in tool.parameters.properties|items %}\n"}
+,{"stream_name":"stdout","time":1329.413151746,"data":"                {{- '\\n\u003cparameter\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.413155719,"data":"                {{- '\\n\u003cname\u003e' ~ param_name ~ '\u003c/name\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.41315941,"data":"                {%- if param_fields.type is defined %}\n"}
+,{"stream_name":"stdout","time":1329.413162802,"data":"                    {{- '\\n\u003ctype\u003e' ~ (param_fields.type | string) ~ '\u003c/type\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.41316635,"data":"                {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413169554,"data":"                {%- if param_fields.description is defined %}\n"}
+,{"stream_name":"stdout","time":1329.413172874,"data":"                    {{- '\\n\u003cdescription\u003e' ~ (param_fields.description | trim) ~ '\u003c/description\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.413176502,"data":"                {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413180007,"data":"                {%- set handled_keys = ['name', 'type', 'description'] %}\n"}
+,{"stream_name":"stdout","time":1329.413183408,"data":"                {{- render_extra_keys(param_fields, handled_keys) }}\n"}
+,{"stream_name":"stdout","time":1329.413186738,"data":"                {{- '\\n\u003c/parameter\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.413190088,"data":"            {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.413193212,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413196367,"data":"        {% set handled_keys = ['type', 'properties'] %}\n"}
+,{"stream_name":"stdout","time":1329.413199608,"data":"        {{- render_extra_keys(tool.parameters, handled_keys) }}\n"}
+,{"stream_name":"stdout","time":1329.413202898,"data":"        {{- '\\n\u003c/parameters\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.413206234,"data":"        {%- set handled_keys = ['type', 'name', 'description', 'parameters'] %}\n"}
+,{"stream_name":"stdout","time":1329.413211358,"data":"        {{- render_extra_keys(tool, handled_keys) }}\n"}
+,{"stream_name":"stdout","time":1329.413217825,"data":"        {{- '\\n\u003c/function\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.413220728,"data":"    {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.413234773,"data":"    {{- \"\\n\u003c/tools\u003e\" }}\n"}
+,{"stream_name":"stdout","time":1329.413239243,"data":"    {{- '\\n\\nIf you choose to call a function ONLY reply in the following format with NO suffix:\\n\\n\u003ctool_call\u003e\\n\u003cfunction=example_function_name\u003e\\n\u003cparameter=example_parameter_1\u003e\\nvalue_1\\n\u003c/parameter\u003e\\n\u003cparameter=example_parameter_2\u003e\\nThis is the value for the second parameter\\nthat can span\\nmultiple lines\\n\u003c/parameter\u003e\\n\u003c/function\u003e\\n\u003c/tool_call\u003e\\n\\n\u003cIMPORTANT\u003e\\nReminder:\\n- Function calls MUST follow the specified format: an inner \u003cfunction=...\u003e\u003c/function\u003e block must be nested within \u003ctool_call\u003e\u003c/tool_call\u003e XML tags\\n- Required parameters MUST be specified\\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\\n\u003c/IMPORTANT\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.413251835,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413255115,"data":"{%- if system_message is defined %}\n"}
+,{"stream_name":"stdout","time":1329.413258346,"data":"    {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413261727,"data":"{%- else %}\n"}
+,{"stream_name":"stdout","time":1329.413264902,"data":"    {%- if tools is iterable and tools | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.413268251,"data":"        {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413271618,"data":"    {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.41327482,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413278061,"data":"{%- for message in loop_messages %}\n"}
+,{"stream_name":"stdout","time":1329.413281333,"data":"    {%- if message.role == \"assistant\" and message.tool_calls is defined and message.tool_calls is iterable and message.tool_calls | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.413285026,"data":"        {{- '\u003c|im_start|\u003e' + message.role }}\n"}
+,{"stream_name":"stdout","time":1329.41328851,"data":"        {%- if message.content is defined and message.content is string and message.content | trim | length \u003e 0 %}\n"}
+,{"stream_name":"stdout","time":1329.413291972,"data":"            {{- '\\n' + message.content | trim + '\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413295425,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413299163,"data":"        {%- for tool_call in message.tool_calls %}\n"}
+,{"stream_name":"stdout","time":1329.413304397,"data":"            {%- if tool_call.function is defined %}\n"}
+,{"stream_name":"stdout","time":1329.413311899,"data":"                {%- set tool_call = tool_call.function %}\n"}
+,{"stream_name":"stdout","time":1329.413314738,"data":"            {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413329582,"data":"            {{- '\\n\u003ctool_call\u003e\\n\u003cfunction=' + tool_call.name + '\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413334216,"data":"            {%- if tool_call.arguments is defined %}\n"}
+,{"stream_name":"stdout","time":1329.41333797,"data":"                {%- for args_name, args_value in tool_call.arguments|items %}\n"}
+,{"stream_name":"stdout","time":1329.413342069,"data":"                    {{- '\u003cparameter=' + args_name + '\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413346183,"data":"                    {%- set args_value = args_value | tojson | safe if args_value is mapping or (args_value is sequence and args_value is not string) else args_value | string %}\n"}
+,{"stream_name":"stdout","time":1329.413349964,"data":"                    {{- args_value }}\n"}
+,{"stream_name":"stdout","time":1329.413353192,"data":"                    {{- '\\n\u003c/parameter\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413356574,"data":"                {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.413362902,"data":"            {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413366138,"data":"            {{- '\u003c/function\u003e\\n\u003c/tool_call\u003e' }}\n"}
+,{"stream_name":"stdout","time":1329.413369622,"data":"        {%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.413372796,"data":"        {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413376587,"data":"    {%- elif message.role == \"user\" or message.role == \"system\" or message.role == \"assistant\" %}\n"}
+,{"stream_name":"stdout","time":1329.413380237,"data":"        {{- '\u003c|im_start|\u003e' + message.role + '\\n' + message.content + '\u003c|im_end|\u003e' + '\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413383903,"data":"    {%- elif message.role == \"tool\" %}\n"}
+,{"stream_name":"stdout","time":1329.413387157,"data":"        {%- if loop.previtem and loop.previtem.role != \"tool\" %}\n"}
+,{"stream_name":"stdout","time":1329.413390505,"data":"            {{- '\u003c|im_start|\u003euser\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413393931,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413397066,"data":"        {{- '\u003ctool_response\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413402075,"data":"        {{- message.content }}\n"}
+,{"stream_name":"stdout","time":1329.413409,"data":"        {{- '\\n\u003c/tool_response\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413411936,"data":"        {%- if not loop.last and loop.nextitem.role != \"tool\" %}\n"}
+,{"stream_name":"stdout","time":1329.413426395,"data":"            {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413430557,"data":"        {%- elif loop.last %}\n"}
+,{"stream_name":"stdout","time":1329.413434258,"data":"            {{- '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413454804,"data":"        {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413459129,"data":"    {%- else %}\n"}
+,{"stream_name":"stdout","time":1329.413462341,"data":"        {{- '\u003c|im_start|\u003e' + message.role + '\\n' + message.content + '\u003c|im_end|\u003e\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.413466383,"data":"    {%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413469821,"data":"{%- endfor %}\n"}
+,{"stream_name":"stdout","time":1329.413473245,"data":"{%- if add_generation_prompt %}\n"}
+,{"stream_name":"stdout","time":1329.413476669,"data":"    {{- '\u003c|im_start|\u003eassistant\\n' }}\n"}
+,{"stream_name":"stdout","time":1329.41348021,"data":"{%- endif %}\n"}
+,{"stream_name":"stdout","time":1329.413483565,"data":"\n"}
+,{"stream_name":"stdout","time":1329.413486762,"data":"Using chat eos_token: \u003c|im_end|\u003e\n"}
+,{"stream_name":"stdout","time":1329.413490269,"data":"Using chat bos_token: \u003c|endoftext|\u003e\n"}
+,{"stream_name":"stdout","time":1329.413493864,"data":"\n"}
+,{"stream_name":"stderr","time":32123.176098628,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":32123.176166252,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":32123.363785467,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":32123.363811404,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":32124.132766135,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":32124.211931773,"data":"[NbConvertApp] Writing 124856 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":32126.67561802,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":32127.249294487,"data":"[NbConvertApp] Writing 436098 bytes to __results__.html\n"}
+]

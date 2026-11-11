@@ -1,0 +1,24 @@
+{
+  "state": "complete",
+  "timed_out": false,
+  "started_at": "2026-11-09T06:41:52.345619+00:00",
+  "deadline_at": "2026-11-09T12:36:26.220630+00:00",
+  "stop_new_records_at": "2026-11-09T12:31:26.220630+00:00",
+  "max_runtime_hours": 5.909409725401137,
+  "checkpoint_reserve_seconds": 300,
+  "runs": {
+    "reveal/validation": {
+      "state": "complete",
+      "bundle": "/kaggle/working/b3_nodiff_package/b3_nodiff_reveal_validation_seed42.zip",
+      "output": "/kaggle/working/b3_nodiff_validation/reveal/seed_42/reveal/validation",
+      "count": 2273,
+      "completed": 2273,
+      "records_path": "/kaggle/working/b3_nodiff_validation/reveal/seed_42/reveal/validation/records.jsonl",
+      "bundle_sha256": "3d6077678f8c3aad7ec8d9e40fa3f4898d02ea6d4c472d895fb4d383f4dd98ee",
+      "evaluation": "/kaggle/working/b3_nodiff_validation/reveal/seed_42/reveal/validation/evaluation.json"
+    }
+  },
+  "completed_records_total": 2273,
+  "last_checkpoint_at": "2026-11-09T10:17:03.473918+00:00",
+  "completed_at": "2026-11-09T10:17:03.552824+00:00"
+}

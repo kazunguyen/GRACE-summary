@@ -1,0 +1,89 @@
+{
+  "schema": "step6_locked_codet5_npz_adapter_v1",
+  "lock_path": "STEP6_supervised_anchors/step6_lock.json",
+  "lock_sha256": "64fb2c99d9044548aaa07e949f1cd710580ff1b11571fdb833ddc18a56f80575",
+  "lock_commit": "e8f3cdc",
+  "encoder_rerun": false,
+  "model": "Salesforce/codet5-base@02cd2d31bb7c6d0e4d91156167b2de044989c733",
+  "dimension": 768,
+  "exports": [
+    {
+      "dataset": "devign",
+      "split": "train",
+      "path": "STEP6_supervised_anchors/cache/anchor_npz/devign/train.npz",
+      "rows": 21854,
+      "shape": [
+        21854,
+        768
+      ],
+      "source_manifest_sha256": "233e9c16bfb70de6c8cd9fc4a191ab653fbe4d3fc506f82d0385e27a3c794bdd",
+      "source_vectors_sha256": "a29c3d0fc7e6bad3a7c7763389fcb6dd065b1a6a76c443f8776d75d0598dd059",
+      "npz_sha256": "599a11adf411a08f0188f0f45a14b5e79c6e80debc71b8f479d58883555d0e99"
+    },
+    {
+      "dataset": "devign",
+      "split": "validation",
+      "path": "STEP6_supervised_anchors/cache/anchor_npz/devign/validation.npz",
+      "rows": 2732,
+      "shape": [
+        2732,
+        768
+      ],
+      "source_manifest_sha256": "9373f6317af11470beb12bfd1d05db04ceab02ccfe8a50dde8562e8c99f42d5b",
+      "source_vectors_sha256": "8af87a32f1a6d939911f8a8225af4e10537eb818483161deb3acda8248f714c8",
+      "npz_sha256": "c96e98c6ed4e1ba0510dcff06c4fe850b98e596dc6c1bab92415d384ee42550d"
+    },
+    {
+      "dataset": "devign",
+      "split": "test",
+      "path": "STEP6_supervised_anchors/cache/anchor_npz/devign/test.npz",
+      "rows": 2732,
+      "shape": [
+        2732,
+        768
+      ],
+      "source_manifest_sha256": "4bdb968f3f4aeb35a64a12dfd9d20e296fb1dc8db0f368fa0a7334b22d2a2496",
+      "source_vectors_sha256": "91ee340fb76588957c4239328b34f72817ac71b0b76b146d619934f56e4f1d07",
+      "npz_sha256": "a7dc1a7e10cedc10cd542c21e353a5611d3e1550c97e5f9985cf8429c59b4ec6"
+    },
+    {
+      "dataset": "reveal",
+      "split": "train",
+      "path": "STEP6_supervised_anchors/cache/anchor_npz/reveal/train.npz",
+      "rows": 18187,
+      "shape": [
+        18187,
+        768
+      ],
+      "source_manifest_sha256": "ed6094691de1f44e69bb22d60d9097463e6807689938757a4085884805edd1cb",
+      "source_vectors_sha256": "225d6c798a8b12357f5d2cf48fa42186d6e14ed997613b0da099fb7a8a127c18",
+      "npz_sha256": "b7fc1b9548e95f7eecf7c6789b5c99a73bb630c91daec565205b3fdf4367894f"
+    },
+    {
+      "dataset": "reveal",
+      "split": "validation",
+      "path": "STEP6_supervised_anchors/cache/anchor_npz/reveal/validation.npz",
+      "rows": 2273,
+      "shape": [
+        2273,
+        768
+      ],
+      "source_manifest_sha256": "44de7ed99740250bf2c9391092c49d83db33086b8dfe96bf698162a9de35c933",
+      "source_vectors_sha256": "bfc8479762b5f31cb3bad91891c4c63eef21b0d79cb9c1c270e47487904af5f7",
+      "npz_sha256": "23a7623fbc4a83c3d23ecaafd5f5210b501994a849d6827a53e0558ec05e45ad"
+    },
+    {
+      "dataset": "reveal",
+      "split": "test",
+      "path": "STEP6_supervised_anchors/cache/anchor_npz/reveal/test.npz",
+      "rows": 2274,
+      "shape": [
+        2274,
+        768
+      ],
+      "source_manifest_sha256": "e45128310844bc4b0ae4a6ec189dfedfcba33c73d129b9cbeb43b09586fec908",
+      "source_vectors_sha256": "3415da26e5c81a52383d1f22b0d9b765bf7601e9e19c891a68edbd945c8542f3",
+      "npz_sha256": "160bcec014676db0f4803a3872778f8339b261fa6f65adc0257185c99cb11940"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "bundle_sha256": "246e47e64055fdf6e7309f696d1527a3a8cfc6d7315468750778e3fb9e340da9",
+  "b3_input_identity": {
+    "method_id": "b3-nodiff-verified-patch-v1",
+    "release_id": "b3_nodiff_test_20261109",
+    "scope": {
+      "arm": "B3-nodiff",
+      "count": 2732,
+      "dataset": "devign",
+      "seed": 42,
+      "split": "test"
+    },
+    "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+    "runtime_contract_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+    "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+    "pool_sha256": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+    "prompt_content_sha256": "f48d2652d2a93a8b2033c8d53a2c75c6fbe2b304bf3e6185ab3745673a64eea3",
+    "members_sha256": {
+      "bundle_manifest.json": "ff3e78f49a988ee8606d2ee960e78b973f3f3bd05d406682d2640f102ac47a91",
+      "evidence/eligible_pairs.devign.jsonl": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+      "evidence/review_dung.json": "edcfa4008ce0ce25585f931488b522952f3a398417af8b8cb19a6faa82131df7",
+      "evidence/review_hieu.json": "0cc97c22ef80b966732d3df1a3521b19645a996a5e8b1c98180018cbd43ef121",
+      "prompts.jsonl": "f48d2652d2a93a8b2033c8d53a2c75c6fbe2b304bf3e6185ab3745673a64eea3"
+    },
+    "scoring": "unconstrained_first_token_logits_v1",
+    "code_sha256": {
+      "b3_delivery_runtime.py": "1c1d2e99236d2285ff389de757a3d3ea133129dc1b0d3cfdd3d6e37b4f7d6f12",
+      "grace_runtime_contract.py": "9fb76477ce5136199cd13e5d62a24046b9becfd65dc0fbb57c5777f3b5f7f6fc",
+      "kaggle_inference.py": "059c5fca1de0043f5b7710ed39c79976301d8b92548e3f2f85aaaf2afeb08fe8"
+    }
+  },
+  "prompt_set_sha256": "f48d2652d2a93a8b2033c8d53a2c75c6fbe2b304bf3e6185ab3745673a64eea3",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "quantization": "Q4_K_M",
+  "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "llama_cpp_python": "0.3.16",
+  "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "gpu_layers": -1,
+  "context_tokens": 8192,
+  "scoring": "unconstrained_first_token_logits_v1",
+  "limit": null,
+  "runtime_contract_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+  "constructor": {
+    "embedding": false,
+    "flash_attn": false,
+    "logits_all": true,
+    "main_gpu": 0,
+    "n_batch": 256,
+    "n_ctx": 8192,
+    "n_gpu_layers": -1,
+    "n_ubatch": 256,
+    "offload_kqv": true,
+    "seed": 4294967295,
+    "split_mode": "LLAMA_SPLIT_MODE_LAYER",
+    "tensor_split": null,
+    "use_mlock": false,
+    "use_mmap": true
+  },
+  "backend_sdist_sha256": "34ed0f9bd9431af045bb63d9324ae620ad0536653740e9bb163a2e1fcb973be6",
+  "python": "3.13.16",
+  "dataset": "devign",
+  "split": "test",
+  "arm": "B3-nodiff",
+  "prompt_seed": 42
+}

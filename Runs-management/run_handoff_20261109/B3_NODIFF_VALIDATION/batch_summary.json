@@ -1,0 +1,34 @@
+{
+  "arm": "B3-nodiff",
+  "seed": 42,
+  "split": "validation",
+  "runtime_contract_sha256": "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+  "datasets": {
+    "devign": {
+      "completed": 2732,
+      "expected": 2732,
+      "state": "complete",
+      "checkpoint": "/kaggle/working/grace_b3_nodiff_devign_validation_checkpoint.zip"
+    },
+    "reveal": {
+      "completed": 2273,
+      "expected": 2273,
+      "state": "complete",
+      "checkpoint": "/kaggle/working/grace_b3_nodiff_reveal_validation_checkpoint.zip"
+    }
+  },
+  "state": "complete",
+  "threshold_state": "locked",
+  "threshold_lock_path": "/kaggle/working/b3_nodiff_validation/validation_threshold_lock.json",
+  "threshold_lock_sha256": "64dde9b94a44ae56b3abe0b7e6abd6ced2a5320d7fee2785a961c5da225a786c",
+  "thresholds": {
+    "devign": {
+      "tau_star": 0.92,
+      "validation_mcc": 0.050359926559537437
+    },
+    "reveal": {
+      "tau_star": 0.01,
+      "validation_mcc": 0.08042278247889736
+    }
+  }
+}

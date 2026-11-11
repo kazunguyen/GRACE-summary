@@ -1,0 +1,42 @@
+{
+  "bundle_filename": "b3_nodiff_devign_test_seed42.zip",
+  "bundle_sha256": "246e47e64055fdf6e7309f696d1527a3a8cfc6d7315468750778e3fb9e340da9",
+  "code_sha256": {
+    "b3_delivery_runtime.py": "1c1d2e99236d2285ff389de757a3d3ea133129dc1b0d3cfdd3d6e37b4f7d6f12",
+    "grace_runtime_contract.py": "9fb76477ce5136199cd13e5d62a24046b9becfd65dc0fbb57c5777f3b5f7f6fc",
+    "kaggle_inference.py": "059c5fca1de0043f5b7710ed39c79976301d8b92548e3f2f85aaaf2afeb08fe8"
+  },
+  "members_sha256": {
+    "bundle_manifest.json": "ff3e78f49a988ee8606d2ee960e78b973f3f3bd05d406682d2640f102ac47a91",
+    "evidence/eligible_pairs.devign.jsonl": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+    "evidence/review_dung.json": "edcfa4008ce0ce25585f931488b522952f3a398417af8b8cb19a6faa82131df7",
+    "evidence/review_hieu.json": "0cc97c22ef80b966732d3df1a3521b19645a996a5e8b1c98180018cbd43ef121",
+    "prompts.jsonl": "f48d2652d2a93a8b2033c8d53a2c75c6fbe2b304bf3e6185ab3745673a64eea3"
+  },
+  "method_id": "b3-nodiff-verified-patch-v1",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "pool_sha256": "306b3c3391b21649635d1757af365fc9de5fb928894989bfe382fd6498a9f8f9",
+  "prompt_content_sha256": "f48d2652d2a93a8b2033c8d53a2c75c6fbe2b304bf3e6185ab3745673a64eea3",
+  "release_id": "b3_nodiff_test_20261109",
+  "runtime_contract_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+  "schema_version": 1,
+  "scope": {
+    "arm": "B3-nodiff",
+    "count": 2732,
+    "dataset": "devign",
+    "seed": 42,
+    "split": "test"
+  },
+  "scoring": "unconstrained_first_token_logits_v1",
+  "seal_sha256": "616c64958dac6a9472879a8526636164847da621294b9747925037b547009771",
+  "source_pair_id": "case_08_ffmpeg_can_safely_read_8614_26054",
+  "threshold": 0.92,
+  "threshold_lock_sha256": "c4c438a413ffafcbcac993be49c12963497a3290a8dc679f2c3e6fee763bdebf",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "bundle_transport": {
+    "type": "kaggle_nested_zip_auto_extracted",
+    "declared_source_bundle_sha256": "29c220b3a161d528575536b3b1ba1095d9d58e89bdd7365c964a91131a4d580e",
+    "reconstructed_bundle_sha256": "246e47e64055fdf6e7309f696d1527a3a8cfc6d7315468750778e3fb9e340da9",
+    "verified_by": "sealed bundle manifest and every members_sha256 entry"
+  }
+}

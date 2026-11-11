@@ -1,0 +1,45 @@
+{
+  "arm": "B3-nodiff",
+  "seed": 42,
+  "split": "test",
+  "runtime_contract_sha256": "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e",
+  "threshold_lock_sha256": "c4c438a413ffafcbcac993be49c12963497a3290a8dc679f2c3e6fee763bdebf",
+  "thresholds": {
+    "devign": {
+      "tau_star": 0.92,
+      "source": "locked validation_threshold_lock.json",
+      "comparison": "score >= threshold"
+    },
+    "reveal": {
+      "tau_star": 0.01,
+      "source": "locked validation_threshold_lock.json",
+      "comparison": "score >= threshold"
+    }
+  },
+  "datasets": {
+    "devign": {
+      "expected": 2732,
+      "completed": 2732,
+      "checkpoint": "/kaggle/working/grace_b3_nodiff_devign_test_checkpoint.zip",
+      "tau_star": 0.92,
+      "state": "complete"
+    },
+    "reveal": {
+      "expected": 2274,
+      "completed": 2274,
+      "checkpoint": "/kaggle/working/grace_b3_nodiff_reveal_test_checkpoint.zip",
+      "tau_star": 0.01,
+      "state": "complete"
+    }
+  },
+  "state": "complete",
+  "shared_evaluator": {
+    "name": "grace_diag.evaluate_final.table_a",
+    "thresholds_file": "/kaggle/working/b3_nodiff_test/b3_nodiff_thresholds_for_shared_evaluator.json",
+    "metrics_csv": "/kaggle/working/b3_nodiff_test/shared_evaluator_output/table_A_metrics.csv",
+    "thresholds_used": {
+      "devign|B3-nodiff|42": 0.92,
+      "reveal|B3-nodiff|42": 0.01
+    }
+  }
+}

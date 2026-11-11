@@ -1,0 +1,389 @@
+llama_model_load_from_file_impl: using device CUDA0 (Tesla T4) - 14806 MiB free
+llama_model_load_from_file_impl: using device CUDA1 (Tesla T4) - 14704 MiB free
+llama_model_loader: loaded meta data with 39 key-value pairs and 579 tensors from /kaggle/input/notebooks/duchuynguyen1802/huy-qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = qwen3moe
+llama_model_loader: - kv   1:                               general.type str              = model
+llama_model_loader: - kv   2:                     general.sampling.top_k i32              = 20
+llama_model_loader: - kv   3:                     general.sampling.top_p f32              = 0.800000
+llama_model_loader: - kv   4:                      general.sampling.temp f32              = 0.700000
+llama_model_loader: - kv   5:            general.sampling.penalty_repeat f32              = 1.050000
+llama_model_loader: - kv   6:                               general.name str              = Qwen3-Coder-30B-A3B-Instruct
+llama_model_loader: - kv   7:                         general.size_label str              = 128x1.8B
+llama_model_loader: - kv   8:                            general.license str              = apache-2.0
+llama_model_loader: - kv   9:                       general.license.link str              = https://huggingface.co/Qwen/Qwen3-Cod...
+llama_model_loader: - kv  10:                               general.tags arr[str,1]       = ["text-generation"]
+llama_model_loader: - kv  11:                       qwen3moe.block_count u32              = 48
+llama_model_loader: - kv  12:                    qwen3moe.context_length u32              = 262144
+llama_model_loader: - kv  13:                  qwen3moe.embedding_length u32              = 2048
+llama_model_loader: - kv  14:               qwen3moe.feed_forward_length u32              = 6144
+llama_model_loader: - kv  15:              qwen3moe.attention.head_count u32              = 32
+llama_model_loader: - kv  16:           qwen3moe.attention.head_count_kv u32              = 4
+llama_model_loader: - kv  17:                    qwen3moe.rope.freq_base f32              = 10000000.000000
+llama_model_loader: - kv  18:  qwen3moe.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv  19:                      qwen3moe.expert_count u32              = 128
+llama_model_loader: - kv  20:                 qwen3moe.expert_used_count u32              = 8
+llama_model_loader: - kv  21:              qwen3moe.attention.key_length u32              = 128
+llama_model_loader: - kv  22:            qwen3moe.attention.value_length u32              = 128
+llama_model_loader: - kv  23:        qwen3moe.expert_feed_forward_length u32              = 768
+llama_model_loader: - kv  24:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  25:                         tokenizer.ggml.pre str              = qwen2
+llama_model_loader: - kv  26:                      tokenizer.ggml.tokens arr[str,151936]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,151936]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  28:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 151645
+llama_model_loader: - kv  30:            tokenizer.ggml.padding_token_id u32              = 151643
+llama_model_loader: - kv  31:                tokenizer.ggml.bos_token_id u32              = 151643
+llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% macro render_extra_keys(json_dict,...
+llama_model_loader: - kv  35:              tokenizer.ggml.normalizer.nfc bool             = true
+llama_model_loader: - kv  36:                tokenizer.ggml.clean_spaces bool             = false
+llama_model_loader: - kv  37:               general.quantization_version u32              = 2
+llama_model_loader: - kv  38:                          general.file_type u32              = 15
+llama_model_loader: - type  f32:  241 tensors
+llama_model_loader: - type q8_0:  194 tensors
+llama_model_loader: - type q4_K:  144 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 16.75 GiB (4.71 BPW) 
+init_tokenizer: initializing tokenizer for type 2
+load: control token: 151660 '<|fim_middle|>' is not marked as EOG
+load: control token: 151659 '<|fim_prefix|>' is not marked as EOG
+load: control token: 151653 '<|vision_end|>' is not marked as EOG
+load: control token: 151648 '<|box_start|>' is not marked as EOG
+load: control token: 151646 '<|object_ref_start|>' is not marked as EOG
+load: control token: 151649 '<|box_end|>' is not marked as EOG
+load: control token: 151655 '<|image_pad|>' is not marked as EOG
+load: control token: 151651 '<|quad_end|>' is not marked as EOG
+load: control token: 151647 '<|object_ref_end|>' is not marked as EOG
+load: control token: 151652 '<|vision_start|>' is not marked as EOG
+load: control token: 151654 '<|vision_pad|>' is not marked as EOG
+load: control token: 151656 '<|video_pad|>' is not marked as EOG
+load: control token: 151644 '<|im_start|>' is not marked as EOG
+load: control token: 151661 '<|fim_suffix|>' is not marked as EOG
+load: control token: 151650 '<|quad_start|>' is not marked as EOG
+load: printing all EOG tokens:
+load:   - 151643 ('<|endoftext|>')
+load:   - 151645 ('<|im_end|>')
+load:   - 151662 ('<|fim_pad|>')
+load:   - 151663 ('<|repo_name|>')
+load:   - 151664 ('<|file_sep|>')
+load: special tokens cache size = 26
+load: token to piece cache size = 0.9311 MB
+print_info: arch             = qwen3moe
+print_info: vocab_only       = 0
+print_info: n_ctx_train      = 262144
+print_info: n_embd           = 2048
+print_info: n_layer          = 48
+print_info: n_head           = 32
+print_info: n_head_kv        = 4
+print_info: n_rot            = 128
+print_info: n_swa            = 0
+print_info: is_swa_any       = 0
+print_info: n_embd_head_k    = 128
+print_info: n_embd_head_v    = 128
+print_info: n_gqa            = 8
+print_info: n_embd_k_gqa     = 512
+print_info: n_embd_v_gqa     = 512
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-06
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: f_attn_scale     = 0.0e+00
+print_info: n_ff             = 6144
+print_info: n_expert         = 128
+print_info: n_expert_used    = 8
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+print_info: rope type        = 2
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 10000000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 262144
+print_info: rope_finetuned   = unknown
+print_info: model type       = 30B.A3B
+print_info: model params     = 30.53 B
+print_info: general.name     = Qwen3-Coder-30B-A3B-Instruct
+print_info: n_ff_exp         = 768
+print_info: vocab type       = BPE
+print_info: n_vocab          = 151936
+print_info: n_merges         = 151387
+print_info: BOS token        = 151643 '<|endoftext|>'
+print_info: EOS token        = 151645 '<|im_end|>'
+print_info: EOT token        = 151645 '<|im_end|>'
+print_info: PAD token        = 151643 '<|endoftext|>'
+print_info: LF token         = 198 'Ċ'
+print_info: FIM PRE token    = 151659 '<|fim_prefix|>'
+print_info: FIM SUF token    = 151661 '<|fim_suffix|>'
+print_info: FIM MID token    = 151660 '<|fim_middle|>'
+print_info: FIM PAD token    = 151662 '<|fim_pad|>'
+print_info: FIM REP token    = 151663 '<|repo_name|>'
+print_info: FIM SEP token    = 151664 '<|file_sep|>'
+print_info: EOG token        = 151643 '<|endoftext|>'
+print_info: EOG token        = 151645 '<|im_end|>'
+print_info: EOG token        = 151662 '<|fim_pad|>'
+print_info: EOG token        = 151663 '<|repo_name|>'
+print_info: EOG token        = 151664 '<|file_sep|>'
+print_info: max token length = 256
+load_tensors: loading model tensors, this can take a while... (mmap = true)
+load_tensors: layer   0 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   1 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   2 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   3 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   4 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   5 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   6 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   7 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   8 assigned to device CUDA0, is_swa = 0
+load_tensors: layer   9 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  10 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  11 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  12 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  13 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  14 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  15 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  16 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  17 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  18 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  19 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  20 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  21 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  22 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  23 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  24 assigned to device CUDA0, is_swa = 0
+load_tensors: layer  25 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  26 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  27 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  28 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  29 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  30 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  31 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  32 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  33 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  34 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  35 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  36 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  37 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  38 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  39 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  40 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  41 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  42 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  43 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  44 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  45 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  46 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  47 assigned to device CUDA1, is_swa = 0
+load_tensors: layer  48 assigned to device CUDA1, is_swa = 0
+load_tensors: tensor 'token_embd.weight' (q8_0) (and 0 others) cannot be used with preferred buffer type CUDA_Host, using CPU instead
+load_tensors: offloading 48 repeating layers to GPU
+load_tensors: offloading output layer to GPU
+load_tensors: offloaded 49/49 layers to GPU
+load_tensors:        CUDA0 model buffer size =  8603.55 MiB
+load_tensors:        CUDA1 model buffer size =  8230.57 MiB
+load_tensors:   CPU_Mapped model buffer size =   315.30 MiB
+..................................................................................................
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 8192
+llama_context: n_ctx_per_seq = 8192
+llama_context: n_batch       = 256
+llama_context: n_ubatch      = 256
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = 0
+llama_context: kv_unified    = false
+llama_context: freq_base     = 10000000.0
+llama_context: freq_scale    = 1
+llama_context: n_ctx_per_seq (8192) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+set_abort_callback: call
+llama_context:  CUDA_Host  output buffer size =     0.58 MiB
+create_memory: n_ctx = 8192 (padded)
+llama_kv_cache_unified: layer   0: dev = CUDA0
+llama_kv_cache_unified: layer   1: dev = CUDA0
+llama_kv_cache_unified: layer   2: dev = CUDA0
+llama_kv_cache_unified: layer   3: dev = CUDA0
+llama_kv_cache_unified: layer   4: dev = CUDA0
+llama_kv_cache_unified: layer   5: dev = CUDA0
+llama_kv_cache_unified: layer   6: dev = CUDA0
+llama_kv_cache_unified: layer   7: dev = CUDA0
+llama_kv_cache_unified: layer   8: dev = CUDA0
+llama_kv_cache_unified: layer   9: dev = CUDA0
+llama_kv_cache_unified: layer  10: dev = CUDA0
+llama_kv_cache_unified: layer  11: dev = CUDA0
+llama_kv_cache_unified: layer  12: dev = CUDA0
+llama_kv_cache_unified: layer  13: dev = CUDA0
+llama_kv_cache_unified: layer  14: dev = CUDA0
+llama_kv_cache_unified: layer  15: dev = CUDA0
+llama_kv_cache_unified: layer  16: dev = CUDA0
+llama_kv_cache_unified: layer  17: dev = CUDA0
+llama_kv_cache_unified: layer  18: dev = CUDA0
+llama_kv_cache_unified: layer  19: dev = CUDA0
+llama_kv_cache_unified: layer  20: dev = CUDA0
+llama_kv_cache_unified: layer  21: dev = CUDA0
+llama_kv_cache_unified: layer  22: dev = CUDA0
+llama_kv_cache_unified: layer  23: dev = CUDA0
+llama_kv_cache_unified: layer  24: dev = CUDA0
+llama_kv_cache_unified: layer  25: dev = CUDA1
+llama_kv_cache_unified: layer  26: dev = CUDA1
+llama_kv_cache_unified: layer  27: dev = CUDA1
+llama_kv_cache_unified: layer  28: dev = CUDA1
+llama_kv_cache_unified: layer  29: dev = CUDA1
+llama_kv_cache_unified: layer  30: dev = CUDA1
+llama_kv_cache_unified: layer  31: dev = CUDA1
+llama_kv_cache_unified: layer  32: dev = CUDA1
+llama_kv_cache_unified: layer  33: dev = CUDA1
+llama_kv_cache_unified: layer  34: dev = CUDA1
+llama_kv_cache_unified: layer  35: dev = CUDA1
+llama_kv_cache_unified: layer  36: dev = CUDA1
+llama_kv_cache_unified: layer  37: dev = CUDA1
+llama_kv_cache_unified: layer  38: dev = CUDA1
+llama_kv_cache_unified: layer  39: dev = CUDA1
+llama_kv_cache_unified: layer  40: dev = CUDA1
+llama_kv_cache_unified: layer  41: dev = CUDA1
+llama_kv_cache_unified: layer  42: dev = CUDA1
+llama_kv_cache_unified: layer  43: dev = CUDA1
+llama_kv_cache_unified: layer  44: dev = CUDA1
+llama_kv_cache_unified: layer  45: dev = CUDA1
+llama_kv_cache_unified: layer  46: dev = CUDA1
+llama_kv_cache_unified: layer  47: dev = CUDA1
+llama_kv_cache_unified:      CUDA0 KV buffer size =   400.00 MiB
+llama_kv_cache_unified:      CUDA1 KV buffer size =   368.00 MiB
+llama_kv_cache_unified: size =  768.00 MiB (  8192 cells,  48 layers,  1/1 seqs), K (f16):  384.00 MiB, V (f16):  384.00 MiB
+llama_context: enumerating backends
+llama_context: backend_ptrs.size() = 3
+llama_context: max_nodes = 4632
+llama_context: pipeline parallelism enabled (n_copies=4)
+llama_context: worst-case: n_tokens = 256, n_seqs = 1, n_outputs = 0
+graph_reserve: reserving a graph for ubatch with n_tokens =  256, n_seqs =  1, n_outputs =  256
+graph_reserve: reserving a graph for ubatch with n_tokens =    1, n_seqs =  1, n_outputs =    1
+graph_reserve: reserving a graph for ubatch with n_tokens =  256, n_seqs =  1, n_outputs =  256
+llama_context:      CUDA0 compute buffer size =   312.01 MiB
+llama_context:      CUDA1 compute buffer size =   312.02 MiB
+llama_context:  CUDA_Host compute buffer size =    38.02 MiB
+llama_context: graph nodes  = 3174
+llama_context: graph splits = 3
+CUDA : ARCHS = 750 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | AVX512 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+Model metadata: {'general.quantization_version': '2', 'tokenizer.ggml.normalizer.nfc': 'true', 'tokenizer.ggml.add_eos_token': 'false', 'general.file_type': '15', 'qwen3moe.context_length': '262144', 'general.type': 'model', 'tokenizer.ggml.clean_spaces': 'false', 'qwen3moe.rope.freq_base': '10000000.000000', 'tokenizer.ggml.bos_token_id': '151643', 'general.name': 'Qwen3-Coder-30B-A3B-Instruct', 'qwen3moe.attention.layer_norm_rms_epsilon': '0.000001', 'qwen3moe.attention.key_length': '128', 'qwen3moe.embedding_length': '2048', 'tokenizer.ggml.padding_token_id': '151643', 'general.license': 'apache-2.0', 'qwen3moe.feed_forward_length': '6144', 'general.sampling.temp': '0.700000', 'general.sampling.top_p': '0.800000', 'general.sampling.penalty_repeat': '1.050000', 'general.size_label': '128x1.8B', 'tokenizer.ggml.add_bos_token': 'false', 'general.sampling.top_k': '20', 'qwen3moe.block_count': '48', 'qwen3moe.expert_count': '128', 'general.architecture': 'qwen3moe', 'qwen3moe.expert_feed_forward_length': '768', 'qwen3moe.attention.head_count': '32', 'tokenizer.ggml.eos_token_id': '151645', 'general.license.link': 'https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE', 'tokenizer.ggml.pre': 'qwen2', 'qwen3moe.attention.head_count_kv': '4', 'tokenizer.ggml.model': 'gpt2', 'qwen3moe.expert_used_count': '8', 'tokenizer.chat_template': '{% macro render_extra_keys(json_dict, handled_keys) %}\n    {%- if json_dict is mapping %}\n        {%- for json_key in json_dict if json_key not in handled_keys %}\n            {%- if json_dict[json_key] is mapping or (json_dict[json_key] is sequence and json_dict[json_key] is not string) %}\n                {{- \'\\n<\' ~ json_key ~ \'>\' ~ (json_dict[json_key] | tojson | safe) ~ \'</\' ~ json_key ~ \'>\' }}\n            {%- else %}\n                {{-\'\\n<\' ~ json_key ~ \'>\' ~ (json_dict[json_key] | string) ~ \'</\' ~ json_key ~ \'>\' }}\n            {%- endif %}\n        {%- endfor %}\n    {%- endif %}\n{% endmacro %}\n\n{%- if messages[0]["role"] == "system" %}\n    {%- set system_message = messages[0]["content"] %}\n    {%- set loop_messages = messages[1:] %}\n{%- else %}\n    {%- set loop_messages = messages %}\n{%- endif %}\n\n{%- if not tools is defined %}\n    {%- set tools = [] %}\n{%- endif %}\n\n{%- if system_message is defined %}\n    {{- "<|im_start|>system\\n" + system_message }}\n{%- else %}\n    {%- if tools is iterable and tools | length > 0 %}\n        {{- "<|im_start|>system\\nYou are Qwen, a helpful AI assistant that can interact with a computer to solve tasks." }}\n    {%- endif %}\n{%- endif %}\n{%- if tools is iterable and tools | length > 0 %}\n    {{- "\\n\\n# Tools\\n\\nYou have access to the following functions:\\n\\n" }}\n    {{- "<tools>" }}\n    {%- for tool in tools %}\n        {%- if tool.function is defined %}\n            {%- set tool = tool.function %}\n        {%- endif %}\n        {{- "\\n<function>\\n<name>" ~ tool.name ~ "</name>" }}\n        {%- if tool.description is defined %}\n            {{- \'\\n<description>\' ~ (tool.description | trim) ~ \'</description>\' }}\n        {%- endif %}\n        {{- \'\\n<parameters>\' }}\n        {%- if tool.parameters is defined and tool.parameters is mapping and tool.parameters.properties is defined and tool.parameters.properties is mapping %}\n            {%- for param_name, param_fields in tool.parameters.properties|items %}\n                {{- \'\\n<parameter>\' }}\n                {{- \'\\n<name>\' ~ param_name ~ \'</name>\' }}\n                {%- if param_fields.type is defined %}\n                    {{- \'\\n<type>\' ~ (param_fields.type | string) ~ \'</type>\' }}\n                {%- endif %}\n                {%- if param_fields.description is defined %}\n                    {{- \'\\n<description>\' ~ (param_fields.description | trim) ~ \'</description>\' }}\n                {%- endif %}\n                {%- set handled_keys = [\'name\', \'type\', \'description\'] %}\n                {{- render_extra_keys(param_fields, handled_keys) }}\n                {{- \'\\n</parameter>\' }}\n            {%- endfor %}\n        {%- endif %}\n        {% set handled_keys = [\'type\', \'properties\'] %}\n        {{- render_extra_keys(tool.parameters, handled_keys) }}\n        {{- \'\\n</parameters>\' }}\n        {%- set handled_keys = [\'type\', \'name\', \'description\', \'parameters\'] %}\n        {{- render_extra_keys(tool, handled_keys) }}\n        {{- \'\\n</function>\' }}\n    {%- endfor %}\n    {{- "\\n</tools>" }}\n    {{- \'\\n\\nIf you choose to call a function ONLY reply in the following format with NO suffix:\\n\\n<tool_call>\\n<function=example_function_name>\\n<parameter=example_parameter_1>\\nvalue_1\\n</parameter>\\n<parameter=example_parameter_2>\\nThis is the value for the second parameter\\nthat can span\\nmultiple lines\\n</parameter>\\n</function>\\n</tool_call>\\n\\n<IMPORTANT>\\nReminder:\\n- Function calls MUST follow the specified format: an inner <function=...></function> block must be nested within <tool_call></tool_call> XML tags\\n- Required parameters MUST be specified\\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\\n</IMPORTANT>\' }}\n{%- endif %}\n{%- if system_message is defined %}\n    {{- \'<|im_end|>\\n\' }}\n{%- else %}\n    {%- if tools is iterable and tools | length > 0 %}\n        {{- \'<|im_end|>\\n\' }}\n    {%- endif %}\n{%- endif %}\n{%- for message in loop_messages %}\n    {%- if message.role == "assistant" and message.tool_calls is defined and message.tool_calls is iterable and message.tool_calls | length > 0 %}\n        {{- \'<|im_start|>\' + message.role }}\n        {%- if message.content is defined and message.content is string and message.content | trim | length > 0 %}\n            {{- \'\\n\' + message.content | trim + \'\\n\' }}\n        {%- endif %}\n        {%- for tool_call in message.tool_calls %}\n            {%- if tool_call.function is defined %}\n                {%- set tool_call = tool_call.function %}\n            {%- endif %}\n            {{- \'\\n<tool_call>\\n<function=\' + tool_call.name + \'>\\n\' }}\n            {%- if tool_call.arguments is defined %}\n                {%- for args_name, args_value in tool_call.arguments|items %}\n                    {{- \'<parameter=\' + args_name + \'>\\n\' }}\n                    {%- set args_value = args_value | tojson | safe if args_value is mapping or (args_value is sequence and args_value is not string) else args_value | string %}\n                    {{- args_value }}\n                    {{- \'\\n</parameter>\\n\' }}\n                {%- endfor %}\n            {%- endif %}\n            {{- \'</function>\\n</tool_call>\' }}\n        {%- endfor %}\n        {{- \'<|im_end|>\\n\' }}\n    {%- elif message.role == "user" or message.role == "system" or message.role == "assistant" %}\n        {{- \'<|im_start|>\' + message.role + \'\\n\' + message.content + \'<|im_end|>\' + \'\\n\' }}\n    {%- elif message.role == "tool" %}\n        {%- if loop.previtem and loop.previtem.role != "tool" %}\n            {{- \'<|im_start|>user\\n\' }}\n        {%- endif %}\n        {{- \'<tool_response>\\n\' }}\n        {{- message.content }}\n        {{- \'\\n</tool_response>\\n\' }}\n        {%- if not loop.last and loop.nextitem.role != "tool" %}\n            {{- \'<|im_end|>\\n\' }}\n        {%- elif loop.last %}\n            {{- \'<|im_end|>\\n\' }}\n        {%- endif %}\n    {%- else %}\n        {{- \'<|im_start|>\' + message.role + \'\\n\' + message.content + \'<|im_end|>\\n\' }}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- \'<|im_start|>assistant\\n\' }}\n{%- endif %}\n', 'qwen3moe.attention.value_length': '128'}
+Available chat formats from metadata: chat_template.default
+Using gguf chat template: {% macro render_extra_keys(json_dict, handled_keys) %}
+    {%- if json_dict is mapping %}
+        {%- for json_key in json_dict if json_key not in handled_keys %}
+            {%- if json_dict[json_key] is mapping or (json_dict[json_key] is sequence and json_dict[json_key] is not string) %}
+                {{- '\n<' ~ json_key ~ '>' ~ (json_dict[json_key] | tojson | safe) ~ '</' ~ json_key ~ '>' }}
+            {%- else %}
+                {{-'\n<' ~ json_key ~ '>' ~ (json_dict[json_key] | string) ~ '</' ~ json_key ~ '>' }}
+            {%- endif %}
+        {%- endfor %}
+    {%- endif %}
+{% endmacro %}
+
+{%- if messages[0]["role"] == "system" %}
+    {%- set system_message = messages[0]["content"] %}
+    {%- set loop_messages = messages[1:] %}
+{%- else %}
+    {%- set loop_messages = messages %}
+{%- endif %}
+
+{%- if not tools is defined %}
+    {%- set tools = [] %}
+{%- endif %}
+
+{%- if system_message is defined %}
+    {{- "<|im_start|>system\n" + system_message }}
+{%- else %}
+    {%- if tools is iterable and tools | length > 0 %}
+        {{- "<|im_start|>system\nYou are Qwen, a helpful AI assistant that can interact with a computer to solve tasks." }}
+    {%- endif %}
+{%- endif %}
+{%- if tools is iterable and tools | length > 0 %}
+    {{- "\n\n# Tools\n\nYou have access to the following functions:\n\n" }}
+    {{- "<tools>" }}
+    {%- for tool in tools %}
+        {%- if tool.function is defined %}
+            {%- set tool = tool.function %}
+        {%- endif %}
+        {{- "\n<function>\n<name>" ~ tool.name ~ "</name>" }}
+        {%- if tool.description is defined %}
+            {{- '\n<description>' ~ (tool.description | trim) ~ '</description>' }}
+        {%- endif %}
+        {{- '\n<parameters>' }}
+        {%- if tool.parameters is defined and tool.parameters is mapping and tool.parameters.properties is defined and tool.parameters.properties is mapping %}
+            {%- for param_name, param_fields in tool.parameters.properties|items %}
+                {{- '\n<parameter>' }}
+                {{- '\n<name>' ~ param_name ~ '</name>' }}
+                {%- if param_fields.type is defined %}
+                    {{- '\n<type>' ~ (param_fields.type | string) ~ '</type>' }}
+                {%- endif %}
+                {%- if param_fields.description is defined %}
+                    {{- '\n<description>' ~ (param_fields.description | trim) ~ '</description>' }}
+                {%- endif %}
+                {%- set handled_keys = ['name', 'type', 'description'] %}
+                {{- render_extra_keys(param_fields, handled_keys) }}
+                {{- '\n</parameter>' }}
+            {%- endfor %}
+        {%- endif %}
+        {% set handled_keys = ['type', 'properties'] %}
+        {{- render_extra_keys(tool.parameters, handled_keys) }}
+        {{- '\n</parameters>' }}
+        {%- set handled_keys = ['type', 'name', 'description', 'parameters'] %}
+        {{- render_extra_keys(tool, handled_keys) }}
+        {{- '\n</function>' }}
+    {%- endfor %}
+    {{- "\n</tools>" }}
+    {{- '\n\nIf you choose to call a function ONLY reply in the following format with NO suffix:\n\n<tool_call>\n<function=example_function_name>\n<parameter=example_parameter_1>\nvalue_1\n</parameter>\n<parameter=example_parameter_2>\nThis is the value for the second parameter\nthat can span\nmultiple lines\n</parameter>\n</function>\n</tool_call>\n\n<IMPORTANT>\nReminder:\n- Function calls MUST follow the specified format: an inner <function=...></function> block must be nested within <tool_call></tool_call> XML tags\n- Required parameters MUST be specified\n- You may provide optional reasoning for your function call in natural language BEFORE the function call, but NOT after\n- If there is no function call available, answer the question like normal with your current knowledge and do not tell the user about function calls\n</IMPORTANT>' }}
+{%- endif %}
+{%- if system_message is defined %}
+    {{- '<|im_end|>\n' }}
+{%- else %}
+    {%- if tools is iterable and tools | length > 0 %}
+        {{- '<|im_end|>\n' }}
+    {%- endif %}
+{%- endif %}
+{%- for message in loop_messages %}
+    {%- if message.role == "assistant" and message.tool_calls is defined and message.tool_calls is iterable and message.tool_calls | length > 0 %}
+        {{- '<|im_start|>' + message.role }}
+        {%- if message.content is defined and message.content is string and message.content | trim | length > 0 %}
+            {{- '\n' + message.content | trim + '\n' }}
+        {%- endif %}
+        {%- for tool_call in message.tool_calls %}
+            {%- if tool_call.function is defined %}
+                {%- set tool_call = tool_call.function %}
+            {%- endif %}
+            {{- '\n<tool_call>\n<function=' + tool_call.name + '>\n' }}
+            {%- if tool_call.arguments is defined %}
+                {%- for args_name, args_value in tool_call.arguments|items %}
+                    {{- '<parameter=' + args_name + '>\n' }}
+                    {%- set args_value = args_value | tojson | safe if args_value is mapping or (args_value is sequence and args_value is not string) else args_value | string %}
+                    {{- args_value }}
+                    {{- '\n</parameter>\n' }}
+                {%- endfor %}
+            {%- endif %}
+            {{- '</function>\n</tool_call>' }}
+        {%- endfor %}
+        {{- '<|im_end|>\n' }}
+    {%- elif message.role == "user" or message.role == "system" or message.role == "assistant" %}
+        {{- '<|im_start|>' + message.role + '\n' + message.content + '<|im_end|>' + '\n' }}
+    {%- elif message.role == "tool" %}
+        {%- if loop.previtem and loop.previtem.role != "tool" %}
+            {{- '<|im_start|>user\n' }}
+        {%- endif %}
+        {{- '<tool_response>\n' }}
+        {{- message.content }}
+        {{- '\n</tool_response>\n' }}
+        {%- if not loop.last and loop.nextitem.role != "tool" %}
+            {{- '<|im_end|>\n' }}
+        {%- elif loop.last %}
+            {{- '<|im_end|>\n' }}
+        {%- endif %}
+    {%- else %}
+        {{- '<|im_start|>' + message.role + '\n' + message.content + '<|im_end|>\n' }}
+    {%- endif %}
+{%- endfor %}
+{%- if add_generation_prompt %}
+    {{- '<|im_start|>assistant\n' }}
+{%- endif %}
+
+Using chat eos_token: <|im_end|>
+Using chat bos_token: <|endoftext|>
