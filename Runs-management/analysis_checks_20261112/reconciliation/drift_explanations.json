@@ -1,0 +1,80 @@
+{
+  "b0_raw_invalid_by_split": {
+    "devign/validation": {
+      "n": 2732,
+      "raw_invalid": 284,
+      "score_invalid": 0
+    },
+    "devign/test": {
+      "n": 2732,
+      "raw_invalid": 302,
+      "score_invalid": 0
+    },
+    "reveal/validation": {
+      "n": 2273,
+      "raw_invalid": 261,
+      "score_invalid": 0
+    },
+    "reveal/test": {
+      "n": 2274,
+      "raw_invalid": 285,
+      "score_invalid": 0
+    },
+    "total_raw_invalid": 1132
+  },
+  "b2_devign_test_ids_with_new_prompt": 38,
+  "b2_devign_changed_ids": [
+    "devign:test:11383",
+    "devign:test:11527",
+    "devign:test:11646",
+    "devign:test:12429",
+    "devign:test:13172",
+    "devign:test:14108",
+    "devign:test:1426",
+    "devign:test:14476",
+    "devign:test:1473",
+    "devign:test:17807",
+    "devign:test:18324",
+    "devign:test:19075",
+    "devign:test:20970",
+    "devign:test:21511",
+    "devign:test:2195",
+    "devign:test:22392",
+    "devign:test:2246",
+    "devign:test:22693",
+    "devign:test:22959",
+    "devign:test:23465",
+    "devign:test:24205",
+    "devign:test:24291",
+    "devign:test:24433",
+    "devign:test:24484",
+    "devign:test:24855",
+    "devign:test:26038",
+    "devign:test:26468",
+    "devign:test:27254",
+    "devign:test:3158",
+    "devign:test:321",
+    "devign:test:4685",
+    "devign:test:5908",
+    "devign:test:6519",
+    "devign:test:7048",
+    "devign:test:7420",
+    "devign:test:9162",
+    "devign:test:9176",
+    "devign:test:9896"
+  ],
+  "b1_full_superseded_old_renderer_example": {
+    "devign": {
+      "path": "Runs-management/kernel_outputs_harvest/huuhieu3333_grace-b1-full-test/b1_full_test/seed_42/devign/test/records.jsonl",
+      "n_records": 2732,
+      "auroc": 0.5308542404518689,
+      "sha256_lf": "61fccf1ab2670afeddab2df6f830425ce7443caae18b3d50eb7fe021040ee577"
+    },
+    "reveal": {
+      "path": "Runs-management/kernel_outputs_harvest/huuhieu3333_grace-b1-full-test/b1_full_test/seed_42/reveal/test/records.jsonl",
+      "n_records": 118,
+      "auroc": 0.5267629566694987,
+      "sha256_lf": "bbee17aba234cc1a11c1933412de7f2d6f40350c642f9eeac16e308ae2cedfa4"
+    }
+  }
+}

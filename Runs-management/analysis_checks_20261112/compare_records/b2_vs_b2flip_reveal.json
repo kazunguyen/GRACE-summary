@@ -1,0 +1,67 @@
+{
+  "file_a": "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\reveal\\test\\records.jsonl",
+  "file_b": "04_Arm_B2_Flip\\output\\kaggle_20261105_quangdung1111_run2\\grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30\\reveal\\test\\records.jsonl",
+  "n_common": 2274,
+  "n_both_valid": 2274,
+  "n_only_a": 0,
+  "n_only_b": 0,
+  "pred_argmax_agreement": 0.86103781882146,
+  "flip_rate_at_0.5": 0.13896218117854,
+  "abs_delta_s": {
+    "mean": 0.13223420462638338,
+    "median": 0.013086016532919307,
+    "p90": 0.4874227091626145,
+    "p99": 0.9419420847917738,
+    "max": 0.997450109518133
+  },
+  "n_bitwise_identical_s": 0,
+  "share_bitwise_identical_s": 0.0,
+  "label_mismatch_between_files": 0,
+  "provenance_a": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "cache_tag": [],
+    "prompt_variant": [],
+    "timestamp_min": "2026-11-01T08:28:16.791496+00:00",
+    "timestamp_max": "2026-11-01T13:25:06.168774+00:00",
+    "elapsed_mean_s": 6.102575255689518,
+    "n_elapsed_zero": 0
+  },
+  "provenance_b": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "cache_tag": [],
+    "prompt_variant": [
+      "b2_flip_frozen_donor_v1"
+    ],
+    "timestamp_min": "2026-11-04T19:28:37.298732+00:00",
+    "timestamp_max": "2026-11-04T23:07:52.033838+00:00",
+    "elapsed_mean_s": 5.764127814215911,
+    "n_elapsed_zero": 0
+  },
+  "tau": 0.12,
+  "flip_rate_at_tau": 0.10686015831134564,
+  "flips_at_tau_by_direction": {
+    "a1_to_b0": 160,
+    "a0_to_b1": 83
+  },
+  "flips_at_tau_right_to_wrong": 100,
+  "flips_at_tau_wrong_to_right": 143,
+  "notes": []
+}

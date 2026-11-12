@@ -8,6 +8,8 @@
 - Hiện trạng repo lấy tại commit `ec864df` (merge PR #34): `RUNS.md`, `CHANGES_AFTER_PREREG.md`, báo cáo metric `worklogs/2026-11-07_bao_cao_metric_cac_arm_hoan_tat.md` (bản cập nhật 11/11) và `Runs-management/analysis_pa1_20261111/`.
 - Ký hiệu: ✅ đã đáp ứng · ⚠️ đáp ứng một phần hoặc lệch cách làm · ❌ chưa làm hoặc trái quyết định.
 
+> **Cập nhật cùng ngày:** phần lớn việc offline của Đợt 1–2 đã xử lý. Trạng thái mới và tồn đọng còn lại ở [2026-11-12_xu_ly_offline_theo_danh_gia_tien_do.md](2026-11-12_xu_ly_offline_theo_danh_gia_tien_do.md).
+
 ---
 
 ## 1. Tóm tắt

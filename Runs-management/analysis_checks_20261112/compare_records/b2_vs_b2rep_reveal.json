@@ -1,0 +1,63 @@
+{
+  "file_a": "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\reveal\\test\\records.jsonl",
+  "file_b": "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\reveal\\test\\records.jsonl",
+  "n_common": 2274,
+  "n_both_valid": 2274,
+  "n_only_a": 0,
+  "n_only_b": 0,
+  "pred_argmax_agreement": 1.0,
+  "flip_rate_at_0.5": 0.0,
+  "abs_delta_s": {
+    "mean": 0.0,
+    "median": 0.0,
+    "p90": 0.0,
+    "p99": 0.0,
+    "max": 0.0
+  },
+  "n_bitwise_identical_s": 2274,
+  "share_bitwise_identical_s": 1.0,
+  "label_mismatch_between_files": 0,
+  "provenance_a": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "cache_tag": [],
+    "prompt_variant": [],
+    "timestamp_min": "2026-11-01T08:28:16.791496+00:00",
+    "timestamp_max": "2026-11-01T13:25:06.168774+00:00",
+    "elapsed_mean_s": 6.102575255689518,
+    "n_elapsed_zero": 0
+  },
+  "provenance_b": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [],
+    "quantization": [],
+    "cache_tag": [],
+    "prompt_variant": [],
+    "timestamp_min": "2026-11-07T16:48:08.666414+00:00",
+    "timestamp_max": "2026-11-07T20:40:29.259667+00:00",
+    "elapsed_mean_s": 6.111367111474049,
+    "n_elapsed_zero": 0
+  },
+  "tau": 0.12,
+  "flip_rate_at_tau": 0.0,
+  "flips_at_tau_by_direction": {
+    "a1_to_b0": 0,
+    "a0_to_b1": 0
+  },
+  "flips_at_tau_right_to_wrong": 0,
+  "flips_at_tau_wrong_to_right": 0,
+  "notes": [
+    "điểm s trùng bit ở >= 99,9% ID: đường thực thi tất định hoặc cache — xác nhận bằng timestamp/elapsed/cache_tag và nhật ký phiên"
+  ]
+}
