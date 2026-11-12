@@ -1,0 +1,7 @@
+# Bước 8 chấm mù thăm dò 30 ca ngày 12/11/2026
+
+Gói chấm mù thăm dò cho RQ6 gồm 15 ca Devign và 15 ca ReVeal. Mỗi ca có mã ẩn danh, mã nguồn target và hai demo A/B đã tráo thứ tự. Hai nguồn demo là B2 và B2-rand seed 42. Prompt được đối chiếu với hash trong records đã chạy, và phần prompt trước demo khớp theo từng target. Bản phát cho người chấm ẩn nguồn demo, nhãn benchmark, dự đoán và score. [Gói STEP8](../STEP8_blind_review/README.md)
+
+Nguyen Quang Dung đã điền phiếu người chấm 2 đủ **30/30 ca**. Kiểm tra xác nhận mã ca khớp gói, các giá trị rubric và kết luận hợp lệ, và mỗi ca có căn cứ cho cả hai demo. Năm trích dẫn vượt số dòng hiển thị ở CA-09, CA-12, CA-14, CA-15 và CA-18 đã được sửa và kiểm tra lại. Phiếu và gói chấm được đưa lên `dung` trong commit `cbd611f` với message “Nguyen Quang Dung hoàn thành việc chấm mù”. [Phiếu người chấm 2](../STEP8_blind_review/reviewer_packet/reviewer_2.csv)
+
+Đến thời điểm ghi log, **một trong hai phiếu đã hoàn thành**. Phiếu người chấm 1 còn trống. Sau khi người chấm 1 nộp phiếu độc lập, tính Cohen’s κ trước hòa giải và chuyển các ca bất đồng cho người phân xử. Bảng khóa A/B được giữ riêng ở local cho người điều phối. Gói 30 ca là đợt thăm dò B2 và B2-rand, còn phần chấm đầy đủ của RQ6/H6.1 thuộc Giai đoạn 2. [Phiếu người chấm 1](../STEP8_blind_review/reviewer_packet/reviewer_1.csv) · [Trạng thái RQ6 trong báo cáo](2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md)
