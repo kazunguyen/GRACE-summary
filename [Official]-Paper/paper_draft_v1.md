@@ -34,7 +34,7 @@ We build the retrieval banks from training data. We remove exact matches to held
 
 We use Qwen3-Coder-30B-A3B-Instruct with Q4_K_M GGUF quantization and an 8,192-token context. The reference runs use `llama-cpp-python` 0.3.16 with greedy decoding. At the first output position, we take logits `z₀` and `z₁` for the two label tokens and compute `s = exp(z₁) / (exp(z₀) + exp(z₁))`. We record raw response formatting and score validity separately. See §3.5 for runtime exceptions.
 
-The prompt places the target code first, then the graph and example blocks, and ends with a slot for the binary answer. We cap target code at 3,000 tokens and each of the other two blocks at 1,500 tokens. We serialize graph context from a Joern code property graph. B1 takes the first 25 nodes and 25 edges at most. For retrieval, we use CodeT5 representations and rerank candidates by lexical and syntactic similarity. When an example includes a label, it comes from the training bank. The target label stays out of the prompt.
+The prompt places the target code first, then the graph and example blocks, and ends with a slot for the binary answer. We cap target code at 3,000 tokens and each of the other two blocks at 1,500 tokens. We serialize graph context from a Joern code property graph. B1 takes the first 40 nodes and 80 edges at most. For retrieval, we use CodeT5 representations and rerank candidates by lexical and syntactic similarity. When an example includes a label, it comes from the training bank. The target label stays out of the prompt.
 
 | Arm | Prompt change or control |
 |---|---|
@@ -74,7 +74,7 @@ For routing, we use the supervised H3-B gate as the default classifier. We compa
 
 We compute AUROC from continuous scores and summarize the precision–recall curve from the same scores with average precision (AP, reported as AUPRC in the tables). We report MCC, balanced accuracy, F1 and positive prediction rate at specified cutoffs. For comparisons of positive prediction rates, all arms use 0.5. On validation, we select the cutoff with the highest MCC on a grid from 0.01 to 0.99 in steps of 0.01, breaking ties toward 0.5. B2-flip and B2-rep use the B2 cutoff. We evaluate the registered and retrospectively corrected B0/B1 thresholds separately.
 
-We match scores by test ID and compute 95% percentile intervals with 5,000 paired cluster bootstrap draws (seed 20261117), resampling commits on Devign (2,068 test clusters) and source-file hashes on ReVeal (646). The improvement margins are 0.02 AUROC and 0.03 MCC for the prompt comparisons, 0.15 MCC for SUP-LR versus B2, and 0.02 MCC for the meta-model comparison. We use the confidence interval to decide whether a contrast meets its margin. Two-sided McNemar tests compare paired classification errors at the thresholds used for each MCC row. Table B uses PA1 Holm adjustments over 22 tests per B0/B1 threshold policy, including the exploratory B2/B3 and B1/B1-H2 comparisons and the P_pre/P_post comparison at separate validation cutoffs. The last comparison tests post-query predictions. H5.3 evaluates pre-query routing at a fixed budget. The kit adjusts over 18 available tests and therefore can give different adjusted p-values.
+We match scores by test ID and compute 95% percentile intervals with 5,000 paired cluster bootstrap draws (seed 20261117), resampling commits on Devign (2,068 test clusters) and source-file hashes on ReVeal (646). The improvement margins are 0.02 AUROC and 0.03 MCC for the prompt comparisons, 0.15 MCC for SUP-LR versus B2, and 0.02 MCC for the meta-model comparison. We use the confidence interval to decide whether a contrast meets its margin. Two-sided McNemar tests compare paired classification errors at the thresholds used for each MCC row. McNemar's p-value tests paired classification errors rather than ΔMCC. The arms may use different cutoffs and have different positive prediction rates. Table B uses PA1 Holm adjustments over 22 tests per B0/B1 threshold policy, including the exploratory B2/B3 and B1/B1-H2 comparisons and the P_pre/P_post comparison at separate validation cutoffs. The last comparison tests post-query predictions. H5.3 evaluates pre-query routing at a fixed budget. The kit adjusts over 18 available tests and therefore can give different adjusted p-values.
 
 ### 3.5 Registration, exposure and deviations
 
@@ -107,6 +107,8 @@ The AUROC intervals rule out a gain of 0.02 for B2 over B0 on both benchmarks. T
 | B2 | 0.5305 | 0.4856 | 0.0597 (0.70) | 0.5592 | 0.5662 | 0.1221 | 0.0645 (0.12) | 0.1959 |
 | SUP-LR | 0.6559 | 0.6321 | 0.2190 (0.37) | 0.5434 | 0.7709 | 0.2841 | 0.2584 (0.15) | 0.2323 |
 
+**B0 and B1 MCC at the registered thresholds.** Devign: B0 0.0292 (τ = 0.08), B1 0.0641 (τ = 0.88). ReVeal: B0 0.0856 (τ = 0.44), B1 0.0532 (τ = 0.74). Table A above uses the retrospective thresholds for B0/B1.
+
 **Table B. Selected paired test contrasts.** Values are differences in the stated direction with 95% paired cluster bootstrap intervals and the ledger verdict at the specified margin δ. The MCC rows also show raw two-sided McNemar p and PA1 Holm-adjusted p. For comparisons that keep their cutoffs under both policies, we show the Holm value from the retrospective family. AUROC uses continuous scores. No bootstrap draw degenerated for the rows shown.
 
 | Contrast | Metric and policy | Devign Δ [95% CI] and verdict | Devign raw / Holm p | ReVeal Δ [95% CI] and verdict | ReVeal raw / Holm p |
@@ -130,8 +132,8 @@ The AUROC intervals rule out a gain of 0.02 for B2 over B0 on both benchmarks. T
 
 B2 MCC was below 0.15 on both test sets. On Devign, B2 reached an F1 of 0.5592 at the common 0.5 cutoff (Table A) and 0.5485 at the locked B2 cutoff. The always-vulnerable baseline reached 0.6295. Lu et al. report F1 of 0.6511 on FFmpeg+Qemu and 0.4313 on ReVeal in their main comparison. Those figures come from a different model and evaluation sample. Our B2−B0 comparison holds the model and test IDs fixed. [Original study](https://doi.org/10.1016/j.jss.2024.112031)
 
-![Devign ROC curves](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/figures/fig_roc_devign.png?raw=true)
-![ReVeal ROC curves](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/figures/fig_roc_reveal.png?raw=true)
+![Devign ROC curves](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/figures/fig_roc_devign.png?raw=true)
+![ReVeal ROC curves](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/figures/fig_roc_reveal.png?raw=true)
 
 *Figure 1. ROC curves for selected prompt arms and the supervised logistic anchor on each official test set. The diagonal marks chance ranking.*
 
@@ -156,8 +158,8 @@ Adding the graph to B0 changed AUROC by −0.0070 [−0.0197, 0.0057] on Devign 
 
 Adding a retrieved example raised the positive prediction rate at the shared cutoff of 0.5, while the B2−B1 ΔAUROC intervals contained zero (Devign −0.0030 [−0.0186, 0.0122], ReVeal −0.0179 [−0.0400, 0.0041]). Positive prediction rates rose from 46.63% to 65.08% on Devign and from 27.13% to 46.00% on ReVeal. The highest AUROC among the evaluated LLM arms was 0.6005 for B2-labelonly on ReVeal, below the specified ceiling of 0.62.
 
-![Devign operating points](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/figures/fig_operating_points_devign.png?raw=true)
-![ReVeal operating points](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/figures/fig_operating_points_reveal.png?raw=true)
+![Devign operating points](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/figures/fig_operating_points_devign.png?raw=true)
+![ReVeal operating points](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/figures/fig_operating_points_reveal.png?raw=true)
 
 *Figure 2. Positive prediction rate versus MCC at the common 0.5 decision rule for seed-42 prompt arms. Each panel shows one dataset.*
 
@@ -225,6 +227,8 @@ In this Qwen replication, the paired AUROC intervals rule out a gain of 0.02 fro
 
 After excluding exact and near matches to training code, B2−B0 ΔAUROC was −0.0204 [−0.0385, −0.0022] on Devign and −0.0242 [−0.0593, 0.0105] on ReVeal. Under the registered thresholds, ΔMCC was +0.0179 [−0.0211, 0.0573] and −0.0273 [−0.0695, 0.0168]. Under the retrospective thresholds, it was −0.0497 [−0.0940, −0.0049] and −0.0339 [−0.0737, 0.0068]. The overlap analysis preserves the conclusion that the AUROC intervals exclude a +0.02 gain, and the registered Devign MCC interval still permits a gain of 0.03.
 
+On the filtered Devign set, both the ΔAUROC interval and the retrospective ΔMCC interval lie below zero, indicating lower B2 performance than B0 on these two metrics.
+
 ## Appendix B. Exploratory graph evidence and contrastive demonstrations
 
 For B1-H2 relative to B1, the evidence-present groups gave ΔAUROC of +0.031 [−0.004, 0.065] (934 Devign functions) and +0.061 [−0.008, 0.127] (408 ReVeal functions). The corresponding evidence-missing estimates were +0.002 [−0.014, 0.019] and +0.002 [−0.020, 0.024]. The evidence groups have wide intervals, and the analysis is conditional on evidence availability.
@@ -256,13 +260,13 @@ Before the open-weight replication, we explored GRACE variants through commercia
 | Qwen3-Coder-480B, B2 → B3 on dev-100 (MCC) | −0.030 → −0.110 | 0.145 → 0.189 |
 | B3 net label sensitivity on dev-100 | 18% | 13% |
 
-On dev-100, the Devign positive prediction rate rose from 29% to 66% in the contrastive comparison. The proposal reports that the ΔMCC interval included zero. It also reports 31% net label sensitivity for B2 and 4% variation in repeated inference. The historical API audit recorded six changed labels under identical prompt hashes in two Vertex calls and 9,206 empty provider responses. [All 36 runs](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/evidence/historical_api_36.csv) · [Historical results in §2.1 and §2.3 of the proposal](https://github.com/kazunguyen/GRACE-summary/blob/dung/docs/20261111/Option1-De_cuong_nghien_cuu_GRACE_hop_nhat.docx)
+On dev-100, the Devign positive prediction rate rose from 29% to 66% in the contrastive comparison. The proposal reports that the ΔMCC interval included zero. It also reports 31% net label sensitivity for B2 and 4% variation in repeated inference. The historical API audit recorded six changed labels under identical prompt hashes in two Vertex calls and 9,206 empty provider responses. [All 36 runs](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/evidence/historical_api_36.csv) · [Historical results in §2.1 and §2.3 of the proposal](https://github.com/kazunguyen/GRACE-summary/blob/main/docs/20261111/Option1-De_cuong_nghien_cuu_GRACE_hop_nhat.docx)
 
 ## Draft source map
 
-- [Option 1 unified proposal](https://github.com/kazunguyen/GRACE-summary/blob/dung/docs/20261111/Option1-De_cuong_nghien_cuu_GRACE_hop_nhat.docx), [shortened roadmap](https://github.com/kazunguyen/GRACE-summary/blob/dung/docs/20261111/Option1-Danh_gia_tien_do_va_lo_trinh_GRACE_2026-11-11.docx) and [registration text in the repository](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/preregistration_en.md).
-- Tables A–C. [Registered kit CSVs](https://github.com/kazunguyen/GRACE-summary/tree/dung/%5BOfficial%5D-Paper/evidence/tables_prereg), [retrospective kit CSVs](https://github.com/kazunguyen/GRACE-summary/tree/dung/%5BOfficial%5D-Paper/evidence/tables_corrected), [full PA1 contrasts](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/Runs-management/analysis_pa1_20261111/full_tables/contrasts.csv) and [12 November metric report](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md). H3.1c in the kit CSVs is the exploratory B1-H2 contrast.
+- [Option 1 unified proposal](https://github.com/kazunguyen/GRACE-summary/blob/main/docs/20261111/Option1-De_cuong_nghien_cuu_GRACE_hop_nhat.docx), [shortened roadmap](https://github.com/kazunguyen/GRACE-summary/blob/main/docs/20261111/Option1-Danh_gia_tien_do_va_lo_trinh_GRACE_2026-11-11.docx) and [registration text in the repository](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/preregistration_en.md).
+- Tables A–C. [Registered kit CSVs](https://github.com/kazunguyen/GRACE-summary/tree/main/%5BOfficial%5D-Paper/evidence/tables_prereg), [retrospective kit CSVs](https://github.com/kazunguyen/GRACE-summary/tree/main/%5BOfficial%5D-Paper/evidence/tables_corrected), [full PA1 contrasts](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/Runs-management/analysis_pa1_20261111/full_tables/contrasts.csv) and [12 November metric report](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md). H3.1c in the kit CSVs is the exploratory B1-H2 contrast.
 - Paper Table C uses the full and locked_B2 rows from the [PA1 label sensitivity ledger](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/Runs-management/analysis_pa1_20261111/full_tables/sensitivity.csv). Kit Table C uses the common 0.5 cutoff.
-- Table D and routing. [Shared-threshold analysis](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/evidence/h52_shared_threshold.json) and [metric report §1.5](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md#L194).
+- Table D and routing. [Shared-threshold analysis](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/evidence/h52_shared_threshold.json) and [metric report §1.5](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md#L194).
 - RQ6. [30-case review worklog and decoded A/B summary](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_step8_cham_mu_30_ca.md).
-- [Readback after validation completion](https://github.com/kazunguyen/GRACE-summary/blob/dung/worklogs/2026-11-13_pa1_bo_sung_validation_va_doi_chieu_bang.md) and [independent audit](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-13_pa1_doi_soat_doc_lap_le_anh_duy.md). The audit distinguishes the confidence intervals Duy recomputed from those checked against existing outputs.
+- [Readback after validation completion](https://github.com/kazunguyen/GRACE-summary/blob/main/worklogs/2026-11-13_pa1_bo_sung_validation_va_doi_chieu_bang.md) and [independent audit](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-13_pa1_doi_soat_doc_lap_le_anh_duy.md). The audit distinguishes the confidence intervals Duy recomputed from those checked against existing outputs.

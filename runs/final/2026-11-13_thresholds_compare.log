@@ -1,0 +1,55 @@
+devign|B0|42                             tau*=0.98  mcc_val=0.076  n=2732  argmax_mcc_validation
+devign|B1|42                             tau*=0.98  mcc_val=0.075  n=2732  argmax_mcc_validation
+devign|B1-H2|42                          tau*=0.09  mcc_val=0.067  n=2732  argmax_mcc_validation
+devign|B1-full|42                        tau*=0.99  mcc_val=0.075  n=2732  argmax_mcc_validation
+devign|B1-shuf|42                        tau*=0.98  mcc_val=0.092  n=2732  argmax_mcc_validation
+devign|B1-shuf|43                        tau*=0.96  mcc_val=0.087  n=2732  argmax_mcc_validation
+devign|B1-shuf|44                        tau*=0.67  mcc_val=0.072  n=2732  argmax_mcc_validation
+devign|B2|42                             tau*=0.70  mcc_val=0.055  n=2732  argmax_mcc_validation
+devign|B2-labelonly|42                   tau*=0.99  mcc_val=0.092  n=2732  argmax_mcc_validation
+devign|B2-nolabel|42                     tau*=0.98  mcc_val=0.045  n=2732  argmax_mcc_validation
+devign|B2-rand|42                        tau*=0.99  mcc_val=0.066  n=2732  argmax_mcc_validation
+devign|B2-rand|43                        tau*=0.99  mcc_val=0.061  n=2732  argmax_mcc_validation
+devign|B2-rand|44                        tau*=0.99  mcc_val=0.056  n=2732  argmax_mcc_validation
+devign|SUP-LR|42                         tau*=0.37  mcc_val=0.226  n=2732  argmax_mcc_validation
+devign|SUP-LR|43                         tau*=0.37  mcc_val=0.226  n=2732  argmax_mcc_validation
+devign|SUP-LR|44                         tau*=0.37  mcc_val=0.226  n=2732  argmax_mcc_validation
+devign|SUP-METRIC|42                     tau*=0.58  mcc_val=0.135  n=2732  argmax_mcc_validation
+devign|SUP-METRIC|43                     tau*=0.58  mcc_val=0.135  n=2732  argmax_mcc_validation
+devign|SUP-METRIC|44                     tau*=0.58  mcc_val=0.135  n=2732  argmax_mcc_validation
+devign|SUP-MLP|42                        tau*=0.78  mcc_val=0.246  n=2732  argmax_mcc_validation
+devign|SUP-MLP|43                        tau*=0.77  mcc_val=0.25  n=2732  argmax_mcc_validation
+devign|SUP-MLP|44                        tau*=0.34  mcc_val=0.244  n=2732  argmax_mcc_validation
+reveal|B0|42                             tau*=0.30  mcc_val=0.08  n=2273  argmax_mcc_validation
+reveal|B1|42                             tau*=0.63  mcc_val=0.083  n=2273  argmax_mcc_validation
+reveal|B1-H2|42                          tau*=0.21  mcc_val=0.084  n=2273  argmax_mcc_validation
+reveal|B1-full|42                        tau*=0.01  mcc_val=0.087  n=2273  argmax_mcc_validation
+reveal|B1-shuf|42                        tau*=0.66  mcc_val=0.063  n=2273  argmax_mcc_validation
+reveal|B1-shuf|43                        tau*=0.01  mcc_val=0.069  n=2273  argmax_mcc_validation
+reveal|B1-shuf|44                        tau*=0.04  mcc_val=0.096  n=2273  argmax_mcc_validation
+reveal|B2|42                             tau*=0.12  mcc_val=0.082  n=2273  argmax_mcc_validation
+reveal|B2-labelonly|42                   tau*=0.02  mcc_val=0.085  n=2273  argmax_mcc_validation
+reveal|B2-nolabel|42                     tau*=0.21  mcc_val=0.065  n=2273  argmax_mcc_validation
+reveal|B2-rand|42                        tau*=0.89  mcc_val=0.081  n=2273  argmax_mcc_validation
+reveal|B2-rand|43                        tau*=0.62  mcc_val=0.077  n=2273  argmax_mcc_validation
+reveal|B2-rand|44                        tau*=0.64  mcc_val=0.089  n=2273  argmax_mcc_validation
+reveal|SUP-LR|42                         tau*=0.15  mcc_val=0.309  n=2273  argmax_mcc_validation
+reveal|SUP-LR|43                         tau*=0.15  mcc_val=0.309  n=2273  argmax_mcc_validation
+reveal|SUP-LR|44                         tau*=0.15  mcc_val=0.309  n=2273  argmax_mcc_validation
+reveal|SUP-METRIC|42                     tau*=0.15  mcc_val=0.248  n=2273  argmax_mcc_validation
+reveal|SUP-METRIC|43                     tau*=0.15  mcc_val=0.248  n=2273  argmax_mcc_validation
+reveal|SUP-METRIC|44                     tau*=0.15  mcc_val=0.248  n=2273  argmax_mcc_validation
+reveal|SUP-MLP|42                        tau*=0.11  mcc_val=0.326  n=2273  argmax_mcc_validation
+reveal|SUP-MLP|43                        tau*=0.08  mcc_val=0.313  n=2273  argmax_mcc_validation
+reveal|SUP-MLP|44                        tau*=0.26  mcc_val=0.342  n=2273  argmax_mcc_validation
+devign|B2-flip|42                        tau*=0.70  mcc_val=  n=2732  inherit_from:B2
+devign|B2-rep|42                         tau*=0.70  mcc_val=  n=2732  inherit_from:B2
+reveal|B2-flip|42                        tau*=0.12  mcc_val=  n=2273  inherit_from:B2
+reveal|B2-rep|42                         tau*=0.12  mcc_val=  n=2273  inherit_from:B2
+locked runs\final\2026-11-13_thresholds_validation_audit.json sha256 37c62a4e9d829871
+so với configs\thresholds.prereg.json: 4 mục khác hoặc thiếu
+  devign|B0|42                             đăng ký=0.08  tính lại=0.98
+  devign|B1|42                             đăng ký=0.88  tính lại=0.98
+  reveal|B0|42                             đăng ký=0.44  tính lại=0.3
+  reveal|B1|42                             đăng ký=0.74  tính lại=0.63
+Mọi khác biệt phải ghi vào CHANGES_AFTER_PREREG.md; bài báo báo cả hai bộ ngưỡng (đăng ký / hiệu chỉnh).

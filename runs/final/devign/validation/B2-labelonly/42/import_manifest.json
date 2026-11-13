@@ -1,0 +1,35 @@
+{
+  "dataset": "devign",
+  "split": "validation",
+  "arm": "B2-labelonly",
+  "seed": 42,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "..\\GRACE-summary-baseline-unified\\12_Arm_B2_LabelOnly\\output\\seed_42\\devign\\validation\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-04T16:12:29.989846+00:00",
+  "timestamp_max": "2026-11-04T20:25:59.632162+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "..\\GRACE-summary-baseline-unified\\12_Arm_B2_LabelOnly\\output\\seed_42\\devign\\validation\\records.jsonl": "a54e872e841ac3f380d4c80fda32de2520e004b374fb9916085093cfe447b542"
+  },
+  "records_sha256": "e727b2e226e5a18cd3d4e7ed9090cc06907f13d8cffd1e597c58509129ee5db3",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

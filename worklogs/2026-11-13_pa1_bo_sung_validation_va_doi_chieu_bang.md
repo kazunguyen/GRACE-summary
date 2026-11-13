@@ -5,7 +5,7 @@ Theo Phụ lục B, gom records bằng dry-run trước khi nhập, đối chi�
 ## 1. Rà nguồn
 
 - 10 file khớp blob Git ở commit `9cea10c`. Sáu file B1-shuf seed 44, B2-nolabel và B2-labelonly khớp SHA-256 trong khóa validation đã ghi. Bốn file B2-rep và B1-full không có SHA-256 tham chiếu trong inventory cũ, nên dùng SHA-256 của nguồn và đối chiếu blob Git.
-- Mỗi nhóm có đủ ID, nhãn và điểm hợp lệ: Devign 2.732 và ReVeal 2.273. So ID và nhãn theo bộ validation B0 đã gom. Các file bổ sung không có trường hash runtime trong records. B1-full vẫn mang sai lệch renderer cũ.
+- Mỗi nhóm có đủ ID, nhãn và điểm hợp lệ: Devign 2.732 và ReVeal 2.273. So ID và nhãn theo bộ validation B0 đã gom. Các file bổ sung không có trường hash runtime trong records. B1-full dùng ngưỡng validation đã khóa. Audit dựng lại đúng graph của 5.005/5.005 prompt validation, kể cả khung graph rỗng. Con số 4.753/5.006 là số prompt thay đổi giữa hai phiên bản test, theo đính chính trong báo cáo §4.3.
 - 50 nguồn đã dùng lần trước đều khớp SHA-256. Đã đối chiếu 20 file Python của kit đang dùng với ZIP v1.2.
 
 ## 2. Gom và kiểm tra đầu ra
@@ -24,7 +24,7 @@ Theo Phụ lục B, gom records bằng dry-run trước khi nhập, đối chi�
 | B2-rep, seed 42 | 2.732 / 0,70 | 2.273 / 0,12 |
 | B2-nolabel, seed 42 | 2.732 / 0,98 | 2.273 / 0,21 |
 | B2-labelonly, seed 42 | 2.732 / 0,99 | 2.273 / 0,02 |
-| B1-full, seed 42 (renderer cũ) | 2.732 / 0,99 | 2.273 / 0,01 |
+| B1-full, seed 42 (validation đã đối chiếu graph) | 2.732 / 0,99 | 2.273 / 0,01 |
 | B1-shuf, seed 44 | 2.732 / 0,67 | 2.273 / 0,04 |
 
 Sau khi lưu vào `runs/final`, đã đọc lại và kiểm 60 cặp SHA-256 nguồn/đầu ra. Inventory có 30/30 nhóm validation (75.075 records), 30/30 nhóm test (75.090 records) trong phạm vi Option 1 ngoài B3 và 60 manifest. Hash từng file và commit nguồn của 10 nhóm bổ sung nằm trong [inventory](../runs/final/source_inventory.json). Xem [log dry-run](../runs/final/2026-11-13_import_dry_run.log), [log nhập](../runs/final/2026-11-13_import_run.log), [log so ngưỡng](../runs/final/2026-11-13_thresholds_compare.log) và [file ngưỡng kiểm toán](../runs/final/2026-11-13_thresholds_validation_audit.json).
@@ -37,3 +37,8 @@ Lệnh nhập dùng `scripts/import_records.py --src <60 file trong inventory> -
 - Bảng A/B/C lấy kết quả từ test và các ngưỡng đã khóa. Lần bổ sung này hoàn thiện nguồn validation và tái lập ngưỡng, nên các số báo cáo giữ nguyên. Đã lưu log mới vào [bộ đăng ký](../runs/tables_prereg/2026-11-13_evaluate_final.log) và [bộ hiệu chỉnh](../runs/tables_corrected/2026-11-13_evaluate_final.log).
 - Giới hạn của kit vẫn áp dụng: H2.3 (B3 thăm dò) và H5.3 (P-PRE/P-POST) được báo riêng. Bảng B của kit hiệu chỉnh Holm trên 18 phép có mặt, còn báo cáo PA1 dùng họ 22 phép đã đối soát. Bảng C của kit dùng ngưỡng 0,5, còn kết quả ở ngưỡng khóa B2 và CI lấy từ bảng độ nhạy PA1.
 - Hai file khóa ngưỡng, giao thức và CSV điểm SUP khớp SHA-256 trước và sau khi chạy. Không phát sinh sai lệch mới trong đợt bổ sung này.
+
+## 5. Cập nhật theo phản hồi đọc bản thảo
+
+- Đưa 60 import manifest, inventory, nhóm, log nhập và so ngưỡng, hai log xuất bảng và hai bộ khóa ngưỡng vào Git để đối chiếu. Records chuẩn hóa vẫn dùng nguồn đã kê trong inventory.
+- Sửa hai draft, làm rõ ngưỡng đăng ký, McNemar và phép so sau lọc trùng. Notebook hình gọi kit nguyên bản, cập nhật nhãn tiếng Anh và tên dataset trước khi lưu bốn hình. Chạy lại trong WSL thành công, đối chiếu 45.054 records test và SHA-256 đầu vào.

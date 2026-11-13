@@ -1,0 +1,31 @@
+{
+  "dataset": "devign",
+  "split": "test",
+  "arm": "B2-labelonly",
+  "seed": 42,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [],
+    "quantization": [],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-07T10:36:33.364489+00:00",
+  "timestamp_max": "2026-11-07T14:45:05.493043+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\records.jsonl": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3"
+  },
+  "records_sha256": "4679632cec8ecb4135598596b0a07e6e98a023f7ae179b582d011a90d92e1e3f",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

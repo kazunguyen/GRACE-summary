@@ -1,0 +1,41 @@
+{
+  "dataset": "devign",
+  "split": "test",
+  "arm": "B2-rand",
+  "seed": 44,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "06_Arm_B2_Rand\\test_results_20261107\\seed_44\\devign\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [
+      "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
+    ],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [
+      "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735"
+    ],
+    "prompt_variant": [
+      "b2_rand_paired_frozen_bank_v1"
+    ],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-07T11:35:20.232229+00:00",
+  "timestamp_max": "2026-11-07T16:51:14.804544+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "06_Arm_B2_Rand\\test_results_20261107\\seed_44\\devign\\test\\records.jsonl": "d0ee0cd44d5dda471481c2d8dacfae02ef6834eafcc61a1ef0d8a7de95f5b344"
+  },
+  "records_sha256": "27c3113737ab3656f68e09dd7956100542237f626329a52b63d1cd4fbad4b67e",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

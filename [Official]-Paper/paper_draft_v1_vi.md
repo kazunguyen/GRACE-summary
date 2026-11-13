@@ -34,7 +34,7 @@ Chúng tôi lấy ví dụ từ tập huấn luyện. Khi làm sạch kho, chún
 
 Chúng tôi dùng Qwen3-Coder-30B-A3B-Instruct lượng tử hóa GGUF Q4_K_M với cửa sổ ngữ cảnh 8.192 token. Các lượt tham chiếu dùng `llama-cpp-python` 0.3.16 và giải mã tham lam. Ở vị trí đầu tiên của đầu ra, chúng tôi lấy logit `z₀` và `z₁` của hai token nhãn để tính `s = exp(z₁) / (exp(z₀) + exp(z₁))`. Chúng tôi kiểm tra riêng định dạng phản hồi thô và tính hợp lệ của điểm. Mục 3.5 nêu các ngoại lệ về môi trường chạy.
 
-Trong prompt, mã của hàm mục tiêu đứng trước khối đồ thị và khối ví dụ. Vị trí cuối dành cho câu trả lời nhị phân. Mã mục tiêu dùng tối đa 3.000 token, còn đồ thị và ví dụ dùng tối đa 1.500 token mỗi khối. Chúng tôi chuyển đồ thị thuộc tính mã do Joern tạo sang dạng văn bản. B1 lấy tối đa 25 nút và 25 cạnh đầu tiên. Khi truy hồi ví dụ, chúng tôi dùng biểu diễn CodeT5 rồi xếp hạng lại ứng viên theo độ tương tự từ vựng và cú pháp. Nhãn đi kèm ví dụ lấy từ kho huấn luyện. Nhãn của hàm mục tiêu không xuất hiện trong prompt.
+Trong prompt, mã của hàm mục tiêu đứng trước khối đồ thị và khối ví dụ. Vị trí cuối dành cho câu trả lời nhị phân. Mã mục tiêu dùng tối đa 3.000 token, còn đồ thị và ví dụ dùng tối đa 1.500 token mỗi khối. Chúng tôi chuyển đồ thị thuộc tính mã do Joern tạo sang dạng văn bản. B1 lấy tối đa 40 nút và 80 cạnh đầu tiên. Khi truy hồi ví dụ, chúng tôi dùng biểu diễn CodeT5 rồi xếp hạng lại ứng viên theo độ tương tự từ vựng và cú pháp. Nhãn đi kèm ví dụ lấy từ kho huấn luyện. Nhãn của hàm mục tiêu không xuất hiện trong prompt.
 
 | Nhánh | Thay đổi prompt hoặc đối chứng |
 |---|---|
@@ -74,7 +74,7 @@ Trong thí nghiệm định tuyến, H3-B là bộ phân loại mặc định. C
 
 Chúng tôi tính AUROC từ điểm liên tục và dùng average precision (AP, ghi là AUPRC trong bảng) để tóm tắt đường cong precision–recall. MCC, độ chính xác cân bằng (BA), F1 và tỷ lệ dự đoán dương được tính tại các ngưỡng đã định. Khi so tỷ lệ dự đoán dương, tất cả các nhánh dùng ngưỡng 0,5. Trên tập xác thực, chúng tôi chọn ngưỡng có MCC cao nhất trong lưới 0,01 đến 0,99, bước 0,01. Nếu nhiều ngưỡng cùng đạt MCC cao nhất, chọn ngưỡng gần 0,5 nhất. B2-flip và B2-rep dùng ngưỡng của B2. Với B0/B1, chúng tôi đánh giá riêng bộ ngưỡng đăng ký và bộ ngưỡng hiệu chỉnh hồi cứu.
 
-Chúng tôi ghép điểm theo ID kiểm thử và tính khoảng tin cậy phân vị 95% từ 5.000 lượt bootstrap ghép cặp theo cụm (seed 20261117). Đơn vị lấy mẫu lại là commit trên Devign (2.068 cụm kiểm thử) và mã băm tệp nguồn trên ReVeal (646 cụm). Biên cải thiện là 0,02 AUROC và 0,03 MCC cho các phép so prompt, 0,15 MCC cho SUP-LR so với B2, và 0,02 MCC cho phép so hai mô hình kết hợp. Kết luận theo biên dựa trên khoảng tin cậy. Kiểm định McNemar hai phía so lỗi phân loại ghép cặp tại ngưỡng của từng hàng MCC. Bảng B dùng p Holm của PA1 theo họ 22 phép cho mỗi bộ ngưỡng B0/B1. Họ này gồm cả hai phép thăm dò B2/B3 và B1/B1-H2, cùng phép so P_pre/P_post ở hai ngưỡng riêng chọn trên tập xác thực. Phép so P_pre/P_post đánh giá dự đoán sau truy vấn. H5.3 đánh giá quyết định gọi mô hình trước truy vấn ở một ngân sách cố định. Bộ công cụ hiệu chỉnh theo 18 phép có kết quả, nên p Holm có thể khác.
+Chúng tôi ghép điểm theo ID kiểm thử và tính khoảng tin cậy phân vị 95% từ 5.000 lượt bootstrap ghép cặp theo cụm (seed 20261117). Đơn vị lấy mẫu lại là commit trên Devign (2.068 cụm kiểm thử) và mã băm tệp nguồn trên ReVeal (646 cụm). Biên cải thiện là 0,02 AUROC và 0,03 MCC cho các phép so prompt, 0,15 MCC cho SUP-LR so với B2, và 0,02 MCC cho phép so hai mô hình kết hợp. Kết luận theo biên dựa trên khoảng tin cậy. Kiểm định McNemar hai phía so lỗi phân loại ghép cặp tại ngưỡng của từng hàng MCC. Giá trị p McNemar kiểm định chênh lệch lỗi ghép cặp, không phải kiểm định ΔMCC. Hai arm có thể dùng ngưỡng riêng và tỷ lệ dự đoán dương khác nhau. Bảng B dùng p Holm của PA1 theo họ 22 phép cho mỗi bộ ngưỡng B0/B1. Họ này gồm cả hai phép thăm dò B2/B3 và B1/B1-H2, cùng phép so P_pre/P_post ở hai ngưỡng riêng chọn trên tập xác thực. Phép so P_pre/P_post đánh giá dự đoán sau truy vấn. H5.3 đánh giá quyết định gọi mô hình trước truy vấn ở một ngân sách cố định. Bộ công cụ hiệu chỉnh theo 18 phép có kết quả, nên p Holm có thể khác.
 
 ### 3.5 Đăng ký, mức độ tiếp xúc và sai lệch
 
@@ -107,6 +107,8 @@ Khoảng tin cậy của ΔAUROC loại trừ mức tăng 0,02 khi so B2 với B
 | B2 | 0,5305 | 0,4856 | 0,0597 (0,70) | 0,5592 | 0,5662 | 0,1221 | 0,0645 (0,12) | 0,1959 |
 | SUP-LR | 0,6559 | 0,6321 | 0,2190 (0,37) | 0,5434 | 0,7709 | 0,2841 | 0,2584 (0,15) | 0,2323 |
 
+**MCC theo ngưỡng đăng ký cho B0 và B1.** Devign: B0 0,0292 (τ = 0,08), B1 0,0641 (τ = 0,88). ReVeal: B0 0,0856 (τ = 0,44), B1 0,0532 (τ = 0,74). Các giá trị B0/B1 trong Bảng A ở trên dùng ngưỡng hồi cứu.
+
 **Bảng B. Một số phép so ghép cặp trên tập kiểm thử.** Bảng ghi chiều chênh lệch, KTC 95% từ bootstrap ghép cặp theo cụm và kết luận của PA1 theo biên δ. Các hàng MCC có p McNemar hai phía và p hiệu chỉnh Holm. Với các cặp dùng cùng ngưỡng ở cả hai bộ, bảng ghi p Holm theo họ hiệu chỉnh hồi cứu. AUROC tính từ điểm liên tục. Các hàng trong bảng có 0 lượt bootstrap suy biến.
 
 | Phép so | Chỉ số và ngưỡng | Devign Δ [KTC 95%] và kết luận | Devign p thô / Holm | ReVeal Δ [KTC 95%] và kết luận | ReVeal p thô / Holm |
@@ -130,8 +132,8 @@ Khoảng tin cậy của ΔAUROC loại trừ mức tăng 0,02 khi so B2 với B
 
 MCC của B2 thấp hơn 0,15 trên cả hai tập kiểm thử. Trên Devign, F1 của B2 là 0,5592 ở ngưỡng chung 0,5 (Bảng A) và 0,5485 ở ngưỡng B2 đã khóa. Mốc luôn dự đoán có lỗ hổng đạt F1 0,6295. Trong phép so chính của bài gốc, Lu và cộng sự báo cáo F1 là 0,6511 trên FFmpeg+Qemu và 0,4313 trên ReVeal. Các số đó đến từ một mô hình và mẫu đánh giá khác. Phép so B2−B0 ở đây dùng cùng mô hình và cùng ID kiểm thử. [Bài báo GRACE gốc](https://doi.org/10.1016/j.jss.2024.112031)
 
-![Đường cong ROC trên Devign](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/figures/fig_roc_devign.png?raw=true)
-![Đường cong ROC trên ReVeal](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/figures/fig_roc_reveal.png?raw=true)
+![Đường cong ROC trên Devign](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/figures/fig_roc_devign.png?raw=true)
+![Đường cong ROC trên ReVeal](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/figures/fig_roc_reveal.png?raw=true)
 
 *Hình 1. Đường cong ROC của một số nhánh prompt và mốc logistic có giám sát trên từng tập test chính thức. Đường chéo biểu thị khả năng xếp hạng ngẫu nhiên.*
 
@@ -156,8 +158,8 @@ Thêm đồ thị vào B0 làm AUROC thay đổi −0,0070 [−0,0197; 0,0057] t
 
 Thêm ví dụ truy hồi làm tăng tỷ lệ dự đoán dương tại ngưỡng chung 0,5. KTC của ΔAUROC B2−B1 đều chứa 0 (Devign −0,0030 [−0,0186; 0,0122], ReVeal −0,0179 [−0,0400; 0,0041]). Tỷ lệ dự đoán dương tăng từ 46,63% lên 65,08% trên Devign và từ 27,13% lên 46,00% trên ReVeal. AUROC cao nhất trong các nhánh LLM là 0,6005 ở B2-labelonly trên ReVeal, dưới mốc 0,62.
 
-![Điểm hoạt động trên Devign](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/figures/fig_operating_points_devign.png?raw=true)
-![Điểm hoạt động trên ReVeal](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/figures/fig_operating_points_reveal.png?raw=true)
+![Điểm hoạt động trên Devign](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/figures/fig_operating_points_devign.png?raw=true)
+![Điểm hoạt động trên ReVeal](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/figures/fig_operating_points_reveal.png?raw=true)
 
 *Hình 2. Tỷ lệ dự đoán dương và MCC tại quy tắc quyết định chung 0,5 cho các nhánh prompt seed 42. Mỗi biểu đồ ứng với một bộ dữ liệu.*
 
@@ -225,6 +227,8 @@ Trong lần tái lập bằng Qwen, khoảng tin cậy ghép cặp loại trừ 
 
 Sau khi loại các mẫu trùng hoặc gần trùng với mã huấn luyện, ΔAUROC B2−B0 là −0,0204 [−0,0385; −0,0022] trên Devign và −0,0242 [−0,0593; 0,0105] trên ReVeal. Theo ngưỡng đăng ký, ΔMCC là +0,0179 [−0,0211; 0,0573] và −0,0273 [−0,0695; 0,0168]. Theo ngưỡng hồi cứu, các giá trị lần lượt là −0,0497 [−0,0940; −0,0049] và −0,0339 [−0,0737; 0,0068]. Sau khi lọc, cả hai khoảng tin cậy của ΔAUROC vẫn loại trừ mức tăng 0,02. Khoảng của ΔMCC trên Devign theo ngưỡng đăng ký vẫn cho phép mức tăng 0,03.
 
+Trên Devign sau lọc trùng, cả KTC ΔAUROC và KTC ΔMCC hồi cứu đều nằm dưới 0, cho thấy B2 thấp hơn B0 theo hai chỉ số trong phân tích này.
+
 ## Phụ lục B. Bằng chứng đồ thị và ví dụ tương phản thăm dò
 
 So với B1, B1-H2 cho ΔAUROC +0,031 [−0,004; 0,065] trên 934 hàm Devign có bằng chứng và +0,061 [−0,008; 0,127] trên 408 hàm ReVeal có bằng chứng. Trong nhóm thiếu bằng chứng, hai ước lượng lần lượt là +0,002 [−0,014; 0,019] và +0,002 [−0,020; 0,024]. Khoảng tin cậy của nhóm có bằng chứng khá rộng. Mỗi kết quả áp dụng cho nhóm tương ứng.
@@ -256,13 +260,13 @@ Trước khi tái lập với mô hình trọng số mở, nhóm đã thăm dò 
 | Qwen3-Coder-480B, B2 → B3 trên dev-100 (MCC) | −0,030 → −0,110 | 0,145 → 0,189 |
 | Độ nhạy nhãn ròng của B3 trên dev-100 | 18% | 13% |
 
-Trên dev-100, tỷ lệ dự đoán dương của Devign tăng từ 29% lên 66% khi dùng cặp tương phản. Đề cương ghi KTC của ΔMCC chứa 0. Độ nhạy nhãn ròng của B2 là 31%, còn mức biến động khi chạy lặp là 4%. Kiểm toán API ghi nhận sáu nhãn dự đoán thay đổi giữa hai lượt gọi Vertex dù mã băm prompt giống nhau, và 9.206 phản hồi rỗng từ nhà cung cấp. [Bảng đủ 36 lượt](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/evidence/historical_api_36.csv) · [Kết quả lịch sử tại §2.1 và §2.3 của đề cương](https://github.com/kazunguyen/GRACE-summary/blob/dung/docs/20261111/Option1-De_cuong_nghien_cuu_GRACE_hop_nhat.docx)
+Trên dev-100, tỷ lệ dự đoán dương của Devign tăng từ 29% lên 66% khi dùng cặp tương phản. Đề cương ghi KTC của ΔMCC chứa 0. Độ nhạy nhãn ròng của B2 là 31%, còn mức biến động khi chạy lặp là 4%. Kiểm toán API ghi nhận sáu nhãn dự đoán thay đổi giữa hai lượt gọi Vertex dù mã băm prompt giống nhau, và 9.206 phản hồi rỗng từ nhà cung cấp. [Bảng đủ 36 lượt](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/evidence/historical_api_36.csv) · [Kết quả lịch sử tại §2.1 và §2.3 của đề cương](https://github.com/kazunguyen/GRACE-summary/blob/main/docs/20261111/Option1-De_cuong_nghien_cuu_GRACE_hop_nhat.docx)
 
 ## Nguồn đối chiếu của bản thảo
 
-- [Đề cương chuẩn Option 1](https://github.com/kazunguyen/GRACE-summary/blob/dung/docs/20261111/Option1-De_cuong_nghien_cuu_GRACE_hop_nhat.docx), [lộ trình rút gọn](https://github.com/kazunguyen/GRACE-summary/blob/dung/docs/20261111/Option1-Danh_gia_tien_do_va_lo_trinh_GRACE_2026-11-11.docx) và [nội dung đăng ký trong repo](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/preregistration_en.md).
-- Bảng A–C. [CSV của kit theo ngưỡng đăng ký](https://github.com/kazunguyen/GRACE-summary/tree/dung/%5BOfficial%5D-Paper/evidence/tables_prereg), [CSV theo ngưỡng hồi cứu](https://github.com/kazunguyen/GRACE-summary/tree/dung/%5BOfficial%5D-Paper/evidence/tables_corrected), [các phép so PA1 đầy đủ](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/Runs-management/analysis_pa1_20261111/full_tables/contrasts.csv) và [báo cáo metric ngày 12/11](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md). H3.1c trong CSV của kit là phân tích thăm dò B1-H2.
+- [Đề cương chuẩn Option 1](https://github.com/kazunguyen/GRACE-summary/blob/main/docs/20261111/Option1-De_cuong_nghien_cuu_GRACE_hop_nhat.docx), [lộ trình rút gọn](https://github.com/kazunguyen/GRACE-summary/blob/main/docs/20261111/Option1-Danh_gia_tien_do_va_lo_trinh_GRACE_2026-11-11.docx) và [nội dung đăng ký trong repo](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/preregistration_en.md).
+- Bảng A–C. [CSV của kit theo ngưỡng đăng ký](https://github.com/kazunguyen/GRACE-summary/tree/main/%5BOfficial%5D-Paper/evidence/tables_prereg), [CSV theo ngưỡng hồi cứu](https://github.com/kazunguyen/GRACE-summary/tree/main/%5BOfficial%5D-Paper/evidence/tables_corrected), [các phép so PA1 đầy đủ](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/Runs-management/analysis_pa1_20261111/full_tables/contrasts.csv) và [báo cáo metric ngày 12/11](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md). H3.1c trong CSV của kit là phân tích thăm dò B1-H2.
 - Bảng C trong bài dùng các hàng full và locked_B2 của [sổ độ nhạy nhãn PA1](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/Runs-management/analysis_pa1_20261111/full_tables/sensitivity.csv). Bảng C của kit dùng ngưỡng chung 0,5.
-- Bảng D và định tuyến. [Phân tích ngưỡng chung](https://github.com/kazunguyen/GRACE-summary/blob/dung/%5BOfficial%5D-Paper/evidence/h52_shared_threshold.json) và [báo cáo metric §1.5](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md#L194).
+- Bảng D và định tuyến. [Phân tích ngưỡng chung](https://github.com/kazunguyen/GRACE-summary/blob/main/%5BOfficial%5D-Paper/evidence/h52_shared_threshold.json) và [báo cáo metric §1.5](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md#L194).
 - RQ6. [Nhật ký chấm 30 ca và kết quả giải mã A/B](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-12_step8_cham_mu_30_ca.md).
-- [Đối chiếu sau khi bổ sung validation](https://github.com/kazunguyen/GRACE-summary/blob/dung/worklogs/2026-11-13_pa1_bo_sung_validation_va_doi_chieu_bang.md) và [biên bản kiểm toán độc lập](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-13_pa1_doi_soat_doc_lap_le_anh_duy.md). Biên bản liệt kê các CI Duy tự tính và các CI được đối chiếu với kết quả đã lưu.
+- [Đối chiếu sau khi bổ sung validation](https://github.com/kazunguyen/GRACE-summary/blob/main/worklogs/2026-11-13_pa1_bo_sung_validation_va_doi_chieu_bang.md) và [biên bản kiểm toán độc lập](https://github.com/kazunguyen/GRACE-summary/blob/28405417703f24c594045074bdbe57b8c11a2d5e/worklogs/2026-11-13_pa1_doi_soat_doc_lap_le_anh_duy.md). Biên bản liệt kê các CI Duy tự tính và các CI được đối chiếu với kết quả đã lưu.
