@@ -1,0 +1,67 @@
+{
+  "file_a": "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\devign\\test\\records.jsonl",
+  "file_b": "04_Arm_B2_Flip\\output\\kaggle_20261105_quangdung1111_run2\\grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30\\devign\\test\\records.jsonl",
+  "n_common": 2732,
+  "n_both_valid": 2732,
+  "n_only_a": 0,
+  "n_only_b": 0,
+  "pred_argmax_agreement": 0.818814055636896,
+  "flip_rate_at_0.5": 0.18118594436310395,
+  "abs_delta_s": {
+    "mean": 0.17788946784607693,
+    "median": 0.03184722025793097,
+    "p90": 0.6343634575627619,
+    "p99": 0.9480930742065162,
+    "max": 0.9984213546073526
+  },
+  "n_bitwise_identical_s": 0,
+  "share_bitwise_identical_s": 0.0,
+  "label_mismatch_between_files": 0,
+  "provenance_a": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "cache_tag": [],
+    "prompt_variant": [],
+    "timestamp_min": "2026-11-01T03:14:29.496600+00:00",
+    "timestamp_max": "2026-11-02T00:16:58.900076+00:00",
+    "elapsed_mean_s": 6.875460276044632,
+    "n_elapsed_zero": 0
+  },
+  "provenance_b": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "cache_tag": [],
+    "prompt_variant": [
+      "b2_flip_frozen_donor_v1"
+    ],
+    "timestamp_min": "2026-11-01T23:49:19.741930+00:00",
+    "timestamp_max": "2026-11-04T19:28:32.372531+00:00",
+    "elapsed_mean_s": 6.569515604814028,
+    "n_elapsed_zero": 0
+  },
+  "tau": 0.7,
+  "flip_rate_at_tau": 0.2027818448023426,
+  "flips_at_tau_by_direction": {
+    "a1_to_b0": 281,
+    "a0_to_b1": 273
+  },
+  "flips_at_tau_right_to_wrong": 294,
+  "flips_at_tau_wrong_to_right": 260,
+  "notes": []
+}
