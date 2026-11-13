@@ -1,0 +1,37 @@
+{
+  "dataset": "devign",
+  "split": "validation",
+  "arm": "B2-flip",
+  "seed": 42,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "04_Arm_B2_Flip\\output\\kaggle_20261105_quangdung1111_run2\\grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30\\devign\\validation\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [
+      "b2_flip_frozen_donor_v1"
+    ],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-01T14:49:26.417232+00:00",
+  "timestamp_max": "2026-11-04T14:54:34.611421+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "04_Arm_B2_Flip\\output\\kaggle_20261105_quangdung1111_run2\\grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30\\devign\\validation\\records.jsonl": "95ebe9f112e9336b29674badb2c38c47e90ac2cd57669801dc8968ed9088a384"
+  },
+  "records_sha256": "3fbe10dfdacf60427f6165a8d9ad44da315c6bec4bab4c4b844570271d724904",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

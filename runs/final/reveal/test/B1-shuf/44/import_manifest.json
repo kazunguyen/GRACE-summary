@@ -1,0 +1,33 @@
+{
+  "dataset": "reveal",
+  "split": "test",
+  "arm": "B1-shuf",
+  "seed": 44,
+  "n": 2274,
+  "n_valid": 2274,
+  "sources": [
+    "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_44\\reveal\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [
+      "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+    ],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [],
+    "quantization": [],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-09T04:17:04.677361+00:00",
+  "timestamp_max": "2026-11-09T07:34:45.056006+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_44\\reveal\\test\\records.jsonl": "11624128cd37201eaba95510d4db63802274d9837ddcd618a235ff6faa9b38c7"
+  },
+  "records_sha256": "8f00439f53ae04dadf351ad3055332467168609743a2c793441d54e69ef4b2b3",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

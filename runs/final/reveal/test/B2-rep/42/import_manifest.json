@@ -1,0 +1,31 @@
+{
+  "dataset": "reveal",
+  "split": "test",
+  "arm": "B2-rep",
+  "seed": 42,
+  "n": 2274,
+  "n_valid": 2274,
+  "sources": [
+    "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\reveal\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [],
+    "quantization": [],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-07T16:48:08.666414+00:00",
+  "timestamp_max": "2026-11-07T20:40:29.259667+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\reveal\\test\\records.jsonl": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d"
+  },
+  "records_sha256": "dde01fdd21538f0064e76246fbfab29e72f54c9fe8142e6decd964dddb799bcb",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

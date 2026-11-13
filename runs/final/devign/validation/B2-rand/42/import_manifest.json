@@ -1,0 +1,35 @@
+{
+  "dataset": "devign",
+  "split": "validation",
+  "arm": "B2-rand",
+  "seed": 42,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "06_Arm_B2_Rand\\output\\kaggle_run_02\\grace_b2_rand_three_seed_11h\\seed_42\\devign\\validation\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-02T00:18:04.119637+00:00",
+  "timestamp_max": "2026-11-02T05:31:16.940452+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "06_Arm_B2_Rand\\output\\kaggle_run_02\\grace_b2_rand_three_seed_11h\\seed_42\\devign\\validation\\records.jsonl": "6f6bc0d6f0495fc7e69a834799718768d18ec12a41dfb61e7f2229dfaec91a65"
+  },
+  "records_sha256": "b4734e208796f673491571ce46a1f0c26f61bc84331a1f3c9653576c4b9dca94",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

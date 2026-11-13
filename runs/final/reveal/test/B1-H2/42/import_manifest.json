@@ -1,0 +1,39 @@
+{
+  "dataset": "reveal",
+  "split": "test",
+  "arm": "B1-H2",
+  "seed": 42,
+  "n": 2274,
+  "n_valid": 2274,
+  "sources": [
+    "Runs-management\\kaggle_outputs_20261107\\b1h2_test_latest\\b1_h2_test\\seed_42\\reveal\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [
+      "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8"
+    ],
+    "prompt_variant": [
+      "project_frozen_donor_dryrun_v1"
+    ],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-06T18:46:41.340482+00:00",
+  "timestamp_max": "2026-11-06T19:39:54.093365+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "Runs-management\\kaggle_outputs_20261107\\b1h2_test_latest\\b1_h2_test\\seed_42\\reveal\\test\\records.jsonl": "a4bdc3a3f05f5b5e8799efecc2892a0ac07049bedfa692b10178eef33f2466d1"
+  },
+  "records_sha256": "416b4a6b7a333d9f8d4b6ee64ed91c05a989db339d82cac26dbe8ae88760b591",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

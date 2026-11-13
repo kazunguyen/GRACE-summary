@@ -1,0 +1,544 @@
+{
+  "inputs_sha256": {
+    "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/validation/records.jsonl": "d856cf6b2271d4fb6f22dc999c83efe3c0e6ec29b8bc4e1340e28a6093c44ce1",
+    "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/validation/records.jsonl": "80397c2e90f78cb2d67a94313a5cd02a09901ec64e56176f7d903e85385446d7",
+    "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/devign/validation/records.jsonl": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
+    "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/reveal/validation/records.jsonl": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
+    "06_Arm_B2_Rand/config/threshold.json": "f5bb21ad64853950b1eb3ba534aaca3b35e025c20520e3c9af89a0d9b5499d20",
+    "08_Arm_B1_Shuf/config/threshold.json": "0c23919caa3e162fd91ee7611a6d683216afa64fa23f48dd18d4b52ad72b2be0",
+    "10_Arm_B2_NoLabel/config/threshold.json": "a1177cc1ee29fe9988184652187400f86c1f3c6a835eda1cd13ea5265fe4273b",
+    "12_Arm_B2_LabelOnly/config/threshold.json": "4bed7dead5176404aa84d5cc64d8d4292bdff31ca51c074a1b13591dec000527",
+    "Runs-management/b1h2_kaggle_validation_threshold_lock_20261106.json": "5e889ad6f18ad946744df6d25d96c2c5e25546ad9a5bc89a6ccf91e2802bd3f9",
+    "Runs-management/osf_amendment_20261106/validation_input_inventory.json": "c2c4c035c9303b29dca5a0b460a38ca1f299f77a0b6b7ea2a7136b3457d8a0e5",
+    "Runs-management/reanalysis_20261106/results.json": "f9a157e953ba005433954dd12e35729fc54da183c8ccdf2b2cef06d0575d80ce",
+    "Runs-management/run_handoff_20261108/completed_results/b1_full_test_completed_20261108/threshold_lock.json": "f86db3cba4fbfb632eb14c76ee08fc21f17f14df2b7bd1c2a9a15f77f881f974",
+    "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json": "b01a091a1e53fc3c36bbba043552228933c6dc83ef7fe4213527a96fb4f2d198",
+    "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json": "a786f43ac21337abc7ead7b0ece89da84d17ca61a1e5c153efecd70a46a05196",
+    "docs/20261111/grace_diag_kit.zip": "2b29dfd3a369c7defecc506af2db9aa18d0c3ce8fdb6970b47734bf471fb2a2b",
+    "prereg-v1:configs/thresholds.json": "fcb4ae11ffdabad304cd3c6f614c8a133fee409f9076d122888958bbb5e3d1bc"
+  },
+  "locked_sha256": "425147d6888e2814e82eabf54278522989be4a78c9e0e4aa6b7ac92604f8841e",
+  "thresholds": {
+    "devign|B0|42": {
+      "arm": "B0",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.08
+    },
+    "devign|B1-H2|42": {
+      "arm": "B1-H2",
+      "dataset": "devign",
+      "mcc_val": 0.06679281918983469,
+      "n_val": 2732,
+      "policy": "existing_validation_lock_exploratory",
+      "seed": 42,
+      "source": "Runs-management/b1h2_kaggle_validation_threshold_lock_20261106.json",
+      "tau": 0.09
+    },
+    "devign|B1-full|42": {
+      "arm": "B1-full",
+      "dataset": "devign",
+      "mcc_val": 0.07459989907611508,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "Runs-management/run_handoff_20261108/completed_results/b1_full_test_completed_20261108/threshold_lock.json",
+      "tau": 0.99
+    },
+    "devign|B1-shuf|42": {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "mcc_val": 0.09238491064059146,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "08_Arm_B1_Shuf/config/threshold.json",
+      "tau": 0.98
+    },
+    "devign|B1-shuf|43": {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "mcc_val": 0.08716191457625332,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 43,
+      "source": "08_Arm_B1_Shuf/config/threshold.json",
+      "tau": 0.96
+    },
+    "devign|B1-shuf|44": {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "mcc_val": 0.07191263023290964,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 44,
+      "source": "08_Arm_B1_Shuf/config/threshold.json",
+      "tau": 0.67
+    },
+    "devign|B1|42": {
+      "arm": "B1",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.88
+    },
+    "devign|B2-flip|42": {
+      "arm": "B2-flip",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "inherit_from:B2",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.7
+    },
+    "devign|B2-labelonly|42": {
+      "arm": "B2-labelonly",
+      "dataset": "devign",
+      "mcc_val": 0.0916912782270952,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "12_Arm_B2_LabelOnly/config/threshold.json",
+      "tau": 0.99
+    },
+    "devign|B2-nolabel|42": {
+      "arm": "B2-nolabel",
+      "dataset": "devign",
+      "mcc_val": 0.04502060079804367,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "10_Arm_B2_NoLabel/config/threshold.json",
+      "tau": 0.98
+    },
+    "devign|B2-rand|42": {
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "mcc_val": 0.06620373237126373,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "06_Arm_B2_Rand/config/threshold.json",
+      "tau": 0.99
+    },
+    "devign|B2-rand|43": {
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "mcc_val": 0.061035892718704646,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 43,
+      "source": "06_Arm_B2_Rand/config/threshold.json",
+      "tau": 0.99
+    },
+    "devign|B2-rand|44": {
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "mcc_val": 0.05585097088706295,
+      "n_val": 2732,
+      "policy": "existing_validation_lock",
+      "seed": 44,
+      "source": "06_Arm_B2_Rand/config/threshold.json",
+      "tau": 0.99
+    },
+    "devign|B2-rep|42": {
+      "arm": "B2-rep",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "inherit_from:B2",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.7
+    },
+    "devign|B2|42": {
+      "arm": "B2",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.7
+    },
+    "devign|P-POST|42": {
+      "arm": "P-POST",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.6
+    },
+    "devign|P-PRE|42": {
+      "arm": "P-PRE",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.54
+    },
+    "devign|SUP-LR|42": {
+      "arm": "SUP-LR",
+      "dataset": "devign",
+      "mcc_val": 0.22616188717401509,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 42,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.37
+    },
+    "devign|SUP-LR|43": {
+      "arm": "SUP-LR",
+      "dataset": "devign",
+      "mcc_val": 0.22616188717401509,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 43,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.37
+    },
+    "devign|SUP-LR|44": {
+      "arm": "SUP-LR",
+      "dataset": "devign",
+      "mcc_val": 0.22616188717401509,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 44,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.37
+    },
+    "devign|SUP-METRIC|42": {
+      "arm": "SUP-METRIC",
+      "dataset": "devign",
+      "mcc_val": 0.1347623748370243,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 42,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.5800000000000001
+    },
+    "devign|SUP-METRIC|43": {
+      "arm": "SUP-METRIC",
+      "dataset": "devign",
+      "mcc_val": 0.1347623748370243,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 43,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.5800000000000001
+    },
+    "devign|SUP-METRIC|44": {
+      "arm": "SUP-METRIC",
+      "dataset": "devign",
+      "mcc_val": 0.1347623748370243,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 44,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.5800000000000001
+    },
+    "devign|SUP-MLP|42": {
+      "arm": "SUP-MLP",
+      "dataset": "devign",
+      "mcc_val": 0.24556625152953762,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 42,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.78
+    },
+    "devign|SUP-MLP|43": {
+      "arm": "SUP-MLP",
+      "dataset": "devign",
+      "mcc_val": 0.24985838108931574,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 43,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.77
+    },
+    "devign|SUP-MLP|44": {
+      "arm": "SUP-MLP",
+      "dataset": "devign",
+      "mcc_val": 0.24379581621700555,
+      "n_val": 2732,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 44,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/devign/anchor_summary.json",
+      "tau": 0.34
+    },
+    "reveal|B0|42": {
+      "arm": "B0",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.44
+    },
+    "reveal|B1-H2|42": {
+      "arm": "B1-H2",
+      "dataset": "reveal",
+      "mcc_val": 0.08363234793079846,
+      "n_val": 2273,
+      "policy": "existing_validation_lock_exploratory",
+      "seed": 42,
+      "source": "Runs-management/b1h2_kaggle_validation_threshold_lock_20261106.json",
+      "tau": 0.21
+    },
+    "reveal|B1-full|42": {
+      "arm": "B1-full",
+      "dataset": "reveal",
+      "mcc_val": 0.08702307239779206,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "Runs-management/run_handoff_20261108/completed_results/b1_full_test_completed_20261108/threshold_lock.json",
+      "tau": 0.01
+    },
+    "reveal|B1-shuf|42": {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "mcc_val": 0.06332759027068521,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "08_Arm_B1_Shuf/config/threshold.json",
+      "tau": 0.66
+    },
+    "reveal|B1-shuf|43": {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "mcc_val": 0.06949283504716405,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 43,
+      "source": "08_Arm_B1_Shuf/config/threshold.json",
+      "tau": 0.01
+    },
+    "reveal|B1-shuf|44": {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "mcc_val": 0.09558988581293579,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 44,
+      "source": "08_Arm_B1_Shuf/config/threshold.json",
+      "tau": 0.04
+    },
+    "reveal|B1|42": {
+      "arm": "B1",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.74
+    },
+    "reveal|B2-flip|42": {
+      "arm": "B2-flip",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "inherit_from:B2",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.12
+    },
+    "reveal|B2-labelonly|42": {
+      "arm": "B2-labelonly",
+      "dataset": "reveal",
+      "mcc_val": 0.08470034354957923,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "12_Arm_B2_LabelOnly/config/threshold.json",
+      "tau": 0.02
+    },
+    "reveal|B2-nolabel|42": {
+      "arm": "B2-nolabel",
+      "dataset": "reveal",
+      "mcc_val": 0.06511448784748762,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "10_Arm_B2_NoLabel/config/threshold.json",
+      "tau": 0.21
+    },
+    "reveal|B2-rand|42": {
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "mcc_val": 0.08081883313753434,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 42,
+      "source": "06_Arm_B2_Rand/config/threshold.json",
+      "tau": 0.89
+    },
+    "reveal|B2-rand|43": {
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "mcc_val": 0.07706375271838951,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 43,
+      "source": "06_Arm_B2_Rand/config/threshold.json",
+      "tau": 0.62
+    },
+    "reveal|B2-rand|44": {
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "mcc_val": 0.08916560536249224,
+      "n_val": 2273,
+      "policy": "existing_validation_lock",
+      "seed": 44,
+      "source": "06_Arm_B2_Rand/config/threshold.json",
+      "tau": 0.64
+    },
+    "reveal|B2-rep|42": {
+      "arm": "B2-rep",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "inherit_from:B2",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.12
+    },
+    "reveal|B2|42": {
+      "arm": "B2",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.12
+    },
+    "reveal|P-POST|42": {
+      "arm": "P-POST",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.1
+    },
+    "reveal|P-PRE|42": {
+      "arm": "P-PRE",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": null,
+      "policy": "frozen_prereg_v1",
+      "seed": 42,
+      "source": "prereg-v1:configs/thresholds.json",
+      "tau": 0.38
+    },
+    "reveal|SUP-LR|42": {
+      "arm": "SUP-LR",
+      "dataset": "reveal",
+      "mcc_val": 0.3086026461603104,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 42,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.15000000000000002
+    },
+    "reveal|SUP-LR|43": {
+      "arm": "SUP-LR",
+      "dataset": "reveal",
+      "mcc_val": 0.3086026461603104,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 43,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.15000000000000002
+    },
+    "reveal|SUP-LR|44": {
+      "arm": "SUP-LR",
+      "dataset": "reveal",
+      "mcc_val": 0.3086026461603104,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 44,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.15000000000000002
+    },
+    "reveal|SUP-METRIC|42": {
+      "arm": "SUP-METRIC",
+      "dataset": "reveal",
+      "mcc_val": 0.24829715887383724,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 42,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.15000000000000002
+    },
+    "reveal|SUP-METRIC|43": {
+      "arm": "SUP-METRIC",
+      "dataset": "reveal",
+      "mcc_val": 0.24829715887383724,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 43,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.15000000000000002
+    },
+    "reveal|SUP-METRIC|44": {
+      "arm": "SUP-METRIC",
+      "dataset": "reveal",
+      "mcc_val": 0.24829715887383724,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 44,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.15000000000000002
+    },
+    "reveal|SUP-MLP|42": {
+      "arm": "SUP-MLP",
+      "dataset": "reveal",
+      "mcc_val": 0.32571734053454726,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 42,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.11
+    },
+    "reveal|SUP-MLP|43": {
+      "arm": "SUP-MLP",
+      "dataset": "reveal",
+      "mcc_val": 0.3127960845624241,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 43,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.08
+    },
+    "reveal|SUP-MLP|44": {
+      "arm": "SUP-MLP",
+      "dataset": "reveal",
+      "mcc_val": 0.3415641467953059,
+      "n_val": 2273,
+      "policy": "existing_supervised_validation_lock",
+      "seed": 44,
+      "source": "STEP6_supervised_anchors/runs/anchor/locked_step6_20261108/reveal/anchor_summary.json",
+      "tau": 0.26
+    }
+  },
+  "version": "prereg_v1_plus_existing_validation_locks"
+}

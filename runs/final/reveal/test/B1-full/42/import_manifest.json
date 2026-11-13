@@ -1,0 +1,33 @@
+{
+  "dataset": "reveal",
+  "split": "test",
+  "arm": "B1-full",
+  "seed": 42,
+  "n": 2274,
+  "n_valid": 2274,
+  "sources": [
+    "Runs-management\\run_handoff_20261108\\completed_results\\b1_full_test_completed_20261108\\B1-full\\seed_42\\reveal\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [
+      "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+    ],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [],
+    "quantization": [],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-08T05:29:18.995468+00:00",
+  "timestamp_max": "2026-11-08T08:35:51.547039+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "Runs-management\\run_handoff_20261108\\completed_results\\b1_full_test_completed_20261108\\B1-full\\seed_42\\reveal\\test\\records.jsonl": "302f245a52a14dc54c191fdd1b065dd9cab2cc4ac3afafe95afc270894abf93f"
+  },
+  "records_sha256": "a3f34d3a6e07cd96847e6eb1e7513c8c9d275d56f83a4d93e887ca75eea46217",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

@@ -1,0 +1,35 @@
+{
+  "dataset": "reveal",
+  "split": "validation",
+  "arm": "B2-rand",
+  "seed": 42,
+  "n": 2273,
+  "n_valid": 2273,
+  "sources": [
+    "06_Arm_B2_Rand\\output\\kaggle_run_02\\grace_b2_rand_three_seed_11h\\seed_42\\reveal\\validation\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-02T05:31:22.512438+00:00",
+  "timestamp_max": "2026-11-05T01:19:09.065978+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "06_Arm_B2_Rand\\output\\kaggle_run_02\\grace_b2_rand_three_seed_11h\\seed_42\\reveal\\validation\\records.jsonl": "4ecf8514c43d287abce851c717ac458995bd12e1adb7ea15564d484de2fa8315"
+  },
+  "records_sha256": "0d5e7b69735efcc631fead48656d0f8c23224da80df21c69b858e5d60d127254",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

@@ -1,0 +1,35 @@
+{
+  "dataset": "reveal",
+  "split": "validation",
+  "arm": "B1-shuf",
+  "seed": 44,
+  "n": 2273,
+  "n_valid": 2273,
+  "sources": [
+    "..\\GRACE-summary-baseline-unified\\08_Arm_B1_Shuf\\output\\seed_44\\reveal\\validation\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-07T01:38:09.315327+00:00",
+  "timestamp_max": "2026-11-07T04:47:09.747608+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "..\\GRACE-summary-baseline-unified\\08_Arm_B1_Shuf\\output\\seed_44\\reveal\\validation\\records.jsonl": "669ee4292aec5de6c64a2b480ec814cd669ca2dd52e89417899f83ac0d536ed4"
+  },
+  "records_sha256": "b471b1f023f0f857637d17105779852a8f0634e416b9061d91be0173793a9ea6",
+  "conflicts": [],
+  "on_conflict": "abort"
+}
