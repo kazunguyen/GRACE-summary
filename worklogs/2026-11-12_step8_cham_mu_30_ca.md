@@ -26,3 +26,8 @@ Nguyen Quang Dung đã điền phiếu người chấm 2 đủ **30/30 ca**. Ki�
 - **Thiết kế gói đặt một demo truy hồi (B2) cạnh một demo ngẫu nhiên (B2-rand).** Theo căn cứ ghi trong phiếu, demo được chọn ở mọi ca thuộc cùng họ hàm, cùng API hoặc cùng module với target, còn demo kia thuộc dự án hoặc chức năng khác. Như vậy kết quả cho thấy độ tương đồng về mã và chức năng giữa target và demo, chưa đánh giá độ liên quan về **cơ chế lỗ hổng**. Một số ca là mã test hoặc khởi tạo (ví dụ CA-05, CA-25) vẫn được chấm `guard = khop`.
 - **Còn cần đối chiếu bảng khóa A/B** (`coordinator_only/answer_key.csv`, Dũng giữ riêng ở máy) để xác nhận demo được chọn có luôn là demo B2 hay không. Nếu đúng, có thể viết ở mức mô tả: "demo truy hồi cùng họ hàm với target ở 30/30 ca; demo ngẫu nhiên không cùng họ ở ca nào".
 - **Gói này không kiểm định H6.1.** H6.1 đánh giá chính demo truy hồi có liên quan cơ chế với target hay không (tỷ lệ "Neither" ≥ 40% trên Devign), cùng phần audit nhãn. Gói 30 ca là đợt thăm dò; phần chấm đầy đủ của RQ6/H6.1 vẫn thuộc Giai đoạn 2. [Trạng thái RQ6 trong báo cáo](2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md)
+
+
+## Đối chiếu bảng khóa sau khi nhận đủ phiếu (13/11/2026)
+
+Sau khi hai phiếu độc lập đã được nộp, người điều phối đối chiếu cục bộ với `coordinator_only/answer_key.csv`. Ở cả 30/30 ca, lựa chọn của hai người trỏ tới demo B2: 15/15 Devign và 15/15 ReVeal; không có ca nào chọn demo B2-rand. Khóa A/B vẫn ở local và không được đưa vào Git. Đây là kết quả mô tả của gói thăm dò 30 ca, không phải kiểm định độ liên quan của cơ chế lỗ hổng hay kết quả xác nhận H6.1.
