@@ -1,4 +1,9 @@
-"""Recompute the Phase 1 paired analyses from the existing local test records."""
+"""Recompute the Phase 1 paired analyses from the existing local test records.
+
+Install the pinned environment first (pip install -r requirements.txt): the Step 6 refit check
+reproduces at atol 1e-10 only with scikit-learn 1.5.2. Input hash checks accept LF-normalised bytes,
+so a Windows CRLF checkout reproduces the same tables.
+"""
 
 import csv
 import hashlib
@@ -69,6 +74,16 @@ def by_id(rows, source):
     return keyed
 
 
+STEP6_ATOL = 1e-10
+
+
+def hash_matches(path, expected):
+    """Accept the recorded hash of the LF bytes when a Windows checkout converted them to CRLF."""
+    raw = (ROOT / path).read_bytes()
+    return expected in (hashlib.sha256(raw).hexdigest(),
+                        hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest())
+
+
 def load_meta_scores(ds, ids, labels, groups, audit):
     sys.path.insert(0, str(ROOT / STEP6 / "src"))
     import step6_complementarity as step6
@@ -78,18 +93,18 @@ def load_meta_scores(ds, ids, labels, groups, audit):
     original = load_json(f"{META_RUN}/analysis_manifest.json", audit)
     result_path = f"{ds}/complementarity_step6.json"
     previous = load_json(f"{META_RUN}/{result_path}", audit)["p_pre_vs_p_post"]
-    if audit[f"{META_RUN}/{result_path}"] != original["output_hashes"][result_path]:
+    if not hash_matches(f"{META_RUN}/{result_path}", original["output_hashes"][result_path]):
         raise ValueError(f"Original Step 6 result hash mismatch: {ds}")
     inputs = []
     for split in ("validation", "test"):
         joined = f"{ds}/joined_{split}.csv"
         rows = load_csv(f"{META_RUN}/{joined}", audit)
-        if audit[f"{META_RUN}/{joined}"] != original["output_hashes"][joined]:
+        if not hash_matches(f"{META_RUN}/{joined}", original["output_hashes"][joined]):
             raise ValueError(f"Original Step 6 join hash mismatch: {ds}/{split}")
         h3b = original["inputs"][f"{ds}/{split}"]["h3b"]
         path = f"{STEP6}/{original['h3b_export_root']}/{h3b['xpre_path']}"
         audit[path] = hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
-        if audit[path] != h3b["xpre_sha256"]:
+        if not hash_matches(path, h3b["xpre_sha256"]):
             raise ValueError(f"Original Step 6 feature hash mismatch: {ds}/{split}")
         with np.load(ROOT / path, allow_pickle=False) as archive:
             pos = {str(i): n for n, i in enumerate(archive["ids"])}
@@ -111,13 +126,15 @@ def load_meta_scores(ds, ids, labels, groups, audit):
     for original_name in ("P_pre", "P_post"):
         if taus[original_name] != previous["thresholds_selected_on_validation_oof"][original_name]:
             raise ValueError(f"Step 6 OOF threshold was not reproduced: {ds}/{original_name}")
-        for metric in ("mcc", "balanced_accuracy", "f1"):
-            if not np.isclose(result["test"][original_name]["metrics"][metric],
-                              previous["test"][original_name]["metrics"][metric], atol=1e-10, rtol=0):
-                raise ValueError(f"Step 6 test metric was not reproduced: {ds}/{original_name}/{metric}")
-        if not np.isclose(result["test"][original_name]["auroc"],
-                          previous["test"][original_name]["auroc"], atol=1e-10, rtol=0):
-            raise ValueError(f"Step 6 test AUROC was not reproduced: {ds}/{original_name}")
+        checks = [(m, result["test"][original_name]["metrics"][m], previous["test"][original_name]["metrics"][m])
+                  for m in ("mcc", "balanced_accuracy", "f1")]
+        checks.append(("auroc", result["test"][original_name]["auroc"], previous["test"][original_name]["auroc"]))
+        for metric, new, old in checks:
+            if abs(new - old) > 1e-10:
+                print(f"{ds}: Step 6 {original_name} {metric} differs by {abs(new - old):.3g}", flush=True)
+            if not np.isclose(new, old, atol=STEP6_ATOL, rtol=0):
+                raise ValueError(f"Step 6 test {metric} was not reproduced: {ds}/{original_name} "
+                                 f"(|diff|={abs(new - old):.3g} > --step6-atol {STEP6_ATOL})")
     pos = {r["id"]: n for n, r in enumerate(rows)}
     order = [pos[i] for i in ids]
     print(f"{ds}: Step 6 validation thresholds and test metrics reproduced", flush=True)
@@ -329,7 +346,11 @@ def main():
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
-    out = parser.parse_args().out
+    parser.add_argument("--step6-atol", type=float, default=STEP6_ATOL,
+                        help="tolerance for the Step 6 refit check; raise only when the sklearn version differs")
+    args = parser.parse_args()
+    out = args.out
+    globals()["STEP6_ATOL"] = args.step6_atol
     out.mkdir(parents=True, exist_ok=True)
     audit = {KIT: hashlib.sha256((ROOT / KIT).read_bytes()).hexdigest()}
     status = load_json(f"{RUNS}/current_status.json", audit)

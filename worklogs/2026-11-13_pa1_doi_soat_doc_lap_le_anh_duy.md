@@ -58,7 +58,7 @@
    - Tự đếm và phân loại chuyển dịch nhãn (đúng $\rightarrow$ sai, sai $\rightarrow$ đúng) tại ngưỡng khóa validation của B2 ($\tau=0,70$ Devign, $\tau=0,12$ ReVeal).
 
 ### 0.2. Những phần đối chiếu với tệp CSV xuất ra hoặc hồ sơ báo cáo có sẵn
-1. **Khoảng tin cậy Bootstrap 95% của các phép so còn lại trong Bảng B (H2.2b, H2.2c, H3.1b, H3.1c):** Đối chiếu kiểm tra tính nhất quán giữa tệp CSV kit (`runs/tables_prereg/table_B_contrasts.csv` và `runs/tables_corrected/table_B_contrasts.csv`), tệp log kiểm toán chạy lại ngày 13/11 (`runs/.pa1-validation-EknQQQ`), và sổ cái phân tích PA1 tại `Runs-management/analysis_pa1_20261111/full_tables/contrasts.csv` (các cột `ci_low`, `ci_high`).
+1. **Khoảng tin cậy Bootstrap 95% của các phép so còn lại trong Bảng B (H2.2b, H2.2c, H3.1b, H3.1c):** Đối chiếu kiểm tra tính nhất quán giữa tệp CSV kit (`runs/tables_prereg/table_B_contrasts.csv` và `runs/tables_corrected/table_B_contrasts.csv`), tệp log kiểm toán chạy lại ngày 13/11 (`runs/.pa1-validation-EknQQQ`), và sổ cái phân tích PA1 tại `Runs-management/analysis_pa1_20261111/full_tables/contrasts.csv` (các cột `ci95_lo`, `ci95_hi`).
 2. **Cột `p Holm` theo họ 22 phép so (trong Báo cáo ngày 12/11 §1.6):** Đối chiếu trực tiếp với tệp ledger phân tích PA1 tại `Runs-management/analysis_pa1_20261111/full_tables/contrasts.csv` (các cột `mcnemar_p_holm_available_*`).
 3. **Bảng B 4 dòng mang nhãn `missing arm` (H2.3 và H5.3):** Đối chiếu với báo cáo chuyên đề Step 6 và phân tích thăm dò B3 trong `worklogs/2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md`.
 4. **Bảng A trong Báo cáo ngày 12/11:** Đối chiếu toàn bộ 26 dòng của Bảng 1.3 và 10 dòng của Bảng 1.4b (Step 6) với `runs/tables_corrected/table_A_metrics.csv`. Cả 26 dòng Bảng 1.3 đều khớp ở các cột chung đến độ làm tròn số học của báo cáo.
@@ -235,7 +235,7 @@ Theo README.md và đề cương nghiên cứu, chỉ số đánh giá giả thu
   - Số ca B2-rep đổi nhãn: **0 ca** ($0,00\%$).
   - Net sensitivity: **$10,69\%$**, CI 95% = $[9,15\%; 12,25\%]$.
   - Cơ cấu chuyển dịch: 100 ca chuyển từ đúng sang sai; 143 ca chuyển từ sai sang đúng.
-- **Kết luận:** Số liệu tự tính độc lập khớp hoàn toàn từng ca chuyển đổi và từng khoảng tin cậy với Bảng C Mục 1.6 trong báo cáo ngày 12/11/2026. B2-rep giữ nguyên 100% dự đoán trên toàn bộ 5.006 mẫu của hai tập test, khẳng định tính tất định tuyệt đối của quá trình sinh phản hồi.
+- **Kết luận:** Số ca chuyển đổi tự đếm khớp với Bảng C ở Mục 1.6 của báo cáo 12/11. Các khoảng tin cậy tại ngưỡng khóa B2 được đối chiếu với CSV độ nhạy PA1 theo Mục 0.2. Dự đoán B2-rep trùng với B2 trên 5.006 mẫu test trong hai lượt đã đối chiếu.
 
 ---
 
@@ -253,7 +253,7 @@ Theo README.md và đề cương nghiên cứu, chỉ số đánh giá giả thu
 | | ReVeal: MCC | MCC = 0,0645 | 0,0645 | 0,0645 | **Khớp 100%** |
 | **RQ2 / H2.1** | Net label sensitivity Devign | 20,28% [18,75; 21,76] | 20,28 [18,75; 21,76] | 18,12% (tại 0,5); 20,28% (tại $\tau=0,70$) | **Khớp 100%** |
 | | Net label sensitivity ReVeal | 10,69% [9,15; 12,25] | 10,69 [9,15; 12,25] | 13,90% (tại 0,5); 10,69% (tại $\tau=0,12$) | **Khớp 100%** |
-| **RQ2 / H2.2** | $\Delta\text{AUROC (B2 - B2-rand)}$ | Devign: 0,0013 [-0,0140; 0,0158]<br>ReVeal: 0,0143 [-0,0064; 0,0352] | Devign: [-0,0158; 0,0140]*<br>ReVeal: [-0,0352; 0,0064]* | Devign: 0,0013 [-0,0140; 0,0158]<br>ReVeal: 0,0143 [-0,0064; 0,0352] | **Khớp 100%** (chú thích về chiều trừ)* |
+| **RQ2 / H2.2** | $\Delta\text{AUROC (B2-rand - B2)}$ | Devign: 0,0013 [-0,0140; 0,0158]<br>ReVeal: 0,0143 [-0,0064; 0,0352] | Devign: [-0,0158; 0,0140]*<br>ReVeal: [-0,0352; 0,0064]* | Devign: 0,0013 [-0,0140; 0,0158]<br>ReVeal: 0,0143 [-0,0064; 0,0352] | **Khớp khi quy về cùng chiều** (báo cáo dùng B2 − B2-rand)* |
 | | $\Delta\text{AUROC (B2-nolabel - B1)}$ | Devign: -0,0066 [-0,0183; 0,0052]<br>ReVeal: -0,0120 [-0,0288; 0,0049] | Devign: [-0,0183; 0,0052]<br>ReVeal: [-0,0288; 0,0049] | Devign: -0,0066 [-0,0183; 0,0052]<br>ReVeal: -0,0120 [-0,0288; 0,0049] | **Khớp 100%** |
 | | $\Delta\text{AUROC (B2 - B2-labelonly)}$ | Devign: -0,0158 [-0,0345; 0,0024]<br>ReVeal: -0,0344 [-0,0588; -0,0103] | Devign: [-0,0345; 0,0024]<br>ReVeal: [-0,0588; -0,0103] | Devign: -0,0158 [-0,0345; 0,0024]<br>ReVeal: -0,0344 [-0,0588; -0,0103] | **Khớp 100%** |
 | **RQ3 / H3.1** | $\Delta\text{AUROC (B1 - B0)}$ | Devign: -0,0070 [-0,0197; 0,0057]<br>ReVeal: +0,0101 [-0,0092; 0,0287] | Devign: -0,0070 [-0,0197; 0,0057]<br>ReVeal: +0,0101 [-0,0092; 0,0287] | Devign: -0,0070 [-0,0197; 0,0057]<br>ReVeal: +0,0101 [-0,0092; 0,0287] | **Khớp 100%** |
@@ -274,7 +274,7 @@ Theo README.md và đề cương nghiên cứu, chỉ số đánh giá giả thu
      - Đã kiểm toán mã băm SHA-256 của toàn bộ 60 tệp nguồn và 60 tệp bản ghi chuẩn hóa trong `runs/final` (0 sai lệch). Đã census toàn bộ 75.090 mẫu test và 75.075 mẫu validation, đạt tỷ lệ hợp lệ 100%.
      - Đã tự tính lại toàn bộ 54 dòng × 2 bộ bảng của Bảng A (AUROC, AUPRC, toàn bộ metric tại ngưỡng cố định 0,5 và tại 48 điểm ngưỡng tối ưu $\tau^*$). Khớp 100% với CSV.
      - Đã tự tính lại toàn bộ 34 dòng đánh giá của Bảng B về điểm ước lượng $\Delta\text{metric}$, ma trận bất đồng McNemar $b, c$, giá trị $p$ McNemar hai phía, và hiệu chỉnh Holm 18 phép so của kit CSV. Khớp 100% với CSV.
-     - Đã tự chạy Paired Cluster Bootstrap 95% CI (5.000 lượt, seed `20261117`) cho toàn bộ 22 cấu hình cốt lõi thuộc H1.1, H1.2, H2.1, H2.2a, H3.1a, H5.1 trên cả hai bộ dữ liệu và hai bộ ngưỡng. Giá trị $\Delta$ và cận CI [low; high] khớp 100% với tệp CSV kit và đã được ghi nhận chi tiết tại tệp log `worklogs/2026-11-13_ci_bootstrap_audit.log`.
+     - Đã tự chạy Paired Cluster Bootstrap 95% CI (5.000 lượt, seed `20261117`) cho toàn bộ 22 cấu hình cốt lõi thuộc H1.1, H1.2, H2.1, H2.2a, H3.1a, H5.1 trên cả hai bộ dữ liệu và hai bộ ngưỡng. Giá trị $\Delta$ và hai cận CI khớp với CSV kit đến 6 chữ số thập phân như hiển thị trong [log bootstrap](2026-11-13_ci_bootstrap_audit.log).
      - Đã tự đếm và tính toán tỷ lệ chuyển dịch nhãn Bảng C tại ngưỡng 0,5 và tại ngưỡng khóa validation B2.
    - **Phần đối chiếu với CSV và hồ sơ báo cáo có sẵn:**
      - Các khoảng tin cậy Bootstrap 95% của các phép so còn lại trong Bảng B (H2.2b, H2.2c, H3.1b, H3.1c) đã được đối chiếu nhất quán giữa tệp CSV kit, log kiểm toán ngày 13/11 (`runs/.pa1-validation-EknQQQ`) và ledger PA1 `full_tables/contrasts.csv`.
@@ -289,4 +289,4 @@ Theo README.md và đề cương nghiên cứu, chỉ số đánh giá giả thu
      - Trong Bảng B, giải thích rõ các dòng vắng mặt của B3 (thuộc diện thăm dò) và P-PRE/P-POST (thuộc phân tích Step 6). Nếu trích dẫn giá trị $p$ Holm, cần nêu rõ là hiệu chỉnh theo họ 22 phép so của đề cương PA1.
      - Trong Bảng C, tệp CSV thể hiện độ nhạy nhãn tại ngưỡng cố định 0,5; khi trích dẫn kết luận giả thuyết H2.1 vào bài báo, cần trích dẫn số liệu tại ngưỡng khóa validation của B2 ($\tau=0,70$ và $\tau=0,12$) như đã được kiểm toán đầy đủ ở Mục 4.3.
 
-**Xác nhận:** Kết quả kiểm toán độc lập hoàn tất, số liệu sạch và hoàn toàn sẵn sàng để đưa vào bản thảo bài báo.
+**Xác nhận:** Kết quả và bằng chứng cho các mục đã rà được ghi theo phạm vi ở Mục 0.

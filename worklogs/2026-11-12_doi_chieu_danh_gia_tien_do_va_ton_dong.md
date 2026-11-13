@@ -4,6 +4,8 @@
 - Căn cứ: Phụ lục A của Option 1 ngày 11/11, [báo cáo metric 12/11](2026-11-12_bao_cao_metric_cac_arm_hoan_tat.md), [worklog đính chính](2026-11-12_chinh_sua_bao_cao_metric_grace.md), sổ chạy và nhật ký thay đổi sau đăng ký.
 - Ký hiệu: ✅ đã đáp ứng · ⚠️ đáp ứng một phần · ❌ chưa làm hoặc trái quyết định.
 
+> **Cập nhật cùng ngày:** phần lớn việc offline của Đợt 1–2 đã xử lý. Trạng thái mới và tồn đọng còn lại ở [2026-11-12_xu_ly_offline_theo_danh_gia_tien_do.md](2026-11-12_xu_ly_offline_theo_danh_gia_tien_do.md).
+
 ---
 
 ## 1. Tóm tắt
