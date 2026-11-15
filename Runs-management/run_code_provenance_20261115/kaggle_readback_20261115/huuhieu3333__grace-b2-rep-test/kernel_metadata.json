@@ -1,0 +1,17 @@
+{
+  "ref": "huuhieu3333/grace-b2-rep-test",
+  "title": "grace-b2-rep-test",
+  "currentVersionNumber": 4,
+  "lastRunTime": "2026-11-12T06:58:10.191966Z",
+  "language": "python",
+  "kernelType": "notebook",
+  "enableGpu": true,
+  "enableInternet": true,
+  "datasetDataSources": [
+    "huuhieu3333/grace-b2-rep-test-inputs"
+  ],
+  "kernelDataSources": [
+    "huuhieu3333/qwen3coder30b-prepare-notebook"
+  ],
+  "modelDataSources": []
+}

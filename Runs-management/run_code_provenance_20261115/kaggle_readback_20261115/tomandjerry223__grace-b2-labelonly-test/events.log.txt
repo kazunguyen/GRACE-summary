@@ -1,0 +1,22 @@
+[2026-11-07T10:15:03.042379+00:00] UTC: 2026-11-07T10:15:03.041156+00:00
+[2026-11-07T10:15:03.043536+00:00] Python: 3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]
+[2026-11-07T10:15:03.044304+00:00] Platform: Linux-6.18.55+-x86_64-with-glibc2.39
+[2026-11-07T10:15:03.850372+00:00] Bundle archive grace_b2_labelonly_test_inputs.zip not found as single file; searching unpacked files.
+[2026-11-07T10:15:04.864815+00:00] Reconstructed inner bundle for devign test from Kaggle auto-unpacked files: /kaggle/working/b2_labelonly_test_bundles/42_devign_test.zip
+[2026-11-07T10:15:04.866219+00:00] Set devign inner bundle verified: /kaggle/working/b2_labelonly_test_bundles/42_devign_test.zip
+[2026-11-07T10:15:05.511250+00:00] Reconstructed inner bundle for reveal test from Kaggle auto-unpacked files: /kaggle/working/b2_labelonly_test_bundles/42_reveal_test.zip
+[2026-11-07T10:15:05.512362+00:00] Set reveal inner bundle verified: /kaggle/working/b2_labelonly_test_bundles/42_reveal_test.zip
+[2026-11-07T10:15:05.783588+00:00] Installing pinned packages...
+[2026-11-07T10:15:29.606175+00:00] Compiling llama-cpp-python==0.3.16 with CUDA SM75...
+[2026-11-07T10:34:25.708008+00:00] Installed llama_cpp version: 0.3.16
+[2026-11-07T10:34:26.193799+00:00] Found model: /kaggle/input/notebooks/quangdung1111/qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf
+[2026-11-07T10:35:53.335218+00:00] Model SHA-256 verified successfully!
+[2026-11-07T10:35:53.451657+00:00] Bắt đầu test inference B2-labelonly devign (tau=0.99)...
+[2026-11-07T10:35:53.452809+00:00] Bắt đầu test_b2_labelonly_devign: ['/usr/bin/python3', '/kaggle/working/kaggle_test_inference.py', '--arm', 'B2-labelonly', '--model', '/kaggle/input/notebooks/quangdung1111/qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf', '--bundle', '/kaggle/working/b2_labelonly_test_bundles/42_devign_test.zip', '--out', '/kaggle/working/b2_labelonly_test/seed_42/devign/test', '--tau', '0.99'] | log: /kaggle/working/grace_diagnostics/test_b2_labelonly_devign.log
+[2026-11-07T14:45:14.092054+00:00] test_b2_labelonly_devign kết thúc với mã 0
+[2026-11-07T14:45:14.166291+00:00] Đã cập nhật checkpoint sau devign!
+[2026-11-07T14:45:14.167326+00:00] Bắt đầu test inference B2-labelonly reveal (tau=0.02)...
+[2026-11-07T14:45:14.168230+00:00] Bắt đầu test_b2_labelonly_reveal: ['/usr/bin/python3', '/kaggle/working/kaggle_test_inference.py', '--arm', 'B2-labelonly', '--model', '/kaggle/input/notebooks/quangdung1111/qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf', '--bundle', '/kaggle/working/b2_labelonly_test_bundles/42_reveal_test.zip', '--out', '/kaggle/working/b2_labelonly_test/seed_42/reveal/test', '--tau', '0.02'] | log: /kaggle/working/grace_diagnostics/test_b2_labelonly_reveal.log
+[2026-11-07T17:58:18.711016+00:00] test_b2_labelonly_reveal kết thúc với mã 0
+[2026-11-07T17:58:18.826260+00:00] Đã cập nhật checkpoint sau reveal!
+[2026-11-07T17:58:18.938099+00:00] HOÀN TẤT TOÀN BỘ TEST CENSUS: /kaggle/working/grace_b2_labelonly_test_final_output.zip

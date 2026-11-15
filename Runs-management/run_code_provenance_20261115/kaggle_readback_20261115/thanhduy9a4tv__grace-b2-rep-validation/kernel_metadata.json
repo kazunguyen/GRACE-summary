@@ -1,0 +1,17 @@
+{
+  "ref": "thanhduy9a4tv/grace-b2-rep-validation",
+  "title": "grace-b2-rep-validation",
+  "currentVersionNumber": 1,
+  "lastRunTime": "2026-11-12T08:46:25.5073807Z",
+  "language": "python",
+  "kernelType": "notebook",
+  "enableGpu": true,
+  "enableInternet": true,
+  "datasetDataSources": [
+    "thanhduy9a4tv/grace-b2-rep-validation-inputs"
+  ],
+  "kernelDataSources": [
+    "thanhduy9a4tv/qwen3coder30b-prepare-notebook"
+  ],
+  "modelDataSources": []
+}

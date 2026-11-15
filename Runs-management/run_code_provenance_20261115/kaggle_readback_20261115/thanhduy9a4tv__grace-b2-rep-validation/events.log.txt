@@ -1,0 +1,31 @@
+[2026-11-04T16:00:46.596851+00:00] UTC: 2026-11-04T16:00:46.595734+00:00
+[2026-11-04T16:00:46.597805+00:00] Python: 3.13.16 (main, Oct  1 2026, 15:40:24) [GCC 13.3.0]
+[2026-11-04T16:00:46.598754+00:00] Executable: /usr/bin/python3
+[2026-11-04T16:00:46.599714+00:00] Platform: Linux-6.18.55+-x86_64-with-glibc2.39
+[2026-11-04T16:00:46.600770+00:00] Disk /kaggle/working: total=20957446144 free=20940447744 bytes
+[2026-11-04T16:00:46.602313+00:00] Disk /kaggle/input: total=20957446144 free=20940447744 bytes
+[2026-11-04T16:00:46.617384+00:00] Installed package versions: {"llama-cpp-python": "not installed", "transformers": "5.20.2", "huggingface_hub": "1.33.0", "scikit-learn": "1.6.1", "numpy": "2.1.3", "scipy": "1.16.3"}
+[2026-11-04T16:00:46.618289+00:00] Bắt đầu gpu: ['nvidia-smi'] | log đầy đủ: /kaggle/working/grace_diagnostics/gpu.log
+[2026-11-04T16:00:47.020930+00:00] gpu kết thúc với mã 0
+[2026-11-04T16:00:47.021783+00:00] Bắt đầu cuda_compiler: ['nvcc', '--version'] | log đầy đủ: /kaggle/working/grace_diagnostics/cuda_compiler.log
+[2026-11-04T16:00:47.037332+00:00] cuda_compiler kết thúc với mã 0
+[2026-11-04T16:00:47.038531+00:00] Bắt đầu cmake: ['cmake', '--version'] | log đầy đủ: /kaggle/working/grace_diagnostics/cmake.log
+[2026-11-04T16:00:47.340008+00:00] cmake kết thúc với mã 0
+[2026-11-04T16:00:47.341028+00:00] Bắt đầu pip: ['/usr/bin/python3', '-m', 'pip', '--version'] | log đầy đủ: /kaggle/working/grace_diagnostics/pip.log
+[2026-11-04T16:00:47.645881+00:00] pip kết thúc với mã 0
+[2026-11-04T16:00:47.647454+00:00] Input entries: ['qwen3coder30b-prepare-notebook', 'grace-b2-rep-validation-inputs']
+[2026-11-04T16:00:48.245329+00:00] Input GGUF files: ['/kaggle/input/qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf']
+[2026-11-04T16:00:48.762871+00:00] Bundle archive grace_b2_rep_validation_inputs.zip not found as single file; discovering Kaggle auto-unpacked files under /kaggle/input
+[2026-11-04T16:00:50.023612+00:00] Loaded auto-unpacked bundle for seed 42 devign: 2732 prompts, verified SHA-256
+[2026-11-04T16:00:50.687835+00:00] Loaded auto-unpacked bundle for seed 42 reveal: 2273 prompts, verified SHA-256
+[2026-11-04T16:00:51.117053+00:00] Build config: CMAKE_ARGS=-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=75 -DCMAKE_LIBRARY_PATH=/usr/local/nvidia/lib64; CMAKE_BUILD_PARALLEL_LEVEL=2; FORCE_CMAKE=1
+[2026-11-04T16:00:51.118131+00:00] Bắt đầu install_dependencies: ['/usr/bin/python3', '-m', 'pip', 'install', '--no-cache-dir', 'transformers==4.57.1', 'huggingface_hub', 'scikit-learn==1.5.2'] | log đầy đủ: /kaggle/working/grace_diagnostics/install_dependencies.log
+[2026-11-04T16:01:09.419854+00:00] install_dependencies kết thúc với mã 0
+[2026-11-04T16:01:09.421133+00:00] Bắt đầu install_llama_cuda: ['/usr/bin/python3', '-m', 'pip', 'install', '-v', '--no-cache-dir', '--no-binary', 'llama-cpp-python', 'llama-cpp-python==0.3.16'] | log đầy đủ: /kaggle/working/grace_diagnostics/install_llama_cuda.log
+[2026-11-04T16:18:28.389193+00:00] install_llama_cuda kết thúc với mã 0
+[2026-11-04T16:18:28.408676+00:00] Installed package versions: {"llama-cpp-python": "0.3.16", "transformers": "4.57.1", "huggingface_hub": "0.36.2", "scikit-learn": "1.5.2", "numpy": "2.1.3", "scipy": "1.16.3"}
+[2026-11-04T16:18:30.319981+00:00] Installed package versions: {"llama-cpp-python": "0.3.16", "transformers": "4.57.1", "huggingface_hub": "0.36.2", "scikit-learn": "1.5.2", "numpy": "2.1.3", "scipy": "1.16.3"}
+[2026-11-04T16:18:30.741708+00:00] llama-cpp-python GPU offload: True
+[2026-11-04T16:18:31.266489+00:00] Dùng model input: /kaggle/input/qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf
+[2026-11-04T16:18:31.381587+00:00] Bắt đầu validation_seed_42: ['/usr/bin/python3', '-u', '/kaggle/working/kaggle_inference.py', '--model', '/kaggle/input/qwen3coder30b-prepare-notebook/qwen_gguf/Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf', '--model-revision', 'local-input', '--seed', '42', '--arm', 'B2-rep', '--expected-model-sha256', 'f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335', '--gpu-layers', '-1', '--deadline-epoch', '1793841511.3788726', '--checkpoint-reserve-seconds', '300', '--status', '/kaggle/working/b2_rep_validation/seed_42_status.json', '--run', 'devign', 'validation', '/kaggle/working/b2_rep_bundles/42_devign.zip', '/kaggle/working/b2_rep_validation/seed_42/devign/validation', '--run', 'reveal', 'validation', '/kaggle/working/b2_rep_bundles/42_reveal.zip', '/kaggle/working/b2_rep_validation/seed_42/reveal/validation'] | log đầy đủ: /kaggle/working/grace_diagnostics/validation_seed_42.log
+[2026-11-05T01:06:22.766238+00:00] validation_seed_42 kết thúc với mã 0

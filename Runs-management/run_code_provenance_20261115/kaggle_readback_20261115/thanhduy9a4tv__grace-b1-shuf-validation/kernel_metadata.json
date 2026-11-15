@@ -1,0 +1,13 @@
+{
+  "ref": "thanhduy9a4tv/grace-b1-shuf-validation",
+  "title": "grace-b1-shuf-validation",
+  "currentVersionNumber": 2,
+  "lastRunTime": "2026-11-12T08:46:24.0664906Z",
+  "language": "python",
+  "kernelType": "notebook",
+  "enableGpu": false,
+  "enableInternet": false,
+  "datasetDataSources": [],
+  "kernelDataSources": [],
+  "modelDataSources": []
+}

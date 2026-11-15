@@ -1,0 +1,23 @@
+{
+  "id": "tomandjerry223/grace-b2-nolabel-validation",
+  "id_no": 142672279,
+  "title": "grace-b2-nolabel-validation",
+  "code_file": "grace-b2-nolabel-validation.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "keywords": [
+    "gpu"
+  ],
+  "dataset_sources": [
+    "tomandjerry223/grace-b2-nolabel-validation-inputs"
+  ],
+  "kernel_sources": [
+    "quangdung1111/qwen3coder30b-prepare-notebook"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}

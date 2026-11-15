@@ -1,0 +1,65 @@
+{
+  "files": [
+    {
+      "fileName": "b2_rep_test/seed_42/devign/test/evaluation.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_test/seed_42/devign/test/records.jsonl",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_test/seed_42/devign/test/run_manifest.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_test/seed_42/reveal/test/evaluation.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_test/seed_42/reveal/test/records.jsonl",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_test/seed_42/reveal/test/run_manifest.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_test_bundles/42_devign_test.zip",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_test_bundles/42_reveal_test.zip",
+      "size": null
+    },
+    {
+      "fileName": "grace_b2_rep_test_checkpoint.zip",
+      "size": null
+    },
+    {
+      "fileName": "grace_b2_rep_test_final_output.zip",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics.zip",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/events.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/test_b2_rep_devign.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/test_b2_rep_reveal.log",
+      "size": null
+    },
+    {
+      "fileName": "kaggle_test_inference.py",
+      "size": null
+    }
+  ],
+  "log_chars": 4218880
+}

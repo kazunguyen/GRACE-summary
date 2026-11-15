@@ -1,0 +1,89 @@
+{
+  "files": [
+    {
+      "fileName": "b2_rep_bundles/42_devign.zip",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_bundles/42_reveal.zip",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_validation/batch_summary.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_validation/seed_42/devign/validation/evaluation.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_validation/seed_42/devign/validation/records.jsonl",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_validation/seed_42/devign/validation/run_manifest.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_validation/seed_42/reveal/validation/evaluation.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_validation/seed_42/reveal/validation/records.jsonl",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_validation/seed_42/reveal/validation/run_manifest.json",
+      "size": null
+    },
+    {
+      "fileName": "b2_rep_validation/seed_42_status.json",
+      "size": null
+    },
+    {
+      "fileName": "grace_b2_rep_validation_checkpoint.zip",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics.zip",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/cmake.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/cuda_compiler.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/events.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/gpu.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/install_dependencies.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/install_llama_cuda.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/pip.log",
+      "size": null
+    },
+    {
+      "fileName": "grace_diagnostics/validation_seed_42.log",
+      "size": null
+    },
+    {
+      "fileName": "kaggle_inference.py",
+      "size": null
+    }
+  ],
+  "log_chars": 1022226
+}

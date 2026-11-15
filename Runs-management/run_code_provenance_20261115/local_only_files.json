@@ -1,0 +1,128 @@
+{
+  "Runs-management/kaggle_staging_thanhduy/dataset_b1_shuf/grace_b1_shuf_validation_inputs.zip": {
+    "sha256": "298596a11807dd5877e554352fe78f83c5b9582b5aaa7152dc8e56d14fcaf995",
+    "bytes": 14029347
+  },
+  "Runs-management/runtime_audit_20261108/live/tomandjerry223/grace-b1-shuf-validation/output/b1_shuf_bundles/42_devign.zip": {
+    "sha256": "6f08a3e7e88bc2373a6bcf69e08a332e8116be27a81f3f71dd4be7ff628c543a",
+    "bytes": 2791795
+  },
+  "Runs-management/runtime_audit_20261108/live/tomandjerry223/grace-b1-shuf-validation/output/b1_shuf_bundles/42_reveal.zip": {
+    "sha256": "e2a506c911af887af9312dfe1bedb324bcc3d0847338edf824e28edfd3c02079",
+    "bytes": 1872804
+  },
+  "Runs-management/runtime_audit_20261108/live/tomandjerry223/grace-b1-shuf-validation/output/b1_shuf_bundles/43_devign.zip": {
+    "sha256": "a186dc54754c9feb9cbc508309735665eaebb5de3d8d5eb482d3d7d5940f032f",
+    "bytes": 2793959
+  },
+  "Runs-management/runtime_audit_20261108/live/tomandjerry223/grace-b1-shuf-validation/output/b1_shuf_bundles/43_reveal.zip": {
+    "sha256": "0b278d6cc46eb35b36c6dff71d18c5b2b5e864721817b01a3c2961b5546f35f7",
+    "bytes": 1869024
+  },
+  "Runs-management/runtime_audit_20261108/live/tomandjerry223/grace-b1-shuf-validation/output/b1_shuf_bundles/44_devign.zip": {
+    "sha256": "92fed99991b5cd186385d653d0629967e9a1ddab11361df2d5da8bc049bf675c",
+    "bytes": 2793257
+  },
+  "Runs-management/runtime_audit_20261108/live/tomandjerry223/grace-b1-shuf-validation/output/b1_shuf_bundles/44_reveal.zip": {
+    "sha256": "5ce2085d94a7c450796964511f7dcf80231b82aaca343a074f84c0f8fd1057b2",
+    "bytes": 1869681
+  },
+  "Runs-management/runtime_audit_20261108/live/tomandjerry223/grace-b1-full-validation/output/grace_b1_full_validation_checkpoint.zip": {
+    "sha256": "f66195f31e00b8d06b14e81f74fc23004181825e6479894a4bc84073b424622b",
+    "bytes": 961852,
+    "records": {
+      "seed_42/devign/validation/records.jsonl": {
+        "sha256_lf": "259c462963a6427a1873032b1734b0710ffdfc958283e7bb0209b67be1b05fda",
+        "lines": 2732
+      },
+      "seed_42/reveal/validation/records.jsonl": {
+        "sha256_lf": "e5f126a3ed787fb7cbf601e047e6facfad2fffdf39f5f2e3f70cfebc2c9fe94e",
+        "lines": 2273
+      }
+    }
+  },
+  "Runs-management/runtime_audit_20261108/live/tomandjerry223/grace-b2-nolabel-validation/output/grace_b2_nolabel_validation_checkpoint.zip": {
+    "sha256": "d04000050a6e0535cf8de836ac13621a085c72ec0fec7d35c4a13253b988e936",
+    "bytes": 1000532,
+    "records": {
+      "seed_42/reveal/validation/records.jsonl": {
+        "sha256_lf": "d4d482e922c7918d6bfafec248df4caa478b11fbb5ce56e94025222c19a6c00d",
+        "lines": 2273
+      },
+      "seed_42/devign/validation/records.jsonl": {
+        "sha256_lf": "5750e440e7981785d9bcf67c78f500a25ec72128ad7279667fc39a71513d51e0",
+        "lines": 2732
+      }
+    }
+  },
+  "kaggle_download_20261115/huuhieu_b2rep/grace_b2_rep_test_final_output.zip": {
+    "sha256": "217995c89824fc4509f3b76fed0e7bb0e9cb5a593e1c0d00e750e00465a54d6e",
+    "bytes": 884488,
+    "records": {
+      "seed_42/devign/test/records.jsonl": {
+        "sha256_lf": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+        "lines": 2732
+      },
+      "seed_42/reveal/test/records.jsonl": {
+        "sha256_lf": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+        "lines": 2274
+      }
+    }
+  },
+  "kaggle_download_20261115/thanhduy/grace-b2-rep-validation/out/grace_b2_rep_validation_checkpoint.zip": {
+    "sha256": "e8e53f32a6484fb8736aa38341914a5084fa929ae51002f995d281635480f247",
+    "bytes": 1000923,
+    "records": {
+      "seed_42/reveal/validation/records.jsonl": {
+        "sha256_lf": "12d7940a50af7247ee4f686cf65c39b531a35041bf2b6c903c1bd847965e310c",
+        "lines": 2273
+      },
+      "seed_42/devign/validation/records.jsonl": {
+        "sha256_lf": "c41c900f3864314057f9c3bbecc0067a54105e2c7c4feb0ce4a6cc6f68c10993",
+        "lines": 2732
+      }
+    }
+  },
+  "kaggle_download_20261115/thanhduy/grace-b2-labelonly-validation/out/grace_b2_labelonly_validation_checkpoint.zip": {
+    "sha256": "a8fa4e9a1d1b79efcab30e0461aab5ee98dd205f04ee073a3d24ff1d7933d965",
+    "bytes": 981892,
+    "records": {
+      "seed_42/devign/validation/records.jsonl": {
+        "sha256_lf": "a54e872e841ac3f380d4c80fda32de2520e004b374fb9916085093cfe447b542",
+        "lines": 2732
+      },
+      "seed_42/reveal/validation/records.jsonl": {
+        "sha256_lf": "f9ce918d1fc44c748e341c0cac259983f2e60262f44e2cb346568034fba7fb9d",
+        "lines": 2273
+      }
+    }
+  },
+  "kaggle_download_20261115/grace-b2-nolabel-test/output/grace_b2_nolabel_test_final_output.zip": {
+    "sha256": "833d2f8ded600dd35733887885aefbab198658def36748984538bc80428e6599",
+    "bytes": 883132,
+    "records": {
+      "seed_42/reveal/test/records.jsonl": {
+        "sha256_lf": "8259d08187fe0085c0a571ad1393d631a427ee2b571792de2b85b4ba0b766bc1",
+        "lines": 2274
+      },
+      "seed_42/devign/test/records.jsonl": {
+        "sha256_lf": "cd71dfe2902da36a0748d315fd8b1cf5c45c4710c33a6f829c93877833d12bf2",
+        "lines": 2732
+      }
+    }
+  },
+  "kaggle_download_20261115/grace-b2-labelonly-test/output/grace_b2_labelonly_test_final_output.zip": {
+    "sha256": "ed7167c8929d210e909602554ccd66ff43ad77f7d7a922c55d93c97779095aad",
+    "bytes": 881820,
+    "records": {
+      "seed_42/reveal/test/records.jsonl": {
+        "sha256_lf": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+        "lines": 2274
+      },
+      "seed_42/devign/test/records.jsonl": {
+        "sha256_lf": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+        "lines": 2732
+      }
+    }
+  }
+}
