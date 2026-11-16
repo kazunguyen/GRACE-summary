@@ -6,11 +6,16 @@ Bằng chứng cho [docs/REPLY_RUN_CODE_PROVENANCE_HIEU.md](../../docs/REPLY_RUN
 
 ```powershell
 python Runs-management/run_code_provenance_20261115/verify_provenance.py
-# nếu có bundle prompt B1-shuf ở local:
-python Runs-management/run_code_provenance_20261115/verify_provenance.py --bundles <thư mục chứa 42_devign.zip ... 44_reveal.zip>
+# chỉ định runs/final ở thư mục khác (ví dụ gói Option1):
+python Runs-management/run_code_provenance_20261115/verify_provenance.py --repo <thư mục chứa runs/final>
 ```
 
-Kết quả ngày 15/11: 78/78 kiểm tra đạt với `--bundles`, 72/72 khi không có bundle. Records chuẩn: validation lấy từ `runs/final/`, test từ `Runs-management/run_handoff_20261108/completed_results/`.
+Kết quả ngày 15/11: 78/78 kiểm tra đạt với bundle prompt, 72/72 khi không có bundle. Records chuẩn: validation lấy từ `runs/final/`, test từ `runs/final/` nếu có, nếu không thì từ `Runs-management/run_handoff_20261108/completed_results/`.
+
+Cập nhật 16/11:
+- Sáu bundle prompt B1-shuf đã có trong `b1_shuf_chain/prompt_bundles/` (14 MB, SHA-256 trùng `local_only_files.json`). Script tự dùng thư mục này khi không truyền `--bundles`, nên đủ 78 kiểm tra.
+- `runs/final` do `import_records` tạo từ 13/11 có thêm trường `group` và không còn `run_manifest.json`. Script bỏ trường `group` rồi ghi lại record đúng cách worker ghi (`json.dumps(row, ensure_ascii=False)`) trước khi so byte. Khi thiếu `run_manifest.json`, script lấy manifest của checkpoint cuối cùng có file đó làm mốc (ghi `mốc=sessionN` trong kết quả).
+- Kết quả 16/11: 78/78 trên `runs/final` của gói Option1 (bản có `group`) và 78/78 trên `runs/final` cũ ở local.
 
 Script kiểm:
 - SHA-256 của ba worker (sau chuẩn hóa LF);
@@ -29,7 +34,7 @@ Script kiểm:
 | `local_only_files.json` | SHA-256 các file lớn giữ ở local (bundle prompt, output/checkpoint zip) và hash records bên trong |
 
 - File `events.log` được đổi đuôi thành `events.log.txt` vì `.gitignore` bỏ qua `*.log`.
-- Ba checkpoint B1-shuf (khoảng 6 MB) được thêm bằng `git add -f` vì `.gitignore` bỏ qua `*.zip`.
+- Ba checkpoint B1-shuf (khoảng 6 MB) và sáu bundle prompt (14 MB) được thêm bằng `git add -f` vì `.gitignore` bỏ qua `*.zip`.
 
 ## Chuỗi B1-shuf validation
 

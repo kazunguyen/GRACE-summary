@@ -76,6 +76,8 @@ def main():
     ap.add_argument('--bundles', default=None)
     args = ap.parse_args()
     sys.stdout.reconfigure(encoding='utf-8')
+    if not args.bundles and (HERE / 'b1_shuf_chain' / 'prompt_bundles').is_dir():
+        args.bundles = str(HERE / 'b1_shuf_chain' / 'prompt_bundles')
     final = Path(args.repo) / 'runs' / 'final'
     if not final.exists():
         sys.exit(f'Không thấy {final}')
@@ -101,7 +103,27 @@ def main():
         if not p.exists() and split == 'test':
             # records test chuẩn đã có trên git, là input của analysis_checks_20261112
             p = handoff / arm / f'seed_{seed}' / ds / 'test' / 'records.jsonl'
-        return lf(p.read_bytes())
+        b = lf(p.read_bytes())
+        if b'"group"' in b:
+            # runs/final do import_records tạo (từ 13/11) có thêm trường `group`.
+            # Bỏ trường này rồi ghi lại đúng cách worker ghi record
+            # (json.dumps(row, ensure_ascii=False)) để so byte với output phiên.
+            rows = [json.loads(x) for x in b.decode('utf-8').splitlines() if x.strip()]
+            b = ''.join(json.dumps({k: v for k, v in r.items() if k != 'group'}, ensure_ascii=False) + '\n'
+                        for r in rows).encode('utf-8')
+        return b
+
+    def final_manifest(ds, seed, ckpts):
+        # runs/final mới không còn run_manifest.json; khi thiếu thì lấy manifest của
+        # checkpoint cuối cùng có file này làm mốc so cho các phiên trước.
+        p = final / ds / 'validation' / 'B1-shuf' / str(seed) / 'run_manifest.json'
+        if p.exists():
+            return json.loads(p.read_text(encoding='utf-8')), 'runs/final'
+        mn = f'seed_{seed}/{ds}/validation/run_manifest.json'
+        for i in (3, 2, 1):
+            if mn in ckpts[i - 1].namelist():
+                return json.loads(ckpts[i - 1].read(mn)), f'session{i}'
+        raise FileNotFoundError(mn)
 
     # B1-shuf: chuỗi ba phiên
     chain = HERE / 'b1_shuf_chain'
@@ -110,7 +132,7 @@ def main():
         for ds in ('devign', 'reveal'):
             can = canon(ds, 'validation', 'B1-shuf', seed)
             rows = [json.loads(x) for x in can.decode('utf-8').splitlines() if x.strip()]
-            fin_m = json.loads((final / ds / 'validation' / 'B1-shuf' / str(seed) / 'run_manifest.json').read_text(encoding='utf-8'))
+            fin_m, fin_src = final_manifest(ds, seed, ckpts)
             bm = json.loads((chain / 'bundle_manifests' / f'{seed}_{ds}.json').read_text(encoding='utf-8'))
             states = []
             for i, z in enumerate(ckpts, 1):
@@ -128,7 +150,7 @@ def main():
                 stable = {k: v for k, v in m.items() if k not in IGNORED_MANIFEST}
                 check(f'B1-shuf s{seed} {ds} phiên {i} run_manifest khớp bản chuẩn',
                       stable == {k: v for k, v in fin_m.items() if k not in IGNORED_MANIFEST}
-                      and m.get('prompt_set_sha256') == bm['prompts_sha256'])
+                      and m.get('prompt_set_sha256') == bm['prompts_sha256'], f'mốc={fin_src}')
             check(f'B1-shuf s{seed} {ds} phiên cuối đủ records', states[-1].startswith('full'), ' | '.join(states))
             check(f'B1-shuf s{seed} {ds} trường record đúng khuôn W-val',
                   all(list(r.keys()) == W_VAL_ROW_KEYS for r in rows)
