@@ -1,0 +1,36 @@
+{
+ "file_checks": {
+  "old_records_sha256 (git blob)": true,
+  "new_rerun_records_sha256 (git blob)": true,
+  "rerun_threshold_lock_sha256 (git blob)": true,
+  "rerun_worker_sha256 (package I09 file)": true,
+  "drive_manifest: worker = rerun_worker_sha256": true,
+  "drive_manifest: rerun records = new_rerun_records_sha256": true,
+  "drive_manifest: thresholds = rerun_threshold_lock_sha256": true,
+  "drive_manifest: bundle = run_manifest.bundle_sha256": true,
+  "run_manifest: B2 devign validation seed 42, model f6050b4d": true,
+  "lock_tau_0.70": true,
+  "lock_cites_rerun_records": true,
+  "registered_tau_0.70 (configs/thresholds.json devign|B2|42)": true,
+  "new_rerun_has_exactly_28_ids": true,
+  "bundle prompt_set_sha256 rebuilt from new_reference": true,
+  "five legacy outputs agree on the 28 rows": true,
+  "canonical_n_2732": true,
+  "canonical_other_2704_equal_run3": true,
+  "relock_from_canonical_tau": true,
+  "relock_mcc_matches_lock": true
+ },
+ "relock": {
+  "tau": 0.7,
+  "mcc": 0.05473445827920242
+ },
+ "rows": {
+  "PASS": 28,
+  "FAIL": 0,
+  "UNVERIFIABLE": 0
+ },
+ "code_hash_convention_hits": {
+  "raw": 28,
+  "strip": 28
+ }
+}

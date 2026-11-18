@@ -1,0 +1,4 @@
+C:\Users\ADMIN\AppData\Local\Temp\claude\2d7e55eb8a01d933\e33e8e29-03fa-4b05-8210-0ad779a9076c\scratchpad\c18\x\artifact-packaging\Option1_Reproducibility_Package\.venv-repro
+C:\Users\ADMIN\AppData\Local\Programs\Python\Python310
+False
+['', 'C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\python310.zip', 'C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\DLLs', 'C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310\\lib', 'C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python310', 'C:\\Users\\ADMIN\\AppData\\Local\\Temp\\claude\\2d7e55eb8a01d933\\e33e8e29-03fa-4b05-8210-0ad779a9076c\\scratchpad\\c18\\x\\artifact-packaging\\Option1_Reproducibility_Package\\.venv-repro', 'C:\\Users\\ADMIN\\AppData\\Local\\Temp\\claude\\2d7e55eb8a01d933\\e33e8e29-03fa-4b05-8210-0ad779a9076c\\scratchpad\\c18\\x\\artifact-packaging\\Option1_Reproducibility_Package\\.venv-repro\\lib\\site-packages']

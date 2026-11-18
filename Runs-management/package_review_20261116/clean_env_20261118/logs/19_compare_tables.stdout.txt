@@ -1,0 +1,8 @@
+tables_prereg: files=13 data byte-identical 6/9; png byte-identical 0/4, pixel-identical 4/4; missing_in_rebuild=3 extra_in_rebuild=0
+tables_corrected: files=13 data byte-identical 6/9; png byte-identical 0/4, pixel-identical 4/4; missing_in_rebuild=3 extra_in_rebuild=0
+DIFF tables_prereg 2026-11-13_evaluate_final.log
+DIFF tables_prereg README.md
+DIFF tables_prereg evaluate_final.log
+DIFF tables_corrected 2026-11-13_evaluate_final.log
+DIFF tables_corrected README.md
+DIFF tables_corrected evaluate_final.log

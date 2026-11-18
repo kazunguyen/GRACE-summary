@@ -1,0 +1,41 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.11, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\ADMIN\AppData\Local\Temp\claude\2d7e55eb8a01d933\e33e8e29-03fa-4b05-8210-0ad779a9076c\scratchpad\c18\x\artifact-packaging\Option1_Reproducibility_Package\.venv-repro\Scripts\python.exe
+rootdir: C:\Users\ADMIN\AppData\Local\Temp\claude\2d7e55eb8a01d933\e33e8e29-03fa-4b05-8210-0ad779a9076c\scratchpad\c18\x\artifact-packaging\Option1_Reproducibility_Package\grace_diag_kit
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 32 items
+
+grace_diag_kit\tests\test_probes.py::test_every_arm_renders_and_no_leak PASSED [  3%]
+grace_diag_kit\tests\test_probes.py::test_target_label_refused PASSED    [  6%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B1-B0-expected0] PASSED [  9%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B1-full-B1-expected1] PASSED [ 12%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B1-H2-B1-expected2] PASSED [ 15%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B1-shuf-B1-expected3] PASSED [ 18%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B2-B1-expected4] PASSED [ 21%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B2-rand-B2-expected5] PASSED [ 25%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B2-nolabel-B2-expected6] PASSED [ 28%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B2-labelonly-B2-expected7] PASSED [ 31%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B2-flip-B2-expected8] PASSED [ 34%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B2-rep-B2-expected9] PASSED [ 37%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B3-B1-expected10] PASSED [ 40%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B3-nodiff-B3-expected11] PASSED [ 43%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B3-swap-B3-expected12] PASSED [ 46%]
+grace_diag_kit\tests\test_probes.py::test_each_probe_changes_exactly_one_block[B3-flip-B3-expected13] PASSED [ 50%]
+grace_diag_kit\tests\test_probes.py::test_flip_and_order PASSED          [ 53%]
+grace_diag_kit\tests\test_probes.py::test_shuffle_uses_other_graph_same_size PASSED [ 56%]
+grace_diag_kit\tests\test_probes.py::test_random_demo_excludes_retrieved PASSED [ 59%]
+grace_diag_kit\tests\test_probes.py::test_budget_truncation_flags PASSED [ 62%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_mcc_none_for_constant PASSED [ 65%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_pick_threshold_deterministic PASSED [ 68%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_paired_bootstrap_and_verdict PASSED [ 71%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_mcnemar_and_holm PASSED [ 75%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_label_sensitivity PASSED [ 78%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_repair_harm_reference_and_oracle PASSED [ 81%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_pre_post_no_signal_is_not_benefit PASSED [ 84%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_routing_curves_shapes PASSED [ 87%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_parse_top_logprobs_and_response PASSED [ 90%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_request_key_and_repeat_tag PASSED [ 93%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_locked_thresholds_roundtrip PASSED [ 96%]
+grace_diag_kit\tests\test_stats_and_complementarity.py::test_import_and_compare_scripts PASSED [100%]
+
+============================= 32 passed in 19.10s =============================

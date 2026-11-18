@@ -1,0 +1,44 @@
+\begin{tabular}{lllllllll}
+\toprule
+contrast & dataset & metric & delta & ci\_lo & ci\_hi & margin & verdict & exposure\_status \\
+\midrule
+H1.1 & devign & mcc & -0.032 & -0.075 & 0.011 & 0.030 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:mcc\_auroc \\
+H1.1 & devign & auroc & -0.010 & -0.028 & 0.008 & 0.020 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:mcc\_auroc \\
+H1.2 & reveal & mcc & -0.023 & -0.063 & 0.015 & 0.030 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:mcc\_auroc \\
+H1.2 & reveal & auroc & -0.008 & -0.036 & 0.018 & 0.020 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:mcc\_auroc \\
+H2.1 & devign & mcc & -0.026 & -0.061 & 0.009 & 0.000 & inconclusive & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:labels\_only \\
+H2.1 & reveal & mcc & -0.027 & -0.061 & 0.005 & 0.000 & inconclusive & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:none \\
+H2.2a & devign & auroc & 0.001 & -0.014 & 0.016 & 0.020 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H2.2a & devign & mcc & -0.025 & -0.067 & 0.015 & 0.030 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H2.2a & reveal & auroc & 0.014 & -0.006 & 0.035 & 0.020 & inconclusive & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H2.2a & reveal & mcc & -0.019 & -0.068 & 0.030 & 0.030 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H2.2b & devign & auroc & -0.007 & -0.018 & 0.005 & 0.020 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H2.2b & devign & mcc & -0.027 & -0.059 & 0.006 & 0.030 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H2.2b & reveal & auroc & -0.012 & -0.029 & 0.005 & 0.020 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H2.2b & reveal & mcc & 0.031 & -0.013 & 0.075 & 0.030 & inconclusive & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H2.2c & devign & auroc & -0.016 & -0.034 & 0.002 & 0.020 & no\_meaningful\_benefit & after\_prereg | viewed\_before\_prereg:mcc\_auroc \\
+H2.2c & devign & mcc & -0.025 & -0.074 & 0.023 & 0.030 & no\_meaningful\_benefit & after\_prereg | viewed\_before\_prereg:mcc\_auroc \\
+H2.2c & reveal & auroc & -0.034 & -0.059 & -0.010 & 0.020 & harm & after\_prereg | viewed\_before\_prereg:mcc\_auroc \\
+H2.2c & reveal & mcc & -0.055 & -0.091 & -0.021 & 0.030 & harm & after\_prereg | viewed\_before\_prereg:mcc\_auroc \\
+H2.3 & devign & N/A & N/A & N/A & N/A & N/A & N/A & N/A \\
+H2.3 & reveal & N/A & N/A & N/A & N/A & N/A & N/A & N/A \\
+H3.1a & devign & auroc & -0.007 & -0.020 & 0.006 & 0.020 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:mcc\_auroc \\
+H3.1a & devign & mcc & -0.013 & -0.046 & 0.018 & 0.030 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:mcc\_auroc \\
+H3.1a & reveal & auroc & 0.010 & -0.009 & 0.029 & 0.020 & inconclusive & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:mcc\_auroc \\
+H3.1a & reveal & mcc & -0.035 & -0.074 & 0.001 & 0.030 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | viewed\_before\_prereg:mcc\_auroc \\
+H3.1b & devign & auroc & -0.010 & -0.023 & 0.004 & 0.020 & no\_meaningful\_benefit & after\_prereg | viewed\_before\_prereg:mcc\_auroc \\
+H3.1b & devign & mcc & -0.006 & -0.043 & 0.032 & 0.030 & inconclusive & after\_prereg | viewed\_before\_prereg:mcc\_auroc \\
+H3.1b & reveal & auroc & 0.006 & -0.016 & 0.030 & 0.020 & inconclusive & after\_prereg | viewed\_before\_prereg:mcc\_auroc \\
+H3.1b & reveal & mcc & 0.015 & -0.025 & 0.056 & 0.030 & inconclusive & after\_prereg | viewed\_before\_prereg:mcc\_auroc \\
+H3.1c & devign & auroc & 0.014 & -0.001 & 0.030 & 0.020 & inconclusive & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H3.1c & devign & mcc & -0.013 & -0.055 & 0.030 & 0.030 & no\_meaningful\_benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H3.1c & reveal & auroc & 0.012 & -0.010 & 0.034 & 0.020 & inconclusive & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H3.1c & reveal & mcc & 0.057 & 0.016 & 0.099 & 0.030 & benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H5.1 & devign & mcc & 0.159 & 0.095 & 0.227 & 0.150 & benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H5.1 & devign & auroc & 0.125 & 0.086 & 0.167 & 0.050 & benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H5.1 & reveal & mcc & 0.194 & 0.114 & 0.271 & 0.150 & benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H5.1 & reveal & auroc & 0.205 & 0.143 & 0.264 & 0.050 & benefit & viewed\_before\_prereg:mcc\_auroc | after\_prereg \\
+H5.3 & devign & N/A & N/A & N/A & N/A & N/A & N/A & N/A \\
+H5.3 & reveal & N/A & N/A & N/A & N/A & N/A & N/A & N/A \\
+\bottomrule
+\end{tabular}

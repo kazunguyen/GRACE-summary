@@ -1,0 +1,10 @@
+Requirement already satisfied: pip in c:\users\admin\appdata\local\temp\claude\2d7e55eb8a01d933\e33e8e29-03fa-4b05-8210-0ad779a9076c\scratchpad\c18\x\artifact-packaging\option1_reproducibility_package\.venv-repro\lib\site-packages (23.0.1)
+Collecting pip
+  Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+     ---------------------------------------- 2.0/2.0 MB 1.4 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+Successfully installed pip-26.3
