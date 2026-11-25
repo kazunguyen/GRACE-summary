@@ -1,0 +1,59 @@
+{
+  "threshold_rule": "Apply P_pre validation OOF tau to both test score vectors",
+  "results": [
+    {
+      "dataset": "devign",
+      "n_test": 2732,
+      "n_clusters": 2068,
+      "tau_shared": 0.53,
+      "mcc_pre": 0.2865809753567632,
+      "mcc_post": 0.2858130262912378,
+      "delta_mcc_ci95": {
+        "delta": -0.0007679490655254084,
+        "lo": -0.009518751281818972,
+        "hi": 0.007954995579989216,
+        "n_boot": 5000,
+        "n_degenerate": 0,
+        "seed": 20261117,
+        "unit": "cluster"
+      },
+      "margin": 0.02,
+      "passes_h52_margin": true
+    },
+    {
+      "dataset": "reveal",
+      "n_test": 2274,
+      "n_clusters": 646,
+      "tau_shared": 0.2,
+      "mcc_pre": 0.3768604302630402,
+      "mcc_post": 0.3690352463538789,
+      "delta_mcc_ci95": {
+        "delta": -0.007825183909161315,
+        "lo": -0.01685754014703994,
+        "hi": -0.000982843960375357,
+        "n_boot": 5000,
+        "n_degenerate": 0,
+        "seed": 20261117,
+        "unit": "cluster"
+      },
+      "margin": 0.02,
+      "passes_h52_margin": true
+    }
+  ],
+  "inputs_sha256": {
+    "docs/20261111/grace_diag_kit.zip": "2b29dfd3a369c7defecc506af2db9aa18d0c3ce8fdb6970b47734bf471fb2a2b",
+    "Runs-management/analysis_pa1_20261111/recompute.py": "35df6874d348c1d59d43c470cc94956abd313d2e5aaef2d18462b3dc69ae290d",
+    "STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_44f00d19/devign/joined_test.csv": "fbc408df39b02ead646584d76a76ec438803b7b389f772a85f007beb07900f87",
+    "STEP6_supervised_anchors/src/step6_complementarity.py": "882a5c8bc364ee90d73255afc6e4e62decd834d3d6d43f38cc42894864975fdc",
+    "STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_44f00d19/analysis_manifest.json": "e997e5f82a0ba0a2e7e08c76012e59097382b229b86150c4b19dde25c00cee78",
+    "STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_44f00d19/devign/complementarity_step6.json": "3bcabe54ed92df7dea583e17da5c5483bdc77b28ff49450e41a8d9cfb16661a1",
+    "STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_44f00d19/devign/joined_validation.csv": "1c157107f3ea964cbcd7989b6cfb3dc4c1cd083dcb04edb28f540f56288b28f2",
+    "STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/devign/xpre_validation.npz": "44898c6090a9705d3e84d9ec9aefa0b0ce335766335886199976695ae6c37fa1",
+    "STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/devign/xpre_test.npz": "7122bbb11dc4819418447ea7bb280628533c1ca828ce6761c3d19a34b024b5b7",
+    "STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_44f00d19/reveal/joined_test.csv": "3e1a3c2cde0e95c2a5b2c432bb6c9f4318ecfc33bd656a0054b1036e339d4b8a",
+    "STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_44f00d19/reveal/complementarity_step6.json": "55612876d34951e68c39016b9c8a0d0a5a85334c4785c8dc8e88ed85fef44ac0",
+    "STEP6_supervised_anchors/runs/complementarity_step6/step6_lock_64fb2c99d904_44f00d19/reveal/joined_validation.csv": "4afeb73c3d62111e08081432e488ebcc779d37ac7e92d0494664da3bbbbbad1f",
+    "STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/reveal/xpre_validation.npz": "fd88b1426aa6d2cd2cfcfbc6eb195f1b489194bf34bdbb2a486676601b0b60a8",
+    "STEP6_supervised_anchors/runs/h3b_locked/step6_lock_64fb2c99d904/reveal/xpre_test.npz": "f5113d4e81d3b02cd9017a24214f19ab15af71df0bbd1a8802d9e47ec9c290f1"
+  }
+}

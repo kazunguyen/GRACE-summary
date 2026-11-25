@@ -1,0 +1,37 @@
+{
+  "dataset": "devign",
+  "split": "validation",
+  "arm": "B1",
+  "seed": 42,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\devign\\validation\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [
+      "b1_b2_empty_demo_v1"
+    ],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-01T10:18:37.956383+00:00",
+  "timestamp_max": "2026-11-01T14:24:16.404839+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\devign\\validation\\records.jsonl": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449"
+  },
+  "records_sha256": "9542e55ea6145e12e4f8f61322e10d49f0f922221b15f79e7bf082f7912319e3",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

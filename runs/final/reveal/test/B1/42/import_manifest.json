@@ -1,0 +1,37 @@
+{
+  "dataset": "reveal",
+  "split": "test",
+  "arm": "B1",
+  "seed": 42,
+  "n": 2274,
+  "n_valid": 2274,
+  "sources": [
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\reveal\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [
+      "b1_b2_empty_demo_v1"
+    ],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-02T03:24:24.843800+00:00",
+  "timestamp_max": "2026-11-02T06:32:01.306595+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\reveal\\test\\records.jsonl": "26057b7af6fe20dd40a829598555709b963f7615c6a04d8f228f63e6bea2c166"
+  },
+  "records_sha256": "e2fa649121585c311d60690d89083d667831fb63e3af83aec65d3cfdd5c3c08e",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

@@ -1,0 +1,39 @@
+{
+  "dataset": "devign",
+  "split": "test",
+  "arm": "B1-H2",
+  "seed": 42,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "Runs-management\\kaggle_outputs_20261107\\b1h2_test_latest\\b1_h2_test\\seed_42\\devign\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [
+      "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8"
+    ],
+    "prompt_variant": [
+      "project_frozen_donor_dryrun_v1"
+    ],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-06T17:24:22.347345+00:00",
+  "timestamp_max": "2026-11-06T18:46:40.458748+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "Runs-management\\kaggle_outputs_20261107\\b1h2_test_latest\\b1_h2_test\\seed_42\\devign\\test\\records.jsonl": "9e3646d057de50ea978094a2fa399143c908b85d96a80b872ffb9b94484ed515"
+  },
+  "records_sha256": "ec7cd607a1b35ac3b21ff6c95f22cf67c53bb832d524b1e3b76268fe553d7642",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

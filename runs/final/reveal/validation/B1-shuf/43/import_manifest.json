@@ -1,0 +1,35 @@
+{
+  "dataset": "reveal",
+  "split": "validation",
+  "arm": "B1-shuf",
+  "seed": 43,
+  "n": 2273,
+  "n_valid": 2273,
+  "sources": [
+    "Runs-management\\check_b1_shuf_output\\b1_shuf_validation\\seed_43\\reveal\\validation\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-05T07:02:31.903664+00:00",
+  "timestamp_max": "2026-11-05T10:14:14.886707+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "Runs-management\\check_b1_shuf_output\\b1_shuf_validation\\seed_43\\reveal\\validation\\records.jsonl": "c87a5f610b6b70f312d9b4c4ec751231a028c53f70bf73b1fc007ef4c56c0085"
+  },
+  "records_sha256": "0a57d4b5a0aa7148816982d700340599273ad7340e110c77c1c5096fa384967a",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

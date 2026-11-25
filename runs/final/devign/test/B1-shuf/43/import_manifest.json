@@ -1,0 +1,33 @@
+{
+  "dataset": "devign",
+  "split": "test",
+  "arm": "B1-shuf",
+  "seed": 43,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_43\\devign\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [
+      "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+    ],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [],
+    "quantization": [],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-08T08:50:28.954035+00:00",
+  "timestamp_max": "2026-11-08T19:11:57.627967+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_43\\devign\\test\\records.jsonl": "a51045ad3a2ae646e56225c806d913baab37452ab757f212255f129ca1cfde5e"
+  },
+  "records_sha256": "84a9a348ca81c3101be80a4931a9c99a50886e5cdcc0eaf042d8d443118ef4f0",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

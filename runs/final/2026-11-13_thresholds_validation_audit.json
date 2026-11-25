@@ -1,0 +1,471 @@
+{
+  "inputs_sha256": {
+    "runs\\anchor\\anchor_scores.csv": "94701c6584c5feff817ba29d45389321c08333b2b1edff792e41b3ad5b3b2d8b",
+    "runs\\final\\devign\\validation\\B0\\42\\records.jsonl": "8e8c1bd00bfce9ef6a844d82d43cf8d272c1f80ad3e1221f0a3b32c3f2c112d0",
+    "runs\\final\\devign\\validation\\B1-H2\\42\\records.jsonl": "b7cf0e585ef61bf2fbbff5e82b8f7c9152bcafbef0ce7d3a992075bc236bcf65",
+    "runs\\final\\devign\\validation\\B1-full\\42\\records.jsonl": "762807dd8190a91eb9f1cb89ccb6e01366dbb948cf34055e9412528c8a120f5a",
+    "runs\\final\\devign\\validation\\B1-shuf\\42\\records.jsonl": "5297314dd884ecb8034c1771b1e0ec89d95fa4dd2afe3caa01bae799ace2ae47",
+    "runs\\final\\devign\\validation\\B1-shuf\\43\\records.jsonl": "422813c701f0038d8e9b8df0abbbceee2229f5eebce73edb4417c56b51d7a6f6",
+    "runs\\final\\devign\\validation\\B1-shuf\\44\\records.jsonl": "9021c4c3b56db551b4d8c266bb01071225e851d09d9d682ae18e08407a5c58a7",
+    "runs\\final\\devign\\validation\\B1\\42\\records.jsonl": "9542e55ea6145e12e4f8f61322e10d49f0f922221b15f79e7bf082f7912319e3",
+    "runs\\final\\devign\\validation\\B2-flip\\42\\records.jsonl": "3fbe10dfdacf60427f6165a8d9ad44da315c6bec4bab4c4b844570271d724904",
+    "runs\\final\\devign\\validation\\B2-labelonly\\42\\records.jsonl": "e727b2e226e5a18cd3d4e7ed9090cc06907f13d8cffd1e597c58509129ee5db3",
+    "runs\\final\\devign\\validation\\B2-nolabel\\42\\records.jsonl": "42eabf29f44022b26254b9eb78ce868c834fae2ba82f2058ff7f7f568a429d76",
+    "runs\\final\\devign\\validation\\B2-rand\\42\\records.jsonl": "b4734e208796f673491571ce46a1f0c26f61bc84331a1f3c9653576c4b9dca94",
+    "runs\\final\\devign\\validation\\B2-rand\\43\\records.jsonl": "da6ef749a9d4799118b2bd9d440d07dd53778220f603ad8b01e678f83cc1a886",
+    "runs\\final\\devign\\validation\\B2-rand\\44\\records.jsonl": "dfb0f597d10aeb6b9cc97c57c674f310d823076203e5298381615271e2688c30",
+    "runs\\final\\devign\\validation\\B2-rep\\42\\records.jsonl": "d02f9c08e7dd892a177cf9ce53b9066a3c37b06e0658d87cfd84a44da9f9e9f6",
+    "runs\\final\\devign\\validation\\B2\\42\\records.jsonl": "65694b955570ccb63405948a8ce0406612022b62e5fb1011a6ab69cdbf20b4a2",
+    "runs\\final\\reveal\\validation\\B0\\42\\records.jsonl": "f5f2118e75d20669655eda511c23c28ec76e2bcc956d9fa83375b93bf3fde0af",
+    "runs\\final\\reveal\\validation\\B1-H2\\42\\records.jsonl": "5a08c4eadc0db397c29e2110aa97b3cf01510b90e946d4c6a53452628789197b",
+    "runs\\final\\reveal\\validation\\B1-full\\42\\records.jsonl": "3bbae6c1e336c9042e4b9205d70d88ba9043c0f605aacd64492113fcc1be1499",
+    "runs\\final\\reveal\\validation\\B1-shuf\\42\\records.jsonl": "7453742a4bd44cde634aa10e837d78f2cdafcf3268e6dcf036c992e1382d0a97",
+    "runs\\final\\reveal\\validation\\B1-shuf\\43\\records.jsonl": "0a57d4b5a0aa7148816982d700340599273ad7340e110c77c1c5096fa384967a",
+    "runs\\final\\reveal\\validation\\B1-shuf\\44\\records.jsonl": "b471b1f023f0f857637d17105779852a8f0634e416b9061d91be0173793a9ea6",
+    "runs\\final\\reveal\\validation\\B1\\42\\records.jsonl": "1e9e0e4c3c7b3551558e5a5befc4598c1a14d810c3ec263c1a2453ab9e56a1c3",
+    "runs\\final\\reveal\\validation\\B2-flip\\42\\records.jsonl": "1b02fffd0d6977d93d7a8babf46a8886b1d59266e1281f52f925880b20d30584",
+    "runs\\final\\reveal\\validation\\B2-labelonly\\42\\records.jsonl": "5441623540ffe13bf76fd23f43275f02cd484aa17e6c9257e52f9f2223cea8b7",
+    "runs\\final\\reveal\\validation\\B2-nolabel\\42\\records.jsonl": "ac5074750a930f9760c0459f5e60a876112e0d6771a1b0a0cd60f5b57cb547a0",
+    "runs\\final\\reveal\\validation\\B2-rand\\42\\records.jsonl": "0d5e7b69735efcc631fead48656d0f8c23224da80df21c69b858e5d60d127254",
+    "runs\\final\\reveal\\validation\\B2-rand\\43\\records.jsonl": "5ba8a45d5c3d29cefc9a046f62dfa15cfea4f1d1b4af5564f28ae00fd479e7fb",
+    "runs\\final\\reveal\\validation\\B2-rand\\44\\records.jsonl": "e0b0f8695278d1e62f71376a30f9fb325968ac4a686fb60483b44f80f6d10883",
+    "runs\\final\\reveal\\validation\\B2-rep\\42\\records.jsonl": "c83c2b068dd76108b22812ae0bfd42c225f3ed7ba57dc3af32d17aefd0cd751f",
+    "runs\\final\\reveal\\validation\\B2\\42\\records.jsonl": "9b72b42337cb5797f531f419f8d54ca07ca47e025b0db46e46d334267c8f56fe"
+  },
+  "locked_sha256": "37c62a4e9d8298717947f603170842de886b98a0814027b5461b85e0fddc0e3a",
+  "rule": "tau* = argmax MCC on validation; grid 0.01..0.99 step 0.01; ties -> closest to 0.5; valid samples only",
+  "thresholds": {
+    "devign|B0|42": {
+      "arm": "B0",
+      "dataset": "devign",
+      "mcc_val": 0.07600978032041933,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.98
+    },
+    "devign|B1-H2|42": {
+      "arm": "B1-H2",
+      "dataset": "devign",
+      "mcc_val": 0.06679281918983469,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.09
+    },
+    "devign|B1-full|42": {
+      "arm": "B1-full",
+      "dataset": "devign",
+      "mcc_val": 0.07459989907611508,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.99
+    },
+    "devign|B1-shuf|42": {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "mcc_val": 0.09238491064059146,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.98
+    },
+    "devign|B1-shuf|43": {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "mcc_val": 0.08716191457625332,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.96
+    },
+    "devign|B1-shuf|44": {
+      "arm": "B1-shuf",
+      "dataset": "devign",
+      "mcc_val": 0.07191263023290964,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.67
+    },
+    "devign|B1|42": {
+      "arm": "B1",
+      "dataset": "devign",
+      "mcc_val": 0.07475492649745077,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.98
+    },
+    "devign|B2-flip|42": {
+      "arm": "B2-flip",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": 2732,
+      "policy": "inherit_from:B2",
+      "seed": 42,
+      "tau": 0.7
+    },
+    "devign|B2-labelonly|42": {
+      "arm": "B2-labelonly",
+      "dataset": "devign",
+      "mcc_val": 0.0916912782270952,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.99
+    },
+    "devign|B2-nolabel|42": {
+      "arm": "B2-nolabel",
+      "dataset": "devign",
+      "mcc_val": 0.04502060079804367,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.98
+    },
+    "devign|B2-rand|42": {
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "mcc_val": 0.06620373237126373,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.99
+    },
+    "devign|B2-rand|43": {
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "mcc_val": 0.061035892718704646,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.99
+    },
+    "devign|B2-rand|44": {
+      "arm": "B2-rand",
+      "dataset": "devign",
+      "mcc_val": 0.05585097088706295,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.99
+    },
+    "devign|B2-rep|42": {
+      "arm": "B2-rep",
+      "dataset": "devign",
+      "mcc_val": null,
+      "n_val": 2732,
+      "policy": "inherit_from:B2",
+      "seed": 42,
+      "tau": 0.7
+    },
+    "devign|B2|42": {
+      "arm": "B2",
+      "dataset": "devign",
+      "mcc_val": 0.05473445827920242,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.7
+    },
+    "devign|SUP-LR|42": {
+      "arm": "SUP-LR",
+      "dataset": "devign",
+      "mcc_val": 0.22616188717401509,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.37
+    },
+    "devign|SUP-LR|43": {
+      "arm": "SUP-LR",
+      "dataset": "devign",
+      "mcc_val": 0.22616188717401509,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.37
+    },
+    "devign|SUP-LR|44": {
+      "arm": "SUP-LR",
+      "dataset": "devign",
+      "mcc_val": 0.22616188717401509,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.37
+    },
+    "devign|SUP-METRIC|42": {
+      "arm": "SUP-METRIC",
+      "dataset": "devign",
+      "mcc_val": 0.1347623748370243,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.58
+    },
+    "devign|SUP-METRIC|43": {
+      "arm": "SUP-METRIC",
+      "dataset": "devign",
+      "mcc_val": 0.1347623748370243,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.58
+    },
+    "devign|SUP-METRIC|44": {
+      "arm": "SUP-METRIC",
+      "dataset": "devign",
+      "mcc_val": 0.1347623748370243,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.58
+    },
+    "devign|SUP-MLP|42": {
+      "arm": "SUP-MLP",
+      "dataset": "devign",
+      "mcc_val": 0.24556625152953762,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.78
+    },
+    "devign|SUP-MLP|43": {
+      "arm": "SUP-MLP",
+      "dataset": "devign",
+      "mcc_val": 0.24985838108931574,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.77
+    },
+    "devign|SUP-MLP|44": {
+      "arm": "SUP-MLP",
+      "dataset": "devign",
+      "mcc_val": 0.24379581621700555,
+      "n_val": 2732,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.34
+    },
+    "reveal|B0|42": {
+      "arm": "B0",
+      "dataset": "reveal",
+      "mcc_val": 0.08011987788762218,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.3
+    },
+    "reveal|B1-H2|42": {
+      "arm": "B1-H2",
+      "dataset": "reveal",
+      "mcc_val": 0.08363234793079846,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.21
+    },
+    "reveal|B1-full|42": {
+      "arm": "B1-full",
+      "dataset": "reveal",
+      "mcc_val": 0.08702307239779206,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.01
+    },
+    "reveal|B1-shuf|42": {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "mcc_val": 0.06332759027068521,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.66
+    },
+    "reveal|B1-shuf|43": {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "mcc_val": 0.06949283504716405,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.01
+    },
+    "reveal|B1-shuf|44": {
+      "arm": "B1-shuf",
+      "dataset": "reveal",
+      "mcc_val": 0.09558988581293579,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.04
+    },
+    "reveal|B1|42": {
+      "arm": "B1",
+      "dataset": "reveal",
+      "mcc_val": 0.08326406769668317,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.63
+    },
+    "reveal|B2-flip|42": {
+      "arm": "B2-flip",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": 2273,
+      "policy": "inherit_from:B2",
+      "seed": 42,
+      "tau": 0.12
+    },
+    "reveal|B2-labelonly|42": {
+      "arm": "B2-labelonly",
+      "dataset": "reveal",
+      "mcc_val": 0.08470034354957923,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.02
+    },
+    "reveal|B2-nolabel|42": {
+      "arm": "B2-nolabel",
+      "dataset": "reveal",
+      "mcc_val": 0.06511448784748762,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.21
+    },
+    "reveal|B2-rand|42": {
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "mcc_val": 0.08081883313753434,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.89
+    },
+    "reveal|B2-rand|43": {
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "mcc_val": 0.07706375271838951,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.62
+    },
+    "reveal|B2-rand|44": {
+      "arm": "B2-rand",
+      "dataset": "reveal",
+      "mcc_val": 0.08916560536249224,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.64
+    },
+    "reveal|B2-rep|42": {
+      "arm": "B2-rep",
+      "dataset": "reveal",
+      "mcc_val": null,
+      "n_val": 2273,
+      "policy": "inherit_from:B2",
+      "seed": 42,
+      "tau": 0.12
+    },
+    "reveal|B2|42": {
+      "arm": "B2",
+      "dataset": "reveal",
+      "mcc_val": 0.08229864075239605,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.12
+    },
+    "reveal|SUP-LR|42": {
+      "arm": "SUP-LR",
+      "dataset": "reveal",
+      "mcc_val": 0.3086026461603104,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.15
+    },
+    "reveal|SUP-LR|43": {
+      "arm": "SUP-LR",
+      "dataset": "reveal",
+      "mcc_val": 0.3086026461603104,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.15
+    },
+    "reveal|SUP-LR|44": {
+      "arm": "SUP-LR",
+      "dataset": "reveal",
+      "mcc_val": 0.3086026461603104,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.15
+    },
+    "reveal|SUP-METRIC|42": {
+      "arm": "SUP-METRIC",
+      "dataset": "reveal",
+      "mcc_val": 0.24829715887383724,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.15
+    },
+    "reveal|SUP-METRIC|43": {
+      "arm": "SUP-METRIC",
+      "dataset": "reveal",
+      "mcc_val": 0.24829715887383724,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.15
+    },
+    "reveal|SUP-METRIC|44": {
+      "arm": "SUP-METRIC",
+      "dataset": "reveal",
+      "mcc_val": 0.24829715887383724,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.15
+    },
+    "reveal|SUP-MLP|42": {
+      "arm": "SUP-MLP",
+      "dataset": "reveal",
+      "mcc_val": 0.32571734053454726,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 42,
+      "tau": 0.11
+    },
+    "reveal|SUP-MLP|43": {
+      "arm": "SUP-MLP",
+      "dataset": "reveal",
+      "mcc_val": 0.3127960845624241,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 43,
+      "tau": 0.08
+    },
+    "reveal|SUP-MLP|44": {
+      "arm": "SUP-MLP",
+      "dataset": "reveal",
+      "mcc_val": 0.3415641467953059,
+      "n_val": 2273,
+      "policy": "argmax_mcc_validation",
+      "seed": 44,
+      "tau": 0.26
+    }
+  }
+}

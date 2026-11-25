@@ -1,0 +1,35 @@
+{
+  "dataset": "devign",
+  "split": "test",
+  "arm": "B2",
+  "seed": 42,
+  "n": 2732,
+  "n_valid": 2732,
+  "sources": [
+    "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\devign\\test\\records.jsonl"
+  ],
+  "provenance": {
+    "runtime_contract_sha256": [],
+    "model_sha256": [
+      "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+    ],
+    "backend": [
+      "llama-cpp-python"
+    ],
+    "quantization": [
+      "Q4_K_M"
+    ],
+    "threshold_lock_sha256": [],
+    "prompt_variant": [],
+    "cache_tag": []
+  },
+  "timestamp_min": "2026-11-01T03:14:29.496600+00:00",
+  "timestamp_max": "2026-11-02T00:16:58.900076+00:00",
+  "mixed_runtime": false,
+  "sources_sha256": {
+    "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\devign\\test\\records.jsonl": "d0a61bfa6cc1700ddd5a6d668d4c42d808cce5fbc71b42b300fdd29060c71304"
+  },
+  "records_sha256": "b63992196eba1d2b7821c34617abbe4b2ed1720c1a597d6f00e94846ac076a5c",
+  "conflicts": [],
+  "on_conflict": "abort"
+}

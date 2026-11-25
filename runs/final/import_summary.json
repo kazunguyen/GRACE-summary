@@ -1,0 +1,1776 @@
+[
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B0",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "02_Arm_B0_Source_Only\\output\\kaggle_20261101_duchuynguyen1802\\grace_b0_runs\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b0_b2_empty_blocks_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T06:34:42.330851+00:00",
+    "timestamp_max": "2026-11-01T07:55:06.169320+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B1",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b1_b2_empty_demo_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T17:33:21.115096+00:00",
+    "timestamp_max": "2026-11-02T03:24:20.141296+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B1-H2",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\kaggle_outputs_20261107\\b1h2_test_latest\\b1_h2_test\\seed_42\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [
+        "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8"
+      ],
+      "prompt_variant": [
+        "project_frozen_donor_dryrun_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-06T17:24:22.347345+00:00",
+    "timestamp_max": "2026-11-06T18:46:40.458748+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B1-full",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\run_handoff_20261108\\completed_results\\b1_full_test_completed_20261108\\B1-full\\seed_42\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-08T01:26:54.653198+00:00",
+    "timestamp_max": "2026-11-08T05:29:14.454222+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B1-shuf",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_42\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-08T01:25:00.657436+00:00",
+    "timestamp_max": "2026-11-08T05:35:50.770075+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B1-shuf",
+    "seed": 43,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_43\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-08T08:50:28.954035+00:00",
+    "timestamp_max": "2026-11-08T19:11:57.627967+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B1-shuf",
+    "seed": 44,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_44\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-08T22:21:39.747857+00:00",
+    "timestamp_max": "2026-11-09T04:17:00.000681+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B2",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T03:14:29.496600+00:00",
+    "timestamp_max": "2026-11-02T00:16:58.900076+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B2-flip",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "04_Arm_B2_Flip\\output\\kaggle_20261105_quangdung1111_run2\\grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b2_flip_frozen_donor_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T23:49:19.741930+00:00",
+    "timestamp_max": "2026-11-04T19:28:32.372531+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B2-labelonly",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T10:36:33.364489+00:00",
+    "timestamp_max": "2026-11-07T14:45:05.493043+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B2-nolabel",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\run_handoff_20261108\\completed_results\\B2-nolabel\\seed_42\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T10:35:18.047528+00:00",
+    "timestamp_max": "2026-11-07T15:33:22.984011+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B2-rand",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "06_Arm_B2_Rand\\test_results_20261107\\seed_42\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [
+        "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70"
+      ],
+      "prompt_variant": [
+        "b2_rand_paired_frozen_bank_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T04:10:15.604267+00:00",
+    "timestamp_max": "2026-11-07T09:20:40.411792+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B2-rand",
+    "seed": 43,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "06_Arm_B2_Rand\\test_results_20261107\\seed_43\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [
+        "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70"
+      ],
+      "prompt_variant": [
+        "b2_rand_paired_frozen_bank_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T04:30:01.405702+00:00",
+    "timestamp_max": "2026-11-07T09:39:41.939581+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B2-rand",
+    "seed": 44,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "06_Arm_B2_Rand\\test_results_20261107\\seed_44\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [
+        "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735"
+      ],
+      "prompt_variant": [
+        "b2_rand_paired_frozen_bank_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T11:35:20.232229+00:00",
+    "timestamp_max": "2026-11-07T16:51:14.804544+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "test",
+    "arm": "B2-rep",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\devign\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T11:31:39.442827+00:00",
+    "timestamp_max": "2026-11-07T16:47:43.993485+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B0",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "02_Arm_B0_Source_Only\\output\\kaggle_20261101_duchuynguyen1802\\grace_b0_runs\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b0_b2_empty_blocks_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T04:22:36.057738+00:00",
+    "timestamp_max": "2026-11-01T05:42:40.818328+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B1",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b1_b2_empty_demo_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T10:18:37.956383+00:00",
+    "timestamp_max": "2026-11-01T14:24:16.404839+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B1-H2",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "11_Arm_B1H2_Evidence\\kaggle_b1h2_validation_20261106\\downloaded_output\\b1_h2_validation\\seed_42\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "project_frozen_donor_dryrun_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-06T12:50:09.014622+00:00",
+    "timestamp_max": "2026-11-06T14:12:04.607450+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B1-full",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\Runs-management\\output_b1_full\\b1_full_validation\\seed_42\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T09:56:15.010768+00:00",
+    "timestamp_max": "2026-11-04T13:55:05.593340+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B1-shuf",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\check_b1_shuf_output\\b1_shuf_validation\\seed_42\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T19:14:01.315215+00:00",
+    "timestamp_max": "2026-11-04T23:17:15.763386+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B1-shuf",
+    "seed": 43,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\check_b1_shuf_output\\b1_shuf_validation\\seed_43\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-05T02:25:38.408956+00:00",
+    "timestamp_max": "2026-11-05T07:02:26.385103+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B1-shuf",
+    "seed": 44,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\08_Arm_B1_Shuf\\output\\seed_44\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-05T10:15:24.624899+00:00",
+    "timestamp_max": "2026-11-07T01:38:03.852920+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B2",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-10-31T17:11:48.443286+00:00",
+    "timestamp_max": "2026-11-02T00:12:19.673745+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B2-flip",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "04_Arm_B2_Flip\\output\\kaggle_20261105_quangdung1111_run2\\grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b2_flip_frozen_donor_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T14:49:26.417232+00:00",
+    "timestamp_max": "2026-11-04T14:54:34.611421+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B2-labelonly",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\12_Arm_B2_LabelOnly\\output\\seed_42\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T16:12:29.989846+00:00",
+    "timestamp_max": "2026-11-04T20:25:59.632162+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B2-nolabel",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\10_Arm_B2_NoLabel\\output\\seed_42\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T09:55:24.487281+00:00",
+    "timestamp_max": "2026-11-04T14:59:24.081929+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B2-rand",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "06_Arm_B2_Rand\\output\\kaggle_run_02\\grace_b2_rand_three_seed_11h\\seed_42\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-02T00:18:04.119637+00:00",
+    "timestamp_max": "2026-11-02T05:31:16.940452+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B2-rand",
+    "seed": 43,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "06_Arm_B2_Rand\\output\\kaggle_run_02\\grace_b2_rand_three_seed_11h\\seed_43\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-05T01:20:24.273945+00:00",
+    "timestamp_max": "2026-11-05T06:39:54.210050+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B2-rand",
+    "seed": 44,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "Runs-management\\kaggle_outputs_20261107\\b2_rand_seed44_validation_latest\\grace_b2_rand_three_seed_11h\\seed_44\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-06T19:31:03.555046+00:00",
+    "timestamp_max": "2026-11-07T04:52:00.868820+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "devign",
+    "split": "validation",
+    "arm": "B2-rep",
+    "seed": 42,
+    "n": 2732,
+    "n_valid": 2732,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\05_Arm_B2_Rep\\output\\seed_42\\devign\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T16:20:49.771111+00:00",
+    "timestamp_max": "2026-11-04T21:25:41.224698+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B0",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "02_Arm_B0_Source_Only\\output\\kaggle_20261101_duchuynguyen1802\\grace_b0_runs\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b0_b2_empty_blocks_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T07:55:07.056825+00:00",
+    "timestamp_max": "2026-11-01T08:47:57.912524+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B1",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b1_b2_empty_demo_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-02T03:24:24.843800+00:00",
+    "timestamp_max": "2026-11-02T06:32:01.306595+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B1-H2",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "Runs-management\\kaggle_outputs_20261107\\b1h2_test_latest\\b1_h2_test\\seed_42\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [
+        "b5dc7e0da070f75cfabc10c366a08675d1c3f471f1e11fb86ee826a22ce674f8"
+      ],
+      "prompt_variant": [
+        "project_frozen_donor_dryrun_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-06T18:46:41.340482+00:00",
+    "timestamp_max": "2026-11-06T19:39:54.093365+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B1-full",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "Runs-management\\run_handoff_20261108\\completed_results\\b1_full_test_completed_20261108\\B1-full\\seed_42\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-08T05:29:18.995468+00:00",
+    "timestamp_max": "2026-11-08T08:35:51.547039+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B1-shuf",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_42\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-08T05:35:55.320304+00:00",
+    "timestamp_max": "2026-11-08T08:50:21.518619+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B1-shuf",
+    "seed": 43,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_43\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-08T19:12:02.058522+00:00",
+    "timestamp_max": "2026-11-08T22:21:32.418640+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B1-shuf",
+    "seed": 44,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "Runs-management\\b1_shuf_kaggle_output_20261109\\b1_shuf_locked_20261108\\B1-shuf\\seed_44\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-09T04:17:04.677361+00:00",
+    "timestamp_max": "2026-11-09T07:34:45.056006+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B2",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T08:28:16.791496+00:00",
+    "timestamp_max": "2026-11-01T13:25:06.168774+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B2-flip",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "04_Arm_B2_Flip\\output\\kaggle_20261105_quangdung1111_run2\\grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b2_flip_frozen_donor_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T19:28:37.298732+00:00",
+    "timestamp_max": "2026-11-04T23:07:52.033838+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B2-labelonly",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "Runs-management\\run_handoff_20261108\\completed_results\\B2-labelonly\\seed_42\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T14:45:31.424200+00:00",
+    "timestamp_max": "2026-11-07T17:58:17.093560+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B2-nolabel",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "Runs-management\\run_handoff_20261108\\completed_results\\B2-nolabel\\seed_42\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T15:33:45.886789+00:00",
+    "timestamp_max": "2026-11-07T19:12:29.074764+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B2-rand",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "06_Arm_B2_Rand\\test_results_20261107\\seed_42\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+        "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [
+        "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735",
+        "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70"
+      ],
+      "prompt_variant": [
+        "b2_rand_paired_frozen_bank_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T09:20:45.963434+00:00",
+    "timestamp_max": "2026-11-07T14:15:46.256076+00:00",
+    "mixed_runtime": true
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B2-rand",
+    "seed": 43,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "06_Arm_B2_Rand\\test_results_20261107\\seed_43\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "85d8770839f80260cdc7c27b27b6cce6bf8815675c8593db68fb102589c5cbd6",
+        "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [
+        "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735",
+        "8df76b64817d864b5cea0c039f7434b2a4a3523814703180d898f2ff56254b70"
+      ],
+      "prompt_variant": [
+        "b2_rand_paired_frozen_bank_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T09:39:48.019206+00:00",
+    "timestamp_max": "2026-11-07T14:40:44.662183+00:00",
+    "mixed_runtime": true
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B2-rand",
+    "seed": 44,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "06_Arm_B2_Rand\\test_results_20261107\\seed_44\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [
+        "bf1f859dc786e206a3c11d655b04b528dc68f59a15a82d4db894ac5944b0ac2e"
+      ],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [
+        "48c12066bbddabc8ef674a70f6f9ac68cb74cbeecc2a5ebbbda3cb4cb6498735"
+      ],
+      "prompt_variant": [
+        "b2_rand_paired_frozen_bank_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T14:43:59.731832+00:00",
+    "timestamp_max": "2026-11-07T20:09:24.382483+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "test",
+    "arm": "B2-rep",
+    "seed": 42,
+    "n": 2274,
+    "n_valid": 2274,
+    "sources": [
+      "Runs-management\\run_handoff_20261108\\completed_results\\B2-rep\\seed_42\\reveal\\test\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [],
+      "quantization": [],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T16:48:08.666414+00:00",
+    "timestamp_max": "2026-11-07T20:40:29.259667+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B0",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "02_Arm_B0_Source_Only\\output\\kaggle_20261101_duchuynguyen1802\\grace_b0_runs\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b0_b2_empty_blocks_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T05:42:42.549559+00:00",
+    "timestamp_max": "2026-11-01T06:34:38.662437+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B1",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "03_Arm_B1_Graph_Only\\output\\kaggle_run_02\\grace_b1_runs\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "b1_b2_empty_demo_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T14:24:21.723867+00:00",
+    "timestamp_max": "2026-11-01T17:33:13.471137+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B1-H2",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "11_Arm_B1H2_Evidence\\kaggle_b1h2_validation_20261106\\downloaded_output\\b1_h2_validation\\seed_42\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [
+        "project_frozen_donor_dryrun_v1"
+      ],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-06T14:12:06.087663+00:00",
+    "timestamp_max": "2026-11-06T15:04:24.707747+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B1-full",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\Runs-management\\output_b1_full\\b1_full_validation\\seed_42\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T13:55:10.794879+00:00",
+    "timestamp_max": "2026-11-04T16:54:34.363625+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B1-shuf",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "Runs-management\\check_b1_shuf_output\\b1_shuf_validation\\seed_42\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T23:17:21.084399+00:00",
+    "timestamp_max": "2026-11-05T02:24:28.280073+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B1-shuf",
+    "seed": 43,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "Runs-management\\check_b1_shuf_output\\b1_shuf_validation\\seed_43\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-05T07:02:31.903664+00:00",
+    "timestamp_max": "2026-11-05T10:14:14.886707+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B1-shuf",
+    "seed": 44,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\08_Arm_B1_Shuf\\output\\seed_44\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T01:38:09.315327+00:00",
+    "timestamp_max": "2026-11-07T04:47:09.747608+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B2",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "01_Author_Baseline_Unified\\output\\local_full\\inference_qwen_q4_b2_frozen_donor_20261102\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-10-31T22:17:19.609255+00:00",
+    "timestamp_max": "2026-11-01T03:14:18.811075+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B2-flip",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "04_Arm_B2_Flip\\output\\kaggle_20261105_quangdung1111_run2\\grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-01T20:02:35.021741+00:00",
+    "timestamp_max": "2026-11-01T23:49:08.992789+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B2-labelonly",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\12_Arm_B2_LabelOnly\\output\\seed_42\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T20:26:05.083421+00:00",
+    "timestamp_max": "2026-11-04T23:40:44.188637+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B2-nolabel",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\10_Arm_B2_NoLabel\\output\\seed_42\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T14:59:30.152048+00:00",
+    "timestamp_max": "2026-11-04T18:39:20.816205+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B2-rand",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "06_Arm_B2_Rand\\output\\kaggle_run_02\\grace_b2_rand_three_seed_11h\\seed_42\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-02T05:31:22.512438+00:00",
+    "timestamp_max": "2026-11-05T01:19:09.065978+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B2-rand",
+    "seed": 43,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "Runs-management\\kaggle_outputs_20261107\\b2_rand_latest\\grace_b2_rand_three_seed_11h\\seed_43\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-05T06:39:59.917111+00:00",
+    "timestamp_max": "2026-11-06T19:29:46.328675+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B2-rand",
+    "seed": 44,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "Runs-management\\kaggle_outputs_20261107\\b2_rand_seed44_validation_latest\\grace_b2_rand_three_seed_11h\\seed_44\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-07T04:52:07.252471+00:00",
+    "timestamp_max": "2026-11-07T08:33:56.316835+00:00",
+    "mixed_runtime": false
+  },
+  {
+    "dataset": "reveal",
+    "split": "validation",
+    "arm": "B2-rep",
+    "seed": 42,
+    "n": 2273,
+    "n_valid": 2273,
+    "sources": [
+      "..\\GRACE-summary-baseline-unified\\05_Arm_B2_Rep\\output\\seed_42\\reveal\\validation\\records.jsonl"
+    ],
+    "provenance": {
+      "runtime_contract_sha256": [],
+      "model_sha256": [
+        "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335"
+      ],
+      "backend": [
+        "llama-cpp-python"
+      ],
+      "quantization": [
+        "Q4_K_M"
+      ],
+      "threshold_lock_sha256": [],
+      "prompt_variant": [],
+      "cache_tag": []
+    },
+    "timestamp_min": "2026-11-04T21:25:47.301140+00:00",
+    "timestamp_max": "2026-11-05T01:06:18.774383+00:00",
+    "mixed_runtime": false
+  }
+]

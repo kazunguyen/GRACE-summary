@@ -1,0 +1,653 @@
+{
+  "schema": "pa1-appendix-b-import-v1",
+  "status": "complete",
+  "kit_sha256": "2b29dfd3a369c7defecc506af2db9aa18d0c3ce8fdb6970b47734bf471fb2a2b",
+  "scope": "Option 1 non-B3 completed test runs, with B1-H2 marked exploratory",
+  "exploratory_arms": [
+    "B1-H2"
+  ],
+  "excluded_arms": [
+    "B3",
+    "B3-nodiff",
+    "B3-swap",
+    "B3-flip"
+  ],
+  "totals": {
+    "test": 75090,
+    "validation": 75075
+  },
+  "group_count": 60,
+  "groups": [
+    {
+      "key": "devign/test/B0/42",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/test/records.jsonl",
+      "source_sha256": "e5eed103294d0ce4f74a5d2f719f128104a79e5f6f3a92bd00da23a947c7fdb6",
+      "records_sha256": "d372f06b42e3e0f194f7b50d4eebef3f04e03cc13e9e625244716e122967e0cf",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B0/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B1/42",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/devign/test/records.jsonl",
+      "source_sha256": "15673b8f6788b1d6b55e66438cba292435178303d820b8c3d249cd850254ace4",
+      "records_sha256": "0e2e249f3c3339fb8001f6d405ce4d413b30782701a03733e4cd69d55ed89181",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B1/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B1-H2/42",
+      "source": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/b1_h2_test/seed_42/devign/test/records.jsonl",
+      "source_sha256": "9e3646d057de50ea978094a2fa399143c908b85d96a80b872ffb9b94484ed515",
+      "records_sha256": "ec7cd607a1b35ac3b21ff6c95f22cf67c53bb832d524b1e3b76268fe553d7642",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B1-H2/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B1-full/42",
+      "source": "Runs-management/run_handoff_20261108/completed_results/b1_full_test_completed_20261108/B1-full/seed_42/devign/test/records.jsonl",
+      "source_sha256": "b6d3a60c59c1baf556f57b3bbb21cf5b88a8a3dc0f215258eee8e7c57833e609",
+      "records_sha256": "dfcde0ecddd7c1247a584713e02138532e0f8334a8e31d083978d7c8eee293ac",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B1-full/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B1-shuf/42",
+      "source": "Runs-management/b1_shuf_kaggle_output_20261109/b1_shuf_locked_20261108/B1-shuf/seed_42/devign/test/records.jsonl",
+      "source_sha256": "e53878e5fbd9f9f3cb3b66c7b00eef205f435c0b05e8a0cd5043220c5399c9c1",
+      "records_sha256": "e115d89127291b394bdfa5d2975efd89b13c333304134a2bc6edc162e501bd34",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B1-shuf/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B1-shuf/43",
+      "source": "Runs-management/b1_shuf_kaggle_output_20261109/b1_shuf_locked_20261108/B1-shuf/seed_43/devign/test/records.jsonl",
+      "source_sha256": "a51045ad3a2ae646e56225c806d913baab37452ab757f212255f129ca1cfde5e",
+      "records_sha256": "84a9a348ca81c3101be80a4931a9c99a50886e5cdcc0eaf042d8d443118ef4f0",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B1-shuf/43/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B1-shuf/44",
+      "source": "Runs-management/b1_shuf_kaggle_output_20261109/b1_shuf_locked_20261108/B1-shuf/seed_44/devign/test/records.jsonl",
+      "source_sha256": "ba83cd314102e767175c7a5d32c20875b74be56a979ee2e5c5098f55ecfd0fbc",
+      "records_sha256": "76e3308273d8e3862b4c46a21df07a0b2477741a779251c277e4c6bcd277b037",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B1-shuf/44/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B2/42",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/devign/test/records.jsonl",
+      "source_sha256": "d0a61bfa6cc1700ddd5a6d668d4c42d808cce5fbc71b42b300fdd29060c71304",
+      "records_sha256": "b63992196eba1d2b7821c34617abbe4b2ed1720c1a597d6f00e94846ac076a5c",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B2/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B2-flip/42",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/devign/test/records.jsonl",
+      "source_sha256": "69a6446652d982a20dca71bc9ff20d34bddc304655cba4fe11ce88f10158a970",
+      "records_sha256": "d4a8b79a6147324fa64d67e273ba6a9b8b0fb1d850fd6a1e64d7d2050c1fb9df",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B2-flip/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B2-labelonly/42",
+      "source": "Runs-management/run_handoff_20261108/completed_results/B2-labelonly/seed_42/devign/test/records.jsonl",
+      "source_sha256": "0eadea4da4cac47ba86f822eb066ddbe0a3368c602f069bcd386f8c42c3f90f3",
+      "records_sha256": "4679632cec8ecb4135598596b0a07e6e98a023f7ae179b582d011a90d92e1e3f",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B2-labelonly/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B2-nolabel/42",
+      "source": "Runs-management/run_handoff_20261108/completed_results/B2-nolabel/seed_42/devign/test/records.jsonl",
+      "source_sha256": "cd71dfe2902da36a0748d315fd8b1cf5c45c4710c33a6f829c93877833d12bf2",
+      "records_sha256": "c16816e8b6ef854f6ecb7c4b6c8ecab881dbb1b9807c2fed4bfa6c917befcd6e",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B2-nolabel/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B2-rand/42",
+      "source": "06_Arm_B2_Rand/test_results_20261107/seed_42/devign/test/records.jsonl",
+      "source_sha256": "561daeae403209600b13ec7e1085adb969e28b645e540bd84dd2ef9bae727a0d",
+      "records_sha256": "90298c5d3d6794fe9b93862eaec7e6d6288ef655ba981055819f236fa638b5e7",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B2-rand/42/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B2-rand/43",
+      "source": "06_Arm_B2_Rand/test_results_20261107/seed_43/devign/test/records.jsonl",
+      "source_sha256": "f8b356e8c41ba7dc232f660361c13c0100af0cfef1eeca85660f5f97becfb3f6",
+      "records_sha256": "e3ab492a95bddd50691dffc5934647eb05cd819d74d9723f367efb482aef2cee",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B2-rand/43/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B2-rand/44",
+      "source": "06_Arm_B2_Rand/test_results_20261107/seed_44/devign/test/records.jsonl",
+      "source_sha256": "d0ee0cd44d5dda471481c2d8dacfae02ef6834eafcc61a1ef0d8a7de95f5b344",
+      "records_sha256": "27c3113737ab3656f68e09dd7956100542237f626329a52b63d1cd4fbad4b67e",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B2-rand/44/import_manifest.json"
+    },
+    {
+      "key": "devign/test/B2-rep/42",
+      "source": "Runs-management/run_handoff_20261108/completed_results/B2-rep/seed_42/devign/test/records.jsonl",
+      "source_sha256": "ae274aebec41c3b23edf576a78b4efbbc4e4b3967459975df3d3f347e115fb7a",
+      "records_sha256": "23f8efc3dc5c76ab39f101c2a661af2acf80bf663ff8c60503fa42d43e381878",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/test/B2-rep/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B0/42",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/devign/validation/records.jsonl",
+      "source_sha256": "d856cf6b2271d4fb6f22dc999c83efe3c0e6ec29b8bc4e1340e28a6093c44ce1",
+      "records_sha256": "8e8c1bd00bfce9ef6a844d82d43cf8d272c1f80ad3e1221f0a3b32c3f2c112d0",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B0/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B1/42",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/devign/validation/records.jsonl",
+      "source_sha256": "b2fa4439643a0941062929bdda7efd2716de7b45a0e34b256748f8fd0497c449",
+      "records_sha256": "9542e55ea6145e12e4f8f61322e10d49f0f922221b15f79e7bf082f7912319e3",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B1/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B1-H2/42",
+      "source": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/b1_h2_validation/seed_42/devign/validation/records.jsonl",
+      "source_sha256": "c0167ec182d3da6563fbdbe03651e225d1526d9913ca2486201c33b5baaa6985",
+      "records_sha256": "b7cf0e585ef61bf2fbbff5e82b8f7c9152bcafbef0ce7d3a992075bc236bcf65",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B1-H2/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B1-full/42",
+      "source": "..\\GRACE-summary-baseline-unified\\Runs-management\\output_b1_full\\b1_full_validation\\seed_42\\devign\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "259c462963a6427a1873032b1734b0710ffdfc958283e7bb0209b67be1b05fda",
+      "n": 2732,
+      "lock_source_sha256": null,
+      "runtime_hashes": [],
+      "records_sha256": "762807dd8190a91eb9f1cb89ccb6e01366dbb948cf34055e9412528c8a120f5a",
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B1-full/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B1-shuf/42",
+      "source": "Runs-management/check_b1_shuf_output/b1_shuf_validation/seed_42/devign/validation/records.jsonl",
+      "source_sha256": "5e3d4979aad9922bd056b17e9dabb3fdcdec0f1568513c8741a276ab07e6a8ec",
+      "records_sha256": "5297314dd884ecb8034c1771b1e0ec89d95fa4dd2afe3caa01bae799ace2ae47",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B1-shuf/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B1-shuf/43",
+      "source": "Runs-management/check_b1_shuf_output/b1_shuf_validation/seed_43/devign/validation/records.jsonl",
+      "source_sha256": "94bc25796387135f1f6ecac36d1270ff44d4cc42941aec4389c8a54f783059d6",
+      "records_sha256": "422813c701f0038d8e9b8df0abbbceee2229f5eebce73edb4417c56b51d7a6f6",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B1-shuf/43/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B1-shuf/44",
+      "source": "..\\GRACE-summary-baseline-unified\\08_Arm_B1_Shuf\\output\\seed_44\\devign\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "af63e6dbd0125da2a0023030078f8a5c537db68e03d296cb607c1bd0b1c39626",
+      "n": 2732,
+      "lock_source_sha256": "af63e6dbd0125da2a0023030078f8a5c537db68e03d296cb607c1bd0b1c39626",
+      "runtime_hashes": [],
+      "records_sha256": "9021c4c3b56db551b4d8c266bb01071225e851d09d9d682ae18e08407a5c58a7",
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B1-shuf/44/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B2/42",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/devign/validation/records.jsonl",
+      "source_sha256": "fd40fb2c228a0fe343bdd7b4c238635043276341c801793fbd425af766f7eb32",
+      "records_sha256": "65694b955570ccb63405948a8ce0406612022b62e5fb1011a6ab69cdbf20b4a2",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B2/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B2-flip/42",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/devign/validation/records.jsonl",
+      "source_sha256": "95ebe9f112e9336b29674badb2c38c47e90ac2cd57669801dc8968ed9088a384",
+      "records_sha256": "3fbe10dfdacf60427f6165a8d9ad44da315c6bec4bab4c4b844570271d724904",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B2-flip/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B2-labelonly/42",
+      "source": "..\\GRACE-summary-baseline-unified\\12_Arm_B2_LabelOnly\\output\\seed_42\\devign\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "a54e872e841ac3f380d4c80fda32de2520e004b374fb9916085093cfe447b542",
+      "n": 2732,
+      "lock_source_sha256": "a54e872e841ac3f380d4c80fda32de2520e004b374fb9916085093cfe447b542",
+      "runtime_hashes": [],
+      "records_sha256": "e727b2e226e5a18cd3d4e7ed9090cc06907f13d8cffd1e597c58509129ee5db3",
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B2-labelonly/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B2-nolabel/42",
+      "source": "..\\GRACE-summary-baseline-unified\\10_Arm_B2_NoLabel\\output\\seed_42\\devign\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "5750e440e7981785d9bcf67c78f500a25ec72128ad7279667fc39a71513d51e0",
+      "n": 2732,
+      "lock_source_sha256": "5750e440e7981785d9bcf67c78f500a25ec72128ad7279667fc39a71513d51e0",
+      "runtime_hashes": [],
+      "records_sha256": "42eabf29f44022b26254b9eb78ce868c834fae2ba82f2058ff7f7f568a429d76",
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B2-nolabel/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B2-rand/42",
+      "source": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_three_seed_11h/seed_42/devign/validation/records.jsonl",
+      "source_sha256": "6f6bc0d6f0495fc7e69a834799718768d18ec12a41dfb61e7f2229dfaec91a65",
+      "records_sha256": "b4734e208796f673491571ce46a1f0c26f61bc84331a1f3c9653576c4b9dca94",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B2-rand/42/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B2-rand/43",
+      "source": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_three_seed_11h/seed_43/devign/validation/records.jsonl",
+      "source_sha256": "109e62753f36d25585be977ecefea2cd8a9c513326a271e7279826d00939f44d",
+      "records_sha256": "da6ef749a9d4799118b2bd9d440d07dd53778220f603ad8b01e678f83cc1a886",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B2-rand/43/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B2-rand/44",
+      "source": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/seed_44/devign/validation/records.jsonl",
+      "source_sha256": "9a9dfe5bad737108e140edb15261f943ecd1fe8a250b93186b645882d776414f",
+      "records_sha256": "dfb0f597d10aeb6b9cc97c57c674f310d823076203e5298381615271e2688c30",
+      "n": 2732,
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B2-rand/44/import_manifest.json"
+    },
+    {
+      "key": "devign/validation/B2-rep/42",
+      "source": "..\\GRACE-summary-baseline-unified\\05_Arm_B2_Rep\\output\\seed_42\\devign\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "c41c900f3864314057f9c3bbecc0067a54105e2c7c4feb0ce4a6cc6f68c10993",
+      "n": 2732,
+      "lock_source_sha256": null,
+      "runtime_hashes": [],
+      "records_sha256": "d02f9c08e7dd892a177cf9ce53b9066a3c37b06e0658d87cfd84a44da9f9e9f6",
+      "n_valid": 2732,
+      "mixed_runtime": false,
+      "manifest": "devign/validation/B2-rep/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B0/42",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/test/records.jsonl",
+      "source_sha256": "d64fe85a7f8124ec189d1d110c9c22a3926fcc2391d76f0a5d7e9218f231c3a8",
+      "records_sha256": "6fc33eaf38cb7eeddb27a9570e8103c548b747a6a13f74d968d481632105f57c",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B0/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B1/42",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/reveal/test/records.jsonl",
+      "source_sha256": "26057b7af6fe20dd40a829598555709b963f7615c6a04d8f228f63e6bea2c166",
+      "records_sha256": "e2fa649121585c311d60690d89083d667831fb63e3af83aec65d3cfdd5c3c08e",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B1/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B1-H2/42",
+      "source": "Runs-management/kaggle_outputs_20261107/b1h2_test_latest/b1_h2_test/seed_42/reveal/test/records.jsonl",
+      "source_sha256": "a4bdc3a3f05f5b5e8799efecc2892a0ac07049bedfa692b10178eef33f2466d1",
+      "records_sha256": "416b4a6b7a333d9f8d4b6ee64ed91c05a989db339d82cac26dbe8ae88760b591",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B1-H2/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B1-full/42",
+      "source": "Runs-management/run_handoff_20261108/completed_results/b1_full_test_completed_20261108/B1-full/seed_42/reveal/test/records.jsonl",
+      "source_sha256": "302f245a52a14dc54c191fdd1b065dd9cab2cc4ac3afafe95afc270894abf93f",
+      "records_sha256": "a3f34d3a6e07cd96847e6eb1e7513c8c9d275d56f83a4d93e887ca75eea46217",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B1-full/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B1-shuf/42",
+      "source": "Runs-management/b1_shuf_kaggle_output_20261109/b1_shuf_locked_20261108/B1-shuf/seed_42/reveal/test/records.jsonl",
+      "source_sha256": "41d23a02bd3b27c53c6d8d261ed5ac400fac6ba1b006ae17f301e4c614c126b1",
+      "records_sha256": "759574e0bbd5e44dde392eda73f33e0ad34b13d0166954dfe1743b22d372a85b",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B1-shuf/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B1-shuf/43",
+      "source": "Runs-management/b1_shuf_kaggle_output_20261109/b1_shuf_locked_20261108/B1-shuf/seed_43/reveal/test/records.jsonl",
+      "source_sha256": "be6241f5f8369f2f3b913b872de9fd7a2c2f3033ed05917614a8006d3e5f050e",
+      "records_sha256": "526b5f24972dd51128cc49e6f2e9e480332e23740821d0f9896f058ff3d18f83",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B1-shuf/43/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B1-shuf/44",
+      "source": "Runs-management/b1_shuf_kaggle_output_20261109/b1_shuf_locked_20261108/B1-shuf/seed_44/reveal/test/records.jsonl",
+      "source_sha256": "11624128cd37201eaba95510d4db63802274d9837ddcd618a235ff6faa9b38c7",
+      "records_sha256": "8f00439f53ae04dadf351ad3055332467168609743a2c793441d54e69ef4b2b3",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B1-shuf/44/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B2/42",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/reveal/test/records.jsonl",
+      "source_sha256": "dcdaf0d0b52451b295e73cda7ba2e95653051035fcf3a9cd48e4b8d2ba39a415",
+      "records_sha256": "2b74e699348eef26c756aab876cfaff8468200abb6fa2491ee3184b0c55b61c1",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B2/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B2-flip/42",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/test/records.jsonl",
+      "source_sha256": "291d80517863153ab93ce71437382b0f084a746a9b31988dd1d606b6dc6324e6",
+      "records_sha256": "da58bd49b7a625039dfb532a2de97b84a2e05d075683111189a8b816d0322455",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B2-flip/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B2-labelonly/42",
+      "source": "Runs-management/run_handoff_20261108/completed_results/B2-labelonly/seed_42/reveal/test/records.jsonl",
+      "source_sha256": "15f996accd4169f93ef7d29ec066d456544a3ad982e68cc9aed5989e346fda87",
+      "records_sha256": "938a3b16aee978788606be6b51ecd1bcbf92988186f3ba18381ca5d16194fd45",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B2-labelonly/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B2-nolabel/42",
+      "source": "Runs-management/run_handoff_20261108/completed_results/B2-nolabel/seed_42/reveal/test/records.jsonl",
+      "source_sha256": "8259d08187fe0085c0a571ad1393d631a427ee2b571792de2b85b4ba0b766bc1",
+      "records_sha256": "4d138650e9b2d2ae0b7507bb24a1c6f3a962bcb1e02ed61a601f0e784caee684",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B2-nolabel/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B2-rand/42",
+      "source": "06_Arm_B2_Rand/test_results_20261107/seed_42/reveal/test/records.jsonl",
+      "source_sha256": "784e74a7ed3f053c5fb709e2a86ed6c3514739c9d76f41bb71ff3b6f6029c168",
+      "records_sha256": "af4ca19e7ccfc12919c6452db0efb255aafddd27deb67febbb79f7666cb66e39",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": true,
+      "manifest": "reveal/test/B2-rand/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B2-rand/43",
+      "source": "06_Arm_B2_Rand/test_results_20261107/seed_43/reveal/test/records.jsonl",
+      "source_sha256": "cbefdc01464e39ac09e48ab081550c4db3b019f47bc2344166ffc895880f76c7",
+      "records_sha256": "7a6499d350db0f67834e6f8c9b8151cfcda8f600110d3f2e0c5a45b33d9c3390",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": true,
+      "manifest": "reveal/test/B2-rand/43/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B2-rand/44",
+      "source": "06_Arm_B2_Rand/test_results_20261107/seed_44/reveal/test/records.jsonl",
+      "source_sha256": "ba1ce1a45574432676c1a57da5e5b54a1a2e89b38fe9a5bcfc10b7621eb0092e",
+      "records_sha256": "23d59d2ad4bdab888c8a087920c22e4032fafce7121e461e5cc73162a7b5393e",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B2-rand/44/import_manifest.json"
+    },
+    {
+      "key": "reveal/test/B2-rep/42",
+      "source": "Runs-management/run_handoff_20261108/completed_results/B2-rep/seed_42/reveal/test/records.jsonl",
+      "source_sha256": "fa932b3ace10833cc96d4cbdaab1b38bb96eb89104070a374f973ccd43cbad2d",
+      "records_sha256": "dde01fdd21538f0064e76246fbfab29e72f54c9fe8142e6decd964dddb799bcb",
+      "n": 2274,
+      "n_valid": 2274,
+      "mixed_runtime": false,
+      "manifest": "reveal/test/B2-rep/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B0/42",
+      "source": "02_Arm_B0_Source_Only/output/kaggle_20261101_duchuynguyen1802/grace_b0_runs/reveal/validation/records.jsonl",
+      "source_sha256": "80397c2e90f78cb2d67a94313a5cd02a09901ec64e56176f7d903e85385446d7",
+      "records_sha256": "f5f2118e75d20669655eda511c23c28ec76e2bcc956d9fa83375b93bf3fde0af",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B0/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B1/42",
+      "source": "03_Arm_B1_Graph_Only/output/kaggle_run_02/grace_b1_runs/reveal/validation/records.jsonl",
+      "source_sha256": "50409cb6dff29531174ca2fe81b6916e082228709f97811b466f2e3f6112aff9",
+      "records_sha256": "1e9e0e4c3c7b3551558e5a5befc4598c1a14d810c3ec263c1a2453ab9e56a1c3",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B1/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B1-H2/42",
+      "source": "11_Arm_B1H2_Evidence/kaggle_b1h2_validation_20261106/downloaded_output/b1_h2_validation/seed_42/reveal/validation/records.jsonl",
+      "source_sha256": "04cd1e97c1950c3fd0c7cfb2daac18438d937f8cd698b5981519efd3005af832",
+      "records_sha256": "5a08c4eadc0db397c29e2110aa97b3cf01510b90e946d4c6a53452628789197b",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B1-H2/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B1-full/42",
+      "source": "..\\GRACE-summary-baseline-unified\\Runs-management\\output_b1_full\\b1_full_validation\\seed_42\\reveal\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "e5f126a3ed787fb7cbf601e047e6facfad2fffdf39f5f2e3f70cfebc2c9fe94e",
+      "n": 2273,
+      "lock_source_sha256": null,
+      "runtime_hashes": [],
+      "records_sha256": "3bbae6c1e336c9042e4b9205d70d88ba9043c0f605aacd64492113fcc1be1499",
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B1-full/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B1-shuf/42",
+      "source": "Runs-management/check_b1_shuf_output/b1_shuf_validation/seed_42/reveal/validation/records.jsonl",
+      "source_sha256": "aa0b9e9f84201245af0674ca5d97c6d8697dee46c9b764088cad1f4964274f94",
+      "records_sha256": "7453742a4bd44cde634aa10e837d78f2cdafcf3268e6dcf036c992e1382d0a97",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B1-shuf/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B1-shuf/43",
+      "source": "Runs-management/check_b1_shuf_output/b1_shuf_validation/seed_43/reveal/validation/records.jsonl",
+      "source_sha256": "c87a5f610b6b70f312d9b4c4ec751231a028c53f70bf73b1fc007ef4c56c0085",
+      "records_sha256": "0a57d4b5a0aa7148816982d700340599273ad7340e110c77c1c5096fa384967a",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B1-shuf/43/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B1-shuf/44",
+      "source": "..\\GRACE-summary-baseline-unified\\08_Arm_B1_Shuf\\output\\seed_44\\reveal\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "669ee4292aec5de6c64a2b480ec814cd669ca2dd52e89417899f83ac0d536ed4",
+      "n": 2273,
+      "lock_source_sha256": "669ee4292aec5de6c64a2b480ec814cd669ca2dd52e89417899f83ac0d536ed4",
+      "runtime_hashes": [],
+      "records_sha256": "b471b1f023f0f857637d17105779852a8f0634e416b9061d91be0173793a9ea6",
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B1-shuf/44/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B2/42",
+      "source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/reveal/validation/records.jsonl",
+      "source_sha256": "221a794e55d8f900ce3986e27cdf227a23a947aa4dd864b6ed597fe5363fa994",
+      "records_sha256": "9b72b42337cb5797f531f419f8d54ca07ca47e025b0db46e46d334267c8f56fe",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B2/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B2-flip/42",
+      "source": "04_Arm_B2_Flip/output/kaggle_20261105_quangdung1111_run2/grace_b2_flip_frozen_donor_20261104_inherit_b2_9h30/reveal/validation/records.jsonl",
+      "source_sha256": "fa63f43705f867827238302ae511aae8b05d92e8f5394bb328df03397ee811b8",
+      "records_sha256": "1b02fffd0d6977d93d7a8babf46a8886b1d59266e1281f52f925880b20d30584",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B2-flip/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B2-labelonly/42",
+      "source": "..\\GRACE-summary-baseline-unified\\12_Arm_B2_LabelOnly\\output\\seed_42\\reveal\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "f9ce918d1fc44c748e341c0cac259983f2e60262f44e2cb346568034fba7fb9d",
+      "n": 2273,
+      "lock_source_sha256": "f9ce918d1fc44c748e341c0cac259983f2e60262f44e2cb346568034fba7fb9d",
+      "runtime_hashes": [],
+      "records_sha256": "5441623540ffe13bf76fd23f43275f02cd484aa17e6c9257e52f9f2223cea8b7",
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B2-labelonly/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B2-nolabel/42",
+      "source": "..\\GRACE-summary-baseline-unified\\10_Arm_B2_NoLabel\\output\\seed_42\\reveal\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "d4d482e922c7918d6bfafec248df4caa478b11fbb5ce56e94025222c19a6c00d",
+      "n": 2273,
+      "lock_source_sha256": "d4d482e922c7918d6bfafec248df4caa478b11fbb5ce56e94025222c19a6c00d",
+      "runtime_hashes": [],
+      "records_sha256": "ac5074750a930f9760c0459f5e60a876112e0d6771a1b0a0cd60f5b57cb547a0",
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B2-nolabel/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B2-rand/42",
+      "source": "06_Arm_B2_Rand/output/kaggle_run_02/grace_b2_rand_three_seed_11h/seed_42/reveal/validation/records.jsonl",
+      "source_sha256": "4ecf8514c43d287abce851c717ac458995bd12e1adb7ea15564d484de2fa8315",
+      "records_sha256": "0d5e7b69735efcc631fead48656d0f8c23224da80df21c69b858e5d60d127254",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B2-rand/42/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B2-rand/43",
+      "source": "Runs-management/kaggle_outputs_20261107/b2_rand_latest/grace_b2_rand_three_seed_11h/seed_43/reveal/validation/records.jsonl",
+      "source_sha256": "deecbf6a796917e7c7d3c48d250cd0b5158ef52a1560acec4721f0bc2f311f3a",
+      "records_sha256": "5ba8a45d5c3d29cefc9a046f62dfa15cfea4f1d1b4af5564f28ae00fd479e7fb",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B2-rand/43/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B2-rand/44",
+      "source": "Runs-management/kaggle_outputs_20261107/b2_rand_seed44_validation_latest/grace_b2_rand_three_seed_11h/seed_44/reveal/validation/records.jsonl",
+      "source_sha256": "d119c9769b190dfde5dafa4ee8e467a08d0cc0b302c1bbcb139c280c2371690b",
+      "records_sha256": "e0b0f8695278d1e62f71376a30f9fb325968ac4a686fb60483b44f80f6d10883",
+      "n": 2273,
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B2-rand/44/import_manifest.json"
+    },
+    {
+      "key": "reveal/validation/B2-rep/42",
+      "source": "..\\GRACE-summary-baseline-unified\\05_Arm_B2_Rep\\output\\seed_42\\reveal\\validation\\records.jsonl",
+      "source_commit": "9cea10c29cd5eee5862e1e61719271a2c80a4582",
+      "source_sha256": "12d7940a50af7247ee4f686cf65c39b531a35041bf2b6c903c1bd847965e310c",
+      "n": 2273,
+      "lock_source_sha256": null,
+      "runtime_hashes": [],
+      "records_sha256": "c83c2b068dd76108b22812ae0bfd42c225f3ed7ba57dc3af32d17aefd0cd751f",
+      "n_valid": 2273,
+      "mixed_runtime": false,
+      "manifest": "reveal/validation/B2-rep/42/import_manifest.json"
+    }
+  ],
+  "missing_validation": []
+}
