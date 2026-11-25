@@ -46,6 +46,6 @@ Xử lý các điểm còn mở trong [rà soát gói Option1](2026-11-16_ra_soa
 
 - Ghi việc chạy lại Step 6 vào báo cáo tuần để thầy xác nhận trước khi đưa số mới vào bài.
 - Chốt lock Step 6 chính. Đề xuất: bản chạy lại B2 chuẩn.
-- Dũng đối soát độc lập Bảng D và các số Devign ở bảng trên.
+- ~~Dũng đối soát độc lập Bảng D và các số Devign ở bảng trên.~~ Đã xong cùng ngày: 5/5 hạng mục PASS, tái chạy trên WSL khớp đến 10 chữ số thập phân ([biên bản](2026-11-25_dung_doi_soat_doc_lap_step6_b2_chuan.md)).
 - Sau khi thầy duyệt: cập nhật Bảng D, §4.5 và `h52_shared_threshold.json` trong bản nháp; thống nhất phần B1-full (§3.5, §4.3, §6).
 - Mở PR từ `docs/phase1-consolidation-20261125` vào `baseline-unified`.
