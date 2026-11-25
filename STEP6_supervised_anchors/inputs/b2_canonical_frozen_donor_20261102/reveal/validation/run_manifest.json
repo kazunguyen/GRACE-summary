@@ -1,0 +1,27 @@
+{
+  "bundle_sha256": "273903feb21123b55f77fe6489507361fa5dd160cf7022c457a7a2d9dbe3c0fd",
+  "prompt_set_sha256": "531b274808e0435ce47c6d1831903e4421486a034c6884a2a67ba01e779b3e42",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "quantization": "Q4_K_M",
+  "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "llama_cpp_python": "0.3.16",
+  "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "gpu_layers": -1,
+  "context_tokens": 8192,
+  "scoring": "unconstrained_first_token_logits_v1",
+  "limit": null,
+  "python": "3.13.15",
+  "dataset": "reveal",
+  "split": "validation",
+  "canonical_assembly": {
+    "records_source": "01_Author_Baseline_Unified/kaggle_qwen_q4_b2/downloaded_output_20261101_run3/grace_b2_four_split_8h/reveal/validation/records.jsonl",
+    "records_sha256": "221a794e55d8f900ce3986e27cdf227a23a947aa4dd864b6ed597fe5363fa994",
+    "run3_records_sha256": "7b8f5a4242ecdb54533efe80e53b320c56682533d6bc379d6629dbeb261bfd1b",
+    "rows": 2273,
+    "rows_changed_vs_run3": 0,
+    "note": "Fields above canonical_assembly are copied from the run3 run_manifest. When rows_changed_vs_run3 > 0, prompt_set_sha256 there describes run3, not this record set."
+  }
+}

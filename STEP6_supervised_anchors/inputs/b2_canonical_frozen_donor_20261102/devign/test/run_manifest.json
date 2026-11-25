@@ -1,0 +1,27 @@
+{
+  "bundle_sha256": "eec179469b3924569d7c38c2d097a3d919bd40bf033b7e400d65d58be2ea651e",
+  "prompt_set_sha256": "9cac0bc7657390983da8c594a6354eaf339f2c5869d27ce9a6602630d6cbeb72",
+  "model_sha256": "f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "model_repo": "ggml-org/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "quantization": "Q4_K_M",
+  "model_file": "Qwen3-Coder-30B-A3B-Instruct-Q4_K_M.gguf",
+  "llama_cpp_python": "0.3.16",
+  "model_repo_revision": "local-sha256:f6050b4da22869aa3fb9d94bb3314e9fc5a027d4741c1f97761c387d6b2b2335",
+  "tokenizer": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+  "tokenizer_revision": "b2cff646eb4bb1d68355c01b18ae02e7cf42d120",
+  "gpu_layers": -1,
+  "context_tokens": 8192,
+  "scoring": "unconstrained_first_token_logits_v1",
+  "limit": null,
+  "python": "3.13.15",
+  "dataset": "devign",
+  "split": "test",
+  "canonical_assembly": {
+    "records_source": "01_Author_Baseline_Unified/output/local_full/inference_qwen_q4_b2_frozen_donor_20261102/devign/test/records.jsonl",
+    "records_sha256": "d0a61bfa6cc1700ddd5a6d668d4c42d808cce5fbc71b42b300fdd29060c71304",
+    "run3_records_sha256": "ef6097b78b10b51447e7634dca4930e53e0f0667f450b0c4a24921bf17f4f09f",
+    "rows": 2732,
+    "rows_changed_vs_run3": 38,
+    "note": "Fields above canonical_assembly are copied from the run3 run_manifest. When rows_changed_vs_run3 > 0, prompt_set_sha256 there describes run3, not this record set."
+  }
+}
